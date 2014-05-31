@@ -1,0 +1,5 @@
+D:\PROJECTS\_PROJECTS31_PDF\itextsharp-src-core\bin\Debug\itextsharp.dll
+D:\PROJECTS\_PROJECTS31_PDF\itextsharp-src-core\bin\Debug\itextsharp.pdb
+D:\PROJECTS\_PROJECTS31_PDF\itextsharp-src-core\bin\Debug\iTextSharp.xml
+D:\PROJECTS\_PROJECTS31_PDF\itextsharp-src-core\obj\Debug\itextsharp.dll
+D:\PROJECTS\_PROJECTS31_PDF\itextsharp-src-core\obj\Debug\itextsharp.pdb

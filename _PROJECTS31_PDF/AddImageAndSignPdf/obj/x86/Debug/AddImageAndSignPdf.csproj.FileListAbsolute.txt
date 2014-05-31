@@ -1,0 +1,8 @@
+D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\obj\x86\Debug\AddImageAndSignPdf.csprojResolveAssemblyReference.cache
+D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\bin\Debug\AddImageAndSignPdf.exe
+D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\bin\Debug\AddImageAndSignPdf.pdb
+D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\bin\Debug\itextsharp.dll
+D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\bin\Debug\itextsharp.pdb
+D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\bin\Debug\itextsharp.xml
+D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\obj\x86\Debug\AddImageAndSignPdf.exe
+D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\obj\x86\Debug\AddImageAndSignPdf.pdb
