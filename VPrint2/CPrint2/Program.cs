@@ -45,47 +45,59 @@ namespace CPrint2
             IsAdmin = false;
             IsDebug = false;
 #endif
-            try
+            bool newInstance;
+            using (Mutex mutex = new Mutex(false, "CPrint2", out newInstance))
             {
-                ThreadPool.SetMaxThreads(50, 100);
-                Thread.CurrentThread.CurrentCulture =
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-us");
+                if (newInstance)
+                {
+                    try
+                    {
+                        ThreadPool.SetMaxThreads(50, 100);
+                        Thread.CurrentThread.CurrentCulture =
+                        Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-us");
 
-                AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
-                Application.ThreadException += new ThreadExceptionEventHandler(OnThreadException);
-                StartUp.TryToAddApp();
+                        AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+                        Application.ThreadException += new ThreadExceptionEventHandler(OnThreadException);
+                        StartUp.TryToAddApp();
 
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
+                        Application.EnableVisualStyles();
+                        Application.SetCompatibleTextRenderingDefault(false);
 
-                Global.FolderID = Config.FolderID;
+                        Global.FolderID = Config.FolderID;
 
-                var comDir = new DirectoryInfo(Config.CommandInputPath);
+                        var comDir = new DirectoryInfo(Config.CommandInputPath);
 
-                if (comDir.Exists())
-                    comDir.Delete(true);
+                        if (comDir.Exists())
+                            comDir.Delete(true);
 
-                comDir.Refresh();
+                        comDir.Refresh();
 
-                if (!comDir.Exists())
-                    comDir.Create();
+                        if (!comDir.Exists())
+                            comDir.Create();
 
-                var ctn = new AppContext();
-                ctn.NewCommandFileEvent += new EventHandler<ValueEventArgs<string>>(NewCommandFileEvent);
-                ctn.NewImageFileEvent += new EventHandler<ValueEventArgs<string>>(NewImageFileEvent);
-                ctn.Error += new ThreadExceptionEventHandler(OnThreadException);
-                StateSaver.Error += new ThreadExceptionEventHandler(OnThreadException);
-                ImageProcessor.Error += new ThreadExceptionEventHandler(OnThreadException);
-                AppContext.Default.Error += new ThreadExceptionEventHandler(OnThreadException);
+                        var ctn = new AppContext();
+                        ctn.NewCommandFileEvent += new EventHandler<ValueEventArgs<string>>(NewCommandFileEvent);
+                        ctn.NewImageFileEvent += new EventHandler<ValueEventArgs<string>>(NewImageFileEvent);
+                        ctn.Error += new ThreadExceptionEventHandler(OnThreadException);
+                        StateSaver.Error += new ThreadExceptionEventHandler(OnThreadException);
+                        ImageProcessor.Error += new ThreadExceptionEventHandler(OnThreadException);
+                        AppContext.Default.Error += new ThreadExceptionEventHandler(OnThreadException);
 
-                StateSaver.Default.Path = Path.ChangeExtension(Application.ExecutablePath, "dat");
-                StateSaver.Default.Load();
-                Application.Run(ctn);
-            }
-            finally
-            {
-                StateSaver.Default.Save();
-                Global.Instance.DisposeSf();
+                        StateSaver.Default.Path = Path.ChangeExtension(Application.ExecutablePath, "dat");
+                        StateSaver.Default.Load();
+                        Application.Run(ctn);
+                    }
+                    finally
+                    {
+                        StateSaver.Default.Save();
+                        Global.Instance.DisposeSf();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("An instance is already started.\r\nPlease close it first.",
+                        Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 

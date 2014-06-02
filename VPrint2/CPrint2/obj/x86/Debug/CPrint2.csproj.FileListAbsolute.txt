@@ -53,3 +53,4 @@ C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.Properties.Resources.resources
 C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.exe
 C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.pdb
+C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.csprojResolveAssemblyReference.cache
