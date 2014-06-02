@@ -39,7 +39,7 @@ namespace CPrintTest.Scanning
                 var img = (Bitmap)Image.FromFile(file);
                 if (img != null)
                 {
-                    var bmp3 = img.CropFree();
+                    var bmp3 = img.CropRotateFree();
                     Debug.WriteLine(bmp3);
                 }
             }
