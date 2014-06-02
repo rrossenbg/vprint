@@ -13,7 +13,10 @@ using AForge;
 using AForge.Imaging;
 using AForge.Imaging.Filters;
 using AForge.Math.Geometry;
+using DImage = System.Drawing.Image;
+using DBitmap = System.Drawing.Bitmap;
 using PPoint = System.Drawing.Point;
+using System.Diagnostics;
 
 namespace CPrint2
 {
@@ -29,7 +32,10 @@ namespace CPrint2
             BlobCounter extr = new BlobCounter();
             FiltersSequence seq = new FiltersSequence();
             seq.Add(Grayscale.CommonAlgorithms.BT709);
-            seq.Add(new OtsuThreshold());
+            seq.Add(new BradleyLocalThresholding());
+            seq.Add(new DifferenceEdgeDetector());
+
+            //seq.Add(new OtsuThreshold());
 
             using (var temp = seq.Apply(source))
             {
@@ -71,6 +77,39 @@ namespace CPrint2
             }
         }
 
+        public static Bitmap CropFree(this Bitmap source)
+        {
+            using (source)
+            {
+                var monitor = new PictureModifier(source);
+                monitor.ApplyGrayscale();
+                monitor.ApplySobelEdgeFilter();
+
+                float maxarea = 0;
+                Region maxregion = null;
+
+                using (Graphics g = Graphics.FromImage(source))
+                {
+                    foreach (var region in monitor.EnumKnownForms())
+                    {
+                        var area = region.GetArea(g);
+                        if (maxregion == null || maxarea < area)
+                        {
+                            maxarea = area;
+                            maxregion = region;
+                        }
+                    }
+
+                    if (maxregion != null)
+                    {
+                        var bmp3 = source.CopyNoFree(Rectangle.Round(maxregion.GetBounds(g)));
+                        return bmp3;
+                    }
+                }
+                return null;
+            }
+        }
+
         public static void SaveMultipage(this List<System.Drawing.Bitmap> list, string location, string type)
         {
             ImageCodecInfo codecInfo = getCodecForstring(type);
@@ -82,7 +121,6 @@ namespace CPrint2
                 EncoderParameter iparamPara = new EncoderParameter(iparam, (long)(EncoderValue.CompressionLZW));
                 iparams.Param[0] = iparamPara;
                 list[0].Save(location, codecInfo, iparams);
-
             }
             else if (list.Count > 1)
             {
@@ -255,10 +293,51 @@ namespace CPrint2
                 }
             }
         }
+
+        /// <summary>
+        /// Checks whether a rectangle structure is valid
+        /// </summary>
+        /// <param name="re"></param>
+        /// <returns></returns>
+        public static bool IsValid(this Rectangle re)
+        {
+            return re.X >= 0 && re.Y >= 0 && re.Height > 0 && re.Width > 0;
+        }
     }
 
     public static class ImageEx2
     {
+        /// <summary>
+        /// Copies an image. Frees the original.
+        /// </summary>
+        /// <param name="src"></param>
+        /// <param name="section"></param>
+        /// <returns></returns>
+        static public Bitmap CopyFree(this DImage src, Rectangle section)
+        {
+            using (src)
+            {
+                Bitmap bmp = new Bitmap(section.Width, section.Height);
+                using (Graphics g = Graphics.FromImage(bmp))
+                    g.DrawImage(src, 0, 0, section, GraphicsUnit.Pixel);
+                return bmp;
+            }
+        }
+
+        /// <summary>
+        /// Copies an image. Doesn't free the original.
+        /// </summary>
+        /// <param name="src"></param>
+        /// <param name="section"></param>
+        /// <returns></returns>
+        static public Bitmap CopyNoFree(this DImage src, Rectangle section)
+        {
+            Bitmap bmp = new Bitmap(section.Width, section.Height);
+            using (Graphics g = Graphics.FromImage(bmp))
+                g.DrawImage(src, 0, 0, section, GraphicsUnit.Pixel);
+            return bmp;
+        }
+
         public static Bitmap CopyToBpp(this Bitmap b, int bpp)
         {
             if (bpp != 1 && bpp != 8)
@@ -364,6 +443,12 @@ namespace CPrint2
         public static bool LessOrEqual(this Size s, Size s1)
         {
             return s.Height <= s1.Height && s.Width <= s1.Width;
+        }
+
+        public static float GetArea(this Region r, Graphics g)
+        {
+            var r1 = r.GetBounds(g);
+            return r1.Width * r1.Height;
         }
 
         /// <summary>
@@ -473,5 +558,148 @@ namespace CPrint2
         triangle,
         quadrilateral_with_nown_sub_type,
         known_triangle
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <see cref="http://leakingmemory.wordpress.com/2012/03/17/shape-recognition-using-c-and-aforge/"/>
+    public class PictureModifier
+    {
+        private DBitmap m_currentImage;
+
+        public PictureModifier(DBitmap currentImage)
+        {
+            this.m_currentImage = currentImage;
+        }
+
+        public void ApplySobelEdgeFilter()
+        {
+            if (m_currentImage != null)
+            {
+                try
+                {
+                    SobelEdgeDetector filter = new SobelEdgeDetector();
+                    filter.ApplyInPlace(m_currentImage);
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+        }
+
+        public void ApplyGrayscale()
+        {
+            if (m_currentImage != null)
+            {
+                try
+                {
+                    // create grayscale filter (BT709)
+                    Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
+                    m_currentImage = filter.Apply(m_currentImage);
+                }
+                catch (Exception e)
+                { }
+            }
+        }
+
+        public IEnumerable<Region> EnumKnownForms()
+        {
+            Debug.Assert(m_currentImage != null);
+
+            DBitmap image = new DBitmap(this.m_currentImage);
+            // lock image
+            BitmapData bmData = image.LockBits(new Rectangle(0, 0, image.Width, image.Height),
+                ImageLockMode.ReadWrite, image.PixelFormat);
+
+            // turn background to black
+            ColorFiltering cFilter = new ColorFiltering();
+            cFilter.Red = new IntRange(0, 64);
+            cFilter.Green = new IntRange(0, 64);
+            cFilter.Blue = new IntRange(0, 64);
+            cFilter.FillOutsideRange = false;
+            cFilter.ApplyInPlace(bmData);
+
+            // locate objects
+            BlobCounter bCounter = new BlobCounter();
+
+            bCounter.FilterBlobs = true;
+            bCounter.MinHeight = 30;
+            bCounter.MinWidth = 30;
+
+            bCounter.ProcessImage(bmData);
+            Blob[] baBlobs = bCounter.GetObjectsInformation();
+            image.UnlockBits(bmData);
+
+            // coloring objects
+            SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
+
+            //Graphics g = Graphics.FromImage(image);
+            //Pen yellowPen = new Pen(Color.Yellow, 2); // circles
+            //Pen redPen = new Pen(Color.Red, 2);       // quadrilateral
+            //Pen brownPen = new Pen(Color.Brown, 2);   // quadrilateral with known sub-type
+            //Pen greenPen = new Pen(Color.Green, 2);   // known triangle
+            //Pen bluePen = new Pen(Color.Blue, 2);     // triangle
+
+            for (int i = 0, n = baBlobs.Length; i < n; i++)
+            {
+                List<IntPoint> edgePoints = bCounter.GetBlobsEdgePoints(baBlobs[i]);
+
+                AForge.Point center;
+                float radius;
+
+                // is circle ?
+                if (shapeChecker.IsCircle(edgePoints, out center, out radius))
+                {
+                    //g.DrawEllipse(yellowPen, (float)(center.X - radius), (float)(center.Y - radius),
+                    //    (float)(radius * 2), (float)(radius * 2));
+                }
+                else
+                {
+                    List<IntPoint> corners;
+
+                    // is triangle or quadrilateral
+                    if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
+                    {
+                        //PolygonSubType subType = shapeChecker.CheckPolygonSubType(corners);
+                        //Pen pen;
+                        //if (subType == PolygonSubType.Unknown)
+                        //    pen = (corners.Count == 4) ? redPen : bluePen;
+                        //else
+                        //    pen = (corners.Count == 4) ? brownPen : greenPen;
+
+                        using (var path = new System.Drawing.Drawing2D.GraphicsPath())
+                        {
+                            path.AddPolygon(ToPointsArray(corners));
+                            var region = new Region(path);
+                            yield return region;
+                        }
+
+                        //g.DrawPolygon(pen, ToPointsArray(corners));
+                    }
+                }
+            }
+            //yellowPen.Dispose();
+            //redPen.Dispose();
+            //greenPen.Dispose();
+            //bluePen.Dispose();
+            //brownPen.Dispose();
+            //g.Dispose();
+            this.m_currentImage = image;
+        }
+
+        private System.Drawing.Point[] ToPointsArray(List<IntPoint> points)
+        {
+            System.Drawing.Point[] array = new System.Drawing.Point[points.Count];
+            for (int i = 0, n = points.Count; i < n; i++)
+                array[i] = new System.Drawing.Point(points[i].X, points[i].Y);
+            return array;
+        }
+
+        public Bitmap GetCurrentImage()
+        {
+            return m_currentImage;
+        }
     }
 }
