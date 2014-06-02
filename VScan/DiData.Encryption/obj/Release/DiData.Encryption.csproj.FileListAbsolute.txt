@@ -1,0 +1,9 @@
+C:\Projects\TRS\Library\Common\DiData.Encryption\bin\DiData.Encryption.dll
+C:\Projects\TRS\Library\Common\DiData.Encryption\obj\Release\ResolveAssemblyReference.cache
+C:\Projects\TRS\Library\Common\DiData.Encryption\obj\Release\DiData.Encryption.dll
+C:\CountryProject\Common\DiData.Encryption\bin\DiData.Encryption.dll
+C:\CountryProject\Common\DiData.Encryption\obj\Release\ResolveAssemblyReference.cache
+C:\CountryProject\Common\DiData.Encryption\obj\Release\DiData.Encryption.dll
+D:\CountryProject\Common\DiData.Encryption\bin\DiData.Encryption.dll
+D:\CountryProject\Common\DiData.Encryption\obj\Release\ResolveAssemblyReference.cache
+D:\CountryProject\Common\DiData.Encryption\obj\Release\DiData.Encryption.dll

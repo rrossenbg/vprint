@@ -1,0 +1,14 @@
+C:\PROJECTS\VScan\TestWinForm\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\PROJECTS\VScan\TestWinForm\obj\x86\Debug\TestWinForm.Form1.resources
+C:\PROJECTS\VScan\TestWinForm\obj\x86\Debug\TestWinForm.Properties.Resources.resources
+C:\PROJECTS\VScan\TestWinForm\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\PROJECTS\VScan\TestWinForm\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\PROJECTS\VScan\TestWinForm\bin\Debug\TestWinForm.exe
+C:\PROJECTS\VScan\TestWinForm\bin\Debug\TestWinForm.pdb
+C:\PROJECTS\VScan\TestWinForm\bin\Debug\DTK.BarReader.dll
+C:\PROJECTS\VScan\TestWinForm\bin\Debug\DTK.BarReader.xml
+C:\PROJECTS\VScan\TestWinForm\obj\x86\Debug\TestWinForm.exe
+C:\PROJECTS\VScan\TestWinForm\obj\x86\Debug\TestWinForm.pdb
+C:\PROJECTS\VScan\TestWinForm\bin\Debug\TestWinForm.exe.config
+C:\PROJECTS\VScan\TestWinForm\bin\Debug\PTFLib.dll
+C:\PROJECTS\VScan\TestWinForm\bin\Debug\PTFLib.pdb

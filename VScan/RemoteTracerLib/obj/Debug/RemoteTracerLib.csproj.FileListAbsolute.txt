@@ -1,0 +1,25 @@
+D:\PROGRAMM\TSAutoTrade\RemoteTracerLib\bin\Debug\RemoteTracerLib.dll
+D:\PROGRAMM\TSAutoTrade\RemoteTracerLib\bin\Debug\RemoteTracerLib.pdb
+D:\PROGRAMM\TSAutoTrade\RemoteTracerLib\obj\Debug\ResolveAssemblyReference.cache
+D:\PROGRAMM\TSAutoTrade\RemoteTracerLib\obj\Debug\RemoteTracerLib.dll
+D:\PROGRAMM\TSAutoTrade\RemoteTracerLib\obj\Debug\RemoteTracerLib.pdb
+D:\PROGRAMM\PROJECTS_UK\RemoteTracerLib\bin\Debug\RemoteTracerLib.dll
+D:\PROGRAMM\PROJECTS_UK\RemoteTracerLib\bin\Debug\RemoteTracerLib.pdb
+D:\PROGRAMM\PROJECTS_UK\RemoteTracerLib\obj\Debug\ResolveAssemblyReference.cache
+D:\PROGRAMM\PROJECTS_UK\RemoteTracerLib\obj\Debug\RemoteTracerLib.dll
+D:\PROGRAMM\PROJECTS_UK\RemoteTracerLib\obj\Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PROJECTS_UK\RemoteTracerLib\bin\Debug\RemoteTracerLib.dll
+E:\PROJECTS\PROJECTS_UK\RemoteTracerLib\bin\Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PROJECTS_UK\RemoteTracerLib\obj\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PROJECTS_UK\RemoteTracerLib\obj\Debug\RemoteTracerLib.dll
+E:\PROJECTS\PROJECTS_UK\RemoteTracerLib\obj\Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\RemoteTracerLib\bin\Debug\RemoteTracerLib.dll
+E:\PROJECTS\PTF\RemoteTracerLib\bin\Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\RemoteTracerLib\obj\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\RemoteTracerLib\obj\Debug\RemoteTracerLib.dll
+E:\PROJECTS\PTF\RemoteTracerLib\obj\Debug\RemoteTracerLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracerLib\bin\Debug\RemoteTracerLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracerLib\bin\Debug\RemoteTracerLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracerLib\obj\Debug\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracerLib\obj\Debug\RemoteTracerLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracerLib\obj\Debug\RemoteTracerLib.pdb

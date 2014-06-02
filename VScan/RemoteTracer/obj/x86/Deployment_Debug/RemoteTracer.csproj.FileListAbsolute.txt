@@ -1,0 +1,7 @@
+E:\PROJECTS\PTF\RemoteTracer\bin\x86\Deployment_Debug\RemoteTracer.exe
+E:\PROJECTS\PTF\RemoteTracer\bin\x86\Deployment_Debug\RemoteTracer.pdb
+E:\PROJECTS\PTF\RemoteTracer\bin\x86\Deployment_Debug\RemoteTracerLib.dll
+E:\PROJECTS\PTF\RemoteTracer\bin\x86\Deployment_Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\RemoteTracer\obj\x86\Deployment_Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\RemoteTracer\obj\x86\Deployment_Debug\RemoteTracer.exe
+E:\PROJECTS\PTF\RemoteTracer\obj\x86\Deployment_Debug\RemoteTracer.pdb

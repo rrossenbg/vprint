@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="2d41a0fc-83cb-4be5-a3c5-75030254133e" name="rosen.rusev@PTF-UK-D036 2013-02-20 17:05:45" runUser="FINTRAX\rosen.rusev" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="d006c499-29d0-4555-b434-62ac613ecd6f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rosen.rusev_PTF-UK-D036 2013-02-20 17_05_45">
+      <DeploymentItem filename="C:\PROJECTS\VScan\PTFLib\bin\Debug\PTFLib.dll" />
+      <DeploymentItem filename="C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.exe" />
+      <DeploymentItem filename="C:\PROJECTS\VScan\PTF.Common\bin\Debug\PTF.Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-02-20T17:05:45.2020684+00:00" queuing="2013-02-20T17:05:46.3320684+00:00" start="2013-02-20T17:05:46.4370684+00:00" finish="2013-02-20T17:05:50.4995684+00:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="clientdataaccess_insertfile_test" storage="c:\projects\vscan\scantest\bin\debug\scantest.dll" id="4787f674-9022-844a-6e7f-2ce0ef322192">
+      <Execution id="3f7e831b-cd41-4f20-a64a-08235a25f48a" />
+      <TestMethod codeBase="C:/PROJECTS/VScan/ScanTest/bin/Debug/ScanTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ScanTest.ClientDataAccessTest, ScanTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="clientdataaccess_insertfile_test" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="4787f674-9022-844a-6e7f-2ce0ef322192" executionId="3f7e831b-cd41-4f20-a64a-08235a25f48a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3f7e831b-cd41-4f20-a64a-08235a25f48a" testId="4787f674-9022-844a-6e7f-2ce0ef322192" testName="clientdataaccess_insertfile_test" computerName="PTF-UK-D036" duration="00:00:01.1477474" startTime="2013-02-20T17:05:46.5445684+00:00" endTime="2013-02-20T17:05:48.8295684+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3f7e831b-cd41-4f20-a64a-08235a25f48a">
+    </UnitTestResult>
+  </Results>
+</TestRun>

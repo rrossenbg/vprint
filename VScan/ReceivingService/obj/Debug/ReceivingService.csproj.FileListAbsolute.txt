@@ -1,0 +1,8 @@
+C:\PROJECTS\VScan\ReceivingService\bin\DTK.BarReader.xml
+C:\PROJECTS\VScan\ReceivingService\obj\Debug\ReceivingService.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VScan\ReceivingService\bin\ReceivingService.dll
+C:\PROJECTS\VScan\ReceivingService\bin\ReceivingService.pdb
+C:\PROJECTS\VScan\ReceivingService\obj\Debug\ReceivingService.dll
+C:\PROJECTS\VScan\ReceivingService\obj\Debug\ReceivingService.pdb
+C:\PROJECTS\VScan\ReceivingService\bin\PTF.Common.dll
+C:\PROJECTS\VScan\ReceivingService\bin\PTF.Common.pdb

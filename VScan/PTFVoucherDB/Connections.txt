@@ -1,0 +1,4 @@
+DBRefFolders found in your dbp file
+Connect String: Data Source=PTF-UK-D034\SQL1;Initial Catalog=PTFVoucher;Persist Security Info=True;User ID=PTFAdmin
+Provider: Microsoft SQL Server
+

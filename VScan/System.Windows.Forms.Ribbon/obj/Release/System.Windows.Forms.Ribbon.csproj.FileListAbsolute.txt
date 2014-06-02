@@ -1,0 +1,53 @@
+D:\PROGRAMM\PROJECTS_UK\System.Windows.Forms.Ribbon\bin\Release\System.Windows.Forms.Ribbon.dll
+D:\PROGRAMM\PROJECTS_UK\System.Windows.Forms.Ribbon\bin\Release\System.Windows.Forms.Ribbon.pdb
+D:\PROGRAMM\PROJECTS_UK\System.Windows.Forms.Ribbon\obj\Release\ResolveAssemblyReference.cache
+D:\PROGRAMM\PROJECTS_UK\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Ribbon.dll
+D:\PROGRAMM\PROJECTS_UK\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Ribbon.pdb
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\bin\Release\System.Windows.Forms.Ribbon.dll
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\bin\Release\System.Windows.Forms.Ribbon.pdb
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Properties.Resources.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.ColorEditorControl.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.DOATransparentLabel.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.GoogleTalkForm.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.ShapeControl.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.ShapeTypeEditorControl.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.VistaButton.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.VistaCheckBox.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.WinFormEx.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.RibbonForm.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Ribbon.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Ribbon.dll
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Ribbon.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\bin\Release\System.Windows.Forms.Ribbon.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\bin\Release\System.Windows.Forms.Ribbon.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Properties.Resources.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.ColorEditorControl.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.DOATransparentLabel.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.GoogleTalkForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.ShapeControl.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.ShapeTypeEditorControl.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.VistaButton.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.VistaCheckBox.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.WinFormEx.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.RibbonForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\ResGen.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\ResGen.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Ribbon.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Ribbon.pdb
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\bin\Release\System.Windows.Forms.Ribbon.dll
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\bin\Release\System.Windows.Forms.Ribbon.pdb
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Properties.Resources.resources
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.ColorEditorControl.resources
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.DOATransparentLabel.resources
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.GoogleTalkForm.resources
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.ShapeControl.resources
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.ShapeTypeEditorControl.resources
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.VistaButton.resources
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Styled.VistaCheckBox.resources
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.WinFormEx.resources
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.RibbonForm.resources
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Ribbon.dll
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Ribbon.pdb
+C:\PROJECTS\VScan\System.Windows.Forms.Ribbon\obj\Release\System.Windows.Forms.Ribbon.csproj.GenerateResource.Cache

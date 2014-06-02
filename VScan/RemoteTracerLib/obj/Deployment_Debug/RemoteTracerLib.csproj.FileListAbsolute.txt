@@ -1,0 +1,5 @@
+E:\PROJECTS\PTF\RemoteTracerLib\bin\Deployment_Debug\RemoteTracerLib.dll
+E:\PROJECTS\PTF\RemoteTracerLib\bin\Deployment_Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\RemoteTracerLib\obj\Deployment_Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\RemoteTracerLib\obj\Deployment_Debug\RemoteTracerLib.dll
+E:\PROJECTS\PTF\RemoteTracerLib\obj\Deployment_Debug\RemoteTracerLib.pdb

@@ -1,0 +1,41 @@
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Release\PTFLib.dll
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Release\PTFLib.pdb
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Release\Barcodes.Barcode.dll
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Release\SharpZipLib.dll
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Release\ResolveAssemblyReference.cache
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Release\PremierTaxFree.PTFLib.Properties.Resources.resources
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Release\GenerateResource-ResGen.read.1.tlog
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Release\GenerateResource-ResGen.write.1.tlog
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Release\PTFLib.dll
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Release\PTFLib.pdb
+E:\PROJECTS\PTF\PTFLib\bin\Release\PTFLib.dll.config
+E:\PROJECTS\PTF\PTFLib\bin\Release\PTFLib.dll
+E:\PROJECTS\PTF\PTFLib\bin\Release\PTFLib.pdb
+E:\PROJECTS\PTF\PTFLib\bin\Release\SharpZipLib.dll
+E:\PROJECTS\PTF\PTFLib\obj\Release\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\PTFLib\obj\Release\PremierTaxFree.PTFLib.Properties.Resources.resources
+E:\PROJECTS\PTF\PTFLib\obj\Release\PTFLib.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\PTFLib\obj\Release\PTFLib.dll
+E:\PROJECTS\PTF\PTFLib\obj\Release\PTFLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\bin\Release\PTFLib.dll.config
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\bin\Release\PTFLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\bin\Release\PTFLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\bin\Release\SharpZipLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Release\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Release\PremierTaxFree.PTFLib.Properties.Resources.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Release\ResGen.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Release\ResGen.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Release\PTFLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Release\PTFLib.pdb
+C:\PROJECTS\VScan\PTFLib\bin\Release\PTFLib.dll.config
+C:\PROJECTS\VScan\PTFLib\bin\Release\PTFLib.dll
+C:\PROJECTS\VScan\PTFLib\bin\Release\PTFLib.pdb
+C:\PROJECTS\VScan\PTFLib\obj\Release\PremierTaxFree.PTFLib.Properties.Resources.resources
+C:\PROJECTS\VScan\PTFLib\obj\Release\PTFLib.dll
+C:\PROJECTS\VScan\PTFLib\obj\Release\PTFLib.pdb
+C:\PROJECTS\VScan\PTFLib\bin\Release\DTK.BarReader.dll
+C:\PROJECTS\VScan\PTFLib\bin\Release\DTK.BarReader.xml
+C:\PROJECTS\VScan\PTFLib\obj\Release\PTFLib.csproj.GenerateResource.Cache
+C:\PROJECTS\VScan\PTFLib\obj\Release\PTFLib.csprojResolveAssemblyReference.cache

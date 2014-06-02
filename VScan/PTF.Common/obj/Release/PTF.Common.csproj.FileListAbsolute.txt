@@ -1,0 +1,1 @@
+C:\PROJECTS\VScan\PTF.Common\obj\Release\PTF.Common.csprojResolveAssemblyReference.cache

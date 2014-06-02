@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[RemoteTracer.csproj]
+SCC_Aux_Path = "C:\VSS"
+SCC_Project_Name = "$/PTF.root/PTF/RemoteTracer", OEBAAAAA

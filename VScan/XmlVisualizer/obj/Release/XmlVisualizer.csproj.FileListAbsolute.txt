@@ -1,0 +1,6 @@
+C:\PROJECTS\VScan\XmlVisualizer\bin\Release\XmlVisualizer.pdb
+C:\PROJECTS\VScan\XmlVisualizer\obj\Release\XmlVisualizer.dll
+C:\PROJECTS\VScan\XmlVisualizer\obj\Release\XmlVisualizer.pdb
+C:\PROJECTS\VScan\XmlVisualizer\obj\Release\XmlVisualizer.XmlEditor.ShowForm.resources
+C:\PROJECTS\VScan\XmlVisualizer\obj\Release\XmlVisualizer.csproj.GenerateResource.Cache
+C:\PROJECTS\VScan\XmlVisualizer\bin\Release\XmlVisualizer.dll

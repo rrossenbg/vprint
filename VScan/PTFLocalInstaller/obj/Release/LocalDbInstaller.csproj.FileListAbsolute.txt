@@ -1,0 +1,36 @@
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Release\LocalDbInstaller.dll
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Release\LocalDbInstaller.pdb
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Release\PTFLib.dll
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Release\RemoteTracerLib.dll
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Release\SharpZipLib.dll
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Release\PTFLib.pdb
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Release\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\PTFLocalInstaller\obj\Release\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\PTFLocalInstaller\obj\Release\LocalDbInstaller.Properties.Resources.resources
+E:\PROJECTS\PTF\PTFLocalInstaller\obj\Release\LocalDbInstaller.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\PTFLocalInstaller\obj\Release\LocalDbInstaller.dll
+E:\PROJECTS\PTF\PTFLocalInstaller\obj\Release\LocalDbInstaller.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\bin\Release\LocalDbInstaller.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\bin\Release\LocalDbInstaller.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\bin\Release\PTFLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\bin\Release\RemoteTracerLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\bin\Release\SharpZipLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\bin\Release\PTFLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\bin\Release\RemoteTracerLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\obj\Release\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\obj\Release\LocalDbInstaller.Properties.Resources.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\obj\Release\ResGen.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\obj\Release\ResGen.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\obj\Release\LocalDbInstaller.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLocalInstaller\obj\Release\LocalDbInstaller.pdb
+C:\PROJECTS\VScan\PTFLocalInstaller\bin\Release\LocalDbInstaller.dll
+C:\PROJECTS\VScan\PTFLocalInstaller\bin\Release\LocalDbInstaller.pdb
+C:\PROJECTS\VScan\PTFLocalInstaller\bin\Release\PTFLib.dll
+C:\PROJECTS\VScan\PTFLocalInstaller\bin\Release\PTFLib.pdb
+C:\PROJECTS\VScan\PTFLocalInstaller\obj\Release\ResolveAssemblyReference.cache
+C:\PROJECTS\VScan\PTFLocalInstaller\obj\Release\LocalDbInstaller.Properties.Resources.resources
+C:\PROJECTS\VScan\PTFLocalInstaller\obj\Release\LocalDbInstaller.dll
+C:\PROJECTS\VScan\PTFLocalInstaller\obj\Release\LocalDbInstaller.pdb
+C:\PROJECTS\VScan\PTFLocalInstaller\obj\Release\GenerateResource.read.1.tlog
+C:\PROJECTS\VScan\PTFLocalInstaller\obj\Release\GenerateResource.write.1.tlog
+C:\PROJECTS\VScan\PTFLocalInstaller\obj\Release\LocalDbInstaller.csproj.GenerateResource.Cache

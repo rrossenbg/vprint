@@ -1,0 +1,15 @@
+C:\PROJECTS\VScan\TransferringService\obj\Debug\TransferringService.ProjectInstaller.resources
+C:\PROJECTS\VScan\TransferringService\obj\Debug\TransferringService.XmlTransferringService.resources
+C:\PROJECTS\VScan\TransferringService\obj\Debug\TransferringService.csproj.GenerateResource.Cache
+C:\PROJECTS\VScan\TransferringService\obj\Debug\TransferringService.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.exe.config
+C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.exe
+C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.pdb
+C:\PROJECTS\VScan\TransferringService\bin\Debug\PTFLib.dll
+C:\PROJECTS\VScan\TransferringService\bin\Debug\DTK.BarReader.dll
+C:\PROJECTS\VScan\TransferringService\bin\Debug\PTFLib.pdb
+C:\PROJECTS\VScan\TransferringService\bin\Debug\DTK.BarReader.xml
+C:\PROJECTS\VScan\TransferringService\obj\Debug\TransferringService.exe
+C:\PROJECTS\VScan\TransferringService\obj\Debug\TransferringService.pdb
+C:\PROJECTS\VScan\TransferringService\bin\Debug\PTF.Common.dll
+C:\PROJECTS\VScan\TransferringService\bin\Debug\PTF.Common.pdb

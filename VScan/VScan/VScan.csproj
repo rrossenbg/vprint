@@ -1,0 +1,985 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{35A0E2FC-5837-4160-80A3-0ED043C92EE8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PremierTaxFree</RootNamespace>
+    <AssemblyName>VScan</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>VScan.snk</AssemblyOriginatorKeyFile>
+    <Win32Resource>
+    </Win32Resource>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://192.168.44.61/VScan/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://localhost/VScan</SupportUrl>
+    <ProductName>VScan</ProductName>
+    <PublisherName>Premier Tax Free</PublisherName>
+    <SuiteName>PTF</SuiteName>
+    <ApplicationRevision>49</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>642;661</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>scaner.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>337FAA548F74E5263EC5AEB8EACB714814B7B262</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'OCR_Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\OCR_Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'VScan_Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\VScan_Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Deployment_Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Deployment_Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ClassCorter|x86' ">
+    <OutputPath>bin\x86\ClassCorter\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OCR_Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\OCR_Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'VScan_Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\VScan_Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deployment_Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Deployment_Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ClassCorter|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\ClassCorter\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DTK.BarReader, Version=4.2.69.0, Culture=neutral, PublicKeyToken=ec94283068bbf5cd, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Other\DTK.BarReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\Libraries\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ButtonPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\DirtyControlExtender.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Accordion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Accordion.designer.cs">
+      <DependentUpon>Accordion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AdjustOCRControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CanvasControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClickOnce\CertificateInstall.cs" />
+    <Compile Include="ClickOnce\ClickOnceDeployment.cs" />
+    <Compile Include="Components\InstanceCountingTimer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SettingsPage4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SettingsPage4.Designer.cs">
+      <DependentUpon>SettingsPage4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SettingsPage5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SettingsPage5.Designer.cs">
+      <DependentUpon>SettingsPage5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Expander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Expander.designer.cs">
+      <DependentUpon>Expander.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SettingsPage1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SettingsPage1.Designer.cs">
+      <DependentUpon>SettingsPage1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IPAddressTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ManualInsertDataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MultyColorComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PictureBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SettingsPage3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SettingsPage3.Designer.cs">
+      <DependentUpon>SettingsPage3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SettingsInterfaces.cs" />
+    <Compile Include="Controls\SettingsPage2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SettingsPage2.Designer.cs">
+      <DependentUpon>SettingsPage2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\WebBrowserEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Resource.fr.Designer.cs">
+      <DependentUpon>Resource.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Data\HiddenAreaDrawingCfg.cs" />
+    <Compile Include="Data\MarkAreaCfg.cs" />
+    <Compile Include="Data\CurrentScanObj.cs" />
+    <Compile Include="Data\StateObj.cs" />
+    <Compile Include="Data\VoucherLayout.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Extentions\BarcodeReaderEx.cs" />
+    <Compile Include="Extentions\FormsEx.cs" />
+    <Compile Include="Components\FormInstanceWatcherComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FormInstanceWatcherComponent.designer.cs">
+      <DependentUpon>FormInstanceWatcherComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DbObserverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DbObserverForm.Designer.cs">
+      <DependentUpon>DbObserverForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DebugForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DebugForm.Designer.cs">
+      <DependentUpon>DebugForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HatchStyleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HatchStyleForm.designer.cs">
+      <DependentUpon>HatchStyleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LockForm.Designer.cs">
+      <DependentUpon>LockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardCodeRegionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardCodeRegionsForm.Designer.cs">
+      <DependentUpon>CardCodeRegionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ScanJobForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ScanJobForm2.Designer.cs">
+      <DependentUpon>ScanJobForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TranslateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TranslateForm.Designer.cs">
+      <DependentUpon>TranslateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VoucherMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VoucherMonitorForm.designer.cs">
+      <DependentUpon>VoucherMonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WebForm.Designer.cs">
+      <DependentUpon>WebForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForm.designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\PrintComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\PrintComponent.designer.cs">
+      <DependentUpon>PrintComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ScanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resource.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ScanAppContext.cs" />
+    <Compile Include="Scan\ImageHelper.cs" />
+    <Compile Include="Scan\ImageObj.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scan\BmpObj.cs" />
+    <Compile Include="Scan\GdiPlusLib.cs" />
+    <Compile Include="Scan\TwainDefs.cs" />
+    <Compile Include="Scan\TwainLib.cs" />
+    <Compile Include="Forms\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Microsoft.Bing.TranslateService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Sys\ScannerInfo.cs" />
+    <Compile Include="Sys\Windows.cs" />
+    <Compile Include="Tools\EmptyTool.cs" />
+    <Compile Include="Tools\EraserTool.cs" />
+    <Compile Include="Tools\LassoTool.cs" />
+    <Compile Include="Tools\PenTool.cs" />
+    <Compile Include="Tools\PolyPenTool.cs" />
+    <Compile Include="Tools\TextTool.cs" />
+    <Compile Include="Tools\~BaseTool.cs" />
+    <Compile Include="Forms\PasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PasswordForm.Designer.cs">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\AniCursor.cs" />
+    <Compile Include="Utils\UIUtils.cs" />
+    <Compile Include="Utils\DelegateUtils.cs" />
+    <Compile Include="Forms\VoucherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VoucherForm.Designer.cs">
+      <DependentUpon>VoucherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WaitForm.designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\ButtonPanel.resx">
+      <DependentUpon>ButtonPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DirtyControlExtender.resx">
+      <DependentUpon>DirtyControlExtender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AdjustOCRControl.resx">
+      <DependentUpon>AdjustOCRControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage1.de.resx">
+      <DependentUpon>SettingsPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage1.fr.resx">
+      <DependentUpon>SettingsPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage5.de.resx">
+      <DependentUpon>SettingsPage5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage5.fr.resx">
+      <DependentUpon>SettingsPage5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage3.de.resx">
+      <DependentUpon>SettingsPage3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage3.fr.resx">
+      <DependentUpon>SettingsPage3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage4.de.resx">
+      <DependentUpon>SettingsPage4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage4.fr.resx">
+      <DependentUpon>SettingsPage4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage4.resx">
+      <DependentUpon>SettingsPage4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage5.resx">
+      <DependentUpon>SettingsPage5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage1.resx">
+      <DependentUpon>SettingsPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ManualInsertDataControl.resx">
+      <DependentUpon>ManualInsertDataControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage3.resx">
+      <DependentUpon>SettingsPage3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsPage2.resx">
+      <DependentUpon>SettingsPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TTabControl.resx">
+      <DependentUpon>TTabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScanJobForm2.fr.resx">
+      <DependentUpon>ScanJobForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.fr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DbObserverForm.resx">
+      <DependentUpon>DbObserverForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DebugForm.de.resx">
+      <DependentUpon>DebugForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DebugForm.resx">
+      <DependentUpon>DebugForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HatchStyleForm.resx">
+      <DependentUpon>HatchStyleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LockForm.resx">
+      <DependentUpon>LockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CardCodeRegionsForm.resx">
+      <DependentUpon>CardCodeRegionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScanJobForm2.de.resx">
+      <DependentUpon>ScanJobForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScanJobForm2.resx">
+      <DependentUpon>ScanJobForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TranslateForm.resx">
+      <DependentUpon>TranslateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VoucherMonitorForm.resx">
+      <DependentUpon>VoucherMonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WebForm.resx">
+      <DependentUpon>WebForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\ScanForm.resx">
+      <DependentUpon>ScanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PasswordForm.resx">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VoucherForm.resx">
+      <DependentUpon>VoucherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images2\addons32.png" />
+    <None Include="Images2\bold16.png" />
+    <None Include="Images2\borderbottom16.png" />
+    <None Include="Images2\casing16.png" />
+    <None Include="Images2\close32.png" />
+    <None Include="Images2\copy16.png" />
+    <None Include="Images2\copyformat16.png" />
+    <None Include="Images2\cut16.png" />
+    <None Include="Images2\eraseformat16.png" />
+    <None Include="Images2\exit16.png" />
+    <None Include="Images2\fill16.png" />
+    <None Include="Images2\find32.png" />
+    <None Include="Images2\fontcolor16.png" />
+    <None Include="Images2\fontsizedecrease16.png" />
+    <None Include="Images2\fontsizeincrease16.png" />
+    <None Include="Images2\goto16.png" />
+    <None Include="Images2\hilight16.png" />
+    <None Include="Images2\indentdecrease16.png" />
+    <None Include="Images2\indentdecrease161.png" />
+    <None Include="Images2\indentincrease16.png" />
+    <None Include="Images2\invisiblechars16.png" />
+    <None Include="Images2\italic16.png" />
+    <None Include="Images2\multilevellist16.png" />
+    <None Include="Images2\newdocument32.png" />
+    <None Include="Images2\open16.png" />
+    <None Include="Images2\open32.png" />
+    <None Include="Images2\options16.png" />
+    <None Include="Images2\orderedlist16.png" />
+    <None Include="Images2\pageblank16.png" />
+    <None Include="Images2\paragraphspacing16.png" />
+    <None Include="Images2\paste16.png" />
+    <None Include="Images2\paste32.png" />
+    <None Include="Images2\paste321.png" />
+    <None Include="Images2\pastelink16.png" />
+    <None Include="Images2\pastespecial16.png" />
+    <None Include="Images2\prepare32.png" />
+    <None Include="Images2\print32.png" />
+    <None Include="Images2\print321.png" />
+    <None Include="Images2\printpreview32.png" />
+    <None Include="Images2\printquick16.png" />
+    <None Include="Images2\printquick32.png" />
+    <None Include="Images2\publish32.png" />
+    <None Include="Images2\replace16.png" />
+    <None Include="Images2\save16.png" />
+    <None Include="Images2\save32.png" />
+    <None Include="Images2\saveas32.png" />
+    <None Include="Images2\saveas321.png" />
+    <None Include="Images2\select16.png" />
+    <None Include="Images2\send32.png" />
+    <None Include="Images2\sort16.png" />
+    <None Include="Images2\strikethru16.png" />
+    <None Include="Images2\style16.png" />
+    <None Include="Images2\stylechange32.png" />
+    <None Include="Images2\styleset16.png" />
+    <None Include="Images2\subindex16.png" />
+    <None Include="Images2\superindex16.png" />
+    <None Include="Images2\textaligncenter16.png" />
+    <None Include="Images2\textalignjustify16.png" />
+    <None Include="Images2\textalignleft16.png" />
+    <None Include="Images2\textalignright16.png" />
+    <None Include="Images2\themefont.png" />
+    <None Include="Images2\underline16.png" />
+    <None Include="Images2\undo16.png" />
+    <None Include="Images2\unorderedlist16.png" />
+    <None Include="Images2\word2003doc32.png" />
+    <None Include="Images2\worddocument32.png" />
+    <None Include="Images2\wordtemplate32.png" />
+    <None Include="Images\100p.bmp" />
+    <None Include="Images\A.bmp" />
+    <None Include="Images\blue.bmp" />
+    <None Include="Images\Brush.bmp" />
+    <None Include="Images\brush1.bmp" />
+    <None Include="Images\Brush16.bmp" />
+    <None Include="Images\brush2.bmp" />
+    <None Include="Images\brush3.bmp" />
+    <None Include="Images\brush4.bmp" />
+    <None Include="Images\brush5.bmp" />
+    <None Include="Images\brush6.bmp" />
+    <None Include="Images\brush7.bmp" />
+    <None Include="Images\brush8.bmp" />
+    <None Include="Images\brush9.bmp" />
+    <None Include="Images\Bucket.bmp" />
+    <None Include="Images\Bucket16.bmp" />
+    <None Include="Images\Circle.bmp" />
+    <None Include="Images\Circle16.bmp" />
+    <None Include="Images\Colors32.bmp" />
+    <None Include="Images\Copy3.bmp" />
+    <None Include="Images\Cut3.bmp" />
+    <None Include="Images\dropA32.bmp" />
+    <None Include="Images\dropB32.bmp" />
+    <None Include="Images\dropC32.bmp" />
+    <None Include="Images\EditColor.bmp" />
+    <None Include="Images\Email.bmp" />
+    <None Include="Images\Eraser.bmp" />
+    <None Include="Images\Eraser16.bmp" />
+    <None Include="Images\Exit.bmp" />
+    <None Include="Images\Exit16.bmp" />
+    <None Include="Images\Exit32.bmp" />
+    <None Include="Images\ExtractTo.bmp" />
+    <None Include="Images\FlipHorizontal.bmp" />
+    <None Include="Images\FlipVertical.bmp" />
+    <None Include="Images\FreeFormSelect.bmp" />
+    <None Include="Images\FullScreen.bmp" />
+    <None Include="Images\green.bmp" />
+    <None Include="Images\Home.bmp" />
+    <None Include="Images\Home2.bmp" />
+    <None Include="Images\Info1.bmp" />
+    <None Include="Images\line01.bmp" />
+    <None Include="Images\line02.bmp" />
+    <None Include="Images\line03.bmp" />
+    <None Include="Images\line04.bmp" />
+    <None Include="Images\line05.bmp" />
+    <None Include="Images\line06.bmp" />
+    <None Include="Images\line07.bmp" />
+    <None Include="Images\line08.bmp" />
+    <None Include="Images\line09.bmp" />
+    <None Include="Images\line10.bmp" />
+    <None Include="Images\line11.bmp" />
+    <None Include="Images\line12.bmp" />
+    <None Include="Images\Lock.bmp" />
+    <None Include="Images\Magnifying glass.bmp" />
+    <None Include="Images\New.bmp" />
+    <None Include="Images\New16.bmp" />
+    <None Include="Images\New32.bmp" />
+    <None Include="Images\office2.bmp" />
+    <None Include="Images\office3.bmp" />
+    <None Include="Images\office4.bmp" />
+    <None Include="Images\Open.bmp" />
+    <None Include="Images\Open16.bmp" />
+    <None Include="Images\Open32.bmp" />
+    <None Include="Images\paint.bmp" />
+    <None Include="Images\Paste.bmp" />
+    <None Include="Images\Paste2.bmp" />
+    <None Include="Images\PasteFrom.bmp" />
+    <None Include="Images\Pen.bmp" />
+    <None Include="Images\Pen16.bmp" />
+    <None Include="Images\Pipette.bmp" />
+    <None Include="Images\pipette16.bmp" />
+    <None Include="Images\PNG\arrow.png" />
+    <None Include="Images\PNG\arrow_circle_double.png" />
+    <None Include="Images\PNG\Brush.jpg" />
+    <None Include="Images\PNG\Brush.png" />
+    <None Include="Images\PNG\Brush2.png" />
+    <None Include="Images\PNG\Brush3.png" />
+    <None Include="Images\PNG\Brush4.png" />
+    <None Include="Images\PNG\Bucket.png" />
+    <None Include="Images\PNG\calendar-task.png" />
+    <None Include="Images\PNG\cross.png" />
+    <None Include="Images\PNG\cross1.png" />
+    <None Include="Images\PNG\Cyrcle.png" />
+    <None Include="Images\PNG\Empty.png" />
+    <None Include="Images\PNG\Eraser.png" />
+    <None Include="Images\PNG\mail.png" />
+    <None Include="Images\PNG\Pen.jpg" />
+    <None Include="Images\PNG\PenPoly.jpg" />
+    <None Include="Images\PNG\Pen_48.png" />
+    <None Include="Images\PNG\pipette black.png" />
+    <None Include="Images\PNG\pipette.png" />
+    <None Include="Images\PNG\Rectangle.png" />
+    <None Include="Images\PNG\scissors.jpg" />
+    <None Include="Images\PNG\Text.png" />
+    <None Include="Images\PNG\thumb-up.png" />
+    <None Include="Images\PNG\tick_circle.png" />
+    <None Include="Images\Print.bmp" />
+    <None Include="Images\Print1.bmp" />
+    <None Include="Images\Rectangle.bmp" />
+    <None Include="Images\Rectangle16.bmp" />
+    <None Include="Images\RectSelect.bmp" />
+    <None Include="Images\red.bmp" />
+    <None Include="Images\Report.bmp" />
+    <None Include="Images\Resize.bmp" />
+    <None Include="Images\resize2.bmp" />
+    <None Include="Images\Rotate.bmp" />
+    <None Include="Images\Rotate180.bmp" />
+    <None Include="Images\Rotate3.bmp" />
+    <None Include="Images\RotateLeft90.bmp" />
+    <None Include="Images\RotateRight90.bmp" />
+    <None Include="Images\Rubber.bmp" />
+    <None Include="Images\Save.bmp" />
+    <None Include="Images\Save16.bmp" />
+    <None Include="Images\Save32.bmp" />
+    <None Include="Images\SaveAs.bmp" />
+    <None Include="Images\saveas16.bmp" />
+    <None Include="Images\scanner.bmp" />
+    <None Include="Images\scissors.bmp" />
+    <None Include="Images\scissors16.bmp" />
+    <None Include="Images\Select.bmp" />
+    <None Include="Images\Select32.bmp" />
+    <None Include="Images\SelectAll.bmp" />
+    <None Include="Images\shape01.bmp" />
+    <None Include="Images\shape02.bmp" />
+    <None Include="Images\shape03.bmp" />
+    <None Include="Images\shape04.bmp" />
+    <None Include="Images\shape05.bmp" />
+    <None Include="Images\shape06.bmp" />
+    <None Include="Images\shape07.bmp" />
+    <None Include="Images\shape08.bmp" />
+    <None Include="Images\shape09.bmp" />
+    <None Include="Images\shape10.bmp" />
+    <None Include="Images\shape11.bmp" />
+    <None Include="Images\shape12.bmp" />
+    <None Include="Images\shape13.bmp" />
+    <None Include="Images\shape14.bmp" />
+    <None Include="Images\shape15.bmp" />
+    <None Include="Images\shape16.bmp" />
+    <None Include="Images\shape17.bmp" />
+    <None Include="Images\shape18.bmp" />
+    <None Include="Images\shape19.bmp" />
+    <None Include="Images\shape20.bmp" />
+    <None Include="Images\shape21.bmp" />
+    <None Include="Images\shape22.bmp" />
+    <None Include="Images\shape23.bmp" />
+    <None Include="Images\Size.bmp" />
+    <None Include="Images\Test.bmp" />
+    <None Include="Images\Text.bmp" />
+    <None Include="Images\Text16.bmp" />
+    <None Include="Images\tools.bmp" />
+    <None Include="Images\Unselect32.bmp" />
+    <None Include="Images\View.bmp" />
+    <None Include="Images\ZoomIn.bmp" />
+    <Content Include="obj\ZoomOut.bmp" />
+    <Content Include="Libraries\VScan_Key.cer">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\bar-circle.gif" />
+    <None Include="Resources\barcode16.png" />
+    <None Include="Resources\barcode32.png" />
+    <None Include="Resources\barcode56.png" />
+    <None Include="Resources\barcode64.png" />
+    <None Include="Resources\big-flower.gif" />
+    <None Include="Resources\big-roller.gif" />
+    <None Include="Resources\crystal_xml16.png" />
+    <None Include="Resources\crystal_xml32.png" />
+    <None Include="Resources\edit_cut16.png" />
+    <None Include="Resources\edit_cut32.png" />
+    <None Include="Resources\edit_select16.png" />
+    <None Include="Resources\edit_select32.png" />
+    <None Include="Resources\ellipse_unfilled16.png" />
+    <None Include="Resources\ellipse_unfilled32.png" />
+    <None Include="Resources\export_xml16.png" />
+    <None Include="Resources\export_xml32.png" />
+    <None Include="Resources\help16.png" />
+    <None Include="Resources\help32.png" />
+    <None Include="Resources\info16.png" />
+    <None Include="Resources\info32.png" />
+    <None Include="Resources\Internet.png" />
+    <None Include="Resources\letter_t16.png" />
+    <None Include="Resources\letter_t32.png" />
+    <None Include="Resources\loading_75x75.gif" />
+    <None Include="Resources\loading_yellow_large.gif" />
+    <None Include="Resources\pencil_red16.png" />
+    <None Include="Resources\pencil_red32.png" />
+    <None Include="Resources\pencil16.png" />
+    <None Include="Resources\pencil32.png" />
+    <None Include="Resources\PTF.PNG" />
+    <None Include="Resources\PTF2.png" />
+    <None Include="Resources\rectangle_unfilled16.png" />
+    <None Include="Resources\rectangle_unfilled32.png" />
+    <None Include="Resources\rubber16.png" />
+    <None Include="Resources\rubber32.png" />
+    <None Include="Resources\saveas16.png" />
+    <None Include="Resources\saveas32.png" />
+    <None Include="Resources\saveas321.png" />
+    <None Include="Resources\scanner16.png" />
+    <None Include="Resources\scanner32.png" />
+    <None Include="Resources\select16.png" />
+    <None Include="Resources\select32.png" />
+    <None Include="Resources\text_32.png" />
+    <None Include="Resources\scanner.ico" />
+    <None Include="Resources\key-icon.png" />
+    <None Include="Resources\rotate_right.png" />
+    <None Include="Resources\rotate_left.png" />
+    <None Include="Resources\locked.png" />
+    <None Include="Resources\rotate-right32.png" />
+    <None Include="Resources\rotate-left16.png" />
+    <None Include="Resources\rotate-left32.png" />
+    <None Include="Resources\rotate-right16.png" />
+    <None Include="Resources\advanced.png" />
+    <None Include="Resources\communication.png" />
+    <None Include="Resources\general.png" />
+    <None Include="Resources\security.png" />
+    <None Include="Resources\settings16.png" />
+    <None Include="Resources\settings32.png" />
+    <None Include="Resources\advanced64.png" />
+    <None Include="Resources\security64.png" />
+    <None Include="Resources\internet64.png" />
+    <None Include="Resources\internet32.png" />
+    <None Include="Resources\internet48.png" />
+    <None Include="Resources\advance48.png" />
+    <None Include="Resources\advanced48.png" />
+    <None Include="Resources\VScan_Key.cer" />
+    <None Include="Resources\xml_32.png" />
+    <None Include="Resources\xml_16.png" />
+    <None Include="Resources\NA.JPG" />
+    <None Include="Resources\cascade16.png" />
+    <None Include="Resources\cascade32.png" />
+    <None Include="Resources\tile_h16.png" />
+    <None Include="Resources\tile_h32.png" />
+    <None Include="Resources\tile_v16.png" />
+    <None Include="Resources\tile_v32.png" />
+    <None Include="Resources\arrange_iconics16.png" />
+    <None Include="Resources\arrange_iconics32.png" />
+    <None Include="Resources\cursor16.png" />
+    <None Include="Service References\Microsoft.Bing.TranslateService\soap.wsdl" />
+    <None Include="Service References\Microsoft.Bing.TranslateService\soap.xsd" />
+    <None Include="Service References\Microsoft.Bing.TranslateService\soap1.xsd" />
+    <None Include="Service References\Microsoft.Bing.TranslateService\soap2.xsd" />
+    <None Include="Service References\Microsoft.Bing.TranslateService\SoapService.wsdl" />
+    <None Include="Service References\Microsoft.Bing.TranslateService\SoapService1.wsdl" />
+    <None Include="VScan.snk" />
+    <None Include="Resources\windows_cascade32.png" />
+    <None Include="Resources\windows_cascade16.png" />
+    <None Include="Resources\window16.png" />
+    <None Include="Resources\window_32.png" />
+    <None Include="Resources\movie16.png" />
+    <None Include="Resources\movie32.png" />
+    <None Include="Resources\web_browser32.png" />
+    <None Include="Resources\web_browser16.png" />
+    <None Include="Resources\delete32.png" />
+    <None Include="Resources\delete16.png" />
+    <None Include="Resources\DELL2155cn.JPG" />
+    <None Include="Resources\Fi-5120C.jpg" />
+    <None Include="Resources\Expand.png" />
+    <None Include="Resources\Collapse.png" />
+    <None Include="Resources\translate.png" />
+    <None Include="Resources\language48.png" />
+    <None Include="Resources\close32_2.png" />
+    <None Include="Resources\close16_2.png" />
+    <Content Include="scaner.ico" />
+    <None Include="Service References\Microsoft.Bing.TranslateService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Microsoft.Bing.TranslateService\configuration.svcinfo" />
+    <None Include="Service References\Microsoft.Bing.TranslateService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.9.2">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2005 Express Edition SP2 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="PTF">
+      <Visible>False</Visible>
+      <ProductName>PTF Transferring Service</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="VScan.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Microsoft.Bing.TranslateService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BarReaderProc\BarReaderProc.csproj">
+      <Project>{26EDD01D-9FAA-472A-A614-A885CB0CD2D8}</Project>
+      <Name>BarReaderProc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PTF.Common\PTF.Common.csproj">
+      <Project>{39455112-FC68-48D6-AED3-036AE5E66A63}</Project>
+      <Name>PTF.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PTFLib\PTFLib.csproj">
+      <Project>{0B9B0018-6CAE-4A36-BD33-A99C1D34D9E4}</Project>
+      <Name>PTFLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Forms.Ribbon\System.Windows.Forms.Ribbon.csproj">
+      <Project>{46A18A55-5AE8-49CE-91CD-C7421B642E7E}</Project>
+      <Name>System.Windows.Forms.Ribbon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>rem xcopy  "$(SolutionDir)Libraries\SQLite.Interop.dll" "$(ProjectDir)"  /Y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,9 @@
+C:\PROJECTS\VScan\ReceivingService2\bin\ReceivingService2.dll
+C:\PROJECTS\VScan\ReceivingService2\bin\ReceivingService2.pdb
+C:\PROJECTS\VScan\ReceivingService2\obj\Debug\ReceivingService2.dll
+C:\PROJECTS\VScan\ReceivingService2\obj\Debug\ReceivingService2.pdb
+C:\PROJECTS\VScan\ReceivingService2\bin\PTFLib.dll
+C:\PROJECTS\VScan\ReceivingService2\bin\DTK.BarReader.dll
+C:\PROJECTS\VScan\ReceivingService2\bin\PTFLib.pdb
+C:\PROJECTS\VScan\ReceivingService2\bin\DTK.BarReader.xml
+C:\PROJECTS\VScan\ReceivingService2\obj\Debug\ReceivingService2.csprojResolveAssemblyReference.cache

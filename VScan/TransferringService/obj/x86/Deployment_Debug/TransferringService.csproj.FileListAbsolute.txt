@@ -1,0 +1,14 @@
+E:\PROJECTS\PTF\TransferringService\bin\x86\Deployment_Debug\SQLite.Interop.dll
+E:\PROJECTS\PTF\TransferringService\bin\x86\Deployment_Debug\TransferringService.exe.config
+E:\PROJECTS\PTF\TransferringService\bin\x86\Deployment_Debug\TransferringService.exe
+E:\PROJECTS\PTF\TransferringService\bin\x86\Deployment_Debug\TransferringService.pdb
+E:\PROJECTS\PTF\TransferringService\bin\x86\Deployment_Debug\PTFLib.dll
+E:\PROJECTS\PTF\TransferringService\bin\x86\Deployment_Debug\RemoteTracerLib.dll
+E:\PROJECTS\PTF\TransferringService\bin\x86\Deployment_Debug\SharpZipLib.dll
+E:\PROJECTS\PTF\TransferringService\bin\x86\Deployment_Debug\PTFLib.pdb
+E:\PROJECTS\PTF\TransferringService\bin\x86\Deployment_Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\TransferringService\obj\x86\Deployment_Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\TransferringService\obj\x86\Deployment_Debug\TransferringService.ProjectInstaller.resources
+E:\PROJECTS\PTF\TransferringService\obj\x86\Deployment_Debug\TransferringService.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\TransferringService\obj\x86\Deployment_Debug\TransferringService.exe
+E:\PROJECTS\PTF\TransferringService\obj\x86\Deployment_Debug\TransferringService.pdb

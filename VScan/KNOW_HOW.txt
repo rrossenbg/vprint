@@ -1,0 +1,7 @@
+caspol -addfulltrust "C:\PROJECTS\VScan\VScan\bin\Debug\VScan.exe"
+installutil "C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.exe"
+installutil "C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.exe" -u
+
+
+installutil "C:\PROJECTS\VScan\TransferringService\bin\Release\TransferringService.exe"
+installutil "C:\PROJECTS\VScan\TransferringService\bin\Release\TransferringService.exe" -u

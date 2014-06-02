@@ -1,0 +1,1281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ptf.com/PtfWebService" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://tempuri.org/Exception.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.ptf.com/PtfWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Service supplies all the function calls required for Voucher Entry and Modification.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ptf.com/PtfWebService">
+      <s:import namespace="http://tempuri.org/Exception.xsd" />
+      <s:element name="AddVoucherP0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salt" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Voucher">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PurchaseDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOCID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefundRule" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TokenLookupValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TokenLookupValueType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TokenLookupValueSalt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SingaporeSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefundStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomsApproval" type="tns:CustomsApproval" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoidReason" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PassportIssuingCountry" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PassportExpiryDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecreditPriority" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DebitExclude" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Initial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nationality" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelephoneNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateofBirth" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetailerId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetailerOverrideId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetailerTelebigId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RefundMethodId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RefundTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefundAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="MultipleRefund" type="tns:VoucherMultipleRefund" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefundFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefundSurname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankSortCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrencyId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameOnCheque" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherCurrencyId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CashRefundAmount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CityCashRefundAmount" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="CashInvoiceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityCashInvoiceNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CityCentreTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChequeNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankIdentifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditCardTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayCreditCardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardExpiryDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardSalt" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SamePurchaseandRefundCard" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreStampedVoucher" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurchaseCreditCardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayPurchaseCreditCardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GiftCardNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasCopyP1" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasCopyP15" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FinalCountry" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinalCountryId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Arrival" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Depart" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassportNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateStamp" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomStampNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExitPoint" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExitPointCollectionID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpIncVat" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpExclVat" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpVat" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RefundAmount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpNetTopos" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebateTopos" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="feeToRetailerTopos" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PPForeignCurrency" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RefundPriority" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlackListVoucher" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UpdateVoucher" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCodeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateQualified" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Void" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Priority" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefundString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RebateString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CashRebaseString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateInvoice" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DatePayment" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CopyInvoice" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalesPersonID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PointsAmount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line" type="tns:ArrayOfVoucherLine" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:VoucherStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="ForeignCurrencyExchangeRate" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentCountryID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CalulatedRefundAmount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Locked" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="Period" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Migrated" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetailerInvoiceNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardAuCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditCardAuType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankMerchantNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BankMerchantNameId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RefundDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Voided" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherRefundCurrency" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RefundInRefundCurrency" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentCharge" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AirportCashFee" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherPaymentStatus" type="tns:PaymentStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlternateRefundStructure" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefundStructure" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Part" type="tns:ArrayOfVoucherPart" />
+          <s:element minOccurs="1" maxOccurs="1" name="FrenchRefundMethodOverride" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LBMVoucher" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Number" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomsApproval">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="eCustomsSignedXML" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eCustomsActivity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefusalReason" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefusalSignedXML" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefusalActivity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomsApprovalCountry" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Line1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line6" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VoucherMultipleRefund">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayCreditCardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayPurchaseCreditCardNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ISO_ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RefundMethod" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RefundType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardExpiryDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankSortCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameOnCheque" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChequeNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefundAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentCountry" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChequeCurrency" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="SamePurchaseandRefundCard" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurchaseCreditCardNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVoucherLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VoucherLine" nillable="true" type="tns:VoucherLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VoucherLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="VatCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpIncVat" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpExclVat" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpVat" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="VoucherStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Closed" />
+          <s:enumeration value="Expired" />
+          <s:enumeration value="Paid" />
+          <s:enumeration value="Cashed" />
+          <s:enumeration value="Debited" />
+          <s:enumeration value="Manual" />
+          <s:enumeration value="Stopped" />
+          <s:enumeration value="Stopped_Cashed" />
+          <s:enumeration value="Matched_Qualified" />
+          <s:enumeration value="Matched_Disqualified" />
+          <s:enumeration value="Matched_Cashed_Qualified" />
+          <s:enumeration value="Matched_Cashed_Disqualified" />
+          <s:enumeration value="Unmatched_P1" />
+          <s:enumeration value="Unmatched_P1_Cashed_With_P15" />
+          <s:enumeration value="Unmatched_P2" />
+          <s:enumeration value="Unmatched_P2_Cashed" />
+          <s:enumeration value="Unmatched_P2_Disqualified" />
+          <s:enumeration value="Unmatched_P2_Cashed_Disqualified" />
+          <s:enumeration value="On_Hold" />
+          <s:enumeration value="On_Hold_P1_Export" />
+          <s:enumeration value="On_Hold_P2" />
+          <s:enumeration value="On_Hold_P2_Cashed" />
+          <s:enumeration value="Unmatched_P1_Cashed_P15_Expired" />
+          <s:enumeration value="Unmatched_P2_Cashed_P15_Expired" />
+          <s:enumeration value="P15_Expired" />
+          <s:enumeration value="Matched_Cashed_Disqualified_Debited" />
+          <s:enumeration value="Matched_Cashed_Disqualified_Debit_Failed" />
+          <s:enumeration value="Matched_Cashed_Qualified_With_P15" />
+          <s:enumeration value="Unmatched_P2_Cashed_With_P15" />
+          <s:enumeration value="Unmatched_P2_Cashed_Airport" />
+          <s:enumeration value="Unmatched_P2_Cashed_CityCenter" />
+          <s:enumeration value="Matched_Cashed_Qualified_Airport" />
+          <s:enumeration value="Matched_Cashed_Qualified_CityCenter" />
+          <s:enumeration value="Unmatched_P0" />
+          <s:enumeration value="Umatched_P1_Disqualified" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="PaymentStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Not_Paid" />
+          <s:enumeration value="Debit_Pending" />
+          <s:enumeration value="Debit_Successful" />
+          <s:enumeration value="Debit_Failed" />
+          <s:enumeration value="Debit_Written_Off" />
+          <s:enumeration value="Refund_Issued" />
+          <s:enumeration value="Refund_Paid" />
+          <s:enumeration value="Refund_Written_Off" />
+          <s:enumeration value="Recredit_Paid" />
+          <s:enumeration value="Recredit_Failed" />
+          <s:enumeration value="Recredit_Written_Off" />
+          <s:enumeration value="Refund_Successful" />
+          <s:enumeration value="Recredit_Successful" />
+          <s:enumeration value="Refund_Returned" />
+          <s:enumeration value="Refund_Rejected" />
+          <s:enumeration value="Partial_Refund_Paid" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfVoucherPart">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VoucherPart" nillable="true" type="tns:VoucherPart" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VoucherPart">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EntryDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PartType" type="tns:PartType" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FileNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TerminalId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperatorId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperatorName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssuedLocalDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssuedServerDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CCHTransmissonLocalDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CCHTransmissonServerDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicationType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCHStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCHRejectionReason" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransportProvider" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PartType">
+        <s:restriction base="s:string">
+          <s:enumeration value="P0" />
+          <s:enumeration value="P1" />
+          <s:enumeration value="P1Half" />
+          <s:enumeration value="P2" />
+          <s:enumeration value="P1Copy" />
+          <s:enumeration value="P15Copy" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AddVoucherP0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddVoucherP0Result" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticationHeader" type="tns:AuthenticationHeader" />
+      <s:complexType name="AuthenticationHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Salt" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="AddVoucherP1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salt" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddVoucherP1Result" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP1AndAHalf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salt" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP1AndAHalfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddVoucherP1AndAHalfResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP1AndAHalfBizTalk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP1AndAHalfBizTalkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AddVoucherP1AndAHalfBizTalkResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP2BizTalk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP2BizTalkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AddVoucherP2BizTalkResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherImportReject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+            <s:element minOccurs="0" maxOccurs="1" name="InhibitCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExceptionMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherImportRejectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AddVoucherImportRejectResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP2Staging">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP2StagingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AddVoucherP2StagingResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP0BizTalk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP0BizTalkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AddVoucherP0BizTalkResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP1BizTalk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP1BizTalkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AddVoucherP1BizTalkResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salt" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddVoucherP2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddVoucherP2Result" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVoucher">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salt" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateVoucherResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetVoucherStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="voucherId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="statusId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVoucherStatusResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExpiredP1Voucher">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpiredP1VoucherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExpiredP1VoucherResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateVoucher">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="tns:Voucher" />
+            <s:element minOccurs="1" maxOccurs="1" name="imported" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateVoucherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ValidateVoucherResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VoidConsolidatedVoucher">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="voucherId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VoidConsolidatedVoucherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VoidConsolidatedVoucherResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateSiteCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="P2FileNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateSiteCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateSiteCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetConfigCache">
+        <s:complexType />
+      </s:element>
+      <s:element name="ResetConfigCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResetConfigCacheResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfigValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfigValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConfigValueResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestVoucher">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filePath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestVoucherResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/Exception.xsd">
+      <s:element name="AddVoucherP1AndAHalfBizTalkResult" type="s1:ValidationException" />
+      <s:complexType name="ValidationException">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Voucher" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valid" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExceptionMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InhibitCode" type="s1:InhibitCode" />
+          <s:element minOccurs="1" maxOccurs="1" name="Action" type="s1:Action" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="InhibitCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="LM" />
+          <s:enumeration value="NS" />
+          <s:enumeration value="OT" />
+          <s:enumeration value="WS" />
+          <s:enumeration value="WD" />
+          <s:enumeration value="LV" />
+          <s:enumeration value="NA" />
+          <s:enumeration value="RO" />
+          <s:enumeration value="PP" />
+          <s:enumeration value="CE" />
+          <s:enumeration value="CI" />
+          <s:enumeration value="RH" />
+          <s:enumeration value="DT" />
+          <s:enumeration value="AQ" />
+          <s:enumeration value="HV" />
+          <s:enumeration value="RR" />
+          <s:enumeration value="RJ" />
+          <s:enumeration value="MC" />
+          <s:enumeration value="C9" />
+          <s:enumeration value="NR" />
+          <s:enumeration value="C8" />
+          <s:enumeration value="CH" />
+          <s:enumeration value="CR" />
+          <s:enumeration value="NC" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="Action">
+        <s:restriction base="s:string">
+          <s:enumeration value="Reject" />
+          <s:enumeration value="Force Submit" />
+          <s:enumeration value="Accept" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AddVoucherP2BizTalkResult" type="s1:ValidationException" />
+      <s:element name="AddVoucherImportRejectResult" type="s1:ValidationException" />
+      <s:element name="AddVoucherP2StagingResult" type="s1:ValidationException" />
+      <s:element name="AddVoucherP0BizTalkResult" type="s1:ValidationException" />
+      <s:element name="AddVoucherP1BizTalkResult" type="s1:ValidationException" />
+      <s:element name="ValidateVoucherResult" type="s1:ValidationException" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddVoucherP0SoapIn">
+    <wsdl:part name="parameters" element="tns:AddVoucherP0" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP0SoapOut">
+    <wsdl:part name="parameters" element="tns:AddVoucherP0Response" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP0AuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP1SoapIn">
+    <wsdl:part name="parameters" element="tns:AddVoucherP1" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP1SoapOut">
+    <wsdl:part name="parameters" element="tns:AddVoucherP1Response" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP1AuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP1AndAHalfSoapIn">
+    <wsdl:part name="parameters" element="tns:AddVoucherP1AndAHalf" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP1AndAHalfSoapOut">
+    <wsdl:part name="parameters" element="tns:AddVoucherP1AndAHalfResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP1AndAHalfAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP1AndAHalfBizTalkSoapIn">
+    <wsdl:part name="parameters" element="tns:AddVoucherP1AndAHalfBizTalk" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP1AndAHalfBizTalkSoapOut">
+    <wsdl:part name="parameters" element="tns:AddVoucherP1AndAHalfBizTalkResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP2BizTalkSoapIn">
+    <wsdl:part name="parameters" element="tns:AddVoucherP2BizTalk" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP2BizTalkSoapOut">
+    <wsdl:part name="parameters" element="tns:AddVoucherP2BizTalkResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherImportRejectSoapIn">
+    <wsdl:part name="parameters" element="tns:AddVoucherImportReject" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherImportRejectSoapOut">
+    <wsdl:part name="parameters" element="tns:AddVoucherImportRejectResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherImportRejectAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP2StagingSoapIn">
+    <wsdl:part name="parameters" element="tns:AddVoucherP2Staging" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP2StagingSoapOut">
+    <wsdl:part name="parameters" element="tns:AddVoucherP2StagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP2StagingAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP0BizTalkSoapIn">
+    <wsdl:part name="parameters" element="tns:AddVoucherP0BizTalk" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP0BizTalkSoapOut">
+    <wsdl:part name="parameters" element="tns:AddVoucherP0BizTalkResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP1BizTalkSoapIn">
+    <wsdl:part name="parameters" element="tns:AddVoucherP1BizTalk" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP1BizTalkSoapOut">
+    <wsdl:part name="parameters" element="tns:AddVoucherP1BizTalkResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP2SoapIn">
+    <wsdl:part name="parameters" element="tns:AddVoucherP2" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP2SoapOut">
+    <wsdl:part name="parameters" element="tns:AddVoucherP2Response" />
+  </wsdl:message>
+  <wsdl:message name="AddVoucherP2AuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVoucherSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateVoucher" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVoucherSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateVoucherAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetVoucherStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetVoucherStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherStatusAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="ExpiredP1VoucherSoapIn">
+    <wsdl:part name="parameters" element="tns:ExpiredP1Voucher" />
+  </wsdl:message>
+  <wsdl:message name="ExpiredP1VoucherSoapOut">
+    <wsdl:part name="parameters" element="tns:ExpiredP1VoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExpiredP1VoucherAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="ValidateVoucherSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateVoucher" />
+  </wsdl:message>
+  <wsdl:message name="ValidateVoucherSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateVoucherAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="VoidConsolidatedVoucherSoapIn">
+    <wsdl:part name="parameters" element="tns:VoidConsolidatedVoucher" />
+  </wsdl:message>
+  <wsdl:message name="VoidConsolidatedVoucherSoapOut">
+    <wsdl:part name="parameters" element="tns:VoidConsolidatedVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="VoidConsolidatedVoucherAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GenerateSiteCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateSiteCode" />
+  </wsdl:message>
+  <wsdl:message name="GenerateSiteCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateSiteCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetConfigCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetConfigCache" />
+  </wsdl:message>
+  <wsdl:message name="ResetConfigCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetConfigCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConfigValue" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConfigValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestVoucherSoapIn">
+    <wsdl:part name="parameters" element="tns:TestVoucher" />
+  </wsdl:message>
+  <wsdl:message name="TestVoucherSoapOut">
+    <wsdl:part name="parameters" element="tns:TestVoucherResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VoucherEntryAndModificationSoap">
+    <wsdl:operation name="AddVoucherP0">
+      <wsdl:input message="tns:AddVoucherP0SoapIn" />
+      <wsdl:output message="tns:AddVoucherP0SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1">
+      <wsdl:input message="tns:AddVoucherP1SoapIn" />
+      <wsdl:output message="tns:AddVoucherP1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1AndAHalf">
+      <wsdl:input message="tns:AddVoucherP1AndAHalfSoapIn" />
+      <wsdl:output message="tns:AddVoucherP1AndAHalfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1AndAHalfBizTalk">
+      <wsdl:input message="tns:AddVoucherP1AndAHalfBizTalkSoapIn" />
+      <wsdl:output message="tns:AddVoucherP1AndAHalfBizTalkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP2BizTalk">
+      <wsdl:input message="tns:AddVoucherP2BizTalkSoapIn" />
+      <wsdl:output message="tns:AddVoucherP2BizTalkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherImportReject">
+      <wsdl:input message="tns:AddVoucherImportRejectSoapIn" />
+      <wsdl:output message="tns:AddVoucherImportRejectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP2Staging">
+      <wsdl:input message="tns:AddVoucherP2StagingSoapIn" />
+      <wsdl:output message="tns:AddVoucherP2StagingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP0BizTalk">
+      <wsdl:input message="tns:AddVoucherP0BizTalkSoapIn" />
+      <wsdl:output message="tns:AddVoucherP0BizTalkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1BizTalk">
+      <wsdl:input message="tns:AddVoucherP1BizTalkSoapIn" />
+      <wsdl:output message="tns:AddVoucherP1BizTalkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP2">
+      <wsdl:input message="tns:AddVoucherP2SoapIn" />
+      <wsdl:output message="tns:AddVoucherP2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVoucher">
+      <wsdl:input message="tns:UpdateVoucherSoapIn" />
+      <wsdl:output message="tns:UpdateVoucherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherStatus">
+      <wsdl:input message="tns:SetVoucherStatusSoapIn" />
+      <wsdl:output message="tns:SetVoucherStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpiredP1Voucher">
+      <wsdl:input message="tns:ExpiredP1VoucherSoapIn" />
+      <wsdl:output message="tns:ExpiredP1VoucherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateVoucher">
+      <wsdl:input message="tns:ValidateVoucherSoapIn" />
+      <wsdl:output message="tns:ValidateVoucherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VoidConsolidatedVoucher">
+      <wsdl:input message="tns:VoidConsolidatedVoucherSoapIn" />
+      <wsdl:output message="tns:VoidConsolidatedVoucherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateSiteCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">countryId = 300, P2FileNumber = 100018P2300D2</wsdl:documentation>
+      <wsdl:input message="tns:GenerateSiteCodeSoapIn" />
+      <wsdl:output message="tns:GenerateSiteCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetConfigCache">
+      <wsdl:input message="tns:ResetConfigCacheSoapIn" />
+      <wsdl:output message="tns:ResetConfigCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigValue">
+      <wsdl:input message="tns:GetConfigValueSoapIn" />
+      <wsdl:output message="tns:GetConfigValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestVoucher">
+      <wsdl:input message="tns:TestVoucherSoapIn" />
+      <wsdl:output message="tns:TestVoucherSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VoucherEntryAndModificationSoap" type="tns:VoucherEntryAndModificationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddVoucherP0">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP0" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddVoucherP0AuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddVoucherP1AuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1AndAHalf">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP1AndAHalf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddVoucherP1AndAHalfAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1AndAHalfBizTalk">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP1AndAHalfBizTalk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP2BizTalk">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP2BizTalk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherImportReject">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherImportReject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddVoucherImportRejectAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP2Staging">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP2Staging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddVoucherP2StagingAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP0BizTalk">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP0BizTalk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1BizTalk">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP1BizTalk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP2">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddVoucherP2AuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVoucher">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/UpdateVoucher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateVoucherAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherStatus">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/SetVoucherStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetVoucherStatusAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpiredP1Voucher">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/ExpiredP1Voucher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ExpiredP1VoucherAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateVoucher">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/ValidateVoucher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateVoucherAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoidConsolidatedVoucher">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/VoidConsolidatedVoucher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:VoidConsolidatedVoucherAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateSiteCode">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/GenerateSiteCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetConfigCache">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/ResetConfigCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigValue">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/GetConfigValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestVoucher">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/TestVoucher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VoucherEntryAndModificationSoap12" type="tns:VoucherEntryAndModificationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddVoucherP0">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP0" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddVoucherP0AuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddVoucherP1AuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1AndAHalf">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP1AndAHalf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddVoucherP1AndAHalfAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1AndAHalfBizTalk">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP1AndAHalfBizTalk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP2BizTalk">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP2BizTalk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherImportReject">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherImportReject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddVoucherImportRejectAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP2Staging">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP2Staging" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddVoucherP2StagingAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP0BizTalk">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP0BizTalk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP1BizTalk">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP1BizTalk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVoucherP2">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AddVoucherP2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddVoucherP2AuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVoucher">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/UpdateVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateVoucherAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherStatus">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/SetVoucherStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetVoucherStatusAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpiredP1Voucher">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/ExpiredP1Voucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ExpiredP1VoucherAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateVoucher">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/ValidateVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateVoucherAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoidConsolidatedVoucher">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/VoidConsolidatedVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:VoidConsolidatedVoucherAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateSiteCode">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/GenerateSiteCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetConfigCache">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/ResetConfigCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigValue">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/GetConfigValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestVoucher">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/TestVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VoucherEntryAndModification">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Service supplies all the function calls required for Voucher Entry and Modification.</wsdl:documentation>
+    <wsdl:port name="VoucherEntryAndModificationSoap" binding="tns:VoucherEntryAndModificationSoap">
+      <soap:address location="http://192.168.58.59/PtfWebService/VoucherEntryAndModification.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VoucherEntryAndModificationSoap12" binding="tns:VoucherEntryAndModificationSoap12">
+      <soap12:address location="http://192.168.58.59/PtfWebService/VoucherEntryAndModification.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

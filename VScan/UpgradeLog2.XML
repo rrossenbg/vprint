@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="VScan">
+</Property><Property Name="Solution File" Value="C:\PROJECTS\VScan\VScan.sln">
+</Property><Property Name="Date" Value="10 September 2013">
+</Property><Property Name="Time" Value="15:41:58">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="CollectionVisualizer" Source="Visualizers\CollectionVisualizer\CollectionVisualizer.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CollectionVisualizer" Source="Visualizers\CollectionVisualizer\CollectionVisualizer.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CollectionVisualizer" Source="Visualizers\CollectionVisualizer\CollectionVisualizer.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

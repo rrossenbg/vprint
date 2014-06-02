@@ -1,0 +1,3 @@
+installutil "C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.exe" -i
+
+installutil "C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.exe" -u

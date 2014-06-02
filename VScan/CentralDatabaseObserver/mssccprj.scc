@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[WinDbLst.csproj]
+SCC_Aux_Path = "E:\VSS"
+SCC_Project_Name = "$/PTF.root/PTF/WinDbLst", PNEAAAAA
+
+[CentralDatabaseObserver.csproj]
+SCC_Aux_Path = "C:\VSS"
+SCC_Project_Name = "$/PTF.root/PTF/CentralDatabaseObserver", SUAAAAAA

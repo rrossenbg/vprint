@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="c134e065-fb82-4481-aa59-46c154631a76" name="rosen.rusev@PTF-UK-D036 2013-02-20 16:25:59" runUser="FINTRAX\rosen.rusev" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="d006c499-29d0-4555-b434-62ac613ecd6f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rosen.rusev_PTF-UK-D036 2013-02-20 16_25_59">
+      <DeploymentItem filename="C:\PROJECTS\VScan\PTFLib\bin\Debug\PTFLib.dll" />
+      <DeploymentItem filename="C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.exe" />
+      <DeploymentItem filename="C:\PROJECTS\VScan\PTF.Common\bin\Debug\PTF.Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-02-20T16:25:59.1304772+00:00" queuing="2013-02-20T16:26:00.0602912+00:00" start="2013-02-20T16:26:00.2152602+00:00" finish="2013-02-20T16:26:27.0049012+00:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="OK_call_dataservice_getcountries" storage="c:\projects\vscan\scantest\bin\debug\scantest.dll" id="d1105d4a-2144-816c-0f93-2744096b9483">
+      <Execution id="eb341c3c-00bb-4f4d-9121-17f19ca26faa" />
+      <TestMethod codeBase="C:/PROJECTS/VScan/ScanTest/bin/Debug/ScanTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ScanTest.ServiceTest, ScanTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="OK_call_dataservice_getcountries" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="d1105d4a-2144-816c-0f93-2744096b9483" executionId="eb341c3c-00bb-4f4d-9121-17f19ca26faa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="eb341c3c-00bb-4f4d-9121-17f19ca26faa" testId="d1105d4a-2144-816c-0f93-2744096b9483" testName="OK_call_dataservice_getcountries" computerName="PTF-UK-D036" duration="00:00:25.3892412" startTime="2013-02-20T16:26:00.3202392+00:00" endTime="2013-02-20T16:26:26.8399342+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eb341c3c-00bb-4f4d-9121-17f19ca26faa">
+    </UnitTestResult>
+  </Results>
+</TestRun>

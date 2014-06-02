@@ -1,0 +1,10 @@
+E:\PROJECTS\PTF\Visualizers\CollectionVisualizer\bin\Release\CollectionVisualizer.dll
+E:\PROJECTS\PTF\Visualizers\CollectionVisualizer\bin\Release\CollectionVisualizer.pdb
+E:\PROJECTS\PTF\Visualizers\CollectionVisualizer\obj\Release\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\Visualizers\CollectionVisualizer\obj\Release\CollectionVisualizer.dll
+E:\PROJECTS\PTF\Visualizers\CollectionVisualizer\obj\Release\CollectionVisualizer.pdb
+C:\PROJECTS\VScan\Visualizers\CollectionVisualizer\bin\Release\CollectionVisualizer.dll
+C:\PROJECTS\VScan\Visualizers\CollectionVisualizer\bin\Release\CollectionVisualizer.pdb
+C:\PROJECTS\VScan\Visualizers\CollectionVisualizer\obj\Release\CollectionVisualizer.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VScan\Visualizers\CollectionVisualizer\obj\Release\CollectionVisualizer.dll
+C:\PROJECTS\VScan\Visualizers\CollectionVisualizer\obj\Release\CollectionVisualizer.pdb

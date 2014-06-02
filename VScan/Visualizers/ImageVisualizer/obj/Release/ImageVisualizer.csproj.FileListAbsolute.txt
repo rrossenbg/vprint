@@ -1,0 +1,22 @@
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\bin\Release\ImageVisualizer.dll
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\bin\Release\ImageVisualizer.pdb
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\obj\Release\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.Properties.Resources.resources
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.dll
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\bin\Release\ImageVisualizer.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\bin\Release\ImageVisualizer.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Release\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.Properties.Resources.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Release\GenerateResource.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Release\GenerateResource.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.pdb
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\bin\Release\ImageVisualizer.dll
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\bin\Release\ImageVisualizer.pdb
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.Properties.Resources.resources
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.dll
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.pdb
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.csproj.GenerateResource.Cache
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\obj\Release\ImageVisualizer.csprojResolveAssemblyReference.cache

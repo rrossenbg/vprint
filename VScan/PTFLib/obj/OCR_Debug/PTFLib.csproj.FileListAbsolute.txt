@@ -1,0 +1,10 @@
+E:\PROJECTS\PTF\PTFLib\bin\OCR_Debug\SQLite.Interop.dll
+E:\PROJECTS\PTF\PTFLib\bin\OCR_Debug\PTFLib.dll.config
+E:\PROJECTS\PTF\PTFLib\bin\OCR_Debug\PTFLib.dll
+E:\PROJECTS\PTF\PTFLib\bin\OCR_Debug\PTFLib.pdb
+E:\PROJECTS\PTF\PTFLib\bin\OCR_Debug\SharpZipLib.dll
+E:\PROJECTS\PTF\PTFLib\obj\OCR_Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\PTFLib\obj\OCR_Debug\PremierTaxFree.PTFLib.Properties.Resources.resources
+E:\PROJECTS\PTF\PTFLib\obj\OCR_Debug\PTFLib.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\PTFLib\obj\OCR_Debug\PTFLib.dll
+E:\PROJECTS\PTF\PTFLib\obj\OCR_Debug\PTFLib.pdb

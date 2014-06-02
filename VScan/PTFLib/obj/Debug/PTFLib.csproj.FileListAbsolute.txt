@@ -1,0 +1,56 @@
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Debug\ResolveAssemblyReference.cache
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Debug\PremierTaxFree.PTFLib.Properties.Resources.resources
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Debug\PTFLib.dll
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Debug\PTFLib.pdb
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Debug\Barcodes.Barcode.dll
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Debug\SharpZipLib.dll
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Debug\System.Data.SQLite.dll
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Debug\System.Data.SQLite.Linq.dll
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Debug\System.Data.SQLite.pdb
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Debug\System.Data.SQLite.Linq.pdb
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Debug\PTFLib.dll
+D:\PROGRAMM\PROJECTS_UK\PTFLib\obj\Debug\PTFLib.pdb
+D:\PROGRAMM\PROJECTS_UK\PTFLib\bin\Debug\SQLite.Interop.dll
+E:\PROJECTS\PROJECTS_UK\PTFLib\bin\Debug\SQLite.Interop.dll
+E:\PROJECTS\PROJECTS_UK\PTFLib\bin\Debug\PTFLib.dll
+E:\PROJECTS\PROJECTS_UK\PTFLib\bin\Debug\PTFLib.pdb
+E:\PROJECTS\PROJECTS_UK\PTFLib\bin\Debug\Barcodes.Barcode.dll
+E:\PROJECTS\PROJECTS_UK\PTFLib\bin\Debug\SharpZipLib.dll
+E:\PROJECTS\PROJECTS_UK\PTFLib\obj\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PROJECTS_UK\PTFLib\obj\Debug\PremierTaxFree.PTFLib.Properties.Resources.resources
+E:\PROJECTS\PROJECTS_UK\PTFLib\obj\Debug\PTFLib.csproj.GenerateResource.Cache
+E:\PROJECTS\PROJECTS_UK\PTFLib\obj\Debug\PTFLib.dll
+E:\PROJECTS\PROJECTS_UK\PTFLib\obj\Debug\PTFLib.pdb
+E:\PROJECTS\PTF\PTFLib\bin\Debug\PTFLib.dll.config
+E:\PROJECTS\PTF\PTFLib\bin\Debug\PTFLib.dll
+E:\PROJECTS\PTF\PTFLib\bin\Debug\PTFLib.pdb
+E:\PROJECTS\PTF\PTFLib\bin\Debug\SharpZipLib.dll
+E:\PROJECTS\PTF\PTFLib\obj\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\PTFLib\obj\Debug\PremierTaxFree.PTFLib.Properties.Resources.resources
+E:\PROJECTS\PTF\PTFLib\obj\Debug\PTFLib.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\PTFLib\obj\Debug\PTFLib.dll
+E:\PROJECTS\PTF\PTFLib\obj\Debug\PTFLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\bin\Debug\PTFLib.dll.config
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\bin\Debug\PTFLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\bin\Debug\PTFLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\bin\Debug\SharpZipLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Debug\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Debug\PremierTaxFree.PTFLib.Properties.Resources.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Debug\ResGen.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Debug\ResGen.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Debug\PTFLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFLib\obj\Debug\PTFLib.pdb
+C:\PROJECTS\VScan\PTFLib\bin\Debug\PTFLib.dll.config
+C:\PROJECTS\VScan\PTFLib\bin\Debug\PTFLib.dll
+C:\PROJECTS\VScan\PTFLib\bin\Debug\PTFLib.pdb
+C:\PROJECTS\VScan\PTFLib\obj\Debug\PremierTaxFree.PTFLib.Properties.Resources.resources
+C:\PROJECTS\VScan\PTFLib\obj\Debug\PTFLib.dll
+C:\PROJECTS\VScan\PTFLib\obj\Debug\PTFLib.pdb
+C:\PROJECTS\VScan\PTFLib\bin\Debug\DTK.BarReader.dll
+C:\PROJECTS\VScan\PTFLib\bin\Debug\DTK.BarReader.xml
+C:\PROJECTS\VScan\PTFLib\obj\Debug\PTFLib.csproj.GenerateResource.Cache
+C:\PROJECTS\VScan\PTFLib\obj\Debug\PTFLib.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VScan\PTFLib\bin\Debug\PTF.Common.dll
+C:\PROJECTS\VScan\PTFLib\bin\Debug\PTF.Common.pdb

@@ -1,0 +1,29 @@
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\bin\Release\RemoteTracer.exe.config
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\bin\Release\RemoteTracer.exe
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\bin\Release\RemoteTracer.pdb
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\bin\Release\RemoteTracerLib.dll
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\bin\Release\RemoteTracerLib.pdb
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\obj\x86\Release\ResolveAssemblyReference.cache
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\obj\x86\Release\RemoteTracer.exe
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\obj\x86\Release\RemoteTracer.pdb
+E:\PROJECTS\PTF\RemoteTracer\bin\Release\RemoteTracer.exe
+E:\PROJECTS\PTF\RemoteTracer\bin\Release\RemoteTracer.pdb
+E:\PROJECTS\PTF\RemoteTracer\bin\Release\RemoteTracerLib.dll
+E:\PROJECTS\PTF\RemoteTracer\bin\Release\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\RemoteTracer\obj\x86\Release\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\RemoteTracer\obj\x86\Release\RemoteTracer.exe
+E:\PROJECTS\PTF\RemoteTracer\obj\x86\Release\RemoteTracer.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\bin\Release\RemoteTracer.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\bin\Release\RemoteTracer.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\bin\Release\RemoteTracerLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\bin\Release\RemoteTracerLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\obj\x86\Release\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\obj\x86\Release\RemoteTracer.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\obj\x86\Release\RemoteTracer.pdb
+C:\PROJECTS\VScan\RemoteTracer\bin\Release\RemoteTracer.exe
+C:\PROJECTS\VScan\RemoteTracer\bin\Release\RemoteTracer.pdb
+C:\PROJECTS\VScan\RemoteTracer\bin\Release\RemoteTracerLib.dll
+C:\PROJECTS\VScan\RemoteTracer\bin\Release\RemoteTracerLib.pdb
+C:\PROJECTS\VScan\RemoteTracer\obj\x86\Release\ResolveAssemblyReference.cache
+C:\PROJECTS\VScan\RemoteTracer\obj\x86\Release\RemoteTracer.exe
+C:\PROJECTS\VScan\RemoteTracer\obj\x86\Release\RemoteTracer.pdb

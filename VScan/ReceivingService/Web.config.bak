@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<configuration>
+  <appSettings>
+    <add key="PTFScanDB" value="data source=192.168.58.57;initial catalog=PTFScan;persist security info=False;user id=sa;pwd=sa;packet size=4096;"/>
+    <add key="PTFDB" value="data source=192.168.58.57;initial catalog=ptf;persist security info=False;user id=sa;pwd=sa;packet size=4096;"/>
+  </appSettings>
+    <system.web>
+        <compilation debug="true" targetFramework="4.0" />
+    </system.web>
+
+    <system.serviceModel>
+        <standardEndpoints>
+            <mexEndpoint>
+                <standardEndpoint name="mexEndpoint" />
+            </mexEndpoint>
+            <webHttpEndpoint>
+                <standardEndpoint name="webEndpoint" maxBufferSize="524288" maxReceivedMessageSize="524288" />
+            </webHttpEndpoint>
+        </standardEndpoints>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="VoucherEntryAndModificationSoap" />
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://192.168.58.59/PtfWebService/VoucherEntryAndModification.asmx"
+                binding="basicHttpBinding" bindingConfiguration="VoucherEntryAndModificationSoap"
+                contract="VoucherEntryAndModificationProxy.VoucherEntryAndModificationSoap"
+                name="VoucherEntryAndModificationSoap" />
+        </client>
+        <behaviors>
+            <serviceBehaviors>
+                <behavior name="DataServiceConfiguration">
+                    <serviceMetadata httpGetEnabled="true" httpGetBinding="webHttpBinding"
+                        httpGetBindingConfiguration="" />
+                    <serviceDebug httpHelpPageBinding="webHttpBinding" httpHelpPageBindingConfiguration=""
+                        httpsHelpPageBinding="webHttpBinding" httpsHelpPageBindingConfiguration=""
+                        includeExceptionDetailInFaults="true" />
+                </behavior>
+            </serviceBehaviors>
+        </behaviors>
+        <serviceHostingEnvironment multipleSiteBindingsEnabled="true" />
+    </system.serviceModel>
+</configuration>

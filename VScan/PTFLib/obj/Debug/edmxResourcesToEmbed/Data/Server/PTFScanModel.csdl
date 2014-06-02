@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PTFScanModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="PTFScanEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CLIENTS" EntityType="PTFScanModel.CLIENT" />
+    <EntitySet Name="CONFIGs" EntityType="PTFScanModel.CONFIG" />
+    <EntitySet Name="MESSAGES" EntityType="PTFScanModel.MESSAGE" />
+    <EntitySet Name="MESSAGESOURCES" EntityType="PTFScanModel.MESSAGESOURCE" />
+    <EntitySet Name="MESSAGETYPES" EntityType="PTFScanModel.MESSAGETYPE" />
+    <EntitySet Name="STATIONS_CFG" EntityType="PTFScanModel.STATIONS_CFG" />
+    <AssociationSet Name="FK_MESSAGES_CLIENTS" Association="PTFScanModel.FK_MESSAGES_CLIENTS">
+      <End Role="CLIENTS" EntitySet="CLIENTS" />
+      <End Role="MESSAGES" EntitySet="MESSAGES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STATIONS_CFG_CLIENTS" Association="PTFScanModel.FK_STATIONS_CFG_CLIENTS">
+      <End Role="CLIENTS" EntitySet="CLIENTS" />
+      <End Role="STATIONS_CFG" EntitySet="STATIONS_CFG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGES_MESSAGESOURCES" Association="PTFScanModel.FK_MESSAGES_MESSAGESOURCES">
+      <End Role="MESSAGESOURCES" EntitySet="MESSAGESOURCES" />
+      <End Role="MESSAGES" EntitySet="MESSAGES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MESSAGES_MESSAGETYPES" Association="PTFScanModel.FK_MESSAGES_MESSAGETYPES">
+      <End Role="MESSAGETYPES" EntitySet="MESSAGETYPES" />
+      <End Role="MESSAGES" EntitySet="MESSAGES" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CLIENT">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="IP" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+    <Property Name="DateLastVisit" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="MESSAGES" Relationship="PTFScanModel.FK_MESSAGES_CLIENTS" FromRole="CLIENTS" ToRole="MESSAGES" />
+    <NavigationProperty Name="STATIONS_CFG" Relationship="PTFScanModel.FK_STATIONS_CFG_CLIENTS" FromRole="CLIENTS" ToRole="STATIONS_CFG" />
+  </EntityType>
+  <EntityType Name="CONFIG">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ConfigID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceID" Type="Int32" Nullable="false" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="ConfigID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Source" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MESSAGE">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <Property Name="Message1" Type="String" Nullable="false" MaxLength="1024" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="SourceID" Type="Int32" Nullable="false" />
+    <Property Name="StackTrace" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+    <Property Name="DateGenerated" Type="DateTime" Nullable="false" />
+    <Property Name="DateInserted" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="CLIENT" Relationship="PTFScanModel.FK_MESSAGES_CLIENTS" FromRole="MESSAGES" ToRole="CLIENTS" />
+    <NavigationProperty Name="MESSAGESOURCE" Relationship="PTFScanModel.FK_MESSAGES_MESSAGESOURCES" FromRole="MESSAGES" ToRole="MESSAGESOURCES" />
+    <NavigationProperty Name="MESSAGETYPE" Relationship="PTFScanModel.FK_MESSAGES_MESSAGETYPES" FromRole="MESSAGES" ToRole="MESSAGETYPES" />
+    <Property Type="Int32" Name="Source" Nullable="false" />
+    <Property Type="DateTime" Name="DateExported" />
+  </EntityType>
+  <EntityType Name="MESSAGESOURCE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="MESSAGES" Relationship="PTFScanModel.FK_MESSAGES_MESSAGESOURCES" FromRole="MESSAGESOURCES" ToRole="MESSAGES" />
+  </EntityType>
+  <EntityType Name="MESSAGETYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="MESSAGES" Relationship="PTFScanModel.FK_MESSAGES_MESSAGETYPES" FromRole="MESSAGETYPES" ToRole="MESSAGES" />
+  </EntityType>
+  <EntityType Name="STATIONS_CFG">
+    <Key>
+      <PropertyRef Name="StationCfgID" />
+    </Key>
+    <Property Name="StationCfgID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="1024" Unicode="true" FixedLength="false" />
+    <Property Name="DateLastUpdated" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="CLIENT" Relationship="PTFScanModel.FK_STATIONS_CFG_CLIENTS" FromRole="STATIONS_CFG" ToRole="CLIENTS" />
+  </EntityType>
+  <Association Name="FK_MESSAGES_CLIENTS">
+    <End Role="CLIENTS" Type="PTFScanModel.CLIENT" Multiplicity="1" />
+    <End Role="MESSAGES" Type="PTFScanModel.MESSAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTS">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="MESSAGES">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STATIONS_CFG_CLIENTS">
+    <End Role="CLIENTS" Type="PTFScanModel.CLIENT" Multiplicity="1" />
+    <End Role="STATIONS_CFG" Type="PTFScanModel.STATIONS_CFG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTS">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="STATIONS_CFG">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGES_MESSAGESOURCES">
+    <End Role="MESSAGESOURCES" Type="PTFScanModel.MESSAGESOURCE" Multiplicity="1" />
+    <End Role="MESSAGES" Type="PTFScanModel.MESSAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MESSAGESOURCES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MESSAGES">
+        <PropertyRef Name="SourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MESSAGES_MESSAGETYPES">
+    <End Role="MESSAGETYPES" Type="PTFScanModel.MESSAGETYPE" Multiplicity="1" />
+    <End Role="MESSAGES" Type="PTFScanModel.MESSAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MESSAGETYPES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MESSAGES">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
