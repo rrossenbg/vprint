@@ -6,3 +6,5 @@ D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\bin\Debug\itextsharp.pdb
 D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\bin\Debug\itextsharp.xml
 D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\obj\x86\Debug\AddImageAndSignPdf.exe
 D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\obj\x86\Debug\AddImageAndSignPdf.pdb
+C:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\obj\x86\Debug\AddImageAndSignPdf.exe
+C:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\obj\x86\Debug\AddImageAndSignPdf.pdb

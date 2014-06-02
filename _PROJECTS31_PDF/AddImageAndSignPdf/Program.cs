@@ -22,9 +22,11 @@ namespace AddImageAndSignPdf
     {
         static void Main(string[] args)
         {
-            const string PATH = @"D:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\Others\";
+            const string PATH = @"C:\PROJECTS\_PROJECTS31_PDF\AddImageAndSignPdf\Others\";
 
-            CreatePdf(PATH + "test123.pdf", PATH + "NewFile.JPG", new CreationInfo()
+            const string IMAGE_PATH = "";
+
+            CreatePdf(PATH + "test123.pdf", IMAGE_PATH, new CreationInfo()
             {
                 Title = "Voucher 1234567",
                 Subject = "Retailer 1342526",
