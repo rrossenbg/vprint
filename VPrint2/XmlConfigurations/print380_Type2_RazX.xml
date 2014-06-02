@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- format 2 (ON LIVE) 27.09.2013 SMALL -->
+<VoucherPrintLayoutRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <FormLength>54</FormLength>
+  <PageSize>
+    <!-- ppi 200-->
+    <Width>1000</Width>
+    <!-- was 827-->
+    <Height>250</Height>
+    <!-- was 500 http://www.photokaboom.com/photography/learn/printing/1_calculators.htm -->
+  </PageSize>
+  <Landscape>false</Landscape>
+  <!-- Name of the template. Should be unique for the system. -->
+  <TemplateName>33DCA343-44D1-40AA-8888-26511909AAAD</TemplateName>
+  <Context>
+    <![CDATA[
+@{
+    //Please no code into the body tag!
+    //Only variables
+    //Voucher
+    var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
+    
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);
+    var barcodeText = Model.StrVoucherNo.Replace(" ", ""); 
+    
+    //Retailer
+    var id = Model.Retailer.Id;
+}  
+
+<?xml version="1.0" encoding="utf-8"?>
+<VoucherPrintRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Lines>
+  
+    <!-- VoucherNumber - VoucherNo 0 -->
+    <GPrintLine>
+      <X>0</X>
+      <Y>70</Y>
+      <Size>0</Size>
+      <Text>@voucherNumber</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- RetailerID - StoreNo 2-->
+    <GPrintLine>
+      <X>0</X>
+      <Y>100</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- RetailerID2 - VoucherNo 0 -->
+    <GPrintLine>
+      <X>170</X>
+      <Y>135</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLine>
+  </Lines>
+  
+  <Barcodes>
+    <BarPrintLine>
+      <X>140</X>
+      <Y>80</Y>
+      <Text>@barcodeNumber</Text>
+      <Height>25</Height>
+      <Size>2</Size>
+      <BarText> 
+        <X>2</X>
+        <Y>2</Y>
+        <Size>0</Size>
+        <Text>@barcodeText</Text>
+        <Font>
+          <Value>Arial, 9pt</Value>
+        </Font>
+      </BarText>
+    </BarPrintLine>
+  </Barcodes>
+  
+</VoucherPrintRazX>
+
+]]>
+  </Context>
+</VoucherPrintLayoutRazX>

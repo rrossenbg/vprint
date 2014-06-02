@@ -1,0 +1,5 @@
+C:\PROJECTS\VPrint\VPrint\Release\AForge.dll
+C:\PROJECTS\VPrint\VPrint\Release\AForge.pdb
+C:\PROJECTS\VPrint\VPrint\Release\AForge.xml
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Core\obj\Debug\AForge.dll
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Core\obj\Debug\AForge.pdb

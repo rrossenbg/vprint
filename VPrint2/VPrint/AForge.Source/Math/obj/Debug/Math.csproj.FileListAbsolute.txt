@@ -1,0 +1,6 @@
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Math.dll
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Math.pdb
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Math.xml
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Math\obj\Debug\AForge.Math.dll
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Math\obj\Debug\AForge.Math.pdb
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Math\obj\Debug\Math.csprojResolveAssemblyReference.cache

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- FORMAT 1 (CZECH REPUBLIC)-->
+<VoucherPrintLayoutRaz xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <FormLength>49</FormLength>
+  <!-- Name of the template. Should be unique for the system. -->
+  <TemplateName>6105DB4C-78D5-4029-A3FA-2F96F146D1A0</TemplateName>
+  <Context>
+    <![CDATA[
+@{
+    //Please no code into the body tag!
+    //Only variables
+    string ROW0 = "<br>".Miltiply(13);
+    string ROW1 = "<br>".Miltiply(22);
+
+    const string COL0 = "<ht><ht><ht><ht><ht><ht><ht>"; 
+    const string COL1 = "<ht><ht><ht><ht><ht><ht><ht>"; 
+    const string COL2 = "<ht>"; 
+    const string COL2_1 = "<ht><ht><ht><ht><ht><ht><ht><ht><nbsp><nbsp>";  
+    const string COL3 = "<ht><ht><ht><ht><ht><ht>"; 
+    const string COL4 = "<ht><ht><ht><ht><ht><ht><ht>";   
+    
+    var length = Helper.ToEsc(67,0, 82);
+    var id = Model.Retailer.Id;
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);
+    //var barcode = string.Format(@"{0}it1r1s0x70y00b{1}\\", (char)27, barcodeNumber);
+
+    // var barcode = Helper.ToEsc(16, 65, 8, 3, 0, 1, 2, 1, 1, 1, 2 ) + Helper.ToEsc(16, 66, 10, 31, 32, 33, 34, 35, 36, 37, 38, 39, 30, 10 ) ;
+
+
+    var barcodeText = Model.StrVoucherNo.Replace(" ", "");    
+    var shopName = Model.Retailer.TradingName ?? Model.Retailer.Name;
+    var voucherNumber = string.Concat(Model.VoucherNo, Model.Printing.CalculateCheckDigit(Model.VoucherNo));   
+    var line1 = Model.Retailer.RetailAddress.Line1;
+    var line2 = Model.Retailer.RetailAddress.Line2;
+    var line3 = Model.Retailer.RetailAddress.Line3;
+    var line5 = Model.Retailer.RetailAddress.Line5;
+    var phone = Model.Retailer.Phone;
+    var vatNumber = string.Concat("CZ ",  Model.Retailer.VatNumber); 
+}    
+<body>
+@length
+@ROW0
+@COL2@voucherNumber<br>
+ @ROW1
+ @COL2_1@id
+<br><br>
+  @COL3@string.Format("{0,-35}",shopName)<br>
+  @COL3@line1<br>
+  @COL3@line2<br>
+  @COL3@string.Format("{0,-35}",line3)<br>
+  @COL3@line5<br>
+  @COL4@vatNumber
+</body>
+]]>
+  </Context>
+</VoucherPrintLayoutRaz>

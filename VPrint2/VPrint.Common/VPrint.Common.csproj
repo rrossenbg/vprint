@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{299F65C9-2BDF-42B2-BA4B-CA39F06328CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VPrint.Common</RootNamespace>
+    <AssemblyName>VPrint.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\OnLiveAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CertificateSecurity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Colections\bitArray.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Colections\IgnoreList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Colections\MemoryBuffer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Colections\SortableBindingList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\BarcodeConfig.cs" />
+    <Compile Include="Common\Security.cs" />
+    <Compile Include="Extensions\BitmapEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\CollectionEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\CoreEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\DelegateEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\DelegateEx2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\DisposableEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\DrawingEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\EnumerableEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\FileInfoEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\IntEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\ObjectEx2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\StreamEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\StringEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\XElementEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IRunnable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\StateSaver.cs" />
+    <Compile Include="Strings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tools\CString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tools\FontWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

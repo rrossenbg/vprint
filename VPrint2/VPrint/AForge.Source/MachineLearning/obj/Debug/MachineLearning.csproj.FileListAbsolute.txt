@@ -1,0 +1,5 @@
+C:\PROJECTS\VPrint\VPrint\Release\AForge.MachineLearning.dll
+C:\PROJECTS\VPrint\VPrint\Release\AForge.MachineLearning.pdb
+C:\PROJECTS\VPrint\VPrint\Release\AForge.MachineLearning.xml
+C:\PROJECTS\VPrint\VPrint\AForge.Source\MachineLearning\obj\Debug\AForge.MachineLearning.dll
+C:\PROJECTS\VPrint\VPrint\AForge.Source\MachineLearning\obj\Debug\AForge.MachineLearning.pdb

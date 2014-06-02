@@ -1,0 +1,1 @@
+Copy font assemblies to the Release or Debug(depend on which one you want to run your program) folder(s) in your Visual Studio project manually. These assemblies are written in C++ and can not be added to the project by visual studio using adding reference routine.

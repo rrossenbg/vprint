@@ -1,0 +1,6 @@
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Neuro.dll
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Neuro.pdb
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Neuro.xml
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Neuro\obj\Debug\Neuro.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Neuro\obj\Debug\AForge.Neuro.dll
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Neuro\obj\Debug\AForge.Neuro.pdb

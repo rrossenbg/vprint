@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- FORMAT CZ 1 (NOT IN USE)-->
+<VoucherPrintLayoutRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <FormLength>54</FormLength>
+  <PageSize>
+    <Width>827</Width>
+    <Height>1200</Height>
+  </PageSize>
+  <Landscape>false</Landscape>
+  <!-- Name of the template. Should be unique for the system. -->
+  <TemplateName>D1DF2A22-D3E5-41B8-8A50-99C87FD25A2D</TemplateName>
+  <Context>
+    <![CDATA[
+
+@{
+    //Please no code into the body tag!
+    //Only variables
+    
+    //Voucher
+    var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
+    var index = Convert.ToInt32(CacheManager.Instance.Table[Strings.Index]);
+    var subVoucherNumber = Model.Allocation.SubRangeFrom + index;
+    CacheManager.Instance.Table[Strings.Index] = index + 1;
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);
+    var barcodeText = Model.StrVoucherNo.Replace(" ", "");   
+    
+    //Retailer
+    var id = Model.Retailer.Id;
+    var retailerName = Model.Retailer.TradingName.EscapeXml();
+    var rLine1 = Model.Retailer.RetailAddress.Line1;
+    var rLine2 = Model.Retailer.RetailAddress.Line2;
+    var rLine3 = Model.Retailer.RetailAddress.Line3;
+    var rLine5 = Model.Retailer.RetailAddress.Line5;
+    var retailerAddress = string.Concat(rLine1, '\n', rLine2, '\n', rLine3, '\n', rLine5).EscapeXml();
+    var retailerPhone = Model.Retailer.Phone.EscapeXml();
+    
+    var officeData = Model.Manager.RetrieveTableData("ho_pfs, ho_Certificate_1, ho_Certificate_2, ho_Certificate_3, ho_category_title,ho_add_id", "HeadOffice", 
+        "where ho_id={0} and ho_iso_id={1}".format(Model.Retailer.HeadOfficeId, Model.Office.CountryId));
+    var branchData = Model.Manager.RetrieveTableData("br_category, br_pfs", "Branch", 
+        "where br_id={0} and br_iso_id={1}".format(Model.Retailer.Id, Model.Retailer.CountryId));
+    
+    //Office
+    var officeName = Model.Retailer.HeadOfficeName.EscapeXml();
+    var hoData = Model.Manager.RetrieveTableData("hoa_add_1,hoa_add_2,hoa_add_3,hoa_add_4,hoa_add_5,hoa_add_6", "HeadOfficeAddress", 
+        "where hoa_id = {0} ".format(officeData.Length>5? (officeData[5]??0): 0));
+    var oLine1 = hoData.Length > 0? Convert.ToString(hoData[0]) : "";
+    var oLine2 = hoData.Length > 1? Convert.ToString(hoData[1]) : "";
+    var oLine3 = hoData.Length > 2 ? Convert.ToString(hoData[2]): "";
+    var oLine5 = hoData.Length > 4 ? Convert.ToString(hoData[4]): "";
+    var officeAddress = string.Concat(oLine1, '\n', oLine2, '\n', oLine3, '\n', oLine5).EscapeXml();
+    
+    var vatNumber = string.Concat("CZ ", Model.Retailer.VatNumber);
+}  
+
+<?xml version="1.0" encoding="utf-8"?>
+<VoucherPrintRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- -->
+  <Lines>
+    <!-- VoucherNumber - VoucherNo -->
+    <GPrintLine>
+      <X>110</X>
+      <Y>202</Y>
+      <Size>0</Size>
+      <Text>@voucherNumber</Text>
+      <Font>
+        <Value>Arial, 11pt</Value>
+      </Font>
+    </GPrintLine>
+
+    <!-- RetailerID - StoreNo -->
+    <GPrintLine>
+      <X>625</X>
+      <Y>586</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 11pt</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- RetailerName - RetailerName -->
+    <GPrintLine>
+      <X>450</X>
+      <Y>620</Y>
+      <Size>0</Size>
+      <Text>@retailerName</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLine>  
+    
+    <!-- RetailerAddress - Address -->
+    <GPrintLine>
+      <X>450</X>
+      <Y>645</Y>
+      <Size>0</Size>
+      <Text>@retailerAddress</Text>
+      <Font>
+        <Value>Arial, 11pt</Value>
+      </Font>
+    </GPrintLine>  
+    
+   <!-- VatNumber - VatNo -->
+    <GPrintLine>
+      <X>558</X>
+      <Y>736</Y>
+      <Size>0</Size>
+      <Text>@vatNumber</Text>
+      <Font>
+        <Value>Arial, 14pt</Value>
+      </Font>
+    </GPrintLine>
+  </Lines>
+    
+  <Barcodes>
+    <BarPrintLine>
+      <X>470</X>
+      <Y>25</Y>
+      <Text>@barcodeNumber</Text>
+      <Height>40</Height>
+      <Size>2</Size>
+      <BarText>
+        <X>658</X>
+        <Y>736</Y>
+        <Size>0</Size>
+        <Text>@barcodeText</Text>
+        <Font>
+          <Value>Arial, 11pt</Value>
+        </Font>
+      </BarText>
+    </BarPrintLine>
+  </Barcodes>
+</VoucherPrintRazX>
+
+]]>
+  </Context>
+</VoucherPrintLayoutRazX>

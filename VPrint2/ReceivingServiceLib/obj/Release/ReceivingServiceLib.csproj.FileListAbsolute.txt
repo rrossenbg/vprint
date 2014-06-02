@@ -1,0 +1,9 @@
+C:\PROJECTS\VPrint\ReceivingServiceLib\bin\Release\ReceivingServiceLib.dll.config
+C:\PROJECTS\VPrint\ReceivingServiceLib\bin\Release\ReceivingServiceLib.dll
+C:\PROJECTS\VPrint\ReceivingServiceLib\bin\Release\ReceivingServiceLib.pdb
+C:\PROJECTS\VPrint\ReceivingServiceLib\bin\Release\Ionic.Zip.dll
+C:\PROJECTS\VPrint\ReceivingServiceLib\bin\Release\Ionic.Zlib.dll
+C:\PROJECTS\VPrint\ReceivingServiceLib\bin\Release\ReceivingServiceLib.Common.dll
+C:\PROJECTS\VPrint\ReceivingServiceLib\obj\Release\ReceivingServiceLib.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\ReceivingServiceLib\obj\Release\ReceivingServiceLib.dll
+C:\PROJECTS\VPrint\ReceivingServiceLib\obj\Release\ReceivingServiceLib.pdb

@@ -1,0 +1,6 @@
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Imaging.Formats.dll
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Imaging.Formats.pdb
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Imaging.Formats.xml
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Imaging.Formats\obj\Debug\AForge.Imaging.Formats.dll
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Imaging.Formats\obj\Debug\AForge.Imaging.Formats.pdb
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Imaging.Formats\obj\Debug\Imaging.Formats.csprojResolveAssemblyReference.cache

@@ -1,0 +1,4 @@
+C:\PROJECTS\VPrint\ReceivingServiceLib.Common\bin\Release\ReceivingServiceLib.Common.dll
+C:\PROJECTS\VPrint\ReceivingServiceLib.Common\bin\Release\ReceivingServiceLib.Common.pdb
+C:\PROJECTS\VPrint\ReceivingServiceLib.Common\obj\Release\ReceivingServiceLib.Common.dll
+C:\PROJECTS\VPrint\ReceivingServiceLib.Common\obj\Release\ReceivingServiceLib.Common.pdb

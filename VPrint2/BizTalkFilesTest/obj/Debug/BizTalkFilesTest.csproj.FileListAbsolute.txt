@@ -1,0 +1,7 @@
+C:\PROJECTS\VPrint\BizTalkFilesTest\bin\Debug\BizTalkFilesTest.dll
+C:\PROJECTS\VPrint\BizTalkFilesTest\bin\Debug\BizTalkFilesTest.pdb
+C:\PROJECTS\VPrint\BizTalkFilesTest\bin\Debug\BizTalkFiles.exe
+C:\PROJECTS\VPrint\BizTalkFilesTest\bin\Debug\BizTalkFiles.pdb
+C:\PROJECTS\VPrint\BizTalkFilesTest\obj\Debug\BizTalkFilesTest.dll
+C:\PROJECTS\VPrint\BizTalkFilesTest\obj\Debug\BizTalkFilesTest.pdb
+C:\PROJECTS\VPrint\BizTalkFilesTest\obj\Debug\BizTalkFilesTest.csprojResolveAssemblyReference.cache

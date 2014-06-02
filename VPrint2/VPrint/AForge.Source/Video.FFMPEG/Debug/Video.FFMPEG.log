@@ -1,0 +1,14 @@
+﻿C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(1605,5): warning MSB3245: Could not resolve this reference. Could not locate the assembly "AForge.Video, Version=2.2.4.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors.
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(1605,5): warning MSB3243: No way to resolve conflict between "AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401" and "AForge.Video, Version=2.2.4.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401". Choosing "AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401" arbitrarily.
+  Consider app.config remapping of assembly "AForge.Video, Culture=neutral, PublicKeyToken=cbfb6e07d173c401" from Version "2.2.4.0" [] to Version "2.2.5.0" [C:\Program Files (x86)\AForge.NET\Framework\Release\AForge.Video.dll] to solve conflict and get rid of warning.
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(1605,5): warning MSB3247: Found conflicts between different versions of the same dependent assembly.
+  Stdafx.cpp
+  AssemblyInfo.cpp
+  VideoCodec.cpp
+VideoCodec.cpp(18): fatal error C1083: Cannot open include file: 'libavcodec\avcodec.h': No such file or directory
+  VideoFileReader.cpp
+VideoFileReader.cpp(21): fatal error C1083: Cannot open include file: 'libavformat\avformat.h': No such file or directory
+  VideoFileSource.cpp
+  VideoFileWriter.cpp
+VideoFileWriter.cpp(21): fatal error C1083: Cannot open include file: 'libavformat\avformat.h': No such file or directory
+  Generating Code...

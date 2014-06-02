@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<VoucherPrintLayout380 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <BarCodeNo>
+    <Description>BarCodeNo</Description>
+    <X>3100</X>
+    <Y>1</Y>
+    <Size>2</Size>
+    <XYZ>000</XYZ>
+    <Compressed>false</Compressed>
+  </BarCodeNo>
+  <BarCodeText>    
+    <Description>BarCodeText</Description>
+    <X>3403</X>
+    <Y>350</Y>
+    <Size>3</Size>
+    <Text>D GB 826 20 152948 218650462</Text>
+  </BarCodeText>
+  <ShopName>    
+    <Description>ShopName</Description>
+    <X>1002</X>
+    <Y>200</Y>
+    <Size>3</Size>
+    <Text>1 Et 1 Font 3</Text>
+  </ShopName>
+  <VoucherID>    
+    <Description>VoucherID</Description>
+    <X>4696</X>
+    <Y>850</Y>
+    <Size>3</Size>
+    <Text>218650462</Text>
+  </VoucherID>
+  <ShopNo>    
+    <Description>ShopNo</Description>
+    <X>5208</X>
+    <Y>553</Y>
+    <Size>3</Size>
+    <Text>152948</Text>
+  </ShopNo>
+  <Line0>    
+    <Description>Line0</Description>
+    <X>1002</X>
+    <Y>302</Y>
+    <Size>3</Size>
+    <Text>54 Ledbury Road</Text>
+  </Line0>
+  <Line1>    
+    <Description>Line1</Description>
+    <X>1002</X>
+    <Y>400</Y>
+    <Size>3</Size>
+    <Text>Westbourne Grove</Text>
+  </Line1>
+  <Line2>    
+    <Description>Line2</Description>
+    <X>1002</X>
+    <Y>500</Y>
+    <Size>3</Size>
+    <Text>W11 2AG-London</Text>
+  </Line2>
+  <Line3>    
+    <Description>Line3</Description>
+    <X>1002</X>
+    <Y>600</Y>
+    <Size>3</Size>
+  </Line3>
+  <VATLine>    
+    <Description>VAT</Description>
+    <X>1002</X>
+    <Y>900</Y>
+    <Size>3</Size>
+    <Text>VAT No 858552289</Text>
+  </VATLine>
+  <RegLine>    
+    <Description>Reg</Description>
+    <X>2508</X>
+    <Y>700</Y>
+    <Size>3</Size>
+    <Text>Reg. Imp.:</Text>
+  </RegLine>
+  <CapLine>    
+    <Description>Cap</Description>
+    <X>2503</X>
+    <Y>800</Y>
+    <Size>3</Size>
+    <Text>Cap. Soc.:</Text>
+  </CapLine>
+  <ReaLine>    
+    <Description>Rea</Description>
+    <X>2501</X>
+    <Y>900</Y>
+    <Size>3</Size>
+    <Text>N. Rea   :</Text>
+  </ReaLine>
+</VoucherPrintLayout380>

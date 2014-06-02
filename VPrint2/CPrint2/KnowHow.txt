@@ -1,0 +1,17 @@
+﻿
+
+To GrayScale
+                        Grayscale gf = new Grayscale(0.2125, 0.7154, 0.0721);
+                        yield return gf.Apply(voucherImg);
+                        voucherImg.DisposeSf();
+
+To bpp8
+
+                        yield return voucherImg.CopyToBpp(8);
+                        voucherImg.DisposeSf();
+
+
+To bpp4
+
+                        yield return voucherImg.ToGrayscale4bpp();
+                        voucherImg.DisposeSf();

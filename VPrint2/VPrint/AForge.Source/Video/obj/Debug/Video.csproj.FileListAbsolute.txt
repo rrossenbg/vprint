@@ -1,0 +1,6 @@
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Video.dll
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Video.pdb
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Video.xml
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Video\obj\Debug\Video.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Video\obj\Debug\AForge.Video.dll
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Video\obj\Debug\AForge.Video.pdb

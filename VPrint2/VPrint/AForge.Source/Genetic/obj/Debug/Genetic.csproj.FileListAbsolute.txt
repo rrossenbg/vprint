@@ -1,0 +1,6 @@
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Genetic.dll
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Genetic.pdb
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Genetic.xml
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Genetic\obj\Debug\Genetic.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Genetic\obj\Debug\AForge.Genetic.dll
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Genetic\obj\Debug\AForge.Genetic.pdb

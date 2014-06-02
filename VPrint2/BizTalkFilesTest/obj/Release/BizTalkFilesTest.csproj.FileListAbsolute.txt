@@ -1,0 +1,7 @@
+C:\PROJECTS\VPrint\BizTalkFilesTest\bin\Release\BizTalkFilesTest.dll
+C:\PROJECTS\VPrint\BizTalkFilesTest\bin\Release\BizTalkFilesTest.pdb
+C:\PROJECTS\VPrint\BizTalkFilesTest\bin\Release\BizTalkFiles.exe
+C:\PROJECTS\VPrint\BizTalkFilesTest\bin\Release\BizTalkFiles.pdb
+C:\PROJECTS\VPrint\BizTalkFilesTest\obj\Release\BizTalkFilesTest.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\BizTalkFilesTest\obj\Release\BizTalkFilesTest.dll
+C:\PROJECTS\VPrint\BizTalkFilesTest\obj\Release\BizTalkFilesTest.pdb

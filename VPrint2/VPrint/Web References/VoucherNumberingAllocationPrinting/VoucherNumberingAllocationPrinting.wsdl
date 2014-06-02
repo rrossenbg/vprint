@@ -1,0 +1,1489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ptf.com/PtfWebService" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s2="http://POSHostOrchestration.POSHostResponse" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.ptf.com/PtfWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Service supplies all the function calls required for Voucher Numbering and Allocation.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ptf.com/PtfWebService">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:import namespace="http://POSHostOrchestration.POSHostResponse" />
+      <s:element name="AllocateVoucherIDRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="headOfficeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderVolume" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isShop" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPriority" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pos_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllocateVoucherIDRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AllocateVoucherIDRangeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticationHeader" type="tns:AuthenticationHeader" />
+      <s:complexType name="AuthenticationHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Salt" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="AllocateRangePOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="posId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderVolume" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="originator" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllocateRangePOSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AllocateRangePOSResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAllocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="allocationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAllocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAllocationResult" type="tns:VoucherAllocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VoucherAllocation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllocationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HeadOfficeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HeadOfficeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetailerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetailerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetailerAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderVolume" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RangeFrom" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RangeTo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutputMethod" type="s1:char" />
+          <s:element minOccurs="0" maxOccurs="1" name="PosId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Printed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlacklistId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DatePrinted" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DispatchMethod" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DispatchDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Priority" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HeadOfficeVoucherType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OriginalVoucherNum" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Shop" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Printer" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pos" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CheckDigit" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubRangeFrom" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubRangeTo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherNumberFirst" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherNumberLast" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherRangeFirst" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherRangeLast" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrieveVoucherAllocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="voucherId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkDigitIncluded" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveVoucherAllocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveVoucherAllocationResult" type="tns:VoucherAllocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVoucherAllocationPrinted">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="allocationId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="printed" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVoucherAllocationPrintedResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetVoucherDispatchMedthod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="allocationId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="dispatch_method" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dispatch_date" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVoucherDispatchMedthodResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetVoucherAllocationPriority">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="allocationId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="priority" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetVoucherAllocationPriorityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveRetailerRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="headOfficeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="printed" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="doublesale" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dispatched" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRetailerRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveRetailerRangeResult" type="tns:ArrayOfVoucherAllocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVoucherAllocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VoucherAllocation" nillable="true" type="tns:VoucherAllocation" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrieveUnprintedAllocatedVouchers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="headOfficeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveUnprintedAllocatedVouchersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveUnprintedAllocatedVouchersResult" type="tns:ArrayOfVoucherAllocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BlacklistAllocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="headOfficeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allocationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BlacklistAllocationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveRangePOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="posId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRangePOSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveRangePOSResult" type="tns:ArrayOfVoucherAllocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAllocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="voucherId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="headOfficeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="purchaseDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAllocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckAllocationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckForAndCreateDuplicateVoucher">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iCountryID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iRetailerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iVoucherID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUserID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="iRequestLocation" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckForAndCreateDuplicateVoucherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s2:CheckForAndCreateDuplicateVoucherResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckBlacklist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="itemToCheck" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iCountryID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iRetailerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUserID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="iRequestLocation" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckBlacklistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckBlacklistResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAllocationPOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="voucherId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="posId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAllocationPOSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckAllocationPOSResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckTerminalValid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="posId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckTerminalValidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckTerminalValidResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateCheckDigit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="n" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateCheckDigitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalculateCheckDigitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVoucherNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="voucherId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkDigitIncluded" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVoucherNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateVoucherNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVoucherNumberParts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="voucherId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkDigitIncluded" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVoucherNumberPartsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateVoucherNumberPartsResult" type="tns:VoucherNumber" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VoucherNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OutputMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActivityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetailerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetailerCheckDigit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherCheckDigit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BinaryWritePicture">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="voucherNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="barCodeType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="width" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="height" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BinaryWritePictureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BinaryWritePictureResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrintVouchers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="allocationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrintVouchersResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateVoucherFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="allocationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVoucherFileResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LogVoucherAllocationPrinted">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="allocationId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogVoucherAllocationPrintedResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LogVoucherAllocationReprinted">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="allocationId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reprintRange" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogVoucherAllocationReprintedResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AllocatePOSRangeBizTalk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inParam" type="tns:Parameter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Parameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="posId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="orderVolume" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="originator" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AllocatePOSRangeBizTalkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s2:AllocatePOSRangeBizTalkResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSavedVoucherFormats">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSavedVoucherFormatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSavedVoucherFormatsResult" type="tns:ArrayOfPrinterFormat" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPrinterFormat">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PrinterFormat" nillable="true" type="tns:PrinterFormat" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrinterFormat">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Xml" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveVoucherFormat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iso_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="type2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveVoucherFormatResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestGetCultureText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestGetCultureTextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestGetCultureTextResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://POSHostOrchestration.POSHostResponse">
+      <s:element name="CheckForAndCreateDuplicateVoucherResult" type="s2:Vouchers" />
+      <s:complexType name="Vouchers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Header" type="s2:VouchersHeader" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Range" type="s2:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VouchersHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="TerminalID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="TIDName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RetailerId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Date" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Originator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="OrderVolume" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="VoucherStartRange" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="VoucherEndRange" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="VoucherStartSubRange" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="VoucherEndSubRange" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsException" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExceptionMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="v_number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AllocatePOSRangeBizTalkResult" type="s2:Vouchers" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AllocateVoucherIDRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:AllocateVoucherIDRange" />
+  </wsdl:message>
+  <wsdl:message name="AllocateVoucherIDRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:AllocateVoucherIDRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllocateVoucherIDRangeAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AllocateRangePOSSoapIn">
+    <wsdl:part name="parameters" element="tns:AllocateRangePOS" />
+  </wsdl:message>
+  <wsdl:message name="AllocateRangePOSSoapOut">
+    <wsdl:part name="parameters" element="tns:AllocateRangePOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllocateRangePOSAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllocationSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAllocation" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllocationSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAllocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllocationAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveVoucherAllocationSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveVoucherAllocation" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveVoucherAllocationSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveVoucherAllocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveVoucherAllocationAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherAllocationPrintedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetVoucherAllocationPrinted" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherAllocationPrintedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetVoucherAllocationPrintedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherAllocationPrintedAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherDispatchMedthodSoapIn">
+    <wsdl:part name="parameters" element="tns:SetVoucherDispatchMedthod" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherDispatchMedthodSoapOut">
+    <wsdl:part name="parameters" element="tns:SetVoucherDispatchMedthodResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherDispatchMedthodAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherAllocationPrioritySoapIn">
+    <wsdl:part name="parameters" element="tns:SetVoucherAllocationPriority" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherAllocationPrioritySoapOut">
+    <wsdl:part name="parameters" element="tns:SetVoucherAllocationPriorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetVoucherAllocationPriorityAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveRetailerRange" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveRetailerRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerRangeAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUnprintedAllocatedVouchersSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveUnprintedAllocatedVouchers" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUnprintedAllocatedVouchersSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveUnprintedAllocatedVouchersResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUnprintedAllocatedVouchersAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="BlacklistAllocationSoapIn">
+    <wsdl:part name="parameters" element="tns:BlacklistAllocation" />
+  </wsdl:message>
+  <wsdl:message name="BlacklistAllocationSoapOut">
+    <wsdl:part name="parameters" element="tns:BlacklistAllocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="BlacklistAllocationAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRangePOSSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveRangePOS" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRangePOSSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveRangePOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRangePOSAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckAllocationSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckAllocation" />
+  </wsdl:message>
+  <wsdl:message name="CheckAllocationSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckAllocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAllocationAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckForAndCreateDuplicateVoucherSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckForAndCreateDuplicateVoucher" />
+  </wsdl:message>
+  <wsdl:message name="CheckForAndCreateDuplicateVoucherSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckForAndCreateDuplicateVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckForAndCreateDuplicateVoucherAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckBlacklistSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckBlacklist" />
+  </wsdl:message>
+  <wsdl:message name="CheckBlacklistSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckBlacklistResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckBlacklistAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckAllocationPOSSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckAllocationPOS" />
+  </wsdl:message>
+  <wsdl:message name="CheckAllocationPOSSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckAllocationPOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAllocationPOSAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckTerminalValidSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckTerminalValid" />
+  </wsdl:message>
+  <wsdl:message name="CheckTerminalValidSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckTerminalValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckTerminalValidAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CalculateCheckDigitSoapIn">
+    <wsdl:part name="parameters" element="tns:CalculateCheckDigit" />
+  </wsdl:message>
+  <wsdl:message name="CalculateCheckDigitSoapOut">
+    <wsdl:part name="parameters" element="tns:CalculateCheckDigitResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalculateCheckDigitAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateVoucherNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVoucherNumber" />
+  </wsdl:message>
+  <wsdl:message name="CreateVoucherNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVoucherNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVoucherNumberAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateVoucherNumberPartsSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVoucherNumberParts" />
+  </wsdl:message>
+  <wsdl:message name="CreateVoucherNumberPartsSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVoucherNumberPartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVoucherNumberPartsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="BinaryWritePictureSoapIn">
+    <wsdl:part name="parameters" element="tns:BinaryWritePicture" />
+  </wsdl:message>
+  <wsdl:message name="BinaryWritePictureSoapOut">
+    <wsdl:part name="parameters" element="tns:BinaryWritePictureResponse" />
+  </wsdl:message>
+  <wsdl:message name="BinaryWritePictureAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="PrintVouchersSoapIn">
+    <wsdl:part name="parameters" element="tns:PrintVouchers" />
+  </wsdl:message>
+  <wsdl:message name="PrintVouchersSoapOut">
+    <wsdl:part name="parameters" element="tns:PrintVouchersResponse" />
+  </wsdl:message>
+  <wsdl:message name="PrintVouchersAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateVoucherFileSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVoucherFile" />
+  </wsdl:message>
+  <wsdl:message name="CreateVoucherFileSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVoucherFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVoucherFileAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="LogVoucherAllocationPrintedSoapIn">
+    <wsdl:part name="parameters" element="tns:LogVoucherAllocationPrinted" />
+  </wsdl:message>
+  <wsdl:message name="LogVoucherAllocationPrintedSoapOut">
+    <wsdl:part name="parameters" element="tns:LogVoucherAllocationPrintedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogVoucherAllocationPrintedAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="LogVoucherAllocationReprintedSoapIn">
+    <wsdl:part name="parameters" element="tns:LogVoucherAllocationReprinted" />
+  </wsdl:message>
+  <wsdl:message name="LogVoucherAllocationReprintedSoapOut">
+    <wsdl:part name="parameters" element="tns:LogVoucherAllocationReprintedResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogVoucherAllocationReprintedAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AllocatePOSRangeBizTalkSoapIn">
+    <wsdl:part name="parameters" element="tns:AllocatePOSRangeBizTalk" />
+  </wsdl:message>
+  <wsdl:message name="AllocatePOSRangeBizTalkSoapOut">
+    <wsdl:part name="parameters" element="tns:AllocatePOSRangeBizTalkResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllocatePOSRangeBizTalkAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSavedVoucherFormatsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSavedVoucherFormats" />
+  </wsdl:message>
+  <wsdl:message name="GetSavedVoucherFormatsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSavedVoucherFormatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSavedVoucherFormatsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SaveVoucherFormatSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveVoucherFormat" />
+  </wsdl:message>
+  <wsdl:message name="SaveVoucherFormatSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveVoucherFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveVoucherFormatAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="TestGetCultureTextSoapIn">
+    <wsdl:part name="parameters" element="tns:TestGetCultureText" />
+  </wsdl:message>
+  <wsdl:message name="TestGetCultureTextSoapOut">
+    <wsdl:part name="parameters" element="tns:TestGetCultureTextResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VoucherNumberingAllocationPrintingSoap">
+    <wsdl:operation name="AllocateVoucherIDRange">
+      <wsdl:input message="tns:AllocateVoucherIDRangeSoapIn" />
+      <wsdl:output message="tns:AllocateVoucherIDRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllocateRangePOS">
+      <wsdl:input message="tns:AllocateRangePOSSoapIn" />
+      <wsdl:output message="tns:AllocateRangePOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllocation">
+      <wsdl:input message="tns:RetrieveAllocationSoapIn" />
+      <wsdl:output message="tns:RetrieveAllocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveVoucherAllocation">
+      <wsdl:input message="tns:RetrieveVoucherAllocationSoapIn" />
+      <wsdl:output message="tns:RetrieveVoucherAllocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherAllocationPrinted">
+      <wsdl:input message="tns:SetVoucherAllocationPrintedSoapIn" />
+      <wsdl:output message="tns:SetVoucherAllocationPrintedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherDispatchMedthod">
+      <wsdl:input message="tns:SetVoucherDispatchMedthodSoapIn" />
+      <wsdl:output message="tns:SetVoucherDispatchMedthodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherAllocationPriority">
+      <wsdl:input message="tns:SetVoucherAllocationPrioritySoapIn" />
+      <wsdl:output message="tns:SetVoucherAllocationPrioritySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerRange">
+      <wsdl:input message="tns:RetrieveRetailerRangeSoapIn" />
+      <wsdl:output message="tns:RetrieveRetailerRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUnprintedAllocatedVouchers">
+      <wsdl:input message="tns:RetrieveUnprintedAllocatedVouchersSoapIn" />
+      <wsdl:output message="tns:RetrieveUnprintedAllocatedVouchersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BlacklistAllocation">
+      <wsdl:input message="tns:BlacklistAllocationSoapIn" />
+      <wsdl:output message="tns:BlacklistAllocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRangePOS">
+      <wsdl:input message="tns:RetrieveRangePOSSoapIn" />
+      <wsdl:output message="tns:RetrieveRangePOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAllocation">
+      <wsdl:input message="tns:CheckAllocationSoapIn" />
+      <wsdl:output message="tns:CheckAllocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckForAndCreateDuplicateVoucher">
+      <wsdl:input message="tns:CheckForAndCreateDuplicateVoucherSoapIn" />
+      <wsdl:output message="tns:CheckForAndCreateDuplicateVoucherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckBlacklist">
+      <wsdl:input message="tns:CheckBlacklistSoapIn" />
+      <wsdl:output message="tns:CheckBlacklistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAllocationPOS">
+      <wsdl:input message="tns:CheckAllocationPOSSoapIn" />
+      <wsdl:output message="tns:CheckAllocationPOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckTerminalValid">
+      <wsdl:input message="tns:CheckTerminalValidSoapIn" />
+      <wsdl:output message="tns:CheckTerminalValidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateCheckDigit">
+      <wsdl:input message="tns:CalculateCheckDigitSoapIn" />
+      <wsdl:output message="tns:CalculateCheckDigitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVoucherNumber">
+      <wsdl:input message="tns:CreateVoucherNumberSoapIn" />
+      <wsdl:output message="tns:CreateVoucherNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVoucherNumberParts">
+      <wsdl:input message="tns:CreateVoucherNumberPartsSoapIn" />
+      <wsdl:output message="tns:CreateVoucherNumberPartsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BinaryWritePicture">
+      <wsdl:input message="tns:BinaryWritePictureSoapIn" />
+      <wsdl:output message="tns:BinaryWritePictureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintVouchers">
+      <wsdl:input message="tns:PrintVouchersSoapIn" />
+      <wsdl:output message="tns:PrintVouchersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVoucherFile">
+      <wsdl:input message="tns:CreateVoucherFileSoapIn" />
+      <wsdl:output message="tns:CreateVoucherFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogVoucherAllocationPrinted">
+      <wsdl:input message="tns:LogVoucherAllocationPrintedSoapIn" />
+      <wsdl:output message="tns:LogVoucherAllocationPrintedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogVoucherAllocationReprinted">
+      <wsdl:input message="tns:LogVoucherAllocationReprintedSoapIn" />
+      <wsdl:output message="tns:LogVoucherAllocationReprintedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllocatePOSRangeBizTalk">
+      <wsdl:input message="tns:AllocatePOSRangeBizTalkSoapIn" />
+      <wsdl:output message="tns:AllocatePOSRangeBizTalkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSavedVoucherFormats">
+      <wsdl:input message="tns:GetSavedVoucherFormatsSoapIn" />
+      <wsdl:output message="tns:GetSavedVoucherFormatsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveVoucherFormat">
+      <wsdl:input message="tns:SaveVoucherFormatSoapIn" />
+      <wsdl:output message="tns:SaveVoucherFormatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestGetCultureText">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">PriceMismatchErrorForCopyP1</wsdl:documentation>
+      <wsdl:input message="tns:TestGetCultureTextSoapIn" />
+      <wsdl:output message="tns:TestGetCultureTextSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VoucherNumberingAllocationPrintingSoap" type="tns:VoucherNumberingAllocationPrintingSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AllocateVoucherIDRange">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AllocateVoucherIDRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AllocateVoucherIDRangeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllocateRangePOS">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AllocateRangePOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AllocateRangePOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllocation">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveAllocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveAllocationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveVoucherAllocation">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveVoucherAllocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveVoucherAllocationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherAllocationPrinted">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/SetVoucherAllocationPrinted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetVoucherAllocationPrintedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherDispatchMedthod">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/SetVoucherDispatchMedthod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetVoucherDispatchMedthodAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherAllocationPriority">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/SetVoucherAllocationPriority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetVoucherAllocationPriorityAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerRange">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveRetailerRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveRetailerRangeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUnprintedAllocatedVouchers">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveUnprintedAllocatedVouchers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveUnprintedAllocatedVouchersAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BlacklistAllocation">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/BlacklistAllocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BlacklistAllocationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRangePOS">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveRangePOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveRangePOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAllocation">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CheckAllocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckAllocationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckForAndCreateDuplicateVoucher">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CheckForAndCreateDuplicateVoucher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckForAndCreateDuplicateVoucherAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckBlacklist">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CheckBlacklist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckBlacklistAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAllocationPOS">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CheckAllocationPOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckAllocationPOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTerminalValid">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CheckTerminalValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckTerminalValidAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateCheckDigit">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CalculateCheckDigit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CalculateCheckDigitAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVoucherNumber">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CreateVoucherNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateVoucherNumberAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVoucherNumberParts">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CreateVoucherNumberParts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateVoucherNumberPartsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BinaryWritePicture">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/BinaryWritePicture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BinaryWritePictureAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintVouchers">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/PrintVouchers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PrintVouchersAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVoucherFile">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CreateVoucherFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateVoucherFileAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogVoucherAllocationPrinted">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/LogVoucherAllocationPrinted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LogVoucherAllocationPrintedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogVoucherAllocationReprinted">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/LogVoucherAllocationReprinted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LogVoucherAllocationReprintedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllocatePOSRangeBizTalk">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AllocatePOSRangeBizTalk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AllocatePOSRangeBizTalkAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSavedVoucherFormats">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/GetSavedVoucherFormats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSavedVoucherFormatsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveVoucherFormat">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/SaveVoucherFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SaveVoucherFormatAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestGetCultureText">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/TestGetCultureText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VoucherNumberingAllocationPrintingSoap12" type="tns:VoucherNumberingAllocationPrintingSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AllocateVoucherIDRange">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AllocateVoucherIDRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AllocateVoucherIDRangeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllocateRangePOS">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AllocateRangePOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AllocateRangePOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllocation">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveAllocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveAllocationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveVoucherAllocation">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveVoucherAllocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveVoucherAllocationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherAllocationPrinted">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/SetVoucherAllocationPrinted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetVoucherAllocationPrintedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherDispatchMedthod">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/SetVoucherDispatchMedthod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetVoucherDispatchMedthodAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVoucherAllocationPriority">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/SetVoucherAllocationPriority" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetVoucherAllocationPriorityAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerRange">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveRetailerRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveRetailerRangeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUnprintedAllocatedVouchers">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveUnprintedAllocatedVouchers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveUnprintedAllocatedVouchersAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BlacklistAllocation">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/BlacklistAllocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BlacklistAllocationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRangePOS">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveRangePOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveRangePOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAllocation">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CheckAllocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckAllocationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckForAndCreateDuplicateVoucher">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CheckForAndCreateDuplicateVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckForAndCreateDuplicateVoucherAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckBlacklist">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CheckBlacklist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckBlacklistAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAllocationPOS">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CheckAllocationPOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckAllocationPOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTerminalValid">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CheckTerminalValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckTerminalValidAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateCheckDigit">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CalculateCheckDigit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CalculateCheckDigitAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVoucherNumber">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CreateVoucherNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateVoucherNumberAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVoucherNumberParts">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CreateVoucherNumberParts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateVoucherNumberPartsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BinaryWritePicture">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/BinaryWritePicture" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BinaryWritePictureAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintVouchers">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/PrintVouchers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PrintVouchersAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVoucherFile">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CreateVoucherFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateVoucherFileAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogVoucherAllocationPrinted">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/LogVoucherAllocationPrinted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LogVoucherAllocationPrintedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogVoucherAllocationReprinted">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/LogVoucherAllocationReprinted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LogVoucherAllocationReprintedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllocatePOSRangeBizTalk">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AllocatePOSRangeBizTalk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AllocatePOSRangeBizTalkAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSavedVoucherFormats">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/GetSavedVoucherFormats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSavedVoucherFormatsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveVoucherFormat">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/SaveVoucherFormat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SaveVoucherFormatAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestGetCultureText">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/TestGetCultureText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VoucherNumberingAllocationPrinting">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Service supplies all the function calls required for Voucher Numbering and Allocation.</wsdl:documentation>
+    <wsdl:port name="VoucherNumberingAllocationPrintingSoap" binding="tns:VoucherNumberingAllocationPrintingSoap">
+      <soap:address location="http://192.168.58.59/ptfwebservice/VoucherNumberingAllocationPrinting.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VoucherNumberingAllocationPrintingSoap12" binding="tns:VoucherNumberingAllocationPrintingSoap12">
+      <soap12:address location="http://192.168.58.59/ptfwebservice/VoucherNumberingAllocationPrinting.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

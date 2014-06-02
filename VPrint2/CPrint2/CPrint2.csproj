@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D9908E3D-AF46-4C38-92CA-9A52BBDCC6BA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CPrint2</RootNamespace>
+    <AssemblyName>CPrint2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>camera_unmount2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppContext.cs" />
+    <Compile Include="Colections\IgnoreList.cs" />
+    <Compile Include="Controls\ImageBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ImageBox.designer.cs">
+      <DependentUpon>ImageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageBoxGridDisplayMode.cs" />
+    <Compile Include="Controls\ImageBoxGridScale.cs" />
+    <Compile Include="PresenterCameraShooter.cs" />
+    <Compile Include="CertificateSecurity.cs" />
+    <Compile Include="Colections\MemoryBuffer.cs" />
+    <Compile Include="Common\EventArgs.cs" />
+    <Compile Include="Common\Security.cs" />
+    <Compile Include="Common\SendWorker.cs" />
+    <Compile Include="Common\~CycleWorkerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Config.cs" />
+    <Compile Include="Data\CurrentUser.cs" />
+    <Compile Include="Data\DataObj.cs" />
+    <Compile Include="Data\Partials.cs" />
+    <Compile Include="Data\ServiceDataAccess.cs" />
+    <Compile Include="Extension\DelegateEx.cs" />
+    <Compile Include="Extension\DelegateEx2.cs" />
+    <Compile Include="Extension\DisposableEx.cs" />
+    <Compile Include="Extension\ExceptionEx.cs" />
+    <Compile Include="Extension\FileInfoEx.cs" />
+    <Compile Include="Extension\ImagesEx.cs" />
+    <Compile Include="Extension\StreamEx.cs" />
+    <Compile Include="Extension\StringEx.cs" />
+    <Compile Include="Extension\WinFormsEx.cs" />
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="ImageProcessor.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScanServiceClient.cs" />
+    <Compile Include="Service References\AuthenticationRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PartyManagementRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ScanServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VoucherNumberingAllocationPrintingRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="StartUp.cs" />
+    <Compile Include="StateSaver.cs" />
+    <Compile Include="Strings.cs" />
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\AuthenticationRef\Authentication.wsdl" />
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.AgentBranch.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.AgentHeadOffice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.CountryDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.HeadOffice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.NameIdData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.PartyTransactionLookup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.POS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.PrinterDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.PtfOffice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.Retailer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\CPrint2.PartyManagementRef.SalesPerson.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PartyManagementRef\PartyManagement.wsdl" />
+    <None Include="Service References\ScanServiceRef\CPrint2.ScanServiceRef.file2Info.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\CPrint2.ScanServiceRef.fileInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\CPrint2.ScanServiceRef.FolderInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\CPrint2.ScanServiceRef.HistoryByCountryInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\CPrint2.ScanServiceRef.RetailerPrinterInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\CPrint2.ScanServiceRef.TransferFileInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\CPrint2.ScanServiceRef.UpdateFileInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\CPrint2.ScanServiceRef.VoucherInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\CPrint2.ScanServiceRef.VoucherInfo2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\ReceivingServiceLib.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ScanServiceRef\service.wsdl" />
+    <None Include="Service References\ScanServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ScanServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoucherNumberingAllocationPrintingRef\CPrint2.VoucherNumberingAllocationPrintingRef.PrinterFormat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoucherNumberingAllocationPrintingRef\CPrint2.VoucherNumberingAllocationPrintingRef.VoucherAllocation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoucherNumberingAllocationPrintingRef\CPrint2.VoucherNumberingAllocationPrintingRef.VoucherNumber.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoucherNumberingAllocationPrintingRef\CPrint2.VoucherNumberingAllocationPrintingRef.Vouchers.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoucherNumberingAllocationPrintingRef\VoucherNumberingAllocationPrinting.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera_unmount2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="camera_unmount2.ico" />
+    <Content Include="Controls\ImageBox.bmp" />
+    <Content Include="KnowHow.txt" />
+    <None Include="Service References\VoucherNumberingAllocationPrintingRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VoucherNumberingAllocationPrintingRef\configuration.svcinfo" />
+    <None Include="Service References\VoucherNumberingAllocationPrintingRef\configuration91.svcinfo" />
+    <None Include="Service References\VoucherNumberingAllocationPrintingRef\VoucherNumberingAllocationPrinting.disco" />
+    <None Include="Service References\PartyManagementRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PartyManagementRef\configuration.svcinfo" />
+    <None Include="Service References\PartyManagementRef\configuration91.svcinfo" />
+    <None Include="Service References\PartyManagementRef\PartyManagement.disco" />
+    <None Include="Service References\AuthenticationRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AuthenticationRef\configuration.svcinfo" />
+    <None Include="Service References\AuthenticationRef\configuration91.svcinfo" />
+    <None Include="Service References\AuthenticationRef\Authentication.disco" />
+    <None Include="Service References\ScanServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ScanServiceRef\configuration.svcinfo" />
+    <None Include="Service References\ScanServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AuthenticationRef\" />
+    <WCFMetadataStorage Include="Service References\PartyManagementRef\" />
+    <WCFMetadataStorage Include="Service References\ScanServiceRef\" />
+    <WCFMetadataStorage Include="Service References\VoucherNumberingAllocationPrintingRef\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VPrint\AForge.Source\Controls\Controls.csproj">
+      <Project>{4CCA6844-9102-4A3B-8148-EA3D359B2586}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VPrint\AForge.Source\Core\Core.csproj">
+      <Project>{631AC093-430F-45F4-BA0C-AF0F0405918A}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VPrint\AForge.Source\Imaging.Formats\Imaging.Formats.csproj">
+      <Project>{50050BA8-B739-4931-8DBA-D77A031537FF}</Project>
+      <Name>Imaging.Formats</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VPrint\AForge.Source\Imaging\Imaging.csproj">
+      <Project>{C6A8B9AE-0749-41C7-8FF9-02C156696F45}</Project>
+      <Name>Imaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VPrint\AForge.Source\Math\Math.csproj">
+      <Project>{C0FAF524-72E4-46F7-8C1B-A6B74DEC5EBE}</Project>
+      <Name>Math</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

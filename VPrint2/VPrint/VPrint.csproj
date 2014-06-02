@@ -1,0 +1,1142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA89200F-243A-487C-ACF8-03F538A6C413}</ProjectGuid>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>VPrint</AssemblyName>
+    <AssemblyOriginatorKeyFile>VPrint.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VPrinting</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>VPrinting.Program</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <SccAuxPath>
+    </SccAuxPath>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>40E13E0D90444EF04DA63CEBEF862E3CA37BBE5B</ManifestCertificateThumbprint>
+    <ManifestKeyFile>VoucherAllocationPrinting_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetZone>LocalIntranet</TargetZone>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <SignAssembly>false</SignAssembly>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://192.168.53.143/VPrint/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://localhost/VPrint</SupportUrl>
+    <ProductName>TRS Voucher Printing Application</ProductName>
+    <PublisherName>Fintrax</PublisherName>
+    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationVersion>1.6.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PRINT_TO_FILE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TEST|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TEST\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEST</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TEST|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\TEST\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PRINT_TO_FILE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TEST|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\TEST\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;LOAD_FROM_FILE,PRINT_TO_FILE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DTK.BarReader">
+      <HintPath>..\Libraries\DTK.BarReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\Libraries\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\Libraries\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Zen.Barcode.Core">
+      <HintPath>..\Libraries\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MessageBoxIcons.jpeg" />
+    <None Include="Resources\no.png" />
+    <None Include="Resources\lightning.png" />
+    <EmbeddedResource Include="AddVoucherItemForm.resx">
+      <DependentUpon>AddVoucherItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileMsgForm.resx">
+      <DependentUpon>FileMsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferForm.resx">
+      <DependentUpon>TransferForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Resources\spreadsheet.png" />
+    <None Include="Resources\letter.png" />
+    <None Include="Resources\FL.png" />
+    <None Include="Service References\ScanServiceRef\ReceivingServiceLib1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ScanServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ScanServiceRef\configuration.svcinfo" />
+    <None Include="Service References\ScanServiceRef\configuration91.svcinfo" />
+    <None Include="Service References\ScanServiceRef\service1.wsdl" />
+    <None Include="Service References\ScanServiceRef\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ScanServiceRef\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.file2Info.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.fileInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.FolderInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.HistoryByCountryInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.RetailerPrinterInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.TransferFileInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.UpdateFileInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.VoucherInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.VoucherInfo2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VoucherEntryAndModification\VoucherEntryAndModification1.disco" />
+    <EmbeddedResource Include="Controls\BliningLabel.resx">
+      <DependentUpon>BliningLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DateTimePicker2.resx">
+      <DependentUpon>DateTimePicker2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RetailerForm.resx">
+      <DependentUpon>RetailerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonitorForm.resx">
+      <DependentUpon>MonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetupForm.resx">
+      <DependentUpon>SetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Service References\ScanServiceLocalRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ScanServiceLocalRef\configuration.svcinfo" />
+    <None Include="Service References\ScanServiceLocalRef\configuration91.svcinfo" />
+    <None Include="Service References\ScanServiceLocalRef\ScanServiceLocal.disco" />
+    <None Include="Resources\Sent.png" />
+    <None Include="Resources\Err.png" />
+    <None Include="Resources\OK.png" />
+    <None Include="Resources\NA.png" />
+    <None Include="Service References\ScanServiceLocalRef\ScanServiceLocal.wsdl" />
+    <None Include="Service References\ScanServiceLocalRef\ScanServiceLocal.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ScanServiceLocalRef\ScanServiceLocal1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VoucherEntryAndModification\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VoucherEntryAndModification\configuration.svcinfo" />
+    <None Include="Service References\VoucherEntryAndModification\configuration91.svcinfo" />
+    <None Include="App.config" />
+    <None Include="Data\VoucherDS.xsc">
+      <DependentUpon>VoucherDS.xsd</DependentUpon>
+    </None>
+    <None Include="Data\VoucherDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VoucherDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\VoucherDS.xss">
+      <DependentUpon>VoucherDS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VoucherEntryAndModification\VoucherEntryAndModification1.wsdl" />
+    <None Include="Service References\VoucherEntryAndModification\VPrinting.VoucherEntryAndModification.ValidationException.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Views\SampleViewPage.cshtml" />
+    <None Include="VoucherAllocationPrinting_TemporaryKey.pfx" />
+    <None Include="VPrint.snk" />
+    <None Include="Web References\Authentication\Authentication.wsdl" />
+    <Content Include="..\XmlConfigurations\print203_Type1_Raz.xml">
+      <Link>XmlConfigurations\print203_Type1_Raz.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print203_Type1_RazX.xml">
+      <Link>XmlConfigurations\print203_Type1_RazX.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_A.xml">
+      <Link>XmlConfigurations\print250_A.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_B.xml">
+      <Link>XmlConfigurations\print250_B.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_C.xml">
+      <Link>XmlConfigurations\print250_C.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_D.xml">
+      <Link>XmlConfigurations\print250_D.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_E.xml">
+      <Link>XmlConfigurations\print250_E.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_G.xml">
+      <Link>XmlConfigurations\print250_G.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type1.xml">
+      <Link>XmlConfigurations\print250_Type1.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type1Unx.xml">
+      <Link>XmlConfigurations\print250_Type1Unx.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type1_Raz.xml">
+      <Link>XmlConfigurations\print250_Type1_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type2.xml">
+      <Link>XmlConfigurations\print250_Type2.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type2Unx.xml">
+      <Link>XmlConfigurations\print250_Type2Unx.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type3.xml">
+      <Link>XmlConfigurations\print250_Type3.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type3Unx.xml">
+      <Link>XmlConfigurations\print250_Type3Unx.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type4.xml">
+      <Link>XmlConfigurations\print250_Type4.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type4Unx.xml">
+      <Link>XmlConfigurations\print250_Type4Unx.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type5.xml">
+      <Link>XmlConfigurations\print250_Type5.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type5Unx.xml">
+      <Link>XmlConfigurations\print250_Type5Unx.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type6.xml">
+      <Link>XmlConfigurations\print250_Type6.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type6Unx.xml">
+      <Link>XmlConfigurations\print250_Type6Unx.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type7.xml">
+      <Link>XmlConfigurations\print250_Type7.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print250_Type7Unx.xml">
+      <Link>XmlConfigurations\print250_Type7Unx.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print276.xml">
+      <Link>XmlConfigurations\print276.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print276_Type1.xml">
+      <Link>XmlConfigurations\print276_Type1.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print276_Type1_Raz.xml">
+      <Link>XmlConfigurations\print276_Type1_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print276_Type2.xml">
+      <Link>XmlConfigurations\print276_Type2.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print276_Type3.xml">
+      <Link>XmlConfigurations\print276_Type3.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print276_Type4.xml">
+      <Link>XmlConfigurations\print276_Type4.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print276_Type5.xml">
+      <Link>XmlConfigurations\print276_Type5.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print300_Type1_RazX.xml">
+      <Link>XmlConfigurations\print300_Type1_RazX.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print300_Type2_RazX.xml">
+      <Link>XmlConfigurations\print300_Type2_RazX.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print300_Type3_RazX.xml">
+      <Link>XmlConfigurations\print300_Type3_RazX.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print32_Type1.xml">
+      <Link>XmlConfigurations\print32_Type1.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print348_Type1_RazX.xml">
+      <Link>XmlConfigurations\print348_Type1_RazX.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print372_Type1_Raz.xml">
+      <Link>XmlConfigurations\print372_Type1_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print372_Type2_Raz.xml">
+      <Link>XmlConfigurations\print372_Type2_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print372_Type3_Raz.xml">
+      <Link>XmlConfigurations\print372_Type3_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print380_Type1_Raz.xml">
+      <Link>XmlConfigurations\print380_Type1_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print380_Type2_RazX.xml">
+      <Link>XmlConfigurations\print380_Type2_RazX.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print380_Type3_RazX.xml">
+      <Link>XmlConfigurations\print380_Type3_RazX.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print380_Type4_RazX.xml">
+      <Link>XmlConfigurations\print380_Type4_RazX.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print40.xml">
+      <Link>XmlConfigurations\print40.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print40_Type1_Raz.xml">
+      <Link>XmlConfigurations\print40_Type1_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print504_Type1.xml">
+      <Link>XmlConfigurations\print504_Type1.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print528_Type1_Raz.xml">
+      <Link>XmlConfigurations\print528_Type1_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print56_Type1.xml">
+      <Link>XmlConfigurations\print56_Type1.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print620_ds_Raz.xml">
+      <Link>XmlConfigurations\print620_ds_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print620_RazX.xml">
+      <Link>XmlConfigurations\print620_RazX.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print724_ss_Raz.xml">
+      <Link>XmlConfigurations\print724_ss_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print724_ss_RazX.xml">
+      <Link>XmlConfigurations\print724_ss_RazX.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print756_Type1.xml">
+      <Link>XmlConfigurations\print756_Type1.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print826.xml">
+      <Link>XmlConfigurations\print826.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print858_Type1.xml">
+      <Link>XmlConfigurations\print858_Type1.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print901_RazX.xml">
+      <Link>XmlConfigurations\print901_RazX.xml</Link>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\XmlConfigurations\print901_ss_Raz.xml">
+      <Link>XmlConfigurations\print901_ss_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\XmlConfigurations\print901_Type3_RazX.xml">
+      <Link>XmlConfigurations\print901_Type3_RazX.xml</Link>
+    </Content>
+    <Content Include="..\XmlConfigurations\print905_Type1_Raz.xml">
+      <Link>XmlConfigurations\print905_Type1_Raz.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App.ico" />
+    <EmbeddedResource Include="Controls\RoundButton\Images\RoundButton.bmp" />
+    <Content Include="Controls\RoundButton\Images\RoundButtonRecess0.bmp" />
+    <Content Include="Controls\RoundButton\Images\RoundButtonRecess2.bmp" />
+    <Content Include="Controls\RoundButton\Images\RoundButtonRecess3.bmp" />
+    <Content Include="Controls\RoundButton\Images\RoundButtonRecess4.bmp" />
+    <Content Include="Controls\RoundButton\Images\RoundButtonRecess5.bmp" />
+    <Content Include="favicon.ico" />
+    <None Include="Resources\Collapse.png" />
+    <None Include="Resources\DB.png" />
+    <None Include="Resources\document.png" />
+    <None Include="Resources\application_certificate %281%29.png" />
+    <Content Include="Resources\enter.gif" />
+    <None Include="Resources\Expand.png" />
+    <None Include="Web References\PartyManagement\CountryDetail.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\PrinterDetails.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\PrinterFormat.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherAllocation.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumber.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumberingAllocationPrinting.disco" />
+    <None Include="Web References\PartyManagement\AgentBranch.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\AgentHeadOffice.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\HeadOffice.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\NameIdData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\PartyManagement.disco" />
+    <None Include="Web References\Authentication\Authentication.disco" />
+    <None Include="Web References\Authentication\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PartyManagement\PartyManagement.wsdl" />
+    <None Include="Web References\PartyManagement\PartyTransactionLookup.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\POS.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\PtfOffice.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PartyManagement\Retailer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\SalesPerson.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumberingAllocationPrinting.wsdl" />
+    <Compile Include="AddVoucherItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddVoucherItemForm.Designer.cs">
+      <DependentUpon>AddVoucherItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Security.cs" />
+    <Compile Include="Controls\DateTimePicker2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DateTimePicker2.Designer.cs">
+      <DependentUpon>DateTimePicker2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\fileAccess.cs" />
+    <Compile Include="Data\ServiceDataAccess.cs" />
+    <Compile Include="Documents\VoucherPrintLayoutUnitRazX.cs" />
+    <Compile Include="Extensions\ObjectEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileMsgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileMsgForm.Designer.cs">
+      <DependentUpon>FileMsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RetailerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RetailerForm.Designer.cs">
+      <DependentUpon>RetailerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFormSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonitorForm.Designer.cs">
+      <DependentUpon>MonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PluginLoader.cs" />
+    <Compile Include="ScanServiceClient.cs" />
+    <Compile Include="Common\DynamicSerializable.cs" />
+    <Compile Include="Common\FileProtector.cs" />
+    <Compile Include="Common\IgnoreList.cs" />
+    <Compile Include="Common\RawBitmap.cs" />
+    <Compile Include="Common\TaskProcessOrganizer.cs" />
+    <Compile Include="Common\ScanException.cs" />
+    <Compile Include="Common\StateManager.cs" />
+    <Compile Include="Controls\ArrowButton\ArrowButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\BliningLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\BliningLabel.Designer.cs">
+      <DependentUpon>BliningLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ExpandPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ItemControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ItemControl.Designer.cs">
+      <DependentUpon>ItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RoundButton\RecessEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundButton\RecessEditorControl.Designer.cs">
+      <DependentUpon>RecessEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RoundButton\RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundButton\VerticalString.cs" />
+    <Compile Include="Extensions\ReflectionEx.cs" />
+    <Compile Include="MainFormScanningFuncs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormScanning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectFilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectFilesForm.Designer.cs">
+      <DependentUpon>SelectFilesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ScanServiceLocalRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ScanServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetupForm.Designer.cs">
+      <DependentUpon>SetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Speeker.cs" />
+    <Compile Include="Common\CacheManager.cs" />
+    <Compile Include="Common\CommonTools.cs" />
+    <Compile Include="Controls\Accordion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Accordion.designer.cs">
+      <DependentUpon>Accordion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Expander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Expander.designer.cs">
+      <DependentUpon>Expander.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Partials.cs" />
+    <Compile Include="Documents\Interfaces.cs" />
+    <Compile Include="Documents\PrinterQueue.cs" />
+    <Compile Include="Documents\PrintLine.cs" />
+    <Compile Include="Documents\VoucherPrintLayout250.cs" />
+    <Compile Include="Documents\VoucherPrintLayout276.cs" />
+    <Compile Include="Documents\VoucherPrintLayout380.cs" />
+    <Compile Include="Documents\VoucherPrintLayout826.cs" />
+    <Compile Include="Documents\VoucherPrintLayoutAll.cs" />
+    <Compile Include="Documents\VoucherPrinter.cs" />
+    <Compile Include="Documents\VoucherPrinterSettings.cs" />
+    <Compile Include="Documents\VoucherPrintLayoutRaz.cs" />
+    <Compile Include="Documents\VoucherPrintLayoutRazX.cs" />
+    <Compile Include="Documents\~VoucherPrintLayoutRaz_Base.cs" />
+    <Compile Include="Extensions\BarCodeEx.cs" />
+    <Compile Include="Extensions\ExceptionEx.cs" />
+    <Compile Include="Extensions\FormsEx.cs" />
+    <Compile Include="Extensions\RegexEx.cs" />
+    <Compile Include="Extensions\WinFormsEx.cs" />
+    <Compile Include="FormAssignFormat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAssignFormat.Designer.cs">
+      <DependentUpon>FormAssignFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateFormatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateFormatForm.Designer.cs">
+      <DependentUpon>CreateFormatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputForm.Designer.cs">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AsyncFormManager.cs" />
+    <Compile Include="MapPrinterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapPrinterForm.Designer.cs">
+      <DependentUpon>MapPrinterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Native\winspool.cs" />
+    <Compile Include="NumberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NumberForm.Designer.cs">
+      <DependentUpon>NumberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Razor\Facts\RazorTemplateGeneratorFacts.cs" />
+    <Compile Include="Razor\ModelsAndTemplates\SampleModel.cs" />
+    <Compile Include="Razor\ModelsAndTemplates\SampleTemplateStrings.cs" />
+    <Compile Include="Razor\RazorTemplating\Compiler.cs" />
+    <Compile Include="Razor\RazorTemplating\IRazorTemplateGenerator.cs" />
+    <Compile Include="Razor\RazorTemplating\RazorTemplateBase.cs" />
+    <Compile Include="Razor\RazorTemplating\RazorTemplateEntry.cs" />
+    <Compile Include="Razor\RazorTemplating\RazorTemplateGenerator.cs" />
+    <Compile Include="Razor\RazorTemplating\TemplateCompileException.cs" />
+    <Compile Include="Razor\SampleUsage.cs" />
+    <Compile Include="Service References\VoucherEntryAndModification\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TestClasses.cs" />
+    <Compile Include="Tools\ASCII.cs" />
+    <Compile Include="Tools\BarcodeInter2of5a.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tools\BarcodeTools.cs" />
+    <Compile Include="Tools\DelegateHelper.cs" />
+    <Compile Include="Tools\Helper.cs" />
+    <Compile Include="Tools\EscapePrintHelper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\PrintManager.cs" />
+    <Compile Include="Tools\ESC_P2.cs" />
+    <Compile Include="Tools\MTPL.cs" />
+    <Compile Include="Tools\RawPrinterHelper.cs" />
+    <Compile Include="TransferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferForm.Designer.cs">
+      <DependentUpon>TransferForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XmlEditor\RichTextBoxEx.cs" />
+    <Compile Include="XmlEditor\XmlEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="XmlEditor\XmlEditorControl.designer.cs">
+      <DependentUpon>XmlEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XmlEditor\XmlToken.cs" />
+    <Compile Include="XmlEditor\XmlTokenizer.cs" />
+    <Compile Include="_\AllocationDocumentLayout.cs" />
+    <Compile Include="Controls\MultyColorComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\VoucherDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VoucherDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SelectPrinterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectPrinterDialog.Designer.cs">
+      <DependentUpon>SelectPrinterDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintObjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintObjectForm.Designer.cs">
+      <DependentUpon>PrintObjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\CurrentUser.cs" />
+    <Compile Include="Data\VoucherDS.cs">
+      <DependentUpon>VoucherDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrint.designer.cs">
+      <DependentUpon>FormPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_\IImageObject.cs" />
+    <Compile Include="FormLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLayout.Designer.cs">
+      <DependentUpon>FormLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VoucherPrintEngine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="_\TextObject.cs" />
+    <Compile Include="Web References\Authentication\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PartyManagement\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\VoucherNumberingAllocationPrinting\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\ItemControl.resx">
+      <DependentUpon>ItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RoundButton\RecessEditorControl.resx">
+      <DependentUpon>RecessEditorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateFormatForm.resx">
+      <DependentUpon>CreateFormatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAssignFormat.resx">
+      <DependentUpon>FormAssignFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputForm.resx">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapPrinterForm.resx">
+      <DependentUpon>MapPrinterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumberForm.resx">
+      <DependentUpon>NumberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectFilesForm.resx">
+      <DependentUpon>SelectFilesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectPrinterDialog.resx">
+      <DependentUpon>SelectPrinterDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintObjectForm.resx">
+      <DependentUpon>PrintObjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrint.resx">
+      <DependentUpon>FormPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLayout.resx">
+      <DependentUpon>FormLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\Vouchers.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.58.59/PtfWebService/Authentication.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Authentication\</RelPath>
+      <UpdateFromURL>http://192.168.58.59/PtfWebService/Authentication.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VoucherAllocationPrinting_Authentication_Authentication</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.58.59/ptfwebservice/PartyManagement.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PartyManagement\</RelPath>
+      <UpdateFromURL>http://192.168.58.59/ptfwebservice/PartyManagement.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VoucherAllocationPrinting_PartyManagement_PartyManagement</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.58.59/ptfwebservice/VoucherNumberingAllocationPrinting.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\VoucherNumberingAllocationPrinting\</RelPath>
+      <UpdateFromURL>http://192.168.58.59/ptfwebservice/VoucherNumberingAllocationPrinting.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VoucherAllocationPrinting_VoucherNumberingAllocationPrinting_VoucherNumberingAllocationPrinting</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ScanServiceLocalRef\" />
+    <WCFMetadataStorage Include="Service References\ScanServiceRef\" />
+    <WCFMetadataStorage Include="Service References\VoucherEntryAndModification\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="DTKBarReaderLib">
+      <Guid>{76EAC94B-4FD0-4955-9147-9B7F7240048A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VPrint.Common\VPrint.Common.csproj">
+      <Project>{299F65C9-2BDF-42B2-BA4B-CA39F06328CA}</Project>
+      <Name>VPrint.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VPrint_372_addon\VPrint_372_addon.csproj">
+      <Project>{7BBFF6A1-4EB9-40F3-AA85-0C81CAE1AD5E}</Project>
+      <Name>VPrint_372_addon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

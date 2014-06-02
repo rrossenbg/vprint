@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- FORMAT 2 (ON LIVE) 24.09.2013 -->
+<VoucherPrintLayoutUnitRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <FormLength>54</FormLength>
+  <PageSize>
+    <!-- ppi 100-->
+    <Width>827</Width>
+    <!-- was 1100-->
+    <Height>1169</Height>
+    <!-- was 750 -->
+  </PageSize>
+  <Landscape>false</Landscape>
+  <!-- Name of the template. Should be unique for the system. -->
+  <TemplateName>31DCA343-55DD-422A-867F-2658B9092A3A</TemplateName>
+  <Context>
+    <![CDATA[
+
+@{
+    //Please no code into the body tag!
+    //Only variables
+    
+    //Voucher
+    var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
+    
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);
+    var barcodeText = Model.StrVoucherNo.Replace(" ", ""); 
+    
+    //Retailer
+    var id = Model.Retailer.Id;
+    var retailerName = Model.Retailer.TradingName.EscapeXml();
+    var rLine1 = Model.Retailer.RetailAddress.Line1;
+    var rLine2 = Model.Retailer.RetailAddress.Line2;
+    var rLine3 = Model.Retailer.RetailAddress.Line3;
+    var rLine5 = Model.Retailer.RetailAddress.Line5;
+    var retailerAddress = string.Concat(rLine1, '\n', rLine2, '\n', rLine3, '\n', rLine5).EscapeXml();
+    
+    //Certificates
+    var vatNumber = string.Concat("VAT. ", Model.Retailer.VatNumber);
+}  
+
+<?xml version="1.0" encoding="utf-8"?>
+<VoucherPrintUnitRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Lines>
+    <!-- RetailerID - StoreNo 2-->
+    <GPrintLineUnit>
+      <X>3.6</X>
+      <Y>2.5</Y>
+      <Units>Inch</Units>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- VoucherNumber - VoucherNo 0 -->
+    <GPrintLineUnit>
+      <X>3.6</X>
+      <Y>2.7</Y>
+      <Units>Inch</Units>
+      <Size>0</Size>
+      <Text>@voucherNumber</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLineUnit>
+
+    <!-- RetailerName - -->
+    <GPrintLineUnit>
+      <X>1.1</X>
+      <Y>2.7</Y>
+      <Units>Inch</Units>
+      <Size>0</Size>
+      <Text>@retailerName</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- RetailerAddress -->
+    <GPrintLineUnit>
+      <X>1.1</X>
+      <Y>2.9</Y>
+      <Units>Inch</Units>
+      <Size>0</Size>
+      <Text>@retailerAddress</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- VatNumber -->
+    <GPrintLineUnit>
+      <X>1.1</X>
+      <Y>3.7</Y>
+      <Units>Inch</Units>
+      <Size>0</Size>
+      <Text>@vatNumber</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLineUnit>
+  </Lines>
+  
+  <Barcodes>
+    <BarPrintLineUnit>
+      <X>2.45</X>
+      <Y>8.9</Y>
+      <Units>Inch</Units>
+      <Text>@barcodeNumber</Text>
+      <Height>25</Height>
+      <Size>2</Size>
+      <BarText> 
+        <X>3</X>
+        <Y>3</Y>
+        <Units>Millimeter</Units>
+        <Size>0</Size>
+        <Text>@barcodeText</Text>
+        <Font>
+          <Value>Arial, 9pt</Value>
+        </Font>
+      </BarText>
+    </BarPrintLineUnit>
+    
+  </Barcodes>
+  
+</VoucherPrintUnitRazX>
+
+]]>
+  </Context>
+</VoucherPrintLayoutUnitRazX>
+

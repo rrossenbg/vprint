@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- FORMAT 2 (ON LIVE) 24.09.2013 -->
+<VoucherPrintLayoutRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <FormLength>54</FormLength>
+  <PageSize>
+    <!-- ppi 100-->
+    <Width>827</Width>
+    <!-- was 1100-->
+    <Height>1200</Height>
+    <!-- was 750 -->
+  </PageSize>
+  <Landscape>false</Landscape>
+  <!-- Name of the template. Should be unique for the system. -->
+  <TemplateName>30DCA343-55DD-40AA-967F-2658B909AAAA</TemplateName>
+  <Context>
+    <![CDATA[
+
+@{
+    //Please no code into the body tag!
+    //Only variables
+    
+    //Voucher
+    var voucherNumber = string.Concat(Model.VoucherNo, Model.Printing.CalculateCheckDigit(Model.VoucherNo));
+    
+    //Retailer
+    var id = Model.Retailer.Id;
+    var retailerName = ( Model.Retailer.TradingName ?? "").EscapeXml();
+    var rLine1 = Model.Retailer.RetailAddress.Line1;
+    var rLine2 = Model.Retailer.RetailAddress.Line2;
+    var rLine3 = Model.Retailer.RetailAddress.Line3;
+    var rLine5 = Model.Retailer.RetailAddress.Line5;
+    var retailerAddress = string.Concat(rLine1, '\n', rLine5, "  ", rLine3 ).EscapeXml();
+    
+    //Certificates
+    var vatNumber = string.Concat("VAT. ", Model.Retailer.VatNumber);
+}  
+
+<?xml version="1.0" encoding="utf-8"?>
+<VoucherPrintRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Lines>
+    
+    <!-- RetailerID - StoreNo 2-->
+    <GPrintLine>
+      <X>50</X>
+      <Y>44</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- VoucherNumber - VoucherNo 0 -->
+    <GPrintLine>
+      <X>50</X>
+      <Y>120</Y>
+      <Size>0</Size>
+      <Text>Voucher No</Text>
+      <Font>
+        <Value>Arial, 6pt</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- VoucherNumber - VoucherNo 1 -->
+    <GPrintLine>
+      <X>50</X>
+      <Y>130</Y>
+      <Size>0</Size>
+      <Text>@voucherNumber</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- RetailerName - -->
+    <GPrintLine>
+      <X>210</X>
+      <Y>160</Y>
+      <Size>0</Size>
+      <Text>@retailerName</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- RetailerAddress -->
+    <GPrintLine>
+      <X>210</X>
+      <Y>183</Y>
+      <Size>0</Size>
+      <Text>@retailerAddress</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLine> 
+    
+    <!-- VatNumber -->
+    <GPrintLine>
+      <X>210</X>
+      <Y>240</Y>
+      <Size>0</Size>
+      <Text>@vatNumber</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLine>
+  </Lines>
+</VoucherPrintRazX>
+
+]]>
+  </Context>
+</VoucherPrintLayoutRazX>
+
+

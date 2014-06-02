@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- FORMAT HUNGARY -->
+<VoucherPrintLayoutRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <FormLength>54</FormLength>
+  <PageSize>
+    <Width>827</Width>
+    <Height>1200</Height>
+  </PageSize>
+  <Landscape>false</Landscape>
+  <!-- Name of the template. Should be unique for the system. -->
+  <TemplateName>D2DF2A22-D3E5-42B8-8A50-99C87FD25A23</TemplateName>
+  <Context>
+    <![CDATA[
+
+@{
+    //Please no code into the body tag!
+    //Only variables
+    
+    //Voucher
+    var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
+    var index = Convert.ToInt32(CacheManager.Instance.Table[Strings.Index]);
+    var subVoucherNumber = Model.Allocation.SubRangeFrom + index;
+    var subVoucherNumberText = subVoucherNumber == 0? "": subVoucherNumber.ToString();
+    CacheManager.Instance.Table[Strings.Index] = index + 1;
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);
+    var barcodeText = Model.StrVoucherNo.Replace(" ", "");   
+    
+    //Retailer
+    var id = Model.Retailer.Id;
+    var retailerName = ( Model.Retailer.TradingName ?? "").EscapeXml();
+    var rLine1 = Model.Retailer.RetailAddress.Line1;
+    var rLine2 = Model.Retailer.RetailAddress.Line2;
+    var rLine3 = Model.Retailer.RetailAddress.Line3;
+    var rLine5 = Model.Retailer.RetailAddress.Line5;
+    var vatNumber = string.Concat("", Model.Retailer.VatNumber);
+    
+    var retailerAddress = string.Concat(
+          rLine1, '\n', rLine2, '\n', rLine3, "   ", rLine5, '\n', 
+          string.Format("{0,-20} {1,10}", vatNumber, voucherNumber) ).EscapeXml();
+}  
+
+<?xml version="1.0" encoding="utf-8"?>
+<VoucherPrintRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Lines>    
+    <!-- RetailerID - StoreNo -->
+    <GPrintLine>
+      <X>6</X>
+      <Y>97</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- RetailerName - RetailerName -->
+   <GPrintLine>
+      <X>146</X>
+      <Y>142</Y>
+      <Size>0</Size>
+      <Text>@retailerName</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLine>  
+    
+    <!-- RetailerAddress - Address -->
+    <GPrintLine>
+      <X>146</X>
+      <Y>162</Y>
+      <Size>0</Size>
+      <Text>@retailerAddress</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLine>
+  
+  </Lines>   
+
+</VoucherPrintRazX>
+
+]]>
+  </Context>
+</VoucherPrintLayoutRazX>
