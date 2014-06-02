@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- format 1 - FORMAT SPAIN (SS ONLY)-->
+<VoucherPrintLayoutRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <FormLength>54</FormLength>
+  <PageSize>
+    <Width>940</Width>
+    <Height>850</Height>
+    <!-- Was 750 -->
+  </PageSize>
+  <Landscape>false</Landscape>
+  <!-- Name of the template. Should be unique for the system. -->
+  <TemplateName>D1DF2A22-D3E5-41B8-8A50-99C87FD25A2D</TemplateName>
+  <Context>
+    <![CDATA[
+
+@{
+    //Please no code into the body tag!
+    //Only variables
+    
+    //Voucher
+    var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
+    var index = Convert.ToInt32(CacheManager.Instance.Table[Strings.Index]);
+    var subVoucherNumber = Model.Allocation.SubRangeFrom + index;
+    CacheManager.Instance.Table[Strings.Index] = index + 1;
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);
+    var barcodeText = Model.StrVoucherNo.Replace(" ", "");   
+    
+    //Retailer
+    var id = Model.Retailer.Id;
+ 
+    var rLine1 = Model.Retailer.RetailAddress.Line1;
+    var rLine2 = Model.Retailer.RetailAddress.Line2;
+    var rLine3 = Model.Retailer.RetailAddress.Line3;
+    var rLine5 = Model.Retailer.RetailAddress.Line5;
+    
+    var officeData = Model.Manager.RetrieveTableData("ho_pfs, ho_Certificate_1, ho_Certificate_2, ho_Certificate_3, ho_category_title,ho_add_id", "HeadOffice", 
+        "where ho_id={0} and ho_iso_id={1}".format(Model.Retailer.HeadOfficeId, Model.Office.CountryId));
+    var branchData = Model.Manager.RetrieveTableData("br_category, br_pfs", "Branch", 
+        "where br_id={0} and br_iso_id={1}".format(Model.Retailer.Id, Model.Retailer.CountryId));
+
+    //Office
+    var hoData = Model.Manager.RetrieveTableData("hoa_add_1,hoa_add_2,hoa_add_3,hoa_add_4,hoa_add_5,hoa_add_6", "HeadOfficeAddress", 
+        "where hoa_id = {0} ".format(officeData[5]));
+    var oLine1 = hoData[0];
+    var oLine2 = hoData[1];
+    var oLine3 = hoData[2];
+    var oLine5 = hoData[4];
+    var ho = string.Concat( Model.Retailer.VatNumber, "    HO: ", Model.Retailer.HeadOfficeId);
+    var value = string.Concat(Model.Retailer.HeadOfficeName, '\n', oLine1 , '\n', oLine2 , '\n',  oLine5,  '-', oLine3, "\n \n", 
+                Model.Retailer.TradingName, '\n', rLine1 , '\n', rLine2 , '\n',  rLine5,  '-', rLine3, "\n \n", ho ).Replace("\n\n", "\n").EscapeXml(); 
+}  
+
+<?xml version="1.0" encoding="utf-8"?>
+<VoucherPrintRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!-- -->
+  <Lines>
+    <!-- VoucherNumber -->
+    <GPrintLine>
+      <X>360</X>
+      <Y>148</Y>
+      <Size>0</Size>
+      <Text>@voucherNumber</Text>
+      <Font>
+        <Value>Arial, 15pt</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- SubVoucherNumber - SubVoucherNo -->
+    <GPrintLine>
+      <X>360</X>
+      <Y>50</Y>
+      <Size>0</Size>
+      <Text>@subVoucherNumber</Text>
+      <Font>
+        <Value>Arial, 15pt</Value>
+      </Font>
+    </GPrintLine>
+
+    <!-- RetailerID - StoreNo -->
+    <GPrintLine>
+      <X>360</X>
+      <Y>97</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 15pt</Value>
+      </Font>
+    </GPrintLine>
+    
+   <!-- ================================================ -->
+    
+   <!-- HeadOffice- HeadOffice -->
+   <GPrintLine>
+      <X>100</X>
+      <Y>60</Y>
+      <Size>0</Size>
+      <Text>@value</Text>
+      <Font>
+        <Value>Arial, 8pt</Value>
+      </Font>
+    </GPrintLine>  
+  </Lines>
+    
+  <Barcodes>
+    <BarPrintLine>
+      <X>240</X>
+      <Y>770</Y>
+      <Text>@barcodeNumber</Text>
+      <Height>25</Height>
+      <Size>2</Size>
+      <BarText>
+        <X>0</X>
+        <Y>5</Y>
+        <Size>0</Size>
+        <Text>@barcodeText</Text>
+        <Font>
+          <Value>Arial, 11pt</Value>
+        </Font>
+      </BarText>
+    </BarPrintLine>
+  </Barcodes>
+</VoucherPrintRazX>
+
+]]>
+  </Context>
+</VoucherPrintLayoutRazX>

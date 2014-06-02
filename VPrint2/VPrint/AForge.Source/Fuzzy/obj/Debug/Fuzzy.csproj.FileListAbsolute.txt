@@ -1,0 +1,6 @@
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Fuzzy.dll
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Fuzzy.pdb
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Fuzzy.xml
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Fuzzy\obj\Debug\Fuzzy.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Fuzzy\obj\Debug\AForge.Fuzzy.dll
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Fuzzy\obj\Debug\AForge.Fuzzy.pdb

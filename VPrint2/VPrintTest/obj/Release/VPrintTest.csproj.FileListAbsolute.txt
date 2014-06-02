@@ -1,0 +1,2 @@
+C:\PROJECTS\VPrint\VPrintTest\obj\Release\VPrintTest.Properties.Resources.resources
+C:\PROJECTS\VPrint\VPrintTest\obj\Release\VPrintTest.csproj.GenerateResource.Cache

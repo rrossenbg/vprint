@@ -1,0 +1,4 @@
+﻿to start WCF client 
+
+in Debug -> Command Line Args -> Add : /client:"WcfTestClient.exe"
+in WFC Options -> Start WCF Host

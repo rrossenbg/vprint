@@ -1,0 +1,14 @@
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Controls.dll
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Controls.pdb
+C:\PROJECTS\VPrint\VPrint\Release\AForge.Controls.xml
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\Controls.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\AForge.Controls.Chart.resources
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\AForge.Controls.HistogramEventArgs.resources
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\AForge.Controls.VideoSourcePlayer.resources
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\AForge.Controls.HuePicker.resources
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\AForge.Controls.SliderControl.resources
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\AForge.Controls.ColorSlider.resources
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\AForge.Controls.ManipulatorControl.resources
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\Controls.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\AForge.Controls.dll
+C:\PROJECTS\VPrint\VPrint\AForge.Source\Controls\obj\Debug\AForge.Controls.pdb

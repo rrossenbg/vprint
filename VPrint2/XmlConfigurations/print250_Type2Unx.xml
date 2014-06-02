@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- format 2 (ON LIVE) 06.03.2014 -->
+<VoucherPrintLayoutUnitRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <FormLength>54</FormLength>
+  <PageSize>
+    <Width>827</Width>
+    <Height>850</Height>
+    <!-- was 1200 1275 2000 http://www.photokaboom.com/photography/learn/printing/1_calculators.htm -->
+    <!-- 850, 750, 827  -->
+  </PageSize>
+
+  <!-- Name of the template. Should be unique for the system. -->
+  <TemplateName>33DCA343-44D1-40AA-8888-26511909ADD2</TemplateName>
+  <Context>
+    <![CDATA[
+@{
+    //Please no code into the body tag!
+    //Only variables
+    //Voucher
+    var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
+    
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);
+    var barcodeText = Model.StrVoucherNo.Replace(" ", ""); 
+    
+    //Retailer
+    var id = Model.Retailer.Id;
+    var ShopName = Model.Retailer.TradingName.EscapeXml();
+    var rLine1 = Model.Retailer.RetailAddress.Line1.EscapeXml();
+    var rLine2 = Model.Retailer.RetailAddress.Line2.EscapeXml();
+    var rLine3 = Model.Retailer.RetailAddress.Line3.EscapeXml();
+    var rLine5 = Model.Retailer.RetailAddress.Line5.EscapeXml();
+
+    var rPhone = "Tel: " + Model.Retailer.Phone.EscapeXml();
+    var rVAT = Model.Retailer.VatNumber.EscapeXml();
+
+
+    var Line5Line3 = string.Format("{0} {1}", 
+        Model.Retailer.RetailAddress.Line5, 
+        Model.Retailer.RetailAddress.Line3).EscapeXml();
+
+    var ShopName2 = string.Format("* {0} **************", Model.Retailer.TradingName).EscapeXml();
+    var Line1Line5Line3 = string.Format("* {0} {1} {2}  *", 
+        Model.Retailer.RetailAddress.Line1, 
+        Model.Retailer.RetailAddress.Line5, 
+        Model.Retailer.RetailAddress.Line3).EscapeXml();
+    
+}  
+
+<?xml version="1.0" encoding="utf-8"?>
+<VoucherPrintUnitRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Lines>
+    <!-- RetailerID -->
+    <GPrintLineUnit>
+      <X>0</X>
+      <Y>0.5</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- ShopName -->
+    <GPrintLineUnit>
+      <X>1.1</X>
+      <Y>0.5</Y>
+      <Size>0</Size>
+      <Text>@ShopName</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- Line1 -->
+    <GPrintLineUnit>
+      <X>1.1</X>
+      <Y>0.9</Y>
+      <Size>0</Size>
+      <Text>@rLine1</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- VoucherNumber -->
+    <GPrintLineUnit>
+      <X>3.5</X>
+      <Y>0.9</Y>
+      <Size>0</Size>
+      <Text>@voucherNumber</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+        
+    <!-- Line5 & Line3 -->
+    <GPrintLineUnit>
+      <X>1.1</X>
+      <Y>1.1</Y>
+      <Size>0</Size>
+      <Text>@Line5Line3</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- Phone -->
+    <GPrintLineUnit>
+      <X>1.1</X>
+      <Y>1.3</Y>
+      <Size>0</Size>
+      <Text>@rPhone</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- VATNumber -->
+    <GPrintLineUnit>
+      <X>1.1</X>
+      <Y>1.5</Y>
+      <Size>0</Size>
+      <Text>@rVAT</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- PROCEDURE -->
+    <GPrintLineUnit>
+      <X>3.5</X>
+      <Y>1.5</Y>
+      <Size>0</Size>
+      <Text>PROCEDURE DE SECOURS</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- ShopName2 -->
+    <GPrintLineUnit>
+      <X>1.3</X>
+      <Y>2</Y>
+      <Size>0</Size>
+      <Text>@ShopName2</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- Line1 + Line5 + Line3 -->
+    <GPrintLineUnit>
+      <X>1.3</X>
+      <Y>2.2</Y>
+      <Size>0</Size>
+      <Text>@Line1Line5Line3</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+    <!-- Motif -->
+    <GPrintLineUnit>
+      <X>1.3</X>
+      <Y>2.4</Y>
+      <Size>0</Size>
+      <Text>* Motif d'utilisation de la procedure de secours : ...............</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLineUnit>
+    
+  </Lines>
+  
+  <Barcodes>
+  </Barcodes>
+  
+</VoucherPrintUnitRazX>
+
+]]>
+  </Context>
+</VoucherPrintLayoutUnitRazX>

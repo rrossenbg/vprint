@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="VPrinting.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="VoucherAllocationPrinting_Authentication_Authentication" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://192.168.53.117/PtfWebService/Authentication.asmx</Value>
+    </Setting>
+    <Setting Name="VoucherAllocationPrinting_PartyManagement_PartyManagement" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://192.168.53.117/ptfwebservice/PartyManagement.asmx</Value>
+    </Setting>
+    <Setting Name="VoucherAllocationPrinting_VoucherNumberingAllocationPrinting_VoucherNumberingAllocationPrinting" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://192.168.53.117/ptfwebservice/VoucherNumberingAllocationPrinting.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

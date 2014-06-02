@@ -1,0 +1,16 @@
+C:\PROJECTS\VPrint\ReceivingService\bin\Debug\ReceivingService.exe.config
+C:\PROJECTS\VPrint\ReceivingService\bin\Debug\ReceivingService.exe.manifest
+C:\PROJECTS\VPrint\ReceivingService\bin\Debug\ReceivingService.application
+C:\PROJECTS\VPrint\ReceivingService\bin\Debug\ReceivingService.exe
+C:\PROJECTS\VPrint\ReceivingService\bin\Debug\ReceivingService.pdb
+C:\PROJECTS\VPrint\ReceivingService\bin\Debug\ReceivingServiceLib.Common.dll
+C:\PROJECTS\VPrint\ReceivingService\bin\Debug\ReceivingServiceLib.dll
+C:\PROJECTS\VPrint\ReceivingService\bin\Debug\Ionic.Zip.dll
+C:\PROJECTS\VPrint\ReceivingService\bin\Debug\ReceivingServiceLib.Common.pdb
+C:\PROJECTS\VPrint\ReceivingService\bin\Debug\ReceivingServiceLib.pdb
+C:\PROJECTS\VPrint\ReceivingService\obj\x86\Debug\ReceivingService.ProjectInstaller.resources
+C:\PROJECTS\VPrint\ReceivingService\obj\x86\Debug\ReceivingService.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\ReceivingService\obj\x86\Debug\ReceivingService.exe.manifest
+C:\PROJECTS\VPrint\ReceivingService\obj\x86\Debug\ReceivingService.application
+C:\PROJECTS\VPrint\ReceivingService\obj\x86\Debug\ReceivingService.exe
+C:\PROJECTS\VPrint\ReceivingService\obj\x86\Debug\ReceivingService.pdb
