@@ -1,0 +1,5 @@
+C:\PROJECTS\VScan\PTF.Common\bin\Debug\PTF.Common.dll
+C:\PROJECTS\VScan\PTF.Common\bin\Debug\PTF.Common.pdb
+C:\PROJECTS\VScan\PTF.Common\obj\Debug\PTF.Common.dll
+C:\PROJECTS\VScan\PTF.Common\obj\Debug\PTF.Common.pdb
+C:\PROJECTS\VScan\PTF.Common\obj\Debug\PTF.Common.csprojResolveAssemblyReference.cache

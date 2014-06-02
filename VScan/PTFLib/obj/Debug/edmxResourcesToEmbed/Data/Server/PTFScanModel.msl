@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PTFScanModelStoreContainer" CdmEntityContainer="PTFScanEntities">
+    <EntitySetMapping Name="CONFIGs">
+      <EntityTypeMapping TypeName="PTFScanModel.CONFIG">
+        <MappingFragment StoreEntitySet="CONFIG">
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ConfigID" ColumnName="ConfigID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MESSAGES">
+      <EntityTypeMapping TypeName="PTFScanModel.MESSAGE">
+        <MappingFragment StoreEntitySet="MESSAGES">
+          <ScalarProperty Name="DateExported" ColumnName="DateExported" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="Message1" ColumnName="Message" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+          <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

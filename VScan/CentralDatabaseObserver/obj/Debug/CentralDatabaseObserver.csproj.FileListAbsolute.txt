@@ -1,0 +1,38 @@
+E:\PROJECTS\PTF\CentralDatabaseObserver\bin\Debug\WinDbLst.exe
+E:\PROJECTS\PTF\CentralDatabaseObserver\bin\Debug\WinDbLst.pdb
+E:\PROJECTS\PTF\CentralDatabaseObserver\bin\Debug\PTFLib.dll
+E:\PROJECTS\PTF\CentralDatabaseObserver\bin\Debug\SharpZipLib.dll
+E:\PROJECTS\PTF\CentralDatabaseObserver\bin\Debug\PTFLib.pdb
+E:\PROJECTS\PTF\CentralDatabaseObserver\obj\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\CentralDatabaseObserver\obj\Debug\WinDbLst.MainForm.resources
+E:\PROJECTS\PTF\CentralDatabaseObserver\obj\Debug\WinDbLst.Properties.Resources.resources
+E:\PROJECTS\PTF\CentralDatabaseObserver\obj\Debug\CentralDatabaseObserver.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\CentralDatabaseObserver\obj\Debug\WinDbLst.exe
+E:\PROJECTS\PTF\CentralDatabaseObserver\obj\Debug\WinDbLst.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\bin\Debug\WinDbLst.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\bin\Debug\WinDbLst.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\bin\Debug\PTFLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\bin\Debug\SharpZipLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\bin\Debug\PTFLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\obj\Debug\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\obj\Debug\WinDbLst.MainForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\obj\Debug\WinDbLst.Properties.Resources.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\obj\Debug\ResGen.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\obj\Debug\ResGen.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\obj\Debug\WinDbLst.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\CentralDatabaseObserver\obj\Debug\WinDbLst.pdb
+C:\PROJECTS\VScan\CentralDatabaseObserver\bin\Debug\WinDbLst.exe
+C:\PROJECTS\VScan\CentralDatabaseObserver\bin\Debug\WinDbLst.pdb
+C:\PROJECTS\VScan\CentralDatabaseObserver\bin\Debug\PTFLib.dll
+C:\PROJECTS\VScan\CentralDatabaseObserver\bin\Debug\PTFLib.pdb
+C:\PROJECTS\VScan\CentralDatabaseObserver\obj\Debug\WinDbLst.MainForm.resources
+C:\PROJECTS\VScan\CentralDatabaseObserver\obj\Debug\WinDbLst.Properties.Resources.resources
+C:\PROJECTS\VScan\CentralDatabaseObserver\obj\Debug\WinDbLst.exe
+C:\PROJECTS\VScan\CentralDatabaseObserver\obj\Debug\WinDbLst.pdb
+C:\PROJECTS\VScan\CentralDatabaseObserver\bin\Debug\WinDbLst.exe.config
+C:\PROJECTS\VScan\CentralDatabaseObserver\bin\Debug\DTK.BarReader.dll
+C:\PROJECTS\VScan\CentralDatabaseObserver\bin\Debug\DTK.BarReader.xml
+C:\PROJECTS\VScan\CentralDatabaseObserver\obj\Debug\CentralDatabaseObserver.csproj.GenerateResource.Cache
+C:\PROJECTS\VScan\CentralDatabaseObserver\obj\Debug\CentralDatabaseObserver.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VScan\CentralDatabaseObserver\bin\Debug\PTF.Common.dll
+C:\PROJECTS\VScan\CentralDatabaseObserver\bin\Debug\PTF.Common.pdb

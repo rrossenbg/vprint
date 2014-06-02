@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PTFLocalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="PTFLocalModelStoreContainer">
+    <EntitySet Name="CONFIG" EntityType="PTFLocalModel.Store.CONFIG" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MESSAGES" EntityType="PTFLocalModel.Store.MESSAGES" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TMP" EntityType="PTFLocalModel.Store.TMP" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6005: The data type 'sql_variant' is currently not supported for the target .NET Framework version; the column 'Value' in table 'PTFLocal.dbo.CONFIG' was excluded.
+      -->
+  <EntityType Name="CONFIG">
+    <Key>
+      <PropertyRef Name="ConfigID" />
+    </Key>
+    <Property Name="ConfigID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Source" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="MESSAGES">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="nvarchar" Nullable="false" MaxLength="1024" />
+    <Property Name="Source" Type="int" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="StackTrace" Type="nvarchar(max)" />
+    <Property Name="DateInserted" Type="datetime" Nullable="false" />
+    <Property Name="DateExported" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TMP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DATA" Type="varbinary" />
+    <Property Name="LENGTH" Type="int" />
+  </EntityType>
+</Schema>

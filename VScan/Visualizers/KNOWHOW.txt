@@ -1,0 +1,4 @@
+Deploying the Assembly
+-----------------------------------
+In order Visual Studio to use this debugger visualizer, 
+you should drop the DLL in <Visual Studio Install Dir>\Common7\Packages\Debugger\Visualizers.

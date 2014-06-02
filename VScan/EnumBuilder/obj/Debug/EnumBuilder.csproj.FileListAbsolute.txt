@@ -1,0 +1,9 @@
+E:\PROJECTS\PTF\EnumBuilder\bin\Project1.dll
+E:\PROJECTS\PTF\EnumBuilder\obj\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\EnumBuilder\obj\Debug\EnumBuilder.csproj.ResolveComReference.cache
+E:\PROJECTS\PTF\EnumBuilder\obj\Debug\EnumBuilder.CommandBar.resources
+E:\PROJECTS\PTF\EnumBuilder\obj\Debug\EnumBuilder.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\EnumBuilder\obj\Debug\EnumBuilder.MainForm.resources
+E:\PROJECTS\PTF\EnumBuilder\bin\Project1.pdb
+E:\PROJECTS\PTF\EnumBuilder\obj\Debug\Project1.dll
+E:\PROJECTS\PTF\EnumBuilder\obj\Debug\Project1.pdb

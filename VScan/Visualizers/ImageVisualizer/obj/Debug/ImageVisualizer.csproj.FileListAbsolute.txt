@@ -1,0 +1,22 @@
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\obj\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\bin\Debug\ImageVisualizer.dll
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\bin\Debug\ImageVisualizer.pdb
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.Properties.Resources.resources
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.dll
+E:\PROJECTS\PTF\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\bin\Debug\ImageVisualizer.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\bin\Debug\ImageVisualizer.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Debug\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.Properties.Resources.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Debug\GenerateResource.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Debug\GenerateResource.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.pdb
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\bin\Debug\ImageVisualizer.dll
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\bin\Debug\ImageVisualizer.pdb
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.Properties.Resources.resources
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.dll
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.pdb
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.csproj.GenerateResource.Cache
+C:\PROJECTS\VScan\Visualizers\ImageVisualizer\obj\Debug\ImageVisualizer.csprojResolveAssemblyReference.cache

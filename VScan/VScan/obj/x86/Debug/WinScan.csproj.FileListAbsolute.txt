@@ -1,0 +1,12 @@
+D:\PROGRAMM\PROJECTS_UK\WinScan\bin\Debug\WinScan.exe.config
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+D:\PROGRAMM\PROJECTS_UK\WinScan\bin\Debug\WinScan.exe
+D:\PROGRAMM\PROJECTS_UK\WinScan\bin\Debug\WinScan.pdb
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\WinScan.exe
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\WinScan.pdb
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\PTFLib.ScanForm.resources
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\PTFLib.Properties.Resources.resources
+D:\PROGRAMM\PROJECTS_UK\WinScan\bin\Debug\PTFLib.dll
+D:\PROGRAMM\PROJECTS_UK\WinScan\bin\Debug\PTFLib.pdb

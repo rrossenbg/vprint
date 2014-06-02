@@ -1,0 +1,15 @@
+C:\Projects\TRS\Library\Common\DiData.Encryption\bin\DiData.Encryption.dll
+C:\Projects\TRS\Library\Common\DiData.Encryption\bin\DiData.Encryption.pdb
+C:\Projects\TRS\Library\Common\DiData.Encryption\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\TRS\Library\Common\DiData.Encryption\obj\Debug\DiData.Encryption.dll
+C:\Projects\TRS\Library\Common\DiData.Encryption\obj\Debug\DiData.Encryption.pdb
+C:\CountryProject\Common\DiData.Encryption\bin\DiData.Encryption.dll
+C:\CountryProject\Common\DiData.Encryption\bin\DiData.Encryption.pdb
+C:\CountryProject\Common\DiData.Encryption\obj\Debug\ResolveAssemblyReference.cache
+C:\CountryProject\Common\DiData.Encryption\obj\Debug\DiData.Encryption.dll
+C:\CountryProject\Common\DiData.Encryption\obj\Debug\DiData.Encryption.pdb
+D:\CountryProject\Common\DiData.Encryption\bin\DiData.Encryption.dll
+D:\CountryProject\Common\DiData.Encryption\bin\DiData.Encryption.pdb
+D:\CountryProject\Common\DiData.Encryption\obj\Debug\ResolveAssemblyReference.cache
+D:\CountryProject\Common\DiData.Encryption\obj\Debug\DiData.Encryption.dll
+D:\CountryProject\Common\DiData.Encryption\obj\Debug\DiData.Encryption.pdb

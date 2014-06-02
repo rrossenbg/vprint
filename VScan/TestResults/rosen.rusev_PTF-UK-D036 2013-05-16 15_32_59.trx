@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="67450e40-498f-46ee-a47c-da79577571de" name="rosen.rusev@PTF-UK-D036 2013-05-16 15:32:59" runUser="FINTRAX\rosen.rusev" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="d006c499-29d0-4555-b434-62ac613ecd6f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rosen.rusev_PTF-UK-D036 2013-05-16 15_32_59">
+      <DeploymentItem filename="C:\PROJECTS\VScan\PTFLib\bin\Debug\PTFLib.dll" />
+      <DeploymentItem filename="C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.exe" />
+      <DeploymentItem filename="C:\PROJECTS\VScan\PTF.Common\bin\Debug\PTF.Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-05-16T15:32:59.5407481+01:00" queuing="2013-05-16T15:33:01.4856703+01:00" start="2013-05-16T15:33:01.5781666+01:00" finish="2013-05-16T15:33:10.5778066+01:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="PTF-UK-D036" outcome="Error" timestamp="2013-05-16T15:33:10.5753067+01:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="ints_test" storage="c:\projects\vscan\scantest\bin\debug\scantest.dll" id="c884e954-b315-6820-4792-c4f01aa724bd">
+      <Execution id="708e91f5-85c7-40e7-8fa4-ffa13ddaf179" />
+      <TestMethod codeBase="C:/PROJECTS/VScan/ScanTest/bin/Debug/ScanTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ScanTest.GenericsTest, ScanTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ints_test" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="c884e954-b315-6820-4792-c4f01aa724bd" executionId="708e91f5-85c7-40e7-8fa4-ffa13ddaf179" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="708e91f5-85c7-40e7-8fa4-ffa13ddaf179" testId="c884e954-b315-6820-4792-c4f01aa724bd" testName="ints_test" computerName="PTF-UK-D036" duration="00:00:08.9096436" startTime="2013-05-16T15:33:01.6681630+01:00" endTime="2013-05-16T15:33:10.5778066+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="708e91f5-85c7-40e7-8fa4-ffa13ddaf179">
+    </UnitTestResult>
+  </Results>
+</TestRun>

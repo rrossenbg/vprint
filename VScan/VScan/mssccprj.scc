@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[WinScan.csproj]
+SCC_Aux_Path = "G:\"
+SCC_Project_Name = "$/WinScanSln.root/WinScanSln/WinScan", XPHAAAAA
+
+[VScan.csproj]
+SCC_Aux_Path = "C:\VSS"
+SCC_Project_Name = "$/PTF.root/PTF/VScan", JLBAAAAA

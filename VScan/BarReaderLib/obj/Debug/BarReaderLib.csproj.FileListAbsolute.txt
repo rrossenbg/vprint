@@ -1,0 +1,7 @@
+C:\PROJECTS\VScan\BarReaderLib\bin\Debug\BarReaderLib.dll
+C:\PROJECTS\VScan\BarReaderLib\bin\Debug\BarReaderLib.pdb
+C:\PROJECTS\VScan\BarReaderLib\bin\Debug\DTK.BarReader.dll
+C:\PROJECTS\VScan\BarReaderLib\bin\Debug\DTK.BarReader.xml
+C:\PROJECTS\VScan\BarReaderLib\obj\Debug\ResolveAssemblyReference.cache
+C:\PROJECTS\VScan\BarReaderLib\obj\Debug\BarReaderLib.dll
+C:\PROJECTS\VScan\BarReaderLib\obj\Debug\BarReaderLib.pdb

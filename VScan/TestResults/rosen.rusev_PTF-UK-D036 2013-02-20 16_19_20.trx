@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="1ead6993-a7e7-4cdc-9435-e0b02a5ec369" name="rosen.rusev@PTF-UK-D036 2013-02-20 16:19:20" runUser="FINTRAX\rosen.rusev" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="d006c499-29d0-4555-b434-62ac613ecd6f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rosen.rusev_PTF-UK-D036 2013-02-20 16_19_20">
+      <DeploymentItem filename="C:\PROJECTS\VScan\PTFLib\bin\Debug\PTFLib.dll" />
+      <DeploymentItem filename="C:\PROJECTS\VScan\TransferringService\bin\Debug\TransferringService.exe" />
+      <DeploymentItem filename="C:\PROJECTS\VScan\PTF.Common\bin\Debug\PTF.Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-02-20T16:19:20.6756759+00:00" queuing="2013-02-20T16:19:21.6033243+00:00" start="2013-02-20T16:19:21.7133419+00:00" finish="2013-02-20T16:19:39.9037519+00:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="PTF-UK-D036" outcome="Error" timestamp="2013-02-20T16:19:39.9037519+00:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="call_callauthenticateuser" storage="c:\projects\vscan\scantest\bin\debug\scantest.dll" id="ac1b5bc5-a7df-eb13-0592-54e8eeee9373">
+      <Execution id="cffcc933-6753-40c7-8fc4-4bbd16decf6d" />
+      <TestMethod codeBase="C:/PROJECTS/VScan/ScanTest/bin/Debug/ScanTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ScanTest.ServiceTest, ScanTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="call_callauthenticateuser" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="ac1b5bc5-a7df-eb13-0592-54e8eeee9373" executionId="cffcc933-6753-40c7-8fc4-4bbd16decf6d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="cffcc933-6753-40c7-8fc4-4bbd16decf6d" testId="ac1b5bc5-a7df-eb13-0592-54e8eeee9373" testName="call_callauthenticateuser" computerName="PTF-UK-D036" duration="00:00:18.0678904" startTime="2013-02-20T16:19:21.8358615+00:00" endTime="2013-02-20T16:19:39.9037519+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cffcc933-6753-40c7-8fc4-4bbd16decf6d">
+    </UnitTestResult>
+  </Results>
+</TestRun>

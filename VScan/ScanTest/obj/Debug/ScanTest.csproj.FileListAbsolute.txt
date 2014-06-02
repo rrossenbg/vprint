@@ -1,0 +1,14 @@
+C:\PROJECTS\VScan\ScanTest\bin\Debug\ScanTest.dll
+C:\PROJECTS\VScan\ScanTest\bin\Debug\ScanTest.pdb
+C:\PROJECTS\VScan\ScanTest\bin\Debug\PTFLib.dll
+C:\PROJECTS\VScan\ScanTest\bin\Debug\DTK.BarReader.dll
+C:\PROJECTS\VScan\ScanTest\bin\Debug\PTFLib.pdb
+C:\PROJECTS\VScan\ScanTest\bin\Debug\DTK.BarReader.xml
+C:\PROJECTS\VScan\ScanTest\obj\Debug\ScanTest.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VScan\ScanTest\obj\Debug\ScanTest.dll
+C:\PROJECTS\VScan\ScanTest\obj\Debug\ScanTest.pdb
+C:\PROJECTS\VScan\ScanTest\bin\Debug\ScanTest.dll.config
+C:\PROJECTS\VScan\ScanTest\bin\Debug\TransferringService.exe
+C:\PROJECTS\VScan\ScanTest\bin\Debug\TransferringService.pdb
+C:\PROJECTS\VScan\ScanTest\bin\Debug\PTF.Common.dll
+C:\PROJECTS\VScan\ScanTest\bin\Debug\PTF.Common.pdb

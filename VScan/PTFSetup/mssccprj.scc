@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[PTFSetup.vdproj]
+SCC_Aux_Path = "C:\VSS"
+SCC_Project_Name = "$/PTF.root/PTF/PTFSetup", ODBAAAAA

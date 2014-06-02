@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/ReceivingService/DataService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/ReceivingService/DataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/ReceivingService/DataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ReceivingService" />
+      <xsd:import schemaLocation="http://localhost/ReceivingService/DataService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataService_ValidateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_ValidateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CreateClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClient" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CreateClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_QuerySiteCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:QuerySiteCodes" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_QuerySiteCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QuerySiteCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_QueryContries_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryContries" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_QueryContries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryContriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SaveVoucher_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveVoucher" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SaveVoucher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SaveMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveMessages" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SaveMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SendCmd_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendCmd" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SendCmd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendCmdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDataService">
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/ValidateUser" message="tns:IDataService_ValidateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/ValidateUserResponse" message="tns:IDataService_ValidateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/CreateClient" message="tns:IDataService_CreateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/CreateClientResponse" message="tns:IDataService_CreateClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySiteCodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/QuerySiteCodes" message="tns:IDataService_QuerySiteCodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/QuerySiteCodesResponse" message="tns:IDataService_QuerySiteCodes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryContries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/QueryContries" message="tns:IDataService_QueryContries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/QueryContriesResponse" message="tns:IDataService_QueryContries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveVoucher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SaveVoucher" message="tns:IDataService_SaveVoucher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SaveVoucherResponse" message="tns:IDataService_SaveVoucher_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SaveMessages" message="tns:IDataService_SaveMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SaveMessagesResponse" message="tns:IDataService_SaveMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCmd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SendCmd" message="tns:IDataService_SendCmd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SendCmdResponse" message="tns:IDataService_SendCmd_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDataService" type="tns:IDataService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="http://tempuri.org/IDataService/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateClient">
+      <soap:operation soapAction="http://tempuri.org/IDataService/CreateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySiteCodes">
+      <soap:operation soapAction="http://tempuri.org/IDataService/QuerySiteCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryContries">
+      <soap:operation soapAction="http://tempuri.org/IDataService/QueryContries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveVoucher">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SaveVoucher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMessages">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SaveMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCmd">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SendCmd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataService">
+    <wsdl:port name="BasicHttpBinding_IDataService" binding="tns:BasicHttpBinding_IDataService">
+      <soap:address location="http://localhost/ReceivingService/DataService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

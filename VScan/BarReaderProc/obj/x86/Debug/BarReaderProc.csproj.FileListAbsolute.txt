@@ -1,0 +1,13 @@
+C:\PROJECTS\VScan\BarReaderProc\bin\Debug\ReaderProc.exe.config
+C:\PROJECTS\VScan\BarReaderProc\obj\x86\Debug\ReaderProc.exe
+C:\PROJECTS\VScan\BarReaderProc\obj\x86\Debug\ReaderProc.pdb
+C:\PROJECTS\VScan\BarReaderProc\bin\Debug\ReaderProc.exe
+C:\PROJECTS\VScan\BarReaderProc\bin\Debug\ReaderProc.pdb
+C:\PROJECTS\VScan\BarReaderProc\bin\Debug\DTK.BarReader.dll
+C:\PROJECTS\VScan\BarReaderProc\bin\Debug\PTFLib.dll
+C:\PROJECTS\VScan\BarReaderProc\bin\Debug\PTFLib.pdb
+C:\PROJECTS\VScan\BarReaderProc\bin\Debug\DTK.BarReader.xml
+C:\PROJECTS\VScan\BarReaderProc\obj\x86\Debug\ReaderProc.MainForm.resources
+C:\PROJECTS\VScan\BarReaderProc\obj\x86\Debug\ReaderProc.Properties.Resources.resources
+C:\PROJECTS\VScan\BarReaderProc\obj\x86\Debug\BarReaderProc.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VScan\BarReaderProc\obj\x86\Debug\BarReaderProc.csproj.GenerateResource.Cache

@@ -1,0 +1,1 @@
+C:\PROJECTS\VScan\TestWinForm\bin\Release\TestWinForm.exe.config

@@ -1,0 +1,11 @@
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Debug\SQLite.Interop.dll
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Debug\PTFLocalInstaller.dll
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Debug\PTFLocalInstaller.pdb
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Debug\PTFLib.dll
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Debug\SharpZipLib.dll
+E:\PROJECTS\PTF\PTFLocalInstaller\bin\Debug\PTFLib.pdb
+E:\PROJECTS\PTF\PTFLocalInstaller\obj\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\PTFLocalInstaller\obj\Debug\PTFLocalInstaller.Properties.Resources.resources
+E:\PROJECTS\PTF\PTFLocalInstaller\obj\Debug\PTFLocalInstaller.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\PTFLocalInstaller\obj\Debug\PTFLocalInstaller.dll
+E:\PROJECTS\PTF\PTFLocalInstaller\obj\Debug\PTFLocalInstaller.pdb

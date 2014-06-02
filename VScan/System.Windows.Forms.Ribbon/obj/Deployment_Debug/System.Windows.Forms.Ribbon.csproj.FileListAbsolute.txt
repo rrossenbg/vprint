@@ -1,0 +1,16 @@
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\bin\Deployment_Debug\System.Windows.Forms.Ribbon.dll
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\bin\Deployment_Debug\System.Windows.Forms.Ribbon.pdb
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Properties.Resources.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Styled.ColorEditorControl.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Styled.DOATransparentLabel.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Styled.GoogleTalkForm.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Styled.ShapeControl.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Styled.ShapeTypeEditorControl.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Styled.VistaButton.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Styled.VistaCheckBox.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.WinFormEx.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.RibbonForm.resources
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Ribbon.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Ribbon.dll
+E:\PROJECTS\PTF\System.Windows.Forms.Ribbon\obj\Deployment_Debug\System.Windows.Forms.Ribbon.pdb

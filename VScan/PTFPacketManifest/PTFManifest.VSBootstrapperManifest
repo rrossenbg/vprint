@@ -1,0 +1,17 @@
+<VSBootstrapperManifest>
+  <ProjectProperties ProjectName="PTFManifest" BuildLocation="PackagesDir" BuildDirectory="D:\Program Files\Microsoft SDKs\Windows\v6.0A\Bootstrapper\Packages\New Project" DefaultLanguage="en" />
+  <UIPackage ProductCode="PTF">
+    <UIChecks />
+    <Relationships />
+    <CustomSchedules />
+  </UIPackage>
+  <UIInstallFile FileName="E:\PROJECTS\PTF\PTFSetup\Debug\PTFSetup.msi" DisplayName="PTF Transferring Service" Arguments="" Reboot="" PublicKey="&lt;&lt;File is not Digitally Signed&gt;&gt;" FileHash="B5B68984A9732D8AF780D7649E04096F29092021" IncludeHash="True" Locale="neutral">
+    <UIChecks />
+    <UIInstallConditions />
+    <UIExitCodes>
+      <UIExitCode ExitCode="0" Result="Success" Message="" />
+      <DefaultExitCode Result="Fail" FormatMessageFromSystem="True" Message="An unexpected exit code was returned from the installer. The installation failed." />
+    </UIExitCodes>
+    <LooseFiles />
+  </UIInstallFile>
+</VSBootstrapperManifest>

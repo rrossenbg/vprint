@@ -1,0 +1,15 @@
+C:\PROJECTS\VScan\TestWinForm2\bin\Debug\TestWinForm2.exe.config
+C:\PROJECTS\VScan\TestWinForm2\bin\Debug\TestWinForm2.exe
+C:\PROJECTS\VScan\TestWinForm2\bin\Debug\TestWinForm2.pdb
+C:\PROJECTS\VScan\TestWinForm2\obj\x86\Debug\TestWinForm2.Properties.Resources.resources
+C:\PROJECTS\VScan\TestWinForm2\obj\x86\Debug\TestWinForm2.exe
+C:\PROJECTS\VScan\TestWinForm2\obj\x86\Debug\TestWinForm2.pdb
+C:\PROJECTS\VScan\TestWinForm2\obj\x86\Debug\TestWinForm2.MainForm.resources
+C:\PROJECTS\VScan\TestWinForm2\bin\Debug\PTFLib.dll
+C:\PROJECTS\VScan\TestWinForm2\bin\Debug\DTK.BarReader.dll
+C:\PROJECTS\VScan\TestWinForm2\bin\Debug\PTFLib.pdb
+C:\PROJECTS\VScan\TestWinForm2\bin\Debug\DTK.BarReader.xml
+C:\PROJECTS\VScan\TestWinForm2\bin\Debug\ReaderProc.exe
+C:\PROJECTS\VScan\TestWinForm2\bin\Debug\ReaderProc.pdb
+C:\PROJECTS\VScan\TestWinForm2\obj\x86\Debug\TestWinForm2.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VScan\TestWinForm2\obj\x86\Debug\TestWinForm2.csproj.GenerateResource.Cache

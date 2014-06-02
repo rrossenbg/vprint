@@ -1,0 +1,59 @@
+D:\PROGRAMM\PROJECTS_UK\TransferringService\bin\Release\TransferringService.exe.config
+D:\PROGRAMM\PROJECTS_UK\TransferringService\bin\Release\TransferringService.exe
+D:\PROGRAMM\PROJECTS_UK\TransferringService\bin\Release\TransferringService.pdb
+D:\PROGRAMM\PROJECTS_UK\TransferringService\bin\Release\PTFLib.dll
+D:\PROGRAMM\PROJECTS_UK\TransferringService\bin\Release\RemoteTracerLib.dll
+D:\PROGRAMM\PROJECTS_UK\TransferringService\bin\Release\SharpZipLib.dll
+D:\PROGRAMM\PROJECTS_UK\TransferringService\bin\Release\PTFLib.pdb
+D:\PROGRAMM\PROJECTS_UK\TransferringService\bin\Release\RemoteTracerLib.pdb
+D:\PROGRAMM\PROJECTS_UK\TransferringService\obj\x86\Release\ResolveAssemblyReference.cache
+D:\PROGRAMM\PROJECTS_UK\TransferringService\obj\x86\Release\TransferringService.ProjectInstaller.resources
+D:\PROGRAMM\PROJECTS_UK\TransferringService\obj\x86\Release\GenerateResource-ResGen.read.1.tlog
+D:\PROGRAMM\PROJECTS_UK\TransferringService\obj\x86\Release\GenerateResource-ResGen.write.1.tlog
+D:\PROGRAMM\PROJECTS_UK\TransferringService\obj\x86\Release\TransferringService.exe
+D:\PROGRAMM\PROJECTS_UK\TransferringService\obj\x86\Release\TransferringService.pdb
+E:\PROJECTS\PTF\TransferringService\bin\Release\TransferringService.exe.config
+E:\PROJECTS\PTF\TransferringService\bin\Release\TransferringService.exe
+E:\PROJECTS\PTF\TransferringService\bin\Release\TransferringService.pdb
+E:\PROJECTS\PTF\TransferringService\bin\Release\PTFLib.dll
+E:\PROJECTS\PTF\TransferringService\bin\Release\RemoteTracerLib.dll
+E:\PROJECTS\PTF\TransferringService\bin\Release\SharpZipLib.dll
+E:\PROJECTS\PTF\TransferringService\bin\Release\PTFLib.pdb
+E:\PROJECTS\PTF\TransferringService\bin\Release\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\TransferringService\obj\x86\Release\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\TransferringService\obj\x86\Release\TransferringService.ProjectInstaller.resources
+E:\PROJECTS\PTF\TransferringService\obj\x86\Release\TransferringService.XmlTransferringService.resources
+E:\PROJECTS\PTF\TransferringService\obj\x86\Release\TransferringService.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\TransferringService\obj\x86\Release\TransferringService.exe
+E:\PROJECTS\PTF\TransferringService\obj\x86\Release\TransferringService.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\bin\Release\TransferringService.exe.config
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\bin\Release\TransferringService.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\bin\Release\TransferringService.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\bin\Release\PTFLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\bin\Release\RemoteTracerLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\bin\Release\SharpZipLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\bin\Release\PTFLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\bin\Release\RemoteTracerLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\obj\x86\Release\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\obj\x86\Release\TransferringService.ProjectInstaller.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\obj\x86\Release\TransferringService.XmlTransferringService.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\obj\x86\Release\GenerateResource-ResGen.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\obj\x86\Release\ResGen.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\obj\x86\Release\GenerateResource-ResGen.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\obj\x86\Release\ResGen.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\obj\x86\Release\TransferringService.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\TransferringService\obj\x86\Release\TransferringService.pdb
+C:\PROJECTS\VScan\TransferringService\bin\Release\TransferringService.exe.config
+C:\PROJECTS\VScan\TransferringService\bin\Release\TransferringService.exe
+C:\PROJECTS\VScan\TransferringService\bin\Release\TransferringService.pdb
+C:\PROJECTS\VScan\TransferringService\bin\Release\PTFLib.dll
+C:\PROJECTS\VScan\TransferringService\bin\Release\PTFLib.pdb
+C:\PROJECTS\VScan\TransferringService\obj\x86\Release\ResolveAssemblyReference.cache
+C:\PROJECTS\VScan\TransferringService\obj\x86\Release\TransferringService.ProjectInstaller.resources
+C:\PROJECTS\VScan\TransferringService\obj\x86\Release\TransferringService.XmlTransferringService.resources
+C:\PROJECTS\VScan\TransferringService\obj\x86\Release\TransferringService.exe
+C:\PROJECTS\VScan\TransferringService\obj\x86\Release\TransferringService.pdb
+C:\PROJECTS\VScan\TransferringService\obj\x86\Release\GenerateResource.read.1.tlog
+C:\PROJECTS\VScan\TransferringService\obj\x86\Release\GenerateResource.write.1.tlog
+C:\PROJECTS\VScan\TransferringService\obj\x86\Release\TransferringService.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VScan\TransferringService\obj\x86\Release\TransferringService.csproj.GenerateResource.Cache

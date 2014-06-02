@@ -1,0 +1,259 @@
+D:\PROGRAMM\PROJECTS_UK\WinScan\bin\Debug\VScan.exe.config
+D:\PROGRAMM\PROJECTS_UK\WinScan\bin\Debug\VScan.exe
+D:\PROGRAMM\PROJECTS_UK\WinScan\bin\Debug\VScan.pdb
+D:\PROGRAMM\PROJECTS_UK\WinScan\bin\Debug\PTFLib.dll
+D:\PROGRAMM\PROJECTS_UK\WinScan\bin\Debug\PTFLib.pdb
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\PremierTaxFree.ScanForm.resources
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\PremierTaxFree.Properties.Resources.resources
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\VScan.exe
+D:\PROGRAMM\PROJECTS_UK\WinScan\obj\x86\Debug\VScan.pdb
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\Version.txt
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\VScan.exe.config
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\VScan.exe.manifest
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\VScan.application
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\VScan.exe
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\VScan.pdb
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\PTFLib.dll
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\RemoteTracerLib.dll
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\System.Data.SQLite.dll
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\System.Data.SQLite.Linq.dll
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\System.Windows.Forms.Ribbon.dll
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\SharpZipLib.dll
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\PTFLib.pdb
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\RemoteTracerLib.pdb
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\System.Windows.Forms.Ribbon.pdb
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\System.Data.SQLite.pdb
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\System.Data.SQLite.Linq.pdb
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\PremierTaxFree.MainForm.resources
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\PremierTaxFree.Properties.Resources.resources
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\PremierTaxFree.SplashScreen.resources
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\PremierTaxFree.UnlockForm.resources
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\PremierTaxFree.WaitForm.resources
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\VScan.TrustInfo.xml
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\VScan.exe.manifest
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\VScan.application
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\VScan.exe
+D:\PROGRAMM\PROJECTS_UK\VScan\obj\x86\Debug\VScan.pdb
+D:\PROGRAMM\PROJECTS_UK\VScan\bin\Debug\SQLite.Interop.dll
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\VScan.exe.config
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\VScan.exe
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\VScan.pdb
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\SQLite.Interop.dll
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\Version.txt
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\VScan.exe.manifest
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\VScan.application
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\VScan.exe
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\VScan.pdb
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\PTFLib.dll
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\RemoteTracerLib.dll
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\System.Windows.Forms.Ribbon.dll
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\SharpZipLib.dll
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\PTFLib.pdb
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PROJECTS_UK\VScan\bin\Debug\System.Windows.Forms.Ribbon.pdb
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\PremierTaxFree.MainForm.resources
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\PremierTaxFree.Properties.Resources.resources
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\PremierTaxFree.SplashScreen.resources
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\PremierTaxFree.UnlockForm.resources
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\PremierTaxFree.WaitForm.resources
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\VScan.csproj.GenerateResource.Cache
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\VScan.TrustInfo.xml
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\VScan.exe.manifest
+E:\PROJECTS\PROJECTS_UK\VScan\obj\x86\Debug\VScan.application
+E:\PROJECTS\PTF\VScan\bin\Debug\Libraries\VScan_Key.cer
+E:\PROJECTS\PTF\VScan\bin\Debug\VScan.exe.config
+E:\PROJECTS\PTF\VScan\bin\Debug\VScan.exe
+E:\PROJECTS\PTF\VScan\bin\Debug\VScan.pdb
+E:\PROJECTS\PTF\VScan\bin\Debug\DTK.BarReader.dll
+E:\PROJECTS\PTF\VScan\bin\Debug\Microsoft.Web.Services3.dll
+E:\PROJECTS\PTF\VScan\bin\Debug\PTFLib.dll
+E:\PROJECTS\PTF\VScan\bin\Debug\RemoteTracerLib.dll
+E:\PROJECTS\PTF\VScan\bin\Debug\System.Windows.Forms.Ribbon.dll
+E:\PROJECTS\PTF\VScan\bin\Debug\SharpZipLib.dll
+E:\PROJECTS\PTF\VScan\bin\Debug\DTK.BarReader.xml
+E:\PROJECTS\PTF\VScan\bin\Debug\PTFLib.pdb
+E:\PROJECTS\PTF\VScan\bin\Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\VScan\bin\Debug\System.Windows.Forms.Ribbon.pdb
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.ButtonPanel.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.DirtyControlExtender.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.AdjustOCRControl.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage4.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage2.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage1.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.ManualInsertDataControl.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage3.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.TTabControl.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Forms.DbObserverForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Forms.DebugForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Forms.HatchStyleForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.LockForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Forms.CardCodeRegionsForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Forms.ScanJobForm2.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Forms.TranslateForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.VoucherMonitorForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Forms.WebForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.MainForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.SettingsForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Properties.Resources.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.ScanForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.SplashScreen.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.PasswordForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.VoucherForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.WaitForm.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\VScan.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\VScan.exe
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\VScan.pdb
+E:\PROJECTS\PTF\VScan\bin\Debug\de\VScan.resources.dll
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Forms.ScanJobForm2.de.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\de\VScan.resources.dll
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Resource.de.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Forms.DebugForm.de.resources
+E:\PROJECTS\PTF\VScan\bin\Debug\fr\VScan.resources.dll
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Forms.ScanJobForm2.fr.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Resource.fr.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\fr\VScan.resources.dll
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage1.fr.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage1.de.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage3.de.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage3.fr.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage4.de.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage4.fr.resources
+E:\PROJECTS\PTF\VScan\bin\Debug\RemoteTracer.exe
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage5.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage5.de.resources
+E:\PROJECTS\PTF\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage5.fr.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\Libraries\VScan_Key.cer
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\RemoteTracer.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\VScan.exe.config
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\VScan.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\VScan.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\de\VScan.resources.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\fr\VScan.resources.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\DTK.BarReader.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\Microsoft.Web.Services3.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\PTFLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\RemoteTracerLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\System.Windows.Forms.Ribbon.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\SharpZipLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\PTFLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\RemoteTracerLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\System.Windows.Forms.Ribbon.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\bin\Debug\DTK.BarReader.xml
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.ButtonPanel.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.DirtyControlExtender.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.AdjustOCRControl.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage4.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage5.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage1.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.ManualInsertDataControl.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage3.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage2.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.TTabControl.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.DbObserverForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.DebugForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.HatchStyleForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.LockForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.CardCodeRegionsForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.ScanJobForm2.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.TranslateForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.VoucherMonitorForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.WebForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.MainForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.SettingsForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Properties.Resources.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.ScanForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.SplashScreen.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.PasswordForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.VoucherForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.WaitForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage1.de.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage1.fr.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage5.de.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage5.fr.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage3.de.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage3.fr.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage4.de.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage4.fr.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.ScanJobForm2.fr.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Resource.fr.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.DebugForm.de.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.ScanJobForm2.de.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\PremierTaxFree.Resource.de.resources
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\de\VScan.resources.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\fr\VScan.resources.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\VScan.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\VScan.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\VScan\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\PROJECTS\VScan\VScan\bin\Debug\Libraries\VScan_Key.cer
+C:\PROJECTS\VScan\VScan\bin\Debug\VScan.exe.config
+C:\PROJECTS\VScan\VScan\bin\Debug\VScan.exe
+C:\PROJECTS\VScan\VScan\bin\Debug\VScan.pdb
+C:\PROJECTS\VScan\VScan\bin\Debug\de\VScan.resources.dll
+C:\PROJECTS\VScan\VScan\bin\Debug\fr\VScan.resources.dll
+C:\PROJECTS\VScan\VScan\bin\Debug\DTK.BarReader.dll
+C:\PROJECTS\VScan\VScan\bin\Debug\Microsoft.Web.Services3.dll
+C:\PROJECTS\VScan\VScan\bin\Debug\PTFLib.dll
+C:\PROJECTS\VScan\VScan\bin\Debug\System.Windows.Forms.Ribbon.dll
+C:\PROJECTS\VScan\VScan\bin\Debug\PTFLib.pdb
+C:\PROJECTS\VScan\VScan\bin\Debug\System.Windows.Forms.Ribbon.pdb
+C:\PROJECTS\VScan\VScan\bin\Debug\DTK.BarReader.xml
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.ButtonPanel.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.DirtyControlExtender.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.AdjustOCRControl.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage4.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage5.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage1.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.ManualInsertDataControl.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage3.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage2.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.TTabControl.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.DbObserverForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.DebugForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.HatchStyleForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.LockForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.CardCodeRegionsForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.ScanJobForm2.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.TranslateForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.VoucherMonitorForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.WebForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.MainForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.SettingsForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Properties.Resources.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.ScanForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.SplashScreen.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.PasswordForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.VoucherForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.WaitForm.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage1.de.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage1.fr.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage5.de.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage5.fr.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage3.de.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage3.fr.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage4.de.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Controls.SettingsPage4.fr.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.ScanJobForm2.fr.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Resource.fr.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.DebugForm.de.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Forms.ScanJobForm2.de.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\PremierTaxFree.Resource.de.resources
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\de\VScan.resources.dll
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\fr\VScan.resources.dll
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\VScan.exe
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\VScan.pdb
+C:\PROJECTS\VScan\VScan\bin\Debug\ReaderProc.exe
+C:\PROJECTS\VScan\VScan\bin\Debug\ReaderProc.pdb
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\VScan.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VScan\VScan\obj\x86\Debug\VScan.csproj.GenerateResource.Cache
+C:\PROJECTS\VScan\VScan\bin\Debug\PTF.Common.dll
+C:\PROJECTS\VScan\VScan\bin\Debug\PTF.Common.pdb

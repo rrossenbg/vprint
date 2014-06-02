@@ -1,0 +1,14 @@
+E:\PROJECTS\PTF\TransferringService\obj\x86\VScan_Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\TransferringService\obj\x86\VScan_Debug\TransferringService.ProjectInstaller.resources
+E:\PROJECTS\PTF\TransferringService\obj\x86\VScan_Debug\TransferringService.csproj.GenerateResource.Cache
+E:\PROJECTS\PTF\TransferringService\bin\x86\VScan_Debug\SQLite.Interop.dll
+E:\PROJECTS\PTF\TransferringService\bin\x86\VScan_Debug\TransferringService.exe.config
+E:\PROJECTS\PTF\TransferringService\bin\x86\VScan_Debug\TransferringService.exe
+E:\PROJECTS\PTF\TransferringService\bin\x86\VScan_Debug\TransferringService.pdb
+E:\PROJECTS\PTF\TransferringService\bin\x86\VScan_Debug\PTFLib.dll
+E:\PROJECTS\PTF\TransferringService\bin\x86\VScan_Debug\RemoteTracerLib.dll
+E:\PROJECTS\PTF\TransferringService\bin\x86\VScan_Debug\SharpZipLib.dll
+E:\PROJECTS\PTF\TransferringService\bin\x86\VScan_Debug\PTFLib.pdb
+E:\PROJECTS\PTF\TransferringService\bin\x86\VScan_Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\TransferringService\obj\x86\VScan_Debug\TransferringService.exe
+E:\PROJECTS\PTF\TransferringService\obj\x86\VScan_Debug\TransferringService.pdb

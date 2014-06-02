@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="PTF">
+</Property><Property Name="Solution File" Value="C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTF.sln">
+</Property><Property Name="Date" Value="27 June 2012">
+</Property><Property Name="Time" Value="11:17">
+</Property></Properties><Event ErrorLevel="0" Project="PTFLib" Source="PTFLib\PTFLib.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="PTFLib" Source="PTFLib\PTFLib.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="VScan" Source="VScan\VScan.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="VScan" Source="VScan\VScan.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="TransferringService" Source="TransferringService\TransferringService.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="TransferringService" Source="TransferringService\TransferringService.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="System.Windows.Forms.Ribbon" Source="System.Windows.Forms.Ribbon\System.Windows.Forms.Ribbon.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="System.Windows.Forms.Ribbon" Source="System.Windows.Forms.Ribbon\System.Windows.Forms.Ribbon.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="RemoteTracer" Source="RemoteTracer\RemoteTracer.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="RemoteTracer" Source="RemoteTracer\RemoteTracer.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="RemoteTracerLib" Source="RemoteTracerLib\RemoteTracerLib.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="RemoteTracerLib" Source="RemoteTracerLib\RemoteTracerLib.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ReceivingService" Source="ReceivingWebService\ReceivingService.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ReceivingService" Source="ReceivingWebService\ReceivingService.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFVoucherDB\PTFVoucherDB.dbp" Source="PTFVoucherDB\PTFVoucherDB.dbp" Description="Beginning Upgrade">
+</Event><Event ErrorLevel="0" Project="C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFVoucherDB\PTFVoucherDB.dbp" Source="PTFVoucherDB\PTFVoucherDB.dbp" Description="Converting deprecated dbp file 'C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFVoucherDB\PTFVoucherDB.dbp' to 'C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFVoucherDB\PTFVoucherDB.dbproj'">
+</Event><Event ErrorLevel="0" Project="C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFVoucherDB\PTFVoucherDB.dbp" Source="PTFVoucherDB\PTFVoucherDB.dbp" Description="Successfully converted dbp to C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFVoucherDB\PTFVoucherDB.dbproj">
+</Event><Event ErrorLevel="3" Project="C:\TFSProjects\TRS - Tax Refund System\Main\VScan\PTFVoucherDB\PTFVoucherDB.dbp" Source="PTFVoucherDB\PTFVoucherDB.dbp" Description="Converted">
+</Event><Event ErrorLevel="0" Project="LocalDbInstaller" Source="PTFLocalInstaller\LocalDbInstaller.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="LocalDbInstaller" Source="PTFLocalInstaller\LocalDbInstaller.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ImageVisualizer" Source="Visualizers\ImageVisualizer\ImageVisualizer.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ImageVisualizer" Source="Visualizers\ImageVisualizer\ImageVisualizer.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CentralDatabaseObserver" Source="CentralDatabaseObserver\CentralDatabaseObserver.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CentralDatabaseObserver" Source="CentralDatabaseObserver\CentralDatabaseObserver.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="PTF.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="PTF.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="LocalDbInstaller" Source="PTFLocalInstaller\LocalDbInstaller.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ImageVisualizer" Source="Visualizers\ImageVisualizer\ImageVisualizer.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="PTFLib" Source="PTFLib\PTFLib.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="VScan" Source="VScan\app.config" Description="File converted successfully. All &lt;supportedRuntime&gt; and &lt;requiredRuntime&gt; tags were removed to enable the project to build and run with Visual Studio 2005.">
+</Event><Event ErrorLevel="3" Project="VScan" Source="VScan\app.config" Description="Converted">
+</Event><Event ErrorLevel="0" Project="TransferringService" Source="TransferringService\TransferringService.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="System.Windows.Forms.Ribbon" Source="System.Windows.Forms.Ribbon\System.Windows.Forms.Ribbon.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="RemoteTracer" Source="RemoteTracer\RemoteTracer.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="RemoteTracerLib" Source="RemoteTracerLib\RemoteTracerLib.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ReceivingService" Source="ReceivingWebService\ReceivingService.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CentralDatabaseObserver" Source="CentralDatabaseObserver\CentralDatabaseObserver.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

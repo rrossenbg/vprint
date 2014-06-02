@@ -1,0 +1,40 @@
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\bin\Debug\RemoteTracer.exe.config
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\bin\Debug\RemoteTracer.exe
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\bin\Debug\RemoteTracer.pdb
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\bin\Debug\RemoteTracerLib.dll
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\bin\Debug\RemoteTracerLib.pdb
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\obj\x86\Debug\RemoteTracer.exe
+D:\PROGRAMM\TSAutoTrade\RemoteTracer\obj\x86\Debug\RemoteTracer.pdb
+E:\KNOW_HOW\TSAutoTrade\RemoteTracer\obj\x86\Debug\RemoteTracer.exe
+E:\KNOW_HOW\TSAutoTrade\RemoteTracer\obj\x86\Debug\RemoteTracer.pdb
+D:\PROGRAMM\PROJECTS_UK\RemoteTracer\bin\Debug\RemoteTracer.exe.config
+D:\PROGRAMM\PROJECTS_UK\RemoteTracer\bin\Debug\RemoteTracer.exe
+D:\PROGRAMM\PROJECTS_UK\RemoteTracer\bin\Debug\RemoteTracer.pdb
+D:\PROGRAMM\PROJECTS_UK\RemoteTracer\bin\Debug\RemoteTracerLib.dll
+D:\PROGRAMM\PROJECTS_UK\RemoteTracer\bin\Debug\RemoteTracerLib.pdb
+D:\PROGRAMM\PROJECTS_UK\RemoteTracer\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\PROGRAMM\PROJECTS_UK\RemoteTracer\obj\x86\Debug\RemoteTracer.exe
+D:\PROGRAMM\PROJECTS_UK\RemoteTracer\obj\x86\Debug\RemoteTracer.pdb
+E:\PROJECTS\PROJECTS_UK\RemoteTracer\bin\Debug\RemoteTracer.exe.config
+E:\PROJECTS\PROJECTS_UK\RemoteTracer\obj\x86\Debug\RemoteTracer.exe
+E:\PROJECTS\PROJECTS_UK\RemoteTracer\obj\x86\Debug\RemoteTracer.pdb
+E:\PROJECTS\PROJECTS_UK\RemoteTracer\bin\Debug\RemoteTracer.exe
+E:\PROJECTS\PROJECTS_UK\RemoteTracer\bin\Debug\RemoteTracer.pdb
+E:\PROJECTS\PROJECTS_UK\RemoteTracer\bin\Debug\RemoteTracerLib.dll
+E:\PROJECTS\PROJECTS_UK\RemoteTracer\bin\Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PROJECTS_UK\RemoteTracer\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\RemoteTracer\bin\Debug\RemoteTracer.exe
+E:\PROJECTS\PTF\RemoteTracer\bin\Debug\RemoteTracer.pdb
+E:\PROJECTS\PTF\RemoteTracer\bin\Debug\RemoteTracerLib.dll
+E:\PROJECTS\PTF\RemoteTracer\bin\Debug\RemoteTracerLib.pdb
+E:\PROJECTS\PTF\RemoteTracer\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\PROJECTS\PTF\RemoteTracer\obj\x86\Debug\RemoteTracer.exe
+E:\PROJECTS\PTF\RemoteTracer\obj\x86\Debug\RemoteTracer.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\bin\Debug\RemoteTracer.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\bin\Debug\RemoteTracer.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\bin\Debug\RemoteTracerLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\bin\Debug\RemoteTracerLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\obj\x86\Debug\RemoteTracer.exe
+C:\TFSProjects\TRS - Tax Refund System\Main\VScan\RemoteTracer\obj\x86\Debug\RemoteTracer.pdb
