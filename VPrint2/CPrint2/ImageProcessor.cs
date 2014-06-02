@@ -121,13 +121,11 @@ namespace CPrint2
                                     {
                                         using (var bmp = (Bitmap)Bitmap.FromFile(fl.FullName))
                                         {
-                                            var img = bmp.CropRotateGray(Config.MinWidth, Config.MaxWidth, Config.MinHeight,
-                                                Config.MaxHeight, true, true).FirstOrDefault();
-
-                                            if (img == null)
-                                                throw new ApplicationException("Can't find image in picture");
-
-                                            images.Add(img);
+                                            //var img = bmp.CropRotateGray(Config.MinWidth, Config.MaxWidth, Config.MinHeight,
+                                            //    Config.MaxHeight, true, true).FirstOrDefault();
+                                            var img = bmp.CropFree();
+                                            if (img != null)
+                                                images.Add(img);
                                         }
                                     }
                                 }
