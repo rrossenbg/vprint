@@ -123,7 +123,7 @@ namespace CPrint2
                                         {
                                             //var img = bmp.CropRotateGray(Config.MinWidth, Config.MaxWidth, Config.MinHeight,
                                             //    Config.MaxHeight, true, true).FirstOrDefault();
-                                            var img = bmp.CropFree();
+                                            var img = bmp.CropRotateFree();
                                             if (img != null)
                                                 images.Add(img);
                                         }

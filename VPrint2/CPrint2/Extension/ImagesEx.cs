@@ -77,7 +77,7 @@ namespace CPrint2
             }
         }
 
-        public static Bitmap CropFree(this Bitmap source)
+        public static Bitmap CropRotateFree(this Bitmap source)
         {
             using (source)
             {
@@ -102,8 +102,12 @@ namespace CPrint2
 
                     if (maxregion != null)
                     {
-                        var bmp3 = source.CopyNoFree(Rectangle.Round(maxregion.GetBounds(g)));
-                        return bmp3;
+                        using (var bmp3 = source.CopyNoFree(Rectangle.Round(maxregion.GetBounds(g))))
+                        {
+                            if (bmp3.Width > bmp3.Height)
+                                bmp3.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                            return bmp3.ToGrayscale4bpp();
+                        }
                     }
                 }
                 return null;
@@ -509,6 +513,7 @@ namespace CPrint2
             // Create target image.
             int width = source.Width;
             int height = source.Height;
+
             Bitmap target = new Bitmap(width, height, PixelFormat.Format4bppIndexed);
             // Set the palette to discrete shades of gray
             ColorPalette palette = target.Palette;
@@ -522,6 +527,7 @@ namespace CPrint2
             // Lock bits so we have direct access to bitmap data
             BitmapData targetData = target.LockBits(new Rectangle(0, 0, width, height),
                                                     ImageLockMode.ReadWrite, PixelFormat.Format4bppIndexed);
+
             BitmapData sourceData = source.LockBits(new Rectangle(0, 0, width, height),
                                                     ImageLockMode.ReadOnly, PixelFormat.Format24bppRgb);
 
