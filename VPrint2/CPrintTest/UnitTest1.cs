@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using CPrint2;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
+using System.Drawing.Imaging;
 
 namespace CPrintTest.Scanning
 {
@@ -40,6 +41,7 @@ namespace CPrintTest.Scanning
                 if (img != null)
                 {
                     var bmp3 = img.CropRotateFree();
+                    bmp3.Save(Path.ChangeExtension(file, ".jpg2"), ImageFormat.Jpeg);
                     Debug.WriteLine(bmp3);
                 }
             }

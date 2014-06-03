@@ -8,3 +8,8 @@ C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Debug\ReceivingServiceLib.Com
 C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.dll
 C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Debug\PTF.pfx
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Debug\Resources\PTFLogo.jpg
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Debug\itextsharp.dll
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.Properties.Resources.resources
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.csproj.GenerateResource.Cache

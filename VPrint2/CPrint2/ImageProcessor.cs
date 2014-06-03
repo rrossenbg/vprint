@@ -151,9 +151,9 @@ namespace CPrint2
                                     0, 0, "", keys);
 
 #warning TEST UNCOMMENT ON LIVE
+                                
                                 //tifFile.DeleteSafe();
-
-                                obj.DeleteFiles();
+                                //obj.DeleteFiles();
                             }
                         }
                     }
