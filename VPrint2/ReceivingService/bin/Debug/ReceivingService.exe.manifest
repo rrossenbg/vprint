@@ -54,6 +54,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="itextsharp.dll" size="3989504">
+      <assemblyIdentity name="itextsharp" version="5.5.1.0" publicKeyToken="8354AE6D2174DDCA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>sT1MjFPp6DaJRucn2U6xT5dm5T8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingService.exe" size="8192">
       <assemblyIdentity name="ReceivingService" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -61,31 +73,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>6+hs10AKcN62bZjdZxqMKqDDsf8=</dsig:DigestValue>
+        <dsig:DigestValue>ArLtmGODGj1kGjb43CqpSJVCRng=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.dll" size="57344">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.dll" size="57856">
       <assemblyIdentity name="ReceivingServiceLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>pRadd6pyDC30qxkV5xLUwq2qT8o=</dsig:DigestValue>
+        <dsig:DigestValue>axOp7g1Jvq2EB6n7wGAQuKYc2j8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.Common.dll" size="54784">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.Common.dll" size="67072">
       <assemblyIdentity name="ReceivingServiceLib.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>gBYRfThStYhkYV8bjzwBC9J2WKE=</dsig:DigestValue>
+        <dsig:DigestValue>NN8DZBW1jXUmDjDHDUnRKfLoUA4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

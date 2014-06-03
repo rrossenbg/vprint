@@ -233,6 +233,8 @@ namespace VPrinting
 
         private CheckBox cbUseTransferFile;
         private CheckBox cbVoucherMustExist;
+        private ToolStripMenuItem nameToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem10;
 
         #region PUBLIC FIELDS
 
@@ -1171,6 +1173,8 @@ namespace VPrinting
             this.tsmiSort = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.printContextMenu.SuspendLayout();
@@ -2340,7 +2344,9 @@ namespace VPrinting
             this.tsmiSend,
             this.tsmiScanningShow,
             this.toolStripMenuItem8,
+            this.nameToolStripMenuItem,
             this.tsmiScanningDetailes,
+            this.toolStripMenuItem10,
             this.tsmiScaningDelete,
             this.tsmiScaningDeleteAll,
             this.tsmiScanningClear,
@@ -2353,12 +2359,12 @@ namespace VPrinting
             this.toolStripMenuItem7,
             this.tsmiExit});
             this.scanContextMenuStrip.Name = "scanContextMenuStrip";
-            this.scanContextMenuStrip.Size = new System.Drawing.Size(130, 270);
+            this.scanContextMenuStrip.Size = new System.Drawing.Size(153, 320);
             // 
             // tsmiSend
             // 
             this.tsmiSend.Name = "tsmiSend";
-            this.tsmiSend.Size = new System.Drawing.Size(129, 22);
+            this.tsmiSend.Size = new System.Drawing.Size(152, 22);
             this.tsmiSend.Text = "&Send";
             this.tsmiSend.ToolTipText = "Send item to image store";
             this.tsmiSend.Click += new System.EventHandler(this.Send_Click);
@@ -2366,7 +2372,7 @@ namespace VPrinting
             // tsmiScanningShow
             // 
             this.tsmiScanningShow.Name = "tsmiScanningShow";
-            this.tsmiScanningShow.Size = new System.Drawing.Size(129, 22);
+            this.tsmiScanningShow.Size = new System.Drawing.Size(152, 22);
             this.tsmiScanningShow.Text = "S&how";
             this.tsmiScanningShow.ToolTipText = "Download and show voucher";
             this.tsmiScanningShow.Click += new System.EventHandler(this.DownloadShow_Click);
@@ -2374,12 +2380,12 @@ namespace VPrinting
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(126, 6);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiScanningDetailes
             // 
             this.tsmiScanningDetailes.Name = "tsmiScanningDetailes";
-            this.tsmiScanningDetailes.Size = new System.Drawing.Size(129, 22);
+            this.tsmiScanningDetailes.Size = new System.Drawing.Size(152, 22);
             this.tsmiScanningDetailes.Text = "De&tails";
             this.tsmiScanningDetailes.ToolTipText = "Show voucher details";
             this.tsmiScanningDetailes.Click += new System.EventHandler(this.Details_Click);
@@ -2387,7 +2393,7 @@ namespace VPrinting
             // tsmiScaningDelete
             // 
             this.tsmiScaningDelete.Name = "tsmiScaningDelete";
-            this.tsmiScaningDelete.Size = new System.Drawing.Size(129, 22);
+            this.tsmiScaningDelete.Size = new System.Drawing.Size(152, 22);
             this.tsmiScaningDelete.Text = "&Delete";
             this.tsmiScaningDelete.ToolTipText = "Delete sigle item from selected folder of image store";
             this.tsmiScaningDelete.Click += new System.EventHandler(this.DeleteFile_Click);
@@ -2395,7 +2401,7 @@ namespace VPrinting
             // tsmiScaningDeleteAll
             // 
             this.tsmiScaningDeleteAll.Name = "tsmiScaningDeleteAll";
-            this.tsmiScaningDeleteAll.Size = new System.Drawing.Size(129, 22);
+            this.tsmiScaningDeleteAll.Size = new System.Drawing.Size(152, 22);
             this.tsmiScaningDeleteAll.Text = "Delete &All";
             this.tsmiScaningDeleteAll.ToolTipText = "Delete all items from selected folder of image store";
             this.tsmiScaningDeleteAll.Click += new System.EventHandler(this.DeleteAllFilesInFolder_Click);
@@ -2403,7 +2409,7 @@ namespace VPrinting
             // tsmiScanningClear
             // 
             this.tsmiScanningClear.Name = "tsmiScanningClear";
-            this.tsmiScanningClear.Size = new System.Drawing.Size(129, 22);
+            this.tsmiScanningClear.Size = new System.Drawing.Size(152, 22);
             this.tsmiScanningClear.Text = "&Clear";
             this.tsmiScanningClear.ToolTipText = "Clear desktop";
             this.tsmiScanningClear.Click += new System.EventHandler(this.ClearDesktop_Click);
@@ -2411,12 +2417,12 @@ namespace VPrinting
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(126, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiScanningForce
             // 
             this.tsmiScanningForce.Name = "tsmiScanningForce";
-            this.tsmiScanningForce.Size = new System.Drawing.Size(129, 22);
+            this.tsmiScanningForce.Size = new System.Drawing.Size(152, 22);
             this.tsmiScanningForce.Text = "&Force";
             this.tsmiScanningForce.ToolTipText = "Force insert voucher. Ignore barcode checks";
             this.tsmiScanningForce.Click += new System.EventHandler(this.Forse_Click);
@@ -2424,7 +2430,7 @@ namespace VPrinting
             // tsmiScanningForceAll
             // 
             this.tsmiScanningForceAll.Name = "tsmiScanningForceAll";
-            this.tsmiScanningForceAll.Size = new System.Drawing.Size(129, 22);
+            this.tsmiScanningForceAll.Size = new System.Drawing.Size(152, 22);
             this.tsmiScanningForceAll.Text = "F&orce All";
             this.tsmiScanningForceAll.ToolTipText = "Force inszert all vouchers. Ignore barcode checks";
             this.tsmiScanningForceAll.Click += new System.EventHandler(this.ForceAll_Click);
@@ -2432,7 +2438,7 @@ namespace VPrinting
             // tsmiScanningIgnore
             // 
             this.tsmiScanningIgnore.Name = "tsmiScanningIgnore";
-            this.tsmiScanningIgnore.Size = new System.Drawing.Size(129, 22);
+            this.tsmiScanningIgnore.Size = new System.Drawing.Size(152, 22);
             this.tsmiScanningIgnore.Text = "&Ignore";
             this.tsmiScanningIgnore.ToolTipText = "Ignore selected voucher.";
             this.tsmiScanningIgnore.Click += new System.EventHandler(this.Ignore_Click);
@@ -2440,12 +2446,12 @@ namespace VPrinting
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(126, 6);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiScanningAddToTran
             // 
             this.tsmiScanningAddToTran.Name = "tsmiScanningAddToTran";
-            this.tsmiScanningAddToTran.Size = new System.Drawing.Size(129, 22);
+            this.tsmiScanningAddToTran.Size = new System.Drawing.Size(152, 22);
             this.tsmiScanningAddToTran.Text = "&Add to tran";
             this.tsmiScanningAddToTran.ToolTipText = "Add voucher to transfer file";
             this.tsmiScanningAddToTran.Click += new System.EventHandler(this.AddToTran_Click);
@@ -2453,12 +2459,12 @@ namespace VPrinting
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(126, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiExit
             // 
             this.tsmiExit.Name = "tsmiExit";
-            this.tsmiExit.Size = new System.Drawing.Size(129, 22);
+            this.tsmiExit.Size = new System.Drawing.Size(152, 22);
             this.tsmiExit.Text = "&Exit";
             this.tsmiExit.ToolTipText = "Exit application";
             this.tsmiExit.Click += new System.EventHandler(this.Exit_Click);
@@ -2495,6 +2501,18 @@ namespace VPrinting
             this.exitToolStripMenuItem1.Text = "&Exit";
             this.exitToolStripMenuItem1.ToolTipText = "Exit application";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.Exit_Click);
+            // 
+            // nameToolStripMenuItem
+            // 
+            this.nameToolStripMenuItem.Name = "nameToolStripMenuItem";
+            this.nameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nameToolStripMenuItem.Text = "&Name";
+            this.nameToolStripMenuItem.Click += new System.EventHandler(this.NameMenuItem_Click);
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(149, 6);
             // 
             // MainForm
             // 
@@ -3212,6 +3230,21 @@ namespace VPrinting
                 this.ShowInfo(item.Item.ToString());
         }
 
+        private void NameMenuItem_Click(object sender, EventArgs e)
+        {
+            ItemControl item = scanContextMenuStrip.SourceControl as ItemControl;
+            if (item != null && item.Item != null && item.Item.Id > 0)
+            {
+                string name = null;
+                if (InputForm.show(this, ref name, "Name", "Name"))
+                {
+                    string setSql = string.Format("v_name = '{0}'", name);
+                    string whereClause = string.Format("id = {0}", item.Item.Id);
+                    ServiceDataAccess.Instance.UpdateFilesBySql(setSql, whereClause);
+                }
+            }
+        }
+
         private void AddToTran_Click(object sender, EventArgs e)
         {
             if (Global.FolderID.HasValue)
@@ -3260,5 +3293,6 @@ namespace VPrinting
         }
         
         #endregion //SCANNING
+        
     }  
 }

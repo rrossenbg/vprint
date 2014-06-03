@@ -31,3 +31,6 @@ C:\PROJECTS\VPrint2\ReceivingService\obj\Debug\ReceivingService.exe.manifest
 C:\PROJECTS\VPrint2\ReceivingService\obj\Debug\ReceivingService.application
 C:\PROJECTS\VPrint2\ReceivingService\obj\Debug\ReceivingService.exe
 C:\PROJECTS\VPrint2\ReceivingService\obj\Debug\ReceivingService.pdb
+C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\PTF.pfx
+C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\Resources\PTFLogo.jpg
+C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\itextsharp.dll
