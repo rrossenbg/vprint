@@ -169,6 +169,21 @@ namespace VPrinting.Data
             }
         }
 
+        public void UpdateFilesBySql(string setSql, string whereCause)
+        {
+            IScanService client = null;
+            try
+            {
+                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                var keys = Security.CreateInstance().GenerateSecurityKeys();
+                client.UpdateFilesBySql(setSql, whereCause, keys.Item1, keys.Item2);
+            }
+            finally
+            {
+                ((IDisposable)client).DisposeSf();
+            }
+        }
+
         #endregion
 
         #region FOLDERS

@@ -408,6 +408,29 @@ namespace ReceivingServiceLib
             }
         }
 
+        public void UpdateFilesBySql(string setSql, string whereClause, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+
+                if (string.IsNullOrWhiteSpace(whereClause))
+                    throw new ArgumentException("whereClause");
+
+                if (whereClause.Contains((c) => c == ';'))
+                    throw new SecurityException("Wrong data");
+
+                if (string.IsNullOrWhiteSpace(setSql))
+                    throw new ArgumentException("setClause");
+
+                DataAccess.Instance.UpdateVouchersBySql(setSql, whereClause);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+        }
+
         #endregion
 
         #region FOLDERS
@@ -663,7 +686,6 @@ namespace ReceivingServiceLib
         }
 
         #endregion
-
 
     }
 }

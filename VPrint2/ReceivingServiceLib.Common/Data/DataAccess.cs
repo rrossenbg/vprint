@@ -844,6 +844,21 @@ namespace ReceivingServiceLib.Data
             return list;
         }
 
+        public void UpdateVouchersBySql(string setsql, string whereClause)
+        {
+            CheckConnectionStringThrow();
+
+            string SQL = string.Format(@"UPDATE [Voucher] SET {0} WHERE {1};", setsql, whereClause);
+
+            using (var conn = new SqlConnection(Global.Strings.ConnString))
+            {
+                conn.Open();
+
+                using (var comm = new SqlCommand(SQL, conn))
+                    comm.ExecuteNonQuery();
+            }
+        }
+
         public byte[] SelectVoucherById(int id, bool isVoucher)
         {
             CheckConnectionStringThrow();

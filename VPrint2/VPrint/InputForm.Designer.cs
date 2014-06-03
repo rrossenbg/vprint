@@ -72,7 +72,7 @@
             // 
             this.txtInputText.Location = new System.Drawing.Point(42, 8);
             this.txtInputText.Name = "txtInputText";
-            this.txtInputText.Size = new System.Drawing.Size(102, 20);
+            this.txtInputText.Size = new System.Drawing.Size(141, 20);
             this.txtInputText.TabIndex = 3;
             // 
             // flowLayoutPanel1

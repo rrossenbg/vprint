@@ -79,6 +79,10 @@ namespace ReceivingServiceLib
         [FaultContract(typeof(MyApplicationFault))]
         List<fileInfo> SelectFilesBySql(string whereClause, string s1, string s2);
 
+        [OperationContract]//(Action = "*", ReplyAction = "*")]
+        [FaultContract(typeof(MyApplicationFault))]
+        void UpdateFilesBySql(string setSql, string whereClause, string s1, string s2);
+
         #endregion
 
         #region FOLDERS
