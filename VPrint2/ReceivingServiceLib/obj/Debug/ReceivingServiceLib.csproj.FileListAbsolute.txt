@@ -18,3 +18,6 @@ C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Debug\ReceivingServiceLib.Common.pdb
 C:\PROJECTS\VPrint2\ReceivingServiceLib\obj\Debug\ReceivingServiceLib.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint2\ReceivingServiceLib\obj\Debug\ReceivingServiceLib.dll
 C:\PROJECTS\VPrint2\ReceivingServiceLib\obj\Debug\ReceivingServiceLib.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Debug\PTF.pfx
+C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Debug\Resources\PTFLogo.jpg
+C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Debug\itextsharp.dll
