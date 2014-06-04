@@ -36,7 +36,7 @@ namespace ReceivingServiceLib.FileWorkers
                     {
                         foreach (var zipfile in zips)
                         {
-                            var zip = new fileAccess();
+                            var zip = new zipFileAccess();
                             DirectoryInfo unzipDir = null;
                             FileInfo xmlPath = null;
                             try
@@ -55,7 +55,7 @@ namespace ReceivingServiceLib.FileWorkers
                                 int voucherId = xml.Root.ElementThrow("VoucherID").Value.ConvertTo<string, int>("VoucherID");
                                 string sessionId = xml.Root.ElementValueOrDefault("SessionID", zipfile.GetFileNameWithoutExtension());
 
-                                var fac2 = new fileAccess();
+                                var fac2 = new zipFileAccess();
                                 var voucherDirectory = fac2.CreateDirectoryHerarchy(Global.Strings.VOCUHERSFOLDER, 
                                     countryId, retailerId, voucherId);
                                 unzipDir.CopyFiles(voucherDirectory, true);

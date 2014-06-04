@@ -57,6 +57,7 @@
     <Compile Include="Common\UniqueStringList.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Extensions\CoreEx.cs" />
+    <Compile Include="Extensions\DrawingEx.cs" />
     <Compile Include="Extensions\IOEx.cs" />
     <Compile Include="Extensions\SqlEx.cs" />
     <Compile Include="Global.cs" />
@@ -71,11 +72,13 @@
     <Compile Include="Strings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PTF.cer" />
-    <Content Include="PTF.pfx">
+    <None Include="PTF.pvk" />
+    <Content Include="Resources\PTF.cer">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="PTF.pvk" />
+    <Content Include="Resources\PTF.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

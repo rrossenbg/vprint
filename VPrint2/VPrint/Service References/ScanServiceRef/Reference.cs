@@ -203,6 +203,9 @@ namespace VPrinting.ScanServiceRef {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -326,6 +329,19 @@ namespace VPrinting.ScanServiceRef {
                 if ((object.ReferenceEquals(this.MessageField, value) != true)) {
                     this.MessageField = value;
                     this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -1307,6 +1323,16 @@ namespace VPrinting.ScanServiceRef {
         
         byte[] EndReadData2(System.IAsyncResult result);
         
+        // CODEGEN: Generating message contract since element name docType from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/ReadData3", ReplyAction="http://tempuri.org/IScanService/ReadData3Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/ReadData3MyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        VPrinting.ScanServiceRef.ReadData3Response ReadData3(VPrinting.ScanServiceRef.ReadData3Request request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/ReadData3", ReplyAction="http://tempuri.org/IScanService/ReadData3Response")]
+        System.IAsyncResult BeginReadData3(VPrinting.ScanServiceRef.ReadData3Request request, System.AsyncCallback callback, object asyncState);
+        
+        VPrinting.ScanServiceRef.ReadData3Response EndReadData3(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/SaveData", ReplyAction="http://tempuri.org/IScanService/SaveDataResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SaveDataMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
         void SaveData(string serverDirName, string fileName, byte[] data, string s1, string s2);
@@ -1524,6 +1550,94 @@ namespace VPrinting.ScanServiceRef {
         VPrinting.ScanServiceRef.TransferFileInfo[] EndGetTransferFile(System.IAsyncResult result);
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ReadData3Request {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ReadData3", Namespace="http://tempuri.org/", Order=0)]
+        public VPrinting.ScanServiceRef.ReadData3RequestBody Body;
+        
+        public ReadData3Request() {
+        }
+        
+        public ReadData3Request(VPrinting.ScanServiceRef.ReadData3RequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class ReadData3RequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string docType;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int start;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int length;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string s1;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string s2;
+        
+        public ReadData3RequestBody() {
+        }
+        
+        public ReadData3RequestBody(int id, string docType, int start, int length, string s1, string s2) {
+            this.id = id;
+            this.docType = docType;
+            this.start = start;
+            this.length = length;
+            this.s1 = s1;
+            this.s2 = s2;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ReadData3Response {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ReadData3Response", Namespace="http://tempuri.org/", Order=0)]
+        public VPrinting.ScanServiceRef.ReadData3ResponseBody Body;
+        
+        public ReadData3Response() {
+        }
+        
+        public ReadData3Response(VPrinting.ScanServiceRef.ReadData3ResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class ReadData3ResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public byte[] ReadData3Result;
+        
+        public ReadData3ResponseBody() {
+        }
+        
+        public ReadData3ResponseBody(byte[] ReadData3Result) {
+            this.ReadData3Result = ReadData3Result;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IScanServiceChannel : VPrinting.ScanServiceRef.IScanService, System.ServiceModel.IClientChannel {
     }
@@ -1573,6 +1687,25 @@ namespace VPrinting.ScanServiceRef {
         private object[] results;
         
         public ReadData2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public byte[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((byte[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ReadData3CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ReadData3CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1822,6 +1955,12 @@ namespace VPrinting.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onReadData2CompletedDelegate;
         
+        private BeginOperationDelegate onBeginReadData3Delegate;
+        
+        private EndOperationDelegate onEndReadData3Delegate;
+        
+        private System.Threading.SendOrPostCallback onReadData3CompletedDelegate;
+        
         private BeginOperationDelegate onBeginSaveDataDelegate;
         
         private EndOperationDelegate onEndSaveDataDelegate;
@@ -1992,6 +2131,8 @@ namespace VPrinting.ScanServiceRef {
         public event System.EventHandler<ReadDataCompletedEventArgs> ReadDataCompleted;
         
         public event System.EventHandler<ReadData2CompletedEventArgs> ReadData2Completed;
+        
+        public event System.EventHandler<ReadData3CompletedEventArgs> ReadData3Completed;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SaveDataCompleted;
         
@@ -2270,6 +2411,99 @@ namespace VPrinting.ScanServiceRef {
                         length,
                         s1,
                         s2}, this.onEndReadData2Delegate, this.onReadData2CompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        VPrinting.ScanServiceRef.ReadData3Response VPrinting.ScanServiceRef.IScanService.ReadData3(VPrinting.ScanServiceRef.ReadData3Request request) {
+            return base.Channel.ReadData3(request);
+        }
+        
+        public byte[] ReadData3(int id, string docType, int start, int length, string s1, string s2) {
+            VPrinting.ScanServiceRef.ReadData3Request inValue = new VPrinting.ScanServiceRef.ReadData3Request();
+            inValue.Body = new VPrinting.ScanServiceRef.ReadData3RequestBody();
+            inValue.Body.id = id;
+            inValue.Body.docType = docType;
+            inValue.Body.start = start;
+            inValue.Body.length = length;
+            inValue.Body.s1 = s1;
+            inValue.Body.s2 = s2;
+            VPrinting.ScanServiceRef.ReadData3Response retVal = ((VPrinting.ScanServiceRef.IScanService)(this)).ReadData3(inValue);
+            return retVal.Body.ReadData3Result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult VPrinting.ScanServiceRef.IScanService.BeginReadData3(VPrinting.ScanServiceRef.ReadData3Request request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginReadData3(request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginReadData3(int id, string docType, int start, int length, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            VPrinting.ScanServiceRef.ReadData3Request inValue = new VPrinting.ScanServiceRef.ReadData3Request();
+            inValue.Body = new VPrinting.ScanServiceRef.ReadData3RequestBody();
+            inValue.Body.id = id;
+            inValue.Body.docType = docType;
+            inValue.Body.start = start;
+            inValue.Body.length = length;
+            inValue.Body.s1 = s1;
+            inValue.Body.s2 = s2;
+            return ((VPrinting.ScanServiceRef.IScanService)(this)).BeginReadData3(inValue, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        VPrinting.ScanServiceRef.ReadData3Response VPrinting.ScanServiceRef.IScanService.EndReadData3(System.IAsyncResult result) {
+            return base.Channel.EndReadData3(result);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public byte[] EndReadData3(System.IAsyncResult result) {
+            VPrinting.ScanServiceRef.ReadData3Response retVal = ((VPrinting.ScanServiceRef.IScanService)(this)).EndReadData3(result);
+            return retVal.Body.ReadData3Result;
+        }
+        
+        private System.IAsyncResult OnBeginReadData3(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int id = ((int)(inValues[0]));
+            string docType = ((string)(inValues[1]));
+            int start = ((int)(inValues[2]));
+            int length = ((int)(inValues[3]));
+            string s1 = ((string)(inValues[4]));
+            string s2 = ((string)(inValues[5]));
+            return this.BeginReadData3(id, docType, start, length, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndReadData3(System.IAsyncResult result) {
+            byte[] retVal = this.EndReadData3(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnReadData3Completed(object state) {
+            if ((this.ReadData3Completed != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ReadData3Completed(this, new ReadData3CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ReadData3Async(int id, string docType, int start, int length, string s1, string s2) {
+            this.ReadData3Async(id, docType, start, length, s1, s2, null);
+        }
+        
+        public void ReadData3Async(int id, string docType, int start, int length, string s1, string s2, object userState) {
+            if ((this.onBeginReadData3Delegate == null)) {
+                this.onBeginReadData3Delegate = new BeginOperationDelegate(this.OnBeginReadData3);
+            }
+            if ((this.onEndReadData3Delegate == null)) {
+                this.onEndReadData3Delegate = new EndOperationDelegate(this.OnEndReadData3);
+            }
+            if ((this.onReadData3CompletedDelegate == null)) {
+                this.onReadData3CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReadData3Completed);
+            }
+            base.InvokeAsync(this.onBeginReadData3Delegate, new object[] {
+                        id,
+                        docType,
+                        start,
+                        length,
+                        s1,
+                        s2}, this.onEndReadData3Delegate, this.onReadData3CompletedDelegate, userState);
         }
         
         public void SaveData(string serverDirName, string fileName, byte[] data, string s1, string s2) {

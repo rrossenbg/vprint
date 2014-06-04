@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using iTextSharp.text;
@@ -6,7 +7,6 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.security;
 using Org.BouncyCastle.Pkcs;
 using Org.BouncyCastle.X509;
-using System.Collections.Generic;
 
 namespace ReceivingServiceLib
 {
@@ -20,15 +20,22 @@ namespace ReceivingServiceLib
             public string Creator { get; set; }
         }
 
-        public void CreatePdf(string destinationFileName, string[] imageFilePaths, CreationInfo info)
+        public void CreatePdf(string destinationFileName, IList<System.Drawing.Image> images, CreationInfo info)
         {
             List<Image> list = new List<Image>();
-            foreach (var path in imageFilePaths)
-                list.Add(Image.GetInstance(path));
+
+            foreach (var img in images)
+            {
+                using (var mem = new MemoryStream())
+                {
+                    img.Save(mem, img.RawFormat);
+                    list.Add(Image.GetInstance(mem));
+                }
+            }
 
             float width = list.Max(i => i.Width);
             float height = list.Max(i => i.Height);
-            
+
             Document doc = new Document(new Rectangle(width, height), 25, 25, 25, 25);
             try
             {
@@ -73,11 +80,11 @@ namespace ReceivingServiceLib
         /// <param name="pfxKeyPass">The password for the private key</param>
         /// <param name="reasonForSigning">String describing the reason for signing, would be embedded as part of the signature</param>
         /// <param name="location">Location where the document was signed, would be embedded as part of the signature</param>
-        public void SignPdfFile(string sourceDocument, string destinationDocument, SignInfo i)
+        public void SignPdfFile(string sourceDocument, string destinationDocument, SignInfo info)
         {
-            using (var cpfxFile = new FileStream(i.pfxFilePath, FileMode.Open, FileAccess.Read))
+            using (var cpfxFile = new FileStream(info.pfxFilePath, FileMode.Open, FileAccess.Read))
             {
-                Pkcs12Store pk12 = new Pkcs12Store(cpfxFile, i.pfxKeyPass.ToCharArray());
+                Pkcs12Store pk12 = new Pkcs12Store(cpfxFile, info.pfxKeyPass.ToCharArray());
 
                 string alias = null;
 
@@ -95,14 +102,14 @@ namespace ReceivingServiceLib
                 using (var fout = new FileStream(destinationDocument, FileMode.Create, FileAccess.ReadWrite))
                 using (var stamper = PdfStamper.CreateSignature(reader, fout, '\0'))
                 {
-                    if (i.docPass != null)
-                        stamper.SetEncryption(i.docPass, i.docPass, PdfWriter.ALLOW_SCREENREADERS, PdfWriter.STRENGTH128BITS);
+                    if (info.docPass != null)
+                        stamper.SetEncryption(info.docPass, info.docPass, PdfWriter.ALLOW_SCREENREADERS, PdfWriter.STRENGTH128BITS);
 
-                    var img = new iTextSharp.text.Jpeg(new Uri(i.signImagePath));
+                    var img = new iTextSharp.text.Jpeg(new Uri(info.signImagePath));
                     PdfSignatureAppearance appearance = stamper.SignatureAppearance;
                     appearance.Image = img;
-                    appearance.Reason = i.reasonForSigning;
-                    appearance.Location = i.location;
+                    appearance.Reason = info.reasonForSigning;
+                    appearance.Location = info.location;
                     const float x = 20, y = 10;
                     appearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + img.Width, y + img.Width), 1, "Icsi-Vendor");
 

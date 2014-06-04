@@ -38,6 +38,8 @@ namespace ReceivingService
             strings.VOCUHERSEXPORTFOLDER = ConfigurationManager.AppSettings["VOCUHERSEXPORTFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
             strings.UPLOADERRORS = ConfigurationManager.AppSettings["UPLOADERRORS"].IfNullOrEmptyThrow<ArgumentException>();
             strings.VERSIONFOLDER = ConfigurationManager.AppSettings["VERSIONFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
+            strings.pfxFileFullPath = ConfigurationManager.AppSettings["pfxFileFullPath"].IfNullOrEmptyThrow<ArgumentException>();
+            strings.PTFLogoFileFullPath = ConfigurationManager.AppSettings["PTFLogoFileFullPath"].IfNullOrEmptyThrow<ArgumentException>();
             strings.Save();
 
             ImportFileWorker.Default.StartStop();
