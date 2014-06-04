@@ -73,41 +73,41 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>SLg35ZnutUZEua1BqtQWlN6gLrE=</dsig:DigestValue>
+        <dsig:DigestValue>whHb0EyppD3w732f7/iY+wKObhE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.dll" size="54784">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.dll" size="88064">
       <assemblyIdentity name="ReceivingServiceLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4Epzro9sCnjd0d5vVTCiZnJtu3g=</dsig:DigestValue>
+        <dsig:DigestValue>oqmfAPmLZY71KJ6Yq2By8p/OcUk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.Common.dll" size="62976">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.Common.dll" size="69632">
       <assemblyIdentity name="ReceivingServiceLib.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>+zLzyeK8srXbtFtpYfZpXoEYfBg=</dsig:DigestValue>
+        <dsig:DigestValue>oSGCI/3Wit/4EDwx5/EuSoC/iDY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ReceivingService.exe.config" size="2537">
+  <file name="ReceivingService.exe.config" size="2842">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>nzqkZ3/xj0Q2zjA4yE+KyHT3ZzE=</dsig:DigestValue>
+      <dsig:DigestValue>sdz6WVq6FJouOaabV1pGuLMz/JY=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

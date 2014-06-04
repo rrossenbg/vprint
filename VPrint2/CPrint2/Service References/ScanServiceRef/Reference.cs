@@ -203,6 +203,9 @@ namespace CPrint2.ScanServiceRef {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -326,6 +329,19 @@ namespace CPrint2.ScanServiceRef {
                 if ((object.ReferenceEquals(this.MessageField, value) != true)) {
                     this.MessageField = value;
                     this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -798,6 +814,9 @@ namespace CPrint2.ScanServiceRef {
         private int VoucherIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SiteCodeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -889,6 +908,19 @@ namespace CPrint2.ScanServiceRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public string SiteCode {
             get {
                 return this.SiteCodeField;
@@ -1015,6 +1047,9 @@ namespace CPrint2.ScanServiceRef {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OperatorField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -1099,6 +1134,19 @@ namespace CPrint2.ScanServiceRef {
                 if ((this.OperatorField.Equals(value) != true)) {
                     this.OperatorField = value;
                     this.RaisePropertyChanged("Operator");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -1327,6 +1375,11 @@ namespace CPrint2.ScanServiceRef {
         [System.ServiceModel.FaultContractAttribute(typeof(CPrint2.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SelectFilesBySqlMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
         CPrint2.ScanServiceRef.fileInfo[] SelectFilesBySql(string whereClause, string s1, string s2);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySql", ReplyAction="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySqlResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(CPrint2.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySqlMyApplicationFaultFault" +
+            "", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        void UpdateVouchersOrFilesBySql(string setSql, string whereClause, bool isVoucher, string s1, string s2);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/AddFolder", ReplyAction="http://tempuri.org/IScanService/AddFolderResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(CPrint2.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/AddFolderMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
         void AddFolder(System.Nullable<int> toParentId, string name, int countryId, int userId, string s1, string s2);
@@ -1365,7 +1418,7 @@ namespace CPrint2.ScanServiceRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/SelectFileById", ReplyAction="http://tempuri.org/IScanService/SelectFileByIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(CPrint2.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SelectFileByIdMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
-        byte[] SelectFileById(int fileId, bool isVoucher, int startFrom, string s1, string s2);
+        byte[] SelectFileById(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/GetVersionInfo", ReplyAction="http://tempuri.org/IScanService/GetVersionInfoResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(CPrint2.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/GetVersionInfoMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
@@ -1463,6 +1516,10 @@ namespace CPrint2.ScanServiceRef {
             return base.Channel.SelectFilesBySql(whereClause, s1, s2);
         }
         
+        public void UpdateVouchersOrFilesBySql(string setSql, string whereClause, bool isVoucher, string s1, string s2) {
+            base.Channel.UpdateVouchersOrFilesBySql(setSql, whereClause, isVoucher, s1, s2);
+        }
+        
         public void AddFolder(System.Nullable<int> toParentId, string name, int countryId, int userId, string s1, string s2) {
             base.Channel.AddFolder(toParentId, name, countryId, userId, s1, s2);
         }
@@ -1499,8 +1556,8 @@ namespace CPrint2.ScanServiceRef {
             return base.Channel.SelectCoversByFolder(folderId, s1, s2);
         }
         
-        public byte[] SelectFileById(int fileId, bool isVoucher, int startFrom, string s1, string s2) {
-            return base.Channel.SelectFileById(fileId, isVoucher, startFrom, s1, s2);
+        public byte[] SelectFileById(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2) {
+            return base.Channel.SelectFileById(fileId, isVoucher, signed, startFrom, s1, s2);
         }
         
         public CPrint2.ScanServiceRef.UpdateFileInfo[] GetVersionInfo(string currentVersion, string s1, string s2) {

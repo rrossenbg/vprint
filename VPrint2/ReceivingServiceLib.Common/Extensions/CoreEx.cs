@@ -57,6 +57,9 @@ namespace ReceivingServiceLib
         {
             try
             {
+                if (info == null)
+                    return;
+
                 info.Refresh();
                 if (info.Exists)
                     info.Delete();
@@ -73,6 +76,9 @@ namespace ReceivingServiceLib
         {
             try
             {
+                if (info == null)
+                    return;
+
                 info.Refresh();
                 if (info.Exists)
                     info.Delete(recursive);

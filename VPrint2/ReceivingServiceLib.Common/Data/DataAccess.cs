@@ -711,6 +711,7 @@ namespace ReceivingServiceLib.Data
             public int RetailerId { get; set; }
             public int VoucherId { get; set; }
             public string SiteCode { get; set; }
+            public string Name { get; set; }
         }
 
         public List<fileData> SelectVouchersByFolder(int folderId)
@@ -719,7 +720,7 @@ namespace ReceivingServiceLib.Data
 
             #region SQL
 
-            const string SQL = @"SELECT [id], [iso_id], [v_fl_id], [branch_id], [v_number], [session_Id], [sitecode] FROM [Voucher] WHERE [v_fl_id] = @flId;";
+            const string SQL = @"SELECT [id], [iso_id], [v_fl_id], [branch_id], [v_number], [session_Id], [sitecode], [v_name] FROM [Voucher] WHERE [v_fl_id] = @flId;";
 
             #endregion
 
@@ -746,6 +747,7 @@ namespace ReceivingServiceLib.Data
                                 RetailerId = reader.Get<int>("branch_id").GetValueOrDefault(),
                                 VoucherId = reader.Get<int>("v_number").GetValueOrDefault(),
                                 SiteCode = reader.GetString("sitecode"),
+                                Name = reader.GetString("v_name"),
                             };
                             list.Add(data);
                         }
@@ -763,6 +765,7 @@ namespace ReceivingServiceLib.Data
             public int Location { get; set; }
             public int Operator { get; set; }
             public string SessionId { get; set; }
+            public string Name { get; set; }
         }
 
         public List<file2Data> SelectFilesByFolder(int folderId)
@@ -771,8 +774,7 @@ namespace ReceivingServiceLib.Data
 
             #region SQL
 
-            const string SQL = @"SELECT [f_id], [f_fl_id], [f_location], [f_operator_id], [f_country_id], [f_session_Id] 
-                                FROM [File] WHERE [f_fl_id] = @flId;";
+            const string SQL = @"SELECT [f_id], [f_fl_id], [f_location], [f_operator_id], [f_country_id], [f_session_Id] , [f_name] FROM [File] WHERE [f_fl_id] = @flId;";
 
             #endregion
 
@@ -798,6 +800,7 @@ namespace ReceivingServiceLib.Data
                                 CountryId = reader.Get<int>("f_country_id").GetValueOrDefault(),
                                 Operator = reader.Get<int>("f_operator_id").GetValueOrDefault(),
                                 SessionId = reader.GetString("f_session_Id"),
+                                Name = reader.GetString("f_name"),
                             };
                             list.Add(data);
                         }
@@ -852,6 +855,21 @@ namespace ReceivingServiceLib.Data
             CheckConnectionStringThrow();
 
             string SQL = string.Format(@"UPDATE [Voucher] SET {0} WHERE {1};", setsql, whereClause);
+
+            using (var conn = new SqlConnection(Global.Strings.ConnString))
+            {
+                conn.Open();
+
+                using (var comm = new SqlCommand(SQL, conn))
+                    comm.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateFilesBySql(string setsql, string whereClause)
+        {
+            CheckConnectionStringThrow();
+
+            string SQL = string.Format(@"UPDATE [File] SET {0} WHERE {1};", setsql, whereClause);
 
             using (var conn = new SqlConnection(Global.Strings.ConnString))
             {

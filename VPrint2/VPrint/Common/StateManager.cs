@@ -50,6 +50,7 @@ namespace VPrinting.Common
             public int Id { get; set; }
             public int JobID { get; set; }
             public int CountryID { get; set; }
+            public string Name { get; set; }
 
             #endregion
 
@@ -104,7 +105,7 @@ namespace VPrinting.Common
                 FileInfoList = new List<FileInfo>();
             }
 
-            public Item(int id, int jobId, int countryId, eState state, Guid sessionID)
+            public Item(int id, int jobId, int countryId, eState state, Guid sessionID, string name)
             {
                 Id = id;
                 JobID = jobId;
@@ -112,6 +113,7 @@ namespace VPrinting.Common
                 CountryID = countryId;
                 SessionID = sessionID;
                 FileInfoList = new List<FileInfo>();
+                Name = name;
             }
 
             public virtual void Zero()
@@ -233,7 +235,7 @@ namespace VPrinting.Common
                 JobID = 1;                
             }
 
-            public VoucherItem(int id, int countryId, int retailerId, int voucherId, eState state, Guid session, string siteCode)
+            public VoucherItem(int id, int countryId, int retailerId, int voucherId, eState state, Guid session, string siteCode, string name)
             {
                 Id = id;
                 JobID = 1;
@@ -243,6 +245,7 @@ namespace VPrinting.Common
                 State = state;
                 SessionID = session;
                 SiteCode = siteCode;
+                Name = name;
                 //TODO:
                 Barcode = CommonTools.ToBarcode(countryId, 20, RetailerID, VoucherID);
                 FileInfoList = new List<FileInfo>();
@@ -505,7 +508,7 @@ namespace VPrinting.Common
                 lock (m_ItemCollection.SyncRoot)
                     foreach (var i in list)
                         AddVoucherItem(0, i.CountryId, i.RetailerId, i.VoucherId,
-                            eState.NA, Guid.NewGuid(), i.Sitecode);
+                            eState.NA, Guid.NewGuid(), i.Sitecode, "");
             }
             catch (Exception ex)
             {
@@ -532,23 +535,23 @@ namespace VPrinting.Common
             }
         }
 
-        public void AddItem(int id, int countryId, eState state, Guid session)
+        public void AddItem(int id, int countryId, eState state, Guid session, string name)
         {
             lock (m_ItemCollection.SyncRoot)
             {
-                Item item = new Item(id, 0, countryId, state, session);
+                Item item = new Item(id, 0, countryId, state, session, name);
                 m_ItemCollection.Add(item);
                 FireNewItemAdded(item);
             }
         }
 
-        public void AddVoucherItem(int id, int countryId, int retailerId, int voucherId, eState state, Guid session, string siteCode)
+        public void AddVoucherItem(int id, int countryId, int retailerId, int voucherId, eState state, Guid session, string siteCode, string name)
         {
             lock (m_ItemCollection.SyncRoot)
             {
                 if (m_ItemCollection.FirstOrDefault((ii) => ii is VoucherItem && ((VoucherItem)ii).Equals(countryId, retailerId, voucherId)) == null)
                 {
-                    VoucherItem item = new VoucherItem(id, countryId, retailerId, voucherId, state, session, siteCode);
+                    VoucherItem item = new VoucherItem(id, countryId, retailerId, voucherId, state, session, siteCode, name);
                     m_ItemCollection.Add(item);
                     FireNewItemAdded(item);
                 }

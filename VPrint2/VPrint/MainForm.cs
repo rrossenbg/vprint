@@ -235,6 +235,7 @@ namespace VPrinting
         private CheckBox cbVoucherMustExist;
         private ToolStripMenuItem nameToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem10;
+        private ToolStripMenuItem showSignedToolStripMenuItem;
 
         #region PUBLIC FIELDS
 
@@ -1157,7 +1158,9 @@ namespace VPrinting
             this.tsmiSend = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiScanningShow = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.nameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiScanningDetailes = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiScaningDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiScaningDeleteAll = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiScanningClear = new System.Windows.Forms.ToolStripMenuItem();
@@ -1173,8 +1176,7 @@ namespace VPrinting
             this.tsmiSort = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.nameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+            this.showSignedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.printContextMenu.SuspendLayout();
@@ -1934,6 +1936,7 @@ namespace VPrinting
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.LightGray;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(10, 57);
@@ -1991,6 +1994,7 @@ namespace VPrinting
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.LightGray;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(17, 32);
@@ -2343,6 +2347,7 @@ namespace VPrinting
             this.scanContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiSend,
             this.tsmiScanningShow,
+            this.showSignedToolStripMenuItem,
             this.toolStripMenuItem8,
             this.nameToolStripMenuItem,
             this.tsmiScanningDetailes,
@@ -2359,7 +2364,7 @@ namespace VPrinting
             this.toolStripMenuItem7,
             this.tsmiExit});
             this.scanContextMenuStrip.Name = "scanContextMenuStrip";
-            this.scanContextMenuStrip.Size = new System.Drawing.Size(153, 320);
+            this.scanContextMenuStrip.Size = new System.Drawing.Size(153, 342);
             // 
             // tsmiSend
             // 
@@ -2382,6 +2387,13 @@ namespace VPrinting
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             this.toolStripMenuItem8.Size = new System.Drawing.Size(149, 6);
             // 
+            // nameToolStripMenuItem
+            // 
+            this.nameToolStripMenuItem.Name = "nameToolStripMenuItem";
+            this.nameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nameToolStripMenuItem.Text = "&Rename";
+            this.nameToolStripMenuItem.Click += new System.EventHandler(this.NameMenuItem_Click);
+            // 
             // tsmiScanningDetailes
             // 
             this.tsmiScanningDetailes.Name = "tsmiScanningDetailes";
@@ -2389,6 +2401,11 @@ namespace VPrinting
             this.tsmiScanningDetailes.Text = "De&tails";
             this.tsmiScanningDetailes.ToolTipText = "Show voucher details";
             this.tsmiScanningDetailes.Click += new System.EventHandler(this.Details_Click);
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmiScaningDelete
             // 
@@ -2502,17 +2519,12 @@ namespace VPrinting
             this.exitToolStripMenuItem1.ToolTipText = "Exit application";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // nameToolStripMenuItem
+            // showSignedToolStripMenuItem
             // 
-            this.nameToolStripMenuItem.Name = "nameToolStripMenuItem";
-            this.nameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nameToolStripMenuItem.Text = "&Name";
-            this.nameToolStripMenuItem.Click += new System.EventHandler(this.NameMenuItem_Click);
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(149, 6);
+            this.showSignedToolStripMenuItem.Name = "showSignedToolStripMenuItem";
+            this.showSignedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showSignedToolStripMenuItem.Text = "Show Si&gned";
+            this.showSignedToolStripMenuItem.Click += new System.EventHandler(this.DownloadShow_Click);
             // 
             // MainForm
             // 
@@ -2733,11 +2745,11 @@ namespace VPrinting
 
             m_StateManager.Clear();
 
-            foreach (var voucher in files)
+            foreach (var file in files)
             {
                 Guid session = Guid.Empty;
-                Guid.TryParse(voucher.SessionId, out session);
-                m_StateManager.AddItem(voucher.Id, voucher.CountryID, StateManager.eState.COVER, session);
+                Guid.TryParse(file.SessionId, out session);
+                m_StateManager.AddItem(file.Id, file.CountryID, StateManager.eState.COVER, session, file.Name);
             }
 
             foreach (var voucher in vouchers)
@@ -2745,7 +2757,7 @@ namespace VPrinting
                 Guid session = Guid.Empty;
                 Guid.TryParse(voucher.SessionId, out session);
                 m_StateManager.AddVoucherItem(voucher.Id, voucher.CountryId, voucher.RetailerId, voucher.VoucherId,
-                    StateManager.eState.VOUCHER, session, voucher.SiteCode);
+                    StateManager.eState.VOUCHER, session, voucher.SiteCode, voucher.Name);
             }
         }
 
@@ -2782,7 +2794,7 @@ namespace VPrinting
                         {
                             var downloadDir = MainForm.GetAppSubFolder(Strings.DOWNLOAD);
 
-                            string fullFileName = ServiceDataAccess.Instance.ReceiveFile(i.Item.Id, true, downloadDir.FullName);
+                            string fullFileName = ServiceDataAccess.Instance.ReceiveFile(i.Item.Id, true, false, downloadDir.FullName);
                             m_DownloadFileOrganizer.Data[i.Item] = fullFileName;
                         })));
                     }
@@ -2938,6 +2950,7 @@ namespace VPrinting
 
         private void DownloadShow_Click(object sender, EventArgs e)
         {
+            bool isSigned = sender == this.showSignedToolStripMenuItem;
             ItemControl selectedItemCnt = scanContextMenuStrip.SourceControl as ItemControl;
             if (selectedItemCnt != null)
             {
@@ -2959,7 +2972,7 @@ namespace VPrinting
                         {
                             bool isVoucher = itm.State == StateManager.eState.VOUCHER;
                             var versionDir = MainForm.GetAppSubFolder("DOWNLOAD");
-                            string fullFileName = ServiceDataAccess.Instance.ReceiveFile(i.Item.Id, isVoucher, versionDir.FullName);
+                            string fullFileName = ServiceDataAccess.Instance.ReceiveFile(i.Item.Id, isVoucher, isSigned, versionDir.FullName);
                             m_DownloadFileOrganizer.Data[i.Item] = fullFileName;
                         })));
                 }
@@ -3238,9 +3251,12 @@ namespace VPrinting
                 string name = null;
                 if (InputForm.show(this, ref name, "Name", "Name"))
                 {
-                    string setSql = string.Format("v_name = '{0}'", name);
-                    string whereClause = string.Format("id = {0}", item.Item.Id);
-                    ServiceDataAccess.Instance.UpdateFilesBySql(setSql, whereClause);
+                    bool isVoucher = item.Item is StateManager.VoucherItem;
+                    string setSql = isVoucher ? string.Format("v_name = '{0}'", name) : string.Format("f_name = '{0}'", name);
+                    string whereClause = isVoucher ? string.Format("id = {0}", item.Item.Id) : string.Format("f_id = {0}", item.Item.Id);
+                    ServiceDataAccess.Instance.UpdateVouchersOrFilesBySql(setSql, whereClause, isVoucher);
+                    item.Item.Name = name;
+                    item.Item.FireUpdated();
                 }
             }
         }
@@ -3249,10 +3265,10 @@ namespace VPrinting
         {
             if (Global.FolderID.HasValue)
             {
-                int countryId = 0, retailerId = 0, voucherId = 0; string siteCode = "";
+                int countryId = 0, retailerId = 0, voucherId = 0; string siteCode = "", name = "";
 
                 if (AddVoucherItemForm.show(this, ref countryId, ref retailerId, ref voucherId, ref siteCode))
-                    m_StateManager.AddVoucherItem(0, countryId, retailerId, voucherId, StateManager.eState.NA, Guid.NewGuid(), siteCode);
+                    m_StateManager.AddVoucherItem(0, countryId, retailerId, voucherId, StateManager.eState.NA, Guid.NewGuid(), siteCode, name);
             }
             else
                 this.ShowExclamation("Don't scan to the image root\r\nOpen tree and create folder");
@@ -3293,6 +3309,6 @@ namespace VPrinting
         }
         
         #endregion //SCANNING
-        
+      
     }  
 }

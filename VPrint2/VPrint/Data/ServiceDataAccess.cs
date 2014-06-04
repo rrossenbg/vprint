@@ -169,14 +169,14 @@ namespace VPrinting.Data
             }
         }
 
-        public void UpdateFilesBySql(string setSql, string whereCause)
+        public void UpdateVouchersOrFilesBySql(string setSql, string whereCause, bool isVoucher)
         {
             IScanService client = null;
             try
             {
                 client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
-                client.UpdateFilesBySql(setSql, whereCause, keys.Item1, keys.Item2);
+                client.UpdateVouchersOrFilesBySql(setSql, whereCause, isVoucher, keys.Item1, keys.Item2);
             }
             finally
             {
@@ -310,7 +310,7 @@ namespace VPrinting.Data
             }
         }
 
-        public string ReceiveFile(int fileId, bool isVoucher, string folder)
+        public string ReceiveFile(int fileId, bool isVoucher, bool signed, string folder)
         {
             var finfo = new FileInfo(Path.Combine(folder, "dwn".Unique(".zip")));
 
@@ -327,7 +327,7 @@ namespace VPrinting.Data
                     {
                         file.Seek(file.Length, SeekOrigin.Begin);
 
-                        var buffer = client.SelectFileById(fileId, isVoucher, (int)file.Length, keys.Item1, keys.Item2);
+                        var buffer = client.SelectFileById(fileId, isVoucher, signed, (int)file.Length, keys.Item1, keys.Item2);
 
                         if (buffer.Length == 0)
                             return finfo.FullName;

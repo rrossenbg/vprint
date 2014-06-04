@@ -6,6 +6,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VPrint.Common", "VPrint.Common\VPrint.Common.csproj", "{299F65C9-2BDF-42B2-BA4B-CA39F06328CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VPrint", "VPrint\VPrint.csproj", "{CA89200F-243A-487C-ACF8-03F538A6C413}"
+	ProjectSection(ProjectDependencies) = postProject
+		{966666A1-F146-4BDE-B30A-E743E660BFC3} = {966666A1-F146-4BDE-B30A-E743E660BFC3}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Libraries", "_Libraries", "{58757E6C-CA15-4111-8700-EF76764CBAB4}"
 	ProjectSection(SolutionItems) = preProject
@@ -139,6 +142,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Others", "_Others", "{0A5B4262-79F7-4F2D-860C-4D911DC93160}"
 	ProjectSection(SolutionItems) = preProject
 		CPrint2\Others\DisableSecuritySettingsCheck.reg = CPrint2\Others\DisableSecuritySettingsCheck.reg
+		KnowHow.txt = KnowHow.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceivingServiceTest", "ReceivingServiceTest\ReceivingServiceTest.csproj", "{F525BBEA-3F29-48F7-88C4-7638303B60A4}"

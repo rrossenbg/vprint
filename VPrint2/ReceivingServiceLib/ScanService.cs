@@ -11,6 +11,8 @@ using System.Security;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using ReceivingServiceLib.Data;
+using System.Diagnostics;
+using System.Drawing;
 
 namespace ReceivingServiceLib
 {
@@ -85,51 +87,6 @@ namespace ReceivingServiceLib
 
                 if (!ByteBuffers.ContainsKey(id))
                     ByteBuffers[id] = DataAccess.Instance.SelectImageById(id, isVoucher);
-
-                byte[] buffer = ByteBuffers[id];
-                byte[] result = new byte[length];
-
-                Array.Copy(buffer, result, length);
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
-            }
-        }
-
-        public byte[] ReadData3(int id, DocumentType docType, int start, int length, string s1, string s2)
-        {
-            try
-            {
-                SecurityCheckThrow(s1, s2);
-
-                if (!ByteBuffers.ContainsKey(id))
-                {
-                    switch (docType)
-                    {
-                        case DocumentType.Voucher:
-                            {
-                                ByteBuffers[id] = DataAccess.Instance.SelectImageById(id, true);
-                            }
-                            break;
-                        case DocumentType.Coverpage:
-                            {
-                                ByteBuffers[id] = DataAccess.Instance.SelectImageById(id, false);
-                            }
-                            break;
-                        case DocumentType.SignedVoucher:
-                            {
-                                var db = DataAccess.Instance;
-                                var vinfo = db.SelectVoucherInfo(id);
-                                var buf = db.SelectImageById(id, true);
-                                var countryName = ISOs.ResourceManager.GetString(string.Concat('_', vinfo.isoId));
-                                ByteBuffers[id] = pdfFileAccess.Instance.CreateSignPdf(buf, "barcode", countryName, "Madrid", vinfo.branch_id, vinfo.v_number);
-                            }
-                            break;
-                    }
-                }
 
                 byte[] buffer = ByteBuffers[id];
                 byte[] result = new byte[length];
@@ -453,7 +410,7 @@ namespace ReceivingServiceLib
             }
         }
 
-        public void UpdateFilesBySql(string setSql, string whereClause, string s1, string s2)
+        public void UpdateVouchersOrFilesBySql(string setSql, string whereClause, bool isVoucher, string s1, string s2)
         {
             try
             {
@@ -468,7 +425,10 @@ namespace ReceivingServiceLib
                 if (string.IsNullOrWhiteSpace(setSql))
                     throw new ArgumentException("setClause");
 
-                DataAccess.Instance.UpdateVouchersBySql(setSql, whereClause);
+                if (isVoucher)
+                    DataAccess.Instance.UpdateVouchersBySql(setSql, whereClause);
+                else
+                    DataAccess.Instance.UpdateFilesBySql(setSql, whereClause);
             }
             catch (Exception ex)
             {
@@ -605,8 +565,11 @@ namespace ReceivingServiceLib
             }
         }
 
-        public byte[] SelectFileById(int fileId, bool isVoucher, int startFrom, string s1, string s2)
+        public byte[] SelectFileById(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2)
         {
+            //if (!Debugger.IsAttached)
+            //    Debugger.Launch();
+
             const int READSIZE = 16384;
 
             using (var buffer = new CachedMemoryBuffer<int>(fileId))
@@ -616,7 +579,71 @@ namespace ReceivingServiceLib
                     SecurityCheckThrow(s1, s2);
 
                     if (buffer.IsFirstRun)
-                        buffer.Buffer = DataAccess.Instance.SelectVoucherById(fileId, isVoucher);
+                    {
+                        if (isVoucher)
+                        {
+                            if (signed)
+                            {
+                                //signed voucher
+                                var db = DataAccess.Instance;
+                                var vinfo = db.SelectVoucherInfo(fileId);
+                                var countryName = ISOs.ResourceManager.GetString(string.Concat('_', vinfo.isoId));
+
+                                var buf = db.SelectImageById(fileId, true);
+
+                                DirectoryInfo exportDirectory = null;
+                                FileInfo exportZipFile = null;
+                                DirectoryInfo operationDirectory = null;
+                                FileInfo operationZipFile = null;
+
+                                try
+                                {
+                                    var uploadRootFolder = new DirectoryInfo(Global.Strings.UPLOADROOT);
+                                    uploadRootFolder.EnsureDirectory();
+
+                                    exportDirectory = uploadRootFolder.Combine(vinfo.session_Id);
+                                    exportDirectory.EnsureDirectory();
+
+                                    operationDirectory = uploadRootFolder.Combine(vinfo.session_Id + "_result");
+                                    operationDirectory.EnsureDirectory();
+
+                                    exportZipFile = uploadRootFolder.CombineFileName(vinfo.session_Id + ".zip");
+                                    operationZipFile = uploadRootFolder.CombineFileName(vinfo.session_Id + "result.zip");
+
+                                    File.WriteAllBytes(exportZipFile.FullName, buf);
+
+                                    var files = fileAccess.Instance.ExtractFileZip(exportZipFile.FullName, exportDirectory.FullName);
+                                    var imageFileToSing = files.Max((f, f1) => f.Length > f1.Length);
+
+                                    using (var bmp = (Bitmap)Image.FromFile(imageFileToSing.FullName))
+                                    {
+                                        var resultFile = pdfFileAccess.Instance.CreateSignPdf(bmp, "barcode", countryName, "Madrid", vinfo.branch_id, vinfo.v_number);
+                                        var imageFileName = operationDirectory.CombineFileName(vinfo.session_Id + ".pdf").FullName;
+                                        File.Move(resultFile, imageFileName);
+
+                                        fileAccess.Instance.CreateZip(operationZipFile.FullName, operationDirectory.FullName, "File created at: " + DateTime.Now);
+                                        buffer.Buffer = operationZipFile.ReadAllBytes();
+                                    }
+                                }
+                                finally
+                                {
+                                    exportDirectory.DeleteSafe(true);
+                                    exportZipFile.DeleteSafe();
+                                    operationZipFile.DeleteSafe();
+                                }
+                            }
+                            else
+                            {
+                                //cover page
+                                buffer.Buffer = DataAccess.Instance.SelectVoucherById(fileId, true);
+                            }
+                        }
+                        else
+                        {
+                            //voucher
+                            buffer.Buffer = DataAccess.Instance.SelectVoucherById(fileId, false);
+                        }
+                    }
 
                     byte[] arr = buffer.Get(startFrom, READSIZE);
                     return arr;

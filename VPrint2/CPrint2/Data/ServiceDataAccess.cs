@@ -313,7 +313,7 @@ namespace CPrint2.Data
                     {
                         file.Seek(file.Length, SeekOrigin.Begin);
 
-                        var buffer = client.SelectFileById(fileId, isVoucher, (int)file.Length, keys.Item1, keys.Item2);
+                        var buffer = client.SelectFileById(fileId, isVoucher, false, (int)file.Length, keys.Item1, keys.Item2);
 
                         if (buffer.Length == 0)
                             return finfo.FullName;

@@ -7,7 +7,6 @@ C:\PROJECTS\VPrint\ReceivingServiceLib\bin\Release\ReceivingServiceLib.Common.dl
 C:\PROJECTS\VPrint\ReceivingServiceLib\obj\Release\ReceivingServiceLib.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint\ReceivingServiceLib\obj\Release\ReceivingServiceLib.dll
 C:\PROJECTS\VPrint\ReceivingServiceLib\obj\Release\ReceivingServiceLib.pdb
-C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Release\PTF.pfx
 C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Release\Resources\PTFLogo.jpg
 C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Release\ReceivingServiceLib.dll.config
 C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Release\ReceivingServiceLib.dll
@@ -20,3 +19,7 @@ C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Release\ReceivingServiceLib.Common.p
 C:\PROJECTS\VPrint2\ReceivingServiceLib\obj\Release\ReceivingServiceLib.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint2\ReceivingServiceLib\obj\Release\ReceivingServiceLib.dll
 C:\PROJECTS\VPrint2\ReceivingServiceLib\obj\Release\ReceivingServiceLib.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceLib\obj\Release\ReceivingServiceLib.ISOs.resources
+C:\PROJECTS\VPrint2\ReceivingServiceLib\obj\Release\ReceivingServiceLib.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Release\Resources\PTF.cer
+C:\PROJECTS\VPrint2\ReceivingServiceLib\bin\Release\Resources\PTF.pfx
