@@ -34,6 +34,10 @@ namespace ReceivingServiceLib
 
         [OperationContract]
         [FaultContract(typeof(MyApplicationFault))]
+        byte[] ReadData3(int id, DocumentType docType, int start, int length, string s1, string s2);
+
+        [OperationContract]
+        [FaultContract(typeof(MyApplicationFault))]
         void SaveData(string serverDirName, string fileName, byte[] data, string s1, string s2);
 
         [OperationContract]
@@ -173,6 +177,8 @@ namespace ReceivingServiceLib
         public string SessionId { get; set; }
         [DataMember(Order = 8)]
         public string Message { get; set; }
+        [DataMember(Order = 9)]
+        public string Name { get; set; }
 
         public VoucherInfo()
         {
@@ -189,6 +195,7 @@ namespace ReceivingServiceLib
             Location = data.location;
             OperatorId = data.operator_id;
             SessionId = data.session_id;
+            Name = data.v_name;
         }
     }
 
@@ -308,6 +315,15 @@ namespace ReceivingServiceLib
 
         [EnumMember]
         Error = 127,
+    }
+
+    [Serializable]
+    [DataContract]
+    public enum DocumentType : int
+    {
+        Voucher = 0,
+        Coverpage = 1,
+        SignedVoucher = 2,
     }
 
     [DataContract]

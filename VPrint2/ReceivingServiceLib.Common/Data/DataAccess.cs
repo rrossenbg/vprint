@@ -142,12 +142,13 @@ namespace ReceivingServiceLib.Data
             public int location { get; set; }
             public int operator_id { get; set; }
             public string session_id { get; set; }
+            public string v_name { get; set; }
 
             public SelectVouchersData()
             {
             }
 
-            public SelectVouchersData(int id, int v_number, string sitecode, string barcode, DateTime scandate, int location, int operator_id, string session_id)
+            public SelectVouchersData(int id, int v_number, string sitecode, string barcode, DateTime scandate, int location, int operator_id, string session_id, string v_name)
             {
                 this.id = id;
                 this.v_number = v_number;
@@ -157,6 +158,7 @@ namespace ReceivingServiceLib.Data
                 this.location = location;
                 this.operator_id = operator_id;
                 this.session_id = session_id;
+                this.v_name = v_name;
             }
         }
 
@@ -166,7 +168,7 @@ namespace ReceivingServiceLib.Data
 
             #region SQL
 
-            const string SQL = @"select id, job_id,  v_number, sitecode, barcode, scandate, location, operator_id, session_Id from Voucher
+            const string SQL = @"select id, job_id,  v_number, sitecode, barcode, scandate, location, operator_id, session_Id, v_name from Voucher
                                 where iso_id = @iso_id and branch_id = @branch_id;";
 
             #endregion
@@ -196,7 +198,8 @@ namespace ReceivingServiceLib.Data
                                 var location = r.Get<int>("location").GetValueOrDefault();
                                 var operator_id = r.Get<int>("operator_id").GetValueOrDefault();
                                 var session_id = r.GetString("session_Id");
-                                var t = new SelectVouchersData(id, v_number, sitecode, barcode, scandate, location, operator_id, session_id);
+                                var v_name = r.GetString("v_name");
+                                var t = new SelectVouchersData(id, v_number, sitecode, barcode, scandate, location, operator_id, session_id, v_name);
                                 return t;
                             }));
                     }

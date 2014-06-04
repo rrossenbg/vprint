@@ -65,7 +65,13 @@
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="ErrorHandler.cs" />
     <Compile Include="ErrorHandlingBehaviorAttribute.cs" />
-    <Compile Include="fileAccess.cs" />
+    <Compile Include="ISOs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ISOs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="pdfFileAccess.cs" />
+    <Compile Include="zipFileAccess.cs" />
     <Compile Include="FileWorkers\ExportFileWorker.cs" />
     <Compile Include="FileWorkers\FileWorkerBase.cs" />
     <Compile Include="FileWorkers\ImportFileWorker.cs" />
@@ -87,6 +93,12 @@
       <Project>{5866870C-D0F8-4C42-90A4-6F33BB99B447}</Project>
       <Name>ReceivingServiceLib.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ISOs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ISOs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

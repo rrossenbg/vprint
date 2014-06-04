@@ -99,6 +99,51 @@ namespace ReceivingServiceLib
             }
         }
 
+        public byte[] ReadData3(int id, DocumentType docType, int start, int length, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+
+                if (!ByteBuffers.ContainsKey(id))
+                {
+                    switch (docType)
+                    {
+                        case DocumentType.Voucher:
+                            {
+                                ByteBuffers[id] = DataAccess.Instance.SelectImageById(id, true);
+                            }
+                            break;
+                        case DocumentType.Coverpage:
+                            {
+                                ByteBuffers[id] = DataAccess.Instance.SelectImageById(id, false);
+                            }
+                            break;
+                        case DocumentType.SignedVoucher:
+                            {
+                                var db = DataAccess.Instance;
+                                var vinfo = db.SelectVoucherInfo(id);
+                                var buf = db.SelectImageById(id, true);
+                                var countryName = ISOs.ResourceManager.GetString(string.Concat('_', vinfo.isoId));
+                                ByteBuffers[id] = pdfFileAccess.Instance.CreateSignPdf(buf, "barcode", countryName, "Madrid", vinfo.branch_id, vinfo.v_number);
+                            }
+                            break;
+                    }
+                }
+
+                byte[] buffer = ByteBuffers[id];
+                byte[] result = new byte[length];
+
+                Array.Copy(buffer, result, length);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+        }
+
         /// <summary>
         /// VScan calls WCF service to save data on the server. It's buffered operation.
         /// </summary>
@@ -177,7 +222,7 @@ namespace ReceivingServiceLib
                 if (directory.Exists)
                 {
                     var xmlName = directory.CombineFileName("data.xml");
-                    fileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
+                    zipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
                         retailerId, voucherId, folderId, siteCode, barCode, userId, locationId, serverDirName);
                 }
             }
@@ -203,7 +248,7 @@ namespace ReceivingServiceLib
                 if (directory.Exists)
                 {
                     var xmlName = directory.CombineFileName("cover.xml");
-                    fileAccess.Instance.SaveCoversheetXml(xmlName, countryId,
+                    zipFileAccess.Instance.SaveCoversheetXml(xmlName, countryId,
                         folderId, userId, locationId, serverDirName);
                 }
             }
@@ -290,7 +335,7 @@ namespace ReceivingServiceLib
                     return info;
                 }
 
-                var fac = new fileAccess();
+                var fac = new zipFileAccess();
                 var fromDir = fac.CreateDirectoryHerarchy(Global.Strings.VOCUHERSFOLDER, info);
 
                 var webroot = new DirectoryInfo(copyToFolder);

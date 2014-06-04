@@ -33,9 +33,14 @@
       <xs:element minOccurs="0" name="OperatorId" type="xs:int" />
       <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="VoucherInfo" nillable="true" type="tns:VoucherInfo" />
+  <xs:simpleType name="DocumentType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:element name="DocumentType" nillable="true" type="tns:DocumentType" />
   <xs:simpleType name="OperationHistory">
     <xs:restriction base="xs:string">
       <xs:enumeration value="NA" />

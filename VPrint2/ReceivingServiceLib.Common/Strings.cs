@@ -25,6 +25,8 @@ namespace ReceivingServiceLib
         public string VOCUHERSEXPORTFOLDER { get; set; }
         public string UPLOADERRORS { get; set; }
         public string VERSIONFOLDER { get; set; }
+        public string pfxFileFullPath { get; set; }
+        public string PTFLogoFileFullPath { get; set; }
 
         public static Strings Read()
         {
@@ -53,7 +55,9 @@ namespace ReceivingServiceLib
                 !UPLOADROOT.IsNullOrWhiteSpace() &&
                 !VOCUHERSFOLDER.IsNullOrWhiteSpace() &&
                 !VOCUHERSEXPORTFOLDER.IsNullOrWhiteSpace() &&
-                !UPLOADERRORS.IsNullOrWhiteSpace();
+                !UPLOADERRORS.IsNullOrWhiteSpace() &&
+                !pfxFileFullPath.IsNullOrWhiteSpace() &&
+                !PTFLogoFileFullPath.IsNullOrWhiteSpace();
         }
     }
 }
