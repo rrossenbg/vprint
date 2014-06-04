@@ -814,6 +814,9 @@ namespace VPrinting.ScanServiceRef {
         private int VoucherIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SiteCodeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -905,6 +908,19 @@ namespace VPrinting.ScanServiceRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public string SiteCode {
             get {
                 return this.SiteCodeField;
@@ -1031,6 +1047,9 @@ namespace VPrinting.ScanServiceRef {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OperatorField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -1115,6 +1134,19 @@ namespace VPrinting.ScanServiceRef {
                 if ((this.OperatorField.Equals(value) != true)) {
                     this.OperatorField = value;
                     this.RaisePropertyChanged("Operator");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -1323,16 +1355,6 @@ namespace VPrinting.ScanServiceRef {
         
         byte[] EndReadData2(System.IAsyncResult result);
         
-        // CODEGEN: Generating message contract since element name docType from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/ReadData3", ReplyAction="http://tempuri.org/IScanService/ReadData3Response")]
-        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/ReadData3MyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
-        VPrinting.ScanServiceRef.ReadData3Response ReadData3(VPrinting.ScanServiceRef.ReadData3Request request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/ReadData3", ReplyAction="http://tempuri.org/IScanService/ReadData3Response")]
-        System.IAsyncResult BeginReadData3(VPrinting.ScanServiceRef.ReadData3Request request, System.AsyncCallback callback, object asyncState);
-        
-        VPrinting.ScanServiceRef.ReadData3Response EndReadData3(System.IAsyncResult result);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/SaveData", ReplyAction="http://tempuri.org/IScanService/SaveDataResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SaveDataMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
         void SaveData(string serverDirName, string fileName, byte[] data, string s1, string s2);
@@ -1423,14 +1445,15 @@ namespace VPrinting.ScanServiceRef {
         
         VPrinting.ScanServiceRef.fileInfo[] EndSelectFilesBySql(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/UpdateFilesBySql", ReplyAction="http://tempuri.org/IScanService/UpdateFilesBySqlResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/UpdateFilesBySqlMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
-        void UpdateFilesBySql(string setSql, string whereClause, string s1, string s2);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySql", ReplyAction="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySqlResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySqlMyApplicationFaultFault" +
+            "", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        void UpdateVouchersOrFilesBySql(string setSql, string whereClause, bool isVoucher, string s1, string s2);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/UpdateFilesBySql", ReplyAction="http://tempuri.org/IScanService/UpdateFilesBySqlResponse")]
-        System.IAsyncResult BeginUpdateFilesBySql(string setSql, string whereClause, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySql", ReplyAction="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySqlResponse")]
+        System.IAsyncResult BeginUpdateVouchersOrFilesBySql(string setSql, string whereClause, bool isVoucher, string s1, string s2, System.AsyncCallback callback, object asyncState);
         
-        void EndUpdateFilesBySql(System.IAsyncResult result);
+        void EndUpdateVouchersOrFilesBySql(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/AddFolder", ReplyAction="http://tempuri.org/IScanService/AddFolderResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/AddFolderMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
@@ -1515,10 +1538,10 @@ namespace VPrinting.ScanServiceRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/SelectFileById", ReplyAction="http://tempuri.org/IScanService/SelectFileByIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SelectFileByIdMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
-        byte[] SelectFileById(int fileId, bool isVoucher, int startFrom, string s1, string s2);
+        byte[] SelectFileById(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/SelectFileById", ReplyAction="http://tempuri.org/IScanService/SelectFileByIdResponse")]
-        System.IAsyncResult BeginSelectFileById(int fileId, bool isVoucher, int startFrom, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginSelectFileById(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2, System.AsyncCallback callback, object asyncState);
         
         byte[] EndSelectFileById(System.IAsyncResult result);
         
@@ -1548,94 +1571,6 @@ namespace VPrinting.ScanServiceRef {
         System.IAsyncResult BeginGetTransferFile(int countryId, int beginNumber, int endNumber, string siteCode, string s1, string s2, System.AsyncCallback callback, object asyncState);
         
         VPrinting.ScanServiceRef.TransferFileInfo[] EndGetTransferFile(System.IAsyncResult result);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ReadData3Request {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ReadData3", Namespace="http://tempuri.org/", Order=0)]
-        public VPrinting.ScanServiceRef.ReadData3RequestBody Body;
-        
-        public ReadData3Request() {
-        }
-        
-        public ReadData3Request(VPrinting.ScanServiceRef.ReadData3RequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ReadData3RequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int id;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string docType;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public int start;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public int length;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public string s1;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-        public string s2;
-        
-        public ReadData3RequestBody() {
-        }
-        
-        public ReadData3RequestBody(int id, string docType, int start, int length, string s1, string s2) {
-            this.id = id;
-            this.docType = docType;
-            this.start = start;
-            this.length = length;
-            this.s1 = s1;
-            this.s2 = s2;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ReadData3Response {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ReadData3Response", Namespace="http://tempuri.org/", Order=0)]
-        public VPrinting.ScanServiceRef.ReadData3ResponseBody Body;
-        
-        public ReadData3Response() {
-        }
-        
-        public ReadData3Response(VPrinting.ScanServiceRef.ReadData3ResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ReadData3ResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public byte[] ReadData3Result;
-        
-        public ReadData3ResponseBody() {
-        }
-        
-        public ReadData3ResponseBody(byte[] ReadData3Result) {
-            this.ReadData3Result = ReadData3Result;
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1687,25 +1622,6 @@ namespace VPrinting.ScanServiceRef {
         private object[] results;
         
         public ReadData2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public byte[] Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((byte[])(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ReadData3CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ReadData3CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1955,12 +1871,6 @@ namespace VPrinting.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onReadData2CompletedDelegate;
         
-        private BeginOperationDelegate onBeginReadData3Delegate;
-        
-        private EndOperationDelegate onEndReadData3Delegate;
-        
-        private System.Threading.SendOrPostCallback onReadData3CompletedDelegate;
-        
         private BeginOperationDelegate onBeginSaveDataDelegate;
         
         private EndOperationDelegate onEndSaveDataDelegate;
@@ -2021,11 +1931,11 @@ namespace VPrinting.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onSelectFilesBySqlCompletedDelegate;
         
-        private BeginOperationDelegate onBeginUpdateFilesBySqlDelegate;
+        private BeginOperationDelegate onBeginUpdateVouchersOrFilesBySqlDelegate;
         
-        private EndOperationDelegate onEndUpdateFilesBySqlDelegate;
+        private EndOperationDelegate onEndUpdateVouchersOrFilesBySqlDelegate;
         
-        private System.Threading.SendOrPostCallback onUpdateFilesBySqlCompletedDelegate;
+        private System.Threading.SendOrPostCallback onUpdateVouchersOrFilesBySqlCompletedDelegate;
         
         private BeginOperationDelegate onBeginAddFolderDelegate;
         
@@ -2132,8 +2042,6 @@ namespace VPrinting.ScanServiceRef {
         
         public event System.EventHandler<ReadData2CompletedEventArgs> ReadData2Completed;
         
-        public event System.EventHandler<ReadData3CompletedEventArgs> ReadData3Completed;
-        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SaveDataCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SaveDataAsyncCompleted;
@@ -2154,7 +2062,7 @@ namespace VPrinting.ScanServiceRef {
         
         public event System.EventHandler<SelectFilesBySqlCompletedEventArgs> SelectFilesBySqlCompleted;
         
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> UpdateFilesBySqlCompleted;
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> UpdateVouchersOrFilesBySqlCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> AddFolderCompleted;
         
@@ -2411,99 +2319,6 @@ namespace VPrinting.ScanServiceRef {
                         length,
                         s1,
                         s2}, this.onEndReadData2Delegate, this.onReadData2CompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        VPrinting.ScanServiceRef.ReadData3Response VPrinting.ScanServiceRef.IScanService.ReadData3(VPrinting.ScanServiceRef.ReadData3Request request) {
-            return base.Channel.ReadData3(request);
-        }
-        
-        public byte[] ReadData3(int id, string docType, int start, int length, string s1, string s2) {
-            VPrinting.ScanServiceRef.ReadData3Request inValue = new VPrinting.ScanServiceRef.ReadData3Request();
-            inValue.Body = new VPrinting.ScanServiceRef.ReadData3RequestBody();
-            inValue.Body.id = id;
-            inValue.Body.docType = docType;
-            inValue.Body.start = start;
-            inValue.Body.length = length;
-            inValue.Body.s1 = s1;
-            inValue.Body.s2 = s2;
-            VPrinting.ScanServiceRef.ReadData3Response retVal = ((VPrinting.ScanServiceRef.IScanService)(this)).ReadData3(inValue);
-            return retVal.Body.ReadData3Result;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult VPrinting.ScanServiceRef.IScanService.BeginReadData3(VPrinting.ScanServiceRef.ReadData3Request request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginReadData3(request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginReadData3(int id, string docType, int start, int length, string s1, string s2, System.AsyncCallback callback, object asyncState) {
-            VPrinting.ScanServiceRef.ReadData3Request inValue = new VPrinting.ScanServiceRef.ReadData3Request();
-            inValue.Body = new VPrinting.ScanServiceRef.ReadData3RequestBody();
-            inValue.Body.id = id;
-            inValue.Body.docType = docType;
-            inValue.Body.start = start;
-            inValue.Body.length = length;
-            inValue.Body.s1 = s1;
-            inValue.Body.s2 = s2;
-            return ((VPrinting.ScanServiceRef.IScanService)(this)).BeginReadData3(inValue, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        VPrinting.ScanServiceRef.ReadData3Response VPrinting.ScanServiceRef.IScanService.EndReadData3(System.IAsyncResult result) {
-            return base.Channel.EndReadData3(result);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public byte[] EndReadData3(System.IAsyncResult result) {
-            VPrinting.ScanServiceRef.ReadData3Response retVal = ((VPrinting.ScanServiceRef.IScanService)(this)).EndReadData3(result);
-            return retVal.Body.ReadData3Result;
-        }
-        
-        private System.IAsyncResult OnBeginReadData3(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            int id = ((int)(inValues[0]));
-            string docType = ((string)(inValues[1]));
-            int start = ((int)(inValues[2]));
-            int length = ((int)(inValues[3]));
-            string s1 = ((string)(inValues[4]));
-            string s2 = ((string)(inValues[5]));
-            return this.BeginReadData3(id, docType, start, length, s1, s2, callback, asyncState);
-        }
-        
-        private object[] OnEndReadData3(System.IAsyncResult result) {
-            byte[] retVal = this.EndReadData3(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnReadData3Completed(object state) {
-            if ((this.ReadData3Completed != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ReadData3Completed(this, new ReadData3CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ReadData3Async(int id, string docType, int start, int length, string s1, string s2) {
-            this.ReadData3Async(id, docType, start, length, s1, s2, null);
-        }
-        
-        public void ReadData3Async(int id, string docType, int start, int length, string s1, string s2, object userState) {
-            if ((this.onBeginReadData3Delegate == null)) {
-                this.onBeginReadData3Delegate = new BeginOperationDelegate(this.OnBeginReadData3);
-            }
-            if ((this.onEndReadData3Delegate == null)) {
-                this.onEndReadData3Delegate = new EndOperationDelegate(this.OnEndReadData3);
-            }
-            if ((this.onReadData3CompletedDelegate == null)) {
-                this.onReadData3CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReadData3Completed);
-            }
-            base.InvokeAsync(this.onBeginReadData3Delegate, new object[] {
-                        id,
-                        docType,
-                        start,
-                        length,
-                        s1,
-                        s2}, this.onEndReadData3Delegate, this.onReadData3CompletedDelegate, userState);
         }
         
         public void SaveData(string serverDirName, string fileName, byte[] data, string s1, string s2) {
@@ -3114,59 +2929,61 @@ namespace VPrinting.ScanServiceRef {
                         s2}, this.onEndSelectFilesBySqlDelegate, this.onSelectFilesBySqlCompletedDelegate, userState);
         }
         
-        public void UpdateFilesBySql(string setSql, string whereClause, string s1, string s2) {
-            base.Channel.UpdateFilesBySql(setSql, whereClause, s1, s2);
+        public void UpdateVouchersOrFilesBySql(string setSql, string whereClause, bool isVoucher, string s1, string s2) {
+            base.Channel.UpdateVouchersOrFilesBySql(setSql, whereClause, isVoucher, s1, s2);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginUpdateFilesBySql(string setSql, string whereClause, string s1, string s2, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginUpdateFilesBySql(setSql, whereClause, s1, s2, callback, asyncState);
+        public System.IAsyncResult BeginUpdateVouchersOrFilesBySql(string setSql, string whereClause, bool isVoucher, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateVouchersOrFilesBySql(setSql, whereClause, isVoucher, s1, s2, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public void EndUpdateFilesBySql(System.IAsyncResult result) {
-            base.Channel.EndUpdateFilesBySql(result);
+        public void EndUpdateVouchersOrFilesBySql(System.IAsyncResult result) {
+            base.Channel.EndUpdateVouchersOrFilesBySql(result);
         }
         
-        private System.IAsyncResult OnBeginUpdateFilesBySql(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginUpdateVouchersOrFilesBySql(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string setSql = ((string)(inValues[0]));
             string whereClause = ((string)(inValues[1]));
-            string s1 = ((string)(inValues[2]));
-            string s2 = ((string)(inValues[3]));
-            return this.BeginUpdateFilesBySql(setSql, whereClause, s1, s2, callback, asyncState);
+            bool isVoucher = ((bool)(inValues[2]));
+            string s1 = ((string)(inValues[3]));
+            string s2 = ((string)(inValues[4]));
+            return this.BeginUpdateVouchersOrFilesBySql(setSql, whereClause, isVoucher, s1, s2, callback, asyncState);
         }
         
-        private object[] OnEndUpdateFilesBySql(System.IAsyncResult result) {
-            this.EndUpdateFilesBySql(result);
+        private object[] OnEndUpdateVouchersOrFilesBySql(System.IAsyncResult result) {
+            this.EndUpdateVouchersOrFilesBySql(result);
             return null;
         }
         
-        private void OnUpdateFilesBySqlCompleted(object state) {
-            if ((this.UpdateFilesBySqlCompleted != null)) {
+        private void OnUpdateVouchersOrFilesBySqlCompleted(object state) {
+            if ((this.UpdateVouchersOrFilesBySqlCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.UpdateFilesBySqlCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+                this.UpdateVouchersOrFilesBySqlCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void UpdateFilesBySqlAsync(string setSql, string whereClause, string s1, string s2) {
-            this.UpdateFilesBySqlAsync(setSql, whereClause, s1, s2, null);
+        public void UpdateVouchersOrFilesBySqlAsync(string setSql, string whereClause, bool isVoucher, string s1, string s2) {
+            this.UpdateVouchersOrFilesBySqlAsync(setSql, whereClause, isVoucher, s1, s2, null);
         }
         
-        public void UpdateFilesBySqlAsync(string setSql, string whereClause, string s1, string s2, object userState) {
-            if ((this.onBeginUpdateFilesBySqlDelegate == null)) {
-                this.onBeginUpdateFilesBySqlDelegate = new BeginOperationDelegate(this.OnBeginUpdateFilesBySql);
+        public void UpdateVouchersOrFilesBySqlAsync(string setSql, string whereClause, bool isVoucher, string s1, string s2, object userState) {
+            if ((this.onBeginUpdateVouchersOrFilesBySqlDelegate == null)) {
+                this.onBeginUpdateVouchersOrFilesBySqlDelegate = new BeginOperationDelegate(this.OnBeginUpdateVouchersOrFilesBySql);
             }
-            if ((this.onEndUpdateFilesBySqlDelegate == null)) {
-                this.onEndUpdateFilesBySqlDelegate = new EndOperationDelegate(this.OnEndUpdateFilesBySql);
+            if ((this.onEndUpdateVouchersOrFilesBySqlDelegate == null)) {
+                this.onEndUpdateVouchersOrFilesBySqlDelegate = new EndOperationDelegate(this.OnEndUpdateVouchersOrFilesBySql);
             }
-            if ((this.onUpdateFilesBySqlCompletedDelegate == null)) {
-                this.onUpdateFilesBySqlCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateFilesBySqlCompleted);
+            if ((this.onUpdateVouchersOrFilesBySqlCompletedDelegate == null)) {
+                this.onUpdateVouchersOrFilesBySqlCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateVouchersOrFilesBySqlCompleted);
             }
-            base.InvokeAsync(this.onBeginUpdateFilesBySqlDelegate, new object[] {
+            base.InvokeAsync(this.onBeginUpdateVouchersOrFilesBySqlDelegate, new object[] {
                         setSql,
                         whereClause,
+                        isVoucher,
                         s1,
-                        s2}, this.onEndUpdateFilesBySqlDelegate, this.onUpdateFilesBySqlCompletedDelegate, userState);
+                        s2}, this.onEndUpdateVouchersOrFilesBySqlDelegate, this.onUpdateVouchersOrFilesBySqlCompletedDelegate, userState);
         }
         
         public void AddFolder(System.Nullable<int> toParentId, string name, int countryId, int userId, string s1, string s2) {
@@ -3669,13 +3486,13 @@ namespace VPrinting.ScanServiceRef {
                         s2}, this.onEndSelectCoversByFolderDelegate, this.onSelectCoversByFolderCompletedDelegate, userState);
         }
         
-        public byte[] SelectFileById(int fileId, bool isVoucher, int startFrom, string s1, string s2) {
-            return base.Channel.SelectFileById(fileId, isVoucher, startFrom, s1, s2);
+        public byte[] SelectFileById(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2) {
+            return base.Channel.SelectFileById(fileId, isVoucher, signed, startFrom, s1, s2);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginSelectFileById(int fileId, bool isVoucher, int startFrom, string s1, string s2, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSelectFileById(fileId, isVoucher, startFrom, s1, s2, callback, asyncState);
+        public System.IAsyncResult BeginSelectFileById(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSelectFileById(fileId, isVoucher, signed, startFrom, s1, s2, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3686,10 +3503,11 @@ namespace VPrinting.ScanServiceRef {
         private System.IAsyncResult OnBeginSelectFileById(object[] inValues, System.AsyncCallback callback, object asyncState) {
             int fileId = ((int)(inValues[0]));
             bool isVoucher = ((bool)(inValues[1]));
-            int startFrom = ((int)(inValues[2]));
-            string s1 = ((string)(inValues[3]));
-            string s2 = ((string)(inValues[4]));
-            return this.BeginSelectFileById(fileId, isVoucher, startFrom, s1, s2, callback, asyncState);
+            bool signed = ((bool)(inValues[2]));
+            int startFrom = ((int)(inValues[3]));
+            string s1 = ((string)(inValues[4]));
+            string s2 = ((string)(inValues[5]));
+            return this.BeginSelectFileById(fileId, isVoucher, signed, startFrom, s1, s2, callback, asyncState);
         }
         
         private object[] OnEndSelectFileById(System.IAsyncResult result) {
@@ -3705,11 +3523,11 @@ namespace VPrinting.ScanServiceRef {
             }
         }
         
-        public void SelectFileByIdAsync(int fileId, bool isVoucher, int startFrom, string s1, string s2) {
-            this.SelectFileByIdAsync(fileId, isVoucher, startFrom, s1, s2, null);
+        public void SelectFileByIdAsync(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2) {
+            this.SelectFileByIdAsync(fileId, isVoucher, signed, startFrom, s1, s2, null);
         }
         
-        public void SelectFileByIdAsync(int fileId, bool isVoucher, int startFrom, string s1, string s2, object userState) {
+        public void SelectFileByIdAsync(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2, object userState) {
             if ((this.onBeginSelectFileByIdDelegate == null)) {
                 this.onBeginSelectFileByIdDelegate = new BeginOperationDelegate(this.OnBeginSelectFileById);
             }
@@ -3722,6 +3540,7 @@ namespace VPrinting.ScanServiceRef {
             base.InvokeAsync(this.onBeginSelectFileByIdDelegate, new object[] {
                         fileId,
                         isVoucher,
+                        signed,
                         startFrom,
                         s1,
                         s2}, this.onEndSelectFileByIdDelegate, this.onSelectFileByIdCompletedDelegate, userState);

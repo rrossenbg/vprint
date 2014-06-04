@@ -54,7 +54,7 @@ namespace VPrintTest
         public void receive_file()
         {
             var downloadDir = MainForm.GetAppSubFolder("DOWNLOAD");
-            string fileName = ServiceDataAccess.Instance.ReceiveFile(130, true, downloadDir.FullName);
+            string fileName = ServiceDataAccess.Instance.ReceiveFile(130, true, false, downloadDir.FullName);
         }
     }
 }

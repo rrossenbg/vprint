@@ -33,6 +33,7 @@
       <xs:element minOccurs="0" name="OperatorId" type="xs:int" />
       <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="VoucherInfo" nillable="true" type="tns:VoucherInfo" />
@@ -201,6 +202,7 @@
       <xs:element minOccurs="0" name="CountryId" type="xs:int" />
       <xs:element minOccurs="0" name="RetailerId" type="xs:int" />
       <xs:element minOccurs="0" name="VoucherId" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SiteCode" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -233,6 +235,7 @@
       <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Location" type="xs:int" />
       <xs:element minOccurs="0" name="Operator" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="file2Info" nillable="true" type="tns:file2Info" />

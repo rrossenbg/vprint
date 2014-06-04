@@ -22,14 +22,14 @@ namespace ReceivingServiceLib
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="bufferIn">ImageFileArray</param>
+        /// <param name="fileStream">ImageFileArray</param>
         /// <param name="barcode"></param>
         /// <param name="countryName">Spain</param>
         /// <param name="location">"Madrid, Spain"</param>
         /// <param name="retailerId"></param>
         /// <param name="voucherId"></param>
         /// <returns></returns>
-        public byte[] CreateSignPdf(byte[] bufferIn, string barcode, string countryName, string location, int retailerId, int voucherId)
+        public string CreateSignPdf(Bitmap bitmap, string barcode, string countryName, string location, int retailerId, int voucherId)
         {
             string pfxFileFullPath = Global.Strings.pfxFileFullPath;
             string PTFLogoFileFullPath = Global.Strings.PTFLogoFileFullPath;
@@ -41,20 +41,16 @@ namespace ReceivingServiceLib
 
             try
             {
-                using (var mem = new MemoryStream(bufferIn))
-                using (var bitmap = (Bitmap)Image.FromStream(mem))
-                {
-                    var list = bitmap.GetAllPages(System.Drawing.Imaging.ImageFormat.Jpeg);
+                var list = bitmap.GetAllPages(System.Drawing.Imaging.ImageFormat.Jpeg);
 
-                    manager.CreatePdf(pdfFileName, list,
-                        new PdfManager.CreationInfo()
-                        {
-                            Title = string.Concat("Voucher ", barcode),
-                            Subject = string.Concat("Retailer ", retailerId),
-                            Author = string.Concat("PTF ", countryName),
-                            Creator = string.Concat("PTF ", countryName),
-                        });
-                }
+                manager.CreatePdf(pdfFileName, list,
+                    new PdfManager.CreationInfo()
+                    {
+                        Title = string.Concat("Voucher ", barcode),
+                        Subject = string.Concat("Retailer ", retailerId),
+                        Author = string.Concat("PTF ", countryName),
+                        Creator = string.Concat("PTF ", countryName),
+                    });
 
                 manager.SignPdfFile(
                     pdfFileName,
@@ -69,15 +65,13 @@ namespace ReceivingServiceLib
                     location = location
                 });
 
-                var bufferOut = File.ReadAllBytes(signedPdfFileName);
-                return bufferOut;
+                return signedPdfFileName;
             }
             finally
             {
                 try
                 {
                     File.Delete(pdfFileName);
-                    File.Delete(signedPdfFileName);
                 }
                 catch
                 {

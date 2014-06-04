@@ -1,0 +1,2 @@
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\installutil "C:\ReceivingService\ReceivingService.exe" -i
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\installutil "C:\ReceivingService\ReceivingService.exe" -u

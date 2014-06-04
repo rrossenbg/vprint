@@ -116,6 +116,16 @@ namespace ReceivingServiceLib
 
         [TargetedPatchingOptOut("na")]
         [Obfuscation]
+        public static byte[] ReadAllBytes(this FileInfo file)
+        {
+            if (file == null)
+                throw new ArgumentNullException("file");
+
+            return File.ReadAllBytes(file.FullName);
+        }
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
         public static string GetFileName(this FileInfo info)
         {
             Debug.Assert(info != null);

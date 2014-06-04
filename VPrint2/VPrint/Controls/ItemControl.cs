@@ -134,6 +134,9 @@ namespace VPrinting.Controls
                         if (!string.IsNullOrWhiteSpace(vi.SiteCode))
                             e.Graphics.DrawString(vi.SiteCode, font, Brushes.Black, new Point(2, 30));
 
+                        if (!string.IsNullOrWhiteSpace(vi.Name))
+                            e.Graphics.DrawString(vi.Name, font, Brushes.DarkBlue, new Point(2, 40));
+
                         if (vi.IsSignatureValid.HasValue)
                         {
                             if (vi.IsSignatureValid.Value)
@@ -145,6 +148,9 @@ namespace VPrinting.Controls
                     else
                     {
                         //if cover sheet
+                        if (!string.IsNullOrWhiteSpace(m_Item.Name))
+                            e.Graphics.DrawString(m_Item.Name, font, Brushes.DarkBlue, new Point(2, 40));
+
                         if (m_Item.JobID != 0)
                             e.Graphics.DrawString(m_Item.JobID.ToString(), font, Brushes.Black, new Point(2, 0));
                     }

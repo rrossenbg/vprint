@@ -34,10 +34,6 @@ namespace ReceivingServiceLib
 
         [OperationContract]
         [FaultContract(typeof(MyApplicationFault))]
-        byte[] ReadData3(int id, DocumentType docType, int start, int length, string s1, string s2);
-
-        [OperationContract]
-        [FaultContract(typeof(MyApplicationFault))]
         void SaveData(string serverDirName, string fileName, byte[] data, string s1, string s2);
 
         [OperationContract]
@@ -85,7 +81,7 @@ namespace ReceivingServiceLib
 
         [OperationContract]//(Action = "*", ReplyAction = "*")]
         [FaultContract(typeof(MyApplicationFault))]
-        void UpdateFilesBySql(string setSql, string whereClause, string s1, string s2);
+        void UpdateVouchersOrFilesBySql(string setSql, string whereClause, bool isVoucher, string s1, string s2);
 
         #endregion
 
@@ -129,7 +125,7 @@ namespace ReceivingServiceLib
 
         [OperationContract]//(Action = "*", ReplyAction = "*")]
         [FaultContract(typeof(MyApplicationFault))]
-        byte[] SelectFileById(int fileId, bool isVoucher, int startFrom, string s1, string s2);
+        byte[] SelectFileById(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2);
 
         #endregion
 
@@ -317,15 +313,6 @@ namespace ReceivingServiceLib
         Error = 127,
     }
 
-    [Serializable]
-    [DataContract]
-    public enum DocumentType : int
-    {
-        Voucher = 0,
-        Coverpage = 1,
-        SignedVoucher = 2,
-    }
-
     [DataContract]
     public class HistoryByCountryInfo
     {
@@ -451,6 +438,8 @@ namespace ReceivingServiceLib
         public int VoucherId { get; set; }
         [DataMember(Order = 6)]
         public string SiteCode { get; set; }
+        [DataMember(Order = 6)]
+        public string Name { get; set; }
 
         public fileInfo()
         {
@@ -465,6 +454,7 @@ namespace ReceivingServiceLib
             RetailerId = data.RetailerId;
             VoucherId = data.VoucherId;
             SiteCode = data.SiteCode;
+            Name = data.Name;
         }
     }
 
@@ -483,6 +473,8 @@ namespace ReceivingServiceLib
         public int Location { get; set; }
         [DataMember(Order = 5)]
         public int Operator { get; set; }
+        [DataMember(Order = 6)]
+        public string Name { get; set; }
 
         public file2Info()
         {
@@ -496,6 +488,7 @@ namespace ReceivingServiceLib
             CountryID = data.CountryId;
             Location = data.Location;
             Operator = data.Operator;
+            Name = data.Name;
         }
     }
 

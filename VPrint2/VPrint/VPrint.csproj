@@ -271,7 +271,7 @@
     <None Include="Resources\spreadsheet.png" />
     <None Include="Resources\letter.png" />
     <None Include="Resources\FL.png" />
-    <None Include="Service References\ScanServiceRef\ReceivingServiceLib1.xsd">
+    <None Include="Service References\ScanServiceRef\ReceivingServiceLib.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ScanServiceRef\Reference.svcmap">
@@ -280,11 +280,11 @@
     </None>
     <None Include="Service References\ScanServiceRef\configuration.svcinfo" />
     <None Include="Service References\ScanServiceRef\configuration91.svcinfo" />
-    <None Include="Service References\ScanServiceRef\service1.wsdl" />
-    <None Include="Service References\ScanServiceRef\service2.xsd">
+    <None Include="Service References\ScanServiceRef\service.wsdl" />
+    <None Include="Service References\ScanServiceRef\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ScanServiceRef\service21.xsd">
+    <None Include="Service References\ScanServiceRef\service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.file2Info.datasource">

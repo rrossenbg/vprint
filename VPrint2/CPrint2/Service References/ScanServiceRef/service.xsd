@@ -257,6 +257,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateVouchersOrFilesBySql">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="setSql" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClause" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isVoucher" type="xs:boolean" />
+        <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVouchersOrFilesBySqlResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddFolder">
     <xs:complexType>
       <xs:sequence>
@@ -404,6 +420,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="fileId" type="xs:int" />
         <xs:element minOccurs="0" name="isVoucher" type="xs:boolean" />
+        <xs:element minOccurs="0" name="signed" type="xs:boolean" />
         <xs:element minOccurs="0" name="startFrom" type="xs:int" />
         <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="s2" nillable="true" type="xs:string" />

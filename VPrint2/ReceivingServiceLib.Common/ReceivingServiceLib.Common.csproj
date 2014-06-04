@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\Libraries\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\Libraries\itextsharp.dll</HintPath>
     </Reference>
@@ -52,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\CollectionsEx.cs" />
+    <Compile Include="fileAccess.cs" />
     <Compile Include="Common\MSSQL.cs" />
     <Compile Include="Common\SQL.cs" />
     <Compile Include="Common\UniqueStringList.cs" />
@@ -72,7 +77,6 @@
     <Compile Include="Strings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PTF.pvk" />
     <Content Include="Resources\PTF.cer">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

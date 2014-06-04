@@ -25,13 +25,7 @@ namespace ReceivingServiceLib
             List<Image> list = new List<Image>();
 
             foreach (var img in images)
-            {
-                using (var mem = new MemoryStream())
-                {
-                    img.Save(mem, img.RawFormat);
-                    list.Add(Image.GetInstance(mem));
-                }
-            }
+                list.Add(Image.GetInstance(img, BaseColor.BLACK, false));
 
             float width = list.Max(i => i.Width);
             float height = list.Max(i => i.Height);

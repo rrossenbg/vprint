@@ -7,3 +7,12 @@ C:\PROJECTS\VPrint\BizTalkFiles\obj\x86\Release\BizTalkFiles.Properties.Resource
 C:\PROJECTS\VPrint\BizTalkFiles\obj\x86\Release\BizTalkFiles.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint\BizTalkFiles\obj\x86\Release\BizTalkFiles.exe
 C:\PROJECTS\VPrint\BizTalkFiles\obj\x86\Release\BizTalkFiles.pdb
+C:\PROJECTS\VPrint2\BizTalkFiles\bin\Release\BizTalkFiles.exe.config
+C:\PROJECTS\VPrint2\BizTalkFiles\bin\Release\BizTalkFiles.exe
+C:\PROJECTS\VPrint2\BizTalkFiles\bin\Release\BizTalkFiles.pdb
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Release\BizTalkFiles.InputForm.resources
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Release\BizTalkFiles.MainForm.resources
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Release\BizTalkFiles.Properties.Resources.resources
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Release\BizTalkFiles.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Release\BizTalkFiles.exe
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Release\BizTalkFiles.pdb
