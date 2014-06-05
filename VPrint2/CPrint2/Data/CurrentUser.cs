@@ -1,4 +1,7 @@
-﻿
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+/***************************************************/
+
 namespace CPrint2.Data
 {
     public class CurrentUser

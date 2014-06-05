@@ -100,6 +100,19 @@ namespace CPrint2.Data
         /// <summary>
         /// ms
         /// </summary>
+        public static int CommondFolderDeleteWait
+        {
+            get
+            {
+                var s = ConfigurationManager.AppSettings["CommondFolderDeleteWait"];
+                int delay;
+                return int.TryParse(s, out delay) ? delay : 1000;
+            }
+        }
+
+        /// <summary>
+        /// ms
+        /// </summary>
         public static int ImagePickupDelay
         {
             get
