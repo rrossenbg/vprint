@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="AppContext.cs" />
     <Compile Include="Colections\IgnoreList.cs" />
+    <Compile Include="Common\CommonTools.cs" />
     <Compile Include="Controls\ImageBox.cs">
       <SubType>Component</SubType>
     </Compile>

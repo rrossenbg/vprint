@@ -3,19 +3,20 @@
 /***************************************************/
 
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Collections;
+using System.IO;
+using CPrint2.Common;
 
 namespace CPrint2.Data
 {
-    public class DataObj : IEquatable<DataObj>
+    public class DataObj : IEquatable<DataObj>, ICloneable
     {
         public int Iso { get; set; }
         public int BrId { get; set; }
         public int VId { get; set; }
         public int PartN { get; set; }
         public bool Submit { get; set; }
+        public Guid Id { get; private set; }
 
         public bool IsValid
         {
@@ -34,6 +35,31 @@ namespace CPrint2.Data
         public override string ToString()
         {
             return string.Format("{0};{1};{2};{3};{4}", Iso, BrId, VId, PartN, Submit);
+        }
+
+        public DataObj()
+        {
+        }
+
+        public DataObj(DataObj other)
+        {
+            this.Iso = other.Iso;
+            this.BrId = other.BrId;
+            this.VId = other.VId;
+            this.PartN = other.PartN;
+            this.Submit = other.Submit;
+            this.Id = other.Id;
+            this.Files = ArrayList.Synchronized(new ArrayList(other.Files));
+        }
+
+        public DataObj(int iso, int brid, int vid, int partN, bool submit)
+        {
+            this.Iso = iso;
+            this.BrId = brid;
+            this.VId = vid;
+            this.PartN = partN;
+            this.Submit = submit;
+            this.Id = CommonTools.ToGuid(iso, brid, vid, partN);
         }
 
         /// <summary>
@@ -68,12 +94,7 @@ namespace CPrint2.Data
             if (!bool.TryParse(strs[4], out submit))
                 return null;
 
-            var obj = new DataObj();
-            obj.Iso = iso;
-            obj.BrId = brid;
-            obj.VId = vid;
-            obj.PartN = partN;
-            obj.Submit = submit;
+            var obj = new DataObj(iso, brid, vid, partN, submit);
             return obj;
         }
 
@@ -93,6 +114,11 @@ namespace CPrint2.Data
 
                 Files.Clear();
             }
+        }
+
+        public object Clone()
+        {
+            return new DataObj(this);
         }
     }
 }

@@ -13,7 +13,7 @@ using CPrint2.Common;
 using CPrint2.Data;
 using CPrint2.ScanServiceRef;
 
-namespace CPrint2  
+namespace CPrint2
 {
     static class Program
     {
@@ -87,6 +87,7 @@ namespace CPrint2
                         ctn.Error += new ThreadExceptionEventHandler(OnThreadException);
 
                         ImageProcessor.NewVoucherStarted += new EventHandler(ImageProcessor_NewVoucherStarted);
+                        ImageProcessor.VoucherProcessCompleted += new EventHandler<ValueEventArgs<string>>(ImageProcessor_VoucherProcessCompleted);
                         StateSaver.Error += new ThreadExceptionEventHandler(OnThreadException);
                         ImageProcessor.Error += new ThreadExceptionEventHandler(OnThreadException);
                         AppContext.Default.Error += new ThreadExceptionEventHandler(OnThreadException);
@@ -107,11 +108,6 @@ namespace CPrint2
                         Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-        }
-
-        public static void ImageProcessor_NewVoucherStarted(object sender, EventArgs e)
-        {
-            AppContext.Default.Reset();
         }
 
         public static void OnThreadException(object sender, ThreadExceptionEventArgs e)
@@ -142,6 +138,15 @@ namespace CPrint2
         private static void NewImageFileEvent(object sender, ValueEventArgs<string> e)
         {
             ImageProcessor.Instance.ProcessReadyImage(e.Value);
+        }
+
+        private static void ImageProcessor_NewVoucherStarted(object sender, EventArgs e)
+        {
+            AppContext.Default.Reset();
+        }
+
+        private static void ImageProcessor_VoucherProcessCompleted(object sender, ValueEventArgs<string> e)
+        {
             MainForm.Default.ShowImageAsynch(e.Value);
         }
     }

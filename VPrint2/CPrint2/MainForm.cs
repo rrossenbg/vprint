@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using CPrint2.Data;
 using System.IO;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace CPrint2
 {
@@ -146,9 +147,12 @@ namespace CPrint2
             {
                 this.InvokeSf(() =>
                 {
+                    var list = new List<Control>();
                     foreach (PictureBox box in this.imageBox1.Controls)
                         if (box != null)
-                            PictureBox1_Click(box, EventArgs.Empty);
+                            list.Add(box);
+                    foreach (PictureBox box in list)
+                        PictureBox1_Click(box, EventArgs.Empty);
                 });
             });
         }

@@ -8,17 +8,20 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-
 using CPrint2.Colections;
 using CPrint2.Common;
 using CPrint2.Data;
 using CPrint2.ScanServiceRef;
+using System.Drawing.Imaging;
+using System.Collections;
+using System.Collections.Concurrent;
 
 namespace CPrint2
 {
     public class ImageProcessor
     {
         public static event EventHandler NewVoucherStarted;
+        public static event EventHandler<ValueEventArgs<string>> VoucherProcessCompleted;
         public static event ThreadExceptionEventHandler Error;
 
         public static ImageProcessor Instance
@@ -29,13 +32,20 @@ namespace CPrint2
             }
         }
 
-        private static IgnoreList<string> ms_Files = new IgnoreList<string>();
+        private static readonly IgnoreList<string> ms_Files = new IgnoreList<string>();
 
-        private static volatile DataObj ms_DataObj = new DataObj();
+        private static readonly ConcurrentDictionary<Guid, DataObj> ms_Queue = new ConcurrentDictionary<Guid, DataObj>();
+
+        private static volatile object ms_CurrentDataObj;
 
         private class Lock1 { }
         private class Lock2 { }
         private class Lock3 { }
+
+        static ImageProcessor()
+        {
+            ms_CurrentDataObj = (object)Guid.Empty;
+        }
 
         public void ProcessCommandFile(string fileName)
         {
@@ -58,16 +68,19 @@ namespace CPrint2
                             if (obj == null || !obj.IsValid)
                                 return;
 
-                            if (!obj.Equals(ms_DataObj))
+                            ms_CurrentDataObj = obj.Id;
+
+                            if (ms_Queue.ContainsKey(obj.Id))
                             {
+                                ms_Queue[obj.Id].Submit = obj.Submit;
+                            }
+                            else  
+                            {
+                                ms_Queue.TryAdd(obj.Id, obj);
+
                                 if (NewVoucherStarted != null)
                                     NewVoucherStarted(this, EventArgs.Empty);
-
-                                ms_DataObj.DeleteFiles();
-                                ms_DataObj = obj;
                             }
-
-                            ms_DataObj.Submit = obj.Submit;
 
                             PresenterCameraShooter shooter = new PresenterCameraShooter();
                             shooter.TryStartPresenter(Config.PresenterPath);
@@ -92,73 +105,86 @@ namespace CPrint2
         {
             Task.Factory.StartNew((o) =>
             {
-                Thread.Sleep(Config.ImagePickupDelay);
-
                 string fullFileName = Convert.ToString(o);
 
                 if (ms_Files.Add(fullFileName))
                 {
-                    var obj = ms_DataObj;
+                    Guid current = (Guid)ms_CurrentDataObj;
+
+                    Thread.Sleep(Config.ImagePickupDelay);
 
                     try
                     {
                         var file = new FileInfo(fullFileName);
 
-                        if (file.Exists)
+                        DataObj obj = null;
+
+                        if (file.Exists && ms_Queue.TryGetValue(current, out obj))
                         {
                             obj.Files.Add(file);
 
+                            using (var bmp = (Bitmap)Bitmap.FromFile(file.FullName))
+                            {
+                                var img = bmp.CropRotateFree();
+                                if (img != null)
+                                    img.Save(file.FullName, ImageFormat.Jpeg);
+                            }
+
+                            if (VoucherProcessCompleted != null)
+                                VoucherProcessCompleted(this, new ValueEventArgs<string>(file.FullName));
+
                             if (obj.Submit)
                             {
-                                var keys = Security.CreateInstance().GenerateSecurityKeys();
-                                var serverSessionId = Guid.NewGuid();
-                                var sserverSessionId = serverSessionId.ToString();
-
-                                string tifFullFileName = Path.Combine(
-                                    Path.GetDirectoryName(((FileInfo)obj.Files[0]).FullName), 
-                                    string.Format("{0}_{1}_{2}.tif", obj.Iso, obj.BrId, obj.VId));
-
-                                var tifFile = new FileInfo(tifFullFileName);
-                                var images = new List<Bitmap>();
-
-                                lock (obj.Files)
+                                try
                                 {
-                                    foreach (FileInfo fl in obj.Files)
+                                    string tifFullFileName = Path.Combine(
+                                        Path.GetDirectoryName(((FileInfo)obj.Files[0]).FullName),
+                                        string.Format("{0}_{1}_{2}.tif", obj.Iso, obj.BrId, obj.VId));
+
+                                    var keys = Security.CreateInstance().GenerateSecurityKeys();
+                                    var serverSessionId = Guid.NewGuid();
+                                    var sserverSessionId = serverSessionId.ToString();
+
+                                    var tifFile = new FileInfo(tifFullFileName);
+                                    var images = new List<Bitmap>();
+
+                                    lock (obj.Files)
                                     {
-                                        if (fl.Exists(true))
-                                        {
-                                            using (var bmp = (Bitmap)Bitmap.FromFile(fl.FullName))
-                                            {
-                                                var img = bmp.CropRotateFree();
-                                                if (img != null)
-                                                    images.Add(img);
-                                            }
-                                        }
+                                        foreach (FileInfo fl in obj.Files)
+                                            if (fl.Exists(true))
+                                                images.Add((Bitmap)Bitmap.FromFile(fl.FullName));
                                     }
+
+                                    if (images.Count > 0)
+                                    {
+                                        images.SaveMultipage(tifFile.FullName, "TIFF");
+                                        images.ForEach(i => i.DisposeSf());
+                                        images.Clear();
+
+                                        //CertificateSecurity sec = new CertificateSecurity(X509FindType.FindBySerialNumber,
+                                        //    Strings.CERTNUMBER, StoreLocation.LocalMachine);
+                                        ////if (sec.Loaded)
+                                        ////    item.Signature = sec.SignData(bmp.ToArray());
+
+                                        //copy voucher
+                                        var srv = ServiceDataAccess.Instance;
+
+                                        srv.SendFile(tifFile, sserverSessionId, keys);
+
+                                        srv.CommitVoucherChanges(sserverSessionId, 0, obj.Iso, obj.BrId, obj.VId,
+                                            Global.FolderID.HasValue ? Global.FolderID.Value : (int?)null, "", "", keys);
+
+                                        srv.SaveHistory(OperationHistory.Scan, serverSessionId, obj.Iso, obj.BrId, obj.VId,
+                                            0, 0, "", keys);
+                                    }
+
+                                    tifFile.DeleteSafe();
                                 }
-
-                                images.SaveMultipage(tifFile.FullName, "TIFF");
-                                images.ForEach(i => i.DisposeSf());
-                                images.Clear();
-
-                                //CertificateSecurity sec = new CertificateSecurity(X509FindType.FindBySerialNumber,
-                                //    Strings.CERTNUMBER, StoreLocation.LocalMachine);
-                                ////if (sec.Loaded)
-                                ////    item.Signature = sec.SignData(bmp.ToArray());
-
-                                //copy voucher
-                                var srv = ServiceDataAccess.Instance;
-
-                                srv.SendFile(tifFile, sserverSessionId, keys);
-
-                                srv.CommitVoucherChanges(sserverSessionId, 0, obj.Iso, obj.BrId, obj.VId,
-                                    Global.FolderID.HasValue ? Global.FolderID.Value : (int?)null, "", "", keys);
-
-                                srv.SaveHistory(OperationHistory.Scan, serverSessionId, obj.Iso, obj.BrId, obj.VId,
-                                    0, 0, "", keys);
-
-                                tifFile.DeleteSafe();
-                                obj.DeleteFiles();
+                                finally
+                                {
+                                    DataObj obj3;
+                                    ms_Queue.TryRemove(current, out obj3);
+                                }
                             }
                         }
                     }
