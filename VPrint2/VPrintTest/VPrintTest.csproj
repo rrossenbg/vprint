@@ -201,9 +201,9 @@
       <Project>{CA89200F-243A-487C-ACF8-03F538A6C413}</Project>
       <Name>VPrint</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VPrint_372_addon\VPrint_372_addon.csproj">
+    <ProjectReference Include="..\VPrint_372_addon\VPrint_addon.csproj">
       <Project>{7BBFF6A1-4EB9-40F3-AA85-0C81CAE1AD5E}</Project>
-      <Name>VPrint_372_addon</Name>
+      <Name>VPrint_addon</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

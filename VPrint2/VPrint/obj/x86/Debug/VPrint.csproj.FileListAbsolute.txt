@@ -141,10 +141,8 @@ C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\Ionic.Zip.dll
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\System.Web.Extensions.dll
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\System.Web.Razor.dll
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint.Common.dll
-C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint_372_addon.dll
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\Zen.Barcode.Core.dll
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint.Common.pdb
-C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint_372_addon.pdb
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\DTK.BarReader.xml
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\System.Web.Razor.xml
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.csprojResolveAssemblyReference.cache
@@ -176,3 +174,5 @@ C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.TrustInfo.xml
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.exe.manifest
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.application
+C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint_addon.dll
+C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint_addon.pdb
