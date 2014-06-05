@@ -29,7 +29,7 @@ namespace VPrinting
         /// 192.168.58.59
         /// </summary>
         public static string TEST_IP = ConfigurationManager.AppSettings["TestServerIP"];
-        public static string SCAN_IP = ConfigurationManager.AppSettings["ScanServerIP"];
+        public static string SCAN_IP = "192.168.53.143";//ConfigurationManager.AppSettings["ScanServerIP"];
         //"127.0.0.1";//192.168.53.143
             //
 

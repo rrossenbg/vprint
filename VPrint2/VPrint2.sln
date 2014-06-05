@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VPrint_372_addon", "VPrint_372_addon\VPrint_372_addon.csproj", "{7BBFF6A1-4EB9-40F3-AA85-0C81CAE1AD5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VPrint_addon", "VPrint_372_addon\VPrint_addon.csproj", "{7BBFF6A1-4EB9-40F3-AA85-0C81CAE1AD5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VPrint.Common", "VPrint.Common\VPrint.Common.csproj", "{299F65C9-2BDF-42B2-BA4B-CA39F06328CA}"
 EndProject

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define IRELAND
+
+using System;
 using System.Collections.Generic;
 using VPrint;
 using VPrinting;
@@ -26,6 +28,7 @@ namespace VPrint_372_addon
                     RetailerID = new Tuple<int,int>(5, 6),
                     VoucherID = new Tuple<int,int>(11, 8),
                 },
+#if SPAIN
                 new BarcodeConfig()
                 {
                     Name = "Spanish",
@@ -38,19 +41,22 @@ namespace VPrint_372_addon
                     RetailerID = new Tuple<int,int>(3, 6),
                     VoucherID = new Tuple<int,int>(9, 9),
                 },
-                //new BarcodeConfig()
-                //{
-                //    Name = "Gucci",
-                //    Length = 18,
-                //    HasCheckDigit = false,
-                //    //iso, ty, br, voucher
-                //    Template = "{3:00000000}{0:000}{2:000000}",
-                //    Sample = "001977684 056 100353",
-                //    VoucherID = new Tuple<int,int>(0, 9),
-                //    CountryID = new Tuple<int,int>(9, 3),
-                //    RetailerID = new Tuple<int,int>(12,6),
-                //    BuzType = new Tuple<int,int>(0, 1),
-                //},
+#endif
+#if IRELAND
+                new BarcodeConfig()
+                {
+                    Name = "Gucci",
+                    Length = 18,
+                    HasCheckDigit = false,
+                    //iso, ty, br, voucher
+                    Template = "{3:00000000}{0:000}{2:000000}",
+                    Sample = "001977684 056 100353",
+                    VoucherID = new Tuple<int,int>(0, 9),
+                    CountryID = new Tuple<int,int>(9, 3),
+                    RetailerID = new Tuple<int,int>(12,6),
+                    BuzType = new Tuple<int,int>(0, 1),
+                },
+#endif
             });
         }
     }

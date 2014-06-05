@@ -2,7 +2,7 @@
 //  Copyright (c) Premium Tax Free 2013
 /***************************************************/
 
-#define SCANNING
+//#define SCANNING
 
 using System;
 using System.Diagnostics;
