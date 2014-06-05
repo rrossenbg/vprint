@@ -68,17 +68,25 @@ namespace CPrint2
                         var comDir = new DirectoryInfo(Config.CommandInputPath);
 
                         if (comDir.Exists())
+                        {
                             comDir.Delete(true);
+                            Thread.Sleep(Config.CommondFolderDeleteWait);
+                        }
 
                         comDir.Refresh();
 
                         if (!comDir.Exists())
+                        {
                             comDir.Create();
+                            Thread.Sleep(Config.CommondFolderDeleteWait);
+                        }
 
                         var ctn = new AppContext();
                         ctn.NewCommandFileEvent += new EventHandler<ValueEventArgs<string>>(NewCommandFileEvent);
                         ctn.NewImageFileEvent += new EventHandler<ValueEventArgs<string>>(NewImageFileEvent);
                         ctn.Error += new ThreadExceptionEventHandler(OnThreadException);
+
+                        ImageProcessor.NewVoucherStarted += new EventHandler(ImageProcessor_NewVoucherStarted);
                         StateSaver.Error += new ThreadExceptionEventHandler(OnThreadException);
                         ImageProcessor.Error += new ThreadExceptionEventHandler(OnThreadException);
                         AppContext.Default.Error += new ThreadExceptionEventHandler(OnThreadException);
@@ -99,6 +107,11 @@ namespace CPrint2
                         Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+        }
+
+        public static void ImageProcessor_NewVoucherStarted(object sender, EventArgs e)
+        {
+            AppContext.Default.Reset();
         }
 
         public static void OnThreadException(object sender, ThreadExceptionEventArgs e)

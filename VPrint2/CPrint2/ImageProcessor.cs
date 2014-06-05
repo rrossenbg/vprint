@@ -1,9 +1,11 @@
-﻿using System;
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+/***************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -16,6 +18,7 @@ namespace CPrint2
 {
     public class ImageProcessor
     {
+        public static event EventHandler NewVoucherStarted;
         public static event ThreadExceptionEventHandler Error;
 
         public static ImageProcessor Instance
@@ -57,6 +60,9 @@ namespace CPrint2
 
                             if (!obj.Equals(ms_DataObj))
                             {
+                                if (NewVoucherStarted != null)
+                                    NewVoucherStarted(this, EventArgs.Empty);
+
                                 ms_DataObj.DeleteFiles();
                                 ms_DataObj = obj;
                             }
@@ -119,13 +125,14 @@ namespace CPrint2
                                 {
                                     foreach (FileInfo fl in obj.Files)
                                     {
-                                        using (var bmp = (Bitmap)Bitmap.FromFile(fl.FullName))
+                                        if (fl.Exists(true))
                                         {
-                                            //var img = bmp.CropRotateGray(Config.MinWidth, Config.MaxWidth, Config.MinHeight,
-                                            //    Config.MaxHeight, true, true).FirstOrDefault();
-                                            var img = bmp.CropRotateFree();
-                                            if (img != null)
-                                                images.Add(img);
+                                            using (var bmp = (Bitmap)Bitmap.FromFile(fl.FullName))
+                                            {
+                                                var img = bmp.CropRotateFree();
+                                                if (img != null)
+                                                    images.Add(img);
+                                            }
                                         }
                                     }
                                 }
@@ -134,10 +141,10 @@ namespace CPrint2
                                 images.ForEach(i => i.DisposeSf());
                                 images.Clear();
 
-                                CertificateSecurity sec = new CertificateSecurity(X509FindType.FindBySerialNumber,
-                                    Strings.CERTNUMBER, StoreLocation.LocalMachine);
-                                //if (sec.Loaded)
-                                //    item.Signature = sec.SignData(bmp.ToArray());
+                                //CertificateSecurity sec = new CertificateSecurity(X509FindType.FindBySerialNumber,
+                                //    Strings.CERTNUMBER, StoreLocation.LocalMachine);
+                                ////if (sec.Loaded)
+                                ////    item.Signature = sec.SignData(bmp.ToArray());
 
                                 //copy voucher
                                 var srv = ServiceDataAccess.Instance;
@@ -150,10 +157,8 @@ namespace CPrint2
                                 srv.SaveHistory(OperationHistory.Scan, serverSessionId, obj.Iso, obj.BrId, obj.VId,
                                     0, 0, "", keys);
 
-#warning TEST UNCOMMENT ON LIVE
-                                
-                                //tifFile.DeleteSafe();
-                                //obj.DeleteFiles();
+                                tifFile.DeleteSafe();
+                                obj.DeleteFiles();
                             }
                         }
                     }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+/***************************************************/
+
+using System;
 using System.IO;
 
 namespace CPrint2.Common

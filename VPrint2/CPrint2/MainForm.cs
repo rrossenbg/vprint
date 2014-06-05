@@ -9,6 +9,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CPrint2.Data;
+using System.IO;
+using System.Diagnostics;
 
 namespace CPrint2
 {
@@ -115,10 +117,58 @@ namespace CPrint2
             Task.Factory.StartNew((o) =>
             {
                 Thread.Sleep(Config.ImagePickupDelay);
-                imageBox1.Image.DisposeSf();
-                imageBox1.Image = Image.FromFile(Convert.ToString(o));
+
+                this.InvokeSf(() =>
+                {
+                    this.imageBox1.Image = imageBox1.Image.DisposeSf();
+
+                    string imageFileName = Convert.ToString(o);
+                    var img = Image.FromFile(imageFileName);
+                    
+                    this.imageBox1.Image = img.CopyFree(new Rectangle(0, 0, img.Width, img.Height));
+                    var thumbnail = imageBox1.Image.GetThumbnailImage(60, 60, null, IntPtr.Zero);
+                    var pictureBox1 = new PictureBox();
+                    pictureBox1.Size = new System.Drawing.Size(60, 60);
+                    pictureBox1.Image = thumbnail;
+                    pictureBox1.Tag = imageFileName;
+
+                    this.imageBox1.Controls.Add(pictureBox1);
+                    pictureBox1.Click += new EventHandler(PictureBox1_Click);
+                });
+
                 hWnd.SetTopmost();
             }, fileName);
+        }
+
+        public void ResetState()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                this.InvokeSf(() =>
+                {
+                    foreach (PictureBox box in this.imageBox1.Controls)
+                        if (box != null)
+                            PictureBox1_Click(box, EventArgs.Empty);
+                });
+            });
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            PictureBox pbox = (PictureBox)sender;
+            try
+            {
+                pbox.Image = pbox.Image.DisposeSf();
+                string imageFileName = Convert.ToString(pbox.Tag);
+                if (File.Exists(imageFileName))
+                    File.Delete(imageFileName);
+            }
+            catch (Exception ex) { Debug.WriteLine(ex); }
+            finally
+            {
+                pbox.Click -= new EventHandler(PictureBox1_Click);
+                this.imageBox1.Controls.Remove(pbox);
+            }
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+/***************************************************/
+
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace CPrint2.Colections

@@ -85,6 +85,11 @@ namespace CPrint2
             Application.Exit();
         }
 
+        public void Reset()
+        {
+            m_form.ResetState();
+        }
+
         private void StartStopMenuItem_Click(object sender, EventArgs e)
         {
             if (IsStarted)
