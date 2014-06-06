@@ -3,8 +3,10 @@
 /***************************************************/
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,9 +14,6 @@ using CPrint2.Colections;
 using CPrint2.Common;
 using CPrint2.Data;
 using CPrint2.ScanServiceRef;
-using System.Drawing.Imaging;
-using System.Collections;
-using System.Collections.Concurrent;
 
 namespace CPrint2
 {
@@ -199,7 +198,9 @@ namespace CPrint2
 
         public static void Clear()
         {
+            ms_Queue.Clear();
             ms_Files.Clear();
+            ms_CurrentDataObj = (object)Guid.Empty;
         }
     }
 }

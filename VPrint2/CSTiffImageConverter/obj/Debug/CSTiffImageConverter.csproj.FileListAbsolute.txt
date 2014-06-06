@@ -1,0 +1,8 @@
+C:\PROJECTS\VPrint2\Debug\sample.tif
+C:\PROJECTS\VPrint2\Debug\CSTiffImageConverter.exe
+C:\PROJECTS\VPrint2\Debug\CSTiffImageConverter.pdb
+C:\PROJECTS\VPrint2\CSTiffImageConverter\obj\Debug\CSTiffImageConverter.MainForm.resources
+C:\PROJECTS\VPrint2\CSTiffImageConverter\obj\Debug\CSTiffImageConverter.Properties.Resources.resources
+C:\PROJECTS\VPrint2\CSTiffImageConverter\obj\Debug\CSTiffImageConverter.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\CSTiffImageConverter\obj\Debug\CSTiffImageConverter.exe
+C:\PROJECTS\VPrint2\CSTiffImageConverter\obj\Debug\CSTiffImageConverter.pdb

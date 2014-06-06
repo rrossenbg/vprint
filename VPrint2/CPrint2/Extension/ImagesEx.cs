@@ -4,19 +4,20 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Runtime;
 using System.Runtime.InteropServices;
 using AForge;
 using AForge.Imaging;
 using AForge.Imaging.Filters;
 using AForge.Math.Geometry;
-using DImage = System.Drawing.Image;
 using DBitmap = System.Drawing.Bitmap;
+using DImage = System.Drawing.Image;
 using PPoint = System.Drawing.Point;
-using System.Diagnostics;
 
 namespace CPrint2
 {
@@ -81,36 +82,64 @@ namespace CPrint2
         {
             using (source)
             {
-                var monitor = new PictureModifier(source);
-                monitor.ApplyGrayscale();
-                monitor.ApplySobelEdgeFilter();
-
-                float maxarea = 0;
-                Region maxregion = null;
-
                 using (Graphics g = Graphics.FromImage(source))
                 {
-                    foreach (var region in monitor.EnumKnownForms())
+                    int w1 = source.Width - 1;
+                    int w6 = source.Width - 6;
+                    int h1 = source.Height - 1;
+                    int h6 = source.Height - 6;
+
+                    Rectangle[] rects = new Rectangle[] { 
+                        Rectangle.FromLTRB( 0, 0, w1, 5),
+                        Rectangle.FromLTRB( 0, 0, 5, h1),
+                        Rectangle.FromLTRB( 0, h6, w1, h1),
+                        Rectangle.FromLTRB( w6, 0, w1, h1),
+                    };
+
+                    g.FillRectangles(Brushes.Black, rects);
+
+                    var monitor = new PictureModifier(source);
+                    monitor.ApplyGrayscale();
+                    monitor.ApplySobelEdgeFilter();
+
+                    var list = new List<Region>();
+                    try
                     {
-                        var area = region.GetArea(g);
-                        if (maxregion == null || maxarea < area)
+                        list.AddRange(monitor.EnumKnownForms());
+                        list.Sort(new RegionComparer(g));
+
+                        if (list.Count >= 2)
                         {
-                            maxarea = area;
-                            maxregion = region;
+                            var region = list[list.Count - 2];
+                            var rectange = Rectangle.Round(region.GetBounds(g));
+                            using (var bmp3 = source.CopyNoFree(rectange))
+                            {
+                                if (bmp3.Width > bmp3.Height)
+                                    bmp3.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                                return bmp3.ToGrayscale4bpp();
+                            }
                         }
                     }
-
-                    if (maxregion != null)
+                    finally
                     {
-                        using (var bmp3 = source.CopyNoFree(Rectangle.Round(maxregion.GetBounds(g))))
-                        {
-                            if (bmp3.Width > bmp3.Height)
-                                bmp3.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                            return bmp3.ToGrayscale4bpp();
-                        }
+                        list.ForEach((r) => r.DisposeSf());
                     }
                 }
                 return null;
+            }
+        }
+
+        private class RegionComparer : IComparer<Region>
+        {
+            private readonly Graphics m_g;
+
+            public RegionComparer(Graphics g)
+            {
+                m_g = g;
+            }
+            public int Compare(Region x, Region y)
+            {
+                return x.GetArea(m_g).CompareTo(y.GetArea(m_g));
             }
         }
 
@@ -585,12 +614,12 @@ namespace CPrint2
             {
                 try
                 {
-                    SobelEdgeDetector filter = new SobelEdgeDetector();
-                    filter.ApplyInPlace(m_currentImage);
+                    var filter = new SobelEdgeDetector();
+                    filter.ApplyInPlace(this.m_currentImage);
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-
+                    Debug.WriteLine(ex);
                 }
             }
         }
@@ -602,11 +631,13 @@ namespace CPrint2
                 try
                 {
                     // create grayscale filter (BT709)
-                    Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
+                    var filter = new Grayscale(0.2125, 0.7154, 0.0721);
                     m_currentImage = filter.Apply(m_currentImage);
                 }
-                catch (Exception e)
-                { }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
             }
         }
 
@@ -615,6 +646,7 @@ namespace CPrint2
             Debug.Assert(m_currentImage != null);
 
             DBitmap image = new DBitmap(this.m_currentImage);
+
             // lock image
             BitmapData bmData = image.LockBits(new Rectangle(0, 0, image.Width, image.Height),
                 ImageLockMode.ReadWrite, image.PixelFormat);
@@ -641,13 +673,6 @@ namespace CPrint2
             // coloring objects
             SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
 
-            //Graphics g = Graphics.FromImage(image);
-            //Pen yellowPen = new Pen(Color.Yellow, 2); // circles
-            //Pen redPen = new Pen(Color.Red, 2);       // quadrilateral
-            //Pen brownPen = new Pen(Color.Brown, 2);   // quadrilateral with known sub-type
-            //Pen greenPen = new Pen(Color.Green, 2);   // known triangle
-            //Pen bluePen = new Pen(Color.Blue, 2);     // triangle
-
             for (int i = 0, n = baBlobs.Length; i < n; i++)
             {
                 List<IntPoint> edgePoints = bCounter.GetBlobsEdgePoints(baBlobs[i]);
@@ -655,7 +680,6 @@ namespace CPrint2
                 AForge.Point center;
                 float radius;
 
-                // is circle ?
                 if (shapeChecker.IsCircle(edgePoints, out center, out radius))
                 {
                     //g.DrawEllipse(yellowPen, (float)(center.X - radius), (float)(center.Y - radius),
@@ -664,34 +688,19 @@ namespace CPrint2
                 else
                 {
                     List<IntPoint> corners;
-
                     // is triangle or quadrilateral
                     if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
                     {
-                        //PolygonSubType subType = shapeChecker.CheckPolygonSubType(corners);
-                        //Pen pen;
-                        //if (subType == PolygonSubType.Unknown)
-                        //    pen = (corners.Count == 4) ? redPen : bluePen;
-                        //else
-                        //    pen = (corners.Count == 4) ? brownPen : greenPen;
-
                         using (var path = new System.Drawing.Drawing2D.GraphicsPath())
                         {
                             path.AddPolygon(ToPointsArray(corners));
                             var region = new Region(path);
                             yield return region;
-                        }
-
-                        //g.DrawPolygon(pen, ToPointsArray(corners));
+                        }                        
                     }
                 }
             }
-            //yellowPen.Dispose();
-            //redPen.Dispose();
-            //greenPen.Dispose();
-            //bluePen.Dispose();
-            //brownPen.Dispose();
-            //g.Dispose();
+
             this.m_currentImage = image;
         }
 
