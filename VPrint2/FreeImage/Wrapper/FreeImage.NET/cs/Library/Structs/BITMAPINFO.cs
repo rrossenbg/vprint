@@ -141,46 +141,22 @@ namespace FreeImageAPI
 			return true;
 		}
 
-		/// <summary>
-		/// Tests whether two specified <see cref="BITMAPINFO"/> structures are different.
-		/// </summary>
-		/// <param name="left">The <see cref="BITMAPINFO"/> that is to the left of the inequality operator.</param>
-		/// <param name="right">The <see cref="BITMAPINFO"/> that is to the right of the inequality operator.</param>
-		/// <returns>
-		/// <b>true</b> if the two <see cref="BITMAPINFO"/> structures are different; otherwise, <b>false</b>.
-		/// </returns>
 		public static bool operator !=(BITMAPINFO left, BITMAPINFO right)
 		{
 			return !(left == right);
 		}
 
-		/// <summary>
-		/// Tests whether the specified <see cref="BITMAPINFO"/> structure is equivalent to this <see cref="BITMAPINFO"/> structure.
-		/// </summary>
-		/// <param name="other">A <see cref="BITMAPINFO"/> structure to compare to this instance.</param>
-		/// <returns><b>true</b> if <paramref name="obj"/> is a <see cref="BITMAPINFO"/> structure
-		/// equivalent to this <see cref="BITMAPINFO"/> structure; otherwise, <b>false</b>.</returns>
+
 		public bool Equals(BITMAPINFO other)
 		{
 			return (this == other);
 		}
 
-		/// <summary>
-		/// Tests whether the specified object is a <see cref="BITMAPINFO"/> structure
-		/// and is equivalent to this <see cref="BITMAPINFO"/> structure.
-		/// </summary>
-		/// <param name="obj">The object to test.</param>
-		/// <returns><b>true</b> if <paramref name="obj"/> is a <see cref="BITMAPINFO"/> structure
-		/// equivalent to this <see cref="BITMAPINFO"/> structure; otherwise, <b>false</b>.</returns>
 		public override bool Equals(object obj)
 		{
 			return ((obj is BITMAPINFO) && (this == ((BITMAPINFO)obj)));
 		}
 
-		/// <summary>
-		/// Returns a hash code for this <see cref="BITMAPINFO"/> structure.
-		/// </summary>
-		/// <returns>An integer value that specifies the hash code for this <see cref="BITMAPINFO"/>.</returns>
 		public override int GetHashCode()
 		{
 			int hash = bmiHeader.GetHashCode();

@@ -1,0 +1,65 @@
+﻿Installing assembly 'C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe
+Installing service FintraxReceivingService...
+Creating EventLog source FintraxReceivingService in log Application...
+Rolling back assembly 'C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe
+Restoring event log to previous state for source FintraxReceivingService.
+Installing assembly 'C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe
+Installing service FintraxReceivingService...
+Creating EventLog source FintraxReceivingService in log Application...
+Rolling back assembly 'C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe
+Restoring event log to previous state for source FintraxReceivingService.
+Installing assembly 'C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe
+Installing service FintraxReceivingService...
+Service FintraxReceivingService has been successfully installed.
+Creating EventLog source FintraxReceivingService in log Application...
+Committing assembly 'C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe
+Installing assembly 'C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe
+Installing service FintraxReceivingService...
+Creating EventLog source FintraxReceivingService in log Application...
+Rolling back assembly 'C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe
+Restoring event log to previous state for source FintraxReceivingService.
+Installing assembly 'C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe
+Installing service FintraxReceivingService...
+Service FintraxReceivingService has been successfully installed.
+Creating EventLog source FintraxReceivingService in log Application...
+Committing assembly 'C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe

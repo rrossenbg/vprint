@@ -1,0 +1,8 @@
+C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Samples\Sample 01 - Loading and saving\bin\Debug\Sample.jpg
+C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Samples\Sample 01 - Loading and saving\bin\Debug\Sample01.exe
+C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Samples\Sample 01 - Loading and saving\bin\Debug\Sample01.pdb
+C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Samples\Sample 01 - Loading and saving\bin\Debug\FreeImageNET.dll
+C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Samples\Sample 01 - Loading and saving\bin\Debug\FreeImageNET.pdb
+C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Samples\Sample 01 - Loading and saving\obj\Debug\Sample 01 - Loading and saving.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Samples\Sample 01 - Loading and saving\obj\Debug\Sample01.exe
+C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Samples\Sample 01 - Loading and saving\obj\Debug\Sample01.pdb

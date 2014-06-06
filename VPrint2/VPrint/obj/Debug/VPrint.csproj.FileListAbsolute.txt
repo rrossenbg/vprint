@@ -76,10 +76,8 @@ C:\PROJECTS\VPrint2\VPrint\bin\Debug\Ionic.Zip.dll
 C:\PROJECTS\VPrint2\VPrint\bin\Debug\System.Web.Extensions.dll
 C:\PROJECTS\VPrint2\VPrint\bin\Debug\System.Web.Razor.dll
 C:\PROJECTS\VPrint2\VPrint\bin\Debug\VPrint.Common.dll
-C:\PROJECTS\VPrint2\VPrint\bin\Debug\VPrint_372_addon.dll
 C:\PROJECTS\VPrint2\VPrint\bin\Debug\Zen.Barcode.Core.dll
 C:\PROJECTS\VPrint2\VPrint\bin\Debug\VPrint.Common.pdb
-C:\PROJECTS\VPrint2\VPrint\bin\Debug\VPrint_372_addon.pdb
 C:\PROJECTS\VPrint2\VPrint\bin\Debug\DTK.BarReader.xml
 C:\PROJECTS\VPrint2\VPrint\bin\Debug\System.Web.Razor.xml
 C:\PROJECTS\VPrint2\VPrint\obj\Debug\VPrint.TrustInfo.xml
@@ -87,3 +85,5 @@ C:\PROJECTS\VPrint2\VPrint\obj\Debug\VPrint.exe.manifest
 C:\PROJECTS\VPrint2\VPrint\obj\Debug\VPrint.application
 C:\PROJECTS\VPrint2\VPrint\obj\Debug\VPrint.exe
 C:\PROJECTS\VPrint2\VPrint\obj\Debug\VPrint.pdb
+C:\PROJECTS\VPrint2\VPrint\bin\Debug\VPrint_addon.dll
+C:\PROJECTS\VPrint2\VPrint\bin\Debug\VPrint_addon.pdb

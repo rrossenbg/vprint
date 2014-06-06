@@ -123,12 +123,6 @@ namespace FreeImageAPI
 			return ((obj is FICOMPLEX) && (this == ((FICOMPLEX)obj)));
 		}
 
-		/// <summary>
-		/// Tests whether the specified <see cref="FICOMPLEX"/> structure is equivalent to this <see cref="FICOMPLEX"/> structure.
-		/// </summary>
-		/// <param name="other">A <see cref="FICOMPLEX"/> structure to compare to this instance.</param>
-		/// <returns><b>true</b> if <paramref name="obj"/> is a <see cref="FICOMPLEX"/> structure
-		/// equivalent to this <see cref="FICOMPLEX"/> structure; otherwise, <b>false</b>.</returns>
 		public bool Equals(FICOMPLEX other)
 		{
 			return (this == other);
