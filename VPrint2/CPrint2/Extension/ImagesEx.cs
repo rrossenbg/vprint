@@ -120,6 +120,7 @@ namespace CPrint2
 
                                 if (bmp3.Width > bmp3.Height)
                                     bmp3.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                                
                                 return bmp3.ToGrayscale4bpp();
                             }
                         }

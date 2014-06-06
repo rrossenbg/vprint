@@ -5,4 +5,3 @@ C:\PROJECTS\VPrint\BizTalkFilesTest\bin\Debug\BizTalkFiles.pdb
 C:\PROJECTS\VPrint\BizTalkFilesTest\obj\Debug\BizTalkFilesTest.dll
 C:\PROJECTS\VPrint\BizTalkFilesTest\obj\Debug\BizTalkFilesTest.pdb
 C:\PROJECTS\VPrint\BizTalkFilesTest\obj\Debug\BizTalkFilesTest.csprojResolveAssemblyReference.cache
-C:\PROJECTS\VPrint2\BizTalkFilesTest\obj\Debug\BizTalkFilesTest.csprojResolveAssemblyReference.cache

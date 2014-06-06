@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CPrint2.Colections;
@@ -126,7 +127,15 @@ namespace CPrint2
                             {
                                 var img = bmp.CropRotateFree();
                                 if (img != null)
+                                {
+                                    #if HIGH_CMPRESION
+                                    var jpegCodec = ImageCodecInfo.GetImageEncoders().First(enc => enc.FormatID == ImageFormat.Jpeg.Guid);
+                                    var jpegParams = new EncoderParameters(1);
+                                    jpegParams.Param = new[] { new EncoderParameter(Encoder.Quality, 100L) };
+                                    img.Save(file.FullName, jpegCodec, jpegParams);
+                                    #endif
                                     img.Save(file.FullName, ImageFormat.Jpeg);
+                                }
                             }
 
                             if (VoucherProcessCompleted != null)
