@@ -309,12 +309,6 @@ namespace FreeImageAPI
 			return ((obj is RGBQUAD) && (this == ((RGBQUAD)obj)));
 		}
 
-		/// <summary>
-		/// Tests whether the specified <see cref="RGBQUAD"/> structure is equivalent to this <see cref="RGBQUAD"/> structure.
-		/// </summary>
-		/// <param name="other">A <see cref="RGBQUAD"/> structure to compare to this instance.</param>
-		/// <returns><b>true</b> if <paramref name="obj"/> is a <see cref="RGBQUAD"/> structure
-		/// equivalent to this <see cref="RGBQUAD"/> structure; otherwise, <b>false</b>.</returns>
 		public bool Equals(RGBQUAD other)
 		{
 			return (this == other);

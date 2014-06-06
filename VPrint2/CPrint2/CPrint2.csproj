@@ -46,6 +46,10 @@
     <ApplicationIcon>camera_unmount2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge.MachineLearning, Version=2.2.4.0, Culture=neutral, PublicKeyToken=b3f1bdd78212f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\AForge.MachineLearning.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -294,6 +298,10 @@
     <WCFMetadataStorage Include="Service References\VoucherNumberingAllocationPrintingRef\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FreeImage\Wrapper\FreeImage.NET\cs\Library\Library.csproj">
+      <Project>{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}</Project>
+      <Name>Library</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VPrint\AForge.Source\Controls\Controls.csproj">
       <Project>{4CCA6844-9102-4A3B-8148-EA3D359B2586}</Project>
       <Name>Controls</Name>
@@ -316,6 +324,9 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y C:\PROJECTS\VPrint2\Libraries\FreeImage.dll $(OutDir)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

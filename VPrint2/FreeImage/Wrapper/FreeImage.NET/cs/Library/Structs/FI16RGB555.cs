@@ -244,12 +244,6 @@ namespace FreeImageAPI
 			return base.Equals(obj);
 		}
 
-		/// <summary>
-		/// Tests whether the specified <see cref="FI16RGB555"/> structure is equivalent to this <see cref="FI16RGB555"/> structure.
-		/// </summary>
-		/// <param name="other">A <see cref="FI16RGB555"/> structure to compare to this instance.</param>
-		/// <returns><b>true</b> if <paramref name="obj"/> is a <see cref="FI16RGB555"/> structure
-		/// equivalent to this <see cref="FI16RGB555"/> structure; otherwise, <b>false</b>.</returns>
 		public bool Equals(FI16RGB555 other)
 		{
 			return (this == other);

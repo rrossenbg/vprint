@@ -1,0 +1,3 @@
+C:\PROJECTS\VPrint2\VPrintTest\obj\x86\Release\VPrintTest.Properties.Resources.resources
+C:\PROJECTS\VPrint2\VPrintTest\obj\x86\Release\VPrintTest.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\VPrintTest\obj\x86\Release\VPrintTest.csprojResolveAssemblyReference.cache

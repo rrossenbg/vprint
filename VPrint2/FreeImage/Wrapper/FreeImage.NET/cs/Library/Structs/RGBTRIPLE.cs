@@ -261,14 +261,7 @@ namespace FreeImageAPI
 			return ((obj is RGBTRIPLE) && (this == ((RGBTRIPLE)obj)));
 		}
 
-		/// <summary>
-		/// Tests whether the specified <see cref="RGBTRIPLE"/> structure is equivalent to this
-		/// <see cref="RGBTRIPLE"/> structure.
-		/// </summary>
-		/// <param name="other">A <see cref="RGBTRIPLE"/> structure to compare to this instance.</param>
-		/// <returns><b>true</b> if <paramref name="obj"/> is a <see cref="RGBTRIPLE"/> structure
-		/// equivalent to this <see cref="RGBTRIPLE"/> structure; otherwise, <b>false</b>.</returns>
-		public bool Equals(RGBTRIPLE other)
+        public bool Equals(RGBTRIPLE other)
 		{
 			return (this == other);
 		}

@@ -1,0 +1,6 @@
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\installutil "C:\PROJECTS\VPrint2\ReceivingService\bin\Debug\ReceivingService.exe" -i
+
+
+sc delete FintraxReceivingService
+
+192.168.53.143

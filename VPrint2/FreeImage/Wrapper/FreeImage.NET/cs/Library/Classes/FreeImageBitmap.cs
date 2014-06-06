@@ -852,25 +852,6 @@ namespace FreeImageAPI
 			AddMemoryPressure();
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="FreeImageBitmap"/> class bases on the specified size,
-		/// pixel format and pixel data.
-		/// </summary>
-		/// <param name="width">The width, in pixels, of the new <see cref="FreeImageBitmap"/>.</param>
-		/// <param name="height">The height, in pixels, of the new <see cref="FreeImageBitmap"/>.</param>
-		/// <param name="stride">Integer that specifies the byte offset between the beginning
-		/// of one scan line and the next. This is usually (but not necessarily)
-		/// the number of bytes in the pixel format (for example, 2 for 16 bits per pixel)
-		/// multiplied by the width of the bitmap. The value passed to this parameter must
-		/// be a multiple of four..</param>
-		/// <param name="bpp">The color depth of the new <see cref="FreeImageBitmap"/></param>
-		/// <param name="type">The type for the new <see cref="FreeImageBitmap"/>.</param>
-		/// <param name="bits">Array of bytes containing the bitmap data.</param>
-		/// <exception cref="Exception">The operation failed.</exception>
-		/// <exception cref="ArgumentException"><paramref name="format"/> is invalid.</exception>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// <paramref name="width"/> or <paramref name="height"/> are less or equal zero.</exception>
-		/// <exception cref="ArgumentNullException"><paramref name="bits"/> is null</exception>
 		public FreeImageBitmap(int width, int height, int stride, int bpp, FREE_IMAGE_TYPE type, byte[] bits)
 		{
 			if (width <= 0)

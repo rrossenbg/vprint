@@ -336,6 +336,36 @@ namespace CPrint2
         {
             return re.X >= 0 && re.Y >= 0 && re.Height > 0 && re.Width > 0;
         }
+
+        [TargetedPatchingOptOut("na")]
+        public static byte[] ToArray(this DImage image, long compression = 50L)
+        {
+            Debug.Assert(image != null);
+
+            using (MemoryStream mem = new MemoryStream())
+            {
+                ImageCodecInfo jgpEncoder = ImageFormat.Jpeg.GetEncoder();
+
+                using (var encoderParameters = new EncoderParameters(1))
+                using (var parameter1 = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, compression))
+                {
+                    encoderParameters.Param[0] = parameter1;
+                    image.Save(mem, jgpEncoder, encoderParameters);
+                }
+
+                return mem.ToArray();
+            }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static ImageCodecInfo GetEncoder(this ImageFormat format)
+        {
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+            foreach (ImageCodecInfo codec in codecs)
+                if (codec.FormatID == format.Guid)
+                    return codec;
+            return null;
+        }
     }
 
     public static class ImageEx2
