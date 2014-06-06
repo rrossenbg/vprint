@@ -156,14 +156,11 @@ namespace CPrint2
 
                                     if (images.Count > 0)
                                     {
-                                        images.SaveMultipage(tifFile.FullName, "TIFF");
+                                        var tif = TiffConverter.WrapJpegs(images.ConvertAll<byte[]>((b) => b.ToArray()));
+                                        File.WriteAllBytes(tifFullFileName, tif);
+
                                         images.ForEach(i => i.DisposeSf());
                                         images.Clear();
-
-                                        //CertificateSecurity sec = new CertificateSecurity(X509FindType.FindBySerialNumber,
-                                        //    Strings.CERTNUMBER, StoreLocation.LocalMachine);
-                                        ////if (sec.Loaded)
-                                        ////    item.Signature = sec.SignData(bmp.ToArray());
 
                                         //copy voucher
                                         var srv = ServiceDataAccess.Instance;
