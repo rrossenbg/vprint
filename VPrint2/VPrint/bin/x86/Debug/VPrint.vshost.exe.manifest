@@ -4,7 +4,7 @@
   <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VPrint" version="1.0.5269.16260" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="VPrint" version="1.0.5270.14420" language="neutral" processorArchitecture="x86" />
     <commandLine file="VPrint.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -79,13 +79,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="933888">
-      <assemblyIdentity name="VPrint" version="1.0.5269.16260" language="neutral" processorArchitecture="x86" />
+      <assemblyIdentity name="VPrint" version="1.0.5270.14420" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ABL882K06dFQRAUP5Xt3b0J0jb0=</dsig:DigestValue>
+        <dsig:DigestValue>qP5ABUpvzCDWKdvSE3JspLEGwUM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yEqaifvQAWc8A5hODOwDbrUGua8=</dsig:DigestValue>
+        <dsig:DigestValue>k7qd//Z9cDqscl5oTKhvNjldxEA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GFaiGJkfMpYiNK2tSg0e+KZ+ENI=</dsig:DigestValue>
+        <dsig:DigestValue>K+aZe8XGIbLpgtzXiud6nBvJ/UU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

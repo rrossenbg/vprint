@@ -72,6 +72,8 @@
     </Compile>
     <Compile Include="Controls\ImageBoxGridDisplayMode.cs" />
     <Compile Include="Controls\ImageBoxGridScale.cs" />
+    <Compile Include="Extension\Tiff.cs" />
+    <Compile Include="Extension\IListEx.cs" />
     <Compile Include="PresenterCameraShooter.cs" />
     <Compile Include="CertificateSecurity.cs" />
     <Compile Include="Colections\MemoryBuffer.cs" />
