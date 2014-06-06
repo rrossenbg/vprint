@@ -15,22 +15,6 @@ namespace CPrintTest.Scanning
     public class TiffTest
     {
         [TestMethod]
-        public void test_create_tiff2()
-        {
-            string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter", "*.jpg");
-
-            var list = new List<Bitmap>();
-            foreach (var f in files)
-            {
-                var img = ((Bitmap)Image.FromFile(f)).CropRotateGray(100, 3500, 100, 1500, true, true).FirstOrDefault();
-                if (img != null)
-                    list.Add(img);
-            }
-
-            list.SaveMultipage(@"C:\Users\Rosen.rusev\Pictures\Presenter\test_2014_05_14.tif", "TIFF");
-        }
-
-        [TestMethod]
         public void test_filtering_image()
         {
             string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter", "*.jpg");
@@ -111,20 +95,49 @@ namespace CPrintTest.Scanning
         [TestMethod]
         public void TestMSTiff()
         {
-            string PATH = @"C:\Users\Rosen.rusev\Pictures\Presenter\New folder (3)\";
+            string PATH = @"C:\Users\Rosen.rusev\Pictures\Presenter\";
+
+            string[] files = Directory.GetFiles(PATH, "*.jpg");
 
             var list = new List<byte[]>();
 
-            foreach (string path in new string[] { 
-                PATH + "2014-05-29_0001.jpg", 
-                PATH + "2014-05-29_0003.jpg", 
-                PATH + "2014-05-29_0004.jpg" })
-            {
+            foreach (string path in files)
                 list.Add(Image.FromFile(path).ToArray());
-            }
 
             File.WriteAllBytes(PATH + "result.tif", TiffConverter.WrapJpegs(list));
             //string[] filenames = Tiff.ConvertJpegToTiff(}, true);
+        }
+
+        [TestMethod]
+        public void test_create_tiff1()
+        {
+            string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter", "*.jpg");
+
+            var list = new List<Bitmap>();
+            foreach (var f in files)
+            {
+                var img = ((Bitmap)Image.FromFile(f)).CropRotateFree();
+                if (img != null)
+                    list.Add(img);
+            }
+
+            list.SaveMultipage(@"C:\Users\Rosen.rusev\Pictures\Presenter\test_2014_05_14.tif", "TIFF");
+        }
+
+        [TestMethod]
+        public void test_create_tiff2()
+        {
+            string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter", "*.jpg");
+
+            var list = new List<Bitmap>();
+            foreach (var f in files)
+            {
+                var img = ((Bitmap)Image.FromFile(f)).CropRotateGray(100, 3500, 100, 1500, true, true).FirstOrDefault();
+                if (img != null)
+                    list.Add(img);
+            }
+
+            list.SaveMultipage(@"C:\Users\Rosen.rusev\Pictures\Presenter\test_2014_05_14.tif", "TIFF");
         }
     }
 }

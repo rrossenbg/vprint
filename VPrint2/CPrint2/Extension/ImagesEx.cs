@@ -114,6 +114,10 @@ namespace CPrint2
                             var rectange = Rectangle.Round(region.GetBounds(g));
                             using (var bmp3 = source.CopyNoFree(rectange))
                             {
+#if TEST
+                                g.DrawRectangle(Pens.Red, rectange);
+#endif
+
                                 if (bmp3.Width > bmp3.Height)
                                     bmp3.RotateFlip(RotateFlipType.Rotate90FlipNone);
                                 return bmp3.ToGrayscale4bpp();
