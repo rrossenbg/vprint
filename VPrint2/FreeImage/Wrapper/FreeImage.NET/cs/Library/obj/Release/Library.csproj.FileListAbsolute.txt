@@ -1,2 +1,0 @@
-C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Library\bin\Release\FreeImageNET.dll
-C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Library\obj\Release\FreeImageNET.dll
