@@ -82,10 +82,6 @@ namespace CPrint2
                                 {
                                     string tifFullFileName = Path.Combine(Config.ImageOutputPath, string.Format("{0}_{1}_{2}.tif", obj3.Iso, obj3.BrId, obj3.VId));
 
-                                    var keys = Security.CreateInstance().GenerateSecurityKeys();
-                                    var serverSessionId = obj3.Id;
-                                    var sserverSessionId = obj3.Id.ToString();
-
                                     var tifFile = new FileInfo(tifFullFileName);
                                     var images = new List<Bitmap>();
 
@@ -99,13 +95,17 @@ namespace CPrint2
                                     if (images.Count > 0)
                                     {
                                         TiffConverter converter = new TiffConverter();
-                                        var tif = converter.WrapJpegs(images.ConvertAll<byte[]>((b) => b.ToArray()));
-                                        File.WriteAllBytes(tifFullFileName, tif);
+                                        var tiff = converter.WrapJpegs(images.ConvertAll<byte[]>((b) => b.ToArray()));
+                                        File.WriteAllBytes(tifFullFileName, tiff);
 
                                         images.ForEach(i => i.DisposeSf());
                                         images.Clear();
 
                                         //copy voucher
+                                        var keys = Security.CreateInstance().GenerateSecurityKeys();
+                                        var serverSessionId = obj3.Id;
+                                        var sserverSessionId = obj3.Id.ToString();
+                                        
                                         var srv = ServiceDataAccess.Instance;
 
                                         srv.SendFile(tifFile, sserverSessionId, keys);
