@@ -151,5 +151,29 @@ namespace CPrintTest.Scanning
                 };
             }
         }
+
+
+        /// <summary>
+        /// READ
+        /// </summary>
+        /// <see cref="http://tech.pro/tutorial/620/csharp-tutorial-image-editing-saving-cropping-and-resizing"/>
+        [TestMethod]
+        public void test_create_crop_rotate2()
+        {
+            //string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter\New folder (7)");
+            string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter", "*.jpg");
+            //Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter\New folder (2)\2014-05-07_0003.jpg", "*.jpg");
+
+            int count = 0;
+            foreach (var f in files)
+            {
+                var img = ((Bitmap)Image.FromFile(f)).CropRotateFree(new Size(500, 200), new Size(2500, 1000));
+                if (img != null)
+                {
+                    img.Save(@"C:\Users\Rosen.rusev\Pictures\Presenter\" + count++ + ".jpg", ImageFormat.Jpeg);
+                    Debug.WriteLine(f);
+                };
+            }
+        }
     }
 }
