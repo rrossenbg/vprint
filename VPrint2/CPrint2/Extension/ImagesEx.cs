@@ -32,26 +32,27 @@ namespace CPrint2
             {
                 using (Graphics g = Graphics.FromImage(source))
                 {
-                    int w1 = source.Width - 1;
-                    int w6 = source.Width - 6;
-                    int h1 = source.Height - 1;
-                    int h6 = source.Height - 6;
+                    #region OLD_CODE
+                    //int w1 = source.Width - 1;
+                    //int w6 = source.Width - 6;
+                    //int h1 = source.Height - 1;
+                    //int h6 = source.Height - 6;
 
-                    Rectangle[] rects = new Rectangle[] { 
-                        Rectangle.FromLTRB( 0, 0, w1, 5),
-                        Rectangle.FromLTRB( 0, 0, 5, h1),
-                        Rectangle.FromLTRB( 0, h6, w1, h1),
-                        Rectangle.FromLTRB( w6, 0, w1, h1),
-                    };
+                    //Rectangle[] rects = new Rectangle[] { 
+                    //    Rectangle.FromLTRB( 0, 0, w1, 5),
+                    //    Rectangle.FromLTRB( 0, 0, 5, h1),
+                    //    Rectangle.FromLTRB( 0, h6, w1, h1),
+                    //    Rectangle.FromLTRB( w6, 0, w1, h1),
+                    //};
 
-                    g.FillRectangles(Brushes.Black, rects);
+                    //g.FillRectangles(Brushes.Black, rects);
+                    #endregion
 
                     var monitor = new PictureModifier(source);
                     monitor.ApplyGrayscale();
                     monitor.ApplySobelEdgeFilter();
                     //monitor.ApplyThresholdedDifference();
                     //monitor.ApplyFilling();
-
 
                     var list = new List<Region>();
                     try
@@ -102,7 +103,7 @@ namespace CPrint2
             }
             public int Compare(Region x, Region y)
             {
-                return x.GetArea(m_g).CompareTo(y.GetArea(m_g));
+                return y.GetArea(m_g).CompareTo(x.GetArea(m_g));
             }
         }
 
