@@ -3,15 +3,15 @@
 /***************************************************/
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CPrint2.Data;
-using System.IO;
-using System.Diagnostics;
-using System.Collections.Generic;
 
 namespace CPrint2
 {
@@ -54,6 +54,11 @@ namespace CPrint2
             e.Cancel = true;
             Hide();
             base.OnClosing(e);
+        }
+
+        protected override void DefWndProc(ref Message m)
+        {
+            base.DefWndProc(ref m);
         }
 
         protected override void OnClosed(EventArgs e)

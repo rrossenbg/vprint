@@ -8,7 +8,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Runtime;
 using System.Runtime.InteropServices;
 using AForge;
@@ -25,60 +24,9 @@ namespace CPrint2
     {
         /// <summary>
         /// http://www.codeproject.com/Articles/265354/Playing-Card-Recognition-Using-AForge-Net-Framewor
+        /// http://www.aforgenet.com/framework/features/
         /// </summary>
-        /// <param name="source"></param>
-        public static IEnumerable<Bitmap> CropRotateGray(this Bitmap source, int minWidth, int maxWidth, int minHeight, int maxHeight,
-            bool rotate = false, bool bbp4 = false)
-        {
-            BlobCounter extr = new BlobCounter();
-            FiltersSequence seq = new FiltersSequence();
-            seq.Add(Grayscale.CommonAlgorithms.BT709);
-            seq.Add(new BradleyLocalThresholding());
-            seq.Add(new DifferenceEdgeDetector());
-
-            //seq.Add(new OtsuThreshold());
-
-            using (var temp = seq.Apply(source))
-            {
-                extr.FilterBlobs = true;
-                extr.MinWidth = minWidth;
-                extr.MaxWidth = maxWidth;
-                extr.MinHeight = minHeight;
-                extr.MaxHeight = maxHeight;
-                extr.ProcessImage(temp);
-
-                //ResizeBilinear resizer = new ResizeBilinear(NewWidth, NewHeight);
-
-                foreach (Blob blob in extr.GetObjectsInformation())
-                {
-                    List<IntPoint> edgePoints = extr.GetBlobsEdgePoints(blob);
-                    List<IntPoint> corners = PointsCloud.FindQuadrilateralCorners(edgePoints);
-                    if (corners.Count < 4)
-                        continue;
-
-                    var quadTransf = new QuadrilateralTransformation(corners);
-                    Bitmap voucherImg = quadTransf.Apply(source);
-
-                    if (voucherImg == null)
-                        continue;
-
-                    if (rotate && voucherImg.Width > voucherImg.Height)
-                        voucherImg.RotateFlip(RotateFlipType.Rotate90FlipNone);
-
-                    if (bbp4)
-                    {
-                        //yield return voucherImg.CopyToBpp(8);
-                        yield return voucherImg.ToGrayscale4bpp();
-                        voucherImg.DisposeSf();
-                    }
-                    else
-                        yield return voucherImg;
-                    //cardImg = resizer.Apply(cardImg); //Normalize card size
-                }
-            }
-        }
-
-        public static Bitmap CropRotateFree(this Bitmap source)
+        public static Bitmap CropRotateFree(this Bitmap source, Size minSizeInch, Size maxSizeInch)
         {
             using (source)
             {
@@ -101,6 +49,9 @@ namespace CPrint2
                     var monitor = new PictureModifier(source);
                     monitor.ApplyGrayscale();
                     monitor.ApplySobelEdgeFilter();
+                    //monitor.ApplyThresholdedDifference();
+                    //monitor.ApplyFilling();
+
 
                     var list = new List<Region>();
                     try
@@ -108,21 +59,28 @@ namespace CPrint2
                         list.AddRange(monitor.EnumKnownForms());
                         list.Sort(new RegionComparer(g));
 
-                        if (list.Count >= 2)
+                        foreach (var r in list)
                         {
-                            var region = list[list.Count - 2];
-                            var rectange = Rectangle.Round(region.GetBounds(g));
-                            using (var bmp3 = source.CopyNoFree(rectange))
-                            {
-#if TEST
-                                g.DrawRectangle(Pens.Red, rectange);
-#endif
+                            var rectange = Rectangle.Round(r.GetBounds(g));
 
-                                if (bmp3.Width > bmp3.Height)
-                                    bmp3.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                                
-                                return bmp3.ToGrayscale4bpp();
+                            if (rectange.Size.InBetween(minSizeInch, maxSizeInch) || 
+                                rectange.Size.InBetween(maxSizeInch, minSizeInch))
+                            {
+                                using (var bmp3 = source.CropImageNoFree(rectange))
+                                {
+                                    if (bmp3.Width > bmp3.Height)
+                                        bmp3.RotateFlip(RotateFlipType.Rotate90FlipNone);
+
+                                    return bmp3.ToGrayscale4bpp();
+                                }
                             }
+
+#if TEST
+                            Debug.WriteLine(rectange);
+                            g.DrawRectangle(Pens.Red, rectange);
+                            using (Font font = new Font("Arial", 10, FontStyle.Bold))
+                                g.DrawString(rectange.Size.ToString(), font, Brushes.White, rectange.Location);
+#endif
                         }
                     }
                     finally
@@ -219,14 +177,14 @@ namespace CPrint2
             BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadWrite, bitmap.PixelFormat);
 
             // step 1 - turn background to black
-            ColorFiltering colorFilter = new ColorFiltering();
+            ////ColorFiltering colorFilter = new ColorFiltering();
 
-            colorFilter.Red = new IntRange(0, 64);
-            colorFilter.Green = new IntRange(0, 64);
-            colorFilter.Blue = new IntRange(0, 64);
-            colorFilter.FillOutsideRange = false;
+            ////colorFilter.Red = new IntRange(0, 64);
+            ////colorFilter.Green = new IntRange(0, 64);
+            ////colorFilter.Blue = new IntRange(0, 64);
+            ////colorFilter.FillOutsideRange = false;
 
-            colorFilter.ApplyInPlace(bitmapData);
+            ////colorFilter.ApplyInPlace(bitmapData);
 
             // step 2 - locating objects
             BlobCounter blobCounter = new BlobCounter();
@@ -390,6 +348,13 @@ namespace CPrint2
                     g.DrawImage(src, 0, 0, section, GraphicsUnit.Pixel);
                 return bmp;
             }
+        }
+
+        public static Bitmap CropImageNoFree(this Bitmap img, Rectangle cropArea)
+        {
+            Bitmap bmpImage = new Bitmap(img);
+            Bitmap bmpCrop = bmpImage.Clone(cropArea, bmpImage.PixelFormat);
+            return bmpCrop;
         }
 
         /// <summary>
@@ -645,35 +610,34 @@ namespace CPrint2
 
         public void ApplySobelEdgeFilter()
         {
-            if (m_currentImage != null)
-            {
-                try
-                {
-                    var filter = new SobelEdgeDetector();
-                    filter.ApplyInPlace(this.m_currentImage);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex);
-                }
-            }
+            var filter = new SobelEdgeDetector();
+            filter.ApplyInPlace(this.m_currentImage);
         }
 
         public void ApplyGrayscale()
         {
-            if (m_currentImage != null)
-            {
-                try
-                {
-                    // create grayscale filter (BT709)
-                    var filter = new Grayscale(0.2125, 0.7154, 0.0721);
-                    m_currentImage = filter.Apply(m_currentImage);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex);
-                }
-            }
+            // create grayscale filter (BT709)
+            var filter = new Grayscale(0.2125, 0.7154, 0.0721);
+            m_currentImage = filter.Apply(m_currentImage);
+        }
+
+        public void ApplyFilling()
+        {
+            // create filter
+            PointedColorFloodFill filter = new PointedColorFloodFill();
+            // configure the filter
+            filter.Tolerance = Color.FromArgb(150, 150, 150);
+            filter.FillColor = Color.FromArgb(255, 255, 255);
+            filter.StartingPoint = new IntPoint(m_currentImage.Size.Width / 2, m_currentImage.Size.Height / 2);
+            // apply the filter
+            filter.ApplyInPlace(m_currentImage);
+        }
+
+        public void ApplyThresholdedDifference(int threshold = 250)
+        {
+            ThresholdedDifference diff = new ThresholdedDifference(threshold);
+            diff.OverlayImage = CreateBlackImage(m_currentImage.Size, m_currentImage.PixelFormat);
+            m_currentImage = diff.Apply(m_currentImage);
         }
 
         public IEnumerable<Region> EnumKnownForms()
@@ -698,6 +662,8 @@ namespace CPrint2
             BlobCounter bCounter = new BlobCounter();
 
             bCounter.FilterBlobs = true;
+            bCounter.BackgroundThreshold = Color.Black;
+            bCounter.ObjectsOrder = ObjectsOrder.Size;
             bCounter.MinHeight = 30;
             bCounter.MinWidth = 30;
 
@@ -712,31 +678,46 @@ namespace CPrint2
             {
                 List<IntPoint> edgePoints = bCounter.GetBlobsEdgePoints(baBlobs[i]);
 
-                AForge.Point center;
-                float radius;
+                using (var path = new System.Drawing.Drawing2D.GraphicsPath())
+                {
+                    path.AddPolygon(ToPointsArray(edgePoints));
+                    var region = new Region(path);
+                    yield return region;
+                }      
 
-                if (shapeChecker.IsCircle(edgePoints, out center, out radius))
-                {
-                    //g.DrawEllipse(yellowPen, (float)(center.X - radius), (float)(center.Y - radius),
-                    //    (float)(radius * 2), (float)(radius * 2));
-                }
-                else
-                {
-                    List<IntPoint> corners;
-                    // is triangle or quadrilateral
-                    if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
-                    {
-                        using (var path = new System.Drawing.Drawing2D.GraphicsPath())
-                        {
-                            path.AddPolygon(ToPointsArray(corners));
-                            var region = new Region(path);
-                            yield return region;
-                        }                        
-                    }
-                }
+                //AForge.Point center;
+                //float radius;
+
+                //if (shapeChecker.IsCircle(edgePoints, out center, out radius))
+                //{
+                //    //g.DrawEllipse(yellowPen, (float)(center.X - radius), (float)(center.Y - radius),
+                //    //    (float)(radius * 2), (float)(radius * 2));
+                //}
+                //else
+                //{
+                //    List<IntPoint> corners;
+                //    // is triangle or quadrilateral
+                //    if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
+                //    {
+                //        using (var path = new System.Drawing.Drawing2D.GraphicsPath())
+                //        {
+                //            path.AddPolygon(ToPointsArray(edgePoints));
+                //            var region = new Region(path);
+                //            yield return region;
+                //        }                        
+                //    }
+                //}
             }
 
             this.m_currentImage = image;
+        }
+
+        private Bitmap CreateBlackImage(Size s, PixelFormat format)
+        {
+            Bitmap bmp = new DBitmap(s.Width, s.Height, format);
+            using (Graphics g = Graphics.FromImage(bmp))
+                g.FillRectangle(Brushes.Black, new Rectangle(PPoint.Empty, s));
+            return bmp;
         }
 
         private System.Drawing.Point[] ToPointsArray(List<IntPoint> points)

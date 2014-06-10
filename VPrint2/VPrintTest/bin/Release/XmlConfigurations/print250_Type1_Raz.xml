@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- FORMAT 1 (not tested)-->
+<VoucherPrintLayoutRaz xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <FormLength>54</FormLength>
+  <!-- Name of the template. Should be unique for the system. -->
+  <TemplateName>TEMP1</TemplateName>
+  <Context>
+    <![CDATA[
+@{
+    //Please no code into the body tag!
+    //Only variables
+    var length = MTPL.SetFormLength(54);
+    var id = Model.Retailer.Id;
+    var shopName = Model.Retailer.TradingName;
+    var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
+    var line1 = Model.Retailer.RetailAddress.Line1;
+    var line2 = Model.Retailer.RetailAddress.Line2;
+    var line3 = Model.Retailer.RetailAddress.Line3;
+    var line5 = Model.Retailer.RetailAddress.Line5;
+    var phone = Model.Retailer.Phone;
+    var vatNumber = Model.Retailer.VatNumber;
+
+    const int MAX_COUNT = 26;
+    var firstLine = Helper.IIF(shopName.Length < MAX_COUNT,
+        //first line
+        string.Concat("<ht>", id, "<ht><nbsp><nbsp>", shopName, "<br>"),
+        //second line
+        string.Concat("<ht>", id, 
+                                    "<ht><nbsp><nbsp>", new string(shopName.Take(MAX_COUNT).ToArray()), "<br>", 
+                      "<ht>", Helper.Repeate(id.ToString().Length, "<nbsp>"), 
+                                    "<ht><nbsp><nbsp>", new string(shopName.Skip(MAX_COUNT).ToArray())));
+}    
+<body>
+@length
+  <br><br><br>@firstLine<br>
+  <ht><ht><nbsp><nbsp>@string.Format("{0,-26}",line1)<nbsp>@voucherNumber<br>
+  <ht><ht><nbsp><nbsp>@line2<br>
+  <ht><ht><nbsp><nbsp>@line5<nbsp>@line3<br>
+  <ht><ht><nbsp><nbsp>Tel:<nbsp>@phone<br><br>
+  <ht><ht><ht>@vatNumber<br><br><br>
+  <ht><ht><nbsp><nbsp><nbsp>*<nbsp>@shopName<nbsp>*****************<br>
+  <ht><ht><nbsp><nbsp><nbsp>*<nbsp>@line1<nbsp>@line5<nbsp>@line3<nbsp>*
+</body>
+]]>
+  </Context>
+</VoucherPrintLayoutRaz>

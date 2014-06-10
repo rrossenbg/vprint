@@ -4,6 +4,7 @@
 
 using System;
 using System.Configuration;
+using System.Drawing;
 
 namespace CPrint2.Data
 {
@@ -123,43 +124,21 @@ namespace CPrint2.Data
             }
         }
 
-        public static int MinWidth
+        public static Size MaxSize
         {
             get
             {
-                var s = ConfigurationManager.AppSettings["MinWidth"];
-                int n;
-                return int.TryParse(s, out n) ? n : 100;
+                var s = ConfigurationManager.AppSettings["MaxSize"];
+                return s.ParseSize();
             }
         }
 
-        public static int MaxWidth
+        public static Size MinSize
         {
             get
             {
-                var s = ConfigurationManager.AppSettings["MaxWidth"];
-                int n;
-                return int.TryParse(s, out n) ? n : 100;
-            }
-        }
-
-        public static int MinHeight
-        {
-            get
-            {
-                var s = ConfigurationManager.AppSettings["MinHeight"];
-                int n;
-                return int.TryParse(s, out n) ? n : 100;
-            }
-        }
-
-        public static int MaxHeight
-        {
-            get
-            {
-                var s = ConfigurationManager.AppSettings["MaxHeight"];
-                int n;
-                return int.TryParse(s, out n) ? n : 100;
+                var s = ConfigurationManager.AppSettings["MinSize"];
+                return s.ParseSize();
             }
         }
 

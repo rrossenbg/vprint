@@ -24,7 +24,7 @@ namespace CPrintTest.Scanning
                 var img = (Bitmap)Image.FromFile(file);
                 if (img != null)
                 {
-                    var bmp3 = img.CropRotateFree();
+                    var bmp3 = img.ToGrayscale4bpp();
                     bmp3.Save(Path.ChangeExtension(file, ".jpg2"), ImageFormat.Jpeg);
                     Debug.WriteLine(bmp3);
                 }
@@ -116,28 +116,40 @@ namespace CPrintTest.Scanning
             var list = new List<Bitmap>();
             foreach (var f in files)
             {
-                var img = ((Bitmap)Image.FromFile(f)).CropRotateFree();
+                
+                var img = ((Bitmap)Image.FromFile(f)).ToGrayscale4bpp();
                 if (img != null)
+                {
+                    img.Save(f, ImageFormat.Jpeg);
                     list.Add(img);
+                }
             }
 
             list.SaveMultipage(@"C:\Users\Rosen.rusev\Pictures\Presenter\test_2014_05_14.tif", "TIFF");
         }
 
-        [TestMethod]
-        public void test_create_tiff2()
-        {
-            string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter", "*.jpg");
 
-            var list = new List<Bitmap>();
+        /// <summary>
+        /// READ
+        /// </summary>
+        /// <see cref="http://tech.pro/tutorial/620/csharp-tutorial-image-editing-saving-cropping-and-resizing"/>
+        [TestMethod]
+        public void test_create_crop_rotate()
+        {
+            //string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter\New folder (7)");
+            string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter", "*.jpg");
+                //Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter\New folder (2)\2014-05-07_0003.jpg", "*.jpg");
+
+            int count = 0;
             foreach (var f in files)
             {
-                var img = ((Bitmap)Image.FromFile(f)).CropRotateGray(100, 3500, 100, 1500, true, true).FirstOrDefault();
+                var img = ((Bitmap)Image.FromFile(f)).CropRotateFree(new Size(1500, 500), new Size(2500, 1000));
                 if (img != null)
-                    list.Add(img);
+                {
+                    img.Save(@"C:\Users\Rosen.rusev\Pictures\Presenter\" + count++ + ".jpg", ImageFormat.Jpeg);
+                    Debug.WriteLine(f);
+                };
             }
-
-            list.SaveMultipage(@"C:\Users\Rosen.rusev\Pictures\Presenter\test_2014_05_14.tif", "TIFF");
         }
     }
 }

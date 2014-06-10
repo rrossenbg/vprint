@@ -92,7 +92,7 @@ namespace CPrint2
                         ImageProcessor.Error += new ThreadExceptionEventHandler(OnThreadException);
                         AppContext.Default.Error += new ThreadExceptionEventHandler(OnThreadException);
 
-                        StateSaver.Default.Path = Path.ChangeExtension(Application.ExecutablePath, "dat");
+                        StateSaver.Default.Path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "CPrint.dat");
                         StateSaver.Default.Load();
                         Application.Run(ctn);
                     }

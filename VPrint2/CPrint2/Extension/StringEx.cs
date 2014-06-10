@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Runtime;
 using System.Security;
@@ -633,6 +634,46 @@ namespace CPrint2
             {
                 Trace.WriteLine(ex);
             }
+        }
+
+        /// <summary>
+        /// Expected format A;B or A,B or A:B
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [TargetedPatchingOptOut("na")]
+        public static Size ParseSize(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+                throw new ArgumentException("s");
+
+            string[] ss = s.Split(',', ';', ':');
+            if (ss.Length != 2)
+                throw new ArgumentOutOfRangeException();
+
+            int width = int.Parse(ss[0].Trim());
+            int height = int.Parse(ss[1].Trim());
+            return new Size(width, height);
+        }
+
+        /// <summary>
+        /// Expected format A;B or A,B or A:B
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [TargetedPatchingOptOut("na")]
+        public static Point ParsePoint(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+                throw new ArgumentException("s");
+
+            string[] ss = s.Split(',', ';', ':');
+            if (ss.Length != 2)
+                throw new ArgumentOutOfRangeException();
+
+            int x = int.Parse(ss[0].Trim());
+            int y = int.Parse(ss[1].Trim());
+            return new Point(x, y);
         }
     }
 }

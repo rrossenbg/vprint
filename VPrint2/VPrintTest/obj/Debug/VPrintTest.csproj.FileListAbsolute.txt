@@ -64,10 +64,6 @@ C:\PROJECTS\VPrint\VPrintTest\obj\Debug\VPrintTest.Properties.Resources.resource
 C:\PROJECTS\VPrint\VPrintTest\obj\Debug\VPrintTest.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint\VPrintTest\obj\Debug\VPrintTest.dll
 C:\PROJECTS\VPrint\VPrintTest\obj\Debug\VPrintTest.pdb
-C:\PROJECTS\VPrint2\VPrintTest\obj\Debug\VPrintTest.csprojResolveAssemblyReference.cache
-C:\PROJECTS\VPrint2\VPrintTest\obj\Debug\VPrintTest.Properties.Resources.resources
-C:\PROJECTS\VPrint2\VPrintTest\obj\Debug\VPrintTest.csproj.GenerateResource.Cache
-C:\PROJECTS\VPrint2\VPrintTest\obj\Debug\VPrintTest.pdb
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\XmlConfigurations\print250_A.xml
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\XmlConfigurations\print250_B.xml
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\XmlConfigurations\print250_C.xml
@@ -118,10 +114,12 @@ C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\AForge.Imaging.Formats.dll
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\DTK.BarReader.dll
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\VPrint.Common.dll
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\VPrint.exe
+C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\VPrint_addon.dll
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\Zen.Barcode.Core.dll
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\Ionic.Zip.dll
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\AForge.Math.dll
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\VPrint.Common.pdb
+C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\VPrint_addon.pdb
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\VPrint.pdb
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\AForge.xml
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\AForge.Genetic.xml
@@ -129,6 +127,8 @@ C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\AForge.Imaging.xml
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\AForge.Imaging.Formats.xml
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\DTK.BarReader.xml
 C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\AForge.Math.xml
+C:\PROJECTS\VPrint2\VPrintTest\obj\Debug\VPrintTest.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\VPrintTest\obj\Debug\VPrintTest.Properties.Resources.resources
+C:\PROJECTS\VPrint2\VPrintTest\obj\Debug\VPrintTest.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\VPrintTest\obj\Debug\VPrintTest.dll
-C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\VPrint_addon.dll
-C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\VPrint_addon.pdb
+C:\PROJECTS\VPrint2\VPrintTest\obj\Debug\VPrintTest.pdb
