@@ -107,66 +107,6 @@ namespace CPrint2
             }
         }
 
-        public static void SaveMultipage(this List<System.Drawing.Bitmap> list, string location, string type)
-        {
-            ImageCodecInfo codecInfo = getCodecForstring(type);
-
-            if (list.Count == 1)
-            {
-                EncoderParameters iparams = new EncoderParameters(1);
-                Encoder iparam = Encoder.Compression;
-                EncoderParameter iparamPara = new EncoderParameter(iparam, (long)(EncoderValue.CompressionLZW));
-                iparams.Param[0] = iparamPara;
-                list[0].Save(location, codecInfo, iparams);
-            }
-            else if (list.Count > 1)
-            {
-                Encoder saveEncoder = Encoder.SaveFlag;
-                Encoder compressionEncoder = Encoder.Compression;
-                EncoderParameters EncoderParams = new EncoderParameters(2);
-
-                // Save the first page (frame).
-                EncoderParameter SaveEncodeParam = new EncoderParameter(saveEncoder, (long)EncoderValue.MultiFrame);
-                EncoderParameter CompressionEncodeParam = new EncoderParameter(compressionEncoder, (long)EncoderValue.CompressionLZW);
-                EncoderParams.Param[0] = CompressionEncodeParam;
-                EncoderParams.Param[1] = SaveEncodeParam;
-
-                File.Delete(location);
-                list[0].Save(location, codecInfo, EncoderParams);
-
-                for (int i = 1; i < list.Count; i++)
-                {
-                    if (list[i] == null)
-                        break;
-
-                    SaveEncodeParam = new EncoderParameter(saveEncoder, (long)EncoderValue.FrameDimensionPage);
-                    CompressionEncodeParam = new EncoderParameter(compressionEncoder, (long)EncoderValue.CompressionLZW);
-                    EncoderParams.Param[0] = CompressionEncodeParam;
-                    EncoderParams.Param[1] = SaveEncodeParam;
-                    list[0].SaveAdd(list[i], EncoderParams);
-
-                }
-
-                SaveEncodeParam = new EncoderParameter(saveEncoder, (long)EncoderValue.Flush);
-                EncoderParams.Param[0] = SaveEncodeParam;
-                list[0].SaveAdd(EncoderParams);
-            }
-        }
-
-        private static ImageCodecInfo getCodecForstring(string type)
-        {
-            ImageCodecInfo[] info = ImageCodecInfo.GetImageEncoders();
-
-            for (int i = 0; i < info.Length; i++)
-            {
-                string EnumName = type.ToString();
-                if (info[i].FormatDescription.Equals(EnumName, StringComparison.InvariantCultureIgnoreCase))
-                    return info[i];
-            }
-
-            return null;
-        }
-
         /// <summary>
         /// 
         /// </summary>
