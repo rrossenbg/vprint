@@ -18,7 +18,7 @@ namespace CPrint2
         public static AppContext Default { get; set; }
 
         private readonly MainForm m_form = new MainForm();
-        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_startMenuItem,  m_exitMenuItem;
+        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_startMenuItem, m_lockMenuItem, m_exitMenuItem;
         private readonly NotifyIcon m_notifyIcon = new NotifyIcon();
         private readonly FileSystemWatcher m_commandWatcher = new FileSystemWatcher();
         private readonly FileSystemWatcher m_imageWatcher = new FileSystemWatcher();
@@ -31,11 +31,12 @@ namespace CPrint2
         {
             m_showMenuItem = new MenuItem("Login", new EventHandler(ShowHideMainForm_Click));
             m_startMenuItem = new MenuItem("Start", new EventHandler(StartStopMenuItem_Click));
+            m_lockMenuItem = new MenuItem("Lock", new EventHandler(LockUnlockMenuItem_Click));
             m_closeMenuItem = new MenuItem("Close", new EventHandler(Close_Click));
             m_exitMenuItem = new MenuItem("Exit", new EventHandler(Exit_Click));
             
             m_notifyIcon.Icon = Resources.camera_unmount2;
-            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { m_showMenuItem, m_startMenuItem, m_closeMenuItem, m_exitMenuItem });
+            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { m_showMenuItem, m_startMenuItem, m_lockMenuItem, m_closeMenuItem, m_exitMenuItem });
             m_notifyIcon.Visible = true;
             m_notifyIcon.ContextMenu.Popup += new EventHandler(ContextMenu_Popup);
             m_notifyIcon.DoubleClick += new EventHandler(ShowHideMainForm_Click);
@@ -56,6 +57,14 @@ namespace CPrint2
             get
             {
                 return m_commandWatcher.EnableRaisingEvents;
+            }
+        }
+
+        public bool IsLocked
+        {
+            get
+            {
+                return m_form.Enabled;
             }
         }
 
@@ -104,6 +113,20 @@ namespace CPrint2
             }
         }
 
+        private void LockUnlockMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IsLocked)
+            {
+                m_lockMenuItem.Text = "Lock";
+                m_form.Enabled = true;
+            }
+            else
+            {
+                m_lockMenuItem.Text = "Unlock";
+                m_form.Enabled = false;
+            }
+        }
+
         private void ShowHideMainForm_Click(object sender, EventArgs e)
         {
             if (m_form.Visible)
@@ -140,6 +163,7 @@ namespace CPrint2
         {
             m_showMenuItem.Text = (Program.currentUser == null) ? "Login" : "Show";
             m_startMenuItem.Enabled = (Program.currentUser != null);
+            m_lockMenuItem.Enabled = (Program.currentUser != null);
         }
 
         private void CommandWatcher_Created(object sender, FileSystemEventArgs e)

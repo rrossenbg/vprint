@@ -56,12 +56,6 @@ namespace CPrint2
             base.OnClosing(e);
         }
 
-        //protected override void OnGotFocus(EventArgs e)
-        //{
-        //    this.Enabled = false;
-        //    base.OnGotFocus(e);
-        //}
-
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
