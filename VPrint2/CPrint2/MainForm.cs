@@ -56,15 +56,11 @@ namespace CPrint2
             base.OnClosing(e);
         }
 
-        protected override void DefWndProc(ref Message m)
-        {
-            base.DefWndProc(ref m);
-        }
-
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-        }
+        //protected override void OnGotFocus(EventArgs e)
+        //{
+        //    this.Enabled = false;
+        //    base.OnGotFocus(e);
+        //}
 
         protected override void OnShown(EventArgs e)
         {
