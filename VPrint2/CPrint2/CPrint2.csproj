@@ -41,6 +41,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>camera_unmount2.ico</ApplicationIcon>
@@ -76,6 +77,8 @@
     </Compile>
     <Compile Include="Controls\ImageBoxGridDisplayMode.cs" />
     <Compile Include="Controls\ImageBoxGridScale.cs" />
+    <Compile Include="Data\ConfigValue.cs" />
+    <Compile Include="Extension\DrawingEx.cs" />
     <Compile Include="Extension\Tiff.cs" />
     <Compile Include="Extension\IListEx.cs" />
     <Compile Include="PresenterCameraShooter.cs" />

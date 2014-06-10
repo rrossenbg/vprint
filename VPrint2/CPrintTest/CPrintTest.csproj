@@ -70,6 +70,11 @@
       <Name>CPrint2</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\CPrint2\App.config">
+      <Link>App.config</Link>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /y C:\PROJECTS\VPrint2\Libraries\FreeImage.dll $(OutDir)</PostBuildEvent>

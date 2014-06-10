@@ -1,0 +1,43 @@
+﻿<?xml version="1.0"?>
+<!-- FORMAT 1 (tested)-->
+<VoucherPrintLayout250 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <Context>
+    <![CDATA[<br><br><br>     
+    <ht>[RetailerID]<ht><nbsp><nbsp>[ShopName]<br><br>     
+    <ht><ht><nbsp><nbsp>[Line1,-26]<nbsp>[VoucherID]<br>
+    <ht><ht><nbsp><nbsp>[Line2,-26]<br> 
+    <ht><ht><nbsp><nbsp>[Line5]<nbsp>[Line3]<br>     
+    <ht><ht><nbsp><nbsp>Tel:<nbsp>[Phone]<br><br>       
+    <ht><ht><ht>[VATNumber]<ht><ht><ht><ht>PROCEDURE<nbsp>DE<nbsp>SECOURS<br>
+    <br><br>    
+    <ht><ht><nbsp><nbsp><nbsp>*<nbsp>[ShopName]<nbsp>*****************<br>     
+    <ht><ht><nbsp><nbsp><nbsp>*<nbsp>[Line1]<nbsp>[Line5]<nbsp>[Line3]<nbsp>*<br>
+    <ht><ht><nbsp><nbsp><nbsp>*<nbsp>Motif<nbsp>d'utilisation<nbsp>de<nbsp>la<nbsp>procedure<nbsp>de<nbsp>secours<nbsp>:<nbsp>...............]]>
+  </Context>
+  <FormLength>54</FormLength>
+  <RetailerID>
+    <Description>RetailerID</Description>
+  </RetailerID>
+  <Line1>
+    <Description>Line1</Description>
+  </Line1>
+  <Line5>
+    <Description>Line5</Description>
+  </Line5>
+  <Line3>
+    <Description>Line3</Description>
+  </Line3>
+  <Phone>
+    <Description>Phone</Description>
+  </Phone>
+  <VoucherID>
+    <Description>VoucherID</Description>
+  </VoucherID>
+  <VATNumber>
+    <Description>VATNumber</Description>
+  </VATNumber>
+  <ShopName>
+    <Description>ShopName</Description>
+  </ShopName>
+</VoucherPrintLayout250>
