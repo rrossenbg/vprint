@@ -71,17 +71,15 @@ namespace CPrint2
 
                         ms_CurrentDataObj = obj.Id;
 
-                        if (ms_Queue.ContainsKey(obj.Id))
+                        DataObj obj3 = null;
+
+                        if (ms_Queue.TryGetValue(obj.Id, out obj3))
                         {
                             if (obj.Submit)
                             {
                                 #region SUBMIT
                                 try
                                 {
-                                    DataObj obj3 = null;
-                                    if (!ms_Queue.TryGetValue(obj.Id, out obj3))
-                                        return;
-
                                     string tifFullFileName = Path.Combine(Config.ImageOutputPath, string.Format("{0}_{1}_{2}.tif", obj3.Iso, obj3.BrId, obj3.VId));
 
                                     var keys = Security.CreateInstance().GenerateSecurityKeys();
@@ -91,7 +89,7 @@ namespace CPrint2
                                     var tifFile = new FileInfo(tifFullFileName);
                                     var images = new List<Bitmap>();
 
-                                    lock (obj.Files)
+                                    lock (obj3.Files)
                                     {
                                         foreach (FileInfo fl in obj3.Files)
                                             if (fl.Exists(true))
@@ -120,14 +118,18 @@ namespace CPrint2
                                     }
 
                                     tifFile.DeleteSafe();
-                                    return;
                                 }
                                 finally
                                 {
-                                    DataObj obj3;
-                                    ms_Queue.TryRemove(obj.Id, out obj3);
+                                    ms_Queue.TryRemove(obj3.Id, out obj3);
                                 }
                                 #endregion
+                            }
+                            else
+                            {
+                                PresenterCameraShooter shooter = new PresenterCameraShooter();
+                                shooter.TryStartPresenter(Config.PresenterPath);
+                                shooter.ClickCameraButton();
                             }
                         }
                         else
@@ -136,11 +138,11 @@ namespace CPrint2
 
                             if (NewVoucherStarted != null)
                                 NewVoucherStarted(this, EventArgs.Empty);
-                        }
 
-                        PresenterCameraShooter shooter = new PresenterCameraShooter();
-                        shooter.TryStartPresenter(Config.PresenterPath);
-                        shooter.ClickCameraButton();
+                            PresenterCameraShooter shooter = new PresenterCameraShooter();
+                            shooter.TryStartPresenter(Config.PresenterPath);
+                            shooter.ClickCameraButton();
+                        }
                     }
                     catch (Exception ex)
                     {

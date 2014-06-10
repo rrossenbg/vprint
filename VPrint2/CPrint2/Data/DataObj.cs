@@ -37,10 +37,6 @@ namespace CPrint2.Data
             return string.Format("{0};{1};{2};{3};{4}", Iso, BrId, VId, PartN, Submit);
         }
 
-        public DataObj()
-        {
-        }
-
         public DataObj(DataObj other)
         {
             this.Iso = other.Iso;
