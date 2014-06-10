@@ -92,42 +92,6 @@ namespace CPrintTest.Scanning
 
         }
 
-        [TestMethod]
-        public void TestMSTiff()
-        {
-            string PATH = @"C:\Users\Rosen.rusev\Pictures\Presenter\";
-
-            string[] files = Directory.GetFiles(PATH, "*.jpg");
-
-            var list = new List<byte[]>();
-
-            foreach (string path in files)
-                list.Add(Image.FromFile(path).ToArray());
-
-            File.WriteAllBytes(PATH + "result.tif", TiffConverter.WrapJpegs(list));
-            //string[] filenames = Tiff.ConvertJpegToTiff(}, true);
-        }
-
-        [TestMethod]
-        public void test_create_tiff1()
-        {
-            string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter", "*.jpg");
-
-            var list = new List<Bitmap>();
-            foreach (var f in files)
-            {
-                
-                var img = ((Bitmap)Image.FromFile(f)).ToGrayscale4bpp();
-                if (img != null)
-                {
-                    img.Save(f, ImageFormat.Jpeg);
-                    list.Add(img);
-                }
-            }
-
-            list.SaveMultipage(@"C:\Users\Rosen.rusev\Pictures\Presenter\test_2014_05_14.tif", "TIFF");
-        }
-
 
         /// <summary>
         /// READ
@@ -158,22 +122,23 @@ namespace CPrintTest.Scanning
         /// </summary>
         /// <see cref="http://tech.pro/tutorial/620/csharp-tutorial-image-editing-saving-cropping-and-resizing"/>
         [TestMethod]
-        public void test_create_crop_rotate2()
+        public void test_create_save_tiff()
         {
-            //string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter\New folder (7)");
             string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter", "*.jpg");
-            //Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter\New folder (2)\2014-05-07_0003.jpg", "*.jpg");
 
-            int count = 0;
+            var images = new List<Bitmap>();
+
             foreach (var f in files)
             {
-                var img = ((Bitmap)Image.FromFile(f)).CropRotateFree(new Size(500, 200), new Size(2500, 1000));
+                var img = ((Bitmap)Image.FromFile(f));//.CropRotateFree(new Size(500, 200), new Size(2500, 1000));
                 if (img != null)
-                {
-                    img.Save(@"C:\Users\Rosen.rusev\Pictures\Presenter\" + count++ + ".jpg", ImageFormat.Jpeg);
-                    Debug.WriteLine(f);
-                };
+                    images.Add(img);
             }
+
+            TiffConverter converter = new TiffConverter();
+            var tif = converter.WrapJpegs(images.ConvertAll<byte[]>((b) => b.ToArray()));
+
+            File.WriteAllBytes(@"C:\Users\Rosen.rusev\Pictures\Presenter\result.tif", tif);
         }
     }
 }

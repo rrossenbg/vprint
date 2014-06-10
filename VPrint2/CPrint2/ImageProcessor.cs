@@ -79,15 +79,14 @@ namespace CPrint2
                                 try
                                 {
                                     DataObj obj3 = null;
-                                    ms_Queue.TryGetValue(obj.Id, out obj3);
+                                    if (!ms_Queue.TryGetValue(obj.Id, out obj3))
+                                        return;
 
-                                    string tifFullFileName = Path.Combine(
-                                        Path.GetDirectoryName(((FileInfo)obj3.Files[0]).FullName),
-                                        string.Format("{0}_{1}_{2}.tif", obj3.Iso, obj3.BrId, obj3.VId));
+                                    string tifFullFileName = Path.Combine(Config.ImageOutputPath, string.Format("{0}_{1}_{2}.tif", obj3.Iso, obj3.BrId, obj3.VId));
 
                                     var keys = Security.CreateInstance().GenerateSecurityKeys();
-                                    var serverSessionId = obj.Id;
-                                    var sserverSessionId = obj.Id.ToString();
+                                    var serverSessionId = obj3.Id;
+                                    var sserverSessionId = obj3.Id.ToString();
 
                                     var tifFile = new FileInfo(tifFullFileName);
                                     var images = new List<Bitmap>();
@@ -101,7 +100,8 @@ namespace CPrint2
 
                                     if (images.Count > 0)
                                     {
-                                        var tif = TiffConverter.WrapJpegs(images.ConvertAll<byte[]>((b) => b.ToArray()));
+                                        TiffConverter converter = new TiffConverter();
+                                        var tif = converter.WrapJpegs(images.ConvertAll<byte[]>((b) => b.ToArray()));
                                         File.WriteAllBytes(tifFullFileName, tif);
 
                                         images.ForEach(i => i.DisposeSf());
