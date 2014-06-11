@@ -69,7 +69,7 @@ namespace CPrint2
 
                         if (comDir.Exists())
                         {
-                            comDir.Delete(true);
+                            comDir.DeleteSafe(true);
                             Thread.Sleep(Config.CommondFolderDeleteWait);
                         }
 
@@ -80,6 +80,10 @@ namespace CPrint2
                             comDir.Create();
                             Thread.Sleep(Config.CommondFolderDeleteWait);
                         }
+
+                        ImageProcessor.EmptyCommandFolderSafe();
+
+                        ImageProcessor.EmptyImageFolderSafe();
 
                         var ctn = new AppContext();
                         ctn.NewCommandFileEvent += new EventHandler<ValueEventArgs<string>>(NewCommandFileEvent);
