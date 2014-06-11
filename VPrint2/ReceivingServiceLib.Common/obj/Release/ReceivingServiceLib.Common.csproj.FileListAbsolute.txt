@@ -2,14 +2,3 @@ C:\PROJECTS\VPrint\ReceivingServiceLib.Common\bin\Release\ReceivingServiceLib.Co
 C:\PROJECTS\VPrint\ReceivingServiceLib.Common\bin\Release\ReceivingServiceLib.Common.pdb
 C:\PROJECTS\VPrint\ReceivingServiceLib.Common\obj\Release\ReceivingServiceLib.Common.dll
 C:\PROJECTS\VPrint\ReceivingServiceLib.Common\obj\Release\ReceivingServiceLib.Common.pdb
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Release\Resources\PTF.cer
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Release\Resources\PTF.pfx
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Release\Resources\PTFLogo.jpg
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Release\ReceivingServiceLib.Common.dll
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Release\ReceivingServiceLib.Common.pdb
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Release\Ionic.Zip.dll
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Release\itextsharp.dll
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Release\ReceivingServiceLib.Common.Properties.Resources.resources
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Release\ReceivingServiceLib.Common.csproj.GenerateResource.Cache
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Release\ReceivingServiceLib.Common.dll
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Release\ReceivingServiceLib.Common.pdb
