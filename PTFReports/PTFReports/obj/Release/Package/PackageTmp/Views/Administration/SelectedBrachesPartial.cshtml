@@ -1,0 +1,23 @@
+﻿@using PTF.Reports.PTFDB
+@using PTF.Reports.Models
+
+@foreach (var gbr in ((List<Branch>)ViewData["SelectedBranches"]).GroupBy(b => b.HeadOffice))
+{
+    <h3>
+        <a href="#"><b>@gbr.Key.ho_name</b>@string.Format(" - {0}", gbr.Count())</a>
+    </h3>
+    <div style="overflow: scroll;">
+        <ul>
+            @if (gbr.Count() > 0)
+            {
+                <li><a id="@string.Concat('R', gbr.Key.ho_iso_id, '_', gbr.Key.ho_id, '_', "all")" href="#" 
+        onclick="link_click(this)">&lt;Remove All&gt;</a></li>
+                      foreach (var br in gbr)
+                      {
+                <li><a id="@string.Concat('R', br.br_iso_id, '_', br.br_ho_id, '_', br.br_id)" href="#" 
+        onclick="link_click(this)">@br.FullName</a></li>
+                      }
+            }
+        </ul>
+    </div>
+}

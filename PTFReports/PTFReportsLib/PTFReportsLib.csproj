@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5FADAA3F-1227-4E6C-82A0-064EBE4DC979}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PTF.Reports</RootNamespace>
+    <AssemblyName>PTFReportsLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\DynamicDictionary.cs" />
+    <Compile Include="Common\Enums.cs" />
+    <Compile Include="Common\EventLogLogger.cs" />
+    <Compile Include="Common\FileLogger.cs" />
+    <Compile Include="Common\NumberToWords.cs" />
+    <Compile Include="Common\ObjectWrapper.cs" />
+    <Compile Include="Common\PaginatedList.cs" />
+    <Compile Include="Common\ReportData.cs" />
+    <Compile Include="Common\RijndaelCryptography.cs" />
+    <Compile Include="Common\Tools.cs" />
+    <Compile Include="Extentions\DelegateEx.cs" />
+    <Compile Include="Extentions\IListEx.cs" />
+    <Compile Include="Extentions\ReportViewerEx.cs" />
+    <Compile Include="Interfaces.cs" />
+    <Compile Include="PTFDB\PTFModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PTFModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PTFDB\ReportContext.cs" />
+    <Compile Include="PTFReportsDB\ReportContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PTFDB\SqlErrMessages.cs" />
+    <Compile Include="Extentions\CoreEx.cs" />
+    <Compile Include="Extentions\ReflectionEx.cs" />
+    <Compile Include="Extentions\LinqEx.cs" />
+    <Compile Include="Extentions\StringEx.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PTFReportsDB\PTFReportModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PTFReportModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PTFReportsDB\TreeBrowser.cs" />
+    <Compile Include="Strings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Properties\DataSources\PTF.Reports.Data.ReportContext.datasource" />
+    <None Include="Properties\DataSources\PTF.Reports.Data.ReportModel.datasource" />
+    <None Include="Properties\DataSources\PTFEntities.datasource" />
+    <EntityDeploy Include="PTFReportsDB\PTFReportModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PTFReportModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="PTFDB\PTFModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PTFModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

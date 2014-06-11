@@ -1,0 +1,88 @@
+D:\PROJECTS\_PROJECTS_RABTA\FTPReports\FTPReports\bin\FTPReports.dll
+D:\PROJECTS\_PROJECTS_RABTA\FTPReports\FTPReports\bin\FTPReports.pdb
+D:\PROJECTS\_PROJECTS_RABTA\FTPReports\FTPReports\bin\PTFReportsLib.dll
+D:\PROJECTS\_PROJECTS_RABTA\FTPReports\FTPReports\bin\PTFReportsLib.pdb
+D:\PROJECTS\_PROJECTS_RABTA\FTPReports\FTPReports\obj\Debug\ResolveAssemblyReference.cache
+D:\PROJECTS\_PROJECTS_RABTA\FTPReports\FTPReports\obj\Debug\FTPReports.dll
+D:\PROJECTS\_PROJECTS_RABTA\FTPReports\FTPReports\obj\Debug\FTPReports.pdb
+C:\PROJECTS\FTPReports\FTPReports\bin\FTPReports.dll
+C:\PROJECTS\FTPReports\FTPReports\bin\FTPReports.pdb
+C:\PROJECTS\FTPReports\FTPReports\bin\PTFReportsLib.dll
+C:\PROJECTS\FTPReports\FTPReports\bin\PTFReportsLib.pdb
+C:\PROJECTS\FTPReports\FTPReports\obj\Debug\ResolveAssemblyReference.cache
+C:\PROJECTS\FTPReports\FTPReports\obj\Debug\FTPReports.dll
+C:\PROJECTS\FTPReports\FTPReports\obj\Debug\FTPReports.pdb
+J:\FTPReports\FTPReports\bin\PTFReportsLib.dll
+J:\FTPReports\FTPReports\bin\PTFReportsLib.pdb
+J:\FTPReports\FTPReports\obj\Debug\ResolveAssemblyReference.cache
+F:\FTPReports\FTPReports\bin\PTFReportsLib.dll
+F:\FTPReports\FTPReports\bin\PTFReportsLib.pdb
+F:\FTPReports\FTPReports\obj\Debug\ResolveAssemblyReference.cache
+J:\FTPReports\FTPReports\bin\Lib.Web.Mvc.dll
+J:\FTPReports\FTPReports\bin\Lib.Web.Mvc.xml
+F:\FTPReports\FTPReports\bin\Lib.Web.Mvc.dll
+F:\FTPReports\FTPReports\bin\Lib.Web.Mvc.xml
+F:\FTPReports\FTPReports\bin\PTFReports.dll
+F:\FTPReports\FTPReports\bin\PTFReports.pdb
+F:\FTPReports\FTPReports\obj\Debug\PTFReports.dll
+F:\FTPReports\FTPReports\obj\Debug\PTFReports.pdb
+J:\FTPReports\FTPReports\obj\Debug\PTFReports.dll
+J:\FTPReports\FTPReports\bin\PTFReports.dll
+J:\FTPReports\FTPReports\bin\PTFReports.pdb
+J:\FTPReports\FTPReports\obj\Debug\PTFReports.pdb
+J:\FTPReports\FTPReports\bin\Html5MVCWebControls.dll
+J:\FTPReports\FTPReports\bin\Html5MVCWebControls.pdb
+J:\FTPReports\FTPReports\bin\Html5MVCWebControls.xml
+F:\FTPReports\FTPReports\bin\Html5MVCWebControls.dll
+F:\FTPReports\FTPReports\bin\Html5MVCWebControls.pdb
+F:\FTPReports\FTPReports\bin\Html5MVCWebControls.xml
+F:\PTFReports\PTFReports\bin\PTFReports.dll
+F:\PTFReports\PTFReports\bin\PTFReports.pdb
+F:\PTFReports\PTFReports\bin\Html5MVCWebControls.dll
+F:\PTFReports\PTFReports\bin\Lib.Web.Mvc.dll
+F:\PTFReports\PTFReports\bin\PTFReportsLib.dll
+F:\PTFReports\PTFReports\bin\Html5MVCWebControls.pdb
+F:\PTFReports\PTFReports\bin\Html5MVCWebControls.xml
+F:\PTFReports\PTFReports\bin\PTFReportsLib.pdb
+F:\PTFReports\PTFReports\bin\Lib.Web.Mvc.xml
+F:\PTFReports\PTFReports\obj\Debug\ResolveAssemblyReference.cache
+F:\PTFReports\PTFReports\obj\Debug\PTFReports.dll
+F:\PTFReports\PTFReports\obj\Debug\PTFReports.pdb
+F:\PTFReports\PTFReports\bin\Microsoft.Web.Infrastructure.dll
+F:\PTFReports\PTFReports\bin\MVC3ControlsToolkit.dll
+F:\PTFReports\PTFReports\bin\WebActivator.dll
+F:\PTFReports\PTFReports\bin\MVC3ControlsToolkit.pdb
+C:\PROJECTS\PTFReports\PTFReports\bin\PTFReports.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\PTFReports.pdb
+C:\PROJECTS\PTFReports\PTFReports\bin\Lib.Web.Mvc.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\Microsoft.Web.Infrastructure.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\MVC3ControlsToolkit.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\PTFReportsLib.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\WebActivator.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\PTFReportsLib.pdb
+C:\PROJECTS\PTFReports\PTFReports\bin\Lib.Web.Mvc.xml
+C:\PROJECTS\PTFReports\PTFReports\bin\MVC3ControlsToolkit.pdb
+C:\PROJECTS\PTFReports\PTFReports\obj\Debug\ResolveAssemblyReference.cache
+C:\PROJECTS\PTFReports\PTFReports\obj\Debug\PTFReports.dll
+C:\PROJECTS\PTFReports\PTFReports\obj\Debug\PTFReports.pdb
+C:\PROJECTS\PTFReports\PTFReports\bin\AjaxControlToolkit.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\AjaxControlToolkit.pdb
+C:\PROJECTS\PTFReports\PTFReports\bin\Html5MVCWebControls.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\Html5MVCWebControls.pdb
+C:\PROJECTS\PTFReports\PTFReports\bin\Html5MVCWebControls.xml
+F:\PTFReports\PTFReports\bin\AjaxControlToolkit.dll
+F:\PTFReports\PTFReports\bin\AjaxControlToolkit.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\PTFReports.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\PTFReports.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\Lib.Web.Mvc.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\MVC3ControlsToolkit.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\PTFReportsLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\WebActivator.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\PTFReportsLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\Lib.Web.Mvc.xml
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\MVC3ControlsToolkit.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\obj\Debug\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\obj\Debug\PTFReports.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\obj\Debug\PTFReports.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\log4net.dll

@@ -1,0 +1,251 @@
+﻿@using PTF.Reports
+@using PTF.Reports.PTFDB
+@using PTF.Reports.Models
+@model PermissionModel
+@{ 
+    ViewBag.Title = "PTF Reports";
+    Layout = "~/Views/Shared/Administration2.cshtml";
+}
+@section Css1 {
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")">
+}
+@section Css2 {
+    <style type="text/css">
+        table th
+        {
+            text-align: center;
+        }
+        table #col2
+        {
+            background-color: transparent;
+            border: 0px solid black;
+        }
+        table a
+        {
+            border: 1px solid #D3D3D3;
+        }
+        #table1
+        {
+            width: 95%;
+            border: 0px solid white;
+        }
+        #table1 td
+        {
+            border: 0px solid white;
+            width: 33%;
+        }
+        #table2
+        {
+            width: 100%;
+            border: 0px solid white;
+        }
+        #table2 #row2
+        {
+            border: 0px solid white;
+        }
+        #table2 #row2 #col21, #col23
+        {
+            width: 44%;
+            vertical-align: top;
+        }
+        #table2 #row2 #col22
+        {
+            width: auto;
+            border: 0px solid white;
+        }
+        #loading
+        {
+            display: none;
+            display: block; /*set the div in the center of the screen*/
+            position: absolute;
+            top: 50%;
+            left: 300px;
+            width: 350px;
+            z-index: 99999;
+        }
+    </style>
+}
+@section JavaScript1 {
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.core.js")"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.widget.js")"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.accordion.js")"></script>
+}
+@section JavaScript2 {
+    <script type="text/javascript">
+    $(function () {
+        $("#accordion1").accordion(
+        { 
+                active: false, 
+                autoHeight: false, 
+                clearStyle: true, 
+                collapsible: true, 
+                header: 'h3' 
+        }); 
+        $("#accordion2").accordion(
+        { 
+                active: false, 
+                autoHeight: false, 
+                clearStyle: true, 
+                collapsible: true, 
+                header: 'h3' 
+        }); 
+        $("#loading").hide();
+        $("#loading").ajaxStart(function(){ $(this).show(); });
+        $("#loading").ajaxStop(function() { $(this).hide(); });
+    });
+
+    function link_click(sender){
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("SavePermission", "Administration")",
+            dataType: 'json',
+            data: { "Value":  $(sender).attr("id") },
+            success: function (returnResult) {
+                if (returnResult != "ok" && returnResult != "err" ) {
+                    $("#accordion2").empty();
+                    $("#accordion2").append(returnResult);
+                    $("#accordion2").accordion('destroy'); 
+                    $("#accordion2").accordion(
+                    { 
+                        active: false, 
+                        autoHeight: false, 
+                        clearStyle: true, 
+                        collapsible: true, 
+                        header: 'h3' 
+                    }); 
+                } 
+            }
+        });
+    }
+
+    </script>
+}
+<div id="loading">
+    <p>
+        <img src="@Url.Content("~/Content/css/ui-lightness/images/loading.gif")" alt="" />
+    </p>
+</div>
+@section Css3
+{
+    <link href="@Url.Content("~/Content/css/ui-lightness/jquery.autocomplete.css")" rel="stylesheet" type="text/css" />
+}
+@section JavaScript3
+{
+    <script src="@Url.Content("~/Scripts/jquery.autocomplete.js")" type="text/javascript"></script>
+}
+@section JavaScript4{
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $.ajaxSetup({ type: "POST" });
+            $('#txtTextTags').autocomplete("@Url.Action("GetTaggedParameters", "Administration")", {
+                dataType: 'json',
+                parse: function (data) {
+                    var rows = new Array();
+                    if(data != "ok"){
+                    for (var i = 0; i < data.length; i++) {
+                            rows[i] = 
+                            {
+                                data: data[i],
+                                value: data[i].Name,
+                                result: data[i].Name, 
+                                id: data[i].ID 
+                            };
+                        }
+                    }
+                    return rows;
+                },
+                formatItem: function (row) {
+                    return row.Name;
+                },
+                delay: 400,
+                autofill: true,
+                selectFirst: false,
+                highlight: false
+
+            }).result(function (event, row) {
+                $("#RetailerPermissionIndex").val(row.ID);
+                $("#RetailerPermissionPageForm").submit();
+            });
+        });
+
+    </script>
+}
+<div id="main">
+    <table id="table1">
+        <tr>
+            <td>
+                <h3>@Model.User.FullName</h3>
+            </td>
+            <td>
+                <h4>@Model.HeadOffice.ho_name</h4>
+            </td>
+            <td>
+                <h4>@Model.Branch.FullName</h4>
+            </td>
+        </tr>
+    </table>
+    @using (Html.BeginForm("ShowRetailerPermissionPage", "Administration", FormMethod.Post,
+     new { id = "RetailerPermissionPageForm", target = "_self" }))
+    {
+        <input id="RetailerPermissionIndex" name="RetailerPermissionIndex" type="text" style="visibility: hidden;" />
+    }
+    <div>
+        @Html.TextBox("txtTextTags", "", new { style = "width:250px;" })
+        <img alt="Search" title="Search" src="@Url.Content("~/Content/images/kfind.png")" style="vertical-align: top;" />
+        <div id="resultData">
+        </div>
+    </div>
+    <br />
+    <div class="demo" style="overflow">
+        <table id="table2">
+            <tbody>
+                <tr>
+                    <th>
+                        ALL COMPANIES
+                    </th>
+                    <th id="col2">
+                        &nbsp;
+                    </th>
+                    <th>
+                        ALLOWED COMPANIES
+                    </th>
+                </tr>
+                <tr id="row2">
+                    <td id="col21">
+                        <div id="accordion1">
+                            @foreach (var ho in (List<HeadOffice>)ViewData["AllCompanies"])
+                            {
+                                <h3>
+                                    <a href="#"><b>@ho.ho_name</b>@string.Format(" - {0}", ho.Branches.Count())</a>
+                                </h3>
+                                <div style="overflow: scroll;">
+                                    <ul>
+                                        <li><a id="@string.Concat('A', ho.ho_iso_id, '_', ho.ho_id, '_', "all")" href="#" 
+                            onclick="link_click(this)">&lt;Add All&gt;</a></li>
+                                        @foreach (var br in ho.Branches)
+                                        {
+                                            <li><a id="@string.Concat('A', br.br_iso_id, '_', br.br_ho_id, '_', br.br_id)" href="#" 
+                                        onclick="link_click(this)">@br.FullName</a></li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                    <td id="col22">
+                        &nbsp;
+                    </td>
+                    <td id="col23">
+                        <div id="accordion2">
+                            @Html.Partial("SelectedBrachesPartial")
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        @Html.Partial("Paging")
+        <p>
+            @Html.ActionLink("Back", "Index")
+        </p>
+    </div>
+</div>

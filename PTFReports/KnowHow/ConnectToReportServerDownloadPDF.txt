@@ -1,0 +1,48 @@
+        public ActionResult Test2()
+        {
+            ReportViewer rv = new ReportViewer();
+            rv.ProcessingMode = ProcessingMode.Remote;
+   
+            ServerReport server = rv.ServerReport;
+            server.ReportServerUrl = new Uri("http://192.168.44.61:8080/ReportServer");
+            server.ReportPath = "/Accounting/Agent_Chargeback_Details";
+            server.ReportServerCredentials = new ReportServerCredentials("trsuser", "trsuser", "premier-uk");
+
+            ReportParameter p1 = new ReportParameter();
+            p1.Name = "ISO_ID";
+            p1.Values.Add("826");
+
+            ReportParameter p2 = new ReportParameter();
+            p2.Name = "LedgerPeriod";
+            p2.Values.Add("201202");
+
+            ReportParameter p3 = new ReportParameter();
+            p3.Name = "ho_id";
+            p3.Values.Add("0");
+
+            ReportParameter p4 = new ReportParameter();
+            p4.Name = "br_id";
+            p4.Values.Add("0");
+
+            rv.ServerReport.SetParameters(new ReportParameter[] { p1, p2, p3, p4 });
+
+            byte[] streamBytes = null;
+            string mimeType = "";
+            string encoding = "";
+            string filenameExtension = "";
+            string[] streamids = null;
+            Warning[] warnings = null;
+
+            rv.ServerReport.Refresh();
+
+            streamBytes = rv.ServerReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension,
+                    out streamids, out warnings);
+
+            //rv.LocalReport.Refresh();
+            //streamBytes = rv.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension,
+            //    out streamids, out warnings);
+
+            return File(streamBytes, mimeType, "TestReport.pdf"); 
+
+            //return View();
+        }

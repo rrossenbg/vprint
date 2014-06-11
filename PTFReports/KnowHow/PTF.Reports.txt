@@ -1,0 +1,251 @@
+USE [master]
+GO
+/****** Object:  Database [PTF.Reports]    Script Date: 04/29/2012 21:08:57 ******/
+CREATE DATABASE [PTF.Reports] ON  PRIMARY 
+( NAME = N'PTF.Reports', FILENAME = N'J:\PTF.Reports.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'PTF.Reports_log', FILENAME = N'J:\PTF.Reports_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [PTF.Reports] SET COMPATIBILITY_LEVEL = 90
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [PTF.Reports].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [PTF.Reports] SET ANSI_NULL_DEFAULT OFF
+GO
+ALTER DATABASE [PTF.Reports] SET ANSI_NULLS OFF
+GO
+ALTER DATABASE [PTF.Reports] SET ANSI_PADDING OFF
+GO
+ALTER DATABASE [PTF.Reports] SET ANSI_WARNINGS OFF
+GO
+ALTER DATABASE [PTF.Reports] SET ARITHABORT OFF
+GO
+ALTER DATABASE [PTF.Reports] SET AUTO_CLOSE ON
+GO
+ALTER DATABASE [PTF.Reports] SET AUTO_CREATE_STATISTICS ON
+GO
+ALTER DATABASE [PTF.Reports] SET AUTO_SHRINK OFF
+GO
+ALTER DATABASE [PTF.Reports] SET AUTO_UPDATE_STATISTICS ON
+GO
+ALTER DATABASE [PTF.Reports] SET CURSOR_CLOSE_ON_COMMIT OFF
+GO
+ALTER DATABASE [PTF.Reports] SET CURSOR_DEFAULT  GLOBAL
+GO
+ALTER DATABASE [PTF.Reports] SET CONCAT_NULL_YIELDS_NULL OFF
+GO
+ALTER DATABASE [PTF.Reports] SET NUMERIC_ROUNDABORT OFF
+GO
+ALTER DATABASE [PTF.Reports] SET QUOTED_IDENTIFIER OFF
+GO
+ALTER DATABASE [PTF.Reports] SET RECURSIVE_TRIGGERS OFF
+GO
+ALTER DATABASE [PTF.Reports] SET  DISABLE_BROKER
+GO
+ALTER DATABASE [PTF.Reports] SET AUTO_UPDATE_STATISTICS_ASYNC OFF
+GO
+ALTER DATABASE [PTF.Reports] SET DATE_CORRELATION_OPTIMIZATION OFF
+GO
+ALTER DATABASE [PTF.Reports] SET TRUSTWORTHY OFF
+GO
+ALTER DATABASE [PTF.Reports] SET ALLOW_SNAPSHOT_ISOLATION OFF
+GO
+ALTER DATABASE [PTF.Reports] SET PARAMETERIZATION SIMPLE
+GO
+ALTER DATABASE [PTF.Reports] SET READ_COMMITTED_SNAPSHOT OFF
+GO
+ALTER DATABASE [PTF.Reports] SET  READ_WRITE
+GO
+ALTER DATABASE [PTF.Reports] SET RECOVERY SIMPLE
+GO
+ALTER DATABASE [PTF.Reports] SET  MULTI_USER
+GO
+ALTER DATABASE [PTF.Reports] SET PAGE_VERIFY CHECKSUM
+GO
+ALTER DATABASE [PTF.Reports] SET DB_CHAINING OFF
+GO
+USE [PTF.Reports]
+GO
+/****** Object:  User [cmsuser]    Script Date: 04/29/2012 21:08:58 ******/
+CREATE USER [cmsuser] FOR LOGIN [cmsuser] WITH DEFAULT_SCHEMA=[dbo]
+GO
+/****** Object:  Table [dbo].[Folders]    Script Date: 04/29/2012 21:08:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Folders](
+	[FolderID] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](100) NULL,
+	[ParentID] [uniqueidentifier] NULL,
+ CONSTRAINT [PK_Folders] PRIMARY KEY CLUSTERED 
+(
+	[FolderID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserDetails]    Script Date: 04/29/2012 21:08:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserDetails](
+	[Ud_id] [int] IDENTITY(1,1) NOT NULL,
+	[Ud_loginName] [nvarchar](25) NOT NULL,
+	[Ud_firstName] [nvarchar](100) NOT NULL,
+	[Ud_lastName] [nvarchar](100) NOT NULL,
+	[Ud_password] [nvarchar](50) NOT NULL,
+	[Ud_salt] [nvarchar](50) NOT NULL,
+	[Ud_email] [nvarchar](100) NOT NULL,
+	[Ud_firstLogin] [bit] NOT NULL,
+	[Ud_forgottenPassword] [bit] NULL,
+	[Ud_userType] [int] NOT NULL,
+	[Ud_iso_id] [int] NULL,
+	[Ud_ho_id] [int] NULL,
+	[Ud_br_id] [int] NULL,
+ CONSTRAINT [PK_UserDetails] PRIMARY KEY CLUSTERED 
+(
+	[Ud_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'1 - Admin, 2 - Normal' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'UserDetails', @level2type=N'COLUMN',@level2name=N'Ud_userType'
+GO
+/****** Object:  Table [dbo].[Reports]    Script Date: 04/29/2012 21:08:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Reports](
+	[ReportID] [uniqueidentifier] ROWGUIDCOL  NOT NULL,
+	[Name] [varchar](30) NOT NULL,
+	[Page] [nvarchar](100) NULL,
+	[Description] [nvarchar](100) NULL,
+	[FolderID] [uniqueidentifier] NULL,
+ CONSTRAINT [PK_Objects] PRIMARY KEY CLUSTERED 
+(
+	[ReportID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [IX_SecurityObjects_Unique] UNIQUE NONCLUSTERED 
+(
+	[Name] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Parameters]    Script Date: 04/29/2012 21:08:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Parameters](
+	[PrameterID] [int] IDENTITY(1,1) NOT NULL,
+	[ReportParameterName] [nvarchar](100) NOT NULL,
+	[Text] [nvarchar](100) NOT NULL,
+	[Description] [nvarchar](100) NULL,
+	[ParameterType] [int] NOT NULL,
+	[ReportID] [uniqueidentifier] NOT NULL,
+ CONSTRAINT [PK_Parameters] PRIMARY KEY CLUSTERED 
+(
+	[PrameterID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Sessions]    Script Date: 04/29/2012 21:08:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Sessions](
+	[SessionID] [int] IDENTITY(1,1) NOT NULL,
+	[BrowserSessionID] [uniqueidentifier] NOT NULL,
+	[Begin] [datetime] NOT NULL,
+	[End] [datetime] NULL,
+	[UserID] [int] NULL,
+ CONSTRAINT [PK_Sessions] PRIMARY KEY CLUSTERED 
+(
+	[SessionID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Permissions]    Script Date: 04/29/2012 21:08:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Permissions](
+	[PermissionID] [int] NOT NULL,
+	[UserID] [int] NOT NULL,
+	[IsoID] [int] NOT NULL,
+	[HoID] [int] NOT NULL,
+	[RetailerID] [int] NULL,
+ CONSTRAINT [PK_Permissions] PRIMARY KEY CLUSTERED 
+(
+	[PermissionID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  StoredProcedure [dbo].[spSetForgottenPassword]    Script Date: 04/29/2012 21:09:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[spSetForgottenPassword] 
+	@Name nvarchar(25),
+	@Email nvarchar(100)
+AS
+BEGIN
+	UPDATE UserDetails
+	SET Ud_forgottenPassword = 1
+	WHERE Ud_loginName = @Name AND Ud_email = @Email;
+	
+	return @@ROWCOUNT;
+END
+GO
+/****** Object:  Default [DF_Folders_FolderID]    Script Date: 04/29/2012 21:08:59 ******/
+ALTER TABLE [dbo].[Folders] ADD  CONSTRAINT [DF_Folders_FolderID]  DEFAULT (newid()) FOR [FolderID]
+GO
+/****** Object:  Default [DF_Reports_ReportID]    Script Date: 04/29/2012 21:08:59 ******/
+ALTER TABLE [dbo].[Reports] ADD  CONSTRAINT [DF_Reports_ReportID]  DEFAULT (newid()) FOR [ReportID]
+GO
+/****** Object:  ForeignKey [FK_Folders_Folders]    Script Date: 04/29/2012 21:08:59 ******/
+ALTER TABLE [dbo].[Folders]  WITH CHECK ADD  CONSTRAINT [FK_Folders_Folders] FOREIGN KEY([ParentID])
+REFERENCES [dbo].[Folders] ([FolderID])
+GO
+ALTER TABLE [dbo].[Folders] CHECK CONSTRAINT [FK_Folders_Folders]
+GO
+/****** Object:  ForeignKey [FK_Reports_Folders]    Script Date: 04/29/2012 21:08:59 ******/
+ALTER TABLE [dbo].[Reports]  WITH CHECK ADD  CONSTRAINT [FK_Reports_Folders] FOREIGN KEY([FolderID])
+REFERENCES [dbo].[Folders] ([FolderID])
+ON UPDATE CASCADE
+ON DELETE SET NULL
+GO
+ALTER TABLE [dbo].[Reports] CHECK CONSTRAINT [FK_Reports_Folders]
+GO
+/****** Object:  ForeignKey [FK_Parameters_Reports]    Script Date: 04/29/2012 21:08:59 ******/
+ALTER TABLE [dbo].[Parameters]  WITH CHECK ADD  CONSTRAINT [FK_Parameters_Reports] FOREIGN KEY([ReportID])
+REFERENCES [dbo].[Reports] ([ReportID])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Parameters] CHECK CONSTRAINT [FK_Parameters_Reports]
+GO
+/****** Object:  ForeignKey [FK_Sessions_UserDetails]    Script Date: 04/29/2012 21:08:59 ******/
+ALTER TABLE [dbo].[Sessions]  WITH CHECK ADD  CONSTRAINT [FK_Sessions_UserDetails] FOREIGN KEY([UserID])
+REFERENCES [dbo].[UserDetails] ([Ud_id])
+GO
+ALTER TABLE [dbo].[Sessions] CHECK CONSTRAINT [FK_Sessions_UserDetails]
+GO
+/****** Object:  ForeignKey [FK_Permissions_UserDetails]    Script Date: 04/29/2012 21:08:59 ******/
+ALTER TABLE [dbo].[Permissions]  WITH CHECK ADD  CONSTRAINT [FK_Permissions_UserDetails] FOREIGN KEY([UserID])
+REFERENCES [dbo].[UserDetails] ([Ud_id])
+GO
+ALTER TABLE [dbo].[Permissions] CHECK CONSTRAINT [FK_Permissions_UserDetails]
+GO

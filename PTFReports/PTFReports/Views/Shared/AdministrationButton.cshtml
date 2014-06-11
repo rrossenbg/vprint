@@ -1,0 +1,13 @@
+﻿@using PTF.Reports
+@using PTF.Reports.PTFReportsDB
+@{
+    var user = Session[Strings.USER].Cast<UserDetail>();
+    if (user != null && user.IsAdmin)
+    { 
+    <ul id="menu">
+        <li>
+            @Html.ActionLink("Administration", "Index", "Administration")
+        </li>
+    </ul>
+    }
+}

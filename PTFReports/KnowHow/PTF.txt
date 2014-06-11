@@ -1,0 +1,393 @@
+USE [master]
+GO
+/****** Object:  Database [PTF]    Script Date: 04/29/2012 21:09:56 ******/
+CREATE DATABASE [PTF] ON  PRIMARY 
+( NAME = N'PTF', FILENAME = N'J:\PTF.mdf' , SIZE = 2048KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'PTF_log', FILENAME = N'J:\PTF_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [PTF] SET COMPATIBILITY_LEVEL = 90
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [PTF].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [PTF] SET ANSI_NULL_DEFAULT OFF
+GO
+ALTER DATABASE [PTF] SET ANSI_NULLS OFF
+GO
+ALTER DATABASE [PTF] SET ANSI_PADDING OFF
+GO
+ALTER DATABASE [PTF] SET ANSI_WARNINGS OFF
+GO
+ALTER DATABASE [PTF] SET ARITHABORT OFF
+GO
+ALTER DATABASE [PTF] SET AUTO_CLOSE OFF
+GO
+ALTER DATABASE [PTF] SET AUTO_CREATE_STATISTICS ON
+GO
+ALTER DATABASE [PTF] SET AUTO_SHRINK OFF
+GO
+ALTER DATABASE [PTF] SET AUTO_UPDATE_STATISTICS ON
+GO
+ALTER DATABASE [PTF] SET CURSOR_CLOSE_ON_COMMIT OFF
+GO
+ALTER DATABASE [PTF] SET CURSOR_DEFAULT  GLOBAL
+GO
+ALTER DATABASE [PTF] SET CONCAT_NULL_YIELDS_NULL OFF
+GO
+ALTER DATABASE [PTF] SET NUMERIC_ROUNDABORT OFF
+GO
+ALTER DATABASE [PTF] SET QUOTED_IDENTIFIER OFF
+GO
+ALTER DATABASE [PTF] SET RECURSIVE_TRIGGERS OFF
+GO
+ALTER DATABASE [PTF] SET  DISABLE_BROKER
+GO
+ALTER DATABASE [PTF] SET AUTO_UPDATE_STATISTICS_ASYNC OFF
+GO
+ALTER DATABASE [PTF] SET DATE_CORRELATION_OPTIMIZATION OFF
+GO
+ALTER DATABASE [PTF] SET TRUSTWORTHY OFF
+GO
+ALTER DATABASE [PTF] SET ALLOW_SNAPSHOT_ISOLATION OFF
+GO
+ALTER DATABASE [PTF] SET PARAMETERIZATION SIMPLE
+GO
+ALTER DATABASE [PTF] SET READ_COMMITTED_SNAPSHOT OFF
+GO
+ALTER DATABASE [PTF] SET  READ_WRITE
+GO
+ALTER DATABASE [PTF] SET RECOVERY SIMPLE
+GO
+ALTER DATABASE [PTF] SET  MULTI_USER
+GO
+ALTER DATABASE [PTF] SET PAGE_VERIFY CHECKSUM
+GO
+ALTER DATABASE [PTF] SET DB_CHAINING OFF
+GO
+USE [PTF]
+GO
+/****** Object:  User [cmsuser]    Script Date: 04/29/2012 21:09:56 ******/
+CREATE USER [cmsuser] FOR LOGIN [cmsuser] WITH DEFAULT_SCHEMA=[dbo]
+GO
+/****** Object:  Table [dbo].[ISO]    Script Date: 04/29/2012 21:09:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[ISO](
+	[iso_number] [int] NOT NULL,
+	[iso_country] [varchar](50) NOT NULL,
+	[iso_2] [varchar](2) NOT NULL,
+	[iso_3] [varchar](3) NOT NULL,
+	[iso_nationality] [varchar](50) NULL,
+	[iso_union_id] [int] NOT NULL,
+	[iso_ptf] [char](1) NOT NULL,
+	[iso_locale] [varchar](5) NULL,
+	[iso_dialcode] [int] NULL,
+	[iso_shortcode] [varchar](10) NULL,
+	[iso_sortcodelen] [int] NOT NULL,
+	[iso_accountcodelen] [int] NOT NULL,
+	[iso_sortcode_fixed] [bit] NOT NULL,
+	[iso_accno_fixed] [bit] NOT NULL,
+	[iso_vat] [nvarchar](15) NULL,
+	[iso_payment_currency] [int] NULL,
+ CONSTRAINT [PK_ISOes] PRIMARY KEY CLUSTERED 
+(
+	[iso_number] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Group]    Script Date: 04/29/2012 21:09:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Group](
+	[gp_id] [int] IDENTITY(1,1) NOT NULL,
+	[gp_name] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Groups] PRIMARY KEY CLUSTERED 
+(
+	[gp_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[HeadOfficeAddress]    Script Date: 04/29/2012 21:09:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[HeadOfficeAddress](
+	[hoa_id] [int] IDENTITY(1,1) NOT NULL,
+	[hoa_add_1] [nvarchar](100) NULL,
+	[hoa_add_2] [nvarchar](100) NULL,
+	[hoa_add_3] [nvarchar](100) NULL,
+	[hoa_add_4] [nvarchar](100) NULL,
+	[hoa_add_5] [varchar](50) NULL,
+	[hoa_add_6] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HeadOfficeAddresses] PRIMARY KEY CLUSTERED 
+(
+	[hoa_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[HeadOffice]    Script Date: 04/29/2012 21:09:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[HeadOffice](
+	[ho_id] [int] NOT NULL,
+	[ho_iso_id] [int] NOT NULL,
+	[ho_name] [nvarchar](100) NULL,
+	[ho_trading_name] [nvarchar](100) NULL,
+	[ho_number] [varchar](30) NULL,
+	[ho_region] [nvarchar](25) NULL,
+	[ho_add_id] [int] NULL,
+	[ho_invoice_add_id] [int] NULL,
+	[ho_trading_add_id] [int] NULL,
+	[ho_vat_number] [varchar](13) NULL,
+	[ho_bank_ac_no] [varchar](35) NULL,
+	[ho_bank_sort_code] [varchar](35) NULL,
+	[ho_bank_branch] [varchar](255) NULL,
+	[ho_bank_add_id] [int] NULL,
+	[ho_phone] [varchar](25) NULL,
+	[ho_fax] [varchar](15) NULL,
+	[ho_contact_1] [nvarchar](255) NULL,
+	[ho_contact_2] [nvarchar](255) NULL,
+	[ho_contact_3] [nvarchar](255) NULL,
+	[ho_contact_4] [nvarchar](255) NULL,
+	[ho_contact_5] [nvarchar](255) NULL,
+	[ho_position_1] [varchar](255) NULL,
+	[ho_position_2] [varchar](255) NULL,
+	[ho_position_3] [varchar](255) NULL,
+	[ho_position_4] [varchar](255) NULL,
+	[ho_position_5] [varchar](255) NULL,
+	[ho_email_1] [varchar](255) NULL,
+	[ho_email_2] [varchar](255) NULL,
+	[ho_email_3] [varchar](255) NULL,
+	[ho_email_4] [varchar](255) NULL,
+	[ho_email_5] [varchar](255) NULL,
+	[ho_sp_id] [int] NULL,
+	[ho_date_joined] [datetime] NULL,
+	[ho_date_left] [datetime] NULL,
+	[ho_ac_id] [int] NULL,
+	[ho_retailer] [char](1) NULL,
+	[ho_trusted] [char](1) NULL,
+	[ho_reports] [char](1) NULL,
+	[ho_reports_method] [char](1) NULL,
+	[ho_category] [varchar](20) NULL,
+	[ho_mailing_list] [char](1) NULL,
+	[ho_cash_refunds] [char](1) NULL,
+	[ho_comments] [varchar](max) NULL,
+	[ho_average_spend] [decimal](19, 4) NULL,
+	[ho_pt_id] [int] NOT NULL,
+	[ho_active] [char](1) NOT NULL,
+	[ho_invoice_dept] [varchar](255) NULL,
+	[ho_transfer_agent_fee] [bit] NULL,
+	[ho_add_processing_fee] [bit] NULL,
+	[ho_processing_fee] [decimal](19, 4) NULL,
+	[ho_airport_update] [char](1) NULL,
+	[ho_rbf_frequency] [int] NOT NULL,
+	[ho_rbf_startDate] [datetime] NOT NULL,
+	[ho_rbf_lastRunDate] [datetime] NULL,
+	[ho_rbf_nextRunDate] [datetime] NOT NULL,
+	[ho_rebate_trusted] [char](1) NULL,
+	[ho_rebate_invoice_type] [int] NULL,
+	[ho_renewal_date] [datetime] NULL,
+	[ho_notice_period_id] [int] NULL,
+	[ho_suspended] [char](1) NOT NULL,
+	[ho_stoplist] [char](1) NOT NULL,
+	[ho_pfs] [nvarchar](60) NULL,
+	[ho_nd_paymentMethod] [int] NULL,
+	[ho_category_title] [nvarchar](150) NULL,
+	[ho_Certificate_1] [nvarchar](150) NULL,
+	[ho_Certificate_2] [nvarchar](150) NULL,
+	[ho_Certificate_3] [nvarchar](150) NULL,
+	[ho_actual_average_spend] [decimal](19, 4) NULL,
+	[ho_salesLd_number] [varchar](10) NULL,
+	[ho_purLd_number] [varchar](10) NULL,
+	[ho_contract_sg_name] [nvarchar](50) NULL,
+	[ho_contract_sg_identity] [nvarchar](50) NULL,
+	[ho_rebate_paymentMethod] [int] NULL,
+	[ho_pablo_store] [bit] NULL,
+	[ho_iras_reg_date] [datetime] NULL,
+	[ho_iras_dereg_date] [datetime] NULL,
+	[ho_acra_report] [char](1) NULL,
+ CONSTRAINT [PK_HeadOffices] PRIMARY KEY CLUSTERED 
+(
+	[ho_id] ASC,
+	[ho_iso_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+CREATE NONCLUSTERED INDEX [IX_FK_HeadOffice_bank_add] ON [dbo].[HeadOffice] 
+(
+	[ho_bank_add_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_FK_HeadOffice_ho_add] ON [dbo].[HeadOffice] 
+(
+	[ho_add_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_FK_HeadOffice_inv_add] ON [dbo].[HeadOffice] 
+(
+	[ho_invoice_add_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_FK_HeadOffice_ISO] ON [dbo].[HeadOffice] 
+(
+	[ho_iso_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_FK_HeadOffice_trd_add] ON [dbo].[HeadOffice] 
+(
+	[ho_trading_add_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Branch]    Script Date: 04/29/2012 21:09:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Branch](
+	[br_id] [int] NOT NULL,
+	[br_iso_id] [int] NOT NULL,
+	[br_ho_id] [int] NOT NULL,
+	[br_name] [nvarchar](100) NULL,
+	[br_trading_name] [nvarchar](100) NULL,
+	[br_region] [nvarchar](25) NULL,
+	[br_add_1] [nvarchar](100) NULL,
+	[br_add_2] [nvarchar](100) NULL,
+	[br_add_3] [nvarchar](100) NULL,
+	[br_add_4] [nvarchar](100) NULL,
+	[br_add_5] [varchar](50) NULL,
+	[br_add_6] [nvarchar](100) NULL,
+	[br_contact_1] [nvarchar](255) NULL,
+	[br_contact_2] [nvarchar](255) NULL,
+	[br_contact_3] [nvarchar](255) NULL,
+	[br_position_1] [varchar](255) NULL,
+	[br_position_2] [varchar](255) NULL,
+	[br_position_3] [varchar](255) NULL,
+	[br_email_1] [varchar](255) NULL,
+	[br_email_2] [varchar](255) NULL,
+	[br_email_3] [varchar](255) NULL,
+	[br_phone] [varchar](25) NULL,
+	[br_fax] [varchar](15) NULL,
+	[br_date_joined] [datetime] NULL,
+	[br_date_left] [datetime] NULL,
+	[br_reports] [char](1) NULL,
+	[br_reports_method] [char](1) NULL,
+	[br_category] [varchar](20) NULL,
+	[br_ac_id] [int] NULL,
+	[br_manual_voucher] [char](1) NULL,
+	[br_pos_voucher] [char](1) NULL,
+	[br_store_voucher] [char](1) NULL,
+	[br_sp_id] [int] NULL,
+	[br_comments] [varchar](max) NULL,
+	[br_pt_id] [int] NOT NULL,
+	[br_active] [char](1) NOT NULL,
+	[br_voucher_printer_1] [varchar](255) NULL,
+	[br_voucher_printer_1_format] [int] NULL,
+	[br_voucher_printer_2] [varchar](255) NULL,
+	[br_voucher_printer_2_format] [int] NULL,
+	[br_letter_printer] [varchar](15) NULL,
+	[br_report_printer] [varchar](15) NULL,
+	[br_cheque_printer] [varchar](15) NULL,
+	[br_printer_branch_id] [int] NULL,
+	[br_printer_branch_iso] [int] NULL,
+	[br_printer_number] [int] NULL,
+	[br_ep_id] [int] NULL,
+	[br_merchant_id] [varchar](255) NULL,
+	[br_partner_id] [int] NULL,
+	[br_vatrate] [char](1) NULL,
+	[br_transfer_agent_fee] [bit] NULL,
+	[br_retailer_ref_id] [varchar](15) NULL,
+	[br_discount_store] [bit] NOT NULL,
+	[br_airport_update] [char](1) NULL,
+	[br_suspended] [char](1) NOT NULL,
+	[br_stoplist] [char](1) NOT NULL,
+	[br_pfs] [nvarchar](60) NULL,
+ CONSTRAINT [PK_Branches] PRIMARY KEY CLUSTERED 
+(
+	[br_id] ASC,
+	[br_iso_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+CREATE NONCLUSTERED INDEX [IX_FK_Branch_HeadOffice] ON [dbo].[Branch] 
+(
+	[br_ho_id] ASC,
+	[br_iso_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [IX_FK_Branch_ISO] ON [dbo].[Branch] 
+(
+	[br_iso_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+/****** Object:  ForeignKey [FK_HeadOffice_bank_add]    Script Date: 04/29/2012 21:09:58 ******/
+ALTER TABLE [dbo].[HeadOffice]  WITH CHECK ADD  CONSTRAINT [FK_HeadOffice_bank_add] FOREIGN KEY([ho_bank_add_id])
+REFERENCES [dbo].[HeadOfficeAddress] ([hoa_id])
+GO
+ALTER TABLE [dbo].[HeadOffice] CHECK CONSTRAINT [FK_HeadOffice_bank_add]
+GO
+/****** Object:  ForeignKey [FK_HeadOffice_ho_add]    Script Date: 04/29/2012 21:09:58 ******/
+ALTER TABLE [dbo].[HeadOffice]  WITH CHECK ADD  CONSTRAINT [FK_HeadOffice_ho_add] FOREIGN KEY([ho_add_id])
+REFERENCES [dbo].[HeadOfficeAddress] ([hoa_id])
+GO
+ALTER TABLE [dbo].[HeadOffice] CHECK CONSTRAINT [FK_HeadOffice_ho_add]
+GO
+/****** Object:  ForeignKey [FK_HeadOffice_inv_add]    Script Date: 04/29/2012 21:09:58 ******/
+ALTER TABLE [dbo].[HeadOffice]  WITH CHECK ADD  CONSTRAINT [FK_HeadOffice_inv_add] FOREIGN KEY([ho_invoice_add_id])
+REFERENCES [dbo].[HeadOfficeAddress] ([hoa_id])
+GO
+ALTER TABLE [dbo].[HeadOffice] CHECK CONSTRAINT [FK_HeadOffice_inv_add]
+GO
+/****** Object:  ForeignKey [FK_HeadOffice_ISO]    Script Date: 04/29/2012 21:09:58 ******/
+ALTER TABLE [dbo].[HeadOffice]  WITH CHECK ADD  CONSTRAINT [FK_HeadOffice_ISO] FOREIGN KEY([ho_iso_id])
+REFERENCES [dbo].[ISO] ([iso_number])
+GO
+ALTER TABLE [dbo].[HeadOffice] CHECK CONSTRAINT [FK_HeadOffice_ISO]
+GO
+/****** Object:  ForeignKey [FK_HeadOffice_trd_add]    Script Date: 04/29/2012 21:09:58 ******/
+ALTER TABLE [dbo].[HeadOffice]  WITH CHECK ADD  CONSTRAINT [FK_HeadOffice_trd_add] FOREIGN KEY([ho_trading_add_id])
+REFERENCES [dbo].[HeadOfficeAddress] ([hoa_id])
+GO
+ALTER TABLE [dbo].[HeadOffice] CHECK CONSTRAINT [FK_HeadOffice_trd_add]
+GO
+/****** Object:  ForeignKey [FK_Branch_HeadOffice]    Script Date: 04/29/2012 21:09:58 ******/
+ALTER TABLE [dbo].[Branch]  WITH CHECK ADD  CONSTRAINT [FK_Branch_HeadOffice] FOREIGN KEY([br_ho_id], [br_iso_id])
+REFERENCES [dbo].[HeadOffice] ([ho_id], [ho_iso_id])
+GO
+ALTER TABLE [dbo].[Branch] CHECK CONSTRAINT [FK_Branch_HeadOffice]
+GO
+/****** Object:  ForeignKey [FK_Branch_ISO]    Script Date: 04/29/2012 21:09:58 ******/
+ALTER TABLE [dbo].[Branch]  WITH CHECK ADD  CONSTRAINT [FK_Branch_ISO] FOREIGN KEY([br_iso_id])
+REFERENCES [dbo].[ISO] ([iso_number])
+GO
+ALTER TABLE [dbo].[Branch] CHECK CONSTRAINT [FK_Branch_ISO]
+GO

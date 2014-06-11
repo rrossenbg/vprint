@@ -1,0 +1,72 @@
+﻿@using PTF.Reports
+@using PTF.Reports.PTFDB
+@using PTF.Reports.PTFReportsDB
+@using PTF.Reports.Models
+@using PTF.Reports.TRSReportingService
+@using System.Data.Objects.DataClasses
+@model dynamic
+@{
+    ViewBag.Title = "Report Params";
+    Layout = "~/Views/Shared/Administration.cshtml";
+}
+<h2>
+    Map Report Params</h2>
+@if (!string.IsNullOrWhiteSpace(Model.Message))
+{
+    <span style="color: Orange;">@Model.Message</span>
+}
+else
+{
+    <div id="main">
+        <h3>Name:&nbsp;@Model.Name</h3>
+        @using (Html.BeginForm("SaveReportParameters", "Administration", FormMethod.Post, new { id = "SaveReportParametersForm" }))
+        {
+            <fieldset>
+                <table>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Text
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                    </tr>
+                    @{
+            int count = 0;
+            foreach (ReportParameter p in Model.Parameters)
+            {
+                        <tr>
+                            <td>
+                                @p.Name
+                            </td>
+                            <td>
+                                @p.Prompt
+                            </td>
+                            <td>
+                                @{
+                var pr = ((EntityCollection<Parameter>)Model.SqlParams).FirstOrDefault(sp => sp.Name == p.Name);
+                                    @Html.DropDownList("pType" + count, new SelectList(ParamMapping.IsoID.ToDict<ParamMapping>(), "Key", "Value",
+                                       (pr != null) ? (object)pr.ParamType : null), "<Map>")
+                                    @Html.Hidden("pName" + count, p.Name)
+                                    @Html.Hidden("pText" + count, p.Prompt)
+                                }
+                            </td>
+                        </tr>
+                count += count + 1;
+            }
+                    }
+                </table>
+                @Html.Hidden("ReportID", ((Guid)Model.ReportID).ToString())
+                <p>
+                    <input type="submit" value="Save" />
+                </p>
+                <p>
+                    @Html.ActionLink("Back", "Index")
+                </p>
+            </fieldset>
+        }
+    </div>
+}

@@ -1,0 +1,35 @@
+﻿<div class="Pager">
+    @if (ViewBag.Pager.HasPreviousPage)
+    {
+        @Html.RouteLink("|<", "Paging", new { page = 0 });
+        @Html.Raw("&nbsp;")
+    }
+    @if (ViewBag.Pager.HasPreviousPage)
+    {
+        @Html.RouteLink("<<", "Paging", new { page = (ViewBag.Pager.PageIndex - 1) });
+        @Html.Raw("&nbsp;")
+    }
+    @if (ViewBag.Pager.HasPreviousPage && ViewBag.Pager.HasNextPage)
+    {
+        int j = 0, i = 0;
+        for (j = 0, i = ViewBag.Pager.PageIndex; j < 10 && i < ViewBag.Pager.TotalPages; j++, i++)
+        {
+            <span>@Html.RouteLink(i.ToString(), "Paging", new { page = (i) })</span>
+        }
+
+        if (i < ViewBag.Pager.TotalPages)
+        {
+            <span>...</span>
+        }
+    }
+    @if (ViewBag.Pager.HasNextPage)
+    {
+        @Html.Raw("&nbsp;")
+        @Html.RouteLink(">>", "Paging", new { page = (ViewBag.Pager.PageIndex + 1) });
+    }
+    @if (ViewBag.Pager.HasNextPage && ViewBag.Pager.Count > 2)
+    {
+        @Html.Raw("&nbsp;")
+        @Html.RouteLink(">|", "Paging", new { page = (ViewBag.Pager.TotalPages - 1) });
+    }
+</div>

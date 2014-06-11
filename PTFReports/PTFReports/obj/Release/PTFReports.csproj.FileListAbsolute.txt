@@ -1,0 +1,32 @@
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\PTFReports.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\PTFReports.XmlSerializers.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\PTFReports.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\Lib.Web.Mvc.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\Microsoft.Web.Infrastructure.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\MVC3ControlsToolkit.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\PTFReportsLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\WebActivator.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\PTFReportsLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\Lib.Web.Mvc.xml
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\MVC3ControlsToolkit.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\obj\Release\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\obj\Release\PTFReports.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\obj\Release\PTFReports.pdb
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\obj\Release\PTFReports.XmlSerializers.dll
+C:\TFSProjects\TRS - Tax Refund System\Main\PTFReports\PTFReports\bin\log4net.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\PTFReports.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\PTFReports.XmlSerializers.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\PTFReports.pdb
+C:\PROJECTS\PTFReports\PTFReports\bin\Lib.Web.Mvc.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\log4net.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\Microsoft.Web.Infrastructure.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\MVC3ControlsToolkit.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\PTFReportsLib.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\WebActivator.dll
+C:\PROJECTS\PTFReports\PTFReports\bin\PTFReportsLib.pdb
+C:\PROJECTS\PTFReports\PTFReports\bin\Lib.Web.Mvc.xml
+C:\PROJECTS\PTFReports\PTFReports\bin\MVC3ControlsToolkit.pdb
+C:\PROJECTS\PTFReports\PTFReports\obj\Release\ResolveAssemblyReference.cache
+C:\PROJECTS\PTFReports\PTFReports\obj\Release\PTFReports.dll
+C:\PROJECTS\PTFReports\PTFReports\obj\Release\PTFReports.pdb
+C:\PROJECTS\PTFReports\PTFReports\obj\Release\PTFReports.XmlSerializers.dll

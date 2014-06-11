@@ -1,0 +1,114 @@
+﻿@using PTF.Reports
+@using PTF.Reports.Models
+@model IEnumerable<SessionModel>
+@{
+    ViewBag.Title = "Sessions";
+    Layout = "~/Views/Shared/Administration.cshtml";
+}
+@section Css1 {
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")"/>
+    <style type="text/css">
+        #main a
+        {
+            color: Blue !important;
+        }
+        
+        .col1
+        {
+            width: 100px;
+            display: block;
+        }
+        .col2
+        {
+            width: 100px;
+        }
+        .col3
+        {
+            width: 100px;
+        }
+        .col4
+        {
+            width: 100px;
+        }
+        .col5
+        {
+            width: 100px;
+        }
+        .col6
+        {
+            width: 100%;
+        }
+    </style>
+}
+@section JavaScript1 {
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.core.js")"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.widget.js")"></script>
+    <script src="@Url.Content("~/Scripts/ui/jquery.ui.accordion.js")"></script>
+}
+@section JavaScript2 {
+    <script type="text/javascript">
+        $(function () {
+            $("#accordion1").accordion(
+        {
+            active: false,
+            autoHeight: false,
+            clearStyle: true,
+            collapsible: true,
+            header: 'h3'
+        });
+        });
+
+    </script>
+}
+<h2>
+    Sessions</h2>
+<div id="main">
+    <table>
+        <tr>
+            <th class="col1">
+                User
+            </th>
+            <th class="col2">
+                Session
+            </th>
+            <th class="col3">
+                Begin
+            </th>
+            <th class="col4">
+                End
+            </th>
+            <th class="col5">
+                UserAgent
+            </th>
+            <th class="col6">
+                IP
+            </th>
+        </tr>
+    </table>
+    <div id="accordion1">
+        @foreach (var item in Model)
+        {
+            <h3>
+                @Html.Retry("&nbsp;", 6)
+                @Html.Raw("".Format(new[] { 
+                                           item.User, 
+                                           String.Format("{0:g}", item.Begin),
+                                           (item.End == DateTime.MinValue) ? "(na)" : String.Format("{0:g}", item.End),
+                                           item.UserAgent,
+                                           item.IP},
+                                     new[] { 20, 10, 10, 30, 10}).Replace(" ", "&nbsp;"))
+            </h3>
+            <div style="overflow: scroll;">
+                <ul>
+                    @foreach (var h in item.History)
+                    {
+                        <li>@h.Page</li>
+                    }</ul>
+            </div>
+        }
+    </div>
+    @Html.Partial("Paging")
+    <p>
+        @Html.ActionLink("Back", "Index")
+    </p>
+</div>

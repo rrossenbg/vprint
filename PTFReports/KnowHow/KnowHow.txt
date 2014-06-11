@@ -1,0 +1,63 @@
+http://stackoverflow.com/questions/4004307/how-can-i-load-datatable-as-reportdatasource
+
+this.reportViewer.LocalReport.DataSources.Clear();  
+DataTable dt = new DataTable();  
+dt = this.inputValuesTableAdapter.GetData();      
+ 
+Microsoft.Reporting.WinForms.ReportDataSource rprtDTSource = new Microsoft.Reporting.WinForms.ReportDataSource(dt.TableName, dt);  
+ 
+this.reportViewer.LocalReport.DataSources.Add(rprtDTSource);  
+this.reportViewer.RefreshReport();  
+
+
+//////////////////////////////////////////////////
+http://social.msdn.microsoft.com/forums/en-US/sqlreportingservices/thread/2edc5e29-b55c-4667-9b64-e12a566c6c89
+
+
+
+void Form1_Load(object sender, EventArgs e)
+ 
+{
+ 
+.............................
+ 
+Microsoft.Reporting.WinForms.DataSourceCredentials myCredential = new Microsoft.Reporting.WinForms.DataSourceCredentials();
+ 
+myCredential.UserId = "myuserid";
+ 
+myCredential.Password = "mypassword";
+ 
+
+ReportDataSourceInfoCollection reportdatasourcecollection = this.reportViewer1.ServerReport.GetDataSources();
+ 
+
+DataSourceCredentials[] myCredentials=null;
+ 
+
+if (reportdatasourcecollection.Count > 0) 
+{
+ 
+	myCredentials = new DataSourceCredentials[reportdatasourcecollection.Count]; 
+}
+ 
+
+for (int iIndex = 0; iIndex < reportdatasourcecollection.Count; iIndex++)
+ 
+{
+ 
+
+ReportDataSourceInfo datasourceinfo = reportdatasourcecollection[iIndex];
+ 
+myCredential.Name = datasourceinfo.Name;
+ 
+myCredentials[iIndex] = myCredential;
+ 
+}
+ 
+
+this.reportViewer1.ServerReport.SetDataSourceCredentials( myCredentials );
+ 
+...............................
+ 
+}  
+

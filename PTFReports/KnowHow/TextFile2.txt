@@ -1,0 +1,107 @@
+Microsoft JScript runtime error: Sys.WebForms.PageRequestManagerParserErrorException:
+The message received from the server could not be parsed.
+
+http://localhost:2479/Reports/ViewReport.aspx
+
+        <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt"
+            ProcessingMode="Remote" ShowParameterPrompts="False" Width="100%" Height="100%"
+            AsyncRendering="false" ShowDocumentMapButton="False" ShowFindControls="False"
+            SizeToReportContent="True" ShowRefreshButton="True" ExportContentDisposition="AlwaysAttachment"
+            ShowBackButton="False" ToolBarItemHoverBackColor="#D7DFF7" ToolBarItemBorderColor="#D7DFF7"
+            SplitterBackColor="#D7DFF7">
+            <ServerReport />
+        </rsweb:ReportViewer>
+
+
+
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewReport.ascx.cs"
+    Inherits="FTPReports.Views.Reports.ViewReport" %>
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+    Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+</head>
+<body>
+    <%: Html.ActionLink("Back", "Index", "Home")%><br />
+    <%: Html.Label(Convert.ToString(ViewData[Strings.ERR])) %>
+    <form id="form2" runat="server" target="_blank">
+    <div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt"
+            ProcessingMode="Remote" ShowParameterPrompts="False" Width="100%" Height="100%"
+            AsyncRendering="false" ShowDocumentMapButton="False" ShowFindControls="False"
+            SizeToReportContent="True" ShowRefreshButton="True" ExportContentDisposition="AlwaysAttachment"
+            ShowBackButton="False" ToolBarItemHoverBackColor="#D7DFF7" ToolBarItemBorderColor="#D7DFF7"
+            SplitterBackColor="#D7DFF7">
+            <ServerReport />
+        </rsweb:ReportViewer>
+    </div>
+    </form>
+</body>
+</html>
+
+
+using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.Configuration;
+using System.Web.Mvc;
+using FTPReports.Controllers;
+using Microsoft.Reporting.WebForms;
+using System.Diagnostics;
+
+namespace FTPReports.Views.Reports
+{
+    public partial class ViewReport : ViewUserControl
+    {
+        ////List<ReportParameter> parameters = (List<ReportParameter>)
+        ////HttpContext.Current.Items["ReportParameterList"];
+
+        ////this.ReportViewer1.ProcessingMode = ProcessingMode.Remote;
+        ////ServerReport server = this.ReportViewer1.ServerReport;
+        ////server.ReportServerUrl = new Uri("http://192.168.44.61:8080/ReportServer");
+        ////server.ReportPath = "/Accounting/Agent_Chargeback_Details";
+        ////server.ReportServerCredentials = 
+        ////new ReportServerCredentials("trsuser", "trsuser", "premier-uk");
+
+        ////this.ReportViewer1.ServerReport.SetParameters(parameters);
+        ////this.ReportViewer1.ServerReport.Refresh();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!this.Page.IsPostBack)
+            {
+                ViewData[Strings.ERR] = "";
+                try
+                {
+                    List<ReportParameter> parameters = (List<ReportParameter>)Session[Strings.ReportParameterList];
+
+                    this.ReportViewer1.ProcessingMode = ProcessingMode.Remote;
+
+                    var serverUrl = WebConfigurationManager.AppSettings[Strings.ReportServerUrl];
+
+                    ServerReport server = this.ReportViewer1.ServerReport;
+                    server.ReportServerUrl = new Uri(serverUrl);
+                    server.ReportPath = Session[Strings.ReportPath].Cast<string>();
+
+                    var userName = WebConfigurationManager.AppSettings[Strings.ReportServerUserName];
+                    var userPass = WebConfigurationManager.AppSettings[Strings.ReportServerUserPass];
+                    var domain = WebConfigurationManager.AppSettings[Strings.ReportServerDomainName];
+
+                    server.ReportServerCredentials = new ReportServerCredentials(userName, userPass, domain);
+
+                    this.ReportViewer1.ServerReport.SetParameters(parameters);
+                    this.ReportViewer1.ServerReport.Refresh();
+                }
+                catch (Exception ex)
+                {
+                    ViewData[Strings.ERR] = ex.Message;
+                }
+            }
+        }
+    }
+}
+
+
+

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=152368
+  -->
+<configuration>
+  <configSections>
+    <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="PTF.Reports.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    </sectionGroup>
+	<section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
+  </configSections>
+  <appSettings> 
+    <add key="webpages:Version" value="1.0.0.0" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="ReportServerUrl" value="https://fin-ie-pa024.fintrax.com/ReportServer" />
+    <add key="ReportServerServiceUrl" value="https://fin-ie-pa024.fintrax.com/ReportServer/ReportService2005.asmx" />
+    <add key="ReportServerAnonimousLoging" value="false" />
+    <add key="ReportServerUserName" value="" />
+    <add key="ReportServerUserPass" value="" />
+    <add key="ReportServerDomainName" value="" />
+    <add key="MAX_LOGIN_TRIES" value="3" />
+    <add key="SSLPORT" value="443" />
+    <add key="PAGESIZE" value="15" />
+    <add key="AUTOCOMPCOUNT" value="20" />
+    <add key="DefaultPassLength" value="6" />
+    <add key="PassExpireHours" value="24" />
+    <add key="EXCHANGESERVER" value="10.1.1.12" />
+    <add key="EXCHANGESERVER_DOMAIN" value="" />
+    <add key="EXCHANGESERVER_USER" value="" />
+    <add key="EXCHANGESERVER_PASS" value="" />
+    <add key="EXCHANGESERVER_FROM" value="support@fintrax.com" />
+	<add key="SERVERUNBLOCKURL" value="https://reports.premiertaxfree.com/Administration/UnblockMe?command=" />
+	<add key="log4net.Internal.Debug" value="true" />
+  </appSettings>
+  <connectionStrings configProtectionProvider="RsaProtectedConfigurationProvider">
+    <EncryptedData Type="http://www.w3.org/2001/04/xmlenc#Element" xmlns="http://www.w3.org/2001/04/xmlenc#">
+      <EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+      <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <EncryptedKey xmlns="http://www.w3.org/2001/04/xmlenc#">
+          <EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5" />
+          <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <KeyName>Rsa Key</KeyName>
+          </KeyInfo>
+          <CipherData>
+            <CipherValue>IdzKAPHdewho1ttqug2pdYX0vjOXB7h6Lf6cCe4n3Q+J0rYzRTmYuWH/6s/2JQjXP+Za7LX4jlBFTVXCR64VZZifGi4FkP5lXNWIZZvBmJOwHURQbJ8Kdj6p0kbNN3osoXl5gxvycE6PQWD3iij3t/xQbXigfVqQa1+5S1/bB4s=</CipherValue>
+          </CipherData>
+        </EncryptedKey>
+      </KeyInfo> 
+      <CipherData>
+        <CipherValue>Ejr7NnK+nmJCWY/w4IG98snpKhhqSCnUlCFswYdpa0ONtxxruknDOVI6G0gdzXi5LHGXz8Wo2CSgatGJOMp34BJEelDk2a9ctYoUAeUWoqI4Lb101/dW3AxAf6NJfFye8ikDbqPInabd9TAnioitMpfv7dnDFQoAzYRLv/BLw/d7DjrHdU+6PkixkshZkA0II6BBWJKb+fa8/q+ywlL+GIuWX3X83SsqkwBQls4QlUlCYdeTS90ReA3XiJVWYte0IAMe6VA0bF5RxpKQ8nH3QHRs4E4gRc4ABE9aBOLjf3q0ckVZFt3b70iUKUepjhJ4rNdrtxrmKPYydYwDdKfPdgAoYgq2pJoge13slQOU99MjyikQLdmJz8b+nOvBmr7pMRGOid7jh42VE54qFyWgGe+vEizVps2wYxGTiz7zoRovIe+nd8A32cz2UXCItcTqslLi6Qpeqeqk2iBde3sIbMaDwo6ugO3WYZLB8neokRUKAUpkRMBAv7E2i5lvFWC4fCJTRsyTZVXeEWrZAzjt4g48ZX9j7tillbCYV4pv8MBc5l6gOBNPlYDpOCsshJTkjuKFmSpDl1h2bz28WD60ShJUDf+FWo7DJ1rKATdE7FMvFwCXA7fEpDfcx0V2A2hUImpPTJB5O6zXzfYHwEtRTbJ8MSxKL+xKurLXLxfPAkvk6/tytFUa1cuw6RJGG32Jx5Q5ssqksyrkeqNs1ZniH46VUgNSlVe5CWcTI06MqPMeTlhji5ngYmzmB+YVfM8YgMjn+CqV6t7HClXtm2GFvHWXn24/zG+OZseNzV+aUgQBRDfXXgfp7XVk/RTv66j2ci8MiHWeEO+S7QPD5weryXgxfrMf8GVyrOlx+VKHvqMsUde2JHPwdTZsWTnE7N37uxTo06j/rGy6YMj3P3ReRsAp/gwSPhDdkCiBfFtU1/JUIkae93hszX4lh3xQAsXX3tpvKAdPqu+EGxY72lzYXg3WbrLjRh4vFcLufS+6/zdbFrVpFOxUDisjCkgln2W4JVsbY0KKuwNGz05SMyQoqGD/fYTOL/uQrVDm2fmSK0K+jqNMTZ4+8Sy2gLY23qrfc2F8qYxk+PCjRcEXgc89/9A/eWdIl6DRKTQClKXTgygJscROOL4+NB2c+vo4gPC4noVbtvpF2o8p6G7BGGLmdWO6rUdnihzjgYD22WpmYLqUM/s8Cu+YrCXVKCDvChXkWxWdcGXqkXc3cvkwwodg2tbQHoGHnMwjSFd7Ymu4FEc=</CipherValue>
+      </CipherData>
+    </EncryptedData>  
+  </connectionStrings>
+  <system.web>
+	<customErrors mode="Off"/>  
+    <httpRuntime executionTimeout="5"/>
+    <compilation debug="false" targetFramework="4.0"> 
+      <assemblies>
+        <add assembly="System.Data.Entity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+        <add assembly="System.Web.Abstractions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Routing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+      </assemblies>
+      <buildProviders>
+        <add extension=".rdlc" type="Microsoft.Reporting.RdlBuildProvider, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      </buildProviders>
+    </compilation> 
+    <pages>
+      <namespaces>
+        <add namespace="System.Web.Helpers" />
+        <add namespace="System.Web.Mvc" />
+        <add namespace="System.Web.Mvc.Ajax" />
+        <add namespace="System.Web.Mvc.Html" />
+        <add namespace="System.Web.Routing" />
+        <add namespace="System.Web.WebPages" />
+        <add namespace="PTF.Reports" />
+        <add namespace="MVCControlsToolkit.Core" />
+        <add namespace="MVCControlsToolkit.Controls" /> 
+        <add namespace="MVCControlsToolkit.Controls.Validation" />
+      </namespaces>
+    </pages>
+    <authentication mode="Forms">  
+      <forms loginUrl="~/Account/LogOn" timeout="2880" requireSSL="false" />
+    </authentication>
+	<sessionState mode="InProc" timeout="20" compressionEnabled="true"></sessionState>
+	<httpHandlers>
+		<add path="Reserved.ReportViewerWebControl.axd" verb="*" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" validate="false"/>
+	</httpHandlers> 
+  </system.web>
+  <system.webServer>
+    <staticContent>
+      <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="30.00:00:00" />
+    </staticContent>
+    <validation validateIntegratedModeConfiguration="false" />
+    <modules runAllManagedModulesForAllRequests="true" />
+    <handlers> 
+      <add name="ReportViewerWebControlHandler" preCondition="integratedMode" verb="*" path="Reserved.ReportViewerWebControl.axd" 
+	  type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />  
+	  
+    </handlers>
+    <directoryBrowse enabled="false" showFlags="Date, Time, Size, Extension, LongDate" />
+	<!--
+        <httpProtocol>
+            <customHeaders>
+                <add name="X-FRAME-OPTIONS" value="DENY" />
+            </customHeaders>
+        </httpProtocol>
+	-->	
+  </system.webServer>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0" newVersion="2.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime> 
+  <applicationSettings> 
+    <PTF.Reports.Properties.Settings>
+      <setting name="PTFReports_TRSReportingService_ReportingService2005" serializeAs="String">
+        <value>https://fin-ie-pa024.fintrax.com/ReportServer/ReportService2005.asmx</value>
+      </setting>
+    </PTF.Reports.Properties.Settings>
+  </applicationSettings>
+    <log4net debug="false"> 
+    <appender name="RollingLogFileAppender" type="log4net.Appender.RollingFileAppender">
+      <file value="C:\\Logs\\PTFReports.log" />
+      <appendToFile value="true" />
+      <rollingStyle value="Size" />
+      <maxSizeRollBackups value="10" />
+      <maximumFileSize value="10MB" />
+      <staticLogFileName value="true" />
+      <layout type="log4net.Layout.PatternLayout">
+        <conversionPattern value="%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n" />
+      </layout>
+    </appender>
+    <root>
+
+      <appender-ref ref="RollingLogFileAppender" />
+    </root>
+  </log4net>
+</configuration>

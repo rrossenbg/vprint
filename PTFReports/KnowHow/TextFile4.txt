@@ -1,0 +1,20 @@
+
+You need to define ajaxUpdateCallback function, in example:
+ var grid = new WebGrid(source: Model, 
+    ajaxUpdateCallback: "GridUpdate", 
+    ajaxUpdateContainerId: "grid" 
+    rowsPerPage: 50);  
+
+ ensure that your .GetHtml method has :
+@grid.GetHtml( 
+    htmlAttributes: new { id = "grid" },  
+//.. rest of the options here 
+) 
+
+ and add the below to your main view
+<script type="text/javascript"> 
+    function GridUpdate(data) { 
+        $('#grid').html(data); 
+    } 
+</script> 
+ 

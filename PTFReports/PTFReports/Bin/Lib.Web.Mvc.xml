@@ -1,0 +1,2301 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lib.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridTreeGridModels">
+            <summary>
+            Defines available models for jqGrid TrreGrid
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridTreeGridModels.Nested">
+            <summary>
+            Nested set model
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridTreeGridModels.Adjacency">
+            <summary>
+            Adjacency model
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequest">
+            <summary>
+            Class which represents request from jqGrid.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequest.Searching">
+            <summary>
+            Gets the value indicating searching.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequest.SearchingFilter">
+            <summary>
+            Gets the searching filter (single searching). 
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequest.SearchingFilters">
+            <summary>
+            Gets the searching filters (advanced searching or toolbar searching with JqGridFilterToolbarOptions.StringResult = true). 
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequest.SortingName">
+            <summary>
+            Gets the sorting column name.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequest.SortingOrder">
+            <summary>
+            Gets the sorting order
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequest.PageIndex">
+            <summary>
+            Gets the index (zero based) of page to return
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequest.RecordsCount">
+            <summary>
+            Gets the number of rows to return
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditOptions">
+            <summary>
+            Class which represents options for jqGrid editable column
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditOptions.CustomElementFunction">
+            <summary>
+            Gets or sets the name of function which is used to create custom edit element
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditOptions.CustomValueFunction">
+            <summary>
+            Gets or sets the name of function which should return the value from the custom element after the editing.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditOptions.DataUrl">
+            <summary>
+            Gets or sets the URL to get the AJAX data for the select element (if is JqGridColumnEditTypes.Select)
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditOptions.MaximumLength">
+            <summary>
+            Gets or sets the maxlength attribute for the input element
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditOptions.MultipleSelect">
+            <summary>
+            Gets or sets value which defines if multiselect is enabled for select edit element.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditOptions.Source">
+            <summary>
+            Get or sets the source for element of type image.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions">
+            <summary>
+            Class which represents options for jqGrid Navigator search action.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions">
+            <summary>
+            Class which represents options for jqGrid Navigator action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.ClearAfterAdd">
+            <summary>
+            Gets or sets the value indicating if add action dialog should be cleared after submiting.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.CloseAfterAdd">
+            <summary>
+            Gets or sets the value indicating if add action dialog should be closed after submiting.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.CloseAfterEdit">
+            <summary>
+            Gets or sets the value indicating if edit action dialog should be closed after submiting.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.CloseOnEscape">
+            <summary>
+            Gets or sets the value indicating if modal window can be closed with ESC key.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.Dragable">
+            <summary>
+            Gets or sets the value indicating if dialog is dragable (requires jqDnR plugin or dragable widget from jQuery UI).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.UseJqModal">
+            <summary>
+            Gets or sets the value indicating if jqModel plugin should be used for creating dialogs otherwise jqGrid uses its internal function.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.Modal">
+            <summary>
+            Gets or sets the value indicating if dialog is modal (requires jqModal plugin).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.MethodType">
+            <summary>
+            Gets or sets the type or request to make when data is sent to the server.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.OnAfterShowForm">
+            <summary>
+            Gets or sets the name of the function for event which is raised after showing the form with the new data.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.OnBeforeShowForm">
+            <summary>
+            Gets or sets the name of the function for event which is raised before showing the form with the new data.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.OnClose">
+            <summary>
+            Gets or sets the name of the function for event which is raised just before closing the form.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.OnInitializeForm">
+            <summary>
+            Gets or sets the name of the function for event which is raised only once when creating the form for editing and adding.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.ReloadAfterSubmit">
+            <summary>
+            Gets or sets the value indicating if grid should be reloaded after submiting.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.Resizable">
+            <summary>
+            Gets or sets the value indicating if dialog is resizable (requires jqDnR plugin or resizable widget from jQuery UI).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.Url">
+            <summary>
+            Gets or sets the url for action requests (default null)
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions.Width">
+            <summary>
+            Gets or sets the width of confirmation dialog in pixels (default 'auto').
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.AfterShowSearch">
+            <summary>
+            Gets or sets the name of the function for event which is raised every time after the search dialog is shown.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.BeforeShowSearch">
+            <summary>
+            Gets or sets the name of the function for event which is raised every time before the search dialog is shown.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.Caption">
+            <summary>
+            Gets or sets the caption for the dialog.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.CloseAfterSearch">
+            <summary>
+            Gets or sets the value indicating if search action dialog should be closed after searching.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.CloseAfterReset">
+            <summary>
+            Gets or sets the value indicating if search action dialog should be closed after reseting.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.SearchText">
+            <summary>
+            Gets or sets the text for search button.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.AdvancedSearching">
+            <summary>
+            Gets or sets the value indicating if advanced searching is enabled.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.CloneSearchRowOnAdd">
+            <summary>
+            Gets or sets the value indicating if added row (in advanced searching) shoulb copied from previous row.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.OnInitializeSearch">
+            <summary>
+            Gets or sets the name of the function for event which is raised once when the dialog is created.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.RecreateFilter">
+            <summary>
+            Gets or sets the value indicating if the entry filter should be destroyed unbinding all the events and then constructed again.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.ResetText">
+            <summary>
+            Gets or sets the text for reset button.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorSearchActionOptions.Overlay">
+            <summary>
+            Gets or sets the value indicating if overlay in grid is enabled.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions`1">
+            <summary>
+            jqGrid options
+            </summary>
+            <typeparam name="TModel">Type of model for grid</typeparam>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions">
+            <summary>
+            jqGrid options
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the JqGridOptions class.
+            </summary>
+            <param name="id">Identifier, which will be used for table (id='{0}'), pager div (id='{0}Pager'), filter grid div (id='{0}Search') and in JavaScript.</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.Id">
+            <summary>
+            Gets the grid identifier which will be used for table (id='{0}'), pager div (id='{0}Pager') and in JavaScript.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.CellEditingEnabled">
+            <summary>
+            Gets or sets the value indicating if cell editing is enabled
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.CellEditingSubmitMode">
+            <summary>
+            Gets or sets the cell editing submit mode
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.CellEditingUrl">
+            <summary>
+            Gets or set the URL for cell editing submit
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.ColumnsModels">
+            <summary>
+            Gets the list of columns parameters descriptions.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.ColumnsNames">
+            <summary>
+            Gets the list of columns names.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.ColumnsRemaping">
+            <summary>
+            Gets or sets the list of columns indexes for remaping (default null).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.DataString">
+            <summary>
+            Gets or sets the string of data which will be used when DataType is set to JqGridDataTypes.XmlString or JqGridDataTypes.JsonString (default null).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.DataType">
+            <summary>
+            Gets or sets the type of information to expect to represent data in the grid (default JqGridDataTypes.Xml).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.EditingUrl">
+            <summary>
+            Gets or sets the url for inline and form editing.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.ExpandColumnClick">
+            <summary>
+            Gets or sets the value which defines whether the tree is expanded and/or collapsed when user clicks on the text of the expanded column, not only on the image.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.ExpandColumn">
+            <summary>
+            Gets or sets the name of column which should be used to expand the tree grid.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.Height">
+            <summary>
+            Gets or sets the height of the grid in pixels (default 'auto').
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.MethodType">
+            <summary>
+            Gets or sets the type of request to make (default JqGridMethodTypes.Get).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.OnSelectRow">
+            <summary>
+            Gets or sets the name of the function for event which is raised immediately after row was clicked.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.Pager">
+            <summary>
+            Gets or sets if grid should use a pager bar to navigate through the records (default: false).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.RowsNumber">
+            <summary>
+            Gets or sets how many records should be displayed in the grid (default 20).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.SortingName">
+            <summary>
+            Gets or sets the initial sorting column index, when  using data returned from server (default: String.Empty)
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.SortingOrder">
+            <summary>
+            Gets or sets the initial sorting order, when  using data returned from server (default JqGridSortingOrders.Asc)
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.SubgridEnabled">
+            <summary>
+            Gets or sets the value which defines if subgrid is enabled.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.SubgridModel">
+            <summary>
+            Gets or sets the subgrid model.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.SubgridUrl">
+            <summary>
+            Gets or sets the url for subgrid data requests.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.SubgridColumnWidth">
+            <summary>
+            Gets or sets the width of subgrid expand/colapse column.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.TreeGridEnabled">
+            <summary>
+            Gets or sets the value which defines if TreeGrid is enabled.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.TreeGridModel">
+            <summary>
+            Gets or sets the model for TreeGrid.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.Url">
+            <summary>
+            Gets or sets the url for data requests (default null)
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.ViewRecords">
+            <summary>
+            Gets or sets if grid should display the beginning and ending record number out of the total number of records in the query (default: false)
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions.Width">
+            <summary>
+            Gets or sets the width of the grid in pixels (default 'auto').
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the JqGridOptions class.
+            </summary>
+            <param name="id">Identifier, which will be used for table (id='{0}'), pager div (id='{0}Pager'), filter grid div (id='{0}Search') and in JavaScript.</param>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridCellEditingSubmitModes">
+            <summary>
+            jqGrid cell editing submit modes
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridCellEditingSubmitModes.Remote">
+            <summary>
+            The change is immediately saved to the server.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridCellEditingSubmitModes.ClientArray">
+            <summary>
+            No ajax request is made and the content of the changed cell can be obtained via the JavaScript jqGrid method getChangedCells 
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterToolbarOptions">
+            <summary>
+            Class which represents options for jqGrid filter toolbar.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterOptions">
+            <summary>
+            Abstract class which represents options for jqGrid filter toolba and grid.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterOptions.AfterClear">
+            <summary>
+            Gets or sets the name of the function for event which is raised after clearing entered values.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterOptions.AfterSearch">
+            <summary>
+            Gets or sets the name of the function for event which is raised after searching.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterOptions.AutoSearch">
+            <summary>
+            Gets or sets the value which defines if searching is performed automatically.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterOptions.BeforeClear">
+            <summary>
+            Gets or sets the name of the function for event which is raised before clearing entered values.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterOptions.BeforeSearch">
+            <summary>
+            Gets or sets the name of the function for event which is raised before searching.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterToolbarOptions.DefaultSearchOperator">
+            <summary>
+            Gets or sets the default search operator for all fields (it will be overriden by JqGridColumnSearchOptions.SearchOperators).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterToolbarOptions.GroupingOperator">
+            <summary>
+            Gets or sets the grouping operator for filters.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterToolbarOptions.SearchOnEnter">
+            <summary>
+            Gets or sets the value which defines if the user needs to press Enter key in text input to trigger search or if searching should triggered after typing any character.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterToolbarOptions.StringResult">
+            <summary>
+            Gets or sets the value which defines if filters should be posted as JSON string (the same as in advanced searching) or as key:value pairs.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators">
+            <summary>
+            Defines available operators for search fields for jqGrid
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Eq">
+            <summary>
+            Equal
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Ne">
+            <summary>
+            Not equal
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Lt">
+            <summary>
+            Less
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Le">
+            <summary>
+            Less or equal
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Gt">
+            <summary>
+            Greater
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Ge">
+            <summary>
+            Greater or equal
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Bw">
+            <summary>
+            Begins with
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Bn">
+            <summary>
+            Does not begin with
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.In">
+            <summary>
+            Is in
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Ni">
+            <summary>
+            Is not in
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Ew">
+            <summary>
+            Ends with
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.En">
+            <summary>
+            Does not end with
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Cn">
+            <summary>
+            Contains
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchOperators.Nc">
+            <summary>
+            Does not contain
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridRowModel">
+            <summary>
+            Class which represents row for jqGrid filter grid.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridRowModel.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the JqGridRecord class.
+            </summary>
+            <param name="columnName">The corresponding column name from columns models.</param>
+            <param name="label">The label of the field.</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridRowModel.ColumnName">
+            <summary>
+            Gets the corresponding column name from columns models.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridRowModel.DefaultValue">
+            <summary>
+            Gets or sets the default value for the search input element.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridRowModel.Label">
+            <summary>
+            Gets the label of the field.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridRowModel.SearchType">
+            <summary>
+            Gets or sets the type of the search field (default JqGridColumnSearchTypes.Text).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridRowModel.SelectUrl">
+            <summary>
+            Gets or sets the URL to get the AJAX data for the select element (if SearchType is JqGridColumnSearchTypes.Select)
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridTreeRecord">
+            <summary>
+            Abstract class which represents TreeGrid record for jqGrid.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridRecord">
+            <summary>
+            Class which represents record for jqGrid.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridRecord.#ctor(System.String,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Initializes a new instance of the JqGridRecord class.
+            </summary>
+            <param name="id">The record identifier</param>
+            <param name="values">The list of values for cells</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRecord.Values">
+            <summary>
+            Gets or sets the list of values for cells
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRecord.Id">
+            <summary>
+            Gets or set the record identifier
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridTreeRecord.#ctor(System.String,System.Collections.Generic.List{System.Object},System.Int32)">
+            <summary>
+            Initializes a new instance of the JqGridTreeRecord class.
+            </summary>
+            <param name="id">The record identifier.</param>
+            <param name="values">The list of values for cells.</param>
+            <param name="level">The level of the record in the hierarchy.</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridTreeRecord.Level">
+            <summary>
+            Gets or set the level of the record in the hierarchy.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridTreeRecord.Leaf">
+            <summary>
+            Gets or sets value wich defines if the record is leaf (default false).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridTreeRecord.Expanded">
+            <summary>
+            Gets or sets the value which defines whether this element should be expanded during the loading (default false).
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridDataTypes">
+            <summary>
+            jqGrid data types
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridDataTypes.Xml">
+            <summary>
+            XML data
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridDataTypes.XmlString">
+            <summary>
+            XML data as string
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridDataTypes.Json">
+            <summary>
+            JSON data
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridDataTypes.Jsonp">
+            <summary>
+            JSONP data
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridDataTypes.JsonString">
+            <summary>
+            JSON data as string
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridSubgridModel">
+            <summary>
+            Class which represents subgrid model for jqGrid.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridSubgridModel.#ctor">
+            <summary>
+            Initializes a new instance of the JqGridSubgridModel class.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridSubgridModel.ColumnsNames">
+            <summary>
+            Gets the list of columns names.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridSubgridModel.ColumnsAlignments">
+            <summary>
+            Gets the list of columns alignments.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridSubgridModel.ColumnsWidths">
+            <summary>
+            Gets the list of columns widths.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1">
+            <summary>
+            Helper class for generating jqGrid HMTL and JavaScript
+            </summary>
+            <typeparam name="TModel">Type of model for this grid</typeparam>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1.#ctor(System.String,System.Nullable{System.Boolean},System.Nullable{Lib.Web.Mvc.JQuery.JqGrid.JqGridCellEditingSubmitModes},System.String,System.String,Lib.Web.Mvc.JQuery.JqGrid.JqGridDataTypes,System.String,System.Nullable{System.Boolean},System.String,System.Nullable{System.Int32},Lib.Web.Mvc.JQuery.JqGrid.JqGridMethodTypes,System.String,System.Boolean,System.Int32,System.String,Lib.Web.Mvc.JQuery.JqGrid.JqGridSortingOrders,System.Nullable{System.Boolean},Lib.Web.Mvc.JQuery.JqGrid.JqGridSubgridModel,System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{Lib.Web.Mvc.JQuery.JqGrid.JqGridTreeGridModels},System.String,System.Boolean,System.Nullable{System.Int32})">
+            <summary>
+            Initializes a new instance of the JqGridHelper class.
+            </summary>
+            <param name="id">Identifier, which will be used for table (id='{0}'), pager div (id='{0}Pager'), filter grid div (id='{0}Search') and in JavaScript.</param>
+            <param name="cellEditingEnabled">The value indicating if cell editing is enabled.</param>
+            <param name="cellEditingSubmitMode">The cell editing submit mode.</param>
+            <param name="cellEditingUrl">The URL for cell editing submit.</param>
+            <param name="dataString">The string of data which will be used when DataType is set to JqGridDataTypes.XmlString or JqGridDataTypes.JsonString.</param>
+            <param name="dataType">The type of information to expect to represent data in the grid.</param>
+            <param name="editingUrl">The url for inline and form editing</param>
+            <param name="expandColumnClick">The value which defines whether the tree is expanded and/or collapsed when user clicks on the text of the expanded column, not only on the image.</param>
+            <param name="expandColumn">The name of column which should be used to expand the tree grid.</param>
+            <param name="height">The height of the grid in pixels (default 'auto').</param>
+            <param name="methodType">The type of request to make.</param>
+            <param name="onSelectRow">The name of the function for event which is raised immediately after row was clicked.</param>
+            <param name="pager">If grid should use a pager bar to navigate through the records.</param>
+            <param name="rowsNumber">How many records should be displayed in the grid.</param>
+            <param name="sortingName">The initial sorting column index, when  using data returned from server.</param>
+            <param name="sortingOrder">The initial sorting order, when  using data returned from server.</param>
+            <param name="subgridEnabled">The value which defines if subgrid is enabled.</param>
+            <param name="subgridModel">The subgrid model.</param>
+            <param name="subgridUrl">The url for subgrid data requests.</param>
+            <param name="subgridColumnWidth">The width of subgrid expand/colapse column.</param>
+            <param name="treeGridEnabled">The value which defines if TreeGrid is enabled.</param>
+            <param name="treeGridModel">The model for TreeGrid.</param>
+            <param name="url">The url for data requests.</param>
+            <param name="viewRecords">If grid should display the beginning and ending record number out of the total number of records in the query.</param>
+            <param name="width">The width of the grid in pixels.</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1.#ctor(Lib.Web.Mvc.JQuery.JqGrid.JqGridOptions{`0})">
+            <summary>
+            Initializes a new instance of the JqGridHelper class.
+            </summary>
+            <param name="options">Options for the grid</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1.GetTableHtml">
+            <summary>
+            Returns the HTML that is used to render the table placeholder for the grid. 
+            </summary>
+            <returns>The HTML that represents the table placeholder for jqGrid</returns>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1.GetPagerHtml">
+            <summary>
+            Returns the HTML that is used to render the pager (div) placeholder for the grid. 
+            </summary>
+            <returns>The HTML that represents the pager (div) placeholder for jqGrid</returns>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1.GetFilterGridHtml">
+            <summary>
+            Returns the HTML that is used to render the filter grid (div) placeholder for the grid. 
+            </summary>
+            <returns>The HTML that represents the filter grid (div) placeholder for jqGrid</returns>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1.GetHtml">
+            <summary>
+            Returns the HTML that is used to render the table placeholder for the grid with pager placeholder below it and filter grid (if enabled) placeholder above it.
+            </summary>
+            <returns>The HTML that represents the table placeholder for jqGrid with pager placeholder below i</returns>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1.GetJavaScript">
+            <summary>
+            Return the JavaScript that is used to initialize jqGrid with given options.
+            </summary>
+            <returns>The JavaScript that initializes jqGrid with give options</returns>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1.Navigator(Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions,Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions,Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions,Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions,Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions,Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorActionOptions)">
+            <summary>
+            Enables Navigator for this JqGridHelper instance.
+            </summary>
+            <param name="options">The options for the Navigator.</param>
+            <param name="editActionOptions">The options for the edit action.</param>
+            <param name="addActionOptions">The options for the add action.</param>
+            <param name="deleteActionOptions">The options for the delete action.</param>
+            <param name="searchActionOptions">The options for the search action.</param>
+            <param name="viewActionOptions">The options for the view action.</param>
+            <returns>JqGridHelper instance with enabled Navigator.</returns>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1.FilterToolbar(Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterToolbarOptions)">
+            <summary>
+            Enables filter toolbar for this JqGridHelper instance.
+            </summary>
+            <param name="options">The options for the filter toolbar.</param>
+            <returns>JqGridHelper instance with enabled filter toolbar.</returns>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridHelper`1.FilterGrid(System.Collections.Generic.List{Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridRowModel},Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions)">
+            <summary>
+            Enables filter grid for this JqGridHelper instance.
+            </summary>
+            <param name="model">The model for the filter grid (if null, the model will be build based on ColumnsModels and ColumnsNames).</param>
+            <param name="options">The options for the filter grid.</param>
+            <returns>JqGridHelper instance with enabled filter grid.</returns>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions">
+            <summary>
+            Class which represents options for jqGrid Navigator.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.#ctor">
+            <summary>
+            Initializes a new instance of the JqGridNavigatorOptions class.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.Add">
+            <summary>
+            Gets or set the value which defines if add action is enabled (default true).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.AddIcon">
+            <summary>
+            Gets or sets the icon (form UI theme images) for add action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.AddText">
+            <summary>
+            Gets or sets the text for add action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.AddToolTip">
+            <summary>
+            Gets or sets the tooltip for add action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.AlertCaption">
+            <summary>
+            Gets or sets the caption for warning which appears when user try to edit, delete or view a row without selecting it.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.AlertText">
+            <summary>
+            Gets or sets the text for warning which appears when user try to edit, delete or view a row without selecting it.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.CloneToTop">
+            <summary>
+            Gets or sets the value which defines if all the actions from the bottom pager should be coppied to the top pager.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.CloseOnEscape">
+            <summary>
+            Gets or sets the value which defines if the warning dialog can be closed with ESC key.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.Delete">
+            <summary>
+            Gets or set the value which defines if delete action is enabled (default true).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.DeleteIcon">
+            <summary>
+            Gets or sets the icon (form UI theme images) for delete action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.DeleteText">
+            <summary>
+            Gets or sets the text for delete action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.DeleteToolTip">
+            <summary>
+            Gets or sets the tooltip for delete action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.Edit">
+            <summary>
+            Gets or set the value which defines if edit action is enabled (default true).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.EditIcon">
+            <summary>
+            Gets or sets the icon (form UI theme images) for edit action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.EditText">
+            <summary>
+            Gets or sets the text for edit action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.EditToolTip">
+            <summary>
+            Gets or sets the tooltip for edit action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.Position">
+            <summary>
+            Gets or sets the position of the Navigator buttons in the pager.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.Refresh">
+            <summary>
+            Gets or set the value which defines if refresh action is enabled (default true).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.RefreshIcon">
+            <summary>
+            Gets or sets the icon (form UI theme images) for refresh action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.RefreshText">
+            <summary>
+            Gets or sets the text for refresh action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.RefreshToolTip">
+            <summary>
+            Gets or sets the tooltip for refresh action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.RefreshMode">
+            <summary>
+            Gets or sets the mode for refresh action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.AfterRefresh">
+            <summary>
+            Gets or sets the name of the function for event which is raised after the refresh button is clicked.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.BeforeRefresh">
+            <summary>
+            Gets or sets the name of the function for event which is raised before the refresh button is clicked.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.Search">
+            <summary>
+            Gets or set the value which defines if search action is enabled (default true).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.SearchIcon">
+            <summary>
+            Gets or sets the icon (form UI theme images) for search action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.SearchText">
+            <summary>
+            Gets or sets the text for search action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.SearchToolTip">
+            <summary>
+            Gets or sets the tooltip for search action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.View">
+            <summary>
+            Gets or set the value which defines if view action is enabled (default true).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.ViewIcon">
+            <summary>
+            Gets or sets the icon (form UI theme images) for view action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.ViewText">
+            <summary>
+            Gets or sets the text for view action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.ViewToolTip">
+            <summary>
+            Gets or sets the tooltip for view action.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.AddFunction">
+            <summary>
+            Gets or sets the custom function to replace the build in add function.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.EditFunction">
+            <summary>
+            Gets or sets the custom function to replace the build in edit function.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNavigatorOptions.DeleteFunction">
+            <summary>
+            Gets or sets the custom function to replace the build in delete function.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.TreeView.TreeViewNode">
+            <summary>
+            Class which represents node for jQuery TreeView plugin.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.TreeView.TreeViewNode.id">
+            <summary>
+            Gets or sets the node identifier
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.TreeView.TreeViewNode.text">
+            <summary>
+            Gets or sets the node text
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.TreeView.TreeViewNode.expanded">
+            <summary>
+            Gets or sets whether node is expanded
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.TreeView.TreeViewNode.hasChildren">
+            <summary>
+            Gets or sets whether node has children
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.TreeView.TreeViewNode.classes">
+            <summary>
+            Gets or sets additional CSS classes for node
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.TreeView.TreeViewNode.children">
+            <summary>
+            Gets or sets node childrens
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridMethodTypes">
+            <summary>
+            jgGrid request method types
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridMethodTypes.Get">
+            <summary>
+            GET method
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridMethodTypes.Post">
+            <summary>
+            POST method
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel">
+            <summary>
+            jqGrid column parameters description.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the JqGridColumnModel class.
+            </summary>
+            <param name="name">The unique name for the column.</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Alignment">
+            <summary>
+            Gets or sets the alignment of the cell in the body layer (default JqGridAligns.Left)
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Classes">
+            <summary>
+            Gets or sets additional CSS classes for the column (separated by space).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Editable">
+            <summary>
+            Gets or set the value defining if this column can be edited.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.EditOptions">
+            <summary>
+            Gets or sets the options for editable column.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.EditRules">
+            <summary>
+            Gets or sets the rules for editable column.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.EditType">
+            <summary>
+            Gets or sets the type for editable column.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Fixed">
+            <summary>
+            Gets or sets the value which defines if internal recalculation of the width of the column is disabled (default false).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Formatter">
+            <summary>
+            Gets or sets the predefined formatter type ('' delimited string) or custom JavaScript formatting function name.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.FormatterOptions">
+            <summary>
+            Gets or sets the options for predefined formatter (every predefined formatter uses only a subset of all options), which are overwriting the defaults from the language file.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.FormOptions">
+            <summary>
+            Get or sets additional, used in form editing, options for editable column.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Hidden">
+            <summary>
+            Gets or sets the value which defines if this column is hidden at initialization (default false).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.InitialSortingOrder">
+            <summary>
+            Gets or sets the sorting order for first column sorting.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Resizable">
+            <summary>
+            Gets or sets the value which defines if column can be resized (default true).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Searchable">
+            <summary>
+            Gets or sets the value defining if this column can be searched.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.SearchOptions">
+            <summary>
+            Gets or sets the options for searchable column.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.SearchType">
+            <summary>
+            Gets or sets the type of the search field for the column.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Sortable">
+            <summary>
+            Gets or sets the value defining if this column can be sorted.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Index">
+            <summary>
+            Gets or sets the index name for sorting and searching (default String.Empty)
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Name">
+            <summary>
+            Gets the unique name for the column.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.UnFormatter">
+            <summary>
+            Gets or sets the custom function to "unformat" a value of the cell when used in editing or client-side sorting
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnModel.Width">
+            <summary>
+            Gets or sets the initial width in pixels of the column (default 150).
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute">
+            <summary>
+            Specifies the custom formatter for column
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the JqGridColumnFormatterAttribute class.
+            </summary>
+            <param name="formatter">The predefined formatter type ('' delimited string) or custom JavaScript formatting function name.</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.Formatter">
+            <summary>
+            Gets the predefined formatter type ('' delimited string) or custom JavaScript formatting function name.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.FormatterOptions">
+            <summary>
+            Gets or sets the options for predefined formatter (every predefined formatter uses only a subset of all options), which are overwriting the defaults from the language file.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.UnFormatter">
+            <summary>
+            Gets or sets the custom function to "unformat" a value of the cell when used in editing or client-side sorting
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.AddParam">
+            <summary>
+            Predefined formatter option, which gets or sets the additional parameter that can be added after the IdName property for showlink
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.BaseLinkUrl">
+            <summary>
+            Predefined formatter option, which gets or sets the link for showlink
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.DecimalPlaces">
+            <summary>
+            Predefined formatter option, which gets or set how many decimal places we should there be for a number.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.DecimalSeparator">
+            <summary>
+            Predefined formatter option, which gets or sets the separator for the decimals.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.DefaulValue">
+            <summary>
+            Predefined formatter option, which gets or sets the default value if nothing in the data
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.Disabled">
+            <summary>
+            Predefined formatter option, which gets or sets  if the checkbox value can be changed.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.IdName">
+            <summary>
+            Predefined formatter option, which gets or sets the first parameter that is added after the ShowAction for showlink
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.Prefix">
+            <summary>
+            Predefined formatter option, which gets or sets the text which is puted before the number.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.ShowAction">
+            <summary>
+            Predefined formatter option, which gets or sets the additional value which is added after the BaseLinkUrl for showlink.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.SourceFormat">
+            <summary>
+            Predefined formatter option, which gets or sets the source format of the date that should be converted
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.Suffix">
+            <summary>
+            Predefined formatter option, which gets or sets the text that is added after the number
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.Target">
+            <summary>
+            Predefined formatter option, which gets or sets the target property for link or additional attribute for showlink
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.TargetFormat">
+            <summary>
+            Predefined formatter option, which gets or sets the target format of the date that should be converted
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnFormatterAttribute.ThousandsSeparator">
+            <summary>
+            Predefined formatter option, which gets or sets the separator for the thousands.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.NoCacheAttribute">
+            <summary>
+            Action filter which disables response caching
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.NoCacheAttribute.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <summary>
+            Called after the action method executes
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:Lib.Web.Mvc.NoCacheAttribute.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <summary>
+            Called before an action method executes
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchGroupingOperators">
+            <summary>
+            Defines available group operators for searching in jqGrid
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchGroupingOperators.And">
+            <summary>
+            All
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSearchGroupingOperators.Or">
+            <summary>
+            Any
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridConfiguration">
+            <summary>
+            jqGrid configuration container
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridConfiguration.Settings">
+            <summary>
+            Options
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridRecord`1">
+            <summary>
+            Class which represents record for jqGrid.
+            </summary>
+            <typeparam name="TModel">Type of model for this grid</typeparam>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridRecord`1.#ctor(System.String,`0)">
+            <summary>
+            Initializes a new instance of the JqGridRecord class.
+            </summary>
+            <param name="id">The record identifier</param>
+            <param name="value">The value for record</param>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute">
+            <summary>
+            Specifies the editing options for column
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the JqGridColumnEditableAttribute class.
+            </summary>
+            <param name="editable">If this column can be edited</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.#ctor(System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the JqGridColumnEditableAttribute class.
+            </summary>
+            <param name="editable">If this column can be edited</param>
+            <param name="dataUrlRouteName">Route name for the URL to get the AJAX data for the select element (if is JqGridColumnEditTypes.Select)</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.#ctor(System.Boolean,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the JqGridColumnEditableAttribute class.
+            </summary>
+            <param name="editable">If this column can be edited</param>
+            <param name="dataUrlAction">Action for the URL to get the AJAX data for the select element (if is JqGridColumnEditTypes.Select)</param>
+            <param name="dataUrlController">Controller for the URL to get the AJAX data for the select element (if is JqGridColumnEditTypes.Select)</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.#ctor(System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the JqGridColumnEditableAttribute class.
+            </summary>
+            <param name="editable">If this column can be edited</param>
+            <param name="dataUrlAction">Action for the URL to get the AJAX data for the select element (if is JqGridColumnEditTypes.Select)</param>
+            <param name="dataUrlController">Controller for the URL to get the AJAX data for the select element (if is JqGridColumnEditTypes.Select)</param>
+            <param name="dataUrlAreaName">Area for the URL to get the AJAX data for the select element (if is JqGridColumnEditTypes.Select)</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.CustomElementFunction">
+            <summary>
+            Gets or sets the name of function which is used to create custom edit element
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.CustomElementValueFunction">
+            <summary>
+            Gets or sets the name of function which should return the value from the custom element after the editing.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.CustomValidation">
+            <summary>
+            Gets or sets if the value should be validated with custom function.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.CustomValidationFunction">
+            <summary>
+            Gets or sets the name of custom validation function
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.DateValidation">
+            <summary>
+            Gets or sets if the value should be valid ISO date.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.Editable">
+            <summary>
+            Gets the value defining if this column can be edited.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.EditHidden">
+            <summary>
+            Gets or sets the value which defines if hidden column can be edited in form editing.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.EditType">
+            <summary>
+            Gets or sets the type of the editable field (default JqGridColumnEditTypes.Text).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.EmailValidation">
+            <summary>
+            Gets or sets if the value should be valid email
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.FormColumnPosition">
+            <summary>
+            Gets or sets the column position of the element (with the label) in form editing (one-based).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.FormElementPrefix">
+            <summary>
+            Gets or sets the text or HTML content to appear before the input element in form editing.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.FormElementSuffix">
+            <summary>
+            Gets or sets the text or HTML content to appear after the input element in form editing.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.FormLabel">
+            <summary>
+            Gets or sets the text which will replace the name from ColumnNames as label in form editing.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.RowPosition">
+            <summary>
+            Gets or sets the row position of the element (with the label) in form editing (one-based).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.MultipleSelect">
+            <summary>
+            Gets or sets value which defines if multiselect is enabled for select edit element.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.Source">
+            <summary>
+            Get or sets the source for element of type image.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.TimeValidation">
+            <summary>
+            Gets or sets if the value should be valid time (hh:mm format and optional am/pm at the end).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnEditableAttribute.UrlValidation">
+            <summary>
+            Gets or sets if the value should be valid url.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridRefreshModes">
+            <summary>
+            Defines available refresh modes for jqGrid
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridRefreshModes.FirstPage">
+            <summary>
+            The grid refreshes to the first page
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridRefreshModes.Current">
+            <summary>
+            The grid refreshes to the current page with current selection
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions">
+            <summary>
+            Class which represents options for predefined formatter.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.AddParam">
+            <summary>
+            Gets or sets the additional parameter that can be added after the IdName property for showlink
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.BaseLinkUrl">
+            <summary>
+            Gets or sets the link for showlink
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.DecimalPlaces">
+            <summary>
+            Gets or set how many decimal places we should there be for a number.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.DecimalSeparator">
+            <summary>
+            Gets or sets the separator for the decimals.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.DefaulValue">
+            <summary>
+            Gets or sets the default value if nothing in the data
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.Disabled">
+            <summary>
+            Gets or sets  if the checkbox value can be changed.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.IdName">
+            <summary>
+            Gets or sets the first parameter that is added after the ShowAction for showlink
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.Prefix">
+            <summary>
+            Gets or sets the text which is puted before the number.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.ShowAction">
+            <summary>
+            Gets or sets the additional value which is added after the BaseLinkUrl for showlink.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.SourceFormat">
+            <summary>
+            Gets or sets the source format of the date that should be converted
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.Suffix">
+            <summary>
+            Gets or sets the text that is added after the number
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.Target">
+            <summary>
+            Gets or sets the target property for link or additional attribute for showlink
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.TargetFormat">
+            <summary>
+            Gets or sets the target format of the date that should be converted
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormatterOptions.ThousandsSeparator">
+            <summary>
+            Gets or sets the separator for the thousands.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditTypes">
+            <summary>
+            Defines available types of editable fields for jqGrid
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditTypes.Text">
+            <summary>
+            Input element of type text.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditTypes.TextArea">
+            <summary>
+            Input element of type textarea.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditTypes.Select">
+            <summary>
+            Select element
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditTypes.CheckBox">
+            <summary>
+            Input element of type checkbox
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditTypes.Password">
+            <summary>
+            Input element of type password
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditTypes.Button">
+            <summary>
+            Input element of type button
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditTypes.Image">
+            <summary>
+            Input element of type image
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditTypes.File">
+            <summary>
+            Input element of type file
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditTypes.Custom">
+            <summary>
+            Custom editable element
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridSubgridModel`1">
+            <summary>
+            Class which represents subgrid model for jqGrid.
+            </summary>
+            <typeparam name="TModel">Type of model for grid</typeparam>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridSubgridModel`1.#ctor">
+            <summary>
+            Initializes a new instance of the JqGridSubgridModel class.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridAlignments">
+            <summary>
+            Defines available alignments of various jqGrid elements
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridAlignments.Left">
+            <summary>
+            Align to left
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridAlignments.Center">
+            <summary>
+            Align center
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridAlignments.Right">
+            <summary>
+            Align to rigth
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormOptions">
+            <summary>
+            Class which represents additional column options for jqGrid form editing.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormOptions.ColumnPosition">
+            <summary>
+            Gets or sets the column position of the element (with the label) in the form (one-based).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormOptions.ElementPrefix">
+            <summary>
+            Gets or sets the text or HTML content to appear before the input element.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormOptions.ElementSuffix">
+            <summary>
+            Gets or sets the text or HTML content to appear after the input element.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormOptions.Label">
+            <summary>
+            Gets or sets the text which will replace the name from ColumnNames as label in the form.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnFormOptions.RowPosition">
+            <summary>
+            Gets or sets the row position of the element (with the label) in the form (one-based).
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridNestedSetTreeRecord">
+            <summary>
+            Class which represents TreeGrid record for jqGrid in nested set model.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridNestedSetTreeRecord.#ctor(System.String,System.Collections.Generic.List{System.Object},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the JqGridNestedSetTreeRecord class.
+            </summary>
+            <param name="id">The record identifier.</param>
+            <param name="values">The list of values for cells.</param>
+            <param name="level">The level of the record in the hierarchy.</param>
+            <param name="leftField">The rowid of the record to the left.</param>
+            <param name="rightField">The rowid of the record to the right.</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNestedSetTreeRecord.LeftField">
+            <summary>
+            Gets the rowid of the record to the left.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridNestedSetTreeRecord.RightField">
+            <summary>
+            Gets the rowid of the record to the right.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnSearchTypes">
+            <summary>
+            Defines available types of search fields for jqGrid
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnSearchTypes.Text">
+            <summary>
+            Input element of type text.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnSearchTypes.Select">
+            <summary>
+            Select element
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridJsonResult">
+            <summary>
+            Represents a class that is used to send object from Lib.Web.Mvc.JQuery.JqGrid namespace as JSON-formatted content to the response, converted the way jqGrid expects it.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridJsonResult.#ctor">
+            <summary>
+            Initializes a new instance of the JqGridJsonResult class.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridJsonResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            When called by the action invoker, writes the JSON formatted result to the response.
+            </summary>
+            <param name="context">The context that the result is executed in.</param>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSearchableAttribute">
+            <summary>
+            Specifies the searching options for column
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSearchableAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the JqGridColumnSearchableAttribute class.
+            </summary>
+            <param name="searchable">If this column can be searched</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSearchableAttribute.#ctor(System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the JqGridColumnSearchableAttribute class.
+            </summary>
+            <param name="searchable">If this column can be searched</param>
+            <param name="dataUrlRouteName">Route name for the URL to get the AJAX data for the select element (if is JqGridColumnSearchTypes.Select)</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSearchableAttribute.#ctor(System.Boolean,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the JqGridColumnSearchableAttribute class.
+            </summary>
+            <param name="searchable">If this column can be searched</param>
+            <param name="dataUrlAction">Action for the URL to get the AJAX data for the select element (if is JqGridColumnSearchTypes.Select)</param>
+            <param name="dataUrlController">Controller for the URL to get the AJAX data for the select element (if is JqGridColumnSearchTypes.Select)</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSearchableAttribute.#ctor(System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the JqGridColumnSearchableAttribute class.
+            </summary>
+            <param name="searchable">If this column can be searched</param>
+            <param name="dataUrlAction">Action for the URL to get the AJAX data for the select element (if is JqGridColumnSearchTypes.Select)</param>
+            <param name="dataUrlController">Controller for the URL to get the AJAX data for the select element (if is JqGridColumnSearchTypes.Select)</param>
+            <param name="dataUrlAreaName">Area for the URL to get the AJAX data for the select element (if is JqGridColumnSearchTypes.Select)</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSearchableAttribute.DefaultValue">
+            <summary>
+            Gets or sets the default value in the search input element.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSearchableAttribute.Searchable">
+            <summary>
+            Gets the value defining if this column can be searched.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSearchableAttribute.SearchHidden">
+            <summary>
+            Gets or sets the value which defines if hidden column can be searched.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSearchableAttribute.SearchOperators">
+            <summary>
+            Gets or sets the available search operators for the column (default JqGridSearchOperators.Eq).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSearchableAttribute.SearchType">
+            <summary>
+            Gets or sets the type of the search field (default JqGridColumnSearchTypes.Text).
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions">
+            <summary>
+            Class which represents options for jqGrid filter grid.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions.Type">
+            <summary>
+            Gets or sets the type of the filter grid.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions.ButtonsClass">
+            <summary>
+            Gets or sets the name of CSS class which will be applied to the buttons.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions.ClearEnabled">
+            <summary>
+            Gets or sets the value indicating if clear button is enabled.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions.ClearText">
+            <summary>
+            Gets or sets the text for clear button.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions.FormClass">
+            <summary>
+            Gets or sets the name of CSS class which will be applied to the form.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions.MarkSearched">
+            <summary>
+            Gets or sets the value indicating if after a search every column to which search is applied is marked as searchable.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions.SearchEnabled">
+            <summary>
+            Gets or sets the value indicating if search button is enabled.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions.SearchText">
+            <summary>
+            Gets or sets the text for search button.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions.TableClass">
+            <summary>
+            Gets or sets the name of CSS class which will be applied to the table.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridOptions.Url">
+            <summary>
+            Gets or sets a separate url for searching values.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridAdjacencyTreeRecord`1">
+            <summary>
+            Class which represents TreeGrid record for jqGrid in adjacency model.
+            </summary>
+            <typeparam name="TModel">Type of model for this grid</typeparam>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridAdjacencyTreeRecord">
+            <summary>
+            Class which represents TreeGrid record for jqGrid in adjacency model.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridAdjacencyTreeRecord.#ctor(System.String,System.Collections.Generic.List{System.Object},System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the JqGridAdjacencyTreeRecord class.
+            </summary>
+            <param name="id">The record identifier.</param>
+            <param name="values">The list of values for cells.</param>
+            <param name="level">The level of the record in the hierarchy.</param>
+            <param name="parentId">The id of parent of this record.</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridAdjacencyTreeRecord.ParentId">
+            <summary>
+            Gets the id of parent of this record.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridAdjacencyTreeRecord`1.#ctor(System.String,`0,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the JqGridAdjacencyTreeRecord class.
+            </summary>
+            <param name="id">The record identifier.</param>
+            <param name="value">The value for record.</param>
+            <param name="level">The level of the record in the hierarchy.</param>
+            <param name="parentId">The id of parent of this record.</param>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnSearchOptions">
+            <summary>
+            Class which represents options for jqGrid searchable column
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnSearchOptions.DataUrl">
+            <summary>
+            Gets or sets the URL to get the AJAX data for the select element (if SearchType is JqGridColumnSearchTypes.Select)
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnSearchOptions.DefaultValue">
+            <summary>
+            Gets or sets the default value in the search input element.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnSearchOptions.SearchHidden">
+            <summary>
+            Gets or sets the value which defines if hidden column can be searched.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnSearchOptions.SearchOperators">
+            <summary>
+            Gets or sets the available search operators for the column.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridSortingOrders">
+            <summary>
+            jqGrid sorting order values
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSortingOrders.Asc">
+            <summary>
+            Ascending
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridSortingOrders.Desc">
+            <summary>
+            Descending
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridNestedSetTreeRecord`1">
+            <summary>
+            Class which represents TreeGrid record for jqGrid in nested set model.
+            </summary>
+            <typeparam name="TModel">Type of model for this grid</typeparam>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridNestedSetTreeRecord`1.#ctor(System.String,`0,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the JqGridNestedSetTreeRecord class.
+            </summary>
+            <param name="id">The record identifier.</param>
+            <param name="value">The value for record.</param>
+            <param name="level">The level of the record in the hierarchy.</param>
+            <param name="leftField">The rowid of the record to the left.</param>
+            <param name="rightField">The rowid of the record to the right.</param>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridTypes">
+            <summary>
+            Defines available types of jqGrid filter grid.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridTypes.Horizontal">
+            <summary>
+            Filter grid with horizontal orientation.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.JqGridFilterGridTypes.Vertical">
+            <summary>
+            Filter grid with vertical orientation.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.Html.RenderXmlExtensions">
+            <summary>
+            Provides support for rendering a XML.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.Xml.XmlDocument,System.Xml.Xsl.XslCompiledTransform)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="xmlDocument">The XML document</param>
+            <param name="transform">The XSLT transformation</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.Xml.XmlDocument,System.Xml.Xsl.XslCompiledTransform,System.Xml.Xsl.XsltArgumentList)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="xmlDocument">The XML document</param>
+            <param name="transform">The XSLT transformation</param>
+            <param name="transformArgumentList">The XSLT transformation arguments list</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.Xml.XmlDocument,System.String)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="xmlDocument">The XML document</param>
+            <param name="transformSource">The XSLT transformation source</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.Xml.XmlDocument,System.String,System.Xml.Xsl.XsltArgumentList)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="xmlDocument">The XML document</param>
+            <param name="transformSource">The XSLT transformation source</param>
+            <param name="transformArgumentList">The XSLT transformation arguments list</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.Xml.XPath.XPathNavigator,System.Xml.Xsl.XslCompiledTransform)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="xpathNavigator">The XML XPath navigator</param>
+            <param name="transform">The XSLT transformation</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.Xml.XPath.XPathNavigator,System.Xml.Xsl.XslCompiledTransform,System.Xml.Xsl.XsltArgumentList)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="xpathNavigator">The XML XPath navigator</param>
+            <param name="transform">The XSLT transformation</param>
+            <param name="transformArgumentList">The XSLT transformation arguments list</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.Xml.XPath.XPathNavigator,System.String)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="xpathNavigator">The XML XPath navigator</param>
+            <param name="transformSource">The XSLT transformation source</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.Xml.XPath.XPathNavigator,System.String,System.Xml.Xsl.XsltArgumentList)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="xpathNavigator">The XML XPath navigator</param>
+            <param name="transformSource">The XSLT transformation source</param>
+            <param name="transformArgumentList">The XSLT transformation arguments list</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.String,System.Xml.Xsl.XslCompiledTransform)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="documentSource">The XML path</param>
+            <param name="transform">The XSLT transformation</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.String,System.Xml.Xsl.XslCompiledTransform,System.Xml.Xsl.XsltArgumentList)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="documentSource">The XML path</param>
+            <param name="transform">The XSLT transformation</param>
+            <param name="transformArgumentList">The XSLT transformation arguments list</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.String,System.String)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="documentSource">The XML path</param>
+            <param name="transformSource">The XSLT transformation source</param>
+        </member>
+        <member name="M:Lib.Web.Mvc.Html.RenderXmlExtensions.RenderXml(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Xml.Xsl.XsltArgumentList)">
+            <summary>
+            Renders the specified XML by using the specified HMTL helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper</param>
+            <param name="documentSource">The XML path</param>
+            <param name="transformSource">The XSLT transformation source</param>
+            <param name="transformArgumentList">The XSLT transformation arguments list</param>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridResponse">
+            <summary>
+            Class which represents response for jqGrid.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridResponse.#ctor">
+            <summary>
+            Initializes a new instance of the JqGridResponse class.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridResponse.PageIndex">
+            <summary>
+            Gets or sets the index (zero based) of page to return
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridResponse.TotalPagesCount">
+            <summary>
+            Gets or sets total pages count
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridResponse.TotalRecordsCount">
+            <summary>
+            Gets or sets total records count
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridResponse.Records">
+            <summary>
+            Gets the records list
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequestSearchingFilters">
+            <summary>
+            Class which represents filters in request from jqGrid.
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequestSearchingFilters.#ctor">
+            <summary>
+            Initializes a new instance of the JqGridRequestSearchingFilters class.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequestSearchingFilters.GroupingOperator">
+            <summary>
+            Gets the operator grouping the filters.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequestSearchingFilters.Filters">
+            <summary>
+            Gets the list of filters.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSortableAttribute">
+            <summary>
+            Specifies the sorting options for column
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSortableAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the JqGridColumnSortingNameAttribute class.
+            </summary>
+            <param name="sortable">If this column can be sorted</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSortableAttribute.Sortable">
+            <summary>
+            Gets the value defining if this column can be sorted.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSortableAttribute.Index">
+            <summary>
+            Gets or sets the index name for sorting and searching.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnSortableAttribute.InitialSortingOrder">
+            <summary>
+            Gets or sets the sorting order for first column sorting (default JqGridSortingOrders.Asc).
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.XmlActionResult">
+            <summary>
+            Action result for XML with optional XSL Transformation
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.XmlActionResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            When called by the action invoker, renders the result of XML transformation to the response.
+            </summary>
+            <param name="context">The context that the result is executed in.</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.XmlActionResult.Document">
+            <summary>
+            Gets or sets the XmlDocument to write to the response.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.XmlActionResult.DocumentContent">
+            <summary>
+            Gets or sets a string that contains the XML document to write to the response.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.XmlActionResult.DocumentSource">
+            <summary>
+            Gets or sets the path to an XML document to write to the response.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.XmlActionResult.Transform">
+            <summary>
+            Gets or sets the XslCompiledTransform object that formats the XML document before it is written to the response.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.XmlActionResult.TransformArgumentList">
+            <summary>
+            Gets or sets a XsltArgumentList that contains a list of optional arguments passed to the style sheet and used during the XSL transformation.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.XmlActionResult.TransformSource">
+            <summary>
+            Gets or sets the path to an XSL Transformation style sheet that formats the XML document before it is written to the response.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.XmlActionResult.XPathNavigator">
+            <summary>
+            Gets or sets a cursor model for navigating and editing the XML data to write to the response.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequestSearchingFilter">
+            <summary>
+            Class which represents filter in request from jqGrid.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequestSearchingFilter.SearchingName">
+            <summary>
+            Gets the searching column name.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequestSearchingFilter.SearchingValue">
+            <summary>
+            Gets the searching value.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridRequestSearchingFilter.SearchingOperator">
+            <summary>
+            Gets the searching operator.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnLayoutAttribute">
+            <summary>
+            Specifies the layout attributes of grid column
+            </summary>
+        </member>
+        <member name="M:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnLayoutAttribute.#ctor(Lib.Web.Mvc.JQuery.JqGrid.JqGridAlignments)">
+            <summary>
+            Initializes a new instance of the JqGridColumnLayoutAttribute class.
+            </summary>
+            <param name="alignment">The alignment of the cell in the grid body layer</param>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnLayoutAttribute.Alignment">
+            <summary>
+            Gets the alignment of the cell in the grid body layer.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnLayoutAttribute.Classes">
+            <summary>
+            Gets or sets additional CSS classes for the column (separated by space).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnLayoutAttribute.Fixed">
+            <summary>
+            Gets or sets the value which defines if internal recalculation of the width of the column is disabled (default false).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnLayoutAttribute.Resizable">
+            <summary>
+            Gets or sets the value which defines if column can be resized (default true).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.DataAnnotations.JqGridColumnLayoutAttribute.Width">
+            <summary>
+            Gets or sets the initial width in pixels of the column (default 150).
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules">
+            <summary>
+            Class which represents rules for jqGrid editable column
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.Custom">
+            <summary>
+            Gets or sets if the value should be validated with custom function.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.CustomFunction">
+            <summary>
+            Gets or sets the name of custom validation function
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.Date">
+            <summary>
+            Gets or sets if the value should be valid ISO date.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.EditHidden">
+            <summary>
+            Gets or sets the value which defines if hidden column can be edited in form editing.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.Email">
+            <summary>
+            Gets or sets if the value should be valid email
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.Integer">
+            <summary>
+            Gets or sets if the value should be valid integer.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.MaxValue">
+            <summary>
+            Gets or set the maximum value.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.MinValue">
+            <summary>
+            Gets or sets the minimum value.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.Number">
+            <summary>
+            Gets or sets if the value should be valid number
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.Required">
+            <summary>
+            Gets or sets if the value is required.
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.Time">
+            <summary>
+            Gets or sets if the value should be valid time (hh:mm format and optional am/pm at the end).
+            </summary>
+        </member>
+        <member name="P:Lib.Web.Mvc.JQuery.JqGrid.JqGridColumnEditRules.Url">
+            <summary>
+            Gets or sets if the value should be valid url.
+            </summary>
+        </member>
+        <member name="T:Lib.Web.Mvc.JQuery.JqGrid.Constants.JqGridColumnPredefinedFormatters">
+            <summary>
+            Contains predefined jqGrid formatters names, delimited with ''
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.Constants.JqGridColumnPredefinedFormatters.Integer">
+            <summary>
+            Predefined integer formater.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.Constants.JqGridColumnPredefinedFormatters.Number">
+            <summary>
+            Predefined number formater.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.Constants.JqGridColumnPredefinedFormatters.Currency">
+            <summary>
+            Predefined currency formater.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.Constants.JqGridColumnPredefinedFormatters.Date">
+            <summary>
+            Predefined date formater.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.Constants.JqGridColumnPredefinedFormatters.Email">
+            <summary>
+            Predefined email formater.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.Constants.JqGridColumnPredefinedFormatters.Link">
+            <summary>
+            Predefined link formater.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.Constants.JqGridColumnPredefinedFormatters.ShowLink">
+            <summary>
+            Predefined showlink formater.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.Constants.JqGridColumnPredefinedFormatters.CheckBox">
+            <summary>
+            Predefined checkbox formater.
+            </summary>
+        </member>
+        <member name="F:Lib.Web.Mvc.JQuery.JqGrid.Constants.JqGridColumnPredefinedFormatters.Select">
+            <summary>
+            Predefined select formater.
+            </summary>
+        </member>
+    </members>
+</doc>

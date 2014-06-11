@@ -1,0 +1,74 @@
+﻿@using PTF.Reports
+@using PTF.Reports.Common
+@using PTF.Reports.Models
+@using PTF.Reports.Controllers
+@using PTF.Reports.PTFReportsDB
+@model IEnumerable<UserModel>
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/Administration.cshtml";
+}
+<div id="main">
+    <!-- Hack: DON'T Remove the div below -->
+    <div id="DataTable">
+        @{
+            var grid = new WebGrid(canPage: true, canSort: true, rowsPerPage: AdministrationController.PAGESIZE,
+                ajaxUpdateContainerId: "DataTable");
+            grid.Bind(Model, rowCount: ViewBag.Count, autoSortAndPage: false);
+            grid.Pager(WebGridPagerModes.All);        
+
+            @grid.GetHtml(
+                        htmlAttributes: new { id = "DataTable" },
+                        alternatingRowStyle: "alt",
+                        columns: grid.Columns(
+                                        grid.Column(
+                                        header: "",
+                                        columnName: "View",
+                                                format: (item) => Html.ActionLink("View", "ViewUser", new { id = item.Value.UserID })),
+                                        grid.Column(
+                                        header: "",
+                                        columnName: "Edit",
+                                                format: (item) => Html.ActionLink("Edit", "EditUser", new { id = item.Value.UserID })),
+                                        grid.Column(
+                                                header: "",
+                                                columnName: "Delete",
+                                                format: (item) => Html.ActionLink("Del", "DeleteUser", "Administration", new { id = item.Value.UserID },
+                                                           new { @class = "ShowModalLink", title = "Delete", data_dialog_title = "Delete" })),
+                                        grid.Column(
+                                                header: "",
+                                                columnName: "Company",
+                                                format: (item) => Html.ActionLink("Comp", "RetailerPermission", new { id = item.Value.UserID })),
+                                        grid.Column(
+                                                header: "",
+                                                columnName: "LogAs",
+                                                format: (item) => Html.ActionLink("LogAs", "LogAs", new { id = item.Value.UserID })),
+                                        grid.Column("Login"),
+                                        grid.Column("UserType"),
+                                        grid.Column("Name"),
+                                        grid.Column("Surname"),
+                                        grid.Column("Language"),
+                                        grid.Column("Email"),
+                                        grid.Column("Company"),
+                                        grid.Column("BlockedAt"),
+                                        grid.Column(
+                                                header: "",
+                                                columnName: "Unblock",
+                                                         format: (item) => Html.ActionLink("Unblk", "UnBlockUser", new { id = item.Value.UserID }))));
+        }
+    </div>
+    @{
+        var user = Session[Strings.USER].Cast<UserDetail>();
+        if (user != null && user.IsLoggedAs)
+        {
+        <p>
+            @Html.ActionLink("UnLogAs Back", "UnLogAs")
+        </p>
+        }
+    }
+    <p>
+        @Html.ActionLink("Create New", "AddUser")
+    </p>
+    <p>
+        @Html.ActionLink("Back", "Index")
+    </p>
+</div>
