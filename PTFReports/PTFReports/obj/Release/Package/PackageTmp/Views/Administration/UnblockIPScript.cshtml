@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "UnblockIPScript";
+    Layout = "~/Views/Shared/Administration.cshtml";
+}
+<h2>
+    Generate Unblock IP Script</h2>
+Please send this url to client and ask them to click on it<br />
+from machine that is blocked. It's valid once<br />
+@Html.TextArea("txt1", Html.Encode(ViewData["LINK"]), new { cols = 75, rows = 5 })
+<p>
+    @Html.ActionLink("Back", "Index")
+</p>

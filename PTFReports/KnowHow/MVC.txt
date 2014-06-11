@@ -1,0 +1,759 @@
+﻿http://blogs.silverlight.net/blogs/justinangel/archive/2008/11/18/silverlight-toolkit-treeview-treeviewitem-amp-hierarchaldatatemplate.aspx
+
+silverlight download
+
+http://code.msdn.microsoft.com/silverlight/CSSL4MusicPlayer-069bbbf8
+http://stackoverflow.com/questions/5070339/custom-authorize-attribute
+
+public static void Add(Project project) 
+{ 
+	var context = new Entities(); 
+	context.AddToProjects(project); 
+	context.SaveChanges(); 
+} 
+
+public static Project GetProjectByID(int projectID) 
+{ 
+	var context = new Entities(); 
+	return context.Projects.Where(p => p.ProjectID == projectID).First(); 
+} 
+
+public static void UpdateProject(Project project) //SaveEntity
+{ 
+	var context = new Entities(); 
+	project.EntityKey = new EntityKey("Entities.Projects", "ProjectID", project.ProjectID); 
+	context.Attach(project); 
+	context.ObjectStateManager.ChangeObjectState(project, EntityState.Modified);
+	context.SaveChanges(); 
+} 
+
+======================================================
+Page 104 
+<%= Html.DropDownList("Country", ViewData["Countries"] as SelectList) %>
+<% Html.RenderPartial("DinnerFormat"); %>
+
+=======================================================
+
+<html>
+<head>
+<title>Index</title>
+</head>
+<body>
+<div>
+Product ID: <b>@Model.ProductID</b>
+<br />
+Name: <b>@Model.Name</b>
+<br />
+Description: <b>@Model.Description</b>
+<br />
+Category: <b>@Model.Category</b>
+<br />
+Price: <b>@Model.Price</b>
+<br />
+@{
+if (Model.Price >= 50000)
+{
+<p>Laptop Model: @Model.Name is really very costly.</p>
+}
+if(Model.Category=="Computer")
+{
+<b>One day I will buy this.</b>
+}
+}
+</div>
+</body>
+</html>
+
+========================================================
+
+
+
+========================================================
+
+GET - POST
+
+//
+// GET: /Dinners/Edit/2
+public ActionResult Edit(int id) {
+...
+}
+//
+// POST: /Dinners/Edit/2
+[AcceptVerbs(HttpVerbs.Post)]
+public ActionResult Edit(int id, FormCollection formValues) {
+// Retrieve existing dinner
+Dinner dinner = dinnerRepository.GetDinner(id);
+// Update dinner with form posted values
+dinner.Title = Request.Form["Title"];
+dinner.Description = Request.Form["Description"];
+dinner.EventDate = DateTime.Parse(Request.Form["EventDate"]);
+dinner.Address = Request.Form["Address"];
+dinner.Country = Request.Form["Country"];
+dinner.ContactPhone = Request.Form["ContactPhone"];
+// Persist changes back to database
+dinnerRepository.Save();
+// Perform HTTP redirect to details page for the saved Dinner
+return RedirectToAction("Details", new { id = dinner.DinnerID });
+}
+
+//
+// POST: /Dinners/Edit/2
+[AcceptVerbs(HttpVerbs.Post)]
+public ActionResult Edit(int id, FormCollection formValues) {
+Dinner dinner = dinnerRepository.GetDinner(id);
+UpdateModel(dinner);
+dinnerRepository.Save();
+return RedirectToAction("Details", new { id = dinner.DinnerID });
+}
+
+DELETE POST
+----------------
+<asp:Content ID="Title" ContentPlaceHolderID="head" runat="server">
+Delete Confirmation: <%=Html.Encode(Model.Title) %>
+</asp:Content>
+<asp:Content ID="Main" ContentPlaceHolderID="MainContent" runat="server">
+<h2>
+Delete Confirmation
+</h2>
+<div>
+<p>Please confirm you want to cancel the dinner titled:
+<i> <%=Html.Encode(Model.Title) %>? </i> </p>
+</div>
+<% using (Html.BeginForm()) { %>
+	<input name="confirmButton" type="submit" value="Delete" />
+<% } %>
+</asp:Content>
+
+--------------------
+public ActionResult Delete(int id, string confirmButton)
+
+//
+// HTTP POST: /Dinners/Delete/1
+[AcceptVerbs(HttpVerbs.Post)]
+public ActionResult Delete(int id, string confirmButton) {
+Dinner dinner = dinnerRepository.GetDinner(id);
+if (dinner == null)
+return View("NotFound");
+
+dinnerRepository.Delete(dinner);
+dinnerRepository.Save();
+return View("Deleted");
+}
+
+
+=======================================================
+ERRORS
+
+//
+// POST: /Dinners/Edit/2
+[AcceptVerbs(HttpVerbs.Post)]
+public ActionResult Edit(int id, FormCollection formValues) {
+Dinner dinner = dinnerRepository.GetDinner(id);
+try {
+UpdateModel(dinner);
+dinnerRepository.Save();
+return RedirectToAction("Details", new { id=dinner.DinnerID });
+}
+catch {
+foreach (var issue in dinner.GetRuleViolations()) {
+ModelState.AddModelError(issue.PropertyName, issue.ErrorMessage);
+}
+return View(dinner);
+}
+}
+
+=======================================================
+AUTORIZE
+
+//
+// GET: /Dinners/Create
+[Authorize]
+public ActionResult Create() {
+...
+}
+
+//
+// POST: /Dinners/Create
+[AcceptVerbs(HttpVerbs.Post), Authorize]
+public ActionResult Create(Dinner dinnerToCreate) {
+
+
+
+[Authorize(Users="scottgu,billg")]
+public ActionResult Create() {
+...
+}
+
+
+======================================================
+
+//
+// POST: /Dinners/Create
+[AcceptVerbs(HttpVerbs.Post), Authorize]
+public ActionResult Create(Dinner dinner) {
+if (ModelState.IsValid) {
+try {
+dinner.HostedBy = User.Identity.Name;
+RSVP rsvp = new RSVP();
+rsvp.AttendeeName = User.Identity.Name;
+dinner.RSVPs.Add(rsvp);
+dinnerRepository.Add(dinner);
+dinnerRepository.Save();
+return RedirectToAction("Details", new { id=dinner.DinnerID });
+}
+catch {
+ModelState.AddModelErrors(dinner.GetRuleViolations());
+}
+}
+return View(new DinnerFormViewModel(dinner));
+}
+=========================================
+
+string[] allowedProperties = new[]{ "Title", "Description",
+"ContactPhone", "Address",
+"EventDate", "Latitude",
+"Longitude"};
+UpdateModel(dinner, allowedProperties);
+
+==========================================
+
+
+
+
+//
+// POST: /Dinners/Create
+[AcceptVerbs(HttpVerbs.Post)]
+public ActionResult Create( [Bind(Include="Title,Address")] Dinner dinner ) {
+...
+}
+
+[Bind(Include="Title,Description,EventDate,Address,Country,ContactPhone,Latitude,Longitude")]
+public partial class Dinner {
+}
+
+
+
+============================================
+
+
+public class DinnerRepository {
+private NerdDinnerDataContext db = new NerdDinnerDataContext();
+
+//
+// Query Methods
+public IQueryable<Dinner> FindUpcomingDinners() {
+return from dinner in db.Dinners
+where dinner.EventDate > DateTime.Now
+orderby dinner.EventDate
+select dinner;
+}
+
+
+
+=============================================
+
+
+//
+// GET: /Dinners/
+//
+/Dinners?page=2
+public ActionResult Index(int? page) {
+const int pageSize = 10;
+var upcomingDinners = dinnerRepository.FindUpcomingDinners();
+var paginatedDinners = upcomingDinners.Skip((page ?? 0) * pageSize).Take(pageSize).ToList();
+return View(paginatedDinners);
+}
+
+==============================================
+PAGING 
+------------
+public class PaginatedList<T> : List<T> {
+
+public int PageIndex {get;private set;}
+public int PageSize {get;private set;}
+public int TotalCount {get;private set;}
+public int TotalPages {get;private set;}
+
+public PaginatedList(IQueryable<T> source, int pageIndex, int pageSize) {
+PageIndex = pageIndex;
+PageSize = pageSize;
+TotalCount = source.Count();
+TotalPages = (int) Math.Ceiling(TotalCount / (double)PageSize);
+this.AddRange(source.Skip(PageIndex * PageSize).Take(PageSize));
+}
+public bool HasPreviousPage {
+get {
+return (PageIndex > 0);
+}
+}
+public bool HasNextPage {
+get {
+return (PageIndex+1 < TotalPages);
+}
+}
+}
+
+//
+// GET: /Dinners/
+//
+/Dinners/Page/2
+public ActionResult Index(int? page) {
+const int pageSize = 10;
+var upcomingDinners = dinnerRepository.FindUpcomingDinners();
+var paginatedDinners = new PaginatedList<Dinner>(upcomingDinners,
+page ?? 0,
+pageSize);
+return View(paginatedDinners);
+}
+
+<% if (Model.HasPreviousPage) { %>
+<%= Html.RouteLink("<<<",
+"UpcomingDinners",
+new { page=(Model.PageIndex-1) }) %>
+<% } %>
+<% if (Model.HasNextPage) { %>
+<%= Html.RouteLink(">>>",
+"UpcomingDinners",
+new { page = (Model.PageIndex + 1) })%>
+<% } %>
+
+
+
+============================================================
+
+Showing/Hiding Edit and Delete Links
+
+//
+// GET: /Dinners/Details/5
+public ActionResult Details(int id) {
+Dinner dinner = dinnerRepository.GetDinner(id);
+if (dinner == null)
+return View("NotFound");
+return View(dinner);
+}
+We can update our view template to conditionally show/hide the Edit and Delete links by using the
+Dinner.IsHostedBy() helper method like below:
+<% if (Model.IsHostedBy(Context.User.Identity.Name)) { %>
+<%= Html.ActionLink("Edit Dinner", "Edit", new { id=Model.DinnerID })%> |
+<%= Html.ActionLink("Delete Dinner", "Delete", new {id=Model.DinnerID})%>
+<% } %>
+
+============================================================
+
+Calling the Register Action Method using AJAX
+
+<script src="/Scripts/MicrosoftAjax.js" type="text/javascript"></script>
+<script src="/Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script>
+
+<div id="rsvpmsg">
+<% if (Request.IsAuthenticated) { %>
+<% if (Model.IsUserRegistered(Context.User.Identity.Name)) { %>
+<p>You are registered for this event!</p>
+<% } else { %>
+<%= Ajax.ActionLink( "RSVP for this event", "Register", "RSVP", 
+		new { id=Model.DinnerID }, new AjaxOptions { UpdateTargetId="rsvpmsg" }) %>
+<% } %>
+<% } else { %>
+<a href="/Account/Logon">Logon</a> to RSVP for this event.
+<% } %>
+</div>
+
+=============================================================
+Adding a jQuery Animation
+
+<script src="/Scripts/jQuery-1.3.2.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+function AnimateRSVPMessage() {
+$("#rsvpmsg").animate({fontSize: "1.5em"}, 400);
+}
+</script>
+
+<%= Ajax.ActionLink( "RSVP for this event", "Register", "RSVP",
+		new { id=Model.DinnerID }, new AjaxOptions { UpdateTargetId="rsvpmsg", OnSuccess="AnimateRSVPMessage" }) %>
+
+==============================================================
+MAPS
+Creating a Map Partial View
+
+<script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.2" type="text/javascript"></script>
+<script src="/Scripts/Map.js" type="text/javascript"></script>
+
+<div id="theMap">
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+var latitude = <%=Model.Latitude %>;
+var longitude = <%=Model.Longitude %>;
+if ((latitude == 0) || (longitude == 0))
+LoadMap();
+else
+LoadMap(latitude, longitude, mapLoaded);
+});
+
+function mapLoaded() {
+var title = "<%= Html.Encode(Model.Title) %>";
+var address = "<%= Html.Encode(Model.Address) %>";
+LoadPin(center, title, address);
+map.SetZoomLevel(14);
+}
+
+</script>
+
+var map = null;
+var points = [];
+var shapes = [];
+var center = null;
+
+function LoadMap(latitude, longitude, onMapLoaded) {
+map = new VEMap('theMap');
+options = new VEMapOptions();
+options.EnableBirdseye = false;
+// Makes the control bar less obtrusize.
+map.SetDashboardSize(VEDashboardSize.Small);
+if (onMapLoaded != null)
+map.onLoadMap = onMapLoaded;
+if (latitude != null && longitude != null) {
+center = new VELatLong(latitude, longitude);
+}
+map.LoadMap(center, null, null, null, null, null, null, options);
+}
+
+function LoadPin(LL, name, description) {
+var shape = new VEShape(VEShapeType.Pushpin, LL);
+//Make a nice Pushpin shape with a title and description
+shape.SetTitle("<span class=\"pinTitle\"> " + escape(name) + "</span>");
+if (description !== undefined) {
+shape.SetDescription("<p class=\"pinDetails\">" +
+escape(description) + "</p>");
+}
+map.AddShape(shape);
+points.push(LL);
+shapes.push(shape);
+}
+
+function FindAddressOnMap(where) {
+var numberOfResults = 20;
+var setBestMapView = true;
+var showResults = true;
+map.Find("", where, null, null, null,
+numberOfResults, showResults, true, true,
+setBestMapView, callbackForLocation);
+}
+
+function callbackForLocation(layer, resultsArray, places,
+hasMore, VEErrorMessage) {
+clearMap();
+if (places == null)
+return;
+//Make a pushpin for each place we find
+$.each(places, function(i, item) {
+var description = "";
+if (item.Description !== undefined) {
+description = item.Description;
+}
+
+var LL = new VELatLong(item.LatLong.Latitude,
+item.LatLong.Longitude);
+LoadPin(LL, item.Name, description);
+});
+//Make sure all pushpins are visible
+if (points.length > 1) {
+map.SetMapView(points);
+}
+//If we've found exactly one place, that's our address.
+if (points.length === 1) {
+$("#Latitude").val(points[0].Latitude);
+$("#Longitude").val(points[0].Longitude);
+}
+}
+
+function clearMap() {
+map.Clear();
+points = [];
+shapes = [];
+}
+
+
+
+
+<%= Html.ValidationSummary() %>
+<% using (Html.BeginForm()) { %>
+<fieldset>
+<div id="dinnerDiv">
+<p>
+[HTML Form Elements Removed for Brevity]
+</p>
+<p>
+<input type="submit" value="Save" />
+
+</p>
+</div>
+<div id="mapDiv">
+<% Html.RenderPartial("Map", Model.Dinner); %>
+</div>
+</fieldset>
+<script type="text/javascript">
+$(document).ready(function() {
+$("#Address").blur(function(evt) {
+$("#Latitude").val("");
+$("#Longitude").val("");
+var address = jQuery.trim($("#Address").val());
+if (address.length < 1)
+return;
+FindAddressOnMap(address);
+});
+});
+</script>
+<% } %>
+
+=======================================================
+<Grid>
+<Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0.765" Fill="#FF8A8A8A" />
+<Border CornerRadius="30" Background="#FF5C7590" Width="600" Height="250">
+    <StackPanel Margin="5, 7, 0, 5">
+        <Button Content="Close" />
+        <Grid>
+        </Grid>
+    </StackPanel>
+</Border>
+</Grid>
+	
+================================================================
+
+SilverLight
+http://silverlight.codeplex.com/wikipage?title=Silverlight%20Toolkit%20November%202008%20overview
+Themes
+http://silverlight.codeplex.com/wikipage?title=Silverlight%20Toolkit%20Overview%20Part%203
+
+================================================================
+VALIDATION 
+----------------
+
+public partial class Dinner {
+public bool IsValid {
+get { return (GetRuleViolations().Count() == 0); }
+}
+
+public IEnumerable<RuleViolation> GetRuleViolations() {
+if (String.IsNullOrEmpty(Title))
+yield return new RuleViolation("Title required", "Title");
+if (String.IsNullOrEmpty(Description))
+yield return new RuleViolation("Description required","Description");
+if (String.IsNullOrEmpty(HostedBy))
+yield return new RuleViolation("HostedBy required", "HostedBy");
+if (String.IsNullOrEmpty(Address))
+yield return new RuleViolation("Address required", "Address");
+if (String.IsNullOrEmpty(Country))
+yield return new RuleViolation("Country required", "Country");
+if (String.IsNullOrEmpty(ContactPhone))
+yield return new RuleViolation("Phone# required", "ContactPhone");
+if (!PhoneValidator.IsValidNumber(ContactPhone, Country))
+yield return new RuleViolation("Phone# does not match country",
+"ContactPhone");
+yield break;
+}
+
+
+
+partial void OnValidate(ChangeAction action) {
+if (!IsValid)
+throw new ApplicationException("Rule violations prevent saving");
+}
+}
+
+
+
+public class PhoneValidator {
+static IDictionary<string, Regex> countryRegex =
+new Dictionary<string, Regex>() {
+{ "USA", new Regex("^[2-9]\\d{2}-\\d{3}-\\d{4}$")},
+{ "UK", new Regex("(^1300\\d{6}$)|(^1800|1900|1902\\d{6}$)|(^0[2|3|7|8]{1}[0-9]{8}$)|(^13\\d{4}$)|(^04\\d{2,3}\\d{6}$)")},
+{ "Netherlands", new Regex("(^\\+[0-9]{2}|^\\+[0-9]{2}\\(0\\)|^\\(\\+[0-9]{2}\\)\\(0\\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\\-\\s]{10}$)")},
+};
+
+public static bool IsValidNumber(string phoneNumber, string country) {
+if (country != null && countryRegex.ContainsKey(country))
+return countryRegex[country].IsMatch(phoneNumber);
+else
+return false;
+}
+
+public static IEnumerable<string> Countries {
+get {
+return countryRegex.Keys;
+}
+}
+}
+
+
+
+public struct RuleViolation {
+
+public string ErrorMessage { get; private set; }
+public string PropertyName { get; private set; }
+
+public RuleViolation(string errorMessage) {
+ErrorMessage = errorMessage;
+PropertyName = null;
+}
+
+public RuleViolation(string errorMessage, string propertyName) {
+ErrorMessage = errorMessage;
+PropertyName = propertyName;
+}
+}
+
+
+
+<%= Html.TextBox("EventDate", String.Format("{0:g}", Model.EventDate)) %>
+
+.input-validation-error
+{
+border: 1px solid #ff0000;
+background-color: #ffeeee;
+}
+
+<%= Html.ValidationMessage("EventDate", "*") %>
+<%= Html.ValidationSummary("Please correct the errors and try again.") %>
+
+
+public static class ControllerHelpers {
+public static void AddRuleViolations(this ModelStateDictionary modelState,
+IEnumerable<RuleViolation> errors) {
+foreach (RuleViolation issue in errors) {
+modelState.AddModelError(issue.PropertyName, issue.ErrorMessage);
+}
+}
+}
+
+//
+// POST: /Dinners/Edit/2
+[AcceptVerbs(HttpVerbs.Post)]
+public ActionResult Edit(int id, FormCollection formValues) {
+Dinner dinner = dinnerRepository.GetDinner(id);
+try {
+UpdateModel(dinner);
+dinnerRepository.Save();
+return RedirectToAction("Details", new { id=dinner.DinnerID });
+}
+catch {
+ModelState.AddRuleViolations(dinner.GetRuleViolations());
+return View(dinner);
+}
+}
+
+<asp:Content ID="Title" ContentPlaceHolderID="TitleContent" runat="server">
+Host a Dinner
+</asp:Content>
+<asp:Content ID="Main" ContentPlaceHolderID="MainContent" runat="server">
+<h2>Host a Dinner</h2>
+<%= Html.ValidationSummary("Please correct the errors and try again.") %>
+<% using (Html.BeginForm()) {%>
+<fieldset>
+<p>
+<label for="Title">Title:</label>
+<%= Html.TextBox("Title") %>
+<%= Html.ValidationMessage("Titl= "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+============================================
+
+
+
+public static IHtmlString NavigationMenu(this System.Web.Mvc.HtmlHelper html)       
+{            
+var output = new System.Text.StringBuilder();            
+output.Append(LinkExtensions.ActionLink(html, "Home", "Index", "Home").ToHtmlString());          
+output.Append(LinkExtensions.ActionLink(html, "Products", "Index", "Home").ToHtmlString());     
+output.Append(LinkExtensions.ActionLink(html, "Matrix", "Index", "Home").ToHtmlString());  
+output.Append(LinkExtensions.ActionLink(html, "Testimonials", "Index", "Home").ToHtmlString());        
+output.Append(LinkExtensions.ActionLink(html, "About Us", "Index", "Home").ToHtmlString());           
+output.Append(LinkExtensions.ActionLink(html, "Join", "Index", "Home").ToHtmlString());            
+return html.Raw(output.ToString());       
+} 
+
+
+
+====================================================
+
+
+
+public MvcHtmlString SayHello(string name, string yadayada)
+{
+    var html = "";
+
+    if(name != null)
+        html += string.Format("<div class=\"hello\">{0} {1},</div>", 
+            Model.FunMode ? "Howdy" : "Greeting", 
+
+            Html.Encode(name));
+
+    html += "<div class=\"label\">I've always wanted to say this:</div>";
+
+    foreach (var yada in yadayada.Split(','))
+        html += string.Format("<p class=\"message\">{0}</p>", Html.Encode(yada));
+
+    return MvcHtmlString.Create(html);
+}
+
+
+
+<%: SayHello(Model.Chef, "Excellent food!,Taste of heaven,Bye bye!"); %>
+<%: SayHello(Model.Mom, "You're the best mommy,I love you,I need money"); %>
+<%: SayHello(Model.Enemy, "^@$#!!,##@#$!,%#$ %$ ^#$@$!!!!"); %>

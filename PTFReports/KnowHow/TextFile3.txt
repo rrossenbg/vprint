@@ -1,0 +1,26 @@
+Configuration :: Report Viewer Doesn't Work On '08 64 Bit Server? 
+I have a website that is using the ASP.Net report viewer web control which links to our Reporting Server.
+
+We've also built a new WebServer using Server 2008 64bit. I've had some trouble getting this to work in general,
+ but have figured it all out except for this last problem.
+
+When I publish this website to our old WebServer that uses Server 2003 32bit, I have zero problems, the reports pull up
+ as expected. But when I publish to the new webserver, the site works perfectly up until I try to load the Report Viewer page. 
+ I don't get any runtime errors, the only thing I get is the picture below. When I open up the IE errors, 
+ it basically says that it can't find any of the pictures, and everything is set to a null instance of the object.
+
+I've installed BIDS 2008, the report viewer control and sp1 for it, and have asp.net 3.5, and all of the asp.net 
+development features enabled.
+
+            ReportingService2005 server = new ReportingService2005();
+            server.Credentials = System.Net.CredentialCache.DefaultCredentials;
+
+
+
+
+
+			    <style type="text/css">
+    DIV#<%= ReportViewer1.ClientID %>_ctl00_ctl03_divDropDown 
+    { width: 320px !important;
+    } 
+</style>

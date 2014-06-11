@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<%@ Import Namespace="PTF.Reports.PTFReportsDB" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <meta name="X-FRAME-OPTIONS" content="DENY" />
+    <link href="<%: Url.Content("~/Content/Site.css") %>" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/jquery-1.7.2.min.js") %>"></script>
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/jquery-ui-1.8.9.custom.min.js") %>"></script>
+    <%: Html.Partial("LazyLoadingPartial") %>
+</head>
+<body>
+    <div id="page" class="page">
+        <div class="logo">
+            <img data-original="<%: Url.Content("~/Content/images/Header.png") %>" src="<%: Url.Content("~/Content/images/1x1.jpg") %>"
+                alt="logo" style="width: 945px; height: auto;" align="left" class="lazy" />
+        </div>
+        <div id="header" style="width: 100%; height: 20%;">
+            <div id="title" style="margin-left: 250px; margin-top: 60px;" align="center">
+                <h2 style="color: rgb(108, 108, 108); font-size: 18px; font-family: Microsoft Sans Serif;">
+                    Welcome to Premier Tax Free Merchant Reporting Portal</h2>
+            </div>
+            <div style="clear: left">
+            </div>
+        </div>
+        <div id="main" align="center" style="text-align: left;">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <% Html.RenderPartial("FooterPartial"); %>
+    </div>
+</body>
+</html>

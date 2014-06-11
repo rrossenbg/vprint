@@ -1,0 +1,51 @@
+$(document).ready(
+function () {
+    function change(sender) {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("SelectObject", "Reports")',
+            dataType: 'json',
+            data: { "Value": $(sender).attr("id") },
+            success: function (returnResult) {
+                $("#item_container").empty();
+                if (returnResult != "na") {
+                    $("#item_container").append(returnResult);
+                }
+            }
+        });
+    }
+});
+
+
+
+		[AcceptVerbs(HttpVerbs.Post)]
+[AdminAuthorize]
+public JsonResult SelectObject(ValueList details)
+{
+    //TODO: 
+    if (details.IsEmpty)
+        return Json("na");
+
+    var model = Session.Get<PermissionModel>(Strings.CachedMODEL, new PermissionModel());
+
+    model.CompanyID = details.Split<int>('C').FirstOrDefault();
+
+    var ctx1 = new PTFContext();
+
+    var branches = ctx1.Branches
+                .AsParallel()
+                .Where(br => br.br_iso_id == model.ISOID && br.br_ho_id == model.CompanyID)
+                .AsSequential()
+                .OrderBy(br => br.br_name);
+
+    StringBuilder b = new StringBuilder();
+    foreach (var br in branches)
+    {
+        //TODO://
+        b.AppendFormat("<div class=\"item\" id=\"R{0}\">" +
+                        "<label class=\"title\">{1}</label>" +
+                        "</div>", br.br_id, br.br_name);
+    }
+
+    return Json(b.ToString(), JsonRequestBehavior.AllowGet);
+}

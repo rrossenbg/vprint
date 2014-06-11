@@ -1,0 +1,71 @@
+//http://stackoverflow.com/questions/276766/asp-net-mvc-routes
+
+public static void RegisterRoutes(RouteCollection routes) 
+        { 
+ 
+                routes.IgnoreRoute("{resource}.axd/{*pathInfo}"); 
+                routes.IgnoreRoute("favicon.ico"); 
+ 
+                routes.MapRoute( 
+                        "Blog", 
+                        "Blog/{action}/{id}", 
+                        new 
+                        { 
+                                controller = "Blog", 
+                                action = "show", 
+                                id = "" 
+                        }); 
+ 
+                routes.MapRoute("Blog_Archive", "Blog/Archive/{year}/{month}/{day}",  
+                        new {  
+                                controller = "Blog", 
+                                action = "archive", 
+                                year = "", 
+                                month = "", 
+                                day = "", 
+                                page =0 
+                        }); 
+ 
+                routes.MapRoute( 
+                        "Xfire",                                      
+                        "Xfire/{action}/{id}",                        
+                        new 
+                        { 
+                                controller = "Xfire", 
+                                action = "show", 
+                                id = "" 
+                        }); 
+ 
+                routes.MapRoute( 
+                        "Photos",                                         
+                        "Photos/{action}/{id}",                           
+                        new 
+                        { 
+                                controller = "Photos", 
+                                action = "show", 
+                                id = "" 
+                        }); 
+ 
+                routes.MapRoute("About","About", 
+                                                new 
+                                                { 
+                                                        controller = "home", 
+                                                        action = "about" 
+                                                }); 
+ 
+                routes.MapRoute("Default", "{controller}/{action}/{id}", 
+                    new 
+                    { 
+                        controller = "Blog", 
+                        action = "show", 
+                        id = "" 
+                    }); 
+ 
+                routes.MapRoute("Error", "{*url}", new 
+                { 
+                        controller = "Home", 
+                        action = "Http404" 
+                , 
+                }); 
+ 
+        } 

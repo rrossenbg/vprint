@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Accordion Widget Example 1</title>
+  </head>
+  <body>
+    <ul id="myAccordion">
+      <li>
+        <a href="#">Header 1</a>
+        <div>Wow, look at all this content that can be shown or hidden with a simple click!</div>
+      </li>
+      <li>
+        <a href="#">Header 2</a>
+        <div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean sollicitudin. Sed interdum pulvinar justo. Nam iaculis volutpatligula. Integer  
+        vitae felis quis diam laoreet ullamcorper. Etiam tincidunt est vitae est. Ut posuere, mauris at sodales rutrum, turpis tellus fermentum metus, ut      
+        bibendum velit enim eu lectus. Suspendisse potenti. </div>
+      </li>
+      <li>
+        <a href="#">Header 3</a>
+        <div>Donec at dolor ac metus pharetra aliquam. Suspendisse purus. Fusce tempor ultrices libero. Sed quis nunc. Pellentesque tincidunt viverra felis.  
+        Integer elit mauris, egestas ultricies, gravida vitae, feugiat a, tellus.</div>
+      </li>
+    </ul>
+    
+    <script type="text/javascript" src="jqueryui1.6rc2/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="jqueryui1.6rc2/ui/ui.core.js"></script>
+    <script type="text/javascript" src="jqueryui1.6rc2/ui/ui.accordion.js"></script>
+    <script type="text/javascript">
+     //function to execute when doc ready
+     $(function() {
+     
+       //turn specified element into an accordion
+       $("#myAccordion").accordion();
+     });
+   </script>
+  </body>
+</html>

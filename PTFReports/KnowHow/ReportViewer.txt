@@ -1,0 +1,80 @@
+assume the question is about ReportViewer control.
+reportViewer.LocalReport.DataSources.Clear(); 
+reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsname", source)); 
+
+
+
+Reporting Services FilterData
+------------------------------------
+
+http://msdn.microsoft.com/en-us/library/cc627464.aspx
+
+========================================================================
+
+ SqlConnection cn =new SqlConnection(@"Data Source=ES-SYS-692\SQL2008;Integrated Security=SSPI;Database=mydb");
+cn.Open();
+DataSet ds=new DataSet();
+            
+SqlDataAdapter da=new SqlDataAdapter("select empno,ename,job from emp where sal>1250",cn);
+da.Fill(ds,"empds");
+
+            
+ReportDataSource RDS=new ReportDataSource("empds",ds.Tables[0]);
+
+            
+ReportViewer RV = new ReportViewer();
+RV.Visible = true;
+
+
+RV.ProcessingMode=ProcessingMode.Local;
+LocalReport lc=RV.LocalReport;
+lc.DataSources.Add(RDS);
+
+RV.LocalReport.Refresh();
+============================================================================
+
+
+public partial class ReportViewerLocalMode : System.Web.UI.Page
+{
+    public string thisConnectionString = ConfigurationManager.ConnectionStrings["NorthwindConnectionString"].ConnectionString;
+
+    /*I used the following statement to show if you have multiple 
+      input parameters, declare the parameter with the number 
+      of parameters in your application, ex. New SqlParameter[4]; */
+
+    public SqlParameter[] SearchValue = new SqlParameter[1];
+
+    protected void RunReportButton_Click(object sender, EventArgs e)
+    {
+        //ReportViewer1.Visible is set to false in design mode
+        ReportViewer1.Visible = true;
+        SqlConnection thisConnection = new SqlConnection(thisConnectionString);
+        System.Data.DataSet thisDataSet = new System.Data.DataSet();       
+        SearchValue[0] = new SqlParameter("@CategoryName", DropDownList1.SelectedValue);
+
+        /* Put the stored procedure result into a dataset */
+        thisDataSet = SqlHelper.ExecuteDataset(thisConnection, "ShowProductByCategory", SearchValue);
+
+        /*or   thisDataSet = SqlHelper.ExecuteDataset(thisConnection, 
+               "ShowProductByCategory", dropdownlist1.selectedvalue); 
+               if you only have 1 input parameter  */
+
+        /* Associate thisDataSet  (now loaded with the stored 
+           procedure result) with the  ReportViewer datasource */
+        ReportDataSource datasource = new ReportDataSource("DataSetProducts_ShowProductByCategory", thisDataSet.Tables[0]);
+
+        ReportViewer1.LocalReport.DataSources.Clear();
+        ReportViewer1.LocalReport.DataSources.Add(datasource);
+        if (thisDataSet.Tables[0].Rows.Count == 0)
+        {
+            lblMessage.Text = "Sorry, no products under this category!";
+        }
+
+        ReportViewer1.LocalReport.Refresh();
+    }
+}
+
+==========================================================
+Load Report def
+http://msdn.microsoft.com/en-us/library/aa337430.aspx
+http://msdn.microsoft.com/en-us/library/aa337390.aspx

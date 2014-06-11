@@ -1,0 +1,23 @@
+  <connectionStrings>
+    <add name="PTFReportsContext" connectionString="metadata=res://*/PTFReportsDB.PTFReportModel.csdl|res://*/PTFReportsDB.PTFReportModel.ssdl|res://*/PTFReportsDB.PTFReportModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=192.168.56.39,14330;Initial Catalog=PTF.Reports;User ID=ptf_admin;Password=Merstham123;MultipleActiveResultSets=True;encrypt=true;trustServerCertificate=true&quot;" 
+	providerName="System.Data.EntityClient" />
+    <add name="PTFContext" connectionString="metadata=res://*/PTFDB.PTFModel.csdl|res://*/PTFDB.PTFModel.ssdl|res://*/PTFDB.PTFModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=192.168.56.39,14330;Initial Catalog=PTF_Reports;User ID=ptf_admin;Password=Merstham123;MultipleActiveResultSets=True;encrypt=true;trustServerCertificate=true&quot;" 
+	providerName="System.Data.EntityClient" />
+  </connectionStrings>
+
+  Data Source=192.168.56.39,14330;Initial Catalog=PTF.Reports;User ID=ptf_admin;Password=Merstham123;
+
+
+
+<add key="ReportServerUserName" value="Trsadmin" />
+<add key="ReportServerUserPass" value="BtServ1ce" />
+<add key="ReportServerDomainName" value="fintrax" />
+  
+
+
+new MultiSelectList(Model.Stores, "Value", "Text", Model.SelectedStuff), new { size = "8" })
+
+
+
+
+http://stackoverflow.com/questions/6144513/how-can-i-use-a-reportviewer-control-in-an-asp-net-mvc-3-razor-view

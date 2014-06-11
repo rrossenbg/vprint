@@ -1,0 +1,107 @@
+﻿@using PTF.Reports
+@using PTF.Reports.Models
+@using PTF.Reports.TRSReportingService
+@model ReportParametersModel
+@{
+    Layout = null;
+}
+<style type="text/css">
+    .black
+    {
+        color: black;
+    }
+    .editor-label, .editor-field
+    {
+        font-size: 1em;
+        font-family: Calibry;
+        font-weight: normal;
+        color: #696969;
+    }
+</style>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.9.custom.min.js")"></script>  
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.autocomplete.js")"></script>
+<script type="text/javascript">
+
+    var allRetailers = false;
+
+    function select_All() {
+        allRetailers = !allRetailers;
+        var select = document.getElementById("RetailerID");
+        for (var i = 0; i < select.length; i++)
+            select[i].selected = allRetailers;
+    }
+
+    $(document).ready(function () {
+
+        $('#ShowReportForm').submit(function () {
+            var select = document.getElementById("RetailerID");
+            for (var i = 0; i < select.length; i++)
+                if (select[i].selected)
+                    return true;
+
+            alert('No retailer is selected!\nPlease select at least one retailer in the list above.');
+            return false; // The form will *not* submit 
+        });
+
+        $.ajaxSetup({ type: "POST" });
+
+        $('#txtTextTags').autocomplete("@Url.Action("GetTaggedParameters", "Reports")", {
+            dataType: 'json',
+            parse: function (data) {
+                var rows = new Array();
+                if(data != "ok")
+                {
+                    $("#RetailerID").empty(); 
+                    for (var i = 0; i < data.length; i++) 
+                        $('#RetailerID').append($("<option></option>").attr("value", data[i].ID).text(data[i].Name));  
+                }
+               return rows;
+            },
+            formatItem: function (row) {
+                return row.Name;
+            },
+            delay: 400,
+            autofill: true,
+            selectFirst: false,
+            highlight: false
+        });
+    });
+
+</script>
+@if (Model == null)
+{
+    <span>@ViewData[Strings.ERR]</span>
+}
+else
+{
+    var attrs2 = new Dictionary<string, object> { { "id", "ShowReportForm" }, { "target", "_blank" } };
+                using (Html.BeginForm("ShowReport", "Reports", FormMethod.Post, attrs2))
+                {
+    @Html.ValidationSummary(true);
+    @Html.Raw("<fieldset style='width: 400px; height: auto; margin: 0px 0px 0px 0px;' ><legend>Selection</legend>");
+                                                                                                                   
+    @Html.Raw("<a href=\"#\" style=\"text-decoration: none;\" onclick=\"SelectReportAsynch('")@string.Concat('R', Model.ReportID)
+    @Html.Raw("');\">");
+    @Html.Raw("<img alt=\"Search\" title=\"Search\" src=\"" + @Url.Content("~/Content/images/kfind.png") + "\" style=\"vertical-align: bottom; border: 0px solid black;\" />");
+    @Html.Raw("</a>&nbsp;");
+    @Html.TextBox("txtTextTags", "", new { style = "width:250px;", @class = "editor-field" })
+    @Html.Raw("<div class=\"editor-label\"><b>Report: </b>");
+    @Html.Label(Model.Name);
+    @Html.Raw("</div>");
+                       if (ViewData[ParamMapping.RetailerID.ToString()] != null)
+                       {
+    <!-- RETAILER -->
+    @Html.Raw("<div class=\"editor-field\" style=\"width:390px;\">");
+                                                                    var attrs4 = new Dictionary<string, object>();
+                                                                    attrs4.Add("size", 18);
+                                                                    attrs4.Add("class", "editor-field");
+                                                                    attrs4.Add("style", "width: 395px; color: black;");
+    <a href="#" onclick="select_All(); return false;">All</a>
+    @Html.ListBox(ParamMapping.RetailerID.ToString(),
+                        ViewData[ParamMapping.RetailerID.ToString()] as MultiSelectList, attrs4)
+    @Html.Raw("</div>");
+                       }   
+    @Html.Raw("<p><input type=\"submit\" value=\"View Report\" />");
+    @Html.Raw("</p></fieldset>");
+    }
+}

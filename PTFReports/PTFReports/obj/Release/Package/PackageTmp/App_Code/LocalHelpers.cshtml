@@ -1,0 +1,72 @@
+﻿@using System.Web.Routing
+@using System.Web.Mvc.Html
+@helper DoPager(System.Web.Mvc.HtmlHelper hh, string pageActionName, WebGrid grid, int maxPageLinks, object rvd)
+    {
+    <div class="pager">
+        <div class="pageof">
+            Page <b>@(grid.PageIndex + 1)</b> of <b>@grid.PageCount</b></div>
+        @if (grid.PageCount > 1)
+        {
+            <ul>
+                <li>
+                    @{ RouteValueDictionary rvdp1 = new RouteValueDictionary(rvd);
+                       rvdp1.Add("Page", 1);
+                    }
+                    @hh.ActionLink("<<", pageActionName, rvdp1)
+                </li>
+                @{ int start = Math.Max(0, grid.PageIndex - maxPageLinks / 2); }
+                @for (int ix = 0; ix + start < grid.PageCount; ix++)
+                {
+                    int pageno = start + ix + 1;
+                    var css = hh.Raw(pageno - 1 == grid.PageIndex ? " class=\"highlighted\"" : "");
+                    RouteValueDictionary rvdp = new RouteValueDictionary(rvd);
+                    rvdp.Add("Page", pageno);
+                    <li@css>
+                        @hh.ActionLink(pageno.ToString(), pageActionName, rvdp)
+                    </li>
+                    if (ix >= maxPageLinks) { break; }
+                }
+                <li>
+                    @{ RouteValueDictionary rvdpX = new RouteValueDictionary(rvd);
+                       rvdpX.Add("Page", grid.PageCount);
+                    }
+                    @hh.ActionLink(">>", pageActionName, rvdpX)
+                </li>
+            </ul>
+        }
+    </div>
+}
+@helper DoAjaxPager(System.Web.Mvc.AjaxHelper aa, System.Web.Mvc.Ajax.AjaxOptions aopts, System.Web.Mvc.HtmlHelper hh, string pageActionName, WebGrid grid, int maxPageLinks, object rvd)
+    {
+    <div class="pager">
+        <div class="pageof">
+            Page <b>@(grid.PageIndex + 1)</b> of <b>@grid.PageCount</b></div>
+        @if (grid.PageCount > 1)
+        {
+            <ul>
+                <li>
+                    @{ 
+            RouteValueDictionary rvdp1 = new RouteValueDictionary(rvd);
+            rvdp1.Add("Page", 1);
+                    }
+                    aa.ActionLink(hh, "<<", pageActionName, rvdp1, aopts) </li>
+                @{ int start = Math.Max(0, grid.PageIndex - maxPageLinks / 2); }
+                @for (int ix = 0; ix + start < grid.PageCount; ix++)
+                {
+                    int pageno = start + ix + 1;
+                    var css = hh.Raw(pageno - 1 == grid.PageIndex ? " class=\"highlighted\"" : "");
+                    RouteValueDictionary rvdp = new RouteValueDictionary(rvd);
+                    rvdp.Add("Page", pageno);
+                    <li@css>aa.ActionLink(pageno.ToString(), pageActionName, "", rvdp, aopts) </li>
+                    if (ix >= maxPageLinks) { break; }
+                }
+                <li>
+                    @{ 
+                RouteValueDictionary rvdpX = new RouteValueDictionary(rvd);
+                rvdpX.Add("Page", grid.PageCount);
+                    }
+                    aa.ActionLink(">>", pageActionName, rvdpX, aopts) </li>
+            </ul>
+        }
+    </div>
+}

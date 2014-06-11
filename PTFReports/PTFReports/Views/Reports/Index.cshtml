@@ -1,0 +1,82 @@
+﻿@using System.Linq
+@using System.Data.Objects
+@using PTF.Reports
+@using PTF.Reports.PTFReportsDB
+@model ObjectSet<Folder>
+@{ 
+    ViewBag.Title = "PTF Reports";
+    Layout = "~/Views/Shared/Reports.cshtml";
+}
+@section Css1{
+    <style type="text/css">
+        #main
+        {
+            padding-left: 0px;
+        }
+    </style>
+}
+@section JavaScript1 {
+}
+@section JavaScript2 {
+    <script type="text/javascript">
+        function SelectReportAsynch(sender) 
+        {
+            if(sender != null)
+            {
+                var value = sender.attr != null? sender.attr('id'): sender;
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("SelectReport", "Reports")",
+                dataType: 'json',
+                data: { "Value": value },
+                success: function (registerResult) {
+                    $.ajax({
+                    type: "GET",
+                    url: "@Url.Action("ReportParameters", "Reports")",
+                    dataType: 'json',
+                    data: { "Value": value },
+                    success: function (htmlResult) {
+                        $("#ReportParamnsControl1").empty();
+                        $("#ReportParamnsControl1").append(htmlResult);
+                    }});
+                }});
+            };
+        };
+
+        var clickHandler = SelectReportAsynch;
+    </script>
+}
+@section Menu {
+    @{
+        var user = Session[Strings.USER].Cast<UserDetail>();
+        if (user.IsAdmin || user.IsLoggedAs)
+        {
+        <li>@Html.ActionLink(user.IsLoggedAs ? "<<ADMINISTRATION>>" : "ADMINISTRATION", "Index", "Administration")</li>
+        }
+    }
+    <li>@Html.ActionLink("CONTACT", "ContactUs", "Common", null, new { target = "_blank" })</li>
+    <li>@Html.Partial("LogOnButtonPartial")</li>
+}
+@section Navigation{
+    @{
+        foreach (Folder folder in Model.OrderBy(f => f.Order))
+        {
+        <div>
+            <h3>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @folder.Description</h3>
+            <ul>
+                @foreach (Report report in folder.Reports.OrderBy(r => r.Description))
+                {
+                    <li><a href="#" style="text-decoration: none;" onclick="SelectReportAsynch('@string.Concat('R', report.ReportID)');">@report.Description</a></li>
+                }
+            </ul>
+        </div>
+        }
+    }
+}
+<div id="ReportParamnsControl1" style="width: auto; height: 100%; border: 1px solid rgb(155,155,155);
+    padding: 10px;">
+    <p style="background-color: rgb(222, 222, 222); width: 100%; height: 96%;">
+    </p>
+</div>

@@ -1,0 +1,34 @@
+﻿@using PTF.Reports.Models
+@using PTF.Reports.Controllers
+@model IEnumerable<FolderModel>
+@{
+    ViewBag.Title = "Folders";
+    Layout = "~/Views/Shared/Administration.cshtml";
+}
+<div id="main">
+    <!-- Hack: DON'T Remove the div below -->
+    <div id="DataTable">
+        @{
+            var grid = new WebGrid(Model, canPage: true, rowsPerPage: AdministrationController.PAGESIZE);
+            grid.Pager(WebGridPagerModes.All);
+            @grid.GetHtml(
+    htmlAttributes: new { id = "DataTable" },
+    alternatingRowStyle: "alt",
+    columns: grid.Columns(
+                                grid.Column(
+                                         header: "",
+                                         columnName: "Delete",
+                                         format: (item) => Html.ActionLink("Delete", "RemoveFolder", "Administration", new { id = item.FolderID },
+                   new { @class = "ShowModalLink", title = "Delete", data_dialog_title = "Delete" })),
+                                grid.Column("Name"),
+                                grid.Column("Description"),
+                                grid.Column("ParentName")));
+        }
+    </div>
+    <p>
+        @Html.ActionLink("Create New", "AddFolder")
+    </p>
+    <p>
+        @Html.ActionLink("Back", "Index")
+    </p>
+</div>

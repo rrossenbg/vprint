@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PTFModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PTFModelStoreContainer">
+          <EntitySet Name="Branch" EntityType="PTFModel.Store.Branch" store:Type="Tables" store:Schema="dbo" store:Name="Branch">
+            <DefiningQuery>SELECT 
+      [Branch].[br_iso_id] AS [br_iso_id], 
+      [Branch].[br_id] AS [br_id], 
+      [Branch].[br_pt_id] AS [br_pt_id], 
+      [Branch].[br_ho_id] AS [br_ho_id], 
+      [Branch].[br_name] AS [br_name], 
+      [Branch].[br_trading_name] AS [br_trading_name], 
+      [Branch].[br_region] AS [br_region], 
+      [Branch].[br_add_1] AS [br_add_1], 
+      [Branch].[br_add_2] AS [br_add_2], 
+      [Branch].[br_add_city] AS [br_add_city], 
+      [Branch].[br_add_county] AS [br_add_county], 
+      [Branch].[br_add_postcode] AS [br_add_postcode], 
+      [Branch].[br_add_country] AS [br_add_country], 
+      [Branch].[br_phone] AS [br_phone], 
+      [Branch].[br_fax] AS [br_fax], 
+      [Branch].[br_contact_1] AS [br_contact_1], 
+      [Branch].[br_position_1] AS [br_position_1], 
+      [Branch].[br_email_1] AS [br_email_1], 
+      [Branch].[br_contact_2] AS [br_contact_2], 
+      [Branch].[br_position_2] AS [br_position_2], 
+      [Branch].[br_email_2] AS [br_email_2], 
+      [Branch].[br_contact_3] AS [br_contact_3], 
+      [Branch].[br_position_3] AS [br_position_3], 
+      [Branch].[br_email_3] AS [br_email_3], 
+      [Branch].[br_date_joined] AS [br_date_joined], 
+      [Branch].[br_date_left] AS [br_date_left], 
+      [Branch].[br_active] AS [br_active], 
+      [Branch].[br_stoplist] AS [br_stoplist], 
+      [Branch].[br_suspended] AS [br_suspended], 
+      [Branch].[br_category] AS [br_category], 
+      [Branch].[br_discount_store] AS [br_discount_store], 
+      [Branch].[br_voucher_manual] AS [br_voucher_manual], 
+      [Branch].[br_voucher_pos] AS [br_voucher_pos], 
+      [Branch].[br_voucher_store] AS [br_voucher_store], 
+      [Branch].[br_sp_id] AS [br_sp_id], 
+      [Branch].[br_ac_id] AS [br_ac_id], 
+      [Branch].[br_vatrate] AS [br_vatrate], 
+      [Branch].[br_TOPOS_Special] AS [br_TOPOS_Special], 
+      [Branch].[br_TOPOS_NoFee] AS [br_TOPOS_NoFee], 
+      [Branch].[br_partner_id] AS [br_partner_id]
+      FROM [dbo].[Branch] AS [Branch]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HeadOffice" EntityType="PTFModel.Store.HeadOffice" store:Type="Tables" store:Schema="dbo" store:Name="HeadOffice">
+            <DefiningQuery>SELECT 
+      [HeadOffice].[ho_iso_id] AS [ho_iso_id], 
+      [HeadOffice].[ho_id] AS [ho_id], 
+      [HeadOffice].[ho_name] AS [ho_name], 
+      [HeadOffice].[ho_trading_name] AS [ho_trading_name], 
+      [HeadOffice].[ho_region] AS [ho_region], 
+      [HeadOffice].[ho_add_1] AS [ho_add_1], 
+      [HeadOffice].[ho_add_2] AS [ho_add_2], 
+      [HeadOffice].[ho_add_city] AS [ho_add_city], 
+      [HeadOffice].[ho_add_county] AS [ho_add_county], 
+      [HeadOffice].[ho_add_postcode] AS [ho_add_postcode], 
+      [HeadOffice].[ho_add_country] AS [ho_add_country], 
+      [HeadOffice].[ho_phone] AS [ho_phone], 
+      [HeadOffice].[ho_fax] AS [ho_fax], 
+      [HeadOffice].[ho_contact_1] AS [ho_contact_1], 
+      [HeadOffice].[ho_position_1] AS [ho_position_1], 
+      [HeadOffice].[ho_email_1] AS [ho_email_1], 
+      [HeadOffice].[ho_contact_2] AS [ho_contact_2], 
+      [HeadOffice].[ho_position_2] AS [ho_position_2], 
+      [HeadOffice].[ho_email_2] AS [ho_email_2], 
+      [HeadOffice].[ho_contact_3] AS [ho_contact_3], 
+      [HeadOffice].[ho_position_3] AS [ho_position_3], 
+      [HeadOffice].[ho_email_3] AS [ho_email_3], 
+      [HeadOffice].[ho_vat_number] AS [ho_vat_number], 
+      [HeadOffice].[ho_fiscal_number] AS [ho_fiscal_number], 
+      [HeadOffice].[ho_bank_ac_no] AS [ho_bank_ac_no], 
+      [HeadOffice].[ho_bank_sort_code] AS [ho_bank_sort_code], 
+      [HeadOffice].[ho_bank_branch] AS [ho_bank_branch], 
+      [HeadOffice].[ho_date_joined] AS [ho_date_joined], 
+      [HeadOffice].[ho_date_left] AS [ho_date_left], 
+      [HeadOffice].[ho_renewal_date] AS [ho_renewal_date], 
+      [HeadOffice].[ho_notice_period_id] AS [ho_notice_period_id], 
+      [HeadOffice].[ho_active] AS [ho_active], 
+      [HeadOffice].[ho_stoplist] AS [ho_stoplist], 
+      [HeadOffice].[ho_suspended] AS [ho_suspended], 
+      [HeadOffice].[ho_category] AS [ho_category], 
+      [HeadOffice].[ho_sp_id] AS [ho_sp_id], 
+      [HeadOffice].[ho_ac_id] AS [ho_ac_id], 
+      [HeadOffice].[ho_trusted] AS [ho_trusted], 
+      [HeadOffice].[ho_rbf_frequency] AS [ho_rbf_frequency], 
+      [HeadOffice].[ho_rbf_startDate] AS [ho_rbf_startDate], 
+      [HeadOffice].[ho_rbf_lastRunDate] AS [ho_rbf_lastRunDate], 
+      [HeadOffice].[ho_rbf_nextRunDate] AS [ho_rbf_nextRunDate], 
+      [HeadOffice].[ho_rebate_trusted] AS [ho_rebate_trusted], 
+      [HeadOffice].[ho_rebate_invoice_type] AS [ho_rebate_invoice_type]
+      FROM [dbo].[HeadOffice] AS [HeadOffice]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ISO_ptf" EntityType="PTFModel.Store.ISO_ptf" store:Type="Tables" store:Schema="dbo" store:Name="ISO_ptf">
+            <DefiningQuery>SELECT 
+      [ISO_ptf].[iso_number] AS [iso_number], 
+      [ISO_ptf].[iso_number_group] AS [iso_number_group], 
+      [ISO_ptf].[iso_country] AS [iso_country], 
+      [ISO_ptf].[iso_country_label] AS [iso_country_label], 
+      [ISO_ptf].[iso_2] AS [iso_2], 
+      [ISO_ptf].[iso_3] AS [iso_3], 
+      [ISO_ptf].[iso_shortcode] AS [iso_shortcode], 
+      [ISO_ptf].[iso_nationality] AS [iso_nationality], 
+      [ISO_ptf].[iso_language] AS [iso_language], 
+      [ISO_ptf].[iso_union] AS [iso_union], 
+      [ISO_ptf].[iso_ptf] AS [iso_ptf], 
+      [ISO_ptf].[iso_locale] AS [iso_locale], 
+      [ISO_ptf].[iso_vat] AS [iso_vat], 
+      [ISO_ptf].[iso_payment_currency] AS [iso_payment_currency], 
+      [ISO_ptf].[iso_type_id] AS [iso_type_id], 
+      [ISO_ptf].[iso_type] AS [iso_type], 
+      [ISO_ptf].[SingleSaleCountries] AS [SingleSaleCountries], 
+      [ISO_ptf].[Code888IC] AS [Code888IC], 
+      [ISO_ptf].[FatturaCommerciale] AS [FatturaCommerciale], 
+      [ISO_ptf].[ForceAllowMonthEnd] AS [ForceAllowMonthEnd], 
+      [ISO_ptf].[PointSystem] AS [PointSystem], 
+      [ISO_ptf].[SubVoucherNumber] AS [SubVoucherNumber]
+      FROM [dbo].[ISO_ptf] AS [ISO_ptf]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'PTF_Reports.dbo.Branch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="br_iso_id" />
+            <PropertyRef Name="br_id" />
+            <PropertyRef Name="br_ho_id" />
+            <PropertyRef Name="br_add_1" />
+            <PropertyRef Name="br_add_2" />
+            <PropertyRef Name="br_stoplist" />
+            <PropertyRef Name="br_suspended" />
+            <PropertyRef Name="br_discount_store" />
+            <PropertyRef Name="br_vatrate" />
+            <PropertyRef Name="br_TOPOS_Special" />
+            <PropertyRef Name="br_TOPOS_NoFee" />
+          </Key>
+          <Property Name="br_iso_id" Type="int" Nullable="false" />
+          <Property Name="br_id" Type="int" Nullable="false" />
+          <Property Name="br_pt_id" Type="int" />
+          <Property Name="br_ho_id" Type="int" Nullable="false" />
+          <Property Name="br_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="br_trading_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="br_region" Type="nvarchar" MaxLength="100" />
+          <Property Name="br_add_1" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="br_add_2" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="br_add_city" Type="nvarchar" MaxLength="100" />
+          <Property Name="br_add_county" Type="nvarchar" MaxLength="100" />
+          <Property Name="br_add_postcode" Type="varchar" MaxLength="50" />
+          <Property Name="br_add_country" Type="nvarchar(max)" />
+          <Property Name="br_phone" Type="varchar" MaxLength="25" />
+          <Property Name="br_fax" Type="varchar" MaxLength="15" />
+          <Property Name="br_contact_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="br_position_1" Type="varchar" MaxLength="255" />
+          <Property Name="br_email_1" Type="varchar" MaxLength="255" />
+          <Property Name="br_contact_2" Type="nvarchar" MaxLength="255" />
+          <Property Name="br_position_2" Type="varchar" MaxLength="255" />
+          <Property Name="br_email_2" Type="varchar" MaxLength="255" />
+          <Property Name="br_contact_3" Type="nvarchar" MaxLength="255" />
+          <Property Name="br_position_3" Type="varchar" MaxLength="255" />
+          <Property Name="br_email_3" Type="varchar" MaxLength="255" />
+          <Property Name="br_date_joined" Type="datetime" />
+          <Property Name="br_date_left" Type="datetime" />
+          <Property Name="br_active" Type="char" MaxLength="1" />
+          <Property Name="br_stoplist" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="br_suspended" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="br_category" Type="int" />
+          <Property Name="br_discount_store" Type="bit" Nullable="false" />
+          <Property Name="br_voucher_manual" Type="varchar" MaxLength="1" />
+          <Property Name="br_voucher_pos" Type="varchar" MaxLength="1" />
+          <Property Name="br_voucher_store" Type="varchar" MaxLength="1" />
+          <Property Name="br_sp_id" Type="int" />
+          <Property Name="br_ac_id" Type="int" />
+          <Property Name="br_vatrate" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="br_TOPOS_Special" Type="int" Nullable="false" />
+          <Property Name="br_TOPOS_NoFee" Type="int" Nullable="false" />
+          <Property Name="br_partner_id" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'PTF_Reports.dbo.HeadOffice' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="HeadOffice">
+          <Key>
+            <PropertyRef Name="ho_iso_id" />
+            <PropertyRef Name="ho_id" />
+            <PropertyRef Name="ho_add_1" />
+            <PropertyRef Name="ho_add_2" />
+            <PropertyRef Name="ho_add_county" />
+            <PropertyRef Name="ho_add_postcode" />
+            <PropertyRef Name="ho_active" />
+            <PropertyRef Name="ho_stoplist" />
+            <PropertyRef Name="ho_suspended" />
+            <PropertyRef Name="ho_rbf_frequency" />
+            <PropertyRef Name="ho_rbf_startDate" />
+            <PropertyRef Name="ho_rbf_nextRunDate" />
+          </Key>
+          <Property Name="ho_iso_id" Type="int" Nullable="false" />
+          <Property Name="ho_id" Type="int" Nullable="false" />
+          <Property Name="ho_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="ho_trading_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="ho_region" Type="nvarchar" MaxLength="100" />
+          <Property Name="ho_add_1" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ho_add_2" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ho_add_city" Type="nvarchar" MaxLength="100" />
+          <Property Name="ho_add_county" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ho_add_postcode" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ho_add_country" Type="nvarchar(max)" />
+          <Property Name="ho_phone" Type="varchar" MaxLength="25" />
+          <Property Name="ho_fax" Type="varchar" MaxLength="15" />
+          <Property Name="ho_contact_1" Type="nvarchar" MaxLength="255" />
+          <Property Name="ho_position_1" Type="varchar" MaxLength="255" />
+          <Property Name="ho_email_1" Type="varchar" MaxLength="255" />
+          <Property Name="ho_contact_2" Type="nvarchar" MaxLength="255" />
+          <Property Name="ho_position_2" Type="varchar" MaxLength="255" />
+          <Property Name="ho_email_2" Type="varchar" MaxLength="255" />
+          <Property Name="ho_contact_3" Type="nvarchar" MaxLength="255" />
+          <Property Name="ho_position_3" Type="varchar" MaxLength="255" />
+          <Property Name="ho_email_3" Type="varchar" MaxLength="255" />
+          <Property Name="ho_vat_number" Type="varchar" MaxLength="13" />
+          <Property Name="ho_fiscal_number" Type="nvarchar" MaxLength="60" />
+          <Property Name="ho_bank_ac_no" Type="varchar" MaxLength="35" />
+          <Property Name="ho_bank_sort_code" Type="varchar" MaxLength="35" />
+          <Property Name="ho_bank_branch" Type="varchar" MaxLength="255" />
+          <Property Name="ho_date_joined" Type="datetime" />
+          <Property Name="ho_date_left" Type="datetime" />
+          <Property Name="ho_renewal_date" Type="datetime" />
+          <Property Name="ho_notice_period_id" Type="int" />
+          <Property Name="ho_active" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ho_stoplist" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ho_suspended" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ho_category" Type="int" />
+          <Property Name="ho_sp_id" Type="int" />
+          <Property Name="ho_ac_id" Type="int" />
+          <Property Name="ho_trusted" Type="char" MaxLength="1" />
+          <Property Name="ho_rbf_frequency" Type="int" Nullable="false" />
+          <Property Name="ho_rbf_startDate" Type="datetime" Nullable="false" />
+          <Property Name="ho_rbf_lastRunDate" Type="datetime" />
+          <Property Name="ho_rbf_nextRunDate" Type="datetime" Nullable="false" />
+          <Property Name="ho_rebate_trusted" Type="char" MaxLength="1" />
+          <Property Name="ho_rebate_invoice_type" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'PTF_Reports.dbo.ISO_ptf' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ISO_ptf">
+          <Key>
+            <PropertyRef Name="iso_number" />
+            <PropertyRef Name="iso_number_group" />
+            <PropertyRef Name="iso_2" />
+            <PropertyRef Name="iso_3" />
+            <PropertyRef Name="iso_nationality" />
+            <PropertyRef Name="iso_language" />
+            <PropertyRef Name="iso_union" />
+            <PropertyRef Name="iso_ptf" />
+            <PropertyRef Name="iso_vat" />
+            <PropertyRef Name="iso_type_id" />
+            <PropertyRef Name="iso_type" />
+          </Key>
+          <Property Name="iso_number" Type="int" Nullable="false" />
+          <Property Name="iso_number_group" Type="int" Nullable="false" />
+          <Property Name="iso_country" Type="nvarchar(max)" />
+          <Property Name="iso_country_label" Type="nvarchar(max)" />
+          <Property Name="iso_2" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="iso_3" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="iso_shortcode" Type="varchar" MaxLength="10" />
+          <Property Name="iso_nationality" Type="int" Nullable="false" />
+          <Property Name="iso_language" Type="int" Nullable="false" />
+          <Property Name="iso_union" Type="int" Nullable="false" />
+          <Property Name="iso_ptf" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="iso_locale" Type="varchar" MaxLength="5" />
+          <Property Name="iso_vat" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="iso_payment_currency" Type="int" />
+          <Property Name="iso_type_id" Type="int" Nullable="false" />
+          <Property Name="iso_type" Type="varchar" Nullable="false" MaxLength="4" />
+          <Property Name="SingleSaleCountries" Type="int" />
+          <Property Name="Code888IC" Type="int" />
+          <Property Name="FatturaCommerciale" Type="int" />
+          <Property Name="ForceAllowMonthEnd" Type="int" />
+          <Property Name="PointSystem" Type="int" />
+          <Property Name="SubVoucherNumber" Type="int" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PTF.PTFDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="PTFContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Branches" EntityType="PTF.PTFDB.Branch" />
+          <EntitySet Name="HeadOffices" EntityType="PTF.PTFDB.HeadOffice" />
+          <EntitySet Name="ISO_ptf" EntityType="PTF.PTFDB.ISO_ptf" />
+          </EntityContainer>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="br_iso_id" />
+            <PropertyRef Name="br_id" />
+            <PropertyRef Name="br_ho_id" />
+            <PropertyRef Name="br_add_1" />
+            <PropertyRef Name="br_add_2" />
+            <PropertyRef Name="br_stoplist" />
+            <PropertyRef Name="br_suspended" />
+            <PropertyRef Name="br_discount_store" />
+            <PropertyRef Name="br_vatrate" />
+            <PropertyRef Name="br_TOPOS_Special" />
+            <PropertyRef Name="br_TOPOS_NoFee" />
+          </Key>
+          <Property Type="Int32" Name="br_iso_id" Nullable="false" />
+          <Property Type="Int32" Name="br_id" Nullable="false" />
+          <Property Type="Int32" Name="br_pt_id" />
+          <Property Type="Int32" Name="br_ho_id" Nullable="false" />
+          <Property Type="String" Name="br_name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_trading_name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_region" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_add_1" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_add_2" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_add_city" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_add_county" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_add_postcode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_add_country" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_phone" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_fax" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_contact_1" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_position_1" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_email_1" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_contact_2" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_position_2" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_email_2" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_contact_3" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="br_position_3" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_email_3" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="br_date_joined" />
+          <Property Type="DateTime" Name="br_date_left" />
+          <Property Type="String" Name="br_active" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="br_stoplist" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_suspended" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="br_category" />
+          <Property Type="Boolean" Name="br_discount_store" Nullable="false" />
+          <Property Type="String" Name="br_voucher_manual" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_voucher_pos" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="br_voucher_store" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="br_sp_id" />
+          <Property Type="Int32" Name="br_ac_id" />
+          <Property Type="String" Name="br_vatrate" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="br_TOPOS_Special" Nullable="false" />
+          <Property Type="Int32" Name="br_TOPOS_NoFee" Nullable="false" />
+          <Property Type="Int32" Name="br_partner_id" />
+        </EntityType>
+        <EntityType Name="HeadOffice">
+          <Key>
+            <PropertyRef Name="ho_iso_id" />
+            <PropertyRef Name="ho_id" />
+            <PropertyRef Name="ho_add_1" />
+            <PropertyRef Name="ho_add_2" />
+            <PropertyRef Name="ho_add_county" />
+            <PropertyRef Name="ho_add_postcode" />
+            <PropertyRef Name="ho_active" />
+            <PropertyRef Name="ho_stoplist" />
+            <PropertyRef Name="ho_suspended" />
+            <PropertyRef Name="ho_rbf_frequency" />
+            <PropertyRef Name="ho_rbf_startDate" />
+            <PropertyRef Name="ho_rbf_nextRunDate" />
+          </Key>
+          <Property Type="Int32" Name="ho_iso_id" Nullable="false" />
+          <Property Type="Int32" Name="ho_id" Nullable="false" />
+          <Property Type="String" Name="ho_name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_trading_name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_region" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_add_1" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_add_2" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_add_city" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_add_county" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_add_postcode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_add_country" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_phone" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_fax" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_contact_1" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_position_1" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_email_1" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_contact_2" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_position_2" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_email_2" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_contact_3" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_position_3" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_email_3" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_vat_number" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_fiscal_number" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ho_bank_ac_no" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_bank_sort_code" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ho_bank_branch" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ho_date_joined" />
+          <Property Type="DateTime" Name="ho_date_left" />
+          <Property Type="DateTime" Name="ho_renewal_date" />
+          <Property Type="Int32" Name="ho_notice_period_id" />
+          <Property Type="String" Name="ho_active" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ho_stoplist" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ho_suspended" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="ho_category" />
+          <Property Type="Int32" Name="ho_sp_id" />
+          <Property Type="Int32" Name="ho_ac_id" />
+          <Property Type="String" Name="ho_trusted" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="ho_rbf_frequency" Nullable="false" />
+          <Property Type="DateTime" Name="ho_rbf_startDate" Nullable="false" />
+          <Property Type="DateTime" Name="ho_rbf_lastRunDate" />
+          <Property Type="DateTime" Name="ho_rbf_nextRunDate" Nullable="false" />
+          <Property Type="String" Name="ho_rebate_trusted" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="ho_rebate_invoice_type" />
+        </EntityType>
+        <EntityType Name="ISO_ptf">
+          <Key>
+            <PropertyRef Name="iso_number" />
+            <PropertyRef Name="iso_number_group" />
+            <PropertyRef Name="iso_2" />
+            <PropertyRef Name="iso_3" />
+            <PropertyRef Name="iso_nationality" />
+            <PropertyRef Name="iso_language" />
+            <PropertyRef Name="iso_union" />
+            <PropertyRef Name="iso_ptf1" />
+            <PropertyRef Name="iso_vat" />
+            <PropertyRef Name="iso_type_id" />
+            <PropertyRef Name="iso_type" />
+          </Key>
+          <Property Type="Int32" Name="iso_number" Nullable="false" />
+          <Property Type="Int32" Name="iso_number_group" Nullable="false" />
+          <Property Type="String" Name="iso_country" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="iso_country_label" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="iso_2" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="iso_3" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="iso_shortcode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="iso_nationality" Nullable="false" />
+          <Property Type="Int32" Name="iso_language" Nullable="false" />
+          <Property Type="Int32" Name="iso_union" Nullable="false" />
+          <Property Type="String" Name="iso_ptf1" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="iso_locale" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="iso_vat" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="iso_payment_currency" />
+          <Property Type="Int32" Name="iso_type_id" Nullable="false" />
+          <Property Type="String" Name="iso_type" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="SingleSaleCountries" />
+          <Property Type="Int32" Name="Code888IC" />
+          <Property Type="Int32" Name="FatturaCommerciale" />
+          <Property Type="Int32" Name="ForceAllowMonthEnd" />
+          <Property Type="Int32" Name="PointSystem" />
+          <Property Type="Int32" Name="SubVoucherNumber" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PTFModelStoreContainer" CdmEntityContainer="PTFContext">
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="PTF.PTFDB.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="br_partner_id" ColumnName="br_partner_id" />
+                <ScalarProperty Name="br_TOPOS_NoFee" ColumnName="br_TOPOS_NoFee" />
+                <ScalarProperty Name="br_TOPOS_Special" ColumnName="br_TOPOS_Special" />
+                <ScalarProperty Name="br_vatrate" ColumnName="br_vatrate" />
+                <ScalarProperty Name="br_ac_id" ColumnName="br_ac_id" />
+                <ScalarProperty Name="br_sp_id" ColumnName="br_sp_id" />
+                <ScalarProperty Name="br_voucher_store" ColumnName="br_voucher_store" />
+                <ScalarProperty Name="br_voucher_pos" ColumnName="br_voucher_pos" />
+                <ScalarProperty Name="br_voucher_manual" ColumnName="br_voucher_manual" />
+                <ScalarProperty Name="br_discount_store" ColumnName="br_discount_store" />
+                <ScalarProperty Name="br_category" ColumnName="br_category" />
+                <ScalarProperty Name="br_suspended" ColumnName="br_suspended" />
+                <ScalarProperty Name="br_stoplist" ColumnName="br_stoplist" />
+                <ScalarProperty Name="br_active" ColumnName="br_active" />
+                <ScalarProperty Name="br_date_left" ColumnName="br_date_left" />
+                <ScalarProperty Name="br_date_joined" ColumnName="br_date_joined" />
+                <ScalarProperty Name="br_email_3" ColumnName="br_email_3" />
+                <ScalarProperty Name="br_position_3" ColumnName="br_position_3" />
+                <ScalarProperty Name="br_contact_3" ColumnName="br_contact_3" />
+                <ScalarProperty Name="br_email_2" ColumnName="br_email_2" />
+                <ScalarProperty Name="br_position_2" ColumnName="br_position_2" />
+                <ScalarProperty Name="br_contact_2" ColumnName="br_contact_2" />
+                <ScalarProperty Name="br_email_1" ColumnName="br_email_1" />
+                <ScalarProperty Name="br_position_1" ColumnName="br_position_1" />
+                <ScalarProperty Name="br_contact_1" ColumnName="br_contact_1" />
+                <ScalarProperty Name="br_fax" ColumnName="br_fax" />
+                <ScalarProperty Name="br_phone" ColumnName="br_phone" />
+                <ScalarProperty Name="br_add_country" ColumnName="br_add_country" />
+                <ScalarProperty Name="br_add_postcode" ColumnName="br_add_postcode" />
+                <ScalarProperty Name="br_add_county" ColumnName="br_add_county" />
+                <ScalarProperty Name="br_add_city" ColumnName="br_add_city" />
+                <ScalarProperty Name="br_add_2" ColumnName="br_add_2" />
+                <ScalarProperty Name="br_add_1" ColumnName="br_add_1" />
+                <ScalarProperty Name="br_region" ColumnName="br_region" />
+                <ScalarProperty Name="br_trading_name" ColumnName="br_trading_name" />
+                <ScalarProperty Name="br_name" ColumnName="br_name" />
+                <ScalarProperty Name="br_ho_id" ColumnName="br_ho_id" />
+                <ScalarProperty Name="br_pt_id" ColumnName="br_pt_id" />
+                <ScalarProperty Name="br_id" ColumnName="br_id" />
+                <ScalarProperty Name="br_iso_id" ColumnName="br_iso_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HeadOffices">
+            <EntityTypeMapping TypeName="PTF.PTFDB.HeadOffice">
+              <MappingFragment StoreEntitySet="HeadOffice">
+                <ScalarProperty Name="ho_rebate_invoice_type" ColumnName="ho_rebate_invoice_type" />
+                <ScalarProperty Name="ho_rebate_trusted" ColumnName="ho_rebate_trusted" />
+                <ScalarProperty Name="ho_rbf_nextRunDate" ColumnName="ho_rbf_nextRunDate" />
+                <ScalarProperty Name="ho_rbf_lastRunDate" ColumnName="ho_rbf_lastRunDate" />
+                <ScalarProperty Name="ho_rbf_startDate" ColumnName="ho_rbf_startDate" />
+                <ScalarProperty Name="ho_rbf_frequency" ColumnName="ho_rbf_frequency" />
+                <ScalarProperty Name="ho_trusted" ColumnName="ho_trusted" />
+                <ScalarProperty Name="ho_ac_id" ColumnName="ho_ac_id" />
+                <ScalarProperty Name="ho_sp_id" ColumnName="ho_sp_id" />
+                <ScalarProperty Name="ho_category" ColumnName="ho_category" />
+                <ScalarProperty Name="ho_suspended" ColumnName="ho_suspended" />
+                <ScalarProperty Name="ho_stoplist" ColumnName="ho_stoplist" />
+                <ScalarProperty Name="ho_active" ColumnName="ho_active" />
+                <ScalarProperty Name="ho_notice_period_id" ColumnName="ho_notice_period_id" />
+                <ScalarProperty Name="ho_renewal_date" ColumnName="ho_renewal_date" />
+                <ScalarProperty Name="ho_date_left" ColumnName="ho_date_left" />
+                <ScalarProperty Name="ho_date_joined" ColumnName="ho_date_joined" />
+                <ScalarProperty Name="ho_bank_branch" ColumnName="ho_bank_branch" />
+                <ScalarProperty Name="ho_bank_sort_code" ColumnName="ho_bank_sort_code" />
+                <ScalarProperty Name="ho_bank_ac_no" ColumnName="ho_bank_ac_no" />
+                <ScalarProperty Name="ho_fiscal_number" ColumnName="ho_fiscal_number" />
+                <ScalarProperty Name="ho_vat_number" ColumnName="ho_vat_number" />
+                <ScalarProperty Name="ho_email_3" ColumnName="ho_email_3" />
+                <ScalarProperty Name="ho_position_3" ColumnName="ho_position_3" />
+                <ScalarProperty Name="ho_contact_3" ColumnName="ho_contact_3" />
+                <ScalarProperty Name="ho_email_2" ColumnName="ho_email_2" />
+                <ScalarProperty Name="ho_position_2" ColumnName="ho_position_2" />
+                <ScalarProperty Name="ho_contact_2" ColumnName="ho_contact_2" />
+                <ScalarProperty Name="ho_email_1" ColumnName="ho_email_1" />
+                <ScalarProperty Name="ho_position_1" ColumnName="ho_position_1" />
+                <ScalarProperty Name="ho_contact_1" ColumnName="ho_contact_1" />
+                <ScalarProperty Name="ho_fax" ColumnName="ho_fax" />
+                <ScalarProperty Name="ho_phone" ColumnName="ho_phone" />
+                <ScalarProperty Name="ho_add_country" ColumnName="ho_add_country" />
+                <ScalarProperty Name="ho_add_postcode" ColumnName="ho_add_postcode" />
+                <ScalarProperty Name="ho_add_county" ColumnName="ho_add_county" />
+                <ScalarProperty Name="ho_add_city" ColumnName="ho_add_city" />
+                <ScalarProperty Name="ho_add_2" ColumnName="ho_add_2" />
+                <ScalarProperty Name="ho_add_1" ColumnName="ho_add_1" />
+                <ScalarProperty Name="ho_region" ColumnName="ho_region" />
+                <ScalarProperty Name="ho_trading_name" ColumnName="ho_trading_name" />
+                <ScalarProperty Name="ho_name" ColumnName="ho_name" />
+                <ScalarProperty Name="ho_id" ColumnName="ho_id" />
+                <ScalarProperty Name="ho_iso_id" ColumnName="ho_iso_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ISO_ptf">
+            <EntityTypeMapping TypeName="PTF.PTFDB.ISO_ptf">
+              <MappingFragment StoreEntitySet="ISO_ptf">
+                <ScalarProperty Name="SubVoucherNumber" ColumnName="SubVoucherNumber" />
+                <ScalarProperty Name="PointSystem" ColumnName="PointSystem" />
+                <ScalarProperty Name="ForceAllowMonthEnd" ColumnName="ForceAllowMonthEnd" />
+                <ScalarProperty Name="FatturaCommerciale" ColumnName="FatturaCommerciale" />
+                <ScalarProperty Name="Code888IC" ColumnName="Code888IC" />
+                <ScalarProperty Name="SingleSaleCountries" ColumnName="SingleSaleCountries" />
+                <ScalarProperty Name="iso_type" ColumnName="iso_type" />
+                <ScalarProperty Name="iso_type_id" ColumnName="iso_type_id" />
+                <ScalarProperty Name="iso_payment_currency" ColumnName="iso_payment_currency" />
+                <ScalarProperty Name="iso_vat" ColumnName="iso_vat" />
+                <ScalarProperty Name="iso_locale" ColumnName="iso_locale" />
+                <ScalarProperty Name="iso_ptf1" ColumnName="iso_ptf" />
+                <ScalarProperty Name="iso_union" ColumnName="iso_union" />
+                <ScalarProperty Name="iso_language" ColumnName="iso_language" />
+                <ScalarProperty Name="iso_nationality" ColumnName="iso_nationality" />
+                <ScalarProperty Name="iso_shortcode" ColumnName="iso_shortcode" />
+                <ScalarProperty Name="iso_3" ColumnName="iso_3" />
+                <ScalarProperty Name="iso_2" ColumnName="iso_2" />
+                <ScalarProperty Name="iso_country_label" ColumnName="iso_country_label" />
+                <ScalarProperty Name="iso_country" ColumnName="iso_country" />
+                <ScalarProperty Name="iso_number_group" ColumnName="iso_number_group" />
+                <ScalarProperty Name="iso_number" ColumnName="iso_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="PTFModel">
+        <EntityTypeShape EntityType="PTF.PTFDB.Branch" Width="1.5" PointX="3.5" PointY="0.75" Height="7.5088102213541674" />
+        <EntityTypeShape EntityType="PTF.PTFDB.HeadOffice" Width="1.5" PointX="5.875" PointY="2.25" Height="8.1661995442708353" />
+        <EntityTypeShape EntityType="PTF.PTFDB.ISO_ptf" Width="1.5" PointX="0.875" PointY="0.5" Height="4.5505582682291674" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

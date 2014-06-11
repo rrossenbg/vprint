@@ -1,0 +1,37 @@
+﻿@using PTF.Reports.Models
+@using PTF.Reports.Common
+@using PTF.Reports.Controllers
+@model IEnumerable<HeadOfficeModel>
+@{
+    ViewBag.Title = "Companies";
+    Layout = "~/Views/Shared/Administration.cshtml";
+}
+<div id="main">
+    <!-- Hack: DON'T Remove the div below -->
+    <div id="DataTable">
+        @{
+            var grid = new WebGrid(canPage: true, canSort: true, rowsPerPage: AdministrationController.PAGESIZE,
+                    ajaxUpdateContainerId: "DataTable");
+            grid.Bind(Model, rowCount: ViewBag.Count, autoSortAndPage: false);
+            grid.Pager(WebGridPagerModes.All);
+
+            @grid.GetHtml(
+                htmlAttributes: new { id = "DataTable" },
+                alternatingRowStyle: "alt",
+                columns:
+                    grid.Columns(
+                        grid.Column("Name"),
+                        grid.Column("Country"),
+                        grid.Column("Region"),
+                        grid.Column("Phone"),
+                        grid.Column("Fax"),
+                        grid.Column("Contact1"),
+                        grid.Column("Position1"),
+                        grid.Column("Contact2"),
+                        grid.Column("Position2")));
+        }
+    </div>
+    <p>
+        @Html.ActionLink("Back", "Index")
+    </p>
+</div>

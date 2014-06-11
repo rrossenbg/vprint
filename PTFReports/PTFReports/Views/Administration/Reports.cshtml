@@ -1,0 +1,74 @@
+﻿@using PTF.Reports
+@using PTF.Reports.Models
+@using PTF.Reports.Common
+@using PTF.Reports.Controllers
+@model IEnumerable<ReportModel>
+@{
+    ViewBag.Title = "Reports";
+    Layout = "~/Views/Shared/Administration.cshtml";
+}
+@section JavaScript2 {
+    <script type="text/javascript">
+        function PingReportAsynch(sender) 
+        {
+            if(sender != null)
+            {
+                var value = sender.id;
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("PingReport", "Administration")",
+                dataType: 'json',
+                data: { "Value": value },
+                success: function (registerResult) {
+                    var div = $(sender).parent();
+                    div.empty();
+                    if( registerResult == "")
+                        div.append("<div style='width: 25px; height: 25px; background-color: green;'><div/>");
+                    else
+                        div.append("<div style='width: 25px; height: 25px; background-color: red;' title='" + htmlResult + "'><div/>");
+                }});
+            };
+        };
+    </script>
+}
+<div id="main">
+    <!-- Hack: DON'T Remove the div below -->
+    <div id="DataTable">
+        @{
+            var grid = new WebGrid(canPage: true, canSort: true, rowsPerPage: AdministrationController.PAGESIZE,
+                ajaxUpdateContainerId: "DataTable");
+            grid.Bind(Model, rowCount: ViewBag.Count, autoSortAndPage: false);
+            grid.Pager(WebGridPagerModes.All);
+        
+
+            @grid.GetHtml(
+                        htmlAttributes: new { id = "DataTable" },
+                        alternatingRowStyle: "alt",
+                        columns: grid.Columns(
+                                        grid.Column(
+                                                    header: "",
+                                                    columnName: "Params",
+                                                            format: (item) => Html.ActionLink("Params", "ShowReportParams", new { id = item.ReportID })),
+                                        grid.Column(
+                                                    header: "",
+                                                    columnName: "Delete",
+                                                            format: (item) => Html.ActionLink("Delete", "RemoveReport", "Administration", new { id = item.ReportID },
+                                                            new { @class = "ShowModalLink", title = "Delete", data_dialog_title = "Delete" })),
+                                        grid.Column(
+                                                    header: "",
+                                                    columnName: "Ping",
+                                                                     format: (item) => Html.Raw("<div><a id=\"" + item.ReportID + "\" href=\"#\" onclick=\"PingReportAsynch(this); return false;\">Ping</a></div>")),
+                                                    
+                                        grid.Column("Name"),
+                                        grid.Column("Page"),
+                                        grid.Column("Folder"),
+                                        grid.Column("Description")));
+        }
+    </div>
+    <p>
+        @Html.ActionLink("Create New", "AddReport")
+    </p>
+    <p>
+        @Html.ActionLink("Back", "Index")
+    </p>
+</div>

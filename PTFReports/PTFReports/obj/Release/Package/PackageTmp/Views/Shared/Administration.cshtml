@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    @RenderSection("Css1", false)
+    @RenderSection("Css2", false)
+    @RenderSection("Css3", false)
+    @RenderSection("Css4", false)
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.9.custom.min.js")"></script>
+    @Html.Partial("LazyLoadingPartial")
+    @RenderSection("JavaScript1", false)
+    @RenderSection("JavaScript2", false)
+    @RenderSection("JavaScript3", false)
+    @RenderSection("JavaScript4", false)
+</head>
+<body>
+    <div id="page" class="page">
+        <div id="logindisplay" style="float: right; padding-top: 15px; padding-right: 40px;
+            display: block; color: Black;">
+            <a href="/Administration/Index">
+                @Html.Partial("LogOnUserControl")
+            </a>
+        </div>
+        <div id="menucontainer">
+            <ul id="menu">
+                <li>@Html.ActionLink("SHOWREPORTS", "Index", "Reports")</li>
+                <li>@Html.Partial("LogOnButtonPartial")</li>
+            </ul>
+        </div>
+        @RenderBody()
+        @Html.Partial("FooterPartial")
+    </div>
+</body>
+</html>

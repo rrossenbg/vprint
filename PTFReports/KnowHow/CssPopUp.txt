@@ -1,0 +1,21 @@
+<html>
+<head>
+
+<style>
+
+div#links a span {display: none;}
+div#links a:hover span {display: block;
+   position: absolute; top: 200px; left: 0; width: 125px;
+   padding: 5px; margin: 10px; z-index: 100;
+   color: #AAA; background: black;
+   font: 10px Verdana, sans-serif; text-align: center;}
+</style>
+</head>
+<body>
+
+<div id="links" style="width: 100px; height: 30px;">
+<a href="http://www.meyerweb.com/eric/css/">Links<span>A collection 
+of things which interest me, and might interest you</span></a>
+</div>
+</body>
+</html>

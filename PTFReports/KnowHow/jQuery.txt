@@ -1,0 +1,35 @@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            debugger;
+            $("#CountryList").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: '<%: Url.Action("LoadRList", "Administration") %>',
+                    dataType: 'json',
+                    data: { "Value": "R123R12334" },
+                    success: function (registerResult) {
+                        if (registerResult == "ok") {
+                            // $("#dvMessage").empty().text("Retailers successfully saved.");
+                        }
+                    }
+                });
+                return false;
+            });
+
+            $("#CompanyList").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: '<%: Url.Action("LoadRList", "Administration") %>',
+                    dataType: 'json',
+                    data: { "Value": "R123R12334" },
+                    success: function (registerResult) {
+                        if (registerResult == "ok") {
+                            // $("#dvMessage").empty().text("Retailers successfully saved.");
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+    
+    </script>

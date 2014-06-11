@@ -1,0 +1,18 @@
+﻿@using System
+@using PTF.Reports
+@using PTF.Reports.PTFReportsDB
+@if (Request.IsAuthenticated)
+{
+    var user = Session.Get<UserDetail>(Strings.USER);
+    if (user != null)
+    {
+        if (user.Branch != null)
+        {
+            @string.Format("{0} ({1}): Logged In: {2}", user.HeadOffice.ho_name, user.Branch.br_name, user.Ud_loginName)
+        }
+        else
+        {
+            @string.Format("{0} : Logged In: {1}", user.HeadOffice.ho_name, user.Ud_loginName)
+        }
+    }
+}

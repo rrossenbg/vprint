@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <meta name="X-FRAME-OPTIONS" content="DENY" />
+    <link href="<%:Url.Content("~/Content/Site.css")%>" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-1.7.2.min.js")%>"></script>
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-ui-1.8.9.custom.min.js")%>"></script>
+    <%: Html.Partial("LazyLoadingPartial")%>
+    <%: Html.Partial("ContainerResizePartial")%>
+</head>
+<body>
+    <div id="page" class="page">
+        <div id="header">
+            <div id="title">
+                <h1 class="title">
+                </h1>
+            </div>
+            <div id="logindisplay" style="float: right; padding-top: 15px; padding-right: 40px;
+                display: block; color: Black;">
+                <a href="/Administration/Index">
+                    <% Html.RenderPartial("LogOnUserControl"); %>
+                </a>
+            </div>
+            <div id="menucontainer">
+                <ul id="menu">
+                    <li>
+                        <%: Html.ActionLink("SHOWREPORTS", "Index", "Reports")%></li>
+                    <li>
+                        <%: Html.ActionLink("USERS", "Users", "Administration")%></li>
+                    <li>
+                        <%: Html.ActionLink("FOLDERS", "Folders", "Administration")%></li>
+                    <li>
+                        <%: Html.ActionLink("REPORTS", "Reports", "Administration")%></li>
+                    <li>
+                        <%: Html.Partial("LogOnButtonPartial") %></li>
+                </ul>
+            </div>
+        </div>
+        <div id="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            <div class="clear">
+            </div>
+        </div>
+        <% Html.RenderPartial("FooterPartial"); %>
+    </div>
+</body>
+</html>

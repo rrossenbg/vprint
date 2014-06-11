@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PTF.ReportsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PTFReportsModelStoreContainer">
+          <EntitySet Name="Data" EntityType="PTF.ReportsModel.Store.Data" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Error" EntityType="PTF.ReportsModel.Store.Error" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Folders" EntityType="PTF.ReportsModel.Store.Folders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FolderUsers" EntityType="PTF.ReportsModel.Store.FolderUsers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="History" EntityType="PTF.ReportsModel.Store.History" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IP" EntityType="PTF.ReportsModel.Store.IP" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Parameters" EntityType="PTF.ReportsModel.Store.Parameters" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Permissions" EntityType="PTF.ReportsModel.Store.Permissions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Reports" EntityType="PTF.ReportsModel.Store.Reports" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sessions" EntityType="PTF.ReportsModel.Store.Sessions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UnblockCommands" EntityType="PTF.ReportsModel.Store.UnblockCommands" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserDetails" EntityType="PTF.ReportsModel.Store.UserDetails" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Folders_Folders" Association="PTF.ReportsModel.Store.FK_Folders_Folders">
+            <End Role="Folders" EntitySet="Folders" />
+            <End Role="Folders1" EntitySet="Folders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FolderUsers_Folders" Association="PTF.ReportsModel.Store.FK_FolderUsers_Folders">
+            <End Role="Folders" EntitySet="Folders" />
+            <End Role="FolderUsers" EntitySet="FolderUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FolderUsers_UserDetails" Association="PTF.ReportsModel.Store.FK_FolderUsers_UserDetails">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="FolderUsers" EntitySet="FolderUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Sessions" Association="PTF.ReportsModel.Store.FK_History_Sessions">
+            <End Role="Sessions" EntitySet="Sessions" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parameters_Reports" Association="PTF.ReportsModel.Store.FK_Parameters_Reports">
+            <End Role="Reports" EntitySet="Reports" />
+            <End Role="Parameters" EntitySet="Parameters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permissions_UserDetails" Association="PTF.ReportsModel.Store.FK_Permissions_UserDetails">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="Permissions" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Folders" Association="PTF.ReportsModel.Store.FK_Reports_Folders">
+            <End Role="Folders" EntitySet="Folders" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_IP" Association="PTF.ReportsModel.Store.FK_Sessions_IP">
+            <End Role="IP" EntitySet="IP" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_UserDetails" Association="PTF.ReportsModel.Store.FK_Sessions_UserDetails">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Data">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Error">
+          <Key>
+            <PropertyRef Name="ErrId" />
+          </Key>
+          <Property Name="ErrId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Error" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Folders">
+          <Key>
+            <PropertyRef Name="FolderID" />
+          </Key>
+          <Property Name="FolderID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ParentID" Type="uniqueidentifier" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="Order" Type="int" />
+        </EntityType>
+        <EntityType Name="FolderUsers">
+          <Key>
+            <PropertyRef Name="FolderID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="FolderID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="HistoryID" />
+          </Key>
+          <Property Name="HistoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SessionID" Type="int" Nullable="false" />
+          <Property Name="Page" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IP">
+          <Key>
+            <PropertyRef Name="IP_id" />
+          </Key>
+          <Property Name="IP_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BlockedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Parameters">
+          <Key>
+            <PropertyRef Name="PrameterID" />
+          </Key>
+          <Property Name="PrameterID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ParamType" Type="int" Nullable="false" />
+          <Property Name="ReportID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Permissions">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="IsoID" Type="int" Nullable="false" />
+          <Property Name="HoID" Type="int" Nullable="false" />
+          <Property Name="RetailerID" Type="int" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Reports">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="Page" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="FolderID" Type="uniqueidentifier" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="SessionID" />
+          </Key>
+          <Property Name="SessionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BrowserSessionID" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Begin" Type="datetime" Nullable="false" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserAgent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IP_id" Type="int" Nullable="false" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UnblockCommands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateUsed" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserDetails">
+          <Key>
+            <PropertyRef Name="Ud_id" />
+          </Key>
+          <Property Name="Ud_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ud_loginName" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Ud_firstName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Ud_lastName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Ud_password" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Ud_salt" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ud_email" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Ud_firstLogin" Type="bit" Nullable="false" />
+          <Property Name="Ud_forgottenPassword" Type="bit" />
+          <Property Name="Ud_userType" Type="int" Nullable="false" />
+          <Property Name="Ud_iso_id" Type="int" Nullable="false" />
+          <Property Name="Ud_ho_id" Type="int" Nullable="false" />
+          <Property Name="Ud_br_id" Type="int" Nullable="false" />
+          <Property Name="Ud_languageId" Type="int" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LoginTries" Type="int" />
+          <Property Name="BlockedAt" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Folders_Folders">
+          <End Role="Folders" Type="PTF.ReportsModel.Store.Folders" Multiplicity="0..1" />
+          <End Role="Folders1" Type="PTF.ReportsModel.Store.Folders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folders">
+              <PropertyRef Name="FolderID" />
+            </Principal>
+            <Dependent Role="Folders1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FolderUsers_Folders">
+          <End Role="Folders" Type="PTF.ReportsModel.Store.Folders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FolderUsers" Type="PTF.ReportsModel.Store.FolderUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folders">
+              <PropertyRef Name="FolderID" />
+            </Principal>
+            <Dependent Role="FolderUsers">
+              <PropertyRef Name="FolderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FolderUsers_UserDetails">
+          <End Role="UserDetails" Type="PTF.ReportsModel.Store.UserDetails" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FolderUsers" Type="PTF.ReportsModel.Store.FolderUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="Ud_id" />
+            </Principal>
+            <Dependent Role="FolderUsers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Sessions">
+          <End Role="Sessions" Type="PTF.ReportsModel.Store.Sessions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="History" Type="PTF.ReportsModel.Store.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sessions">
+              <PropertyRef Name="SessionID" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="SessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parameters_Reports">
+          <End Role="Reports" Type="PTF.ReportsModel.Store.Reports" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Parameters" Type="PTF.ReportsModel.Store.Parameters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reports">
+              <PropertyRef Name="ReportID" />
+            </Principal>
+            <Dependent Role="Parameters">
+              <PropertyRef Name="ReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permissions_UserDetails">
+          <End Role="UserDetails" Type="PTF.ReportsModel.Store.UserDetails" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Permissions" Type="PTF.ReportsModel.Store.Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="Ud_id" />
+            </Principal>
+            <Dependent Role="Permissions">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Folders">
+          <End Role="Folders" Type="PTF.ReportsModel.Store.Folders" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Reports" Type="PTF.ReportsModel.Store.Reports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folders">
+              <PropertyRef Name="FolderID" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="FolderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_IP">
+          <End Role="IP" Type="PTF.ReportsModel.Store.IP" Multiplicity="1" />
+          <End Role="Sessions" Type="PTF.ReportsModel.Store.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IP">
+              <PropertyRef Name="IP_id" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="IP_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_UserDetails">
+          <End Role="UserDetails" Type="PTF.ReportsModel.Store.UserDetails" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sessions" Type="PTF.ReportsModel.Store.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="Ud_id" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PTF.PTFReportsDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="PTFReportsContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Folders" EntityType="PTF.PTFReportsDB.Folder" />
+          <EntitySet Name="Histories" EntityType="PTF.PTFReportsDB.History" />
+          <EntitySet Name="IPs" EntityType="PTF.PTFReportsDB.IP" />
+          <EntitySet Name="Parameters" EntityType="PTF.PTFReportsDB.Parameter" />
+          <EntitySet Name="Permissions" EntityType="PTF.PTFReportsDB.Permission" />
+          <EntitySet Name="Reports" EntityType="PTF.PTFReportsDB.Report" />
+          <EntitySet Name="Sessions" EntityType="PTF.PTFReportsDB.Session" />
+          <EntitySet Name="UserDetails" EntityType="PTF.PTFReportsDB.UserDetail" />
+          <AssociationSet Name="FK_Folders_Folders" Association="PTF.PTFReportsDB.FK_Folders_Folders">
+            <End Role="Folder" EntitySet="Folders" />
+            <End Role="Folder1" EntitySet="Folders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Folders" Association="PTF.PTFReportsDB.FK_Reports_Folders">
+            <End Role="Folder" EntitySet="Folders" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Sessions" Association="PTF.PTFReportsDB.FK_History_Sessions">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="History" EntitySet="Histories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_IP" Association="PTF.PTFReportsDB.FK_Sessions_IP">
+            <End Role="IP" EntitySet="IPs" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parameters_Reports" Association="PTF.PTFReportsDB.FK_Parameters_Reports">
+            <End Role="Report" EntitySet="Reports" />
+            <End Role="Parameter" EntitySet="Parameters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permissions_UserDetails" Association="PTF.PTFReportsDB.FK_Permissions_UserDetails">
+            <End Role="UserDetail" EntitySet="UserDetails" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_UserDetails" Association="PTF.PTFReportsDB.FK_Sessions_UserDetails">
+            <End Role="UserDetail" EntitySet="UserDetails" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FolderUsers" Association="PTF.PTFReportsDB.FolderUsers">
+            <End Role="Folder" EntitySet="Folders" />
+            <End Role="UserDetail" EntitySet="UserDetails" />
+          </AssociationSet>
+          <EntitySet Name="Errors" EntityType="PTF.PTFReportsDB.Error" />
+          <EntitySet Name="UnblockCommands" EntityType="PTF.PTFReportsDB.UnblockCommand" />
+          <EntitySet Name="Data" EntityType="PTF.PTFReportsDB.Datum" />
+        </EntityContainer>
+        <EntityType Name="Folder">
+          <Key>
+            <PropertyRef Name="FolderID" />
+          </Key>
+          <Property Type="Guid" Name="FolderID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="ParentID" />
+          <Property Type="DateTime" Name="LastEditDate" />
+          <Property Type="DateTime" Name="CreationDate" />
+          <NavigationProperty Name="Folders1" Relationship="PTF.PTFReportsDB.FK_Folders_Folders" FromRole="Folder" ToRole="Folder1" />
+          <NavigationProperty Name="Folder1" Relationship="PTF.PTFReportsDB.FK_Folders_Folders" FromRole="Folder1" ToRole="Folder" />
+          <NavigationProperty Name="Reports" Relationship="PTF.PTFReportsDB.FK_Reports_Folders" FromRole="Folder" ToRole="Report" />
+          <NavigationProperty Name="UserDetails" Relationship="PTF.PTFReportsDB.FolderUsers" FromRole="Folder" ToRole="UserDetail" />
+          <Property Type="Int32" Name="Order" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="HistoryID" />
+          </Key>
+          <Property Type="Int32" Name="HistoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SessionID" Nullable="false" />
+          <Property Type="String" Name="Page" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <NavigationProperty Name="Session" Relationship="PTF.PTFReportsDB.FK_History_Sessions" FromRole="History" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="IP">
+          <Key>
+            <PropertyRef Name="IP_id" />
+          </Key>
+          <Property Type="Int32" Name="IP_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="IP1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="BlockedAt" />
+          <NavigationProperty Name="Sessions" Relationship="PTF.PTFReportsDB.FK_Sessions_IP" FromRole="IP" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="Parameter">
+          <Key>
+            <PropertyRef Name="PrameterID" />
+          </Key>
+          <Property Type="Int32" Name="PrameterID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParamType" Nullable="false" />
+          <Property Type="Guid" Name="ReportID" Nullable="false" />
+          <Property Type="DateTime" Name="LastEditDate" />
+          <Property Type="DateTime" Name="CreationDate" />
+          <NavigationProperty Name="Report" Relationship="PTF.PTFReportsDB.FK_Parameters_Reports" FromRole="Parameter" ToRole="Report" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Type="Int32" Name="PermissionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="IsoID" Nullable="false" />
+          <Property Type="Int32" Name="HoID" Nullable="false" />
+          <Property Type="Int32" Name="RetailerID" />
+          <Property Type="DateTime" Name="LastEditDate" />
+          <Property Type="DateTime" Name="CreationDate" />
+          <NavigationProperty Name="UserDetail" Relationship="PTF.PTFReportsDB.FK_Permissions_UserDetails" FromRole="Permission" ToRole="UserDetail" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Type="Guid" Name="ReportID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Page" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="FolderID" />
+          <Property Type="DateTime" Name="LastEditDate" />
+          <Property Type="DateTime" Name="CreationDate" />
+          <NavigationProperty Name="Folder" Relationship="PTF.PTFReportsDB.FK_Reports_Folders" FromRole="Report" ToRole="Folder" />
+          <NavigationProperty Name="Parameters" Relationship="PTF.PTFReportsDB.FK_Parameters_Reports" FromRole="Report" ToRole="Parameter" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="SessionID" />
+          </Key>
+          <Property Type="Int32" Name="SessionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BrowserSessionID" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Begin" Nullable="false" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="Int32" Name="UserID" />
+          <Property Type="String" Name="UserAgent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IP_id" Nullable="false" />
+          <Property Type="DateTime" Name="LastEditDate" />
+          <Property Type="DateTime" Name="CreationDate" />
+          <NavigationProperty Name="Histories" Relationship="PTF.PTFReportsDB.FK_History_Sessions" FromRole="Session" ToRole="History" />
+          <NavigationProperty Name="IP" Relationship="PTF.PTFReportsDB.FK_Sessions_IP" FromRole="Session" ToRole="IP" />
+          <NavigationProperty Name="UserDetail" Relationship="PTF.PTFReportsDB.FK_Sessions_UserDetails" FromRole="Session" ToRole="UserDetail" />
+        </EntityType>
+        <EntityType Name="UserDetail">
+          <Key>
+            <PropertyRef Name="Ud_id" />
+          </Key>
+          <Property Type="Int32" Name="Ud_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Ud_loginName" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ud_firstName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ud_lastName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ud_password" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ud_salt" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ud_email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Ud_firstLogin" Nullable="false" />
+          <Property Type="Boolean" Name="Ud_forgottenPassword" />
+          <Property Type="Int32" Name="Ud_userType" Nullable="false" />
+          <Property Type="Int32" Name="Ud_iso_id" Nullable="false" />
+          <Property Type="Int32" Name="Ud_ho_id" Nullable="false" />
+          <Property Type="Int32" Name="Ud_br_id" Nullable="false" />
+          <Property Type="DateTime" Name="LastEditDate" />
+          <Property Type="DateTime" Name="CreationDate" />
+          <Property Type="Int32" Name="LoginTries" />
+          <Property Type="DateTime" Name="BlockedAt" />
+          <NavigationProperty Name="Permissions" Relationship="PTF.PTFReportsDB.FK_Permissions_UserDetails" FromRole="UserDetail" ToRole="Permission" />
+          <NavigationProperty Name="Sessions" Relationship="PTF.PTFReportsDB.FK_Sessions_UserDetails" FromRole="UserDetail" ToRole="Session" />
+          <NavigationProperty Name="Folders" Relationship="PTF.PTFReportsDB.FolderUsers" FromRole="UserDetail" ToRole="Folder" />
+          <Property Type="Int32" Name="Ud_languageId" />
+        </EntityType>
+        <Association Name="FK_Folders_Folders">
+          <End Type="PTF.PTFReportsDB.Folder" Role="Folder" Multiplicity="0..1" />
+          <End Type="PTF.PTFReportsDB.Folder" Role="Folder1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folder">
+              <PropertyRef Name="FolderID" />
+            </Principal>
+            <Dependent Role="Folder1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Folders">
+          <End Type="PTF.PTFReportsDB.Folder" Role="Folder" Multiplicity="0..1" />
+          <End Type="PTF.PTFReportsDB.Report" Role="Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folder">
+              <PropertyRef Name="FolderID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="FolderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Sessions">
+          <End Type="PTF.PTFReportsDB.Session" Role="Session" Multiplicity="1" />
+          <End Type="PTF.PTFReportsDB.History" Role="History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="SessionID" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="SessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_IP">
+          <End Type="PTF.PTFReportsDB.IP" Role="IP" Multiplicity="1" />
+          <End Type="PTF.PTFReportsDB.Session" Role="Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IP">
+              <PropertyRef Name="IP_id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="IP_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parameters_Reports">
+          <End Type="PTF.PTFReportsDB.Report" Role="Report" Multiplicity="1" />
+          <End Type="PTF.PTFReportsDB.Parameter" Role="Parameter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Report">
+              <PropertyRef Name="ReportID" />
+            </Principal>
+            <Dependent Role="Parameter">
+              <PropertyRef Name="ReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permissions_UserDetails">
+          <End Type="PTF.PTFReportsDB.UserDetail" Role="UserDetail" Multiplicity="1" />
+          <End Type="PTF.PTFReportsDB.Permission" Role="Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetail">
+              <PropertyRef Name="Ud_id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_UserDetails">
+          <End Type="PTF.PTFReportsDB.UserDetail" Role="UserDetail" Multiplicity="0..1" />
+          <End Type="PTF.PTFReportsDB.Session" Role="Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetail">
+              <PropertyRef Name="Ud_id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FolderUsers">
+          <End Type="PTF.PTFReportsDB.Folder" Role="Folder" Multiplicity="*" />
+          <End Type="PTF.PTFReportsDB.UserDetail" Role="UserDetail" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Error">
+          <Key>
+            <PropertyRef Name="ErrId" />
+          </Key>
+          <Property Type="Int32" Name="ErrId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Error1" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnblockCommand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Url" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+          <Property Type="DateTime" Name="DateUsed" />
+        </EntityType>
+        <EntityType Name="Datum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Binary" Name="Data" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PTFReportsModelStoreContainer" CdmEntityContainer="PTFReportsContext">
+          <EntitySetMapping Name="Folders">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.Folder">
+              <MappingFragment StoreEntitySet="Folders">
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FolderID" ColumnName="FolderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Histories">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.History">
+              <MappingFragment StoreEntitySet="History">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Page" ColumnName="Page" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IPs">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.IP">
+              <MappingFragment StoreEntitySet="IP">
+                <ScalarProperty Name="BlockedAt" ColumnName="BlockedAt" />
+                <ScalarProperty Name="IP1" ColumnName="IP" />
+                <ScalarProperty Name="IP_id" ColumnName="IP_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parameters">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.Parameter">
+              <MappingFragment StoreEntitySet="Parameters">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="ParamType" ColumnName="ParamType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PrameterID" ColumnName="PrameterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.Permission">
+              <MappingFragment StoreEntitySet="Permissions">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="RetailerID" ColumnName="RetailerID" />
+                <ScalarProperty Name="HoID" ColumnName="HoID" />
+                <ScalarProperty Name="IsoID" ColumnName="IsoID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.Report">
+              <MappingFragment StoreEntitySet="Reports">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="FolderID" ColumnName="FolderID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Page" ColumnName="Page" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.Session">
+              <MappingFragment StoreEntitySet="Sessions">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IP_id" ColumnName="IP_id" />
+                <ScalarProperty Name="UserAgent" ColumnName="UserAgent" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Begin" ColumnName="Begin" />
+                <ScalarProperty Name="BrowserSessionID" ColumnName="BrowserSessionID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDetails">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.UserDetail">
+              <MappingFragment StoreEntitySet="UserDetails">
+                <ScalarProperty Name="Ud_languageId" ColumnName="Ud_languageId" />
+                <ScalarProperty Name="BlockedAt" ColumnName="BlockedAt" />
+                <ScalarProperty Name="LoginTries" ColumnName="LoginTries" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="Ud_br_id" ColumnName="Ud_br_id" />
+                <ScalarProperty Name="Ud_ho_id" ColumnName="Ud_ho_id" />
+                <ScalarProperty Name="Ud_iso_id" ColumnName="Ud_iso_id" />
+                <ScalarProperty Name="Ud_userType" ColumnName="Ud_userType" />
+                <ScalarProperty Name="Ud_forgottenPassword" ColumnName="Ud_forgottenPassword" />
+                <ScalarProperty Name="Ud_firstLogin" ColumnName="Ud_firstLogin" />
+                <ScalarProperty Name="Ud_email" ColumnName="Ud_email" />
+                <ScalarProperty Name="Ud_salt" ColumnName="Ud_salt" />
+                <ScalarProperty Name="Ud_password" ColumnName="Ud_password" />
+                <ScalarProperty Name="Ud_lastName" ColumnName="Ud_lastName" />
+                <ScalarProperty Name="Ud_firstName" ColumnName="Ud_firstName" />
+                <ScalarProperty Name="Ud_loginName" ColumnName="Ud_loginName" />
+                <ScalarProperty Name="Ud_id" ColumnName="Ud_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FolderUsers" TypeName="PTF.PTFReportsDB.FolderUsers" StoreEntitySet="FolderUsers">
+            <EndProperty Name="UserDetail">
+              <ScalarProperty Name="Ud_id" ColumnName="UserID" />
+            </EndProperty>
+            <EndProperty Name="Folder">
+              <ScalarProperty Name="FolderID" ColumnName="FolderID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Errors">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.Error">
+              <MappingFragment StoreEntitySet="Error">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Error1" ColumnName="Error" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ErrId" ColumnName="ErrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnblockCommands">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.UnblockCommand">
+              <MappingFragment StoreEntitySet="UnblockCommands">
+                <ScalarProperty Name="DateUsed" ColumnName="DateUsed" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Data">
+            <EntityTypeMapping TypeName="PTF.PTFReportsDB.Datum">
+              <MappingFragment StoreEntitySet="Data">
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="PTFRepoModel" ZoomLevel="72">
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.Folder" Width="1.5" PointX="0.75" PointY="4.5" Height="2.5783902994791745" />
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.History" Width="1.5" PointX="10.5" PointY="6.5" Height="1.7566536458333317" />
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.IP" Width="1.5" PointX="6" PointY="9.625" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.Parameter" Width="1.5" PointX="5.25" PointY="2.125" Height="2.4140429687500031" />
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.Permission" Width="1.5" PointX="5.25" PointY="6.25" Height="2.2496956380208379" />
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.Report" Width="1.5" PointX="3" PointY="2.125" Height="2.414042968749996" />
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.Session" Width="1.5" PointX="8.25" PointY="6" Height="2.9070849609375031" />
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.UserDetail" Width="1.5" PointX="3" PointY="5.25" Height="4.3862109375000014" />
+        <AssociationConnector Association="PTF.PTFReportsDB.FK_Folders_Folders" >
+          <ConnectorPoint PointX="1.2819230769230767" PointY="7.0783902994791745" />
+          <ConnectorPoint PointX="1.2819230769230767" PointY="7.3283902994791745" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="7.3283902994791745" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="7.0783902994791745" />
+        </AssociationConnector>
+        <AssociationConnector Association="PTF.PTFReportsDB.FK_Reports_Folders" >
+          <ConnectorPoint PointX="1.5" PointY="4.5" />
+          <ConnectorPoint PointX="1.5" PointY="3.3124995" />
+          <ConnectorPoint PointX="3" PointY="3.3124995" />
+        </AssociationConnector>
+        <AssociationConnector Association="PTF.PTFReportsDB.FK_History_Sessions" >
+          <ConnectorPoint PointX="9.75" PointY="7.3783268229166659" />
+          <ConnectorPoint PointX="10.5" PointY="7.3783268229166659" />
+        </AssociationConnector>
+        <AssociationConnector Association="PTF.PTFReportsDB.FK_Sessions_IP" >
+          <ConnectorPoint PointX="7.15625" PointY="9.625" />
+          <ConnectorPoint PointX="7.15625" PointY="8.734640299479171" />
+          <ConnectorPoint PointX="8.25" PointY="8.734640299479171" />
+        </AssociationConnector>
+        <AssociationConnector Association="PTF.PTFReportsDB.FK_Parameters_Reports" >
+          <ConnectorPoint PointX="4.5" PointY="3.332021484374998" />
+          <ConnectorPoint PointX="5.25" PointY="3.332021484374998" />
+        </AssociationConnector>
+        <AssociationConnector Association="PTF.PTFReportsDB.FK_Permissions_UserDetails" >
+          <ConnectorPoint PointX="4.5" PointY="7.3748478190104194" />
+          <ConnectorPoint PointX="5.25" PointY="7.3748478190104194" />
+        </AssociationConnector>
+        <AssociationConnector Association="PTF.PTFReportsDB.FK_Sessions_UserDetails" >
+          <ConnectorPoint PointX="4.5" PointY="6.09375" />
+          <ConnectorPoint PointX="8.25" PointY="6.09375" />
+        </AssociationConnector>
+        <AssociationConnector Association="PTF.PTFReportsDB.FolderUsers" >
+          <ConnectorPoint PointX="2.25" PointY="6.1641951497395873" />
+          <ConnectorPoint PointX="3" PointY="6.1641951497395873" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.Error" Width="1.5" PointX="8.375" PointY="9.75" Height="1.7566536458333317" />
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.UnblockCommand" Width="1.5" PointX="7.375" PointY="0.75" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="PTF.PTFReportsDB.Datum" Width="1.5" PointX="7.375" PointY="3.75" Height="1.2636116536458353" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

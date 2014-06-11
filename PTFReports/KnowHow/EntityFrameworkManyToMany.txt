@@ -1,0 +1,27 @@
+
+
+using (var context = new YourContext())
+{
+    var mathClass = new Class { Name = "Math" };
+    mathClass.Students.Add(new Student { Name = "Alice" });
+    mathClass.Students.Add(new Student { Name = "Bob" });
+
+    context.AddToClasses(mathClass);
+    context.SaveChanges();
+}
+
+
+OrderDetails context = new OrderDetails();
+Contact contact = context.GetObjectByKey(new EntityKey("OrderDetails.Contact", "contact_id", existingContactId));
+order.Contact.Add(contact);
+
+
+// how you get this doesn't matter so long as it is in the Context
+User user = ...; 
+Role role = new Role {Id = 2}; 
+// role 2 is in unchanged state
+ctx.AttachTo("Roles", role); 
+// role 2 is unchanged + added relationship between user and role 2
+user.Roles.Add(role); 
+ctx.SaveChanges();
+

@@ -1,0 +1,34 @@
+﻿@using PTF.Reports.Controllers
+@using PTF.Reports.PTFReportsDB
+@model IEnumerable<UserDetail>
+@{
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/Shared/Administration.cshtml";
+}
+<div id="main">
+    <!-- Hack: DON'T Remove the div below -->
+    <div id="DataTable">
+        @{
+            var grid = new WebGrid(canPage: true, canSort: true, rowsPerPage: AdministrationController.PAGESIZE,
+                ajaxUpdateContainerId: "DataTable");
+            grid.Bind(Model, rowCount: ViewBag.Count, autoSortAndPage: false);
+            grid.Pager(WebGridPagerModes.All);
+        
+
+            @grid.GetHtml(
+                        htmlAttributes: new { id = "DataTable" },
+                        alternatingRowStyle: "alt",
+                        columns: grid.Columns(
+                                        grid.Column(
+                                                    header: "",
+                                                    columnName: "UnBlock",
+                                                    format: (item) => Html.ActionLink("UnBlock", "UnBlockUser", new { id = item.Ud_id })),
+                                                 grid.Column("Ud_loginName", "Login Name"),
+                                                 grid.Column("BlockedAt")
+                                                            ));
+        }
+    </div>
+    <p>
+        @Html.ActionLink("Back", "Index")
+    </p>
+</div>

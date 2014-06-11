@@ -1,0 +1,181 @@
+﻿@using PTF.Reports
+@using PTF.Reports.Models
+@using PTF.Reports.TRSReportingService
+@model ReportParametersModel
+@{
+    Layout = null;
+}
+<style type="text/css">
+    .black
+    {
+        color: black;
+    }
+    .editor-label, .editor-field
+    {
+        font-size: 1em;
+        font-family: Calibry;
+        font-weight: normal;
+        color: #696969;
+    }
+</style>
+<script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+
+    function dropdown_change(value) {
+        //set hidden value
+        var vs = value;
+        var c = document.getElementById("IsoID");
+        var vc = c != null ? c.value : "";
+        var com = document.getElementById("CompanyID");
+        var vcom = com != null ? com.value : "";
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ReportParameters", "Reports")',
+            dataType: 'json',
+            data: { "Step": vs, "IsoID": vc, "CompanyID": vcom },
+            success: function (htmlResult) {
+                $("#ReportParamnsControl1").empty();
+                $("#ReportParamnsControl1").append(htmlResult);
+            }
+        });
+    }
+
+    var allRetailers = false;
+
+    function select_All() {
+        allRetailers = !allRetailers;
+        var select = document.getElementById("RetailerID");
+        for (var i = 0; i < select.length; i++)
+            select[i].selected = allRetailers;
+    }
+
+    $(document).ready(function () {
+        $('#ShowReportForm').submit(function () {
+            var select = document.getElementById("RetailerID");
+            for (var i = 0; i < select.length; i++)
+                if (select[i].selected)
+                    return true;
+
+            alert('No retailer is selected!\nPlease select at least one retailer in the list above.');
+            return false; // The form will *not* submit 
+        });
+    });
+</script>
+@if (Model == null)
+{
+    <span>@ViewData[Strings.ERR]</span>
+}
+else
+{
+    var attrs1 = new Dictionary<string, object> { { "readonly", "true" }, { "class", "inactive" } };
+    var attrs2 = new Dictionary<string, object> { { "id", "ShowReportForm" }, { "target", "_self" } };
+    var attrs3 = new Dictionary<string, object> { { "onchange", "dropdown_change(this.id)" } };
+
+    var actionName = "ReportParameters";
+
+    if (Model.CurrentStep == "RetailerID")
+    {
+        actionName = "ShowReport";
+        attrs2["target"] = "_blank";
+    }
+
+    using (Html.BeginForm(actionName, "Reports", FormMethod.Post, attrs2))
+    {
+    @Html.ValidationSummary(true);
+    @Html.Raw("<fieldset style='width: 400px; height: auto; margin: 0px 0px 0px 0px;' ><legend>Selection</legend>");
+    <input type="hidden" id="CurrentStep" name="CurrentStep" value="" style="padding: 0 0 0 0;" />
+    @Html.Raw("<div class=\"editor-label\"><b>Report: </b>");
+    @Html.Label(Model.Name);
+    @Html.Raw("</div>");
+                       switch (Model.CurrentStep)
+                       {
+                           case "IsoID":
+                               {
+                                   if (ViewData[ParamMapping.IsoID.ToString()] != null)
+                                   {
+    @Html.Raw("<div class=\"editor-label\">");
+    @Html.LabelFor(model => model.Country);
+    @Html.Raw("</div>");
+    @Html.Raw("<div class=\"editor-field\">");
+    @Html.DropDownList(ParamMapping.IsoID.ToString(),
+                    ViewData[ParamMapping.IsoID.ToString()] as SelectList, "<Select>", attrs3);
+    @Html.Raw("</div>");
+                                   }
+                                   break;
+                               }
+                           case "CompanyID":
+                               {
+    <!-- COUNTRY -->
+                                   if (!Model.Country.IsNullEmptyOrWhite() && !Model.SkipCountry)
+                                   {
+    @Html.Raw("<div class=\"editor-label\">");
+    @Html.LabelFor(model => model.Country);
+    @Html.Raw("</div>");
+    @Html.Raw("<div class=\"editor-field\">");
+                                             attrs1["onclick"] = "dropdown_change('')";
+    @Html.TextBox("txtCountry", Model.Country, attrs1);
+    @Html.Raw("</div>");
+                                   }
+    <!-- COMPANY -->
+                                   if (ViewData[ParamMapping.CompanyID.ToString()] != null)
+                                   {
+    @Html.Raw("<div class=\"editor-label\">");
+    @Html.LabelFor(model => model.Company);
+    @Html.Raw("</div>");
+    @Html.Raw("<div class=\"editor-field\">");
+    @Html.DropDownList(ParamMapping.CompanyID.ToString(),
+                    ViewData[ParamMapping.CompanyID.ToString()] as SelectList, "<Select>", attrs3);
+    @Html.Raw("</div>");
+                                   }
+                                   break;
+                               }
+                           case "RetailerID":
+                           default:
+                               {
+    <!-- COUNTRY -->
+                                   if (!Model.Country.IsNullEmptyOrWhite() && !Model.SkipCountry)
+                                   {
+    @Html.Raw("<div class=\"editor-label\">");
+    @Html.LabelFor(model => model.Country);
+    @Html.Raw("</div>");
+    @Html.Raw("<div class=\"editor-field\">");
+                                             attrs1["onclick"] = "dropdown_change('')";
+    @Html.TextBox("txtCountry", Model.Country, attrs1);
+    @Html.Raw("</div>");
+                                   }
+                           
+    <!-- COMPANY -->
+                                   if (!Model.Company.IsNullEmptyOrWhite() && !Model.SkipCompany)
+                                   {
+    @Html.Raw("<div class=\"editor-label\">");
+    @Html.LabelFor(model => model.Company);
+    @Html.Raw("</div>");
+    @Html.Raw("<div class=\"editor-field\">");
+                                             attrs1["onclick"] = "dropdown_change('')";
+    @Html.TextBox("txtCompany", Model.Company, attrs1);
+    @Html.Raw("</div>");
+                                   }
+
+                                   if (ViewData[ParamMapping.RetailerID.ToString()] != null)
+                                   {
+    <!-- RETAILER -->
+    @Html.Raw("<div class=\"editor-field\" style=\"width:390px;\">");
+                                                                    var attrs4 = new Dictionary<string, object>();
+                                                                    int count = 8;
+                                                                    if (Model.SkipCountry) { count += 5; }
+                                                                    if (Model.SkipCompany) { count += 5; }
+                                                                    attrs4.Add("size", count);
+                                                                    attrs4.Add("class", "editor-field");
+                                                                    attrs4.Add("style", "width: 395px; color: black;");
+    <a href="#" onclick="select_All(); return false;">All</a>
+    @Html.ListBox(ParamMapping.RetailerID.ToString(),
+                        ViewData[ParamMapping.RetailerID.ToString()] as MultiSelectList, attrs4)
+    @Html.Raw("</div>");
+                                   }                                                                                                   
+    @Html.Raw("<p><input type=\"submit\" value=\"View Report\" />");
+                                                                   break;
+                               }
+                       }
+    @Html.Raw("</p></fieldset>");
+    }
+}

@@ -1,0 +1,46 @@
+
+        static readonly string ms_domain = Config.Get<string>(Strings.ReportServerDomainName);
+        static readonly string ms_userName = Config.Get<string>(Strings.ReportServerUserName);
+        static readonly string ms_userPass = Config.Get<string>(Strings.ReportServerUserPass);
+
+        [ReportAuthorize]
+        [AcceptVerbs("post", "get")]
+        public ActionResult ViewReportParameters()
+        {
+            ReportParameter[] parameters = null;
+
+            if (Session[Strings.REPORTID] != null)
+            {
+                var currenReportId = Session[Strings.REPORTID].Cast<Guid>();
+                var user = Session[Strings.USER].Cast<UserDetail>();
+
+                var ctx1 = new PTFContext();
+                var ctx2 = new PTFReportsContext();
+                var report = ctx2.Reports.First(r => r.ReportID == currenReportId);
+
+                var client = new RSClient(Config.Get<string>(Strings.ReportServerServiceUrl));
+                try
+                {
+                    client.SetCredentials(ms_userName, ms_userPass, ms_domain);
+
+                    var properties = client.GetProperties(report.Page, null);
+                    parameters = client.GetReportParameters(report.Page, null, false, null, null);
+
+                    var def = client.GetReportDefinition(report.Page);
+                    client.CreateReport(report.Page, null, true, def, properties);
+
+                    foreach (var p in parameters)
+                    {
+                        if (p.DefaultValuesQueryBased)
+                            ;
+
+                    }
+                }
+                catch (SoapException e)
+                {
+                    Debug.WriteLine(e.Detail.InnerXml.ToString());
+                }
+            }
+
+            return View(parameters);
+        }

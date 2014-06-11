@@ -1,0 +1,76 @@
+taskkill /im WebDev.WebServer40.EXE /fi "Status eq RUNNING"
+
+
+
+select * from sysobjects
+where xtype = 'UQ'
+
+
+
+
+•Application_BeginRequest
+•Application_AuthenticateRequest
+•Application_AuthorizeRequest
+•Application_ResolveRequestCache
+•Application_AcquireRequestState
+•Application_PreRequestHandlerExecute
+•Application_PreSendRequestHeaders
+•Application_PreSendRequestContent
+•<<code is executed>>
+•Application_PostRequestHandlerExecute
+•Application_ReleaseRequestState
+•Application_UpdateRequestCache
+•Application_EndRequest
+
+
+http://192.168.44.61:8080/ReportServer
+http://192.168.44.61:8080/Reports/Pages/Folder.aspx
+http://192.168.44.61:8080/ReportServer/ReportService2005.asmx
+
+http://192.168.44.61:8080/Reports/Pages/Report.aspx?ItemPath=%2fAccounting%2fCash+Fee+Income+Report
+
+http://192.168.53.118/Reports/Pages/Folder.aspx
+
+
+
+  <%= Ajax.ActionLink("Test JavaScript", "TestJavaScript", 
+      new AjaxOptions{UpdateTargetId = "divResultText"}) %>
+
+public ActionResult TestJavaScript() {
+    string s = "$('#divResultText').html('JavaScript Passed');";
+    return JavaScript(s);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+            // var formdata = $(myform).serialize();
+
+            //             jQuery.getJSON('@Url.Action("Test4", "Reports")', function (data) {
+            //                 var items = [];
+
+            //                 $.each(data, function (key, val) {
+            //                     items.push('<li id="' + key + '">' + val + '</li>');
+            //                 });
+
+            //                 $('<ul/>', {
+            //                     'class': 'page',
+            //                     html: items.join('')
+            //                 }).appendTo('body');
+            //             });
+
+            //            jQuery.ajax({
+            //                url: '@Url.Action("Test4", "Reports")',
+            //                type: 'GET',
+            //                contentType: 'application/json',
+            //                data: JSON.stringify({ data: "123", data2: "2334" }),
+            //                success: function (result) { alert(result); }
+            //            });

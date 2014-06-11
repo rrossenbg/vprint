@@ -1,0 +1,2307 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Html5MVCWebControls</name>
+    </assembly>
+    <members>
+        <member name="T:System.Web.Mvc.Html.Html5Helper">
+            <summary>
+            A Html5 helper class which contains all the Html5 elements.
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.IHtml5Helper">
+            <summary>
+            A Html5 helper interface which contains all the Html5 elements.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.PlaceholderBox(System.String,System.String)">
+            <summary>
+            Renders a input element having a placeholder text
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="placeholderText">The placeholder text to be set for the input element.</param>
+            <returns>A input element having a placeholder text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.PlaceholderBox(System.String,System.String,System.Object)">
+            <summary>
+            Renders a input element having a placeholder text
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="placeholderText">The placeholder text to be set for the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element having a placeholder text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.EmailBox(System.String)">
+            <summary>
+            Renders a input element of email type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of email type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.EmailBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of email type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of email type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.UrlBox(System.String)">
+            <summary>
+            Renders a input element of url type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of url type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.UrlBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of url type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of url type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.NumberBox(System.String)">
+            <summary>
+            Renders a input element of number type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of number type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.NumberBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of number type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of number type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.NumberBox(System.String,System.Double,System.Double,System.Double)">
+            <summary>
+            Renders a input element of number type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="min">The minimum value of the input element.</param>
+            <param name="max">The maximum value of the input element.</param>
+            <param name="step">The stepping value of the input element.</param>
+            <returns>A input element of number type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.NumberBox(System.String,System.Double,System.Double,System.Double,System.Object)">
+            <summary>
+            Renders a input element of number type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="min">The minimum value of the input element.</param>
+            <param name="max">The maximum value of the input element.</param>
+            <param name="step">The stepping value of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of number type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Range(System.String)">
+            <summary>
+            Renders a input element of range type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of range type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Range(System.String,System.Object)">
+            <summary>
+            Renders a input element of range type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of range type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Range(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Renders a input element of range type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="min">The minimum value of the input element.</param>
+            <param name="max">The maximum value of the input element.</param>
+            <param name="step">The stepping value of the input element.</param>
+            <returns>A input element of range type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Range(System.String,System.Int32,System.Int32,System.Int32,System.Object)">
+            <summary>
+            Renders a input element of range type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="min">The minimum value of the input element.</param>
+            <param name="max">The maximum value of the input element.</param>
+            <param name="step">The stepping value of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of range type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.SearchBox(System.String)">
+            <summary>
+            Renders a input element of search type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of search type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.SearchBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of search type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of search type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.ColorBox(System.String)">
+            <summary>
+            Renders a input element of color type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of color type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.ColorBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of color type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of color type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.DateBox(System.String)">
+            <summary>
+            Renders a input element of date type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of date type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.DateBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of date type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of date type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.MonthBox(System.String)">
+            <summary>
+            Renders a input element of month type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of month type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.MonthBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of month type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of month type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.WeekBox(System.String)">
+            <summary>
+            Renders a input element of week type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of week type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.WeekBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of week type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of week type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.TimeBox(System.String)">
+            <summary>
+            Renders a input element of time type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of time type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.TimeBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of time type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of time type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.DateTimeBox(System.String)">
+            <summary>
+            Renders a input element of datetime type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of datetime type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.DateTimeBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of datetime type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of datetime type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.DateTimeLocalBox(System.String)">
+            <summary>
+            Renders a input element of datetime-local type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of datetime-local type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.DateTimeLocalBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of datetime-local type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of datetime-local type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Progress(System.String,System.String)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Progress(System.String,System.String,System.Object)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Progress(System.String,System.String,System.Int32)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="max">The maximum value of the progress element.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Progress(System.String,System.String,System.Int32,System.Object)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="max">The maximum value of the progress element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Progress(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="max">The maximum value of the progress element.</param>
+            <param name="value">The current value of the progress element.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Progress(System.String,System.String,System.Int32,System.Int32,System.Object)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="max">The maximum value of the progress element.</param>
+            <param name="value">The current value of the progress element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Meter(System.String,System.String)">
+            <summary>
+            Renders a meter element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the meter element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <returns>A meter element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Meter(System.String,System.String,System.Object)">
+            <summary>
+            Renders a meter element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the meter element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A meter element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Meter(System.String,System.String,System.Double,System.Double,System.Double)">
+            <summary>
+            Renders a meter element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the meter element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="min">The minimum value of the meter element.</param>
+            <param name="max">The maximum value of the meter element.</param>
+            <param name="value">The current value of the meter element.</param>
+            <returns>A meter element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5Helper.Meter(System.String,System.String,System.Double,System.Double,System.Double,System.Object)">
+            <summary>
+            Renders a meter element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the meter element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="min">The minimum value of the meter element.</param>
+            <param name="max">The maximum value of the meter element.</param>
+            <param name="value">The current value of the meter element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A meter element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.#ctor(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Initializes a Html5Helper class used to render Html5 elements.
+            </summary>
+            <param name="htmlHelper">The html helper class instance that comes from the current view context.</param>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.PlaceholderBox(System.String,System.String)">
+            <summary>
+            Renders a input element having a placeholder text.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="placeholderText">The placeholder text to be set for the input element.</param>
+            <returns>A input element having a placeholder text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.PlaceholderBox(System.String,System.String,System.Object)">
+            <summary>
+            Renders a input element having a placeholder text.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="placeholderText">The placeholder text to be set for the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element having a placeholder text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.EmailBox(System.String)">
+            <summary>
+            Renders a input element of email type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of email type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.EmailBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of email type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of email type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.UrlBox(System.String)">
+            <summary>
+            Renders a input element of url type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of url type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.UrlBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of url type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of url type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.NumberBox(System.String)">
+            <summary>
+            Renders a input element of number type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of number type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.NumberBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of number type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of number type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.NumberBox(System.String,System.Double,System.Double,System.Double)">
+            <summary>
+            Renders a input element of number type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="min">The minimum value of the input element.</param>
+            <param name="max">The maximum value of the input element.</param>
+            <param name="step">The stepping value of the input element.</param>
+            <returns>A input element of number type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.NumberBox(System.String,System.Double,System.Double,System.Double,System.Object)">
+            <summary>
+            Renders a input element of number type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="min">The minimum value of the input element.</param>
+            <param name="max">The maximum value of the input element.</param>
+            <param name="step">The stepping value of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of number type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Range(System.String)">
+            <summary>
+            Renders a input element of range type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of range type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Range(System.String,System.Object)">
+            <summary>
+            Renders a input element of range type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of range type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Range(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Renders a input element of range type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="min">The minimum value of the input element.</param>
+            <param name="max">The maximum value of the input element.</param>
+            <param name="step">The stepping value of the input element.</param>
+            <returns>A input element of range type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Range(System.String,System.Int32,System.Int32,System.Int32,System.Object)">
+            <summary>
+            Renders a input element of range type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="min">The minimum value of the input element.</param>
+            <param name="max">The maximum value of the input element.</param>
+            <param name="step">The stepping value of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of range type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.SearchBox(System.String)">
+            <summary>
+            Renders a input element of search type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of search type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.SearchBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of search type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of search type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.ColorBox(System.String)">
+            <summary>
+            Renders a input element of color type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of color type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.ColorBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of color type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of color type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.DateBox(System.String)">
+            <summary>
+            Renders a input element of date type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of date type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.DateBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of date type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of date type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.MonthBox(System.String)">
+            <summary>
+            Renders a input element of month type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of month type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.MonthBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of month type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of month type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.WeekBox(System.String)">
+            <summary>
+            Renders a input element of week type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of week type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.WeekBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of week type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of week type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.TimeBox(System.String)">
+            <summary>
+            Renders a input element of time type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of time type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.TimeBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of time type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of time type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.DateTimeBox(System.String)">
+            <summary>
+            Renders a input element of datetime type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of datetime type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.DateTimeBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of datetime type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of datetime type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.DateTimeLocalBox(System.String)">
+            <summary>
+            Renders a input element of datetime-local type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <returns>A input element of datetime-local type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.DateTimeLocalBox(System.String,System.Object)">
+            <summary>
+            Renders a input element of datetime-local type.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A input element of datetime-local type.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Progress(System.String,System.String)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Progress(System.String,System.String,System.Object)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Progress(System.String,System.String,System.Int32)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="max">The maximum value of the progress element.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Progress(System.String,System.String,System.Int32,System.Object)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="max">The maximum value of the progress element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Progress(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="max">The maximum value of the progress element.</param>
+            <param name="value">The current value of the progress element.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Progress(System.String,System.String,System.Int32,System.Int32,System.Object)">
+            <summary>
+            Renders a progress element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the progress element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="max">The maximum value of the progress element.</param>
+            <param name="value">The current value of the progress element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A progress element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Meter(System.String,System.String)">
+            <summary>
+            Renders a meter element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the meter element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <returns>A meter element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Meter(System.String,System.String,System.Object)">
+            <summary>
+            Renders a meter element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the meter element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A meter element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Meter(System.String,System.String,System.Double,System.Double,System.Double)">
+            <summary>
+            Renders a meter element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the meter element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="min">The minimum value of the meter element.</param>
+            <param name="max">The maximum value of the meter element.</param>
+            <param name="value">The current value of the meter element.</param>
+            <returns>A meter element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.Meter(System.String,System.String,System.Double,System.Double,System.Double,System.Object)">
+            <summary>
+            Renders a meter element.
+            </summary>
+            <param name="name">The name of the input element.</param>
+            <param name="innerText">The text to be displayed within the meter element. 
+            If the client browser does not support this element, then the text is displayed as a not supported message.</param>
+            <param name="min">The minimum value of the meter element.</param>
+            <param name="max">The maximum value of the meter element.</param>
+            <param name="value">The current value of the meter element.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the input element.</param>
+            <returns>A meter element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Helper.BuildInputTag(System.String,System.String,System.Object)">
+            <summary>
+            Creates a input element with the specified type.
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.Html.Html5Helper.Canvas">
+            <summary>
+            A Html5 helper class instance which contains all the canvas related elements.
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.Html.Html5Helper.Svg">
+            <summary>
+            A Html5 helper class instance which contains all the svg related elements.
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.Html.Html5Helper.Media">
+            <summary>
+            A Html5 helper class instance which contains all the media related elements.
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.IHtml5CanvasHelper">
+            <summary>
+            A Html5 helper interface which contains all the canvas related elements.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.EmptyCanvas(System.String,System.String)">
+            <summary>
+            Renders a empty canvas element in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <returns>A canvas element of Html5 specifications.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.EmptyCanvas(System.String,System.String,System.Object)">
+            <summary>
+            Renders a empty canvas element in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A empty canvas element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.Rectangle(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a rectangle element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The x position of the rectangle.</param>
+            <param name="y">The y position of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <param name="thickness">The line thickness of the rectangle.</param>
+            <param name="lineColor">The border color of the rectangle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a rectangle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.FilledRectangle(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a filled rectangle element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The x point of the rectangle.</param>
+            <param name="y">The y point of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <param name="fillColor">The fill color of the rectangle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled rectangle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.Ellipse(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a ellipse element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the ellipse.</param>
+            <param name="cy">The center y point of the ellipse.</param>
+            <param name="width">The width of the ellipse.</param>
+            <param name="height">The height of the ellipse.</param>
+            <param name="thickness">The line thickness of the ellipse.</param>
+            <param name="lineColor">The border color of the ellipse.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a ellipse.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.FilledEllipse(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a filled ellipse element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the ellipse.</param>
+            <param name="cy">The center y point of the ellipse.</param>
+            <param name="width">The width of the ellipse.</param>
+            <param name="height">The height of the ellipse.</param>
+            <param name="fillColor">The fill color of the ellipse.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled ellipse.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.Circle(System.String,System.String,System.Int32,System.Int32,System.Single,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a circle element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The center x point of the circle.</param>
+            <param name="y">The center y point of the circle.</param>
+            <param name="radius">The radius of the circle.</param>
+            <param name="thickness">The line thickness of the circle.</param>
+            <param name="lineColor">The border color of the circle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a circle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.FilledCircle(System.String,System.String,System.Int32,System.Int32,System.Single,System.String,System.Object)">
+            <summary>
+            Renders a filled circle element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The center x point of the circle.</param>
+            <param name="y">The center y point of the circle.</param>
+            <param name="radius">The radius of the circle.</param>
+            <param name="fillColor">The fill color of the circle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled circle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.Arc(System.String,System.String,System.Int32,System.Int32,System.Single,System.Int32,System.Single,System.Single,System.String,System.Object)">
+            <summary>
+            Renders a arc element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The center x point of the arc.</param>
+            <param name="y">The center y point of the arc.</param>
+            <param name="radius">The radius of the arc.</param>
+            <param name="thickness">The line thickness of the arc.</param>
+            <param name="startAngle">The starting angle of the arc.</param>
+            <param name="endAngle">The ending angle of the arc.</param>
+            <param name="lineColor">The border color of the arc.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a arc.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.FilledArc(System.String,System.String,System.Int32,System.Int32,System.Single,System.Single,System.Single,System.String,System.Object)">
+            <summary>
+            Renders a filled arc element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The center x point of the arc.</param>
+            <param name="y">The center y point of the arc.</param>
+            <param name="radius">The radius of the arc.</param>
+            <param name="startAngle">The starting angle of the arc.</param>
+            <param name="endAngle">The ending angle of the arc.</param>
+            <param name="fillColor">The fill color of the circle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled arc.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.BeizerCurve(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a beizer curve element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the beizer curve.</param>
+            <param name="y1">The starting y point of the beizer curve.</param>
+            <param name="x2">The ending x point of the beizer curve.</param>
+            <param name="y2">The ending y point of the beizer curve.</param>
+            <param name="radius">The radius of the beizer curve.</param>
+            <param name="thickness">The line thickness of the beizer curve.</param>
+            <param name="lineColor">The border color of the beizer curve.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a beizer curve.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.FilledBeizerCurve(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.String,System.Object)">
+            <summary>
+            Renders a filled beizer curve element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the beizer curve.</param>
+            <param name="y1">The starting y point of the beizer curve.</param>
+            <param name="x2">The ending x point of the beizer curve.</param>
+            <param name="y2">The ending y point of the beizer curve.</param>
+            <param name="radius">The radius of the beizer curve.</param>
+            <param name="fillColor">The fill color of the beizer curve.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled beizer curve.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.QuadraticCurve(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a quadratic curve element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the quadratic curve.</param>
+            <param name="y1">The starting y point of the quadratic curve.</param>
+            <param name="x2">The ending x point of the quadratic curve.</param>
+            <param name="y2">The ending y point of the quadratic curve.</param>
+            <param name="thickness">The line thickness of the quadratic curve.</param>
+            <param name="lineColor">The border color of the quadratic curve.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a quadratic curve.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.FilledQuadraticCurve(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a filled quadratic curve element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the quadratic curve.</param>
+            <param name="y1">The starting y point of the quadratic curve.</param>
+            <param name="x2">The ending x point of the quadratic curve.</param>
+            <param name="y2">The ending y point of the quadratic curve.</param>
+            <param name="fillColor">The fill color of the quadratic curve.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled quadratic curve.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.Polygon(System.String,System.String,System.Drawing.Point[],System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a polygon element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="points">The array of the points on which the polygon is drawn.</param>
+            <param name="thickness">The line thickness of the polygon.</param>
+            <param name="lineColor">The border color of the polygon.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a polygon.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.FilledPolygon(System.String,System.String,System.Drawing.Point[],System.String,System.Object)">
+            <summary>
+            Renders a filled polygon element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="points">The array of the points on which the polygon is drawn.</param>
+            <param name="fillColor">The fill color of the polygon.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled polygon.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.Text(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a text element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The x point of the text.</param>
+            <param name="y">The y point of the text.</param>
+            <param name="text">The text to be drawn.</param>
+            <param name="fontFamily">The font family for the text. (e.g.) Arial, Tahoma, etc.</param>
+            <param name="fontSize">The font size for the text in pixels.</param>
+            <param name="fontStyle">The font style for the text. (styles: bold, italic).</param>
+            <param name="thickness">The line thickness of the text.</param>
+            <param name="lineColor">The border color of the text.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.FilledText(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.Object)">
+            <summary>
+            Renders a filled text element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The x point of the text.</param>
+            <param name="y">The y point of the text.</param>
+            <param name="text">The text to be drawn.</param>
+            <param name="fontFamily">The font family for the text. (e.g.) Arial, Tahoma, etc.</param>
+            <param name="fontSize">The font size for the text in pixels.</param>
+            <param name="fontStyle">The font style for the text. (styles: bold, italic).</param>
+            <param name="fillColor">The fill color of the text.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.Line(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a line element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the line.</param>
+            <param name="y1">The starting y point of the line.</param>
+            <param name="x2">The ending x point of the line.</param>
+            <param name="y2">The ending y point of the line.</param>
+            <param name="thickness">The thickness of the line.</param>
+            <param name="lineColor">The line color of the line.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a line.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5CanvasHelper.Image(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a image element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The x point of the image.</param>
+            <param name="y">The y point of the image.</param>
+            <param name="width">The width of the image.</param>
+            <param name="height">The height of the image.</param>
+            <param name="imageUrl">The url of the image.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a image.</returns>
+        </member>
+        <member name="T:System.Web.Mvc.Html.IHtml5MediaHelper">
+            <summary>
+            A Html5 helper interface which contains all the media related elements.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Audio(System.String,System.String,System.String)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="source">The source to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Audio(System.String,System.String,System.String,System.Object)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="source">The source to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the audio element.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Audio(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="source">The source to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the audio plays automatically or not.</param>
+            <param name="playInLoop">Whether the audio play in loop or not.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Audio(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="source">The source to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the audio plays automatically or not.</param>
+            <param name="playInLoop">Whether the audio play in loop or not.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the audio element.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Audio(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="sourceList">The sources list to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Audio(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Object)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="sourceList">The sources list to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the audio element.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Audio(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="sourceList">The sources list to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the audio plays automatically or not.</param>
+            <param name="playInLoop">Whether the audio play in loop or not.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Audio(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Boolean,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="sourceList">The sources list to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the audio plays automatically or not.</param>
+            <param name="playInLoop">Whether the audio play in loop or not.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the audio element.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Video(System.String,System.String,System.String)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="source">The source to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Video(System.String,System.String,System.String,System.Object)">
+            <summary>
+            Renders a empty video element in the client browser. 
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="source">The source to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the video element.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Video(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Renders a empty video element in the client browser. 
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="source">The source to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the video plays automatically or not.</param>
+            <param name="playInLoop">Whether the video play in loop or not.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Video(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Renders a empty video element in the client browser. 
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="source">The source to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the video plays automatically or not.</param>
+            <param name="playInLoop">Whether the video play in loop or not.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the video element.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Object)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the video element.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the video plays automatically or not.</param>
+            <param name="playInLoop">Whether the video play in loop or not.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Boolean,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the video plays automatically or not.</param>
+            <param name="playInLoop">Whether the video play in loop or not.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the video element.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.Web.Mvc.Html.ObjectType,System.String)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="objectType">The object type (flash, silverlight) to be rendered for fallback. </param>
+            <param name="objectSource">The source to be played in the object element.(.swf for flash, .xap for silverlight).</param>
+            <returns>A video element containing a inner object element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.Web.Mvc.Html.ObjectType,System.String,System.Object)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="objectType">The object type (flash, silverlight) to be rendered for fallback. </param>
+            <param name="objectSource">The source to be played in the object element.(.swf for flash, .xap for silverlight).</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the video element.</param>
+            <returns>A video element containing a inner object element.</returns>
+        </member>
+        <member name="T:System.Web.Mvc.SourceList">
+            <summary>
+            Represents a list that contains all the source items.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.SourceList.#ctor(System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem})">
+            <summary>
+            Initializes a new instance of the System.Web.Mvc.SourceList class by using specified source items for the list.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.SourceList.GetEnumerator">
+            <summary>
+            Defines the GetEnumerator()
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.SourceList.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Defines the IEnumerable.GetEnumerator()
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.SourceList.Items">
+            <summary>
+            The list of source items to be rendered for the audio or video elements.
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.Html5CanvasHelper">
+            <summary>
+            A Html5 helper class which contains all the canvas related elements.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.#ctor(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Initializes the Html5 helper class of canvas related elements.
+            </summary>
+            <param name="htmlHelper">The html helper class instance that comes from the current view context.</param>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.EmptyCanvas(System.String,System.String)">
+            <summary>
+            Renders a empty canvas element in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <returns>A canvas element of Html5 specifications.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.EmptyCanvas(System.String,System.String,System.Object)">
+            <summary>
+            Renders a empty canvas element in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A empty canvas element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.Rectangle(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a rectangle element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The x position of the rectangle.</param>
+            <param name="y">The y position of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <param name="thickness">The line thickness of the rectangle.</param>
+            <param name="lineColor">The border color of the rectangle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a rectangle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.FilledRectangle(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a filled rectangle element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The x point of the rectangle.</param>
+            <param name="y">The y point of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <param name="fillColor">The fill color of the rectangle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled rectangle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.Ellipse(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a ellipse element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the ellipse.</param>
+            <param name="cy">The center y point of the ellipse.</param>
+            <param name="width">The width of the ellipse.</param>
+            <param name="height">The height of the ellipse.</param>
+            <param name="thickness">The line thickness of the ellipse.</param>
+            <param name="lineColor">The border color of the ellipse.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a ellipse.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.FilledEllipse(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a filled ellipse element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the ellipse.</param>
+            <param name="cy">The center y point of the ellipse.</param>
+            <param name="width">The width of the ellipse.</param>
+            <param name="height">The height of the ellipse.</param>
+            <param name="fillColor">The fill color of the ellipse.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled ellipse.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.Circle(System.String,System.String,System.Int32,System.Int32,System.Single,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a circle element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The center x point of the circle.</param>
+            <param name="y">The center y point of the circle.</param>
+            <param name="radius">The radius of the circle.</param>
+            <param name="thickness">The line thickness of the circle.</param>
+            <param name="lineColor">The border color of the circle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a circle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.FilledCircle(System.String,System.String,System.Int32,System.Int32,System.Single,System.String,System.Object)">
+            <summary>
+            Renders a filled circle element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The center x point of the circle.</param>
+            <param name="y">The center y point of the circle.</param>
+            <param name="radius">The radius of the circle.</param>
+            <param name="fillColor">The fill color of the circle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled circle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.Arc(System.String,System.String,System.Int32,System.Int32,System.Single,System.Int32,System.Single,System.Single,System.String,System.Object)">
+            <summary>
+            Renders a arc element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The center x point of the arc.</param>
+            <param name="y">The center y point of the arc.</param>
+            <param name="radius">The radius of the arc.</param>
+            <param name="thickness">The line thickness of the arc.</param>
+            <param name="startAngle">The starting angle of the arc.</param>
+            <param name="endAngle">The ending angle of the arc.</param>
+            <param name="lineColor">The border color of the arc.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a arc.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.FilledArc(System.String,System.String,System.Int32,System.Int32,System.Single,System.Single,System.Single,System.String,System.Object)">
+            <summary>
+            Renders a filled arc element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The center x point of the arc.</param>
+            <param name="y">The center y point of the arc.</param>
+            <param name="radius">The radius of the arc.</param>
+            <param name="startAngle">The starting angle of the arc.</param>
+            <param name="endAngle">The ending angle of the arc.</param>
+            <param name="fillColor">The fill color of the circle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled arc.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.BeizerCurve(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a beizer curve element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the beizer curve.</param>
+            <param name="y1">The starting y point of the beizer curve.</param>
+            <param name="x2">The ending x point of the beizer curve.</param>
+            <param name="y2">The ending y point of the beizer curve.</param>
+            <param name="radius">The radius of the beizer curve.</param>
+            <param name="thickness">The line thickness of the beizer curve.</param>
+            <param name="lineColor">The border color of the beizer curve.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a beizer curve.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.FilledBeizerCurve(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.String,System.Object)">
+            <summary>
+            Renders a filled beizer curve element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the beizer curve.</param>
+            <param name="y1">The starting y point of the beizer curve.</param>
+            <param name="x2">The ending x point of the beizer curve.</param>
+            <param name="y2">The ending y point of the beizer curve.</param>
+            <param name="radius">The radius of the beizer curve.</param>
+            <param name="fillColor">The fill color of the beizer curve.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled beizer curve.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.QuadraticCurve(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a quadratic curve element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the quadratic curve.</param>
+            <param name="y1">The starting y point of the quadratic curve.</param>
+            <param name="x2">The ending x point of the quadratic curve.</param>
+            <param name="y2">The ending y point of the quadratic curve.</param>
+            <param name="thickness">The line thickness of the quadratic curve.</param>
+            <param name="lineColor">The border color of the quadratic curve.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a quadratic curve.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.FilledQuadraticCurve(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a filled quadratic curve element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the quadratic curve.</param>
+            <param name="y1">The starting y point of the quadratic curve.</param>
+            <param name="x2">The ending x point of the quadratic curve.</param>
+            <param name="y2">The ending y point of the quadratic curve.</param>
+            <param name="fillColor">The fill color of the quadratic curve.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled quadratic curve.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.Polygon(System.String,System.String,System.Drawing.Point[],System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a polygon element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="points">The array of the points on which the polygon is drawn.</param>
+            <param name="thickness">The line thickness of the polygon.</param>
+            <param name="lineColor">The border color of the polygon.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a polygon.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.FilledPolygon(System.String,System.String,System.Drawing.Point[],System.String,System.Object)">
+            <summary>
+            Renders a filled polygon element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="points">The array of the points on which the polygon is drawn.</param>
+            <param name="fillColor">The fill color of the polygon.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled polygon.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.Text(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a text element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The x point of the text.</param>
+            <param name="y">The y point of the text.</param>
+            <param name="text">The text to be drawn.</param>
+            <param name="fontFamily">The font family for the text. (e.g.) Arial, Tahoma, etc.</param>
+            <param name="fontSize">The font size for the text in pixels.</param>
+            <param name="fontStyle">The font style for the text. (styles: bold, italic).</param>
+            <param name="thickness">The line thickness of the text.</param>
+            <param name="lineColor">The border color of the text.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.FilledText(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.Object)">
+            <summary>
+            Renders a filled text element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The x point of the text.</param>
+            <param name="y">The y point of the text.</param>
+            <param name="text">The text to be drawn.</param>
+            <param name="fontFamily">The font family for the text. (e.g.) Arial, Tahoma, etc.</param>
+            <param name="fontSize">The font size for the text in pixels.</param>
+            <param name="fontStyle">The font style for the text. (styles: bold, italic).</param>
+            <param name="fillColor">The fill color of the text.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a filled text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.Line(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a line element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the line.</param>
+            <param name="y1">The starting y point of the line.</param>
+            <param name="x2">The ending x point of the line.</param>
+            <param name="y2">The ending y point of the line.</param>
+            <param name="thickness">The thickness of the line.</param>
+            <param name="lineColor">The line color of the line.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a line.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.Image(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a image element in canvas in the client browser.
+            </summary>
+            <param name="name">The name for the canvas, but this renders as ID for the canvas element.</param>
+            <param name="notSupportedMessage">The message appears when the canvas tag is not supported by the client browser.</param>
+            <param name="x">The x point of the image.</param>
+            <param name="y">The y point of the image.</param>
+            <param name="width">The width of the image.</param>
+            <param name="height">The height of the image.</param>
+            <param name="imageUrl">The url of the image.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the canvas element.</param>
+            <returns>A canvas element containing a image.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.CreateCanvasRect(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a rectangle in the canvas element using javascript.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.CreateCanvasEllipse(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a ellipse in the canvas element using javascript.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.CreateCanvasCircle(System.String,System.String,System.Int32,System.Int32,System.Single,System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a circle in the canvas element using javascript.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.CreateCanvasArc(System.String,System.String,System.Int32,System.Int32,System.Single,System.Int32,System.Single,System.Single,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a arc in the canvas element using javascript.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.CreateCanvasBeizerCurve(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a beizer curve in the canvas element using javascript.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.CreateCanvasQuadraticCurve(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a quadratic curve in the canvas element using javascript.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.CreateCanvasPolygon(System.String,System.String,System.Drawing.Point[],System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a polygon in the canvas element using javascript.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5CanvasHelper.CreateCanvasText(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a text in the canvas element using javascript.
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.SourceListItem">
+            <summary>
+            Represents the source item in an instance of the System.Web.Mvc.SourceListItem class.
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.SourceListItem.Source">
+            <summary>
+            Gets or sets a value that indicates url of the System.Web.Mvc.SourceListItem.
+            </summary>
+        </member>
+        <member name="P:System.Web.Mvc.SourceListItem.SourceType">
+            <summary>
+            Gets or sets a value that indicates url type of the System.Web.Mvc.SourceListItem.
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.ObjectType">
+            <summary>
+            Represents the type of the object to be rendered.
+            </summary>
+        </member>
+        <member name="F:System.Web.Mvc.Html.ObjectType.Flash">
+            <summary>
+            Represents the object tag containing the source as a flash file(.swf).
+            </summary>
+        </member>
+        <member name="F:System.Web.Mvc.Html.ObjectType.Silverlight">
+            <summary>
+            Represents the object tag containing the source as a XAP file(.xap) which is used to play any video or audio in Silverlight.
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.DrawMode">
+            <summary>
+            Represents the type of draw mode of a canvas or svg tag.
+            </summary>
+        </member>
+        <member name="F:System.Web.Mvc.Html.DrawMode.Fill">
+            <summary>
+            Represents the fill type of the tag.
+            </summary>
+        </member>
+        <member name="F:System.Web.Mvc.Html.DrawMode.Stroke">
+            <summary>
+            Represents the stroke type of the tag.
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.Html5MediaHelper">
+            <summary>
+            A Html5 helper class which contains all the media related elements.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.#ctor(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Initializes the Html5 helper class of media related elements.
+            </summary>
+            <param name="htmlHelper">The html helper class instance that comes from the current view context.</param>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Audio(System.String,System.String,System.String)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="source">The source to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Audio(System.String,System.String,System.String,System.Object)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="source">The source to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the audio element.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Audio(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="source">The source to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the audio plays automatically or not.</param>
+            <param name="playInLoop">Whether the audio play in loop or not.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Audio(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="source">The source to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the audio plays automatically or not.</param>
+            <param name="playInLoop">Whether the audio play in loop or not.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the audio element.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Audio(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="sourceList">The sources list to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Audio(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Object)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="sourceList">The sources list to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the audio element.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Audio(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="sourceList">The sources list to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the audio plays automatically or not.</param>
+            <param name="playInLoop">Whether the audio play in loop or not.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Audio(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Boolean,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Renders a empty audio element in the client browser.
+            </summary>
+            <param name="name">The name for the audio, but this renders as ID for the audio element.</param>
+            <param name="sourceList">The sources list to be played in the audio element.</param>
+            <param name="notSupportedMessage">The message appears when the audio tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the audio plays automatically or not.</param>
+            <param name="playInLoop">Whether the audio play in loop or not.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the audio element.</param>
+            <returns>A audio element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Video(System.String,System.String,System.String)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="source">The source to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Video(System.String,System.String,System.String,System.Object)">
+            <summary>
+            Renders a empty video element in the client browser. 
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="source">The source to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the video element.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Video(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Renders a empty video element in the client browser. 
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="source">The source to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the video plays automatically or not.</param>
+            <param name="playInLoop">Whether the video play in loop or not.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Video(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Renders a empty video element in the client browser. 
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="source">The source to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the video plays automatically or not.</param>
+            <param name="playInLoop">Whether the video play in loop or not.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the video element.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Object)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the video element.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the video plays automatically or not.</param>
+            <param name="playInLoop">Whether the video play in loop or not.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Boolean,System.Boolean,System.Boolean,System.Object)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="notSupportedMessage">The message appears when the video tag is not supported by the client browser.</param>
+            <param name="showControls">Whether the controls to be displayed or not.</param>
+            <param name="autoPlay">Whether the video plays automatically or not.</param>
+            <param name="playInLoop">Whether the video play in loop or not.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the video element.</param>
+            <returns>A video element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.Web.Mvc.Html.ObjectType,System.String)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="objectType">The object type (flash, silverlight) to be rendered for fallback. </param>
+            <param name="objectSource">The source to be played in the object element.(.swf for flash, .xap for silverlight).</param>
+            <returns>A video element containing a inner object element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.Video(System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.Web.Mvc.Html.ObjectType,System.String,System.Object)">
+            <summary>
+            Renders a empty video element in the client browser.
+            </summary>
+            <param name="name">The name for the video, but this renders as ID for the video element.</param>
+            <param name="sourceList">The sources list to be played in the video element.</param>
+            <param name="objectType">The object type (flash, silverlight) to be rendered for fallback. </param>
+            <param name="objectSource">The source to be played in the object element.(.swf for flash, .xap for silverlight).</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the video element.</param>
+            <returns>A video element containing a inner object element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.CreateFlashObject(System.String,System.Object)">
+            <summary>
+            Creates a object element for flash source.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.CreateSilverlightObject(System.Collections.Generic.IEnumerable{System.Web.Mvc.SourceListItem},System.String,System.Object)">
+            <summary>
+            Creates a object element for silverlight source.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5MediaHelper.SourceItemToSource(System.Web.Mvc.SourceListItem)">
+            <summary>
+            Converts the source items to a source.
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.Html5SvgHelper">
+            <summary>
+            A Html5 helper class which contains all the svg related elements.
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.IHtml5SvgHelper">
+            <summary>
+            A Html5 helper interface which contains all the svg related elements.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.EmptySvg(System.String,System.String)">
+            <summary>
+            Renders a empty svg element in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <returns>A svg element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.EmptySvg(System.String,System.String,System.Object)">
+            <summary>
+            Renders a empty svg element in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.Rectangle(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a rectangle in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x">The x point of the rectangle.</param>
+            <param name="y">The y point of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <param name="thickness">The line thickness of the rectangle.</param>
+            <param name="lineColor">The border color of the rectangle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a rectangle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.FilledRectangle(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a filled rectangle in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x">The x point of the rectangle.</param>
+            <param name="y">The y point of the rectangle.</param>
+            <param name="width">The width point of the rectangle.</param>
+            <param name="height">The height point of the rectangle.</param>
+            <param name="fillColor">The fill color of the rectangle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a filled rectangle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.Ellipse(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a ellipse in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the ellipse.</param>
+            <param name="cy">The center y point of the ellipse.</param>
+            <param name="width">The width of the ellipse.</param>
+            <param name="height">The height of the ellipse.</param>
+            <param name="thickness">The line thickness of the ellipse.</param>
+            <param name="lineColor">The border color of the ellipse.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a ellipse.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.FilledEllipse(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a filled ellipse in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the ellipse.</param>
+            <param name="cy">The center y point of the ellipse.</param>
+            <param name="width">The width of the ellipse.</param>
+            <param name="height">The height of the ellipse.</param>
+            <param name="fillColor">The fill color of the ellipse.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a filled ellipse.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.Circle(System.String,System.String,System.Int32,System.Int32,System.Single,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a circle in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the circle.</param>
+            <param name="cy">The center y point of the circle.</param>
+            <param name="radius">The radius of the circle.</param>
+            <param name="thickness">The line thickness of the circle.</param>
+            <param name="lineColor">The border color of the circle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a circle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.FilledCircle(System.String,System.String,System.Int32,System.Int32,System.Single,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a filled circle in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the circle.</param>
+            <param name="cy">The center y point of the circle.</param>
+            <param name="radius">The radius of the circle.</param>
+            <param name="fillColor">The filled color of the circle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a filled circle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.Polygon(System.String,System.String,System.Drawing.Point[],System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a polygon in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="points">The points on which the polygon is drawn.</param>
+            <param name="thickness">The line thickness of the polygon.</param>
+            <param name="lineColor">The border color of the polygon.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a polygon.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.FilledPolygon(System.String,System.String,System.Drawing.Point[],System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a filled polygon in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="points">The points on which the polygon is drawn.</param>
+            <param name="fillColor">The fill color of the polygon.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a filled polygon.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.Text(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a text in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x">The x point of the text.</param>
+            <param name="y">The y point of the text.</param>
+            <param name="text">The text to be drawn.</param>
+            <param name="fontFamily">The font family for the text. (e.g.) Arial, Tahoma, etc.</param>
+            <param name="fontSize">The font size for the text in pixels.</param>
+            <param name="fontWeight">The font weight for the text. (weights: bold, etc.).</param>
+            <param name="fontStyle">The font style for the text. (styles: italic, etc.).</param>
+            <param name="textDecoration">The text decoration for the text. (styles: underline, etc.).</param>
+            <param name="thickness">The line thickness of the text.</param>
+            <param name="lineColor">The border color of the text.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.FilledText(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a filled text in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x">The x point of the text.</param>
+            <param name="y">The y point of the text.</param>
+            <param name="text">The text to be drawn.</param>
+            <param name="fontFamily">The font family for the text. (e.g.) Arial, Tahoma, etc.</param>
+            <param name="fontSize">The font size for the text in pixels.</param>
+            <param name="fontWeight">The font weight for the text. (weights: bold, etc.).</param>
+            <param name="fontStyle">The font style for the text. (styles: italic, etc.).</param>
+            <param name="textDecoration">The text decoration for the text. (styles: underline, etc.).</param>
+            <param name="fillColor">The fill color of the text.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a filled text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.Line(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a line in the client browser. 
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the line.</param>
+            <param name="y1">The starting y point of the line.</param>
+            <param name="x2">The ending x point of the line.</param>
+            <param name="y2">The ending y point of the line.</param>
+            <param name="thickness">The thickness of the line.</param>
+            <param name="lineColor">The line color of the line.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a line.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.PolyLine(System.String,System.String,System.Drawing.Point[],System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a polyline in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="points">The points on which the polyline is drawn.</param>
+            <param name="thickness">The line thickness of the polyline.</param>
+            <param name="lineColor">The line color of the polyline.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a polyline.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.IHtml5SvgHelper.Image(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a image in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x">The x point of the image.</param>
+            <param name="y">The y point of the image.</param>
+            <param name="width">The width of the image.</param>
+            <param name="height">The height of the image.</param>
+            <param name="imageUrl">The url of the image.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a image.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.#ctor(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Initializes the Html5 helper class of svg related elements.
+            </summary>
+            <param name="htmlHelper">The html helper class instance that comes from the current view context.</param>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.EmptySvg(System.String,System.String)">
+            <summary>
+            Renders a empty svg element in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <returns>A svg element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.EmptySvg(System.String,System.String,System.Object)">
+            <summary>
+            Renders a empty svg element in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.Rectangle(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a rectangle in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x">The x point of the rectangle.</param>
+            <param name="y">The y point of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <param name="thickness">The line thickness of the rectangle.</param>
+            <param name="lineColor">The border color of the rectangle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a rectangle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.FilledRectangle(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a filled rectangle in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x">The x point of the rectangle.</param>
+            <param name="y">The y point of the rectangle.</param>
+            <param name="width">The width point of the rectangle.</param>
+            <param name="height">The height point of the rectangle.</param>
+            <param name="fillColor">The fill color of the rectangle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a filled rectangle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.Ellipse(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a ellipse in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the ellipse.</param>
+            <param name="cy">The center y point of the ellipse.</param>
+            <param name="width">The width of the ellipse.</param>
+            <param name="height">The height of the ellipse.</param>
+            <param name="thickness">The line thickness of the ellipse.</param>
+            <param name="lineColor">The border color of the ellipse.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a ellipse.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.FilledEllipse(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a filled ellipse in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the ellipse.</param>
+            <param name="cy">The center y point of the ellipse.</param>
+            <param name="width">The width of the ellipse.</param>
+            <param name="height">The height of the ellipse.</param>
+            <param name="fillColor">The fill color of the ellipse.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a filled ellipse.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.Circle(System.String,System.String,System.Int32,System.Int32,System.Single,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a circle in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the circle.</param>
+            <param name="cy">The center y point of the circle.</param>
+            <param name="radius">The radius of the circle.</param>
+            <param name="thickness">The line thickness of the circle.</param>
+            <param name="lineColor">The border color of the circle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a circle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.FilledCircle(System.String,System.String,System.Int32,System.Int32,System.Single,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a filled circle in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="cx">The center x point of the circle.</param>
+            <param name="cy">The center y point of the circle.</param>
+            <param name="radius">The radius of the circle.</param>
+            <param name="fillColor">The filled color of the circle.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a filled circle.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.Polygon(System.String,System.String,System.Drawing.Point[],System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a polygon in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="points">The points on which the polygon is drawn.</param>
+            <param name="thickness">The line thickness of the polygon.</param>
+            <param name="lineColor">The border color of the polygon.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a polygon.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.FilledPolygon(System.String,System.String,System.Drawing.Point[],System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a filled polygon in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="points">The points on which the polygon is drawn.</param>
+            <param name="fillColor">The fill color of the polygon.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a filled polygon.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.Text(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a text in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x">The x point of the text.</param>
+            <param name="y">The y point of the text.</param>
+            <param name="text">The text to be drawn.</param>
+            <param name="fontFamily">The font family for the text. (e.g.) Arial, Tahoma, etc.</param>
+            <param name="fontSize">The font size for the text in pixels.</param>
+            <param name="fontWeight">The font weight for the text. (weights: bold, etc.).</param>
+            <param name="fontStyle">The font style for the text. (styles: italic, etc.).</param>
+            <param name="textDecoration">The text decoration for the text. (styles: underline, etc.).</param>
+            <param name="thickness">The line thickness of the text.</param>
+            <param name="lineColor">The border color of the text.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.FilledText(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a filled text in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x">The x point of the text.</param>
+            <param name="y">The y point of the text.</param>
+            <param name="text">The text to be drawn.</param>
+            <param name="fontFamily">The font family for the text. (e.g.) Arial, Tahoma, etc.</param>
+            <param name="fontSize">The font size for the text in pixels.</param>
+            <param name="fontWeight">The font weight for the text. (weights: bold, etc.).</param>
+            <param name="fontStyle">The font style for the text. (styles: italic, etc.).</param>
+            <param name="textDecoration">The text decoration for the text. (styles: underline, etc.).</param>
+            <param name="fillColor">The fill color of the text.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a filled text.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.Line(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a line in the client browser. 
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x1">The starting x point of the line.</param>
+            <param name="y1">The starting y point of the line.</param>
+            <param name="x2">The ending x point of the line.</param>
+            <param name="y2">The ending y point of the line.</param>
+            <param name="thickness">The thickness of the line.</param>
+            <param name="lineColor">The line color of the line.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a line.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.PolyLine(System.String,System.String,System.Drawing.Point[],System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a polyline in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="points">The points on which the polyline is drawn.</param>
+            <param name="thickness">The line thickness of the polyline.</param>
+            <param name="lineColor">The line color of the polyline.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a polyline.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.Image(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object)">
+            <summary>
+            Renders a svg element containing a image in the client browser.
+            </summary>
+            <param name="name">The name for the svg, but this renders as ID for the svg element.</param>
+            <param name="notSupportedMessage">The message appears when the svg tag is not supported by the client browser.</param>
+            <param name="x">The x point of the image.</param>
+            <param name="y">The y point of the image.</param>
+            <param name="width">The width of the image.</param>
+            <param name="height">The height of the image.</param>
+            <param name="imageUrl">The url of the image.</param>
+            <param name="htmlAttributes">The html attributes to be rendered with the svg element.</param>
+            <returns>A svg element containing a image.</returns>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.CreateSvgRect(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a rectangle in a svg element.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.CreateSvgEllipse(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a ellipse in a svg element.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.CreateSvgCircle(System.String,System.String,System.Int32,System.Int32,System.Single,System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a circle in a svg element.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.CreateSvgPolygon(System.String,System.String,System.Drawing.Point[],System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a polygon in a svg element.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.CreateSvgText(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.Object,System.Web.Mvc.Html.DrawMode)">
+            <summary>
+            Creates a text in a svg element.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5SvgHelper.CreateSvgTag(System.String,System.String,System.Object)">
+            <summary>
+            Creates a svg element.
+            </summary>
+        </member>
+        <member name="T:System.Web.Mvc.Html.Html5Extensions">
+            <summary>
+            Represents support for HTML5 controls in an application.
+            </summary>
+        </member>
+        <member name="M:System.Web.Mvc.Html.Html5Extensions.Html5(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Returns a Html5 element by using the specified HTML helper.
+            </summary>
+            <param name="htmlHelper">The HTML helper instance that this method extends.</param>
+            <returns>An Html5 element.</returns>
+        </member>
+    </members>
+</doc>

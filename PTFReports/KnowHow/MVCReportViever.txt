@@ -1,0 +1,29 @@
+namespace DevExpressMvcApplication1.Controllers {
+    public class HomeController : Controller {
+
+        XtraReport1 report = new XtraReport1();
+
+        public ActionResult Index() {
+            ViewBag.Message = "Welcome to DevExpress Extensions for ASP.NET MVC!";
+
+            // Add the report to a view data.
+            //ViewData["Report"] = report;
+
+            return View();
+        }
+
+        public ActionResult ReportViewerPartial() {
+            ViewData["Report"] = report;
+            return PartialView("ReportViewerPartial");
+        }
+
+        public ActionResult ExportReportViewerPartial() {
+            return DevExpress.Web.Mvc.ReportViewerExtension.ExportTo(report);
+        }
+
+    }
+}
+
+
+<% Html.RenderPartial("~/Views/Shared/MyControl.ascx") %>
+ <% Html.RenderPartial("MyControl") %>

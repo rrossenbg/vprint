@@ -1,0 +1,211 @@
+ReportingService2005" Description
+Documentation
+The Reporting Services Web Service enables you to manage a report server and its contents including server settings, security, reports, subscriptions, and data sources. 
+
+
+Methods
+CancelBatch ( ) 
+
+CancelJob ( JobID As string ) As boolean
+
+CreateBatch ( ) As string
+
+CreateDataDrivenSubscription ( Report As string ,  ExtensionSettings As ExtensionSettings ,  DataRetrievalPlan As DataRetrievalPlan ,  Description As string ,  EventType As string ,  MatchData As string ,  Parameters As ArrayOfParameterValueOrFieldReference ) As string
+
+CreateDataSource ( DataSource As string ,  Parent As string ,  Overwrite As boolean ,  Definition As DataSourceDefinition ,  Properties As ArrayOfProperty ) 
+
+CreateFolder ( Folder As string ,  Parent As string ,  Properties As ArrayOfProperty ) 
+
+CreateLinkedReport ( Report As string ,  Parent As string ,  Link As string ,  Properties As ArrayOfProperty ) 
+
+CreateModel ( Model As string ,  Parent As string ,  Definition As base64Binary ,  Properties As ArrayOfProperty ) As ArrayOfWarning
+
+CreateReport ( Report As string ,  Parent As string ,  Overwrite As boolean ,  Definition As base64Binary ,  Properties As ArrayOfProperty ) As ArrayOfWarning
+
+CreateReportHistorySnapshot ( Report As string ) As string
+
+CreateResource ( Resource As string ,  Parent As string ,  Overwrite As boolean ,  Contents As base64Binary ,  MimeType As string ,  Properties As ArrayOfProperty ) 
+
+CreateRole ( Name As string ,  Description As string ,  Tasks As ArrayOfTask ) 
+
+CreateSchedule ( Name As string ,  ScheduleDefinition As ScheduleDefinition ) As string
+
+CreateSubscription ( Report As string ,  ExtensionSettings As ExtensionSettings ,  Description As string ,  EventType As string ,  MatchData As string ,  Parameters As ArrayOfParameterValue ) As string
+
+DeleteItem ( Item As string ) 
+
+DeleteReportHistorySnapshot ( Report As string ,  HistoryID As string ) 
+
+DeleteRole ( Name As string ) 
+
+DeleteSchedule ( ScheduleID As string ) 
+
+DeleteSubscription ( SubscriptionID As string ) 
+
+DisableDataSource ( DataSource As string ) 
+
+EnableDataSource ( DataSource As string ) 
+
+ExecuteBatch ( ) 
+
+FindItems ( Folder As string ,  BooleanOperator As BooleanOperatorEnum ,  Conditions As ArrayOfSearchCondition ) As ArrayOfCatalogItem
+
+FireEvent ( EventType As string ,  EventData As string ) 
+
+FlushCache ( Report As string ) 
+
+GenerateModel ( DataSource As string ,  Model As string ,  Parent As string ,  Properties As ArrayOfProperty ) As ArrayOfWarning
+
+GetCacheOptions ( Report As string ) As boolean
+
+GetDataDrivenSubscriptionProperties ( DataDrivenSubscriptionID As string ) As string
+
+GetDataSourceContents ( DataSource As string ) As DataSourceDefinition
+
+GetExecutionOptions ( Report As string ) As ExecutionSettingEnum
+
+GetExtensionSettings ( Extension As string ) As ArrayOfExtensionParameter
+
+GetItemDataSourcePrompts ( Item As string ) As ArrayOfDataSourcePrompt
+
+GetItemDataSources ( Item As string ) As ArrayOfDataSource
+
+GetItemType ( Item As string ) As ItemTypeEnum
+
+GetModelDefinition ( Model As string ) As base64Binary
+
+GetModelItemPermissions ( Model As string ,  ModelItemID As string ) As ArrayOfString1
+
+GetModelItemPolicies ( Model As string ,  ModelItemID As string ) As ArrayOfPolicy
+
+GetPermissions ( Item As string ) As ArrayOfString
+
+GetPolicies ( Item As string ) As ArrayOfPolicy
+
+GetProperties ( Item As string ,  Properties As ArrayOfProperty ) As ArrayOfProperty
+
+GetRenderResource ( Format As string ,  DeviceInfo As string ) As base64Binary
+
+GetReportDefinition ( Report As string ) As base64Binary
+
+GetReportHistoryLimit ( Report As string ) As int
+
+GetReportHistoryOptions ( Report As string ) As boolean
+
+GetReportLink ( Report As string ) As string
+
+GetReportParameters ( Report As string ,  HistoryID As string ,  ForRendering As boolean ,  Values As ArrayOfParameterValue ,  Credentials As ArrayOfDataSourceCredentials ) As ArrayOfReportParameter
+
+GetResourceContents ( Resource As string ) As base64Binary
+
+GetRoleProperties ( Name As string ) As ArrayOfTask
+
+GetScheduleProperties ( ScheduleID As string ) As Schedule
+
+GetSubscriptionProperties ( SubscriptionID As string ) As string
+
+GetSystemPermissions ( ) As ArrayOfString
+
+GetSystemPolicies ( ) As ArrayOfPolicy
+
+GetSystemProperties ( Properties As ArrayOfProperty ) As ArrayOfProperty
+
+GetUserModel ( Model As string ,  Perspective As string ) As base64Binary
+
+InheritModelItemParentSecurity ( Model As string ,  ModelItemID As string ) 
+
+InheritParentSecurity ( Item As string ) 
+
+ListChildren ( Item As string ,  Recursive As boolean ) As ArrayOfCatalogItem
+
+ListDependentItems ( Item As string ) As ArrayOfCatalogItem
+
+ListEvents ( ) As ArrayOfEvent
+
+ListExtensions ( ExtensionType As ExtensionTypeEnum ) As ArrayOfExtension
+
+ListJobs ( ) As ArrayOfJob
+
+ListModelDrillthroughReports ( Model As string ,  ModelItemID As string ) As ArrayOfModelDrillthroughReport
+
+ListModelItemChildren ( Model As string ,  ModelItemID As string ,  Recursive As boolean ) As ArrayOfModelItem
+
+ListModelPerspectives ( Model As string ) As ArrayOfModelCatalogItem
+
+ListReportHistory ( Report As string ) As ArrayOfReportHistorySnapshot
+
+ListRoles ( SecurityScope As SecurityScopeEnum ) As ArrayOfRole
+
+ListScheduledReports ( ScheduleID As string ) As ArrayOfCatalogItem
+
+ListSchedules ( ) As ArrayOfSchedule
+
+ListSecureMethods ( ) As ArrayOfString1
+
+ListSubscriptions ( Report As string ,  Owner As string ) As ArrayOfSubscription
+
+ListSubscriptionsUsingDataSource ( DataSource As string ) As ArrayOfSubscription
+
+ListTasks ( SecurityScope As SecurityScopeEnum ) As ArrayOfTask
+
+Logoff ( ) 
+
+LogonUser ( userName As string ,  password As string ,  authority As string ) 
+
+MoveItem ( Item As string ,  Target As string ) 
+
+PauseSchedule ( ScheduleID As string ) 
+
+PrepareQuery ( DataSource As DataSource ,  DataSet As DataSetDefinition ) As DataSetDefinition
+
+RegenerateModel ( Model As string ) As ArrayOfWarning
+
+RemoveAllModelItemPolicies ( Model As string ) 
+
+ResumeSchedule ( ScheduleID As string ) 
+
+SetCacheOptions ( Report As string ,  CacheReport As boolean ) 
+
+SetDataDrivenSubscriptionProperties ( DataDrivenSubscriptionID As string ,  ExtensionSettings As ExtensionSettings ,  DataRetrievalPlan As DataRetrievalPlan ,  Description As string ,  EventType As string ,  MatchData As string ,  Parameters As ArrayOfParameterValueOrFieldReference ) 
+
+SetDataSourceContents ( DataSource As string ,  Definition As DataSourceDefinition ) 
+
+SetExecutionOptions ( Report As string ,  ExecutionSetting As ExecutionSettingEnum ) 
+
+SetItemDataSources ( Item As string ,  DataSources As ArrayOfDataSource ) 
+
+SetModelDefinition ( Model As string ,  Definition As base64Binary ) As ArrayOfWarning
+
+SetModelDrillthroughReports ( Model As string ,  ModelItemID As string ,  Reports As ArrayOfModelDrillthroughReport ) 
+
+SetModelItemPolicies ( Model As string ,  ModelItemID As string ,  Policies As ArrayOfPolicy ) 
+
+SetPolicies ( Item As string ,  Policies As ArrayOfPolicy ) 
+
+SetProperties ( Item As string ,  Properties As ArrayOfProperty ) 
+
+SetReportDefinition ( Report As string ,  Definition As base64Binary ) As ArrayOfWarning
+
+SetReportHistoryLimit ( Report As string ,  UseSystem As boolean ,  HistoryLimit As int ) 
+
+SetReportHistoryOptions ( Report As string ,  EnableManualSnapshotCreation As boolean ,  KeepExecutionSnapshots As boolean ) 
+
+SetReportLink ( Report As string ,  Link As string ) 
+
+SetReportParameters ( Report As string ,  Parameters As ArrayOfReportParameter ) 
+
+SetResourceContents ( Resource As string ,  Contents As base64Binary ,  MimeType As string ) 
+
+SetRoleProperties ( Name As string ,  Description As string ,  Tasks As ArrayOfTask ) 
+
+SetScheduleProperties ( Name As string ,  ScheduleID As string ,  ScheduleDefinition As ScheduleDefinition ) 
+
+SetSubscriptionProperties ( SubscriptionID As string ,  ExtensionSettings As ExtensionSettings ,  Description As string ,  EventType As string ,  MatchData As string ,  Parameters As ArrayOfParameterValue ) 
+
+SetSystemPolicies ( Policies As ArrayOfPolicy ) 
+
+SetSystemProperties ( Properties As ArrayOfProperty ) 
+
+UpdateReportExecutionSnapshot ( Report As string ) 
+
+ValidateExtensionSettings ( Extension As string ,  ParameterValues As ArrayOfParameterValueOrFieldReference ) As ArrayOfExtensionParameter

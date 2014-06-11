@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <add key="ConnectionString" value="Data Source=.; ....; Database=PTF_Reports;"/>    
+    <add key="RemoteFileName" value="\\192.168.57.105\SqlBackup\LocalBackups\PTF_Backup.bak"/>
+    <add key="StartJobRemoteFileName" value="\\192.168.57.105\SqlBackup\Job\StartJob\StartPTF_Reports_Copy.txt"/>
+    <add key="LocalFileName" value="F:\PTF_Backup.bak"/>
+	<add key="ConnectionTimeoutHours" value="3"/>
+	<add key="IndexDatabaseName" value="PTF_Reports"/>
+    <add key="IndexTables" value="ISO-iso_number;Branch-br_iso_id,br_id,br_ho_id;HeadOffice-ho_iso_id,ho_id"/>
+  </appSettings>
+</configuration>
