@@ -92,7 +92,6 @@ namespace CPrintTest.Scanning
 
         }
 
-
         /// <summary>
         /// READ
         /// </summary>
@@ -115,7 +114,6 @@ namespace CPrintTest.Scanning
                 };
             }
         }
-
 
         /// <summary>
         /// READ
