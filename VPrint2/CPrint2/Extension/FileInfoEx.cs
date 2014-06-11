@@ -212,5 +212,25 @@ namespace CPrint2
         {
             return new FileInfo(Path.Combine(info.FullName, fileName));
         }
+
+        [TargetedPatchingOptOut("na")]
+        public static bool DeleteSafe(this DirectoryInfo info, bool recursive)
+        {
+            Debug.Assert(info != null);
+            try
+            {
+                info.Refresh();
+                if (info.Exists)
+                {
+                    info.Delete(recursive);
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

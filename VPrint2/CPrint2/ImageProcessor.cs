@@ -73,70 +73,59 @@ namespace CPrint2
 
                         DataObj obj3 = null;
 
-                        if (ms_Queue.TryGetValue(obj.Id, out obj3))
+                        if (ms_Queue.TryGetValue(obj.Id, out obj3) && obj.Submit)
                         {
-                            if (obj.Submit)
+                            #region SUBMIT
+                            try
                             {
-                                #region SUBMIT
-                                try
+                                string tifFullFileName = Path.Combine(Config.ImageOutputPath, string.Format("{0}_{1}_{2}.tif", obj3.Iso, obj3.BrId, obj3.VId));
+
+                                var tifFile = new FileInfo(tifFullFileName);
+                                var images = new List<Bitmap>();
+
+                                lock (obj3.Files)
                                 {
-                                    string tifFullFileName = Path.Combine(Config.ImageOutputPath, string.Format("{0}_{1}_{2}.tif", obj3.Iso, obj3.BrId, obj3.VId));
-
-                                    var tifFile = new FileInfo(tifFullFileName);
-                                    var images = new List<Bitmap>();
-
-                                    lock (obj3.Files)
-                                    {
-                                        foreach (FileInfo fl in obj3.Files)
-                                            if (fl.Exists(true))
-                                                images.Add((Bitmap)Bitmap.FromFile(fl.FullName));
-                                    }
-
-                                    if (images.Count > 0)
-                                    {
-                                        TiffConverter converter = new TiffConverter();
-                                        var tiff = converter.WrapJpegs(images.ConvertAll<byte[]>((b) => b.ToArray()));
-                                        File.WriteAllBytes(tifFullFileName, tiff);
-
-                                        images.ForEach(i => i.DisposeSf());
-                                        images.Clear();
-
-                                        //copy voucher
-                                        var keys = Security.CreateInstance().GenerateSecurityKeys();
-                                        var serverSessionId = obj3.Id;
-                                        var sserverSessionId = obj3.Id.ToString();
-                                        
-                                        var srv = ServiceDataAccess.Instance;
-
-                                        srv.SendFile(tifFile, sserverSessionId, keys);
-
-                                        srv.CommitVoucherChanges(sserverSessionId, 0, obj3.Iso, obj3.BrId, obj3.VId,
-                                            Global.FolderID.HasValue ? Global.FolderID.Value : (int?)null, "", "", keys);
-
-                                        srv.SaveHistory(OperationHistory.Scan, serverSessionId, obj3.Iso, obj3.BrId, obj3.VId,
-                                            0, 0, "", keys);
-                                    }
-
-                                    tifFile.DeleteSafe();
+                                    foreach (FileInfo fl in obj3.Files)
+                                        if (fl.Exists(true))
+                                            images.Add((Bitmap)Bitmap.FromFile(fl.FullName));
                                 }
-                                finally
+
+                                if (images.Count > 0)
                                 {
-                                    ms_Queue.TryRemove(obj3.Id, out obj3);
+                                    TiffConverter converter = new TiffConverter();
+                                    var tiff = converter.WrapJpegs(images.ConvertAll<byte[]>((b) => b.ToArray()));
+                                    File.WriteAllBytes(tifFullFileName, tiff);
+
+                                    images.ForEach(i => i.DisposeSf());
+                                    images.Clear();
+
+                                    //copy voucher
+                                    var keys = Security.CreateInstance().GenerateSecurityKeys();
+                                    var serverSessionId = obj3.Id;
+                                    var sserverSessionId = obj3.Id.ToString();
+
+                                    var srv = ServiceDataAccess.Instance;
+
+                                    srv.SendFile(tifFile, sserverSessionId, keys);
+
+                                    srv.CommitVoucherChanges(sserverSessionId, 0, obj3.Iso, obj3.BrId, obj3.VId,
+                                        Global.FolderID.HasValue ? Global.FolderID.Value : (int?)null, "", "", keys);
+
+                                    srv.SaveHistory(OperationHistory.Scan, serverSessionId, obj3.Iso, obj3.BrId, obj3.VId,
+                                        0, 0, "", keys);
                                 }
-                                #endregion
+
+                                tifFile.DeleteSafe();
                             }
-                            else
+                            finally
                             {
-                                PresenterCameraShooter shooter = new PresenterCameraShooter();
-                                shooter.TryStartPresenter(Config.PresenterPath);
-                                shooter.ClickCameraButton();
+                                ms_Queue.TryRemove(obj3.Id, out obj3);
                             }
+                            #endregion
                         }
                         else
                         {
-                            ms_Queue.TryAdd(obj.Id, obj);
-
-                            if (NewVoucherStarted != null)
+                            if (ms_Queue.TryAdd(obj.Id, obj) && NewVoucherStarted != null)
                                 NewVoucherStarted(this, EventArgs.Empty);
 
                             PresenterCameraShooter shooter = new PresenterCameraShooter();
@@ -198,6 +187,8 @@ namespace CPrint2
                             }
                             else
                             {
+                                obj.Files.Add(file1);
+
                                 if (VoucherProcessCompleted != null)
                                     VoucherProcessCompleted(this, new ValueEventArgs<string>(file1.FullName));
                             }
@@ -210,6 +201,36 @@ namespace CPrint2
                         Error(this, new ThreadExceptionEventArgs(ex));
                 }
             }, fileName, TaskCreationOptions.LongRunning);
+        }
+
+        public static void EmptyCommandFolderSafe()
+        {
+            foreach (var file in Directory.GetFiles(Config.CommandInputPath))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch
+                {
+                    // no errors
+                }
+            }
+        }
+
+        public static void EmptyImageFolderSafe()
+        {
+            foreach (var file in Directory.GetFiles(Config.ImageOutputPath))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch
+                {
+                    // no errors
+                }
+            }
         }
 
         public static void Clear()
