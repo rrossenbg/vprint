@@ -1,4 +1,9 @@
 C:\PROJECTS\VPrint2\CPrint2\bin\Debug\CPrint2.exe.config
+C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.FormLogin.resources
+C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.MainForm.resources
+C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.Properties.Resources.resources
+C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\CPrint2\bin\Debug\CPrint2.exe
 C:\PROJECTS\VPrint2\CPrint2\bin\Debug\CPrint2.pdb
 C:\PROJECTS\VPrint2\CPrint2\bin\Debug\AForge.Controls.dll
@@ -22,10 +27,5 @@ C:\PROJECTS\VPrint2\CPrint2\bin\Debug\AForge.Math.pdb
 C:\PROJECTS\VPrint2\CPrint2\bin\Debug\AForge.Math.xml
 C:\PROJECTS\VPrint2\CPrint2\bin\Debug\AForge.Video.pdb
 C:\PROJECTS\VPrint2\CPrint2\bin\Debug\AForge.Video.xml
-C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.csprojResolveAssemblyReference.cache
-C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.FormLogin.resources
-C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.MainForm.resources
-C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.Properties.Resources.resources
-C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.exe
 C:\PROJECTS\VPrint2\CPrint2\obj\x86\Debug\CPrint2.pdb

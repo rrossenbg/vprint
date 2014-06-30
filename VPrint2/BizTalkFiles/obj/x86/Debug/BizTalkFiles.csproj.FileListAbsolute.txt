@@ -8,3 +8,12 @@ C:\PROJECTS\VPrint\BizTalkFiles\obj\x86\Debug\BizTalkFiles.Properties.Resources.
 C:\PROJECTS\VPrint\BizTalkFiles\obj\x86\Debug\BizTalkFiles.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint\BizTalkFiles\obj\x86\Debug\BizTalkFiles.exe
 C:\PROJECTS\VPrint\BizTalkFiles\obj\x86\Debug\BizTalkFiles.pdb
+C:\PROJECTS\VPrint2\BizTalkFiles\bin\Debug\BizTalkFiles.exe.config
+C:\PROJECTS\VPrint2\BizTalkFiles\bin\Debug\BizTalkFiles.exe
+C:\PROJECTS\VPrint2\BizTalkFiles\bin\Debug\BizTalkFiles.pdb
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Debug\BizTalkFiles.InputForm.resources
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Debug\BizTalkFiles.MainForm.resources
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Debug\BizTalkFiles.Properties.Resources.resources
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Debug\BizTalkFiles.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Debug\BizTalkFiles.exe
+C:\PROJECTS\VPrint2\BizTalkFiles\obj\x86\Debug\BizTalkFiles.pdb
