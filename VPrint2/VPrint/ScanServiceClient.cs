@@ -29,6 +29,14 @@ namespace VPrinting.ScanServiceRef
             ///net.tcp://localhost:8080/ReceivingServiceLib.ScanService/mex
             var endPointAddr = string.Concat("net.tcp://", ip, ":8080/ReceivingServiceLib.ScanService");
             NetTcpBinding tcpBinding = new NetTcpBinding();
+            tcpBinding.MaxBufferSize = 2147483647;
+            tcpBinding.MaxBufferPoolSize = 2147483647;
+            tcpBinding.MaxReceivedMessageSize = 2147483647;
+            tcpBinding.ReaderQuotas.MaxDepth = 2147483647;
+            tcpBinding.ReaderQuotas.MaxStringContentLength = 2147483647;
+            tcpBinding.ReaderQuotas.MaxArrayLength = 2147483647;
+            tcpBinding.ReaderQuotas.MaxBytesPerRead = 2147483647;
+            tcpBinding.ReaderQuotas.MaxNameTableCharCount = 2147483647;
             tcpBinding.TransactionFlow = false;
             tcpBinding.Security.Transport.ProtectionLevel = ProtectionLevel.None;
             tcpBinding.Security.Transport.ClientCredentialType = TcpClientCredentialType.None;

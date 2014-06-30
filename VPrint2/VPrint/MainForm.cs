@@ -2988,16 +2988,19 @@ namespace VPrinting
             ItemControl item = scanContextMenuStrip.SourceControl as ItemControl;
             if (item != null && item.Item != null)
             {
-                if (item.Item.State.In(StateManager.eState.VOUCHER, StateManager.eState.COVER))
+                if (this.ShowQuestion("You are going to delete an item.\r\nAre you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    var srv = ServiceDataAccess.Instance;
-                    srv.DeleteFile(item.Item.Id, item.Item.State == StateManager.eState.VOUCHER);
-                    srv.SaveHistory(OperationHistory.FileDeleted, item.Item.ToString());
-                    m_StateManager.Remove(item.Item);
-                }
-                else if (item.Item.State == StateManager.eState.NA)
-                {
-                    m_StateManager.Remove(item.Item);
+                    if (item.Item.State.In(StateManager.eState.VOUCHER, StateManager.eState.COVER))
+                    {
+                        var srv = ServiceDataAccess.Instance;
+                        srv.DeleteFile(item.Item.Id, item.Item.State == StateManager.eState.VOUCHER);
+                        srv.SaveHistory(OperationHistory.FileDeleted, item.Item.ToString());
+                        m_StateManager.Remove(item.Item);
+                    }
+                    else if (item.Item.State == StateManager.eState.NA)
+                    {
+                        m_StateManager.Remove(item.Item);
+                    }
                 }
             }
         }
@@ -3006,7 +3009,7 @@ namespace VPrinting
         {
             if (Global.FolderID.HasValue)
             {
-                if (this.ShowQuestion("You are about to delete all coversheets\r\nand vouchers in this folder.\r\nPlease confirm.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (this.ShowQuestion("You are about to delete all items\r\nin this folder.\r\nAre you sure.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     var srv = ServiceDataAccess.Instance;
                     srv.DeleteAllFilesInFolder(Global.FolderID.GetValueOrDefault());
