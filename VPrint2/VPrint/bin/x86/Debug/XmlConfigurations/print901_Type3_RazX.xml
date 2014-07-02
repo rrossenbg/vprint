@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- format 3 - FORMAT PORTUGAL (SS ONLY)-->
+<!-- format 1 - FORMAT SPAIN (SS ONLY)-->
 <VoucherPrintLayoutRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <DocumentInitialization />
   <FormLength>54</FormLength>
@@ -8,13 +8,9 @@
     <Height>852</Height>
     <!-- Was 750 -->
   </PageSize>
-  <MoveAll>
-    <X>0</X>
-    <Y>0</Y>
-  </MoveAll>
   <Landscape>false</Landscape>
   <!-- Name of the template. Should be unique for the system. -->
-  <TemplateName>D5DF5AAA-D3E5-41B8-8555-93C85FD123488</TemplateName>
+  <TemplateName>D5DF5A25-D3E5-41B8-8555-93C85FD123456</TemplateName>
   <Context>
     <![CDATA[
 
@@ -68,7 +64,7 @@
    <!-- HeadOffice- HeadOffice-->
    <GPrintLine>
       <X>45</X>
-      <Y>200</Y>
+      <Y>145</Y>
       <Size>0</Size>
       <Text>@officeName</Text>
       <Font>
@@ -90,7 +86,7 @@
     <!-- HeadOfficeAddress - Address -->
     <GPrintLine>
       <X>45</X>
-      <Y>213</Y>
+      <Y>158</Y>
       <Size>0</Size>
       <Text>@officeAddress</Text>
       <Font>
@@ -112,7 +108,7 @@
     <!-- RetailerName - RetailerName -->
    <GPrintLine>
       <X>45</X>
-      <Y>282</Y>
+      <Y>227</Y>
       <Size>0</Size>
       <Text>@retailerName</Text>
       <Font>
@@ -123,7 +119,7 @@
     <!-- RetailerAddress - Address -->
     <GPrintLine>
       <X>35</X>
-      <Y>296</Y>
+      <Y>241</Y>
       <Size>0</Size>
       <Text>@retailerAddress</Text>
       <Font>
@@ -134,7 +130,7 @@
    <!-- VatNumber - VatNo -->
     <GPrintLine>
       <X>45</X>
-      <Y>350</Y>
+      <Y>295</Y>
       <Size>0</Size>
       <Text>@vatNumber</Text>
       <Font>
@@ -145,7 +141,7 @@
    <!-- HO -->
     <GPrintLine>
       <X>120</X>
-      <Y>350</Y>
+      <Y>295</Y>
       <Size>0</Size>
       <Text>@ho</Text>
       <Font>
@@ -154,11 +150,98 @@
     </GPrintLine>
     
     <!-- SECOND SET -->
+    <!-- HeadOffice- HeadOffice-->
+    <GPrintLine>
+      <X>45</X>
+      <Y>665</Y>
+      <Size>0</Size>
+      <Text>@officeName</Text>
+      <Font>
+        <Value>Arial, 8pt</Value>
+      </Font>
+    </GPrintLine>  
+    
+    <!-- VoucherNumber - VoucherNo -->
+    <GPrintLine>
+      <X>300</X>
+      <Y>720</Y>
+      <Size>0</Size>
+      <Text>@voucherNumber</Text>
+      <Font>
+        <Value>Arial, 12pt, style=Bold</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- HeadOfficeAddress - Address -->
+    <GPrintLine>
+      <X>45</X>
+      <Y>678</Y>
+      <Size>0</Size>
+      <Text>@officeAddress</Text>
+      <Font>
+        <Value>Arial, 8pt</Value>
+      </Font>
+    </GPrintLine>  
+    
+    <!-- RetailerID - StoreNo -->
+    <GPrintLine>
+      <X>300</X>
+      <Y>750</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 12pt, style=Bold</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- RetailerName - RetailerName -->
+    <GPrintLine>
+      <X>45</X>
+      <Y>747</Y>
+      <Size>0</Size>
+      <Text>@retailerName</Text>
+      <Font>
+        <Value>Arial, 8pt</Value>
+      </Font>
+    </GPrintLine>  
+    
+    <!-- RetailerAddress - Address -->
+    <GPrintLine>
+      <X>35</X>
+      <Y>761</Y>
+      <Size>0</Size>
+      <Text>@retailerAddress</Text>
+      <Font>
+        <Value>Arial, 8pt</Value>
+      </Font>
+    </GPrintLine> 
+    
+    <!-- VatNumber - VatNo -->
+    <GPrintLine>
+      <X>45</X>
+      <Y>815</Y>
+      <Size>0</Size>
+      <Text>@vatNumber</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLine>
+
+    <!-- HO -->
+    <GPrintLine>
+      <X>120</X>
+      <Y>815</Y>
+      <Size>0</Size>
+      <Text>@ho</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLine>
   </Lines>
     
   <Barcodes>
     <BarPrintLine>
-      <X>400</X>
+      <X>470</X>
       <Y>70</Y>
       <Text>@barcodeNumber</Text>
       <Height>25</Height>
@@ -175,8 +258,8 @@
     </BarPrintLine>
     
     <BarPrintLine>
-      <X>200</X>
-      <Y>820</Y>
+      <X>470</X>
+      <Y>670</Y>
       <Text>@barcodeNumber</Text>
       <Height>25</Height>
       <Size>2</Size>
