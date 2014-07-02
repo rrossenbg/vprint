@@ -41,5 +41,10 @@ namespace VPrintTest
         /// novaPDF Lite v7
         /// </summary>
         public const string novaPDF_Lite_v7 = "novaPDF Lite v7";
+
+        /// <summary>
+        /// \\PTF-UK-PF001\HP Color LaserJet 3600
+        /// </summary>
+        public const string _3TH_FLOOR_PRINTER = @"\\ptf-uk-pf001\Canon C5235i 3rd floor BW Marketing IT";
     }
 }

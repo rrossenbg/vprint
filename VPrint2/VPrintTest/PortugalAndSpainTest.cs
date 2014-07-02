@@ -126,33 +126,34 @@ namespace VPrintTest
         }
 
         [TestMethod]
-        [OnLiveAttribute("11/09/2013")]
-        public void portugal_print620_format_ds_1_Demo()
+        [OnLiveAttribute("")]
+        public void portugal_print901_format_ssnew_2_Demo()
         {
-            //CountryID = 620
-            //VoucherPrinter printer = new VoucherPrinter();
-            //printer.m_PrinterName = Printers.DELL;
-            //printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
-            //printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print620_RazX.xml";
-            //printer.UseLocalFormat = false;
-            //printer.UseLocalPrinter = true;
-            //printer.PrintOnce = true;
-            //printer.PrintAllocation(109270, false);
-
-            var arr = new int[] { 1, 2, 3, 4, 5, 6, 7 };
-            arr.Revert();
-        }
-
-        private void A(ref int i)
-        {
-        }
-
-        public static void A()
-        {
+            //CountryID = 901
+            var printer = new VoucherPrinter();
+            printer.m_PrinterName = Printers._3TH_FLOOR_PRINTER;
+            printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print901_Type4_RazX.xml";
+            printer.UseLocalFormat = true;
+            printer.UseLocalPrinter = true;
+            printer.SimulatePrint = false;
+            printer.PrintOnce = true;
+            printer.PrintAllocation(421141, false);
         }
     }
 
 
+    [TestClass]
+    public class OtherTests
+    {
+        [TestMethod]
+        [OnLiveAttribute("11/09/2013")]
+        public void RevertTest()
+        {
+            var arr = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+            arr.Revert();
+        }
+    }
 
     public class SimpleThreadSafeCache
     {
