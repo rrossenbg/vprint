@@ -110,7 +110,10 @@ namespace VPrinting
 
             FileInfoApplicationException ex2 = e.Exception as FileInfoApplicationException;
             if (ex2 != null)
-                MainForm.Default.InvokeSf(() => FileMsgForm.show(MainForm.Default, "Error", ex2.Message, ex2.Info));
+                MainForm.Default.InvokeSf(() =>
+                {
+                    FileMsgForm.show(MainForm.Default, "Error", ex2.Message, ex2.Info);
+                });
             else
                 MainForm.Default.InvokeSf(() => ex.ShowDialog(MainForm.Default));
         }

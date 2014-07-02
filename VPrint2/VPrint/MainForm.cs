@@ -773,7 +773,7 @@ namespace VPrinting
             try
             {
                 var partyManagement = new PartyManagement.PartyManagement();
-                Debug.Assert(partyManagement != null);
+                Debug.Assert(partyManagement != null, "partyManagement");
 
                 var dt = new VoucherDS.AllocationsDataTable();
                 dt.TableName = "allocation";
@@ -819,6 +819,7 @@ namespace VPrinting
                 //we will use those to create new columnstyles for the columns in our DB table
 
                 string dispatchMethods = ConfigurationManager.AppSettings["DispatchMethods"];
+                Debug.Assert(dispatchMethods != null, "DispatchMethods");
                 string[] strMethods = dispatchMethods.Split(new char[] { ';' });
 
                 lock (((ICollection)dgvAllocations.Rows).SyncRoot)
@@ -865,9 +866,10 @@ namespace VPrinting
                         dgvAllocations.Columns.Add(col);
                     }
 
-                    dgvAllocations.Columns[dgvAllocations.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    if (dgvAllocations.Columns[dgvAllocations.ColumnCount - 1] != null)
+                        dgvAllocations.Columns[dgvAllocations.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-                    Debug.Assert(dt != null);
+                    Debug.Assert(dt != null, "dt");
                     DataView dv = new DataView(dt);
                     dv.AllowNew = false;
                     dv.Sort = "Priority desc";
