@@ -6,7 +6,7 @@
   <PageSize>
     <Width>1100</Width>
     <Height>852</Height>
-    <!-- Was 750 -->
+    <!-- Was 852 -->
   </PageSize>
   <MoveAll>
     <X>0</X>
@@ -14,7 +14,7 @@
   </MoveAll>
   <Landscape>false</Landscape>
   <!-- Name of the template. Should be unique for the system. -->
-  <TemplateName>D5DF5AAA-D3E5-41B8-8555-93C85FD123488</TemplateName>
+  <TemplateName>D5DF5AAA-D3E5-41B8-8515-93C85FD123488</TemplateName>
   <Context>
     <![CDATA[
 
@@ -67,7 +67,7 @@
    <!-- FIRST SET -->
    <!-- HeadOffice- HeadOffice-->
    <GPrintLine>
-      <X>45</X>
+      <X>90</X>
       <Y>200</Y>
       <Size>0</Size>
       <Text>@officeName</Text>
@@ -89,7 +89,7 @@
     
     <!-- HeadOfficeAddress - Address -->
     <GPrintLine>
-      <X>45</X>
+      <X>90</X>
       <Y>213</Y>
       <Size>0</Size>
       <Text>@officeAddress</Text>
@@ -110,8 +110,8 @@
     </GPrintLine>
     
     <!-- RetailerName - RetailerName -->
-   <GPrintLine>
-      <X>45</X>
+    <GPrintLine>
+      <X>90</X>
       <Y>282</Y>
       <Size>0</Size>
       <Text>@retailerName</Text>
@@ -122,7 +122,7 @@
     
     <!-- RetailerAddress - Address -->
     <GPrintLine>
-      <X>35</X>
+      <X>85</X>
       <Y>296</Y>
       <Size>0</Size>
       <Text>@retailerAddress</Text>
@@ -133,7 +133,7 @@
     
    <!-- VatNumber - VatNo -->
     <GPrintLine>
-      <X>45</X>
+      <X>90</X>
       <Y>350</Y>
       <Size>0</Size>
       <Text>@vatNumber</Text>
@@ -144,7 +144,7 @@
 
    <!-- HO -->
     <GPrintLine>
-      <X>120</X>
+      <X>160</X>
       <Y>350</Y>
       <Size>0</Size>
       <Text>@ho</Text>
@@ -154,12 +154,99 @@
     </GPrintLine>
     
     <!-- SECOND SET -->
+    <GPrintLine>
+      <X>90</X>
+      <Y>670</Y>
+      <Size>0</Size>
+      <Text>@officeName</Text>
+      <Font>
+        <Value>Arial, 8pt</Value>
+      </Font>
+    </GPrintLine>  
+    
+    <!-- HeadOfficeAddress - Address -->
+    <GPrintLine>
+      <X>90</X>
+      <Y>683</Y>
+      <Size>0</Size>
+      <Text>@officeAddress</Text>
+      <Font>
+        <Value>Arial, 8pt</Value>
+      </Font>
+    </GPrintLine>  
+    
+   <!-- RetailerName - RetailerName -->
+   <GPrintLine>
+      <X>90</X>
+      <Y>733</Y>
+      <Size>0</Size>
+      <Text>@retailerName</Text>
+      <Font>
+        <Value>Arial, 8pt</Value>
+      </Font>
+    </GPrintLine>  
+    
+    <!-- RetailerAddress - Address -->
+    <GPrintLine>
+      <X>85</X>
+      <Y>746</Y>
+      <Size>0</Size>
+      <Text>@retailerAddress</Text>
+      <Font>
+        <Value>Arial, 8pt</Value>
+      </Font>
+    </GPrintLine> 
+    
+    <!-- VatNumber - VatNo -->
+    <GPrintLine>
+      <X>90</X>
+      <Y>799</Y>
+      <Size>0</Size>
+      <Text>@vatNumber</Text>
+      <Font>
+        <Value>Arial, 10pt</Value>
+      </Font>
+    </GPrintLine>
+
+    <!-- HO -->
+    <GPrintLine>
+      <X>160</X>
+      <Y>799</Y>
+      <Size>0</Size>
+      <Text>@ho</Text>
+      <Font>
+        <Value>Arial, 12pt</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- THIRD SET -->
+    <!-- VoucherNumber - VoucherNo -->
+    <GPrintLine>
+      <X>300</X>
+      <Y>670</Y>
+      <Size>0</Size>
+      <Text>@voucherNumber</Text>
+      <Font>
+        <Value>Arial, 12pt, style=Bold</Value>
+      </Font>
+    </GPrintLine>
+    
+    <!-- RetailerID - StoreNo -->
+    <GPrintLine>
+      <X>300</X>
+      <Y>700</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 12pt, style=Bold</Value>
+      </Font>
+    </GPrintLine>
   </Lines>
     
   <Barcodes>
     <BarPrintLine>
       <X>400</X>
-      <Y>70</Y>
+      <Y>100</Y>
       <Text>@barcodeNumber</Text>
       <Height>25</Height>
       <Size>2</Size>
@@ -176,7 +263,7 @@
     
     <BarPrintLine>
       <X>200</X>
-      <Y>820</Y>
+      <Y>850</Y>
       <Text>@barcodeNumber</Text>
       <Height>25</Height>
       <Size>2</Size>
