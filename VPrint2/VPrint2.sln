@@ -109,6 +109,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XmlConfigurations", "XmlCon
 		XmlConfigurations\print901_RazX.xml = XmlConfigurations\print901_RazX.xml
 		XmlConfigurations\print901_ss_Raz.xml = XmlConfigurations\print901_ss_Raz.xml
 		XmlConfigurations\print901_Type3_RazX.xml = XmlConfigurations\print901_Type3_RazX.xml
+		XmlConfigurations\print901_Type4_RazX.xml = XmlConfigurations\print901_Type4_RazX.xml
 		XmlConfigurations\print905_Type1_Raz.xml = XmlConfigurations\print905_Type1_Raz.xml
 		XmlConfigurations\printUnits.xml = XmlConfigurations\printUnits.xml
 	EndProjectSection
