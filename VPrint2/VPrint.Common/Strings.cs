@@ -27,6 +27,8 @@ namespace VPrinting
         /// </summary>
         public const string SubRangeFrom = "SubRangeFrom";
 
+        public const string IVoucherLayout = "IVoucherLayout";
+
         /// <summary>
         /// Index
         /// </summary>

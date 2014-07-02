@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Xml.Serialization;
 using VPrinting.Razor.RazorTemplating;
 
@@ -16,6 +17,7 @@ namespace VPrinting.Documents
         public int FormLength { get; set; }
         public string Context { get; set; }
         public string TemplateName { get; set; }
+        public Point MoveAll { get; set; }
 
         [XmlIgnore]
         public abstract List<IPrintLine> PrintLines { get; }

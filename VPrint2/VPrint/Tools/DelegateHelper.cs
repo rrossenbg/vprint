@@ -32,6 +32,10 @@ namespace VPrinting.Tools
         {
             return new PrintPageEventHandler((sender, e) =>
             {
+                IVoucherLayout layout = (IVoucherLayout)CacheManager.Instance.Table[Strings.IVoucherLayout];
+
+                Point moveAll = (layout != null) ? layout.MoveAll : Point.Empty;
+
                 using (var brush = new SolidBrush(Color.Black))
                 {
                     foreach (IPrintLine line in printLines)
@@ -52,7 +56,7 @@ namespace VPrinting.Tools
                             Size size;
                             for (int i = 0, y = (int)line.Y; i < lines.Length; i++, y += size.Height)
                             {
-                                e.Graphics.DrawString(lines[i], gline.Font.Value, brush, line.X, y);
+                                e.Graphics.DrawString(lines[i], gline.Font.Value, brush, line.X + moveAll.X, y + moveAll.Y);
                                 size = Size.Round(e.Graphics.MeasureString(lines[i], gline.Font.Value));
                             }
                         }
@@ -63,7 +67,7 @@ namespace VPrinting.Tools
                             {
                                 using (var bmp = BarcodeTools.BinaryWritePicture(bline.Text, bline.Height, bline.Size))
                                 {
-                                    e.Graphics.DrawImage(bmp, bline.X, bline.Y);
+                                    e.Graphics.DrawImage(bmp, bline.X + moveAll.X, bline.Y + moveAll.Y);
 
                                     if (bline.BarText == null)
                                         throw new ApplicationException("BarText empty");
@@ -71,8 +75,8 @@ namespace VPrinting.Tools
                                     SizeF s = e.Graphics.MeasureString(bline.BarText.Text, bline.BarText.Font.Value);
 
                                     e.Graphics.DrawString(bline.BarText.Text, bline.BarText.Font.Value, brush,
-                                        bline.X + ((bmp.Width - s.Width) / 2 + bline.BarText.X), // Middle
-                                        bline.Y + (bmp.Height + bline.BarText.Y));//Bottom
+                                        bline.X + ((bmp.Width - s.Width) / 2 + bline.BarText.X) + moveAll.X, // Middle
+                                        bline.Y + (bmp.Height + bline.BarText.Y) + moveAll.Y);//Bottom
                                 }
                             }
                             else
@@ -98,7 +102,7 @@ namespace VPrinting.Tools
 
                                     for (int i = 0; i < lines.Length; i++, y += size.Height)
                                     {
-                                        e.Graphics.DrawString(lines[i], inline.Font.Value, brush, X, y);
+                                        e.Graphics.DrawString(lines[i], inline.Font.Value, brush, X + moveAll.X, y + moveAll.Y);
                                         size = e.Graphics.MeasureString(lines[i], inline.Font.Value);
                                     }
                                 }
@@ -116,7 +120,7 @@ namespace VPrinting.Tools
                                                 inbline.Y.FromInch() :
                                                 inbline.Y;
 
-                                            e.Graphics.DrawImage(bmp, X, Y);
+                                            e.Graphics.DrawImage(bmp, X + moveAll.X, Y + moveAll.Y);
 
                                             if (inbline.BarText == null)
                                                 throw new ApplicationException("BarText empty");
@@ -124,8 +128,8 @@ namespace VPrinting.Tools
                                             SizeF s = e.Graphics.MeasureString(inbline.BarText.Text, inbline.BarText.Font.Value);
 
                                             e.Graphics.DrawString(inbline.BarText.Text, inbline.BarText.Font.Value, brush,
-                                                (X + ((bmp.Width - s.Width) / 2 + inbline.BarText.X)), // Middle
-                                                (Y + (bmp.Height + inbline.BarText.Y)));//Bottom
+                                                (X + ((bmp.Width - s.Width) / 2 + inbline.BarText.X) + moveAll.X), // Middle
+                                                (Y + (bmp.Height + inbline.BarText.Y)) + moveAll.Y);//Bottom
                                         }
                                     }
                                 }

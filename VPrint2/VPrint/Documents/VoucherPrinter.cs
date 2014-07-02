@@ -196,6 +196,8 @@ namespace VPrinting.Documents
                     throw new ArgumentNullException("layout", "Can not create layout from xml");
                 layout.Init();
 
+                CacheManager.Instance.Table[Strings.IVoucherLayout] = layout;
+
                 CacheManager.Instance.Table[Strings.SubRangeFrom] = RangeFrom;
 
                 int index = 0;
@@ -330,6 +332,8 @@ namespace VPrinting.Documents
                     if (layout == null)
                         throw new ArgumentNullException("layout", "Can not create layout from xml");
                     layout.Init();
+
+                    CacheManager.Instance.Table[Strings.IVoucherLayout] = layout;
 
                     CacheManager.Instance.Table[Strings.SubRangeFrom] = RangeFrom;
 

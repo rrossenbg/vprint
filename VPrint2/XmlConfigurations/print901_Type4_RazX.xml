@@ -8,6 +8,10 @@
     <Height>852</Height>
     <!-- Was 750 -->
   </PageSize>
+  <MoveAll>
+    <X>50</X>
+    <Y>50</Y>
+  </MoveAll>
   <Landscape>false</Landscape>
   <!-- Name of the template. Should be unique for the system. -->
   <TemplateName>D5DF5A25-D3E5-41B8-8555-93C85FD123488</TemplateName>
