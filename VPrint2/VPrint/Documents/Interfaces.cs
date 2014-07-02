@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using PM = VPrinting.PartyManagement;
 using VNAP = VPrinting.VoucherNumberingAllocationPrinting;
+using System.Drawing;
 
 namespace VPrinting
 {
@@ -62,6 +63,7 @@ namespace VPrinting
     {
         string DocumentInitialization { get; set; }
         int FormLength { get; set; }
+        Point MoveAll { get; set; }
         List<IPrintLine> PrintLines { get; }
         void Init();
         void Clear();

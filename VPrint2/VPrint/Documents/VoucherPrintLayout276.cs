@@ -26,8 +26,9 @@ namespace VPrinting.Documents
         }
 
         public int FormLength { get; set; }
+        public Point MoveAll { get; set; }
 
-        public Size PageSize { get; set; }
+        public Size PageSize { get; set; }        
         public bool Landscape { get; set; }
 
         public GPrintLine RetailerID { get; set; }

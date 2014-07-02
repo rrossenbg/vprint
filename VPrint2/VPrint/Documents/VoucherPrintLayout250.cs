@@ -3,8 +3,8 @@
 /***************************************************/
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
@@ -46,6 +46,7 @@ namespace VPrinting.Documents
         public PrintLine VATNumber { get; set; }
         public PrintLine ShopName { get; set; }
         public PrintLine Line2 { get; set; }
+        public Point MoveAll { get; set; }
 
         private List<IPrintLine> m_list;
         [XmlIgnore]

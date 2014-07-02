@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 
 namespace VPrinting.Documents
@@ -12,6 +13,7 @@ namespace VPrinting.Documents
         public string DocumentInitialization {get;set;}
 
         public int FormLength {get;set;}
+        public Point MoveAll { get; set; }
         
         public List<IPrintLine> PrintLines
         {

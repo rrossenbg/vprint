@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -48,6 +49,7 @@ namespace VPrinting.Documents
         public PrintLine Line2 { get; set; }
         public PrintLine Line3 { get; set; }
         public PrintLine VATNumber { get; set; }
+        public Point MoveAll { get; set; }
 
         [XmlIgnore]
         public virtual List<IPrintLine> PrintLines
