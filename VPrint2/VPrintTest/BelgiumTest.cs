@@ -31,7 +31,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.AJ_RAVI_ROOM;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout250";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print56_Type1.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print56_Type1.xml";
             printer.PrintOnce = true;
             printer.UseLocalPrinter = true;
             printer.UseLocalFormat = false;

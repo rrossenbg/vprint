@@ -49,7 +49,7 @@ namespace VPrintTest
             printer.SimulatePrint = true;
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutUnitRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\printUnits.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\printUnits.xml";
             printer.PrintAllocation(77493, false);
         }
 

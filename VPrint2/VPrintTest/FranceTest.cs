@@ -75,7 +75,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.FRANCE;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout250";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type1.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type1.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -89,7 +89,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout250";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type2.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type2.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -103,7 +103,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout250";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type3.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type3.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -117,7 +117,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout250";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type4.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type4.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -131,7 +131,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout250";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type5.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type5.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -145,7 +145,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout250";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type6.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type6.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -159,7 +159,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout250";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type7.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type7.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -173,7 +173,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutUnitRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type1Unx.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type1Unx.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -210,7 +210,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutUnitRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type2Unx.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type2Unx.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -224,7 +224,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutUnitRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type3Unx.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type3Unx.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -238,7 +238,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutUnitRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type4Unx.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type4Unx.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -252,7 +252,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutUnitRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type5Unx.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type5Unx.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -266,7 +266,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutUnitRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type6Unx.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type6Unx.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
@@ -280,7 +280,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutUnitRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print250_Type7Unx.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type7Unx.xml";
             printer.PrintOnce = true;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;

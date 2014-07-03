@@ -14,7 +14,7 @@
   </MoveAll>
   <Landscape>false</Landscape>
   <!-- Name of the template. Should be unique for the system. -->
-  <TemplateName>D5DF5AAA-D3E5-41B8-8555-93C85FD123488</TemplateName>
+  <TemplateName>D5DF5AAA-D3E5-41B8-8515-93C85FD123488</TemplateName>
   <Context>
     <![CDATA[
 
@@ -110,7 +110,7 @@
     </GPrintLine>
     
     <!-- RetailerName - RetailerName -->
-   <GPrintLine>
+    <GPrintLine>
       <X>90</X>
       <Y>282</Y>
       <Size>0</Size>
@@ -164,7 +164,6 @@
       </Font>
     </GPrintLine>  
     
-    
     <!-- HeadOfficeAddress - Address -->
     <GPrintLine>
       <X>90</X>
@@ -176,7 +175,7 @@
       </Font>
     </GPrintLine>  
     
-    <!-- RetailerName - RetailerName -->
+   <!-- RetailerName - RetailerName -->
    <GPrintLine>
       <X>90</X>
       <Y>733</Y>
@@ -198,7 +197,7 @@
       </Font>
     </GPrintLine> 
     
-   <!-- VatNumber - VatNo -->
+    <!-- VatNumber - VatNo -->
     <GPrintLine>
       <X>90</X>
       <Y>799</Y>
@@ -209,7 +208,7 @@
       </Font>
     </GPrintLine>
 
-   <!-- HO -->
+    <!-- HO -->
     <GPrintLine>
       <X>160</X>
       <Y>799</Y>
@@ -219,35 +218,30 @@
         <Value>Arial, 12pt</Value>
       </Font>
     </GPrintLine>
-    
-    <!-- THREE SET -->
-    <!-- VoucherNumber - VoucherNo -->
-    <GPrintLine>
-      <X>300</X>
-      <Y>670</Y>
-      <Size>0</Size>
-      <Text>@voucherNumber</Text>
-      <Font>
-        <Value>Arial, 12pt, style=Bold</Value>
-      </Font>
-    </GPrintLine>
-    
-    <!-- RetailerID - StoreNo -->
-    <GPrintLine>
-      <X>300</X>
-      <Y>700</Y>
-      <Size>0</Size>
-      <Text>@id</Text>
-      <Font>
-        <Value>Arial, 12pt, style=Bold</Value>
-      </Font>
-    </GPrintLine>
   </Lines>
     
   <Barcodes>
     <BarPrintLine>
       <X>400</X>
       <Y>100</Y>
+      <Text>@barcodeNumber</Text>
+      <Height>25</Height>
+      <Size>2</Size>
+      <BarText>
+        <X>0</X>
+        <Y>5</Y>
+        <Size>0</Size>
+        <Text>@barcodeText</Text>
+        <Font>
+          <Value>Arial, 11pt</Value>
+        </Font>
+      </BarText>
+    </BarPrintLine>
+    
+    <Barcodes>
+    <BarPrintLine>
+      <X>300</X>
+      <Y>800</Y>
       <Text>@barcodeNumber</Text>
       <Height>25</Height>
       <Size>2</Size>

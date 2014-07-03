@@ -37,7 +37,7 @@ namespace VPrintTest
             printer.PrintOnce = true;
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRaz";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print380_Type1_Raz.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print380_Type1_Raz.xml";
             printer.Test += new EventHandler(printer_Test);
             printer.SimulatePrint = true;
             printer.PrintAllocation(214335, false);//384920//211771
@@ -54,7 +54,7 @@ namespace VPrintTest
             printer.PrintOnce = true;
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print380_Type2_RazX.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print380_Type2_RazX.xml";
             printer.PrintAllocation(360303, false);//384920//384920//211771
         }
 
@@ -69,7 +69,7 @@ namespace VPrintTest
             printer.SimulatePrint = true;
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print380_Type3_RazX.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print380_Type3_RazX.xml";
             printer.PrintAllocation(360303, false);
             //435438//384920//211771
             //441786//435438//428314---•	Sephora  head office 106793
@@ -87,7 +87,7 @@ namespace VPrintTest
             printer.SimulatePrint = false;
             printer.m_PrinterName = Printers.CANNON;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print380_Type4_RazX.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print380_Type4_RazX.xml";
             printer.PrintAllocation(569366, false); //569366  360303
             //435438//384920//211771
             //441786//435438//428314---•	Sephora  head office 106793

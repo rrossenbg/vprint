@@ -34,7 +34,7 @@ namespace VPrintTest
         //    VoucherPrinter printer = new VoucherPrinter();
         //    printer.m_PrinterName = Printers.Tally_T2365_2T;
         //    printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout620";
-        //    printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print620_Type1.xml";
+        //    printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print620_Type1.xml";
         //    printer.PrintAllocation(0, true);
         //}
 
@@ -45,7 +45,7 @@ namespace VPrintTest
         //    VoucherPrinter printer = new VoucherPrinter();
         //    printer.m_PrinterName = Printers.DELL;
         //    printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout620";
-        //    printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print620_Type1.xml";
+        //    printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print620_Type1.xml";
         //    //5 MUNDOS, LDA
         //    //BUBBLE-QUINTA SHOPPING LJ43 8135-862: id(141690)
         //    printer.PrintAllocation(332970, false);
@@ -58,7 +58,7 @@ namespace VPrintTest
         //    VoucherPrinter printer = new VoucherPrinter();
         //    printer.m_PrinterName = Printers.DELL;
         //    printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout620";
-        //    printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print620_Type2.xml";
+        //    printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print620_Type2.xml";
         //    //5 MUNDOS, LDA
         //    //BUBBLE-QUINTA SHOPPING LJ43 8135-862: id(141690)
         //    printer.PrintAllocation(332970, false);
@@ -71,7 +71,7 @@ namespace VPrintTest
         //    VoucherPrinter printer = new VoucherPrinter();
         //    printer.m_PrinterName = Printers.DELL;
         //    printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout620";
-        //    printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print620_Type3.xml";
+        //    printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print620_Type3.xml";
         //    //5 MUNDOS, LDA
         //    //BUBBLE-QUINTA SHOPPING LJ43 8135-862: id(141690)
         //    printer.PrintAllocation(332970, false);
@@ -85,7 +85,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.Tally_T2365_2T;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print724_ss_RazX.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print724_ss_RazX.xml";
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
             printer.SimulatePrint = false;
@@ -101,7 +101,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print901_RazX.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print901_RazX.xml";
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
             printer.SimulatePrint = false;
@@ -117,7 +117,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.novaPDF_Lite_v7;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print901_Type3_RazX.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print901_Type3_RazX.xml";
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
             printer.SimulatePrint = false;

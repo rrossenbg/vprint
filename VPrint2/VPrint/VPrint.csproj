@@ -594,6 +594,7 @@
     <Content Include="..\XmlConfigurations\print901_Type4_RazX.xml">
       <Link>XmlConfigurations\print901_Type4_RazX.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="..\XmlConfigurations\print905_Type1_Raz.xml">
       <Link>XmlConfigurations\print905_Type1_Raz.xml</Link>

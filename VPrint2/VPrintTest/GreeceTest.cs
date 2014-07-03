@@ -52,7 +52,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print300_Type1_RazX.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print300_Type1_RazX.xml";
             printer.UseLocalPrinter = true;
             printer.UseLocalFormat = true;
             printer.PrintAllocation(389298, false); //388608
@@ -65,7 +65,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print300_Type2_RazX.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print300_Type2_RazX.xml";
             printer.UseLocalPrinter = true;
             printer.PrintAllocation(388608, false); //361456
         }

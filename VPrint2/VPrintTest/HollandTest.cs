@@ -29,7 +29,7 @@ namespace VPrintTest
             printer.PrintOnce = true;
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRaz";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print528_Type1_Raz.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print528_Type1_Raz.xml";
             printer.SimulatePrint = false;
             printer.PrintAllocation(457312, false);
         }
@@ -43,7 +43,7 @@ namespace VPrintTest
             printer.PrintOnce = true;
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print528_Type2_RazX.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print528_Type2_RazX.xml";
             printer.SimulatePrint = false;
             printer.PrintAllocation(457312, false);
         }
