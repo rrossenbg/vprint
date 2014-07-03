@@ -29,7 +29,7 @@ namespace VPrintTest
             printer.PrintOnce = true;
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRaz";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print372_Type1_Raz.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print372_Type1_Raz.xml";
             printer.PrintAllocation(250182, false);
         }
 

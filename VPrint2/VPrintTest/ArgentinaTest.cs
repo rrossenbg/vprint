@@ -32,7 +32,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = Printers.DELL;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout620";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print32_Type1.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print32_Type1.xml";
             //5 MUNDOS, LDA
             //BUBBLE-QUINTA SHOPPING LJ43 8135-862: id(141690)
             printer.PrintAllocation(332970, false);

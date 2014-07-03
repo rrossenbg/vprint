@@ -26,7 +26,7 @@ namespace VPrintTest
             VoucherPrinter printer = new VoucherPrinter();
             printer.m_PrinterName = @"\\192.168.44.158\della52fe3-p";
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout276";
-            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print504_Type1.xml";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print504_Type1.xml";
             printer.PrintAllocation(0, true);
         }
     }

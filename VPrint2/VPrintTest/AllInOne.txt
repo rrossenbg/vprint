@@ -5,4 +5,4 @@ printer.PrinterName = @"Tally T2365 2T";
 printer.ReportType2 = "VPrinting.Documents.VoucherPrintLayout620";
 
 printer.PrinterXmlFilePath = @"C:\Program Files\VPrint\print250_TypeX.xml";
-printer.PrinterXmlFilePath = @"C:\PROJECTS\VPrint\XmlConfigurations\print620_Type1.xml";
+printer.PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print620_Type1.xml";

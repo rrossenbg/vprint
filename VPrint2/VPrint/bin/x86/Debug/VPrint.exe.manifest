@@ -4,7 +4,7 @@
   <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VPrint" version="1.0.5296.27409" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="VPrint" version="1.0.5297.27169" language="neutral" processorArchitecture="x86" />
     <commandLine file="VPrint.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -79,13 +79,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="933888">
-      <assemblyIdentity name="VPrint" version="1.0.5296.27409" language="neutral" processorArchitecture="x86" />
+      <assemblyIdentity name="VPrint" version="1.0.5297.27169" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Z64fde8ceSCR2QsRz2lTpkMtRvQ=</dsig:DigestValue>
+        <dsig:DigestValue>rh0y/HpSQaoKETKZ4LLLSzUDWbE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -719,13 +719,13 @@
       <dsig:DigestValue>7dXsGDGgxBkrEapFNZWmyrEVMaQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="XmlConfigurations\print901_Type4_RazX.xml" size="7371" writeableType="applicationData">
+  <file name="XmlConfigurations\print901_Type4_RazX.xml" size="7237" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>84Vx965ef6dT2nMBr1yikJs5BhQ=</dsig:DigestValue>
+      <dsig:DigestValue>H0bWEfi9q7eNY4sSuaMGW5Gd0tc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="XmlConfigurations\print905_Type1_Raz.xml" size="1793" writeableType="applicationData">
