@@ -81,7 +81,7 @@
     <!-- VoucherNumber - VoucherNo -->
     <GPrintLine>
       <X>300</X>
-      <Y>100</Y>
+      <Y>53</Y>
       <Size>0</Size>
       <Text>@voucherNumber</Text>
       <Font>
@@ -103,7 +103,7 @@
     <!-- RetailerID - StoreNo -->
     <GPrintLine>
       <X>300</X>
-      <Y>130</Y>
+      <Y>83</Y>
       <Size>0</Size>
       <Text>@id</Text>
       <Font>
@@ -259,7 +259,7 @@
     
     <BarPrintLine>
       <X>200</X>
-      <Y>869</Y>
+      <Y>877</Y>
       <Text>@barcodeNumber</Text>
       <Height>25</Height>
       <Size>2</Size>

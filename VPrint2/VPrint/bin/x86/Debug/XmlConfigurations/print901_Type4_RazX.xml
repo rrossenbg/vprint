@@ -9,8 +9,8 @@
     <!-- Was 852 -->
   </PageSize>
   <MoveAll>
-    <X>0</X>
-    <Y>0</Y>
+    <X>50</X>
+    <Y>-30</Y>
   </MoveAll>
   <Landscape>false</Landscape>
   <!-- Name of the template. Should be unique for the system. -->
@@ -40,7 +40,7 @@
     var retailerPhone = Model.Retailer.Phone.EscapeXml();
     
     var officeData = Model.Manager.RetrieveTableData("ho_pfs, ho_Certificate_1, ho_Certificate_2, ho_Certificate_3, ho_category_title,ho_add_id", "HeadOffice", 
-        "where ho_id={0} and ho_iso_id={1}".format(Model.Retailer.HeadOfficeId, Model.Office.CountryId));
+        "where ho_id={0} and ho_iso_id={1}".format(Model.Retailer.HeadOfficeId, Model.Retailer.CountryId));
     var branchData = Model.Manager.RetrieveTableData("br_category, br_pfs", "Branch", 
         "where br_id={0} and br_iso_id={1}".format(Model.Retailer.Id, Model.Retailer.CountryId));
 
@@ -49,11 +49,13 @@
     //Office
     var officeName = Model.Retailer.HeadOfficeName.EscapeXml();
     var hoData = Model.Manager.RetrieveTableData("hoa_add_1,hoa_add_2,hoa_add_3,hoa_add_4,hoa_add_5,hoa_add_6", "HeadOfficeAddress", 
-        "where hoa_id = {0} ".format(officeData[5]));
-    var oLine1 = hoData[0];
-    var oLine2 = hoData[1];
-    var oLine3 = hoData[2];
-    var oLine5 = hoData[4];
+        "where hoa_id = {0} ".format(officeData.Length >5? officeData[5]: "0"));
+
+    var oLine1 = hoData.Length > 0? hoData[0]: "";
+    var oLine2 = hoData.Length > 1? hoData[1]: "";
+    var oLine3 = hoData.Length > 2? hoData[2]: "";
+    var oLine5 = hoData.Length > 4? hoData[4]: "";
+
     var officeAddress = string.Concat(oLine1 , '\n', oLine2 , '\n',  oLine5,  '-', oLine3 ).EscapeXml();
     
     var vatNumber = string.Concat("", Model.Retailer.VatNumber);
@@ -68,7 +70,7 @@
    <!-- HeadOffice- HeadOffice-->
    <GPrintLine>
       <X>40</X>
-      <Y>200</Y>
+      <Y>180</Y>
       <Size>0</Size>
       <Text>@officeName</Text>
       <Font>
@@ -90,7 +92,7 @@
     <!-- HeadOfficeAddress - Address -->
     <GPrintLine>
       <X>40</X>
-      <Y>213</Y>
+      <Y>193</Y>
       <Size>0</Size>
       <Text>@officeAddress</Text>
       <Font>
@@ -112,7 +114,7 @@
     <!-- RetailerName - RetailerName -->
     <GPrintLine>
       <X>40</X>
-      <Y>282</Y>
+      <Y>262</Y>
       <Size>0</Size>
       <Text>@retailerName</Text>
       <Font>
@@ -123,7 +125,7 @@
     <!-- RetailerAddress - Address -->
     <GPrintLine>
       <X>35</X>
-      <Y>296</Y>
+      <Y>276</Y>
       <Size>0</Size>
       <Text>@retailerAddress</Text>
       <Font>
@@ -134,7 +136,7 @@
    <!-- VatNumber - VatNo -->
     <GPrintLine>
       <X>40</X>
-      <Y>350</Y>
+      <Y>330</Y>
       <Size>0</Size>
       <Text>@vatNumber</Text>
       <Font>
@@ -145,7 +147,7 @@
    <!-- HO -->
     <GPrintLine>
       <X>110</X>
-      <Y>350</Y>
+      <Y>330</Y>
       <Size>0</Size>
       <Text>@ho</Text>
       <Font>
@@ -156,7 +158,7 @@
     <!-- SECOND SET -->
     <GPrintLine>
       <X>40</X>
-      <Y>670</Y>
+      <Y>676</Y>
       <Size>0</Size>
       <Text>@officeName</Text>
       <Font>
@@ -167,7 +169,7 @@
     <!-- HeadOfficeAddress - Address -->
     <GPrintLine>
       <X>40</X>
-      <Y>683</Y>
+      <Y>689</Y>
       <Size>0</Size>
       <Text>@officeAddress</Text>
       <Font>
@@ -178,7 +180,7 @@
    <!-- RetailerName - RetailerName -->
    <GPrintLine>
       <X>40</X>
-      <Y>733</Y>
+      <Y>739</Y>
       <Size>0</Size>
       <Text>@retailerName</Text>
       <Font>
@@ -189,7 +191,7 @@
     <!-- RetailerAddress - Address -->
     <GPrintLine>
       <X>35</X>
-      <Y>746</Y>
+      <Y>752</Y>
       <Size>0</Size>
       <Text>@retailerAddress</Text>
       <Font>
@@ -200,7 +202,7 @@
     <!-- VatNumber - VatNo -->
     <GPrintLine>
       <X>40</X>
-      <Y>799</Y>
+      <Y>805</Y>
       <Size>0</Size>
       <Text>@vatNumber</Text>
       <Font>
@@ -211,7 +213,7 @@
     <!-- HO -->
     <GPrintLine>
       <X>110</X>
-      <Y>799</Y>
+      <Y>805</Y>
       <Size>0</Size>
       <Text>@ho</Text>
       <Font>
@@ -223,7 +225,7 @@
   <Barcodes>
     <BarPrintLine>
       <X>400</X>
-      <Y>100</Y>
+      <Y>50</Y>
       <Text>@barcodeNumber</Text>
       <Height>25</Height>
       <Size>2</Size>
@@ -240,7 +242,7 @@
     
     <BarPrintLine>
       <X>400</X>
-      <Y>700</Y>
+      <Y>695</Y>
       <Text>@barcodeNumber</Text>
       <Height>25</Height>
       <Size>2</Size>
@@ -257,7 +259,7 @@
     
     <BarPrintLine>
       <X>200</X>
-      <Y>850</Y>
+      <Y>869</Y>
       <Text>@barcodeNumber</Text>
       <Height>25</Height>
       <Size>2</Size>
