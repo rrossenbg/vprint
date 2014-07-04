@@ -1,0 +1,7 @@
+C:\PROJECTS\VPrint\FileCopy\bin\Debug\FileCopy.exe
+C:\PROJECTS\VPrint\FileCopy\bin\Debug\FileCopy.pdb
+C:\PROJECTS\VPrint\FileCopy\obj\x86\Debug\FileCopy.MainForm.resources
+C:\PROJECTS\VPrint\FileCopy\obj\x86\Debug\FileCopy.Properties.Resources.resources
+C:\PROJECTS\VPrint\FileCopy\obj\x86\Debug\FileCopy.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\FileCopy\obj\x86\Debug\FileCopy.exe
+C:\PROJECTS\VPrint\FileCopy\obj\x86\Debug\FileCopy.pdb
