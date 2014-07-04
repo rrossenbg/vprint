@@ -1,10 +1,12 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Linq;
+using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VPrinting.Attributes;
+using VPrinting;
 using VPrinting.Documents;
-using System;
+using VPrinting.Attributes;
 using System.Collections;
 
 namespace VPrintTest
@@ -134,11 +136,58 @@ namespace VPrintTest
             printer.m_PrinterName = Printers._3TH_FLOOR_PRINTER;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
             printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print901_Type4_RazX.xml";
-            printer.UseLocalFormat = true;
+            printer.UseLocalFormat = false;
             printer.UseLocalPrinter = true;
             printer.SimulatePrint = false;
             printer.PrintOnce = true;
-            printer.PrintAllocation(421141, false);
+            printer.Test += new EventHandler(printer_Test);
+            printer.PrintAllocation(547200, false);
+        }
+
+        void printer_Test(object sender, EventArgs e)
+        {
+            VoucherPrinter Model = (VoucherPrinter)sender;
+
+            //Please no code into the body tag!
+            //Only variables
+
+            //Voucher
+            var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
+
+
+            var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);
+            var barcodeText = Model.StrVoucherNo.Replace(" ", "");
+
+            //Retailer
+            var id = Model.Retailer.Id;
+            var retailerName = Model.Retailer.TradingName.EscapeXml();
+            var rLine1 = Model.Retailer.RetailAddress.Line1;
+            var rLine2 = Model.Retailer.RetailAddress.Line2;
+            var rLine3 = Model.Retailer.RetailAddress.Line3;
+            var rLine5 = Model.Retailer.RetailAddress.Line5;
+            var retailerAddress = string.Concat(rLine1, '\n', rLine2, '\n', rLine5, '-', rLine3).EscapeXml();
+            var retailerPhone = Model.Retailer.Phone.EscapeXml();
+
+            var officeData = Model.Manager.RetrieveTableData("ho_pfs, ho_Certificate_1, ho_Certificate_2, ho_Certificate_3, ho_category_title,ho_add_id", "HeadOffice",
+                "where ho_id={0} and ho_iso_id={1}".format(Model.Retailer.HeadOfficeId, Model.Retailer.CountryId));
+            var branchData = Model.Manager.RetrieveTableData("br_category, br_pfs", "Branch",
+                "where br_id={0} and br_iso_id={1}".format(Model.Retailer.Id, Model.Retailer.CountryId));
+
+            var ho = "HO: " + Model.Retailer.HeadOfficeId;
+
+            //Office
+            var officeName = Model.Retailer.HeadOfficeName.EscapeXml();
+            var hoData = Model.Manager.RetrieveTableData("hoa_add_1,hoa_add_2,hoa_add_3,hoa_add_4,hoa_add_5,hoa_add_6", "HeadOfficeAddress",
+                "where hoa_id = {0} ".format(officeData.Length > 5 ? officeData[5] : "0"));
+            var oLine1 = hoData.Length > 0 ? hoData[0] : "";
+            var oLine2 = hoData.Length > 1 ? hoData[1] : "";
+            var oLine3 = hoData.Length > 2 ? hoData[2] : "";
+            var oLine5 = hoData.Length > 4 ? hoData[4] : "";
+            var officeAddress = string.Concat(oLine1, '\n', oLine2, '\n', oLine5, '-', oLine3).EscapeXml();
+
+            var vatNumber = string.Concat("", Model.Retailer.VatNumber);
+
+
         }
     }
 

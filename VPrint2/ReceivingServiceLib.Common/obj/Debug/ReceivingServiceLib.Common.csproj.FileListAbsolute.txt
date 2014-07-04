@@ -14,4 +14,3 @@ C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Com
 C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.dll
 C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.pdb
-C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.csprojResolveAssemblyReference.cache
