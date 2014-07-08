@@ -366,8 +366,11 @@ namespace VPrinting.Common
             {
                 Debug.Assert(other != null);
 
+#if DEBUGGER
+
                 Trace.WriteLine(string.Concat("\r\n   ", CountryID, " <> ", RetailerID, " <> ", VoucherID,
                                               "\r\n   ", other.CountryID, " <> ", other.RetailerID, " <> ", other.VoucherID), Strings.VRPINT);
+#endif
 
                 return RetailerID.CompareSmart(RetailerIDCD, other.RetailerID, other.RetailerIDCD) &&
                        VoucherID.CompareSmart(VoucherIDCD, other.VoucherID, other.VoucherIDCD); //(CountryID == other.CountryID) 
@@ -382,8 +385,10 @@ namespace VPrinting.Common
             /// <returns></returns>
             public bool Equals(int countryId, int retailerId, int voucherId)
             {
+#if DEBUGGER
                 Trace.WriteLine(string.Concat("\r\n   ", CountryID, " <> ", RetailerID, " <> ", VoucherID,
                                               "\r\n   ", countryId, " <> ", retailerId, " <> ", voucherId), Strings.VRPINT);
+#endif
 
                 return (CountryID == countryId) &&
                         RetailerID.CompareSmart(RetailerIDCD, retailerId, 0) &&
@@ -568,15 +573,18 @@ namespace VPrinting.Common
 
         public void Clear()
         {
-            m_CurrentItem = m_PrevItem = null;
+            lock (m_ItemCollection.SyncRoot)
+            {
+                m_CurrentItem = m_PrevItem = null;
 
-            foreach (var item in m_ItemCollection)
-                foreach (var file in item.FileInfoList)
-                    file.DeleteSafe();
+                foreach (var item in new SynchronizedCollection<Item>(m_ItemCollection.SyncRoot, m_ItemCollection))
+                    foreach (var file in item.FileInfoList)
+                        file.DeleteSafe();
 
-            m_ItemCollection.Clear();
-            
-            FireItemsCleared();
+                m_ItemCollection.Clear();
+
+                FireItemsCleared();
+            }
         }
 
         public void ForceAll()

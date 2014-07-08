@@ -15,27 +15,40 @@ namespace VPrinting.Extentions
         [TargetedPatchingOptOut("na")]
         public static void InvokeSf(this Control cnt, MethodInvoker del)
         {
-            if (cnt == null)
-                return;
-            if (cnt.IsDisposed || !cnt.IsHandleCreated)
-                return;
-            if (cnt.InvokeRequired)
-                cnt.Invoke(del);
-            else
-                del();
+            try
+            {
+                if (cnt == null)
+                    return;
+                if (cnt.IsDisposed || !cnt.IsHandleCreated)
+                    return;
+                if (cnt.InvokeRequired)
+                    cnt.Invoke(del);
+                else
+                    del();
+            }
+            catch
+            {
+            }
         }
 
         [TargetedPatchingOptOut("na")]
         public static object InvokeSafe(this Control cnt, Delegate del, params object[] data)
         {
-            if (cnt == null)
+            try
+            {
+                if (cnt == null)
+                    return null;
+                if (cnt.IsDisposed || !cnt.IsHandleCreated)
+                    return null;
+                if (cnt.InvokeRequired)
+                    return cnt.Invoke(del, data);
+                else
+                    return del.DynamicInvoke(data);
+            }
+            catch
+            {
                 return null;
-            if (cnt.IsDisposed || !cnt.IsHandleCreated)
-                return null;
-            if (cnt.InvokeRequired)
-                return cnt.Invoke(del, data);
-            else
-                return del.DynamicInvoke(data);
+            }
         }
 
         [TargetedPatchingOptOut("na")]

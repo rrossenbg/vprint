@@ -745,7 +745,9 @@ namespace VPrinting
         private void Allocations_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
+#if DEBUGGER
             Debug.WriteLine(e);
+#endif
         }
 
         private void Exit_Click(object sender, EventArgs e)
@@ -2706,7 +2708,9 @@ namespace VPrinting
 
             var clin = (ScanServiceLocalClient)sender;
             clin.StartScanCompleted -= new EventHandler<AsyncCompletedEventArgs>(Client_StartScanCompleted);
+#if DEBUGGER
             Trace.WriteLine("Scan Completed", "VPRINT");
+#endif
         }
 
         #endregion
@@ -2741,26 +2745,29 @@ namespace VPrinting
 
         private void BuildFiles(int folderId)
         {
-            //TODO:
-            var files = ServiceDataAccess.Instance.ReadCoverList(folderId);
-            var vouchers = ServiceDataAccess.Instance.ReadFileList(folderId);
-
-            m_StateManager.Clear();
-
-            foreach (var file in files)
+            var t = Task.Factory.StartNew((o) =>
             {
-                Guid session = Guid.Empty;
-                Guid.TryParse(file.SessionId, out session);
-                m_StateManager.AddItem(file.Id, file.CountryID, StateManager.eState.COVER, session, file.Name);
-            }
+                var fId = Convert.ToInt32(o);
+                var files = ServiceDataAccess.Instance.ReadCoverList(fId);
+                var vouchers = ServiceDataAccess.Instance.ReadFileList(fId);
 
-            foreach (var voucher in vouchers)
-            {
-                Guid session = Guid.Empty;
-                Guid.TryParse(voucher.SessionId, out session);
-                m_StateManager.AddVoucherItem(voucher.Id, voucher.CountryId, voucher.RetailerId, voucher.VoucherId,
-                    StateManager.eState.VOUCHER, session, voucher.SiteCode, voucher.Name);
-            }
+                m_StateManager.Clear();
+
+                foreach (var file in files)
+                {
+                    Guid session = Guid.Empty;
+                    Guid.TryParse(file.SessionId, out session);
+                    m_StateManager.AddItem(file.Id, file.CountryID, StateManager.eState.COVER, session, file.Name);
+                }
+
+                foreach (var voucher in vouchers)
+                {
+                    Guid session = Guid.Empty;
+                    Guid.TryParse(voucher.SessionId, out session);
+                    m_StateManager.AddVoucherItem(voucher.Id, voucher.CountryId, voucher.RetailerId, voucher.VoucherId,
+                        StateManager.eState.VOUCHER, session, voucher.SiteCode, voucher.Name);
+                }
+            }, folderId);
         }
 
         private void EnableDisableScanPanel(bool enable)

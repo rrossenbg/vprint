@@ -220,7 +220,9 @@ namespace VPrinting
                                 try
                                 {
                                     var serverSessionId = i.Item.SessionID.ToString();
+#if DEBUGGER
                                     Trace.WriteLine("Sending ".concat(serverSessionId), Strings.VRPINT);
+#endif
 
                                     //copy voucher
                                     i.Item.FileInfoList.ForEach((f) =>
@@ -245,21 +247,26 @@ namespace VPrinting
                                         srv.CommitFileChanges(serverSessionId, i.Item.CountryID,
                                             Global.FolderID.HasValue ? Global.FolderID.Value : (int?)null, keys);
                                     }
-
+#if DEBUGGER
                                     Trace.WriteLine("Committed".concat(serverSessionId), Strings.VRPINT);
+#endif
                                     i.Item.State = StateManager.eState.Sent;
                                 }
                                 catch (FaultException<MyApplicationFault> srex)
                                 {
                                     i.Item.Message = srex.Message;
                                     i.Item.State = StateManager.eState.Err;
+#if DEBUGGER
                                     Trace.WriteLine(srex, Strings.VRPINT);
+#endif
                                 }
                                 catch (Exception ex)
                                 {
                                     i.Item.Message = ex.Message;
                                     i.Item.State = StateManager.eState.Err;
+#if DEBUGGER
                                     Trace.WriteLine(ex, Strings.VRPINT);
+#endif
                                 }
                                 finally
                                 {

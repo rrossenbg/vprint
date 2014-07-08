@@ -58,7 +58,9 @@ namespace ReceivingServiceLib.FileWorkers
                         {
                             try
                             {
+#if DEBUGGER
                                 Trace.WriteLine("Trying ".concat(fromDir.Name), Strings.APPNAME);
+#endif
 
                                 if (!fromDir.Exists)
                                     continue;
@@ -101,17 +103,19 @@ namespace ReceivingServiceLib.FileWorkers
                                         throw new Exception("Cannot find: " + xmlPath);
                                     }
                                 }
-
+#if DEBUGGER
                                 Trace.WriteLine("Create zip ".concat(fromDir.Name), Strings.APPNAME);
+#endif
 
                                 string zipPath = Path.Combine(uploadRoot.FullName, string.Concat(fromDir.Name, ".zip"));
                                 var zipFile = new FileInfo(zipPath);
                                 zipFile.DeleteSafe();
                                 
                                 fac.CreateZip(zipPath, fromDir.FullName, message);
-
+#if DEBUGGER
                                 Trace.WriteLine("Read xml ".concat(fromDir.Name), Strings.APPNAME);
                                 Trace.WriteLine("Sql Insert ".concat(fromDir.Name), Strings.APPNAME);
+#endif
 
                                 using (var file = zipFile.Open(FileMode.Open))
                                 using (var reader = new BinaryReader(file))
@@ -130,7 +134,9 @@ namespace ReceivingServiceLib.FileWorkers
                                     }
                                 }
 
+#if DEBUGGER
                                 Trace.WriteLine("Save to history ".concat(fromDir.Name), Strings.APPNAME);
+#endif
                                 
                                 var voucherDirectory = fac.CreateDirectoryHerarchy(Global.Strings.VOCUHERSFOLDER, countryId, retailerId, voucherId);
                                 fromDir.CopyFiles(voucherDirectory, true);
@@ -159,7 +165,9 @@ namespace ReceivingServiceLib.FileWorkers
                             }
                             finally
                             {
+#if DEBUGGER
                                 Trace.WriteLine("===================================", Strings.APPNAME);
+#endif
                                 Thread.Yield();
                             }
                         }
