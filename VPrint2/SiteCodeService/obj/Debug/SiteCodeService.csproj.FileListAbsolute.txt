@@ -1,0 +1,29 @@
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\obj\Debug\SiteCodeSrvc.ProjectInstaller.resources
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\obj\Debug\SiteCodeService.exe
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\obj\Debug\SiteCodeService.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe.config
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\obj\Debug\SiteCodeService.csprojResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\obj\Debug\SiteCodeService.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeService.exe.config
+C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeService.exe
+C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeService.pdb
+C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeLib.dll
+C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeLib.pdb
+C:\PROJECTS\VPrint\SiteCodeService\obj\Debug\SiteCodeSrvc.ProjectInstaller.resources
+C:\PROJECTS\VPrint\SiteCodeService\obj\Debug\SiteCodeService.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\SiteCodeService\obj\Debug\SiteCodeService.exe
+C:\PROJECTS\VPrint\SiteCodeService\obj\Debug\SiteCodeService.pdb
+C:\PROJECTS\VPrint2\SiteCodeService\bin\Debug\SiteCodeService.exe.config
+C:\PROJECTS\VPrint2\SiteCodeService\bin\Debug\SiteCodeService.exe
+C:\PROJECTS\VPrint2\SiteCodeService\bin\Debug\SiteCodeService.pdb
+C:\PROJECTS\VPrint2\SiteCodeService\bin\Debug\SiteCodeLib.dll
+C:\PROJECTS\VPrint2\SiteCodeService\bin\Debug\SiteCodeLib.pdb
+C:\PROJECTS\VPrint2\SiteCodeService\obj\Debug\SiteCodeService.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\SiteCodeService\obj\Debug\SiteCodeSrvc.ProjectInstaller.resources
+C:\PROJECTS\VPrint2\SiteCodeService\obj\Debug\SiteCodeService.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\SiteCodeService\obj\Debug\SiteCodeService.exe
+C:\PROJECTS\VPrint2\SiteCodeService\obj\Debug\SiteCodeService.pdb

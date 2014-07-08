@@ -1,0 +1,20 @@
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Release\SiteCodeService.exe.config
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Release\SiteCodeService.exe
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Release\SiteCodeService.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Release\SiteCodeLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Release\SiteCodeLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\obj\x86\Release\SiteCodeSrvc.ProjectInstaller.resources
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\obj\x86\Release\SiteCodeService.exe
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\obj\x86\Release\SiteCodeService.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\obj\x86\Release\SiteCodeService.csprojResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\obj\x86\Release\SiteCodeService.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeService.exe.config
+C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeService.exe
+C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeService.pdb
+C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeLib.dll
+C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeLib.pdb
+C:\PROJECTS\VPrint\SiteCodeService\obj\x86\Release\SiteCodeService.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\SiteCodeService\obj\x86\Release\SiteCodeSrvc.ProjectInstaller.resources
+C:\PROJECTS\VPrint\SiteCodeService\obj\x86\Release\SiteCodeService.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\SiteCodeService\obj\x86\Release\SiteCodeService.exe
+C:\PROJECTS\VPrint\SiteCodeService\obj\x86\Release\SiteCodeService.pdb

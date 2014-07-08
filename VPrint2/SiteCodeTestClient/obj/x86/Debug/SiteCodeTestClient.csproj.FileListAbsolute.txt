@@ -1,0 +1,17 @@
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe.config
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.MainForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.Properties.Resources.resources
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.csproj.GenerateResource.Cache
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.exe
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe.config
+C:\PROJECTS\VPrint\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe
+C:\PROJECTS\VPrint\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.pdb
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.MainForm.resources
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.Properties.Resources.resources
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.exe
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\x86\Debug\SiteCodeTestClient.pdb

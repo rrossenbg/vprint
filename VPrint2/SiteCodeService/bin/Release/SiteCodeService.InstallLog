@@ -1,0 +1,13 @@
+﻿Installing assembly 'C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeService.exe
+Installing service FintraxSiteCodeService...
+Service FintraxSiteCodeService has been successfully installed.
+Creating EventLog source FintraxSiteCodeService in log Application...
+Committing assembly 'C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint\SiteCodeService\bin\Release\SiteCodeService.exe
