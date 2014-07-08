@@ -4,3 +4,8 @@ C:\PROJECTS\VPrint\DEMATLib\bin\Debug\DeNSo.Core.dll
 C:\PROJECTS\VPrint\DEMATLib\bin\Debug\DeNSo.Meta.dll
 C:\PROJECTS\VPrint\DEMATLib\obj\Debug\DEMATLib.dll
 C:\PROJECTS\VPrint\DEMATLib\obj\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint2\DEMATLib\bin\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint2\DEMATLib\bin\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint2\DEMATLib\obj\Debug\DEMATLib.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\DEMATLib\obj\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint2\DEMATLib\obj\Debug\DEMATLib.pdb
