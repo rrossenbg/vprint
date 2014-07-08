@@ -1,0 +1,8 @@
+C:\PROJECTS\VPrint\RestartService\bin\Debug\RestartService.exe.config
+C:\PROJECTS\VPrint\RestartService\bin\Debug\RestartService.exe
+C:\PROJECTS\VPrint\RestartService\bin\Debug\RestartService.pdb
+C:\PROJECTS\VPrint\RestartService\obj\x86\Debug\RestartService.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\RestartService\obj\x86\Debug\RestartService.ProjectInstaller.resources
+C:\PROJECTS\VPrint\RestartService\obj\x86\Debug\RestartService.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\RestartService\obj\x86\Debug\RestartService.exe
+C:\PROJECTS\VPrint\RestartService\obj\x86\Debug\RestartService.pdb

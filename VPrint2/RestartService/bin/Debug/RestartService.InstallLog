@@ -1,0 +1,13 @@
+﻿Installing assembly 'C:\PROJECTS\VPrint\RestartService\bin\Debug\RestartService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint\RestartService\bin\Debug\RestartService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint\RestartService\bin\Debug\RestartService.exe
+Installing service RestartService...
+Service RestartService has been successfully installed.
+Creating EventLog source RestartService in log Application...
+Committing assembly 'C:\PROJECTS\VPrint\RestartService\bin\Debug\RestartService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint\RestartService\bin\Debug\RestartService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint\RestartService\bin\Debug\RestartService.exe

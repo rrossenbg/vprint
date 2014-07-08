@@ -1,0 +1,7 @@
+C:\PROJECTS\VPrint\FintraxPtfTestClient\bin\Debug\FintraxPtfTestClient.exe
+C:\PROJECTS\VPrint\FintraxPtfTestClient\bin\Debug\FintraxPtfTestClient.pdb
+C:\PROJECTS\VPrint\FintraxPtfTestClient\obj\x86\Debug\FintraxPtfTestClient.MainForm.resources
+C:\PROJECTS\VPrint\FintraxPtfTestClient\obj\x86\Debug\FintraxPtfTestClient.Properties.Resources.resources
+C:\PROJECTS\VPrint\FintraxPtfTestClient\obj\x86\Debug\FintraxPtfTestClient.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\FintraxPtfTestClient\obj\x86\Debug\FintraxPtfTestClient.exe
+C:\PROJECTS\VPrint\FintraxPtfTestClient\obj\x86\Debug\FintraxPtfTestClient.pdb
