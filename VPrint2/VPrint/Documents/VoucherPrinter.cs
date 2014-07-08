@@ -214,7 +214,9 @@ namespace VPrinting.Documents
                     layout.Clear();
                     layout.DataBind(this, StrVoucherNo, voucher, false);
 
+#if DEBUGGER
                     Debug.WriteLine(string.Format("{0}\t{1}\t{2}", countryId, Retailer.Name, voucher), Strings.VRPINT);
+#endif
 
                     if (!SimulatePrint)
                         layout.PrintVoucher(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, layout.PrintLines);
@@ -351,7 +353,9 @@ namespace VPrinting.Documents
                             layout.Clear();
                             layout.DataBind(this, StrVoucherNo, voucher, false);
 
+#if DEBUGGER
                             Debug.WriteLine(string.Format("{0}\t{1}\t{2}", countryId, Retailer.Name, voucher), Strings.VRPINT);
+#endif
 
                             if (!SimulatePrint)
                                 layout.PrintVoucher(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, layout.PrintLines);

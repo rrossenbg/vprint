@@ -104,7 +104,9 @@ namespace VPrinting
             if (Global.Instance.ExitSignal && ex is ObjectDisposedException)
                 return;
 
+#if DEBUGGER
             Trace.WriteLine(ex, Strings.VRPINT);
+#endif
             new Action<Exception>((ee) => ServiceDataAccess.Instance.LogOperation(OperationHistory.Error, Program.SessionId, Program.currentUser.CountryID, 0, 0, 0, 0, ee.ToString())).FireAndForgetSafe(ex);
             Speeker.SpeakAsynchSf(ex.Message);
 

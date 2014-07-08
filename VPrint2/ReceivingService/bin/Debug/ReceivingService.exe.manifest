@@ -73,31 +73,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>XE1loqywEd6mWN2FBg1nzOWd5hc=</dsig:DigestValue>
+        <dsig:DigestValue>P01W8uKgMofsNiVp+X+oHxPy5N0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.dll" size="96768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.dll" size="96256">
       <assemblyIdentity name="ReceivingServiceLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rtfzkINJ9FoEQC3iMw7GIxQleqg=</dsig:DigestValue>
+        <dsig:DigestValue>plEHXqpYbBGdRqIcvvjJzVUuTB4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.Common.dll" size="74240">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.Common.dll" size="73728">
       <assemblyIdentity name="ReceivingServiceLib.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>et1dry42rawbtYQaSEEkmWr8pUQ=</dsig:DigestValue>
+        <dsig:DigestValue>0danP76fmPYwgn0eCnZmIh8/dOA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -81,13 +81,20 @@ namespace VPrinting
         {
             this.InvokeSafe(new System.Action<ItemEventArgs>((args) =>
             {
-                var cnt = new ItemControl();
-                ToolTip1.SetToolTip(cnt, args.Item.SessionID.ToString());
-                cnt.Item = args.Item;
-                cnt.Click += new EventHandler(ImageIconControl_Click);
-                cnt.Updated += new EventHandler(ImageIconControl_Updated);
-                cnt.ContextMenuStrip = scanContextMenuStrip;
-                lpScannedFiles.Controls.Add(cnt);
+                try
+                {
+                    var cnt = new ItemControl();
+                    ToolTip1.SetToolTip(cnt, args.Item.SessionID.ToString());
+                    cnt.Item = args.Item;
+                    cnt.Click += new EventHandler(ImageIconControl_Click);
+                    cnt.Updated += new EventHandler(ImageIconControl_Updated);
+                    cnt.ContextMenuStrip = scanContextMenuStrip;
+                    lpScannedFiles.Controls.Add(cnt);
+                }
+                catch
+                {
+                    //No errors
+                }
             }), e);
         }
 

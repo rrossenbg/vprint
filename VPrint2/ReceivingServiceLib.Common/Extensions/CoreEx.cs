@@ -66,7 +66,9 @@ namespace ReceivingServiceLib
             }
             catch (Exception ex)
             {
+#if DEBUGGER
                 Trace.WriteLine(ex, "ISRV");
+#endif
             }
         }
 
@@ -85,7 +87,9 @@ namespace ReceivingServiceLib
             }
             catch (Exception ex)
             {
+#if DEBUGGER
                 Trace.WriteLine(ex, "ISRV");
+#endif
             }
         }
 
