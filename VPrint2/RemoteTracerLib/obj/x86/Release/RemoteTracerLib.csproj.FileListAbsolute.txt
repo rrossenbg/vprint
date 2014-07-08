@@ -1,0 +1,4 @@
+C:\PROJECTS\VPrint\RemoteTracerLib\bin\x86\Release\RemoteTracerLib.dll
+C:\PROJECTS\VPrint\RemoteTracerLib\bin\x86\Release\RemoteTracerLib.pdb
+C:\PROJECTS\VPrint\RemoteTracerLib\obj\x86\Release\RemoteTracerLib.dll
+C:\PROJECTS\VPrint\RemoteTracerLib\obj\x86\Release\RemoteTracerLib.pdb

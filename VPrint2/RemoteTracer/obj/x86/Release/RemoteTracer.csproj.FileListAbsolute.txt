@@ -1,0 +1,8 @@
+C:\PROJECTS\VPrint\RemoteTracer\bin\Release\RemoteTracer.exe.config
+C:\PROJECTS\VPrint\RemoteTracer\bin\Release\RemoteTracer.exe
+C:\PROJECTS\VPrint\RemoteTracer\bin\Release\RemoteTracer.pdb
+C:\PROJECTS\VPrint\RemoteTracer\bin\Release\RemoteTracerLib.dll
+C:\PROJECTS\VPrint\RemoteTracer\bin\Release\RemoteTracerLib.pdb
+C:\PROJECTS\VPrint\RemoteTracer\obj\x86\Release\RemoteTracer.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\RemoteTracer\obj\x86\Release\RemoteTracer.exe
+C:\PROJECTS\VPrint\RemoteTracer\obj\x86\Release\RemoteTracer.pdb
