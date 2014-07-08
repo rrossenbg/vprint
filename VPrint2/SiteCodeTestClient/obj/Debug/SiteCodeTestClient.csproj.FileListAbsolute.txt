@@ -1,0 +1,26 @@
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe.config
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\Debug\ResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.MainForm.resources
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.Properties.Resources.resources
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\Debug\GenerateResource.read.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\Debug\GenerateResource.write.1.tlog
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.exe
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.pdb
+C:\PROJECTS\VPrint\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe.config
+C:\PROJECTS\VPrint\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe
+C:\PROJECTS\VPrint\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.pdb
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.MainForm.resources
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.Properties.Resources.resources
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.exe
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.pdb
+C:\PROJECTS\VPrint2\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe.config
+C:\PROJECTS\VPrint2\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe
+C:\PROJECTS\VPrint2\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.pdb
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.MainForm.resources
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.Properties.Resources.resources
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.exe
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.pdb

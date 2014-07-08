@@ -1,0 +1,113 @@
+﻿Installing assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+Installing service FintraxSiteCodeService...
+Creating EventLog source FintraxSiteCodeService in log Application...
+Rolling back assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+Restoring event log to previous state for source FintraxSiteCodeService.
+Uninstalling assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+Removing EventLog source FintraxSiteCodeService.
+Service FintraxSiteCodeService is being removed from the system...
+Service FintraxSiteCodeService was successfully removed from the system.
+Installing assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+Installing service FintraxSiteCodeService...
+Service FintraxSiteCodeService has been successfully installed.
+Creating EventLog source FintraxSiteCodeService in log Application...
+Committing assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+Uninstalling assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+Removing EventLog source FintraxSiteCodeService.
+Service FintraxSiteCodeService is being removed from the system...
+Service FintraxSiteCodeService was successfully removed from the system.
+Installing assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+Installing service FintraxSiteCodeService...
+Service FintraxSiteCodeService has been successfully installed.
+Creating EventLog source FintraxSiteCodeService in log Application...
+Committing assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+Installing assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+Installing service FintraxSiteCodeService...
+Creating EventLog source FintraxSiteCodeService in log Application...
+Rolling back assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+Restoring event log to previous state for source FintraxSiteCodeService.
+Uninstalling assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+Removing EventLog source FintraxSiteCodeService.
+Service FintraxSiteCodeService is being removed from the system...
+Service FintraxSiteCodeService was successfully removed from the system.
+Uninstalling assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+Removing EventLog source FintraxSiteCodeService.
+Warning: The source FintraxSiteCodeService is not registered on the local machine.
+Service FintraxSiteCodeService is being removed from the system...
+An exception occurred during the uninstallation of the System.ServiceProcess.ServiceInstaller installer.
+System.ComponentModel.Win32Exception: The specified service does not exist as an installed service
+An exception occurred while uninstalling. This exception will be ignored and the uninstall will continue. However, the application might not be fully uninstalled after the uninstall is complete.
+Installing assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+Installing service FintraxSiteCodeService...
+Service FintraxSiteCodeService has been successfully installed.
+Creating EventLog source FintraxSiteCodeService in log Application...
+Committing assembly 'C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.exe
+   logfile = C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+Installing assembly 'C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeService.exe
+Installing service FintraxSiteCodeService...
+Service FintraxSiteCodeService has been successfully installed.
+Creating EventLog source FintraxSiteCodeService in log Application...
+Committing assembly 'C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint\SiteCodeService\bin\Debug\SiteCodeService.exe

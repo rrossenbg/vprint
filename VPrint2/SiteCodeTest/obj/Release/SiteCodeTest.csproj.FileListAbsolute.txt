@@ -1,0 +1,8 @@
+C:\PROJECTS\VPrint\SiteCodeTest\bin\Release\SiteCodeTest.dll.config
+C:\PROJECTS\VPrint\SiteCodeTest\bin\Release\SiteCodeTest.dll
+C:\PROJECTS\VPrint\SiteCodeTest\bin\Release\SiteCodeTest.pdb
+C:\PROJECTS\VPrint\SiteCodeTest\bin\Release\SiteCodeLib.dll
+C:\PROJECTS\VPrint\SiteCodeTest\bin\Release\SiteCodeLib.pdb
+C:\PROJECTS\VPrint\SiteCodeTest\obj\Release\SiteCodeTest.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\SiteCodeTest\obj\Release\SiteCodeTest.dll
+C:\PROJECTS\VPrint\SiteCodeTest\obj\Release\SiteCodeTest.pdb

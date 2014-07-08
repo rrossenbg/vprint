@@ -1,0 +1,8 @@
+C:\PROJECTS\VPrint\SiteCodeTestClient\bin\Release\SiteCodeTestClient.exe.config
+C:\PROJECTS\VPrint\SiteCodeTestClient\bin\Release\SiteCodeTestClient.exe
+C:\PROJECTS\VPrint\SiteCodeTestClient\bin\Release\SiteCodeTestClient.pdb
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Release\SiteCodeTestClient.MainForm.resources
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Release\SiteCodeTestClient.Properties.Resources.resources
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Release\SiteCodeTestClient.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Release\SiteCodeTestClient.exe
+C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Release\SiteCodeTestClient.pdb

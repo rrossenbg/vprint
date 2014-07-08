@@ -1,0 +1,10 @@
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\bin\Release\SiteCodeLib.dll.config
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\bin\Release\SiteCodeLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\bin\Release\SiteCodeLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\obj\Release\SiteCodeLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\obj\Release\SiteCodeLib.pdb
+C:\PROJECTS\VPrint\SiteCodeLib\bin\Release\SiteCodeLib.dll.config
+C:\PROJECTS\VPrint\SiteCodeLib\bin\Release\SiteCodeLib.dll
+C:\PROJECTS\VPrint\SiteCodeLib\bin\Release\SiteCodeLib.pdb
+C:\PROJECTS\VPrint\SiteCodeLib\obj\Release\SiteCodeLib.dll
+C:\PROJECTS\VPrint\SiteCodeLib\obj\Release\SiteCodeLib.pdb

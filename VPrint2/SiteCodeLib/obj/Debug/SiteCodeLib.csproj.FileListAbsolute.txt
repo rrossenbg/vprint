@@ -1,0 +1,17 @@
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\bin\Debug\SiteCodeLib.dll.config
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\bin\Debug\SiteCodeLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\bin\Debug\SiteCodeLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\obj\Debug\SiteCodeLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\obj\Debug\SiteCodeLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\SiteCodeLib\obj\Debug\SiteCodeLib.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\SiteCodeLib\bin\Debug\SiteCodeLib.dll.config
+C:\PROJECTS\VPrint\SiteCodeLib\bin\Debug\SiteCodeLib.dll
+C:\PROJECTS\VPrint\SiteCodeLib\bin\Debug\SiteCodeLib.pdb
+C:\PROJECTS\VPrint\SiteCodeLib\obj\Debug\SiteCodeLib.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\SiteCodeLib\obj\Debug\SiteCodeLib.dll
+C:\PROJECTS\VPrint\SiteCodeLib\obj\Debug\SiteCodeLib.pdb
+C:\PROJECTS\VPrint2\SiteCodeLib\bin\Debug\SiteCodeLib.dll.config
+C:\PROJECTS\VPrint2\SiteCodeLib\bin\Debug\SiteCodeLib.dll
+C:\PROJECTS\VPrint2\SiteCodeLib\bin\Debug\SiteCodeLib.pdb
+C:\PROJECTS\VPrint2\SiteCodeLib\obj\Debug\SiteCodeLib.dll
+C:\PROJECTS\VPrint2\SiteCodeLib\obj\Debug\SiteCodeLib.pdb
