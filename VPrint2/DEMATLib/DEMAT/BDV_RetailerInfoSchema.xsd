@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+<xs:simpleType name="stringtype">
+   <xs:restriction base="xs:string"/>
+ </xs:simpleType>
+
+ <xs:simpleType name="inttype">
+   <xs:restriction base="xs:positiveInteger"/>
+ </xs:simpleType>
+
+ <xs:simpleType name="dectype">
+   <xs:restriction base="xs:decimal"/>
+ </xs:simpleType>
+
+ <xs:simpleType name="datetype">
+   <xs:restriction base="xs:date"/>
+ </xs:simpleType>
+ 
+  <xs:simpleType name="booltype">
+   <xs:restriction base="xs:boolean"/>
+ </xs:simpleType>
+ 
+  <xs:element name="BDV_RetailerInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FileHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FileCreationDate" type="datetype" />
+              <xs:element name="FileFormatVersion" type="dectype" />
+              <xs:element name="FileType" type="stringtype" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Error">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Description" type="stringtype" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" name="Retailer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Retailer_Code" type="inttype" />
+              <xs:element name="Retailer_Contract_Date" type="stringtype" />
+              <xs:element name="Retailer_Contract_Email" type="stringtype" />
+              <xs:element name="Retailer_Enable_Export" type="booltype" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

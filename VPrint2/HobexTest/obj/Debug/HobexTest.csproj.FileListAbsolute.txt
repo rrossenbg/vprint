@@ -1,0 +1,7 @@
+C:\PROJECTS\VPrint\HobexTest\bin\Debug\HobexTest.dll
+C:\PROJECTS\VPrint\HobexTest\bin\Debug\HobexTest.pdb
+C:\PROJECTS\VPrint\HobexTest\bin\Debug\HobexCommonLib.dll
+C:\PROJECTS\VPrint\HobexTest\bin\Debug\HobexCommonLib.pdb
+C:\PROJECTS\VPrint\HobexTest\obj\Debug\HobexTest.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\HobexTest\obj\Debug\HobexTest.dll
+C:\PROJECTS\VPrint\HobexTest\obj\Debug\HobexTest.pdb

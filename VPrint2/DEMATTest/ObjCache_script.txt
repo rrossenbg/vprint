@@ -1,0 +1,60 @@
+﻿USE [PTF_Reports]
+GO
+
+/****** Object:  Table [dbo].[ObjCache]    Script Date: 04/17/2014 17:15:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[ObjCache](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[key1] [int] NOT NULL,
+	[key2] [int] NOT NULL,
+	[key3] [int] NOT NULL,
+	[key4] [int] NOT NULL,
+	[data] [varbinary](8000) NULL,
+ CONSTRAINT [PK_ObjCache] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+/****** Object:  Index [ObjCache_key1_key2]    Script Date: 04/17/2014 17:15:52 ******/
+CREATE NONCLUSTERED INDEX [ObjCache_key1_key2] ON [dbo].[ObjCache] 
+(
+	[key1] ASC,
+	[key2] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
+
+/****** Object:  Index [ObjCache_key1_key2_key3]    Script Date: 04/17/2014 17:16:07 ******/
+CREATE NONCLUSTERED INDEX [ObjCache_key1_key2_key3] ON [dbo].[ObjCache] 
+(
+	[key1] ASC,
+	[key2] ASC,
+	[key3] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
+
+/****** Object:  Index [ObjCache_key1_key2_key3_key4]    Script Date: 04/17/2014 17:16:22 ******/
+CREATE NONCLUSTERED INDEX [ObjCache_key1_key2_key3_key4] ON [dbo].[ObjCache] 
+(
+	[key1] ASC,
+	[key2] ASC,
+	[key3] ASC,
+	[key4] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO

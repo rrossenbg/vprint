@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TransferDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TransferDbModelStoreContainer">
+          <EntitySet Name="Config" EntityType="TransferDbModel.Store.Config" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmailedVouchers" EntityType="TransferDbModel.Store.EmailedVouchers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmailList" EntityType="TransferDbModel.Store.EmailList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VoucherTransfer" EntityType="TransferDbModel.Store.VoucherTransfer" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="cfg_id" />
+          </Key>
+          <Property Name="cfg_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cfg_name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="cfg_value" Type="ntext" />
+        </EntityType>
+        <EntityType Name="EmailedVouchers">
+          <Key>
+            <PropertyRef Name="ev_id" />
+          </Key>
+          <Property Name="ev_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ev_iso" Type="int" Nullable="false" />
+          <Property Name="ev_number" Type="int" Nullable="false" />
+          <Property Name="ev_el_id" Type="int" Nullable="false" />
+          <Property Name="ev_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailList">
+          <Key>
+            <PropertyRef Name="el_id" />
+          </Key>
+          <Property Name="el_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="el_iso_id" Type="int" Nullable="false" />
+          <Property Name="el_list" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="el_subject" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="el_body_template" Type="ntext" Nullable="false" />
+          <Property Name="el_active" Type="bit" />
+          <Property Name="el_filter" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="VoucherTransfer">
+          <Key>
+            <PropertyRef Name="vt_id" />
+          </Key>
+          <Property Name="vt_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vt_v_number" Type="int" Nullable="false" />
+          <Property Name="vt_v_type_id" Type="int" Nullable="false" />
+          <Property Name="vt_v_country_iso_id" Type="int" Nullable="false" />
+          <Property Name="vt_file_xml" Type="xml" />
+          <Property Name="vt_status_id" Type="int" Nullable="false" />
+          <Property Name="vt_status_description" Type="nvarchar(max)" />
+          <Property Name="vt_creation_date" Type="datetime" Nullable="false" />
+          <Property Name="vt_created_by" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="vt_last_modification_date" Type="datetime" Nullable="false" />
+          <Property Name="vt_last_modified_by" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="vt_br_id" Type="int" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TransferDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TransferDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Configs" EntityType="TransferDbModel.Config" />
+          <EntitySet Name="EmailLists" EntityType="TransferDbModel.EmailList" />
+          <EntitySet Name="VoucherTransfers" EntityType="TransferDbModel.VoucherTransfer" />
+          <EntitySet Name="EmailedVouchers" EntityType="TransferDbModel.EmailedVoucher" />
+        </EntityContainer>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="cfg_id" />
+          </Key>
+          <Property Name="cfg_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cfg_name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="cfg_value" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="EmailList">
+          <Key>
+            <PropertyRef Name="el_id" />
+          </Key>
+          <Property Name="el_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="el_iso_id" Type="Int32" Nullable="false" />
+          <Property Name="el_list" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="el_subject" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="el_body_template" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="el_active" />
+          <Property Type="String" Name="el_filter" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VoucherTransfer">
+          <Key>
+            <PropertyRef Name="vt_id" />
+          </Key>
+          <Property Type="Int64" Name="vt_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="vt_v_number" Nullable="false" />
+          <Property Type="Int32" Name="vt_v_type_id" Nullable="false" />
+          <Property Type="Int32" Name="vt_v_country_iso_id" Nullable="false" />
+          <Property Type="String" Name="vt_file_xml" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="vt_status_id" Nullable="false" />
+          <Property Type="String" Name="vt_status_description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="vt_creation_date" Nullable="false" />
+          <Property Type="String" Name="vt_created_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="vt_last_modification_date" Nullable="false" />
+          <Property Type="String" Name="vt_last_modified_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="vt_br_id" />
+        </EntityType>
+        <EntityType Name="EmailedVoucher">
+          <Key>
+            <PropertyRef Name="ev_id" />
+          </Key>
+          <Property Type="Int32" Name="ev_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ev_iso" Nullable="false" />
+          <Property Type="Int32" Name="ev_number" Nullable="false" />
+          <Property Type="Int32" Name="ev_el_id" Nullable="false" />
+          <Property Type="DateTime" Name="ev_date" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TransferDbModelStoreContainer" CdmEntityContainer="TransferDbEntities">
+          <EntitySetMapping Name="Configs"><EntityTypeMapping TypeName="TransferDbModel.Config"><MappingFragment StoreEntitySet="Config">
+            <ScalarProperty Name="cfg_id" ColumnName="cfg_id" />
+            <ScalarProperty Name="cfg_name" ColumnName="cfg_name" />
+            <ScalarProperty Name="cfg_value" ColumnName="cfg_value" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EmailLists"><EntityTypeMapping TypeName="TransferDbModel.EmailList"><MappingFragment StoreEntitySet="EmailList">
+            <ScalarProperty Name="el_filter" ColumnName="el_filter" />
+                <ScalarProperty Name="el_active" ColumnName="el_active" />
+                <ScalarProperty Name="el_body_template" ColumnName="el_body_template" />
+                <ScalarProperty Name="el_subject" ColumnName="el_subject" />
+                <ScalarProperty Name="el_id" ColumnName="el_id" />
+            <ScalarProperty Name="el_iso_id" ColumnName="el_iso_id" />
+            <ScalarProperty Name="el_list" ColumnName="el_list" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="VoucherTransfers">
+            <EntityTypeMapping TypeName="TransferDbModel.VoucherTransfer">
+              <MappingFragment StoreEntitySet="VoucherTransfer">
+                <ScalarProperty Name="vt_br_id" ColumnName="vt_br_id" />
+                <ScalarProperty Name="vt_last_modified_by" ColumnName="vt_last_modified_by" />
+                <ScalarProperty Name="vt_last_modification_date" ColumnName="vt_last_modification_date" />
+                <ScalarProperty Name="vt_created_by" ColumnName="vt_created_by" />
+                <ScalarProperty Name="vt_creation_date" ColumnName="vt_creation_date" />
+                <ScalarProperty Name="vt_status_description" ColumnName="vt_status_description" />
+                <ScalarProperty Name="vt_status_id" ColumnName="vt_status_id" />
+                <ScalarProperty Name="vt_file_xml" ColumnName="vt_file_xml" />
+                <ScalarProperty Name="vt_v_country_iso_id" ColumnName="vt_v_country_iso_id" />
+                <ScalarProperty Name="vt_v_type_id" ColumnName="vt_v_type_id" />
+                <ScalarProperty Name="vt_v_number" ColumnName="vt_v_number" />
+                <ScalarProperty Name="vt_id" ColumnName="vt_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailedVouchers">
+            <EntityTypeMapping TypeName="TransferDbModel.EmailedVoucher">
+              <MappingFragment StoreEntitySet="EmailedVouchers">
+                <ScalarProperty Name="ev_date" ColumnName="ev_date" />
+                <ScalarProperty Name="ev_el_id" ColumnName="ev_el_id" />
+                <ScalarProperty Name="ev_number" ColumnName="ev_number" />
+                <ScalarProperty Name="ev_iso" ColumnName="ev_iso" />
+                <ScalarProperty Name="ev_id" ColumnName="ev_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TransferDbModel">
+        <EntityTypeShape EntityType="TransferDbModel.Config" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransferDbModel.EmailList" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransferDbModel.VoucherTransfer" Width="1.5" PointX="5.125" PointY="0.75" Height="3.1340950520833335" />
+        <EntityTypeShape EntityType="TransferDbModel.EmailedVoucher" Width="1.5" PointX="7.75" PointY="0.75" Height="1.9802864583333335" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

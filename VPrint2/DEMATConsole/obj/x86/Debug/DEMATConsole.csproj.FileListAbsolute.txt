@@ -1,0 +1,8 @@
+C:\PROJECTS\VPrint\DEMATConsole\bin\Debug\DEMATConsole.exe
+C:\PROJECTS\VPrint\DEMATConsole\bin\Debug\DEMATConsole.pdb
+C:\PROJECTS\VPrint\DEMATConsole\obj\x86\Debug\DEMATConsole.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\DEMATConsole\obj\x86\Debug\DEMATConsole.MainForm.resources
+C:\PROJECTS\VPrint\DEMATConsole\obj\x86\Debug\DEMATConsole.Properties.Resources.resources
+C:\PROJECTS\VPrint\DEMATConsole\obj\x86\Debug\DEMATConsole.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\DEMATConsole\obj\x86\Debug\DEMATConsole.exe
+C:\PROJECTS\VPrint\DEMATConsole\obj\x86\Debug\DEMATConsole.pdb

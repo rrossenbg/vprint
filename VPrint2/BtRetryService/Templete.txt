@@ -1,0 +1,86 @@
+﻿<style type="text/css">
+    body
+    {
+        background: #fff;
+    }
+    table
+    {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    tr
+    {
+        border: 1px Solid Black;
+    }
+    td, th
+    {
+        width: 40%;
+        border: 0px Solid Black;
+        white-space: nowrap;
+    }
+    td.cen
+    {
+        text-align: center;
+    }
+</style>
+<h2>
+    Failed Voucher Transfers</h2>
+<h3>
+    Date:&nbsp;@DateTime.Now.Date.ToString("D")</h3>
+<table align="center">
+    <tr>
+        <th>
+            number
+        </th>
+        <th>
+            iso
+        </th>
+        <th>
+            date
+        </th>
+        <th>
+            description
+        </th>
+        <th>
+            created by
+        </th>
+        <th>
+            retailer
+        </th>
+        <th>
+            pos id
+        </th>
+        <th>
+            &nbsp;
+        </th>
+    </tr>
+    @{
+        DataAccess da = new DataAccess();
+        int count = 0;
+        foreach (var i in Model.Results)
+        {
+            count = count + 1;
+        <tr>
+            <td class="cen">@count
+            </td>
+            <td class="cen">@i.vt_v_country_iso_id
+            </td>
+            <td class="cen">@i.vt_last_modification_date
+            </td>
+            <td>@i.vt_status_description
+            </td>
+            <td class="cen">@i.vt_created_by
+            </td>
+            <td class="cen">
+                @i.vt_br_id
+            </td>
+            <td class="cen">
+                @da.GetTagByName(i.vt_id, "TerminalID")
+            </td>
+            <td class="cen">
+                <a href="http://192.168.53.117/VoucherTransferXmls/XmlDataHandler.ashx?id=@i.vt_id">
+                    Show</a>
+            </td>
+        </tr>}
+    }
+</table>

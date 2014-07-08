@@ -1,0 +1,15 @@
+C:\PROJECTS\Test\TestService1\HobexCommonLib\bin\Debug\HobexCommonLib.dll.config
+C:\PROJECTS\Test\TestService1\HobexCommonLib\bin\Debug\HobexCommonLib.dll
+C:\PROJECTS\Test\TestService1\HobexCommonLib\bin\Debug\HobexCommonLib.pdb
+C:\PROJECTS\Test\TestService1\HobexCommonLib\obj\Debug\HobexCommonLib.dll
+C:\PROJECTS\Test\TestService1\HobexCommonLib\obj\Debug\HobexCommonLib.pdb
+C:\PROJECTS\Test\TestService1\HobexCommonLib\obj\Debug\HobexCommonLib.csproj.GenerateResource.Cache
+C:\PROJECTS\Test\TestService1\HobexCommonLib\obj\Debug\HobexCommonLib.Properties.Resources.resources
+C:\PROJECTS\Test\TestService1\HobexCommonLib\obj\Debug\HobexCommonLib.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\HobexCommonLib\bin\Debug\HobexCommonLib.dll.config
+C:\PROJECTS\VPrint\HobexCommonLib\bin\Debug\HobexCommonLib.dll
+C:\PROJECTS\VPrint\HobexCommonLib\bin\Debug\HobexCommonLib.pdb
+C:\PROJECTS\VPrint\HobexCommonLib\obj\Debug\HobexCommonLib.Properties.Resources.resources
+C:\PROJECTS\VPrint\HobexCommonLib\obj\Debug\HobexCommonLib.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\HobexCommonLib\obj\Debug\HobexCommonLib.dll
+C:\PROJECTS\VPrint\HobexCommonLib\obj\Debug\HobexCommonLib.pdb
