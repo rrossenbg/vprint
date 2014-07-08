@@ -13,3 +13,10 @@ C:\PROJECTS\VPrint\HobexCommonLib\obj\Debug\HobexCommonLib.Properties.Resources.
 C:\PROJECTS\VPrint\HobexCommonLib\obj\Debug\HobexCommonLib.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint\HobexCommonLib\obj\Debug\HobexCommonLib.dll
 C:\PROJECTS\VPrint\HobexCommonLib\obj\Debug\HobexCommonLib.pdb
+C:\PROJECTS\VPrint2\HobexCommonLib\bin\Debug\HobexCommonLib.dll.config
+C:\PROJECTS\VPrint2\HobexCommonLib\bin\Debug\HobexCommonLib.dll
+C:\PROJECTS\VPrint2\HobexCommonLib\bin\Debug\HobexCommonLib.pdb
+C:\PROJECTS\VPrint2\HobexCommonLib\obj\Debug\HobexCommonLib.Properties.Resources.resources
+C:\PROJECTS\VPrint2\HobexCommonLib\obj\Debug\HobexCommonLib.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\HobexCommonLib\obj\Debug\HobexCommonLib.dll
+C:\PROJECTS\VPrint2\HobexCommonLib\obj\Debug\HobexCommonLib.pdb

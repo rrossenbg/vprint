@@ -4,7 +4,7 @@
   <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VPrint" version="1.0.5298.24951" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="VPrint" version="1.0.5302.15712" language="neutral" processorArchitecture="x86" />
     <commandLine file="VPrint.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -79,13 +79,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="933888">
-      <assemblyIdentity name="VPrint" version="1.0.5298.24951" language="neutral" processorArchitecture="x86" />
+      <assemblyIdentity name="VPrint" version="1.0.5302.15712" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GR23X/WS83lq6BCeAf6UViPm+6M=</dsig:DigestValue>
+        <dsig:DigestValue>jQOAqukizil7xw/jK8g+h7ksNrI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>S8V7Ih+h8tO0wJNExLXSYbeVB3M=</dsig:DigestValue>
+        <dsig:DigestValue>rUYA2naM/y4vEhLEbx3aulBRdh8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>BVBi2EMXXHJVJzyFBuZ19ECoqTM=</dsig:DigestValue>
+        <dsig:DigestValue>OGGd/xBU43iVx1Z1qvOzdJ36L9o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -719,13 +719,13 @@
       <dsig:DigestValue>7dXsGDGgxBkrEapFNZWmyrEVMaQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="XmlConfigurations\print901_Type4_RazX.xml" size="7351" writeableType="applicationData">
+  <file name="XmlConfigurations\print901_Type4_RazX.xml" size="7349" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>i7CELtLLyZPdeT/ZiAT7qiJEkZ8=</dsig:DigestValue>
+      <dsig:DigestValue>4A9oZCiz0y+BxmzG3jehTyIS4R4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="XmlConfigurations\print905_Type1_Raz.xml" size="1793" writeableType="applicationData">

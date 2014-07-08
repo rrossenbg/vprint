@@ -8,3 +8,14 @@ C:\PROJECTS\VPrint\HobexService\obj\x86\Debug\HobexServer.ProjectInstaller.resou
 C:\PROJECTS\VPrint\HobexService\obj\x86\Debug\HobexServer.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint\HobexService\obj\x86\Debug\HobexServer.exe
 C:\PROJECTS\VPrint\HobexService\obj\x86\Debug\HobexServer.pdb
+C:\PROJECTS\VPrint2\HobexService\bin\Debug\HobexServer.exe.config
+C:\PROJECTS\VPrint2\HobexService\bin\Debug\HobexServer.exe
+C:\PROJECTS\VPrint2\HobexService\bin\Debug\HobexServer.pdb
+C:\PROJECTS\VPrint2\HobexService\bin\Debug\HobexCommonLib.dll
+C:\PROJECTS\VPrint2\HobexService\bin\Debug\HobexCommonLib.pdb
+C:\PROJECTS\VPrint2\HobexService\obj\x86\Debug\HobexServer.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\HobexService\obj\x86\Debug\HobexServer.FintraxHobexServer.resources
+C:\PROJECTS\VPrint2\HobexService\obj\x86\Debug\HobexServer.ProjectInstaller.resources
+C:\PROJECTS\VPrint2\HobexService\obj\x86\Debug\HobexServer.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\HobexService\obj\x86\Debug\HobexServer.exe
+C:\PROJECTS\VPrint2\HobexService\obj\x86\Debug\HobexServer.pdb
