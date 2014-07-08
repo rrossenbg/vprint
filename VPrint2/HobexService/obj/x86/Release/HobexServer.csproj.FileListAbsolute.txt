@@ -1,0 +1,11 @@
+C:\PROJECTS\VPrint\HobexService\bin\Release\HobexServer.exe.config
+C:\PROJECTS\VPrint\HobexService\bin\Release\HobexServer.exe
+C:\PROJECTS\VPrint\HobexService\bin\Release\HobexServer.pdb
+C:\PROJECTS\VPrint\HobexService\bin\Release\HobexCommonLib.dll
+C:\PROJECTS\VPrint\HobexService\bin\Release\HobexCommonLib.pdb
+C:\PROJECTS\VPrint\HobexService\obj\x86\Release\HobexServer.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\HobexService\obj\x86\Release\HobexServer.FintraxHobexServer.resources
+C:\PROJECTS\VPrint\HobexService\obj\x86\Release\HobexServer.ProjectInstaller.resources
+C:\PROJECTS\VPrint\HobexService\obj\x86\Release\HobexServer.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\HobexService\obj\x86\Release\HobexServer.exe
+C:\PROJECTS\VPrint\HobexService\obj\x86\Release\HobexServer.pdb

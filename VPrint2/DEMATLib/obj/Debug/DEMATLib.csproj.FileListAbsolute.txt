@@ -1,0 +1,6 @@
+C:\PROJECTS\VPrint\DEMATLib\bin\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint\DEMATLib\bin\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint\DEMATLib\bin\Debug\DeNSo.Core.dll
+C:\PROJECTS\VPrint\DEMATLib\bin\Debug\DeNSo.Meta.dll
+C:\PROJECTS\VPrint\DEMATLib\obj\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint\DEMATLib\obj\Debug\DEMATLib.pdb

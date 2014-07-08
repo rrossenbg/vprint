@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ns0:VoucherRange xmlns:ns0="http://POSHostOrchestration.POSHostResponse">
+  <Header>
+    <TerminalID></TerminalID>
+    <TIDName></TIDName>
+    <Date></Date>
+    <Originator>FDI TOL</Originator>
+    <OrderVolume></OrderVolume>
+    <VoucherStartRange></VoucherStartRange>
+    <VoucherEndRange></VoucherEndRange>
+  </Header>
+  <Range>
+  </Range>
+</ns0:VoucherRange>

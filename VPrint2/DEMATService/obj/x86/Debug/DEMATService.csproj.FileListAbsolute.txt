@@ -1,0 +1,11 @@
+C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATService.exe.config
+C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATService.exe
+C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATService.pdb
+C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint\DEMATService\obj\x86\Debug\DEMATService.FintraxDEMATService.resources
+C:\PROJECTS\VPrint\DEMATService\obj\x86\Debug\DEMATService.ProjectInstaller.resources
+C:\PROJECTS\VPrint\DEMATService\obj\x86\Debug\DEMATService.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\DEMATService\obj\x86\Debug\DEMATService.exe
+C:\PROJECTS\VPrint\DEMATService\obj\x86\Debug\DEMATService.pdb
+C:\PROJECTS\VPrint\DEMATService\obj\x86\Debug\DEMATService.csprojResolveAssemblyReference.cache

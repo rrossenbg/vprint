@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TransferDbModelStoreContainer" CdmEntityContainer="TransferDbEntities">
+    <EntitySetMapping Name="Configs">
+      <EntityTypeMapping TypeName="TransferDbModel.Config">
+        <MappingFragment StoreEntitySet="Config">
+          <ScalarProperty Name="cfg_id" ColumnName="cfg_id" />
+          <ScalarProperty Name="cfg_name" ColumnName="cfg_name" />
+          <ScalarProperty Name="cfg_value" ColumnName="cfg_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailLists">
+      <EntityTypeMapping TypeName="TransferDbModel.EmailList">
+        <MappingFragment StoreEntitySet="EmailList">
+          <ScalarProperty Name="el_filter" ColumnName="el_filter" />
+          <ScalarProperty Name="el_active" ColumnName="el_active" />
+          <ScalarProperty Name="el_body_template" ColumnName="el_body_template" />
+          <ScalarProperty Name="el_subject" ColumnName="el_subject" />
+          <ScalarProperty Name="el_id" ColumnName="el_id" />
+          <ScalarProperty Name="el_iso_id" ColumnName="el_iso_id" />
+          <ScalarProperty Name="el_list" ColumnName="el_list" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VoucherTransfers">
+      <EntityTypeMapping TypeName="TransferDbModel.VoucherTransfer">
+        <MappingFragment StoreEntitySet="VoucherTransfer">
+          <ScalarProperty Name="vt_br_id" ColumnName="vt_br_id" />
+          <ScalarProperty Name="vt_last_modified_by" ColumnName="vt_last_modified_by" />
+          <ScalarProperty Name="vt_last_modification_date" ColumnName="vt_last_modification_date" />
+          <ScalarProperty Name="vt_created_by" ColumnName="vt_created_by" />
+          <ScalarProperty Name="vt_creation_date" ColumnName="vt_creation_date" />
+          <ScalarProperty Name="vt_status_description" ColumnName="vt_status_description" />
+          <ScalarProperty Name="vt_status_id" ColumnName="vt_status_id" />
+          <ScalarProperty Name="vt_file_xml" ColumnName="vt_file_xml" />
+          <ScalarProperty Name="vt_v_country_iso_id" ColumnName="vt_v_country_iso_id" />
+          <ScalarProperty Name="vt_v_type_id" ColumnName="vt_v_type_id" />
+          <ScalarProperty Name="vt_v_number" ColumnName="vt_v_number" />
+          <ScalarProperty Name="vt_id" ColumnName="vt_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailedVouchers">
+      <EntityTypeMapping TypeName="TransferDbModel.EmailedVoucher">
+        <MappingFragment StoreEntitySet="EmailedVouchers">
+          <ScalarProperty Name="ev_date" ColumnName="ev_date" />
+          <ScalarProperty Name="ev_el_id" ColumnName="ev_el_id" />
+          <ScalarProperty Name="ev_number" ColumnName="ev_number" />
+          <ScalarProperty Name="ev_iso" ColumnName="ev_iso" />
+          <ScalarProperty Name="ev_id" ColumnName="ev_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

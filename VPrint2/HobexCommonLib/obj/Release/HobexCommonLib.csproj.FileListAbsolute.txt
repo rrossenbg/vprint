@@ -1,0 +1,7 @@
+C:\PROJECTS\VPrint\HobexCommonLib\bin\Release\HobexCommonLib.dll.config
+C:\PROJECTS\VPrint\HobexCommonLib\bin\Release\HobexCommonLib.dll
+C:\PROJECTS\VPrint\HobexCommonLib\bin\Release\HobexCommonLib.pdb
+C:\PROJECTS\VPrint\HobexCommonLib\obj\Release\HobexCommonLib.Properties.Resources.resources
+C:\PROJECTS\VPrint\HobexCommonLib\obj\Release\HobexCommonLib.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\HobexCommonLib\obj\Release\HobexCommonLib.dll
+C:\PROJECTS\VPrint\HobexCommonLib\obj\Release\HobexCommonLib.pdb

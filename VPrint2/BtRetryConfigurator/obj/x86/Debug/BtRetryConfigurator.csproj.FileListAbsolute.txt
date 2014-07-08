@@ -1,0 +1,5 @@
+C:\PROJECTS\VPrint\BtRetryConfigurator\bin\Debug\BtRetryConfigurator.exe
+C:\PROJECTS\VPrint\BtRetryConfigurator\bin\Debug\BtRetryConfigurator.pdb
+C:\PROJECTS\VPrint\BtRetryConfigurator\obj\x86\Debug\BtRetryConfigurator.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\BtRetryConfigurator\obj\x86\Debug\BtRetryConfigurator.exe
+C:\PROJECTS\VPrint\BtRetryConfigurator\obj\x86\Debug\BtRetryConfigurator.pdb

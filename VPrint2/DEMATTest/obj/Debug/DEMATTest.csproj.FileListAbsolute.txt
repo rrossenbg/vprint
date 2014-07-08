@@ -1,0 +1,9 @@
+C:\PROJECTS\VPrint\DEMATTest\bin\Debug\DEMATTest.dll
+C:\PROJECTS\VPrint\DEMATTest\bin\Debug\DEMATTest.pdb
+C:\PROJECTS\VPrint\DEMATTest\bin\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint\DEMATTest\bin\Debug\DeNSo.Core.dll
+C:\PROJECTS\VPrint\DEMATTest\bin\Debug\DeNSo.Meta.dll
+C:\PROJECTS\VPrint\DEMATTest\bin\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint\DEMATTest\obj\Debug\DEMATTest.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\DEMATTest\obj\Debug\DEMATTest.dll
+C:\PROJECTS\VPrint\DEMATTest\obj\Debug\DEMATTest.pdb

@@ -1,0 +1,13 @@
+﻿Installing assembly 'C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATService.exe
+Installing service FintraxDEMATService...
+Service FintraxDEMATService has been successfully installed.
+Creating EventLog source FintraxDEMATService in log Application...
+Committing assembly 'C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATService.InstallLog
+   assemblypath = C:\PROJECTS\VPrint\DEMATService\bin\Debug\DEMATService.exe

@@ -1,0 +1,1216 @@
+HS: Begin at: 08/05/2013 15:49:48
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490071_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490071_130429.xml
+End at: 08/05/2013 15:49:49
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:48
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490054_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490054_130429.xml
+End at: 08/05/2013 15:49:49
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:48
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490086_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490086_130429.xml
+End at: 08/05/2013 15:49:49
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:49
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490088_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490088_130429.xml
+End at: 08/05/2013 15:49:49
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:49
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490096_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490096_130429.xml
+End at: 08/05/2013 15:49:50
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:50
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490098_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490098_130429.xml
+End at: 08/05/2013 15:49:50
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:50
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490099_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490099_130429.xml
+End at: 08/05/2013 15:49:50
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:50
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490142_130429.xml
+File valid
+POSHostRequest_10490142_130429.xml 
+ CountryID: 276
+BranchID: 122210
+TerminalID: 10490142
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_10490142_130429.xml
+End at: 08/05/2013 15:49:50
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:50
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490129_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490129_130429.xml
+End at: 08/05/2013 15:49:51
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:51
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490130_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490130_130429.xml
+End at: 08/05/2013 15:49:51
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:51
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490122_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490122_130429.xml
+End at: 08/05/2013 15:49:52
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:51
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490133_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490133_130429.xml
+End at: 08/05/2013 15:49:52
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:51
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490135_130429.xml
+File valid
+POSHostRequest_10490135_130429.xml 
+ CountryID: 276
+BranchID: 119441
+TerminalID: 10490135
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_10490135_130429.xml
+End at: 08/05/2013 15:49:52
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:52
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490136_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490136_130429.xml
+End at: 08/05/2013 15:49:52
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:52
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490140_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490140_130429.xml
+End at: 08/05/2013 15:49:53
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:53
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490143_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490143_130429.xml
+End at: 08/05/2013 15:49:53
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:53
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490148_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490148_130429.xml
+End at: 08/05/2013 15:49:53
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:53
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490144_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490144_130429.xml
+End at: 08/05/2013 15:49:54
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:53
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490173_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490173_130429.xml
+End at: 08/05/2013 15:49:54
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:54
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490174_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490174_130429.xml
+End at: 08/05/2013 15:49:54
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:54
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490183_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490183_130429.xml
+End at: 08/05/2013 15:49:54
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:54
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490190_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490190_130429.xml
+End at: 08/05/2013 15:49:54
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:55
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490192_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490192_130429.xml
+End at: 08/05/2013 15:49:55
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:55
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490193_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490193_130429.xml
+End at: 08/05/2013 15:49:55
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:55
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490194_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490194_130429.xml
+End at: 08/05/2013 15:49:55
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:55
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490199_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490199_130429.xml
+End at: 08/05/2013 15:49:56
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:56
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490200_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490200_130429.xml
+End at: 08/05/2013 15:49:56
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:56
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490201_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490201_130429.xml
+End at: 08/05/2013 15:49:56
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:56
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490204_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490204_130429.xml
+End at: 08/05/2013 15:49:57
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:57
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490210_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490210_130429.xml
+End at: 08/05/2013 15:49:57
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:57
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490211_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490211_130429.xml
+End at: 08/05/2013 15:49:57
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:57
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490213_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490213_130429.xml
+End at: 08/05/2013 15:49:57
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:57
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490214_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490214_130429.xml
+End at: 08/05/2013 15:49:58
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:58
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490215_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490215_130429.xml
+End at: 08/05/2013 15:49:58
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:58
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490216_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490216_130429.xml
+End at: 08/05/2013 15:49:58
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:58
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490217_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490217_130429.xml
+End at: 08/05/2013 15:49:59
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:59
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490218_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490218_130429.xml
+End at: 08/05/2013 15:50:00
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:59
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490219_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490219_130429.xml
+End at: 08/05/2013 15:50:01
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:00
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490243_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490243_130429.xml
+End at: 08/05/2013 15:50:02
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:49:59
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490222_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490222_130429.xml
+End at: 08/05/2013 15:50:02
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:00
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490249_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490249_130429.xml
+End at: 08/05/2013 15:50:04
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:00
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490251_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490251_130429.xml
+End at: 08/05/2013 15:50:04
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:01
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490252_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490252_130429.xml
+End at: 08/05/2013 15:50:05
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:01
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490253_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490253_130429.xml
+End at: 08/05/2013 15:50:06
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:02
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490254_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490254_130429.xml
+End at: 08/05/2013 15:50:07
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:02
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490265_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490265_130429.xml
+End at: 08/05/2013 15:50:07
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:03
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490266_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490266_130429.xml
+End at: 08/05/2013 15:50:08
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:05
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490284_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490284_130429.xml
+End at: 08/05/2013 15:50:09
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:03
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490268_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490268_130429.xml
+End at: 08/05/2013 15:50:09
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:04
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490269_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490269_130429.xml
+End at: 08/05/2013 15:50:10
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:07
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430031_130429.xml
+File valid
+POSHostRequest_20430031_130429.xml 
+ CountryID: 40
+BranchID: 80597
+TerminalID: 20430031
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430031_130429.xml
+End at: 08/05/2013 15:50:10
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:07
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430004_130429.xml
+File valid
+POSHostRequest_20430004_130429.xml 
+ CountryID: 40
+BranchID: 75115
+TerminalID: 20430004
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430004_130429.xml
+End at: 08/05/2013 15:50:11
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:05
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490336_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490336_130429.xml
+End at: 08/05/2013 15:50:11
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:05
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490335_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490335_130429.xml
+End at: 08/05/2013 15:50:12
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:07
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430032_130429.xml
+File valid
+POSHostRequest_20430032_130429.xml 
+ CountryID: 40
+BranchID: 80603
+TerminalID: 20430032
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430032_130429.xml
+End at: 08/05/2013 15:50:12
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:09
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430106_130429.xml
+File valid
+POSHostRequest_20430106_130429.xml 
+ CountryID: 40
+BranchID: 101473
+TerminalID: 20430106
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430106_130429.xml
+End at: 08/05/2013 15:50:12
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:10
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430132_130429.xml
+File valid
+POSHostRequest_20430132_130429.xml 
+ CountryID: 40
+BranchID: 109447
+TerminalID: 20430132
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430132_130429.xml
+End at: 08/05/2013 15:50:13
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:08
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430033_130429.xml
+File valid
+POSHostRequest_20430033_130429.xml 
+ CountryID: 40
+BranchID: 80720
+TerminalID: 20430033
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430033_130429.xml
+End at: 08/05/2013 15:50:13
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:06
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_10490337_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_10490337_130429.xml
+End at: 08/05/2013 15:50:13
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:08
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430073_130429.xml
+File valid
+POSHostRequest_20430073_130429.xml 
+ CountryID: 40
+BranchID: 64038
+TerminalID: 20430073
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430073_130429.xml
+End at: 08/05/2013 15:50:14
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:11
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430313_130429.xml
+File valid
+POSHostRequest_20430313_130429.xml 
+ CountryID: 276
+BranchID: 112926
+TerminalID: 20430313
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430313_130429.xml
+End at: 08/05/2013 15:50:14
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:11
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430160_130429.xml
+File valid
+POSHostRequest_20430160_130429.xml 
+ CountryID: 40
+BranchID: 109605
+TerminalID: 20430160
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430160_130429.xml
+End at: 08/05/2013 15:50:15
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:09
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430078_130429.xml
+File valid
+POSHostRequest_20430078_130429.xml 
+ CountryID: 40
+BranchID: 21246
+TerminalID: 20430078
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430078_130429.xml
+End at: 08/05/2013 15:50:15
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:12
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430314_130429.xml
+File valid
+POSHostRequest_20430314_130429.xml 
+ CountryID: 276
+BranchID: 129549
+TerminalID: 20430314
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430314_130429.xml
+End at: 08/05/2013 15:50:15
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:12
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430311_130429.xml
+File valid
+POSHostRequest_20430311_130429.xml 
+ CountryID: 276
+BranchID: 103792
+TerminalID: 20430311
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430311_130429.xml
+End at: 08/05/2013 15:50:15
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:13
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430315_130429.xml
+File valid
+POSHostRequest_20430315_130429.xml 
+ CountryID: 276
+BranchID: 129872
+TerminalID: 20430315
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430315_130429.xml
+End at: 08/05/2013 15:50:15
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:10
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430150_130429.xml
+File valid
+POSHostRequest_20430150_130429.xml 
+ CountryID: 40
+BranchID: 109599
+TerminalID: 20430150
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430150_130429.xml
+End at: 08/05/2013 15:50:16
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:10
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430152_130429.xml
+File valid
+POSHostRequest_20430152_130429.xml 
+ CountryID: 40
+BranchID: 109605
+TerminalID: 20430152
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430152_130429.xml
+End at: 08/05/2013 15:50:16
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:13
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430316_130429.xml
+File valid
+POSHostRequest_20430316_130429.xml 
+ CountryID: 276
+BranchID: 123730
+TerminalID: 20430316
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430316_130429.xml
+End at: 08/05/2013 15:50:16
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:13
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430317_130429.xml
+File valid
+POSHostRequest_20430317_130429.xml 
+ CountryID: 276
+BranchID: 112940
+TerminalID: 20430317
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430317_130429.xml
+End at: 08/05/2013 15:50:16
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:14
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430318_130429.xml
+File valid
+POSHostRequest_20430318_130429.xml 
+ CountryID: 276
+BranchID: 122970
+TerminalID: 20430318
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430318_130429.xml
+End at: 08/05/2013 15:50:17
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:14
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430322_130429.xml
+File valid
+POSHostRequest_20430322_130429.xml 
+ CountryID: 40
+BranchID: 111557
+TerminalID: 20430322
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430322_130429.xml
+End at: 08/05/2013 15:50:17
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:15
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430366_130429.xml
+File valid
+POSHostRequest_20430366_130429.xml 
+ CountryID: 40
+BranchID: 107815
+TerminalID: 20430366
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430366_130429.xml
+End at: 08/05/2013 15:50:17
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:14
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430365_130429.xml
+File valid
+POSHostRequest_20430365_130429.xml 
+ CountryID: 40
+BranchID: 107815
+TerminalID: 20430365
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430365_130429.xml
+End at: 08/05/2013 15:50:17
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:15
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430367_130429.xml
+File valid
+POSHostRequest_20430367_130429.xml 
+ CountryID: 40
+BranchID: 107815
+TerminalID: 20430367
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430367_130429.xml
+End at: 08/05/2013 15:50:18
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:16
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430389_130429.xml
+File valid
+POSHostRequest_20430389_130429.xml 
+ CountryID: 40
+BranchID: 100250
+TerminalID: 20430389
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430389_130429.xml
+End at: 08/05/2013 15:50:19
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:16
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430402_130429.xml
+File valid
+POSHostRequest_20430402_130429.xml 
+ CountryID: 40
+BranchID: 122695
+TerminalID: 20430402
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430402_130429.xml
+End at: 08/05/2013 15:50:20
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:16
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430391_130429.xml
+File valid
+POSHostRequest_20430391_130429.xml 
+ CountryID: 40
+BranchID: 100250
+TerminalID: 20430391
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_20430391_130429.xml
+End at: 08/05/2013 15:50:20
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:16
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430403_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430403_130429.xml
+End at: 08/05/2013 15:50:21
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:17
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430405_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430405_130429.xml
+End at: 08/05/2013 15:50:21
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:17
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430408_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430408_130429.xml
+End at: 08/05/2013 15:50:21
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:17
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430409_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430409_130429.xml
+End at: 08/05/2013 15:50:21
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:18
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430429_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430429_130429.xml
+End at: 08/05/2013 15:50:21
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:20
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_30490010_130429.xml
+File valid
+POSHostRequest_30490010_130429.xml 
+ CountryID: 276
+BranchID: 127231
+TerminalID: 30490010
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_30490010_130429.xml
+End at: 08/05/2013 15:50:21
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:16
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430404_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430404_130429.xml
+End at: 08/05/2013 15:50:21
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:18
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430432_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430432_130429.xml
+End at: 08/05/2013 15:50:21
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:21
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_30490034_130429.xml
+File valid
+POSHostRequest_30490034_130429.xml 
+ CountryID: 276
+BranchID: 107748
+TerminalID: 30490034
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_30490034_130429.xml
+End at: 08/05/2013 15:50:22
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:17
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430406_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430406_130429.xml
+End at: 08/05/2013 15:50:22
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:17
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430407_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430407_130429.xml
+End at: 08/05/2013 15:50:22
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:18
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430431_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430431_130429.xml
+End at: 08/05/2013 15:50:22
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:18
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430430_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430430_130429.xml
+End at: 08/05/2013 15:50:22
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:19
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430435_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430435_130429.xml
+End at: 08/05/2013 15:50:22
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:22
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_30490011_130429.xml
+File valid
+POSHostRequest_30490011_130429.xml 
+ CountryID: 276
+BranchID: 127231
+TerminalID: 30490011
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_30490011_130429.xml
+End at: 08/05/2013 15:50:22
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:21
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_30490032_130429.xml
+File valid
+POSHostRequest_30490032_130429.xml 
+ CountryID: 276
+BranchID: 129630
+TerminalID: 30490032
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_30490032_130429.xml
+End at: 08/05/2013 15:50:22
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:20
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_20430436_130429.xml
+File valid
+Completed: C:\HOBEX\IN\POSHostRequest_20430436_130429.xml
+End at: 08/05/2013 15:50:22
+
+======================================================
+
+
+HS: Begin at: 08/05/2013 15:50:22
+Read from In directory
+C:\HOBEX\IN\POSHostRequest_30490024_130429.xml
+File valid
+POSHostRequest_30490024_130429.xml 
+ CountryID: 276
+BranchID: 122439
+TerminalID: 30490024
+OrderValue: 1000
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.Data.SqlClient.SqlException: POS terminal not found
+   at DiData.Ptf.Business.VoucherNumberingAllocationPrinting.AllocateRangePOS(String posId, Int32 orderVolume, Int32 countryId, Int32 retailerId, String originator)
+   --- End of inner exception stack trace ---
+Completed: C:\HOBEX\IN\POSHostRequest_30490024_130429.xml
+End at: 08/05/2013 15:50:22
+
+======================================================
+
+
