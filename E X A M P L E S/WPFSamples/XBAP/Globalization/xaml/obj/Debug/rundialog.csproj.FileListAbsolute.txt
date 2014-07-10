@@ -1,0 +1,14 @@
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\bin\Debug\RunDialog.exe
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\bin\Debug\RunDialog.pdb
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\bin\Debug\en-US\RunDialog.resources.dll
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\Window1.baml
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\Window1.g.cs
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\app.g.cs
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\RunDialog_MarkupCompile.cache
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\RunDialog.unlocalizable.g.resources
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\RunDialog.Properties.Resources.resources
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\rundialog.csproj.GenerateResource.Cache
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\RunDialog.g.en-US.resources
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\en-US\RunDialog.resources.dll
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\RunDialog.exe
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Globalization\xaml\obj\Debug\RunDialog.pdb

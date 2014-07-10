@@ -1,0 +1,8 @@
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Building a Table in XAML\xaml\bin\Debug\SDKSample.exe
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Building a Table in XAML\xaml\bin\Debug\SDKSample.pdb
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Building a Table in XAML\xaml\obj\x86\Debug\default.baml
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Building a Table in XAML\xaml\obj\x86\Debug\app.g.cs
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Building a Table in XAML\xaml\obj\x86\Debug\SDKSample_MarkupCompile.cache
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Building a Table in XAML\xaml\obj\x86\Debug\SDKSample.g.resources
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Building a Table in XAML\xaml\obj\x86\Debug\SDKSample.exe
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Building a Table in XAML\xaml\obj\x86\Debug\SDKSample.pdb

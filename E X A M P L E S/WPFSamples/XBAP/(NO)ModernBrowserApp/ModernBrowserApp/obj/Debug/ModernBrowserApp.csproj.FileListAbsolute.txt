@@ -1,0 +1,15 @@
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\bin\Debug\ModernBrowserApp.exe.config
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\bin\Debug\ModernBrowserApp.exe
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\bin\Debug\ModernBrowserApp.pdb
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\MainWindow.baml
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\ModernUIDictionary.baml
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\App.baml
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\MainWindow.g.cs
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\App.g.cs
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\ModernBrowserApp_MarkupCompile.cache
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\ModernBrowserApp.g.resources
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\ModernBrowserApp.Properties.Resources.resources
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\ModernBrowserApp.csproj.GenerateResource.Cache
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\ModernBrowserApp.exe
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\ModernBrowserApp.pdb
+D:\Projects\VS11\ModernBrowserApp\ModernBrowserApp\obj\Debug\ModernBrowserApp.csprojResolveAssemblyReference.cache
