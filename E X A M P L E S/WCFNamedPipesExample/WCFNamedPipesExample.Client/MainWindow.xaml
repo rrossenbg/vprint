@@ -1,0 +1,10 @@
+﻿<Window x:Class="WCFNamedPipesExample.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow_Client" Height="350" Width="525">
+    <Grid>
+      <StackPanel Margin="12" Height="35" Orientation="Horizontal">        
+        <Button Width="140" Margin="6,0,0,0" Content="Get Product Information" Click="Button_Click"/>
+      </StackPanel>  
+    </Grid>
+</Window>

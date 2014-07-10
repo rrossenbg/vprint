@@ -1,0 +1,4 @@
+C:\Users\Rosen.rusev\Desktop\WCFExample\ServiceLibrary\bin\Debug\ServiceLibrary.dll
+C:\Users\Rosen.rusev\Desktop\WCFExample\ServiceLibrary\bin\Debug\ServiceLibrary.pdb
+C:\Users\Rosen.rusev\Desktop\WCFExample\ServiceLibrary\obj\Debug\ServiceLibrary.dll
+C:\Users\Rosen.rusev\Desktop\WCFExample\ServiceLibrary\obj\Debug\ServiceLibrary.pdb
