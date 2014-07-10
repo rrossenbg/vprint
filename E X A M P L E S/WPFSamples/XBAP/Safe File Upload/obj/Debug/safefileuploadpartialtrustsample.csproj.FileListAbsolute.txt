@@ -1,0 +1,14 @@
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\bin\Debug\SafeFileUploadPartialTrustSample.exe.manifest
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\bin\Debug\SafeFileUploadPartialTrustSample.xbap
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\bin\Debug\SafeFileUploadPartialTrustSample.exe
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\bin\Debug\SafeFileUploadPartialTrustSample.pdb
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\obj\Debug\HomePage.baml
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\obj\Debug\HomePage.g.cs
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\obj\Debug\App.g.cs
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\obj\Debug\SafeFileUploadPartialTrustSample_MarkupCompile.cache
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\obj\Debug\SafeFileUploadPartialTrustSample.g.resources
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\obj\Debug\SafeFileUploadPartialTrustSample.TrustInfo.xml
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\obj\Debug\SafeFileUploadPartialTrustSample.exe.manifest
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\obj\Debug\SafeFileUploadPartialTrustSample.xbap
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\obj\Debug\SafeFileUploadPartialTrustSample.exe
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\Safe File Upload\obj\Debug\SafeFileUploadPartialTrustSample.pdb

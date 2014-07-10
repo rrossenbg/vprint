@@ -1,0 +1,34 @@
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\bin\Debug\WpfBrowserApplication1.exe.manifest
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\bin\Debug\WpfBrowserApplication1.xbap
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\bin\Debug\WpfBrowserApplication1.exe
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\bin\Debug\WpfBrowserApplication1.pdb
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\ResolveAssemblyReference.cache
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\Page1.baml
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\Page1.g.cs
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\App.g.cs
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1_MarkupCompile.cache
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.g.resources
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.Properties.Resources.resources
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\GenerateResource.read.1.tlog
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\GenerateResource.write.1.tlog
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.TrustInfo.xml
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.exe.manifest
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.xbap
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.exe
+\\mcnserver2\userprofiles\agaur\my documents\visual studio 2010\Projects\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.pdb
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\bin\Debug\WpfBrowserApplication1.exe.manifest
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\bin\Debug\WpfBrowserApplication1.xbap
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\bin\Debug\WpfBrowserApplication1.exe
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\bin\Debug\WpfBrowserApplication1.pdb
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\Page1.baml
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\Page1.g.cs
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\App.g.cs
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1_MarkupCompile.cache
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.g.resources
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.Properties.Resources.resources
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.csproj.GenerateResource.Cache
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.TrustInfo.xml
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.exe.manifest
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.xbap
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.exe
+C:\PROJECTS\E X A M P L E S\WPFSamples\XBAP\WpfBrowserApplication1\WpfBrowserApplication1\obj\Debug\WpfBrowserApplication1.pdb

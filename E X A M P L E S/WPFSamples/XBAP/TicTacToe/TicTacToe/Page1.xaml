@@ -1,0 +1,68 @@
+﻿<Page x:Class="TicTacToe.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Page1"
+    >
+  <Grid>
+    <Grid.Resources>
+      <Style x:Key="xBackground" TargetType="{x:Type Button}">
+        <Setter Property="Background">
+          <Setter.Value>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+              <GradientStop Color="Azure" Offset="0" />
+              <GradientStop Color="LightBlue" Offset="1" />
+            </LinearGradientBrush>
+          </Setter.Value>
+        </Setter>
+      </Style>
+    </Grid.Resources>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="30"/>
+      <ColumnDefinition Width ="320" />      
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height ="51" />
+      <RowDefinition Height = "180" />      
+      <RowDefinition Height ="31"/>
+    </Grid.RowDefinitions>
+  <TextBlock FontFamily="Verdana" Grid.Column="1" Grid.Row="0" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold">
+      XBAP Tic Tac Toe
+  </TextBlock> 
+  <Grid Grid.Column="1" Grid.Row="1" >
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width ="51"/>
+      <ColumnDefinition Width ="51"/>
+      <ColumnDefinition Width ="51"/>
+      <ColumnDefinition Width ="161"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="51"/>
+      <RowDefinition Height="51"/>
+      <RowDefinition Height="51"/>
+    </Grid.RowDefinitions>  
+      <Button Name="b00"  FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height ="50" Grid.Column="0" Grid.Row="0" Click="Click00">
+      </Button>
+      <Button Name="b10"  FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height ="50" Grid.Column="1" Grid.Row="0" Click="Click10">
+      </Button>
+      <Button Name="b20"  FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height ="50" Grid.Column="2" Grid.Row="0" Click="Click20">
+    </Button>
+    <Button Name="b01"  FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height ="50" Grid.Column="0" Grid.Row="1" Click="Click01">
+    </Button>
+    <Button Name="b11"  FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height ="50" Grid.Column="1" Grid.Row="1" Click="Click11">
+    </Button>
+    <Button Name="b21"  FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height ="50" Grid.Column="2" Grid.Row="1" Click="Click21">
+    </Button>
+    <Button Name="b02"  FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height ="50" Grid.Column="0" Grid.Row="2" Click="Click02">
+    </Button>
+    <Button Name="b12"  FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height ="50" Grid.Column="1" Grid.Row="2" Click="Click12">
+    </Button>
+    <Button Name="b22"  FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height ="50" Grid.Column="2" Grid.Row="2" Click="Click22">
+    </Button>
+    <Button Name="NewGame"   FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" Height ="50" Grid.Column="3" Grid.Row="0" Style="{StaticResource xBackground}" Click="ClickNewGame">New Game  (Player Go First)</Button>
+    <Button Name="NewGame2"  FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" Height ="50" Grid.Column="3" Grid.Row="1" Style="{StaticResource xBackground}" Click="ClickNewGame2" >New Game  (Computer Go First)</Button>
+    <TextBlock   FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="2" >Player - O <LineBreak></LineBreak> Computer - X  </TextBlock>        
+  </Grid>
+    <TextBlock   Name="MessageBlock"  FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="3" FontWeight="Bold">Message</TextBlock>
+  </Grid>
+</Page>

@@ -1,0 +1,16 @@
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe.manifest
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\bin\Debug\TicTacToe.xbap
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\bin\Debug\TicTacToe.pdb
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\Page1.baml
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\Page1.g.cs
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\App.g.cs
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\TicTacToe_MarkupCompile.cache
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\TicTacToe.g.resources
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\TicTacToe.Properties.Resources.resources
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csproj.GenerateResource.Cache
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\TicTacToe.TrustInfo.xml
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\TicTacToe.exe.manifest
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\TicTacToe.xbap
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\TicTacToe.exe
+C:\PROJECTS\E X A M P L E S\WPFSamples\TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb

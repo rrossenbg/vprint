@@ -1,0 +1,84 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Default Button Style -->
+    <Style TargetType="Button">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <!-- Default TextBox Style -->
+    <Style TargetType="TextBox">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+    </Style>
+
+    <!-- Default Image Style -->
+    <Style TargetType="Image">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <!-- Default Progress bar Style -->
+    <Style TargetType="ProgressBar">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+    
+    <!-- Error Label Text Style -->
+    <Style x:Key="ErrorLabel" TargetType="Label">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="Foreground" Value="DarkRed" />
+    </Style>
+    
+    <!-- Modern Next Arrow Button template -->
+    <ControlTemplate TargetType="Button" x:Key="ModernNextButton">
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightSteelBlue" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+        <Grid>
+            <Rectangle Fill="{TemplateBinding Background}" />
+            <Image Source="Content/Icons/appbar.navigate.next.png" Stretch="UniformToFill" />
+        </Grid>
+    </ControlTemplate>
+
+    <!-- Modern Previous Arrow Button template -->
+    <ControlTemplate TargetType="Button" x:Key="ModernPrevButton">
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightSteelBlue" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+        <Grid>
+            <Rectangle Fill="{TemplateBinding Background}" />
+            <Image Source="Content/Icons/appbar.navigate.previous.png" Stretch="UniformToFill" />
+        </Grid>
+    </ControlTemplate>
+
+    <!-- Modern Right Arrow Button template -->
+    <ControlTemplate TargetType="Button" x:Key="ModernGoButton">
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightSteelBlue" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+        <Grid>
+            <Rectangle Fill="{TemplateBinding Background}" />
+            <Image Source="Content/Icons/appbar.arrow.right.png" Stretch="UniformToFill" />
+        </Grid>
+    </ControlTemplate>
+    
+    <!-- Error Page -->
+    <Grid x:Key="ErrorPage">
+        <Label Content="An error happened during navigation... Sorry =)" Style="{StaticResource ErrorLabel}"/>
+    </Grid>
+</ResourceDictionary>
