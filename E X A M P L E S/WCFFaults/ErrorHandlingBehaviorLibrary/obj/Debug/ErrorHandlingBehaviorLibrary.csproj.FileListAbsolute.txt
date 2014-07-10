@@ -1,0 +1,4 @@
+C:\Users\Rosen.rusev\Desktop\WCFFaults\ErrorHandlingBehaviorLibrary\bin\Debug\ErrorHandlingBehaviorLibrary.dll
+C:\Users\Rosen.rusev\Desktop\WCFFaults\ErrorHandlingBehaviorLibrary\bin\Debug\ErrorHandlingBehaviorLibrary.pdb
+C:\Users\Rosen.rusev\Desktop\WCFFaults\ErrorHandlingBehaviorLibrary\obj\Debug\ErrorHandlingBehaviorLibrary.dll
+C:\Users\Rosen.rusev\Desktop\WCFFaults\ErrorHandlingBehaviorLibrary\obj\Debug\ErrorHandlingBehaviorLibrary.pdb

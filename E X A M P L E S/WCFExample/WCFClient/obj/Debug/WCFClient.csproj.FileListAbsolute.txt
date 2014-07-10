@@ -1,0 +1,8 @@
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFClient\obj\Debug\WCFClient.Form1.resources
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFClient\obj\Debug\WCFClient.Properties.Resources.resources
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFClient\obj\Debug\WCFClient.csproj.GenerateResource.Cache
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFClient\bin\Debug\WCFClient.exe.config
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFClient\bin\Debug\WCFClient.exe
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFClient\bin\Debug\WCFClient.pdb
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFClient\obj\Debug\WCFClient.exe
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFClient\obj\Debug\WCFClient.pdb

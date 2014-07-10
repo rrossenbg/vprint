@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandlingBehaviorLibrary", "ErrorHandlingBehaviorLibrary\ErrorHandlingBehaviorLibrary.csproj", "{6DC3B128-0BEA-44A1-866A-044CA86101A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesterService", "TesterService\TesterService.csproj", "{B7D8D76E-93BA-41B1-B18C-20A9F3944F1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DC3B128-0BEA-44A1-866A-044CA86101A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC3B128-0BEA-44A1-866A-044CA86101A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC3B128-0BEA-44A1-866A-044CA86101A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC3B128-0BEA-44A1-866A-044CA86101A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D8D76E-93BA-41B1-B18C-20A9F3944F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D8D76E-93BA-41B1-B18C-20A9F3944F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D8D76E-93BA-41B1-B18C-20A9F3944F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D8D76E-93BA-41B1-B18C-20A9F3944F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

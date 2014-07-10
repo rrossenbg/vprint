@@ -1,0 +1,7 @@
+C:\Users\Rosen.rusev\Desktop\WCFFaults\TesterService\bin\Debug\TesterService.exe
+C:\Users\Rosen.rusev\Desktop\WCFFaults\TesterService\bin\Debug\TesterService.pdb
+C:\Users\Rosen.rusev\Desktop\WCFFaults\TesterService\bin\Debug\ErrorHandlingBehaviorLibrary.dll
+C:\Users\Rosen.rusev\Desktop\WCFFaults\TesterService\bin\Debug\ErrorHandlingBehaviorLibrary.pdb
+C:\Users\Rosen.rusev\Desktop\WCFFaults\TesterService\obj\Debug\TesterService.csprojResolveAssemblyReference.cache
+C:\Users\Rosen.rusev\Desktop\WCFFaults\TesterService\obj\Debug\TesterService.exe
+C:\Users\Rosen.rusev\Desktop\WCFFaults\TesterService\obj\Debug\TesterService.pdb

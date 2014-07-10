@@ -1,0 +1,11 @@
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\obj\Debug\WCFService.MainForm.resources
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\obj\Debug\WCFService.Properties.Resources.resources
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\obj\Debug\WCFService.csproj.GenerateResource.Cache
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\bin\Debug\WCFService.exe.config
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\obj\Debug\WCFService.csprojResolveAssemblyReference.cache
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\bin\Debug\WCFService.exe
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\bin\Debug\WCFService.pdb
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\bin\Debug\ServiceLibrary.dll
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\bin\Debug\ServiceLibrary.pdb
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\obj\Debug\WCFService.exe
+C:\Users\Rosen.rusev\Desktop\WCFExample\WCFService\obj\Debug\WCFService.pdb
