@@ -1,0 +1,95 @@
+<happenings>
+  <happening>
+	<weight>50</weight>
+	<title>Introducing WPF ("Avalon")</title>
+	<description>Pluralsight member Ian Griffiths will deliver the 'Introducing WPF' course in Waltham, MA from Oct. 10 - 13, 2006. The course is open to the public and computers are provided for hands-on labs. Come learn about Microsoft's next-generation presentation platform co-author of 'Programming Windows Presentation Foundation' and register today!</description>
+	<image>images/IN-02.gif</image>
+	<url>http://www.pluralsight.com/courses/IntroducingWPF.aspx</url>
+	<displayUntil>2006-10-10</displayUntil>
+  </happening>
+  <happening>
+	<weight>50</weight>
+	<title>Applied ASP.NET 2.0</title>
+	<description>Pluralsight member Keith Brown will deliver the 'Applied ASP.NET 2.0' course in Denver, CO from Oct. 10 - 13, 2006. The course is open to the public and computers are provided for hands-on labs. Come hear about the new features of ASP.NET 2.0 from the co-author of 'Essential ASP.NET 2.0' and register today!</description>
+	<image>images/AP-10.gif</image>
+	<url>http://www.pluralsight.com/courses/AppliedAspDotNet20.aspx</url>
+	<displayUntil>2006-10-10</displayUntil>
+  </happening>
+  <happening>
+	<weight>50</weight>
+	<title>Applied ASP.NET 2.0</title>
+	<description>Pluralsight member Fritz Onion will deliver the 'Applied ASP.NET 2.0' course in Waltham, MA from Nov. 14 - 17, 2006. The course is open to the public and computers are provided for hands-on labs. Come hear about the new features of ASP.NET 2.0 from the co-author of 'Essential ASP.NET 2.0' and register today!</description>
+	<image>images/AP-10.gif</image>
+	<url>http://www.pluralsight.com/courses/AppliedAspDotNet20.aspx</url>
+	<displayUntil>2006-11-14</displayUntil>
+  </happening>
+
+  <happening>
+	<weight>50</weight>
+	<title>Applied SQL Server 2005</title>
+	<description>Pluralsight member Dan Sullivan will deliver the 'Applied SQL Server 2005' course in Waltham, MA from Sep. 26 - 29, 2006. The course is open to the public and computers are provided for hands-on labs. Come hear about the new features of SQL Server 2005 from the co-author of "A Developer's Guide to SQL Server 2005' and register today!</description>
+	<image>images/AP-09.gif</image>
+	<url>http://www.pluralsight.com/courses/AppliedSql2005.aspx</url>
+	<displayUntil>2006-09-26</displayUntil>
+  </happening>
+  <happening>
+	<weight>50</weight>
+	<title>Introducing WCF ("Indigo")</title>
+	<description>Pluralsight member Aaron Skonnard will deliver the 'Introducing WCF' course in Kirkland, WA on November 14-17, 2006. The course is open to the public and computers are provided with the latest drop of WCF for labs. Register today!</description>
+	<image>images/in-01.gif</image>
+	<url>http://www.pluralsight.com/courses/IntroducingWCF.aspx</url>
+	<displayUntil>2006-11-14</displayUntil>
+  </happening>
+  <happening>
+	<weight>50</weight>
+	<title>Introducing Atlas</title>
+	<description>Pluralsight members Joe Hummel and Fritz Onion will deliver the 'Introducing Atlas' course in Kirkland, WA on October 16-18, 2006. The course is open to the public and computers are provided with the latest drop of Atlas for labs. Register today!</description>
+	<image>images/in-04.gif</image>
+	<url>http://www.pluralsight.com/courses/IntroducingAtlas.aspx</url>
+	<displayUntil>2006-10-16</displayUntil>
+  </happening>
+  <happening>
+    <weight>50</weight>
+    <title>Double Feature: WCF and Workflow</title>
+    <description>Pluralsight members Aaron Skonnard and Matt Milner will deliver Double Feature: WCF and Workflow in Mountain View, CA on Aug. 28-Sep. 1, 2006. The course is open to the public and computers are provided for labs. Register today!</description>
+    <image>images/DoubleFeature_frontpage.gif</image>
+    <url>http://www.pluralsight.com/courses/DoubleFeatureWCFWF.aspx</url>
+	<displayUntil>2006-08-28</displayUntil>
+  </happening>
+  <happening>
+    <weight>50</weight>
+    <title>Introducing Windows Workflow</title>
+    <description>Pluralsight member Matt Milner will deliver the course Introducing Windows Workflow Foundation in Minneapolis, MN on Nov. 14-16, 2006. The course is open to the public and computers are provided for labs. Register today!</description>
+    <image>images/IN-03.gif</image>
+    <url>http://www.pluralsight.com/courses/IntroducingWF.aspx</url>
+	<displayUntil>2006-11-14</displayUntil>
+  </happening>
+
+ <happening>
+    <weight>50</weight>
+    <title>Building Connected Systems with BizTalk 2006 R2</title>
+    <description>We are holding a special event for getting up to speed on BizTalk Server 2006 R2. The course covers BTS 2006 and the new integration with WCF, Workflow, Office 2007, and RFID. It will be offered in Kirkland, WA on Dec. 4-8, 2006. The course is open to the public and computers are provided. Register today!</description>
+    <image>images/AP-04.gif</image>
+    <url>http://www.pluralsight.com/courses/BizTalkServer2006R2.aspx</url>
+	<displayUntil>2006-12-04</displayUntil>
+  </happening>
+
+  <happening>
+	<weight>60</weight>
+	<title>TechEd Developers 2006</title>
+	<description>Aaron, Fritz, Ian, and Keith are headed off to Barcelona in November for TechEd Developers 2006. Pluralsight will have a booth, and we hope you'll stop by and say hello!</description>
+	<image>images/techEdDevelopers06.jpg</image>
+	<url>http://www.mseventseurope.com/TechEd/06/pre/defaultdev.aspx</url>
+	<displayUntil>2006-11-07</displayUntil>
+  </happening>
+
+ <happening>
+	<weight>50</weight>
+	<target />
+	<title>.NET Campsight - Building Connected Systems</title>
+	<description>Join us for a week long training event in Redmond, WA from Sep. 18 - 22, 2006! .NET Campsight, Building Connected Systems is 5 intense days targeted at bringing the enterprise developer up to speed on how to successfully build, deploy, and administer distributed applications today.</description>
+	<image>images/campsightlogo_frontpage.gif</image>
+	<url>courses/CampsightConnectedSystems.aspx</url>
+	<displayUntil>2006-09-18</displayUntil>
+  </happening>
+</happenings>
