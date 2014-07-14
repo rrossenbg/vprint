@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PTFImagesData">
+  <DataContextMoniker Name="/PTFImagesDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2471f5d5-576d-497b-9776-6a65646c9b1a" absoluteBounds="4.625, 1.375, 2, 2.9039737955729166">
+      <DataClassMoniker Name="/PTFImagesDataDataContext/Voucher" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6abeb082-62f2-4708-a0c0-016115d548fd" absoluteBounds="4.64, 1.835, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa3f5259-7648-405c-888f-5eba1f9f0101" absoluteBounds="1.5, 1.75, 2, 1.9178898111979166">
+      <DataClassMoniker Name="/PTFImagesDataDataContext/UserActivityHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8f22782-f2e6-4439-b1af-56bd43af68f8" absoluteBounds="1.5150000000000001, 2.21, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,15 @@
+﻿@using System
+@using FintraxPTFImages
+@using FintraxPTFImages.Common
+@if (Session.Contains("CurrentUser"))
+{
+    <text> Hello, @Html.ActionLink(Session.Get<CurrentUser>("CurrentUser").UserName, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+    @Html.ActionLink("Log off", "LogOff", "Account")
+    </text>
+}
+else
+{
+    <ul>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
