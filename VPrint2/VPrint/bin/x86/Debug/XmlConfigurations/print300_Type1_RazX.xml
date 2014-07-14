@@ -99,8 +99,8 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
 
  <!-- RetailerID - StoreNo 2-->
     <GPrintLine>
-      <X>700</X>
-      <Y>30</Y>
+      <X>750</X>
+      <Y>50</Y>
       <Size>0</Size>
       <Text>@id</Text>
       <Font>
@@ -244,4 +244,5 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
 ]]>
   </Context>
 </VoucherPrintLayoutRazX>
+
 

@@ -195,6 +195,17 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
         <Value>Arial, 7pt</Value>
       </Font>
     </GPrintLine>
+
+<!-- VatRateAmount - VatRateAmount-->
+    <GPrintLine>
+      <X>350</X>
+      <Y>145</Y>
+      <Size>0</Size>
+      <Text>@vatRateAmount</Text>
+      <Font>
+        <Value>Arial, 7pt</Value>
+      </Font>
+    </GPrintLine>
     
     <!-- OPFS -HeadOfficePfs 9-->
     <GPrintLine>
@@ -206,17 +217,7 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
         <Value>Arial, 7pt</Value>
       </Font>
     </GPrintLine>  
-    
-    <!-- VatRateAmount - VatRateAmount-->
-    <GPrintLine>
-      <X>350</X>
-      <Y>155</Y>
-      <Size>0</Size>
-      <Text>@vatRateAmount</Text>
-      <Font>
-        <Value>Arial, 7pt</Value>
-      </Font>
-    </GPrintLine>
+ 
 
   </Lines>
   
@@ -244,5 +245,3 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
 ]]>
   </Context>
 </VoucherPrintLayoutRazX>
-
-
