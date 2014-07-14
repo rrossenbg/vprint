@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="tvxUbBu+DuTVtlkaAk6Q/2tCp4Y=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Ht6oQAUp8JVmtPxVypGRXRupcPs=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="AuthenticationSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="AuthenticationSoap" contract="AuthenticationRef.AuthenticationSoap" bindingType="basicHttpBinding" address="http://192.168.58.59/PtfWebService/Authentication.asmx" bindingConfiguration="AuthenticationSoap">
+    <endpoint name="AuthenticationSoap" contract="AuthenticationRef.AuthenticationSoap" bindingType="basicHttpBinding" address="http://192.168.53.117/PtfWebService/Authentication.asmx" bindingConfiguration="AuthenticationSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://192.168.58.59/PtfWebService/Authentication.asmx</serializedValue>
+          <serializedValue>http://192.168.53.117/PtfWebService/Authentication.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

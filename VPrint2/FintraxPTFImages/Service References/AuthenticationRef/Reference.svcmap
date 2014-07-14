@@ -18,11 +18,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.58.59/PtfWebService/Authentication.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.53.117/PtfWebService/Authentication.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Authentication.disco" MetadataType="Disco" ID="f8d67a91-8aff-47f2-a1c3-4bd8bd6b3b3b" SourceId="1" SourceUrl="http://192.168.58.59/PtfWebService/Authentication.asmx?disco" />
-    <MetadataFile FileName="Authentication.wsdl" MetadataType="Wsdl" ID="ef26d4cc-dd42-4a06-9570-53c0f43a703b" SourceId="1" SourceUrl="http://192.168.58.59/PtfWebService/Authentication.asmx?wsdl" />
+    <MetadataFile FileName="Authentication1.disco" MetadataType="Disco" ID="d56d6150-24d8-415e-9b11-bd9abcee709c" SourceId="1" SourceUrl="http://192.168.53.117/PtfWebService/Authentication.asmx?disco" />
+    <MetadataFile FileName="Authentication1.wsdl" MetadataType="Wsdl" ID="a405146b-7dad-4915-9f47-c1ed577a4cd0" SourceId="1" SourceUrl="http://192.168.53.117/PtfWebService/Authentication.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

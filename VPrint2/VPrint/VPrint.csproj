@@ -493,6 +493,7 @@
     <Content Include="..\XmlConfigurations\print300_Type1_RazX.xml">
       <Link>XmlConfigurations\print300_Type1_RazX.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="..\XmlConfigurations\print300_Type2_RazX.xml">
       <Link>XmlConfigurations\print300_Type2_RazX.xml</Link>

@@ -40,12 +40,6 @@ namespace FintraxPTFImages
             }
         }
 
-        [TargetedPatchingOptOut("na")]
-        public static string Unique(this string value)
-        {
-            return Guid.NewGuid().ToString().Trim('-');
-        }
-
         /// <summary>
         /// (T)Convert.ChangeType(value, typeof(T));
         /// </summary>
