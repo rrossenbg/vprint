@@ -10,6 +10,7 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
+using DTKBarReader;
 using VPrint.Common;
 using VPrinting.Common;
 using VPrinting.Documents;
@@ -194,7 +195,7 @@ namespace VPrinting.Tools
                             StateManager.VoucherItem vitem = (StateManager.VoucherItem)item;
                             FileInfo barcFilePath = null;
                             Rectangle rect = Rectangle.Empty;
-                            CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode);
+                            CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode, BarcodeTypeEnum.BT_Inter2of5);
 
                             vitem.Barcode = barcode;
 

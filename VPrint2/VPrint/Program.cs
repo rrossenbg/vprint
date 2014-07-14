@@ -64,8 +64,9 @@ namespace VPrinting
             StateSaver.Default.Load();
 
             PluginLoader.Error += new ThreadExceptionEventHandler(OnThreadException);
+            string path = Path.GetDirectoryName(Application.ExecutablePath);
             PluginLoader loader = new PluginLoader();
-            loader.Start();
+            loader.Start(path);
 
 #if ! DEBUG
             if (ConfigurationManager.AppSettings["USE_SCAN_SERVER"].Cast<bool>())

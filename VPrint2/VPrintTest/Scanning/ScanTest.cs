@@ -1,21 +1,72 @@
 ﻿using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using AForge.Imaging.Filters;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VPrinting.Common;
 using System.Collections.Generic;
-using VPrinting;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Windows.Media.Imaging;
-using System.Windows.Media;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VPrinting;
+using VPrinting.Common;
+using System.Threading;
+using System.Windows.Forms;
+using DTKBarReader;
 
 namespace VPrintTest
 {
     [TestClass]
     public class ScanTest
     {
+        [TestMethod]
+        public void italy_barcode_scan_test()
+        {
+            PluginLoader loader = new PluginLoader();
+            string path = @"C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug";
+            loader.Start(path);
+
+            var files = Directory.GetFiles(@"C:\SCANS");
+
+            StateSaver.Default.Path = "asd";
+            StateSaver.Default.Load();
+            List<BarcodeConfig> barcodeLayouts = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
+
+            foreach (var fileName in files)
+            {
+                Debug.WriteLine(fileName);
+
+                Bitmap bmp = (Bitmap)Bitmap.FromFile(fileName);
+                Bitmap bmpBarcode = null;
+                {
+                    var time = Stopwatch.StartNew();
+
+                    Rectangle rect = Rectangle.Empty;
+                    string barcode = null;
+                    bool result = CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode, BarcodeTypeEnum.BT_Inter2of5);
+                    Assert.IsTrue(result);
+
+                    BarcodeData data = null;
+
+                    if (barcode != null)
+                    {
+                        foreach (var cfg in barcodeLayouts)
+                            if (cfg.ParseBarcode(barcode, ref data))
+                                break;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Wrong barcode " + barcode);
+                    }
+
+                    if (data == null)
+                        Debug.WriteLine("Wrong barcode " + barcode);
+
+                    Debug.WriteLine(time.Elapsed);
+                }
+
+                Debug.WriteLine("===================================");
+            }
+        }
+
+
         [TestMethod]
         public void test_barcode_reader()
         {
@@ -128,6 +179,8 @@ namespace VPrintTest
             encoder.Save(stream);
         }
 
+
+        public ThreadExceptionEventHandler OnThreadException { get; set; }
     }
 
     //public class ImageHelper

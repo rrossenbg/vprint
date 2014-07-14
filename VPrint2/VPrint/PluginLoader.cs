@@ -17,9 +17,8 @@ namespace VPrinting
     {
         public static event ThreadExceptionEventHandler Error;
 
-        public void Start()
+        public void Start(string path)
         {
-            string path = Path.GetDirectoryName(Application.ExecutablePath);
             string[] addons = Directory.GetFiles(path, "*_addon.dll");
 
             var interf = typeof(IRunnable);

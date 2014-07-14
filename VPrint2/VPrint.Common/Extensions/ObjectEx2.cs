@@ -86,8 +86,6 @@ namespace VPrinting
 
                 foreach (PropertyInfo prop in _this.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
                 {
-                    Expression dva;
-
                     // Skip read only properties
                     if (!prop.CanWrite)
                         continue;
@@ -98,6 +96,8 @@ namespace VPrinting
                     // Skip properties with no DefaultValueAttribute
                     if ((null == attr) || (null == attr[0]))
                         continue;
+                    
+                    Expression dva;
 
                     // Build the Lambda expression
 #if DEBUG
@@ -108,10 +108,10 @@ namespace VPrinting
                     }
                     catch (InvalidOperationException e)
                     {
-                        string error = String.Format("Type of DefaultValueAttribute({3}{0}{3}) does not match type of property {1}.{2}",
+                        string error = string.Format("Type of DefaultValueAttribute({3}{0}{3}) does not match type of property {1}.{2}",
                             attr[0].Value.ToString(), _this.GetType().Name, prop.Name, ((typeof(string) == attr[0].Value.GetType()) ? "\"" : ""));
 
-                        throw (new InvalidOperationException(error, e));
+                        throw new InvalidOperationException(error, e);
                     }
 #else
                     dva = Expression.Convert(Expression.Constant(attr[0].Value), prop.PropertyType);

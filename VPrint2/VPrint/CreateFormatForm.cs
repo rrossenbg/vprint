@@ -3,15 +3,15 @@
 /***************************************************/
 
 using System;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using VPrinting.Data;
+using VPrinting.Documents;
 using VPrinting.ScanServiceRef;
 using mng = VPrinting.PartyManagement;
 using vp = VPrinting.VoucherNumberingAllocationPrinting;
-using VPrinting.Documents;
-using System.IO;
-using System.Configuration;
 
 namespace VPrinting
 {

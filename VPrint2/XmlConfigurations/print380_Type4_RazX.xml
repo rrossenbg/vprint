@@ -47,7 +47,7 @@
     var oLine1 = Convert.ToString(hoData.Length > 0 ? hoData[0]: "");
     var oLine2 = Convert.ToString(hoData.Length > 1 ? hoData[1]: "");
     var oLine3 = Convert.ToString(hoData.Length > 2 ? hoData[2]: "");
-    var oLine5 = Convert.ToString(hoData.Length > 3 ? hoData[4]: "");
+    var oLine5 = Convert.ToString(hoData.Length > 4 ? hoData[4]: "");
     
     //CERTIFICATES
     var certificate1 = Convert.ToString(officeData.Length > 1? officeData[1]: "");

@@ -19,6 +19,9 @@
     
     //Voucher
     var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);    
+    var barcodeText = Model.StrVoucherNo.Replace(" ", "");
+    
     var index = Convert.ToInt32(CacheManager.Instance.Table[Strings.Index]);    
     var subVoucherNumber = Model.Allocation.SubRangeFrom + index;   
     CacheManager.Instance.Table[Strings.Index] = index + 1;
@@ -216,6 +219,26 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
     </GPrintLine>  
 
   </Lines>
+  
+   <Barcodes>
+    <BarPrintLine>
+      <X>450</X>
+      <Y>15</Y>
+      <Text>@barcodeNumber</Text>
+      <Height>45</Height>
+      <Size>2</Size>
+      <BarText> 
+        <X>2</X>
+        <Y>2</Y>
+        <Size>0</Size>
+        <Text>@barcodeText</Text>
+        <Font>
+          <Value>Arial, 8pt</Value>
+        </Font>
+      </BarText>
+    </BarPrintLine>
+  </Barcodes>
+  
 </VoucherPrintRazX>
 
 ]]>
