@@ -97,6 +97,17 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
       </Font>
     </GPrintLine>
 
+ <!-- RetailerID - StoreNo 2-->
+    <GPrintLine>
+      <X>700</X>
+      <Y>30</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 7pt</Value>
+      </Font>
+    </GPrintLine>
+
     <!-- OfficeName - OfficeName 3-->
     <GPrintLine>
       <X>160</X>
@@ -106,29 +117,7 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
       <Font>
         <Value>Arial, 7pt</Value>
       </Font>
-    </GPrintLine>
-    
-    <!-- RetailerID - StoreNo 2-->
-    <GPrintLine>
-      <X>560</X>
-      <Y>75</Y>
-      <Size>0</Size>
-      <Text>@id</Text>
-      <Font>
-        <Value>Arial, 7pt</Value>
-      </Font>
-    </GPrintLine>
-
-    <!-- VatRateAmount - VatRateAmount-->
-    <GPrintLine>
-      <X>560</X>
-      <Y>90</Y>
-      <Size>0</Size>
-      <Text>@vatRateAmount</Text>
-      <Font>
-        <Value>Arial, 7pt</Value>
-      </Font>
-    </GPrintLine>
+    </GPrintLine>   
     
     <!-- Certificate1 -Certificate1 10-->
     <GPrintLine>
@@ -194,7 +183,7 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
       <Font>
         <Value>Arial, 7pt</Value>
       </Font>
-    </GPrintLine>
+    </GPrintLine>   
     
     <!-- VatNumber -VatNo 8-->
     <GPrintLine>
@@ -217,12 +206,23 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
         <Value>Arial, 7pt</Value>
       </Font>
     </GPrintLine>  
+    
+    <!-- VatRateAmount - VatRateAmount-->
+    <GPrintLine>
+      <X>350</X>
+      <Y>155</Y>
+      <Size>0</Size>
+      <Text>@vatRateAmount</Text>
+      <Font>
+        <Value>Arial, 7pt</Value>
+      </Font>
+    </GPrintLine>
 
   </Lines>
   
    <Barcodes>
     <BarPrintLine>
-      <X>450</X>
+      <X>400</X>
       <Y>15</Y>
       <Text>@barcodeNumber</Text>
       <Height>45</Height>
@@ -244,3 +244,4 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
 ]]>
   </Context>
 </VoucherPrintLayoutRazX>
+
