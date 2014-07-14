@@ -10,6 +10,7 @@ using System.Text;
 using System.Xml.Serialization;
 using VPrinting.Tools;
 using System.ComponentModel;
+using Zen.Barcode;
 
 namespace VPrinting.Documents
 {
@@ -141,6 +142,9 @@ namespace VPrinting.Documents
         /// Y => Barcode Bottom + Y
         /// </remarks>
         public GPrintLine BarText { get; set; }
+
+        public BarcodeSymbology Symbology { get; set; }
+
         public BarPrintLine()
         {
         }

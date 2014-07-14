@@ -90,7 +90,7 @@ namespace VPrinting.Common
             return string.Concat(value, value.CheckDigit());
         }
 
-        public static bool ParseVoucherImage(ref Bitmap bmp, ref Bitmap bmpBarcode, out Rectangle rect, ref string barcode)
+        public static bool ParseVoucherImage(ref Bitmap bmp, ref Bitmap bmpBarcode, out Rectangle rect, ref string barcode, BarcodeTypeEnum barcodeType = BarcodeTypeEnum.BT_All)
         {
             lock (typeof(BarcodeReader))
             {
@@ -101,7 +101,7 @@ namespace VPrinting.Common
                 BarcodeReader reader = new BarcodeReader(Strings.VScan_BarcodeReaderSDKDeveloperLicenseKey);
                 reader.LicenseManager.AddLicenseKey(Strings.VScan_BarcodeReaderSDKUnlimitedRuntimeLicenseKey);
                 reader.BarcodesToRead = 1;
-                reader.BarcodeTypes = BarcodeTypeEnum.BT_All;
+                reader.BarcodeTypes = barcodeType;
                 var barcodes = reader.ReadFromBitmapRotateAll(ref bmp, out bmpBarcode, out rect);
                 if (barcodes != null && barcodes.Length > 0)
                 {

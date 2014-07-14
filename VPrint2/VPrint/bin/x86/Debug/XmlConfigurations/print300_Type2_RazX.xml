@@ -19,9 +19,12 @@
     
     //Voucher
     var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
-    var index = Convert.ToInt32(CacheManager.Instance.Table[Strings.Index]);
-    var subVoucherNumber = Model.Allocation.SubRangeFrom + index;
-    CacheManager.Instance.Table[Strings.Index] = index + 1;
+	var index = Convert.ToInt32(CacheManager.Instance.Table[Strings.Index]);    
+	var subVoucherNumber = Model.Allocation.SubRangeFrom + index;   
+	CacheManager.Instance.Table[Strings.Index] = index + 1;
+
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);    
+    var barcodeText = Model.StrVoucherNo.Replace(" ", "");
     
     //Retailer
     var id = Model.Retailer.Id;
@@ -35,8 +38,9 @@
     
     var officeData = Model.Manager.RetrieveTableData("ho_pfs, ho_Certificate_1, ho_Certificate_2, ho_Certificate_3, ho_category_title,ho_add_id", "HeadOffice", 
         "where ho_id={0} and ho_iso_id={1}".format(Model.Retailer.HeadOfficeId, Model.Office.CountryId));
-    var branchData = Model.Manager.RetrieveTableData("br_category, br_pfs", "Branch", 
-        "where br_id={0} and br_iso_id={1}".format(Model.Retailer.Id, Model.Retailer.CountryId));
+	var branchData = Model.Manager.RetrieveTableData("br_category, br_pfs", "Branch",         
+    	"where br_id={0} and br_iso_id={1}".format(Model.Retailer.Id, Model.Retailer.CountryId));
+
     
     //Office
     var officeName = Model.Retailer.HeadOfficeName.EscapeXml();
@@ -49,13 +53,12 @@
     var officeAddress = string.Concat(oLine1, ",", oLine2, ",", oLine3, ",", oLine5).Limit(60, "...").EscapeXml();
     
     //Certificates
-    var opfs = ("Δ.Ο.Υ." + branchData[1]).EscapeXml();
+    var opfs = ("Δ.Ο.Υ. " + branchData[1]).EscapeXml();
     var certificate1 = Convert.ToString( officeData[1]).EscapeXml();
     var certificate2 = Convert.ToString( officeData[2]).EscapeXml();
     var certificate3 = Convert.ToString( officeData[3]).EscapeXml();
     var category = Convert.ToString( officeData[4]).EscapeXml();
-    
-    var vatRateAmount = string.Format("Φ.Π.Α {0}%", Model.Retailer.VatRateAmount );
+   var vatRateAmount = string.Format("Φ.Π.Α. {0}%", Model.Retailer.VatRateAmount );
     var vatNumber = string.Concat("Α.Φ.Μ. ", Model.Retailer.VatNumber);
 }  
 
@@ -96,17 +99,17 @@
         <Value>Arial, 7pt</Value>
       </Font>
     </GPrintLine>
-    
-    <!-- VatRateAmount - VatRateAmount-->
-    <GPrintLine>
-      <X>684</X>
-      <Y>107</Y>
-      <Size>0</Size>
-      <Text>@vatRateAmount</Text>
-      <Font>
-        <Value>Arial, 7pt</Value>
-      </Font>
-    </GPrintLine>
+
+  <!-- VatRateAmount - VatRateAmount-->
+  <GPrintLine>
+    <X>684</X>
+    <Y>107</Y>
+    <Size>0</Size>
+    <Text>@vatRateAmount</Text>
+    <Font>
+      <Value>Arial, 7pt</Value>
+    </Font>
+  </GPrintLine>
     
     <!-- Certificate1                                 -->
     <GPrintLine>
@@ -208,6 +211,25 @@
     </GPrintLine>
 
   </Lines>
+   <Barcodes>
+    <BarPrintLine>
+      <X>50</X>
+      <Y>15</Y>
+      <Text>@barcodeNumber</Text>
+      <Height>45</Height>
+      <Size>2</Size>
+      <BarText> 
+        <X>2</X>
+        <Y>2</Y>
+        <Size>0</Size>
+        <Text>@barcodeText</Text>
+        <Font>
+          <Value>Arial, 8pt</Value>
+        </Font>
+      </BarText>
+    </BarPrintLine>
+  </Barcodes>
+
 </VoucherPrintRazX>
 
 ]]>

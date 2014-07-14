@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
@@ -50,11 +51,14 @@ namespace VPrintTest
         {
             //Oki
             VoucherPrinter printer = new VoucherPrinter();
-            printer.m_PrinterName = Printers.DELL;
+            printer.m_PrinterName = Printers._3TH_FLOOR_PRINTER;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
             printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print300_Type1_RazX.xml";
             printer.UseLocalPrinter = true;
             printer.UseLocalFormat = true;
+            printer.PrintOnce = true;
+            printer.SimulatePrint = false;
+            printer.Test += new System.EventHandler(printer_Test);
             printer.PrintAllocation(389298, false); //388608
         }
 
@@ -63,11 +67,15 @@ namespace VPrintTest
         {
             //HP - RID - 361456
             VoucherPrinter printer = new VoucherPrinter();
-            printer.m_PrinterName = Printers.DELL;
+            printer.m_PrinterName = Printers._3TH_FLOOR_PRINTER;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
             printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print300_Type2_RazX.xml";
             printer.UseLocalPrinter = true;
-            printer.PrintAllocation(388608, false); //361456
+            printer.UseLocalFormat = true;
+            printer.PrintOnce = true;
+            printer.SimulatePrint = false;
+            printer.Test += new System.EventHandler(printer_Test);
+            printer.PrintAllocation(389298, false); //361456
         }
 
         [TestMethod]
@@ -81,6 +89,7 @@ namespace VPrintTest
             printer.UseLocalPrinter = true;
             printer.UseLocalFormat = true;
             printer.PrintOnce = true;
+            printer.SimulatePrint = false;
             printer.PrintAllocation(389298, false); //388608
         }
 
@@ -132,6 +141,11 @@ namespace VPrintTest
         {
             double d = 111111.223332;
             Debug.WriteLine(d.ToString("0.##"));
+        }
+
+        private void printer_Test(object sender, EventArgs e)
+        {
+
         }
     }
 }
