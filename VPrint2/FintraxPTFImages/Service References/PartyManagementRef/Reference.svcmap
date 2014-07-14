@@ -18,11 +18,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.58.59/ptfwebservice/PartyManagement.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.53.117/ptfwebservice/PartyManagement.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PartyManagement.wsdl" MetadataType="Wsdl" ID="59b483f5-eb68-4587-88be-b9bcaf2278d6" SourceId="1" SourceUrl="http://192.168.58.59/ptfwebservice/PartyManagement.asmx?wsdl" />
-    <MetadataFile FileName="PartyManagement.disco" MetadataType="Disco" ID="59d086a4-aca1-4df1-93e3-21639ed4f21f" SourceId="1" SourceUrl="http://192.168.58.59/ptfwebservice/PartyManagement.asmx?disco" />
+    <MetadataFile FileName="PartyManagement1.disco" MetadataType="Disco" ID="3e0dc0e1-630d-43ce-a8eb-d84d3093a1a9" SourceId="1" SourceUrl="http://192.168.53.117/ptfwebservice/PartyManagement.asmx?disco" />
+    <MetadataFile FileName="PartyManagement1.wsdl" MetadataType="Wsdl" ID="afc076e4-f286-4650-974a-dabd52d8ee10" SourceId="1" SourceUrl="http://192.168.53.117/ptfwebservice/PartyManagement.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

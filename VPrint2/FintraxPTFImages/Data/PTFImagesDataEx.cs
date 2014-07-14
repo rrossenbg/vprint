@@ -39,13 +39,15 @@ namespace FintraxPTFImages.Data
 
         public void EndHistory(string sessionId, DateTime time, bool submit = true)
         {
-            var history = this.UserActivityHistories.FirstOrDefault((h) => h.uah_sessionId == sessionId);
-            if (history != null)
-            {
-                history.uah_end = time;
-                if (submit)
-                    this.SubmitChanges();
-            }
+            //TODO
+
+            //var history = this.UserActivityHistories.FirstOrDefault((h) => h.uah_sessionId == sessionId);
+            //if (history != null)
+            //{
+            //    history.uah_end = time;
+            //    if (submit)
+            //        this.SubmitChanges();
+            //}
         }
     }
 }

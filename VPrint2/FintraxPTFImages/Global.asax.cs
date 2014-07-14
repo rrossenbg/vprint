@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
+using System.Threading;
 using System.Web.Hosting;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -7,8 +9,6 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using FintraxPTFImages.Common;
 using FintraxPTFImages.Data;
-using System.Globalization;
-using System.Threading;
 
 namespace FintraxPTFImages
 {
@@ -34,7 +34,7 @@ namespace FintraxPTFImages
             Thread.CurrentThread.CurrentCulture = info;
 
             Response.BufferOutput = true;
-            FileLogger.LogInfo(DateTime.Now.ToString(), "Application_BeginRequest");
+            //FileLogger.LogInfo(DateTime.Now.ToString(), "Application_BeginRequest");
         }
 
         protected void Application_End(Object sender, EventArgs e)
@@ -66,13 +66,13 @@ namespace FintraxPTFImages
 
         protected void Session_Start(Object sender, EventArgs e)
         {
-            FileLogger.LogInfo("Session_Start", "Session_Start");
+            //FileLogger.LogInfo("Session_Start", "Session_Start");
         }
 
         protected void Session_End(Object sender, EventArgs e)
         {
             PTFImagesDataDataContext.Default.EndHistory(Session.SessionID, DateTime.Now);
-            FileLogger.LogInfo("Session_End", "Session_End");
+            //FileLogger.LogInfo("Session_End", "Session_End");
         }
     }
 }

@@ -2,6 +2,7 @@
 //  Copyright (c) Premium Tax Free 2013
 /***************************************************/
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using FintraxPTFImages.AuthenticationRef;
@@ -17,8 +18,17 @@ namespace FintraxPTFImages.Data
     {
         public List<VoucherInfo> SelectVouchers(int countryId, int retailerId)
         {
-            ScanServiceClient proxy = new ScanServiceClient();
-            return proxy.ReadData(countryId, retailerId).ToList();
+            IScanService client = null;
+            try
+            {
+                client = ScanServiceClient.CreateProxy();
+                var keys = Security.CreateInstance().GenerateSecurityKeys();
+                return new List<VoucherInfo>(client.ReadData(countryId, retailerId, keys.Item1, keys.Item2));
+            }
+            finally
+            {
+                ((IDisposable)client).DisposeSf();
+            }
         }
 
         public CurrentUser TryLogin(int countryId, string userName, string password)

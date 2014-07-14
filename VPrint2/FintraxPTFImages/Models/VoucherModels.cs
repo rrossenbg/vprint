@@ -72,8 +72,8 @@ namespace FintraxPTFImages.Models
             if (FromDate >= DateTime.Today)
                 errorTable.AddModelError("FromDate", "FromDate should not be into the future");
 
-            if (ToDate >= DateTime.Today)
-                errorTable.AddModelError("ToDate", "ToDate should not be into the future");
+            //if (ToDate >= DateTime.Today)
+            //    errorTable.AddModelError("ToDate", "ToDate should not be into the future");
 
             if (!errorTable.IsValid)
                 errorTable.AddModelError("", "There are some errors. Please correct");

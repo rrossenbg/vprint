@@ -18,14 +18,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.53.143/ReceivingServiceWeb/ScanService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="net.tcp://192.168.53.143:8080/ReceivingServiceLib.ScanService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ScanService3.xsd" MetadataType="Schema" ID="9f66fdd0-bf35-4a8a-8ca2-9a8bca600712" SourceId="1" SourceUrl="http://192.168.53.143/ReceivingServiceWeb/ScanService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ScanService1.disco" MetadataType="Disco" ID="c436e6f7-6afc-43ce-9b8b-d64094f63a91" SourceId="1" SourceUrl="http://192.168.53.143/ReceivingServiceWeb/ScanService.svc?disco" />
-    <MetadataFile FileName="ScanService31.xsd" MetadataType="Schema" ID="50fa4803-f4bc-495b-98e0-47295284e6b3" SourceId="1" SourceUrl="http://192.168.53.143/ReceivingServiceWeb/ScanService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ScanService.wsdl" MetadataType="Wsdl" ID="3fac8b2f-3793-4aec-adc6-2303b129c070" SourceId="1" SourceUrl="http://192.168.53.143/ReceivingServiceWeb/ScanService.svc?wsdl" />
-    <MetadataFile FileName="ScanService32.xsd" MetadataType="Schema" ID="a3e04a66-8a1a-46ea-9334-e126cf75d279" SourceId="1" SourceUrl="http://192.168.53.143/ReceivingServiceWeb/ScanService.svc?xsd=xsd2" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="96455ba7-bf80-4535-b740-1983a4b9255b" SourceId="1" SourceUrl="net.tcp://192.168.53.143:8080/ReceivingServiceLib.ScanService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="4f1e15c4-37f0-43bf-83a6-dc12858c5eaf" SourceId="1" SourceUrl="net.tcp://192.168.53.143:8080/ReceivingServiceLib.ScanService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="f0fbf53c-2776-412e-a032-e9d75e653602" SourceId="1" SourceUrl="net.tcp://192.168.53.143:8080/ReceivingServiceLib.ScanService/mex" />
+    <MetadataFile FileName="ReceivingServiceLib.xsd" MetadataType="Schema" ID="e83ce9b0-3d91-4a45-95b7-df5df9133515" SourceId="1" SourceUrl="net.tcp://192.168.53.143:8080/ReceivingServiceLib.ScanService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
