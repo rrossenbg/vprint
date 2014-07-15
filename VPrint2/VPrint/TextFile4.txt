@@ -1,0 +1,16 @@
+declare @Country int
+set @Country = 826
+
+declare @SiteCode nvarchar(20)
+set @SiteCode = 'AK'
+
+declare @StartNumber int
+set @StartNumber = 6921022
+declare @EndNumber int
+set @EndNumber = 6921123
+
+
+
+
+
+http://stackoverflow.com/questions/6012578/how-can-i-create-net-extension-methods-by-c-cli

@@ -4,7 +4,7 @@
   <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VPrint" version="1.0.5308.24338" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="VPrint" version="1.0.5309.13719" language="neutral" processorArchitecture="x86" />
     <commandLine file="VPrint.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -79,13 +79,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="933888">
-      <assemblyIdentity name="VPrint" version="1.0.5308.24338" language="neutral" processorArchitecture="x86" />
+      <assemblyIdentity name="VPrint" version="1.0.5309.13719" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>sjiUhJzn55iIxjrRQf0fAYy5olc=</dsig:DigestValue>
+        <dsig:DigestValue>qOGGhYLGQiyCJvo8+dCGZ71Vo48=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>SzIMwDlPg+rUByLFVP0ezQPOsTs=</dsig:DigestValue>
+        <dsig:DigestValue>+FbwbUGMeVA4WmF1W85WW4lTGHc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
