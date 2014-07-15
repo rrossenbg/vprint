@@ -41,17 +41,17 @@ namespace FintraxPTFImages.Data
             return new CurrentUser(userId, userName, countryId);
         }
 
-        public HeadOffice[] RetrieveHeadOfficeList(int countryId)
+        public HeadOffice[] RetrieveHeadOfficeList(PAuthenticationHeader header, int countryId)
         {
             var client = new PartyManagementSoapClient();
-            var results = client.RetrieveHeadOfficeList(new PAuthenticationHeader(), countryId);
+            var results = client.RetrieveHeadOfficeList(header, countryId);
             return results;
         }
 
-        public Retailer[] RetrieveRetailerList(int countryId, int headOfficeId)
+        public Retailer[] RetrieveRetailerList(PAuthenticationHeader header, int countryId, int headOfficeId)
         {
             var client = new PartyManagementSoapClient();
-            var results = client.RetrieveRetailerList(new PAuthenticationHeader(), countryId, headOfficeId);
+            var results = client.RetrieveRetailerList(header, countryId, headOfficeId);
             return results;
         }
     }

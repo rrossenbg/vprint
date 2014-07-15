@@ -31,12 +31,12 @@ namespace FintraxPTFImages.Models
         [DataType(DataType.Text)]
         public int Retailer { get; set; }
 
-        [Required]
+        //[Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime FromDate { get; set; }
 
-        [Required]
+        //[Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime ToDate { get; set; }
@@ -57,19 +57,19 @@ namespace FintraxPTFImages.Models
             if (Retailer <= 0)
                 errorTable.AddModelError("Retailer", "Retailer invalid");
 
-            if (FromDate == DateTime.MinValue)
-                errorTable.AddModelError("FromDate", "FromDate invalid");
+            //if (FromDate == DateTime.MinValue)
+            //    errorTable.AddModelError("FromDate", "FromDate invalid");
 
-            if (ToDate == DateTime.MinValue)
-                errorTable.AddModelError("ToDate", "ToDate invalid");
+            //if (ToDate == DateTime.MinValue)
+            //    errorTable.AddModelError("ToDate", "ToDate invalid");
 
-            if (FromDate >= ToDate)
+            if (FromDate > ToDate)
             {
                 errorTable.AddModelError("FromDate", "FromDate should be less than ToDate");
                 errorTable.AddModelError("ToDate", "ToDate should be greater than FromDate");
             }
 
-            if (FromDate >= DateTime.Today)
+            if (FromDate != DateTime.MinValue && FromDate >= DateTime.Today)
                 errorTable.AddModelError("FromDate", "FromDate should not be into the future");
 
             //if (ToDate >= DateTime.Today)
@@ -85,12 +85,15 @@ namespace FintraxPTFImages.Models
         public string Name { get; set; }
         public string Path { get; set; }
         public string Id { get; set; }
+        public string Type { get; set; }
+        public byte[] Data { get; set; }
 
         public ShowModel(string name, string path)
         {
             Name = name;
             Path = path;
             Id = "".Unique();
+            Type = path.GetContentType();
         }
     }
 

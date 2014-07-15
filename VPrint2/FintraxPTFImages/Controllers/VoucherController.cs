@@ -80,11 +80,17 @@ namespace FintraxPTFImages
             ViewData["CountryList"] = HttpContext.Session.Get<List<SelectListItem>>("CountryList",
                 Helper.CreateCountryDropDownLoadFunction());
 
-            ViewData["HeadOfficeList"] = HttpContext.Session.Get<List<SelectListItem>>("HeadOfficeList" + model.Country,
-                Helper.CreateHeadOfficeDropDownLoadFunction(model.Country));
+            if (model.Country == 0)
+                throw new ArgumentException("model.Country");
 
-            ViewData["RetailerList"] = HttpContext.Session.Get<List<SelectListItem>>("RetailerList" + model.Country + ";" + model.HeadOffice,
-                Helper.CreateRetailerDropDownLoadFunction(model.Country, model.HeadOffice));
+            ViewData["HeadOfficeList"] = HttpContext.Session.Get<int, List<SelectListItem>>("HeadOfficeList" + model.Country,
+                Helper.CreateHeadOfficeDropDownLoadFunction(), model.Country);
+
+            if (model.HeadOffice == 0)
+                throw new ArgumentException("model.HeadOffice");
+
+            ViewData["RetailerList"] = HttpContext.Session.Get<int, int, List<SelectListItem>>("RetailerList" + model.Country + ";" + model.HeadOffice,
+                Helper.CreateRetailerDropDownLoadFunction(), model.Country, model.HeadOffice);
 
             model.Validate(this.ModelState);
 
@@ -103,8 +109,8 @@ namespace FintraxPTFImages
         public ActionResult SelectHeadOffices(string value)
         {
             var isoId = value.cast<int>();
-            var headoffices = HttpContext.Session.Get<List<SelectListItem>>("HeadOfficeList" + isoId, 
-                Helper.CreateHeadOfficeDropDownLoadFunction(isoId));
+            var headoffices = HttpContext.Session.Get<int, List<SelectListItem>>("HeadOfficeList" + isoId,
+                Helper.CreateHeadOfficeDropDownLoadFunction(), isoId);
             return Json(new ArrayList(headoffices), JsonRequestBehavior.AllowGet);
         }
 
@@ -115,8 +121,8 @@ namespace FintraxPTFImages
             var isoId = strs[0].cast<int>();
             var hoId = strs[1].cast<int>();
 
-            var retailers = HttpContext.Session.Get<List<SelectListItem>>("RetailerList" + value, 
-                Helper.CreateRetailerDropDownLoadFunction(isoId, hoId));
+            var retailers = HttpContext.Session.Get<int, int, List<SelectListItem>>("RetailerList" + value,
+                Helper.CreateRetailerDropDownLoadFunction(), isoId, hoId);
             return Json(new ArrayList(retailers), JsonRequestBehavior.AllowGet);
         }
 
@@ -175,7 +181,9 @@ namespace FintraxPTFImages
                 }
                 else
                 {
-                    var model = new ShowModel(file.Name, this.Url.Content("~/WEBVOUCHERFOLDER/" + info.SessionId + "/" + file.Name));
+                    var model = new ShowModel(file.Name,
+                        string.Concat("/FintraxPTFImages/WEBVOUCHERFOLDER/", info.SessionId, "/", file.Name));
+                    model.Data = System.IO.File.ReadAllBytes(file.FullName);
                     files.Add(model);
                 }
             }

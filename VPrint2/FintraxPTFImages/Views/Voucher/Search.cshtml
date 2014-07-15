@@ -86,19 +86,31 @@
         </tr>
         <tr>
             <td>
-                <label>
-                    From Date</label>@Html.TextBoxFor(model => model.FromDate, new { style = "width: 105px", @class = "datepicker" })
-                    @Html.ValidationMessageFor(model => model.FromDate)
+                &nbsp;
             </td>
             <td>
-                <label>
-                    To Date</label>@Html.TextBoxFor(model => model.ToDate, new { style = "width: 105px", @class = "datepicker" })
-                    @Html.ValidationMessageFor(model => model.ToDate)
+                &nbsp;
             </td>
             <td>
                 <input type="submit" value="Search" />
             </td>
         </tr>
+        <!--
+        <tr>
+            <td>
+                <label>
+                    From Date</label>@Html.TextBoxFor(model => model.FromDate, new { style = "width: 105px", @class = "datepicker" })
+                    Html.ValidationMessageFor(model => model.FromDate)
+            </td>
+            <td>
+                <label>
+                    To Date</label>@Html.TextBoxFor(model => model.ToDate, new { style = "width: 105px", @class = "datepicker" })
+                    Html.ValidationMessageFor(model => model.ToDate)
+            </td>
+            <td>
+                <input type="submit" value="Search" />
+            </td>
+        </tr>-->
     </table>
 }
 @{

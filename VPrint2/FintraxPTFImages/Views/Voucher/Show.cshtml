@@ -20,9 +20,9 @@
             var myVar = window.setInterval(function () { CheckImagesAreShown() }, 25000); //25sec
             function CheckImagesAreShown() {
                 var images = document.getElementById("Images")
-                if(images == null)
+                if (images == null)
                     document.location.reload(true);
-                else 
+                else
                     window.clearTimeout(myVar);
             }
         });
@@ -31,8 +31,8 @@
 }
 <h2>
     Show Voucher</h2>
-@Html.ActionLink("Back", "Search")&nbsp;
-<a onclick="document.location.reload(true)" style="cursor: pointer;">Refresh</a>
+@Html.ActionLink("Back", "Search")&nbsp; <a onclick="document.location.reload(true)"
+    style="cursor: pointer;">Refresh</a>
 <div style="display: table; width: 100%; height: auto;">
     @{
         var xmlModel = (ShowXmlModel)Model.FirstOrDefault(m => m is ShowXmlModel);
@@ -105,7 +105,14 @@
                 &nbsp;&nbsp; @file.Name
                 <a onclick="printDiv('@file.Id')" style="cursor: pointer; float: right;" >Print</a></p>
             <br />
-            <img alt="file" src="@file.Path" style="width: 100%; height: auto; border: 1px solid black;" />
+            <!-- <img alt="file" src="@file.Path" style="width: 100%; height: auto; border: 1px solid black;" /> -->
+            <!-- <embed src="@file.Path" type="@file.Type" negative="yes" style="width: 100%; height: auto; border: 1px solid black;"></embed> -->
+            <!-- Html.Embed(file.Id, file.Path, new { negative="yes", type = file.Type, style = "width: 100%; height: auto; border: 1px solid black;" })  -->
+            @{
+        var base64 = Convert.ToBase64String(file.Data);
+        var imgSrc = String.Format("data:{0};base64,{1}", file.Type, base64);
+            }
+            <img src="@imgSrc" alt="img"/>
             <br />
         </div>}
 </div>

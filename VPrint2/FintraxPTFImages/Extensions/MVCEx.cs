@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using System.Web.SessionState;
 using System.Web.UI;
 using FintraxPTFImages.Common;
+using System.Web.Routing;
 
 namespace FintraxPTFImages
 {
@@ -86,6 +87,32 @@ namespace FintraxPTFImages
 
             if (state[name] == default(T))
                 state[name] = createFunc();
+
+            return (T)state[name];
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static T Get<P1, T>(this HttpSessionStateBase state, string name, Func<P1, T> createFunc, P1 p1) where T : class
+        {
+            Debug.Assert(state != null);
+            Debug.Assert(name != null);
+            Debug.Assert(createFunc != null);
+
+            if (state[name] == default(T))
+                state[name] = createFunc(p1);
+
+            return (T)state[name];
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static T Get<P1, P2, T>(this HttpSessionStateBase state, string name, Func<P1, P2, T> createFunc, P1 p1, P2 p2) where T : class
+        {
+            Debug.Assert(state != null);
+            Debug.Assert(name != null);
+            Debug.Assert(createFunc != null);
+
+            if (state[name] == default(T))
+                state[name] = createFunc(p1, p2);
 
             return (T)state[name];
         }
@@ -268,6 +295,64 @@ namespace FintraxPTFImages
                 writer.Write(pagedList.TotalItems);
                 writer.Write(" items in all)");
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="srv"></param>
+        /// <param name="path"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        /// <example>
+        /// Server.RelativePath(path, Request);
+        /// </example>
+        [TargetedPatchingOptOut("na")]
+        public static string RelativePath(this HttpServerUtility srv, string path, HttpRequest context)
+        {
+            return path.Replace(context.ServerVariables["APPL_PHYSICAL_PATH"], "~/").Replace(@"\", "/");
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static string RelativeFromAbsolutePath(this string path)
+        {
+            if (HttpContext.Current != null)
+            {
+                var request = HttpContext.Current.Request;
+                var applicationPath = request.PhysicalApplicationPath;
+                var virtualDir = request.ApplicationPath;
+                virtualDir = (virtualDir == "/") ? virtualDir : (virtualDir + "/");
+                return path.Replace(applicationPath, virtualDir).Replace(@"\", "/");
+            }
+            throw new InvalidOperationException("We can only map an absolute back to a relative path if an HttpContext is available.");
+        }
+
+        /// <summary>
+        /// <%= Html.Image("previewImage",file.Path,new { width=100, height=100}) %>   
+        /// </summary>
+        /// <param name="helper"></param>
+        /// <param name="name"></param>
+        /// <param name="url"></param>
+        /// <param name="htmlAttributes"></param>
+        /// <returns></returns>
+        [TargetedPatchingOptOut("na")]
+        public static MvcHtmlString Image(this HtmlHelper helper, string name, string url, object htmlAttributes = null)
+        {
+            var tagBuilder = new TagBuilder("img");
+            tagBuilder.GenerateId(name);
+            tagBuilder.Attributes["src"] = new UrlHelper(helper.ViewContext.RequestContext).Content(url);
+            tagBuilder.MergeAttributes(new RouteValueDictionary(htmlAttributes));
+            return new MvcHtmlString(tagBuilder.ToString());
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static MvcHtmlString Embed(this HtmlHelper helper, string name, string url, object htmlAttributes = null)
+        {
+            var tagBuilder = new TagBuilder("embed");
+            tagBuilder.GenerateId(name);
+            tagBuilder.Attributes["src"] = new UrlHelper(helper.ViewContext.RequestContext).Content(url);
+            tagBuilder.MergeAttributes(new RouteValueDictionary(htmlAttributes));
+            return new MvcHtmlString(tagBuilder.ToString());
         }
     }
 }
