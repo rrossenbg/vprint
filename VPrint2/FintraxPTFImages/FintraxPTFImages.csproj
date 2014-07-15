@@ -203,6 +203,7 @@
     <Compile Include="Extensions\ObjectEx2.cs" />
     <Compile Include="Extensions\StringEx.cs" />
     <Compile Include="Extensions\ThreadEx.cs" />
+    <Compile Include="Handler\ImageHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ScanServerClient.cs" />
     <Compile Include="Strings.cs" />
@@ -330,6 +331,7 @@
     <None Include="Service References\ScanServiceRef\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="WEBVOUCHERFOLDER\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -518,7 +520,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="VOUCHERS\" />
-    <Folder Include="WEBVOUCHERFOLDER\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -25,16 +25,16 @@ namespace FintraxPTFImages.Data
 
         public void BeginHistory(int userId, int countryId, string sessionId, DateTime time, bool submit = true)
         {
-            var history = new UserActivityHistory();
-            history.uah_userId = userId;
-            history.uah_isoId = countryId;
-            history.uah_begin = time;
-            history.uah_sessionId = sessionId;
-            history.createdAt = DateTime.Now;
+            //var history = new UserActivityHistory();
+            //history.uah_userId = userId;
+            //history.uah_isoId = countryId;
+            //history.uah_begin = time;
+            //history.uah_sessionId = sessionId;
+            //history.createdAt = DateTime.Now;
 
-            this.UserActivityHistories.InsertOnSubmit(history);
-            if (submit)
-                this.SubmitChanges();
+            //this.UserActivityHistories.InsertOnSubmit(history);
+            //if (submit)
+            //    this.SubmitChanges();
         }
 
         public void EndHistory(string sessionId, DateTime time, bool submit = true)
