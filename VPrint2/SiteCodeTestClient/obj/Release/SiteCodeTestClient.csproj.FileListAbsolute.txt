@@ -6,3 +6,11 @@ C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Release\SiteCodeTestClient.Properties.
 C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Release\SiteCodeTestClient.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Release\SiteCodeTestClient.exe
 C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Release\SiteCodeTestClient.pdb
+C:\PROJECTS\VPrint2\SiteCodeTestClient\bin\Release\SiteCodeTestClient.exe.config
+C:\PROJECTS\VPrint2\SiteCodeTestClient\bin\Release\SiteCodeTestClient.exe
+C:\PROJECTS\VPrint2\SiteCodeTestClient\bin\Release\SiteCodeTestClient.pdb
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Release\SiteCodeTestClient.MainForm.resources
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Release\SiteCodeTestClient.Properties.Resources.resources
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Release\SiteCodeTestClient.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Release\SiteCodeTestClient.exe
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Release\SiteCodeTestClient.pdb

@@ -91,4 +91,3 @@ C:\PROJECTS\VPrint2\FintraxPTFImages\bin\Microsoft.Web.WebPages.OAuth.xml
 C:\PROJECTS\VPrint2\FintraxPTFImages\bin\WebMatrix.WebData.xml
 C:\PROJECTS\VPrint2\FintraxPTFImages\obj\Release\FintraxPTFImages.dll
 C:\PROJECTS\VPrint2\FintraxPTFImages\obj\Release\FintraxPTFImages.pdb
-C:\PROJECTS\VPrint2\FintraxPTFImages\obj\Release\FintraxPTFImages.csprojResolveAssemblyReference.cache

@@ -5,6 +5,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -13,8 +14,8 @@ using FintraxPTFImages.Attributes;
 using FintraxPTFImages.Common;
 using FintraxPTFImages.Data;
 using FintraxPTFImages.Models;
-using FintraxPTFImages.ScanServiceRef;
 using FintraxPTFImages.PartyManagementRef;
+using FintraxPTFImages.ScanServiceRef;
 
 namespace FintraxPTFImages
 {
@@ -181,9 +182,12 @@ namespace FintraxPTFImages
 
             string webRootPath = Server.MapPath("~/WEBVOUCHERFOLDER");
             var webroot = new DirectoryInfo(webRootPath);
-            var sessionId = webroot.Combine(info.SessionId);
+            var sessionIdFolder = webroot.Combine(info.SessionId);
 
-            foreach (var file in sessionId.GetFiles())
+            //var textFile = sessionIdFolder.CombineFileName("mark.txt");
+            //System.IO.File.WriteAllText(textFile.FullName, "");
+
+            foreach (var file in sessionIdFolder.GetFiles())
             {
                 if (file.Extension.EqualsNoCase(".xml"))
                 {
@@ -193,10 +197,23 @@ namespace FintraxPTFImages
                 }
                 else
                 {
-                    var model = new ShowModel(file.Name,
-                        string.Concat("/FintraxPTFImages/WEBVOUCHERFOLDER/", info.SessionId, "/", file.Name));
-                    model.Data = System.IO.File.ReadAllBytes(file.FullName);
-                    files.Add(model);
+                    if (file.Extension.EqualsNoCase(".tif"))
+                    {
+                        var images = file.FullName.TiffGetAllImages();
+                        int count = 0;
+                        foreach (var img in images)
+                        {
+                            var model = new ShowModel(string.Format("{0} Page {1}", file.Name, ++count), file.FullName);
+                            model.Data = img.ToArray();
+                            files.Add(model);
+                        }
+                    }
+                    else
+                    {
+                        var model = new ShowModel(file.Name, string.Concat("/FintraxPTFImages/WEBVOUCHERFOLDER/", info.SessionId, "/", file.Name));
+                        model.Data = System.IO.File.ReadAllBytes(file.FullName);
+                        files.Add(model);
+                    }
                 }
             }
 

@@ -19,6 +19,9 @@
     
     //Voucher
     var voucherNumber = Model.VoucherNo + Model.Printing.CalculateCheckDigit(Model.VoucherNo);
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);    
+    var barcodeText = Model.StrVoucherNo.Replace(" ", "");
+    
     var index = Convert.ToInt32(CacheManager.Instance.Table[Strings.Index]);    
     var subVoucherNumber = Model.Allocation.SubRangeFrom + index;   
     CacheManager.Instance.Table[Strings.Index] = index + 1;
@@ -94,6 +97,17 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
       </Font>
     </GPrintLine>
 
+ <!-- RetailerID - StoreNo 2-->
+    <GPrintLine>
+      <X>750</X>
+      <Y>50</Y>
+      <Size>0</Size>
+      <Text>@id</Text>
+      <Font>
+        <Value>Arial, 7pt</Value>
+      </Font>
+    </GPrintLine>
+
     <!-- OfficeName - OfficeName 3-->
     <GPrintLine>
       <X>160</X>
@@ -103,29 +117,7 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
       <Font>
         <Value>Arial, 7pt</Value>
       </Font>
-    </GPrintLine>
-    
-    <!-- RetailerID - StoreNo 2-->
-    <GPrintLine>
-      <X>560</X>
-      <Y>75</Y>
-      <Size>0</Size>
-      <Text>@id</Text>
-      <Font>
-        <Value>Arial, 7pt</Value>
-      </Font>
-    </GPrintLine>
-
-    <!-- VatRateAmount - VatRateAmount-->
-    <GPrintLine>
-      <X>560</X>
-      <Y>90</Y>
-      <Size>0</Size>
-      <Text>@vatRateAmount</Text>
-      <Font>
-        <Value>Arial, 7pt</Value>
-      </Font>
-    </GPrintLine>
+    </GPrintLine>   
     
     <!-- Certificate1 -Certificate1 10-->
     <GPrintLine>
@@ -191,7 +183,7 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
       <Font>
         <Value>Arial, 7pt</Value>
       </Font>
-    </GPrintLine>
+    </GPrintLine>   
     
     <!-- VatNumber -VatNo 8-->
     <GPrintLine>
@@ -199,6 +191,17 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
       <Y>145</Y>
       <Size>0</Size>
       <Text>@vatNumber</Text>
+      <Font>
+        <Value>Arial, 7pt</Value>
+      </Font>
+    </GPrintLine>
+
+<!-- VatRateAmount - VatRateAmount-->
+    <GPrintLine>
+      <X>350</X>
+      <Y>145</Y>
+      <Size>0</Size>
+      <Text>@vatRateAmount</Text>
       <Font>
         <Value>Arial, 7pt</Value>
       </Font>
@@ -214,8 +217,29 @@ PFS NUMBER (ALONG WITH THE GREEK LETTERS Δ.Ο.Υ.)
         <Value>Arial, 7pt</Value>
       </Font>
     </GPrintLine>  
+ 
 
   </Lines>
+  
+   <Barcodes>
+    <BarPrintLine>
+      <X>400</X>
+      <Y>15</Y>
+      <Text>@barcodeNumber</Text>
+      <Height>45</Height>
+      <Size>2</Size>
+      <BarText> 
+        <X>2</X>
+        <Y>2</Y>
+        <Size>0</Size>
+        <Text>@barcodeText</Text>
+        <Font>
+          <Value>Arial, 8pt</Value>
+        </Font>
+      </BarText>
+    </BarPrintLine>
+  </Barcodes>
+  
 </VoucherPrintRazX>
 
 ]]>

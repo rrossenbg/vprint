@@ -200,6 +200,7 @@
       <DependentUpon>PTFDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Extensions\DisposableEx.cs" />
+    <Compile Include="Extensions\ImagesEx.cs" />
     <Compile Include="Extensions\ObjectEx2.cs" />
     <Compile Include="Extensions\StringEx.cs" />
     <Compile Include="Extensions\ThreadEx.cs" />
