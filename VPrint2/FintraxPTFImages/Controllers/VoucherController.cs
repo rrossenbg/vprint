@@ -14,6 +14,7 @@ using FintraxPTFImages.Common;
 using FintraxPTFImages.Data;
 using FintraxPTFImages.Models;
 using FintraxPTFImages.ScanServiceRef;
+using FintraxPTFImages.PartyManagementRef;
 
 namespace FintraxPTFImages
 {
@@ -51,8 +52,12 @@ namespace FintraxPTFImages
         {
             #region BUILD COUNTRIES
 
-            ViewData["CountryList"] = HttpContext.Session.Get<List<SelectListItem>>("CountryList", Helper.CreateCountryDropDownLoadFunction());
+            ViewData["CountryList"] =
+                                HttpContext.Application.Get<List<CountryDetail>>("CountryList", Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
+                (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
+
             ViewData["HeadOfficeList"] = HttpContext.Session.Get<List<SelectListItem>>("Empty", Helper.CreateEmptyLoadFunction());
+
             ViewData["RetailerList"] = HttpContext.Session.Get<List<SelectListItem>>("Empty", Helper.CreateEmptyLoadFunction());
 
             #endregion
@@ -77,20 +82,20 @@ namespace FintraxPTFImages
         {
             ViewData["VoucherList"] = Enumerable.Empty<VoucherInfo>();
 
-            ViewData["CountryList"] = HttpContext.Session.Get<List<SelectListItem>>("CountryList",
-                Helper.CreateCountryDropDownLoadFunction());
+            ViewData["CountryList"] = HttpContext.Application.Get<List<CountryDetail>>("CountryList", Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
+                (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
 
             if (model.Country == 0)
                 throw new ArgumentException("model.Country");
 
-            ViewData["HeadOfficeList"] = HttpContext.Session.Get<int, List<SelectListItem>>("HeadOfficeList" + model.Country,
-                Helper.CreateHeadOfficeDropDownLoadFunction(), model.Country);
+            ViewData["HeadOfficeList"] = HttpContext.Session.Get<int, List<HeadOffice>>("HeadOfficeList" + model.Country,
+                Helper.CreateHeadOfficeDropDownLoadFunction(), model.Country).CreateSelectList((h) => string.Format("{0} - {1}", h.Name, h.Id), (h) => h.Id.ToString());
 
             if (model.HeadOffice == 0)
                 throw new ArgumentException("model.HeadOffice");
 
-            ViewData["RetailerList"] = HttpContext.Session.Get<int, int, List<SelectListItem>>("RetailerList" + model.Country + ";" + model.HeadOffice,
-                Helper.CreateRetailerDropDownLoadFunction(), model.Country, model.HeadOffice);
+            ViewData["RetailerList"] = HttpContext.Session.Get<int, int, List<Retailer>>("RetailerList" + model.Country + ";" + model.HeadOffice,
+                Helper.CreateRetailerDropDownLoadFunction(), model.Country, model.HeadOffice).CreateSelectList((r) => string.Format("{0} - {1}", r.Name, r.Id), (r) => r.Id.ToString());
 
             model.Validate(this.ModelState);
 
@@ -109,8 +114,10 @@ namespace FintraxPTFImages
         public ActionResult SelectHeadOffices(string value)
         {
             var isoId = value.cast<int>();
-            var headoffices = HttpContext.Session.Get<int, List<SelectListItem>>("HeadOfficeList" + isoId,
-                Helper.CreateHeadOfficeDropDownLoadFunction(), isoId);
+
+            var headoffices = HttpContext.Session.Get<int, List<HeadOffice>>("HeadOfficeList" + isoId,
+                Helper.CreateHeadOfficeDropDownLoadFunction(), isoId).CreateSelectList((h) => string.Format("{0} - {1}", h.Name, h.Id), (h) => h.Id.ToString());
+
             return Json(new ArrayList(headoffices), JsonRequestBehavior.AllowGet);
         }
 
@@ -121,8 +128,9 @@ namespace FintraxPTFImages
             var isoId = strs[0].cast<int>();
             var hoId = strs[1].cast<int>();
 
-            var retailers = HttpContext.Session.Get<int, int, List<SelectListItem>>("RetailerList" + value,
-                Helper.CreateRetailerDropDownLoadFunction(), isoId, hoId);
+            var retailers = HttpContext.Session.Get<int, int, List<Retailer>>("RetailerList" + isoId + ";" + hoId,
+                Helper.CreateRetailerDropDownLoadFunction(), isoId, hoId).CreateSelectList((r) => string.Format("{0} - {1}", r.Name, r.Id), (r) => r.Id.ToString());
+
             return Json(new ArrayList(retailers), JsonRequestBehavior.AllowGet);
         }
 
@@ -137,26 +145,30 @@ namespace FintraxPTFImages
             var endpointAddress = ScanServiceClient.GetEnpoint();
 
             ScanServiceClient proxy = new ScanServiceClient(tcpBinding, endpointAddress);
-            proxy.ReadVoucherInfoCompleted += (sender, e) =>
-            {
-                try
-                {
-                    AsyncManager.Parameters["info"] = e.Result;
-                }
-                catch (Exception ex)
-                {
-                    ViewData[MESSAGE] = ex.InnerException.Message;
-                }
-                finally
-                {
-                    AsyncManager.OutstandingOperations.Decrement();
-                }
-            };
+            proxy.ReadVoucherInfoCompleted += OnReadVoucherInfoCompleted;
 
             string webRootPath = Server.MapPath("~/WEBVOUCHERFOLDER");
             var keys = Security.CreateInstance().GenerateSecurityKeys();
 
             proxy.ReadVoucherInfoAsync(Id, webRootPath, keys.Item1, keys.Item2);
+        }
+
+        private void OnReadVoucherInfoCompleted(object sender, ReadVoucherInfoCompletedEventArgs e)
+        {
+            try
+            {
+                AsyncManager.Parameters["info"] = e.Result;
+            }
+            catch (Exception ex)
+            {
+                ViewData[MESSAGE] = ex.InnerException.Message;
+            }
+            finally
+            {
+                ScanServiceClient proxy = (ScanServiceClient)sender;
+                proxy.ReadVoucherInfoCompleted -= OnReadVoucherInfoCompleted;
+                AsyncManager.OutstandingOperations.Decrement();
+            }
         }
 
         // C:\VOUCHERS\[CountryID]\[RetailerId]\[VoucherId]

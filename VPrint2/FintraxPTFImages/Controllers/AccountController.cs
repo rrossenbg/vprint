@@ -14,6 +14,7 @@ using FintraxPTFImages.Data;
 using FintraxPTFImages.Models;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
+using FintraxPTFImages.PartyManagementRef;
 
 namespace FintraxPTFImages.Controllers
 {
@@ -23,7 +24,9 @@ namespace FintraxPTFImages.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewData["CountryList"] = HttpContext.Application.Get<List<SelectListItem>>("CountryList", Helper.CreateCountryDropDownLoadFunction());
+            ViewData["CountryList"] = 
+                HttpContext.Application.Get<List<CountryDetail>>("CountryList", Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
+                (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -35,8 +38,8 @@ namespace FintraxPTFImages.Controllers
             if(model.Country == 0)
                 ModelState.AddModelError("Country", "Country is mandatory");
 
-            ViewData["CountryList"] = HttpContext.Application.Get<List<SelectListItem>>("CountryList", 
-                Helper.CreateCountryDropDownLoadFunction());
+            HttpContext.Application.Get<List<CountryDetail>>("CountryList", Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
+            (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
 
             if (ModelState.IsValid)
             {

@@ -3,14 +3,15 @@
 /***************************************************/
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using System.Web.SessionState;
 using System.Web.UI;
 using FintraxPTFImages.Common;
-using System.Web.Routing;
 
 namespace FintraxPTFImages
 {
@@ -353,6 +354,16 @@ namespace FintraxPTFImages
             tagBuilder.Attributes["src"] = new UrlHelper(helper.ViewContext.RequestContext).Content(url);
             tagBuilder.MergeAttributes(new RouteValueDictionary(htmlAttributes));
             return new MvcHtmlString(tagBuilder.ToString());
+        }
+
+        public static List<SelectListItem> CreateSelectList<T>(this List<T> list, Func<T, string> functText, Func<T, string> functValue, string pleaseSelectText = "Please Select")
+        {
+            var items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = pleaseSelectText, Value = "0", Selected = true });
+
+            foreach (var cnt in list)
+                items.Add(new SelectListItem { Text = functText(cnt), Value = functValue(cnt) });
+            return items;
         }
     }
 }
