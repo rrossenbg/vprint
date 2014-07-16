@@ -14,12 +14,15 @@ namespace FintraxPTFImages.Data
         {
             get
             {
-                if (HttpContext.Current == null)
-                    return new PTFImagesDataDataContext();
+                lock (typeof(PTFImagesDataDataContext))
+                {
+                    if (HttpContext.Current == null)
+                        return new PTFImagesDataDataContext();
 
-                if (HttpContext.Current.Items["PTFImagesDataDataContext"] == null)
-                    HttpContext.Current.Items["PTFImagesDataDataContext"] = new PTFImagesDataDataContext();
-                return (PTFImagesDataDataContext)HttpContext.Current.Items["PTFImagesDataDataContext"];
+                    if (HttpContext.Current.Items["PTFImagesDataDataContext"] == null)
+                        HttpContext.Current.Items["PTFImagesDataDataContext"] = new PTFImagesDataDataContext();
+                    return (PTFImagesDataDataContext)HttpContext.Current.Items["PTFImagesDataDataContext"];
+                }
             }
         }
 

@@ -261,6 +261,7 @@
     <Content Include="Content\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Links.txt" />
     <Content Include="packages.config" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
