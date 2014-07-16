@@ -87,6 +87,7 @@ namespace FintraxPTFImages.Models
         public string Id { get; set; }
         public string Type { get; set; }
         public byte[] Data { get; set; }
+        public string ImgSrc { get; set; }
 
         public ShowModel(string name, string path)
         {

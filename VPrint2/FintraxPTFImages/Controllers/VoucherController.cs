@@ -199,12 +199,14 @@ namespace FintraxPTFImages
                 {
                     if (file.Extension.EqualsNoCase(".tif"))
                     {
-                        var images = file.FullName.TiffGetAllImages();
                         int count = 0;
-                        foreach (var img in images)
+                        var images = file.FullName.TiffGetAllImages2();
+                        foreach (var fileName in images)
                         {
-                            var model = new ShowModel(string.Format("{0} Page {1}", file.Name, ++count), file.FullName);
-                            model.Data = img.ToArray();
+                            var model = new ShowModel(string.Format("{0} Page {1}", file.Name, count++), file.FullName);
+                            model.Data = System.IO.File.ReadAllBytes(fileName);
+                            var base64 = Convert.ToBase64String(model.Data, Base64FormattingOptions.None);
+                            model.ImgSrc = string.Concat("data:", model.Type, ";base64,", base64);
                             files.Add(model);
                         }
                     }
@@ -212,9 +214,12 @@ namespace FintraxPTFImages
                     {
                         var model = new ShowModel(file.Name, string.Concat("/FintraxPTFImages/WEBVOUCHERFOLDER/", info.SessionId, "/", file.Name));
                         model.Data = System.IO.File.ReadAllBytes(file.FullName);
+                        var base64 = Convert.ToBase64String(model.Data, Base64FormattingOptions.None);
+                        model.ImgSrc = string.Concat("data:", model.Type, ";base64,", base64);
                         files.Add(model);
                     }
                 }
+                
             }
 
             return View("Show", files.ToArray());

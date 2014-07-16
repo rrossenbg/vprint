@@ -1,4 +1,5 @@
 ﻿@using System
+@using System.Linq 
 @using System.Globalization
 @using FintraxPTFImages
 @using FintraxPTFImages.Models
@@ -30,8 +31,7 @@
 
     </script>
 }
-<h2>
-    Show Voucher</h2>
+<h2>Voucher</h2>
 @Html.ActionLink("Back", "Search")&nbsp; <a onclick="document.location.reload(true)"
     style="cursor: pointer;">Refresh</a>
 <div style="display: table; width: 100%; height: auto;">
@@ -106,11 +106,7 @@
                 &nbsp;&nbsp; @file.Name
                 <a onclick="printDiv('@file.Id')" style="cursor: pointer; float: right;" >Print</a></p>
             <br />
-            @{
-        var base64 = Convert.ToBase64String(file.Data);
-        var imgSrc = String.Format(CultureInfo.InvariantCulture, "data:{0};base64,{1}", file.Type, base64);
-            }
-            <img src="@imgSrc" alt="img"/>
+            <img src="@file.ImgSrc" alt="img"/>
             <br />
         </div>}
 </div>

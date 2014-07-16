@@ -299,6 +299,7 @@ namespace ReceivingServiceLib
                 webroot.EnsureDirectory();
 
                 var sessionFolder = webroot.Combine(info.SessionId);
+                sessionFolder.DeleteSafe(true);
                 sessionFolder.EnsureDirectory();
 
                 var count = fromDir.CopyFiles(sessionFolder, true);
