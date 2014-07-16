@@ -8,3 +8,8 @@ C:\PROJECTS\VPrint\SiteCodeLib\bin\Release\SiteCodeLib.dll
 C:\PROJECTS\VPrint\SiteCodeLib\bin\Release\SiteCodeLib.pdb
 C:\PROJECTS\VPrint\SiteCodeLib\obj\Release\SiteCodeLib.dll
 C:\PROJECTS\VPrint\SiteCodeLib\obj\Release\SiteCodeLib.pdb
+C:\PROJECTS\VPrint2\SiteCodeLib\bin\Release\SiteCodeLib.dll.config
+C:\PROJECTS\VPrint2\SiteCodeLib\bin\Release\SiteCodeLib.dll
+C:\PROJECTS\VPrint2\SiteCodeLib\bin\Release\SiteCodeLib.pdb
+C:\PROJECTS\VPrint2\SiteCodeLib\obj\Release\SiteCodeLib.dll
+C:\PROJECTS\VPrint2\SiteCodeLib\obj\Release\SiteCodeLib.pdb

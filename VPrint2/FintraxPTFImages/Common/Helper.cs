@@ -13,12 +13,6 @@ namespace FintraxPTFImages.Common
 {
     public static class Helper
     {
-                    ////        var items = new List<SelectListItem>();
-                    ////items.Add(new SelectListItem { Text = "Please Select", Value = "0", Selected = true });
-
-                    ////foreach (var cnt in results2)
-                    ////    items.Add(new SelectListItem { Text = string.Format("{0} - {1}", cnt.Country, cnt.Iso2), Value = cnt.Number.ToString() });
-                    ////return items;
         public static Func<List<CountryDetail>> CreateCountryDropDownLoadFunction()
         {
             var funct = new Func<List<CountryDetail>>(() =>
@@ -32,13 +26,6 @@ namespace FintraxPTFImages.Common
             return funct;
         }
 
-                    ////        var items = new List<SelectListItem>();
-                    ////items.Add(new SelectListItem { Text = "Please Select", Value = "0", Selected = true });
-
-                    ////foreach (var cnt in results2)
-                    ////    items.Add(new SelectListItem { Text = string.Format("{0} - {1}", cnt.Name, cnt.Id), Value = cnt.Id.ToString() });
-                    ////return items;
-
         public static Func<int, List<HeadOffice>> CreateHeadOfficeDropDownLoadFunction()
         {
             var funct = new Func<int, List<HeadOffice>>((countryId) =>
@@ -51,13 +38,6 @@ namespace FintraxPTFImages.Common
                 });
             return funct;
         }
-
-                   ////        var items = new List<SelectListItem>();
-                   ////items.Add(new SelectListItem { Text = "Please Select", Value = "0", Selected = true });
-
-                   ////foreach (var cnt in results2)
-                   ////    items.Add(new SelectListItem { Text = string.Format("{0} - {1}", cnt.Name, cnt.Id), Value = cnt.Id.ToString() });
-                   ////return items;
 
         public static Func<int, int, List<Retailer>> CreateRetailerDropDownLoadFunction()
         {

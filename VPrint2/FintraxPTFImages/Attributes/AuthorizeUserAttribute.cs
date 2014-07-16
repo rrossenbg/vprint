@@ -13,7 +13,7 @@ namespace FintraxPTFImages.Attributes
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             if (httpContext.Session == null)
-                return false;
+                return true;
 
             var user = httpContext.Session.Get<CurrentUser>("CurrentUser", false);
             return user != null && user.IsValid;
