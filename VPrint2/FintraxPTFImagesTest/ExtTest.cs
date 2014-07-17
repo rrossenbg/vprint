@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FintraxPTFImages;
+using System.Drawing.Imaging;
 
 namespace FintraxPTFImagesTest
 {
@@ -65,6 +66,12 @@ namespace FintraxPTFImagesTest
         {
             var s = "C:\\TEST\\UAA_022.jpg";
             string t = s.GetContentType();
+        }
+
+        [TestMethod]
+        public void ConvertTiffToJpgTest()
+        {
+            "C:\\826_332562_3482739521092dce6_56db_454d_99e1_5250a6c3a8bc.tif".TiffGetAllImages2(ImageFormat.Jpeg);
         }
     }
 }
