@@ -12,19 +12,56 @@ namespace DEMATLib.Data
 {
     public static class DiorDataAccess
     {
-        private static string m_ConnectionString;
+        private static string m_PTFConnectionString;
+        private static string m_ReportConnectionString;
 
-        public static string ReportsConnectionString
+        public static string PTFConnectionString
         {
             get
             {
-                return m_ConnectionString;
+                return m_PTFConnectionString;
             }
             set
             {
                 using (var conn = new SqlConnection(value))
                     conn.Open();
-                m_ConnectionString = value;
+                m_PTFConnectionString = value;
+            }
+        }
+
+        public static string ReportsConnectionString
+        {
+            get
+            {
+                return m_ReportConnectionString;
+            }
+            set
+            {
+                using (var conn = new SqlConnection(value))
+                    conn.Open();
+                m_ReportConnectionString = value;
+            }
+        }
+
+        public static string SelectTradingName(int countryId, int hoId)
+        {
+            #region SQL
+
+            const string SQL = @"select ho_trading_name from HeadOffice where ho_iso_id = @iso and ho_id = @hoId;";
+
+            #endregion
+
+            using (var conn = new SqlConnection(PTFConnectionString))
+            {
+                conn.Open();
+
+                using (var comm = new SqlCommand(SQL, conn))
+                {
+                    comm.Parameters.AddWithValue("@iso", countryId);
+                    comm.Parameters.AddWithValue("@hoId", hoId);
+
+                    return Convert.ToString(comm.ExecuteScalar());
+                }
             }
         }
 
@@ -122,6 +159,7 @@ namespace DEMATLib.Data
     {
         public int IsoId { get; set; }
         public int HoId { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// 826,1;
@@ -134,6 +172,7 @@ namespace DEMATLib.Data
             var ho = new HeadOffice();
             ho.IsoId = int.Parse(txts[0]);
             ho.HoId = int.Parse(txts[1]);
+            ho.Name = txts[2];
             return ho;
         }
 
