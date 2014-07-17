@@ -172,7 +172,6 @@ namespace DEMATLib.Data
             var ho = new HeadOffice();
             ho.IsoId = int.Parse(txts[0]);
             ho.HoId = int.Parse(txts[1]);
-            ho.Name = txts[2];
             return ho;
         }
 
