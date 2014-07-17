@@ -681,6 +681,7 @@
       <DependentUpon>AddVoucherItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\Security.cs" />
+    <Compile Include="Common\SortedIndexList.cs" />
     <Compile Include="Controls\DateTimePicker2.cs">
       <SubType>UserControl</SubType>
     </Compile>

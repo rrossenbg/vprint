@@ -5,6 +5,8 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FintraxPTFImages;
 using System.Drawing.Imaging;
+using System.Diagnostics;
+using System.Threading;
 
 namespace FintraxPTFImagesTest
 {
@@ -72,6 +74,12 @@ namespace FintraxPTFImagesTest
         public void ConvertTiffToJpgTest()
         {
             "C:\\826_332562_3482739521092dce6_56db_454d_99e1_5250a6c3a8bc.tif".TiffGetAllImages2(ImageFormat.Jpeg);
+        }
+
+        [TestMethod]
+        public void GuidTest()
+        {
+
         }
     }
 }

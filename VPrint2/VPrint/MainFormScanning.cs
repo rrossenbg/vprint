@@ -40,6 +40,7 @@ namespace VPrinting
 
         private ScanServiceLocalClient m_ScanClient = null;
         private readonly List<FileSystemWatcher> m_FileSysWatchers = new List<FileSystemWatcher>();
+        private readonly SortedIndexList<int, ItemControl> m_ControlIndexes = new SortedIndexList<int, ItemControl>();
 
         public readonly StateManager m_StateManager = new StateManager();
 
@@ -75,7 +76,7 @@ namespace VPrinting
             var list = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
         }
 
-        #region StateManager & ImageIconControl HANDLERS
+        #region StateManager & ImageIconControl HANDLERS        
 
         private void StateManager_NewItemAdd(object sender, ItemEventArgs e)
         {
@@ -90,6 +91,9 @@ namespace VPrinting
                     cnt.Updated += new EventHandler(ImageIconControl_Updated);
                     cnt.ContextMenuStrip = scanContextMenuStrip;
                     lpScannedFiles.Controls.Add(cnt);
+
+                    int index = m_ControlIndexes.Add(args.Item.Id, cnt);
+                    lpScannedFiles.Controls.SetChildIndex(cnt, index);
                 }
                 catch
                 {
@@ -108,6 +112,7 @@ namespace VPrinting
                     if (icnt != null && icnt.Item != null && icnt.Item.Equals(args.Item))
                     {
                         lpScannedFiles.Controls.Remove(icnt);
+                        m_ControlIndexes.Remove(icnt.Item.Id);
                         break;
                     }
                 }
@@ -126,6 +131,7 @@ namespace VPrinting
 
                 ToolTip1.RemoveAll();
                 lpScannedFiles.Controls.Clear();
+                m_ControlIndexes.Clear();
             }));
         }
 
