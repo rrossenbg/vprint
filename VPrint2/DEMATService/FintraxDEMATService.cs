@@ -63,6 +63,9 @@ namespace DEMATService
                 DiorDataAccess.ReportsConnectionString =
                     ConfigurationManager.AppSettings["DiorPTF_ReportsConnectionString"];
 
+                DiorDataAccess.PTFConnectionString =
+                    ConfigurationManager.AppSettings["DiorPTF_PTFConnectionString"];
+
                 diorFileSystemWatcher.Path = ConfigurationManager.AppSettings["DiorTriggerWatchPath"];
                 diorFileSystemWatcher.EnableRaisingEvents = true;
             }
@@ -112,7 +115,6 @@ namespace DEMATService
         {
             Task.Factory.StartNew(() =>
             {
-
                 var hostr = ConfigurationManager.AppSettings["DiorHOs"];
                 var hos = HeadOffice.ParseList(hostr);
                 var proc = new DiorExportProcessor(hos);
