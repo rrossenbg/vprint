@@ -42,6 +42,25 @@ namespace DEMATLib.Dior
 
                 foreach (var ho in m_HeadOffices)
                 {
+                    string name = DiorDataAccess.SelectTradingName(ho.IsoId, ho.HoId);
+
+                    if (string.IsNullOrWhiteSpace(name))
+                    {
+                        FireError(new Exception(string.Format("Cannot find trading name for iso: {0} ho: {1}", ho.IsoId, ho.HoId)));
+                        ho.Name = "NA";
+                    }
+                    else if (name.IndexOf("dior", StringComparison.InvariantCultureIgnoreCase) != -1)
+                        ho.Name = "DIOR";
+                    else if (name.IndexOf("chanel", StringComparison.InvariantCultureIgnoreCase) != -1)
+                        ho.Name = "CHANEL";
+                    else if (name.IndexOf("printemps", StringComparison.InvariantCultureIgnoreCase) != -1)
+                        ho.Name = "PRINTEMPS";
+                    else
+                        ho.Name = name.Replace(' ', '_');
+                }
+
+                foreach (var ho in m_HeadOffices)
+                {
                     var retailers = DiorDataAccess.SelectAllDiorRetailes(ho.IsoId, ho.HoId);
 
                     foreach (var br in retailers)
@@ -86,7 +105,7 @@ namespace DEMATLib.Dior
                                 b.Close();
 
                                 var xml = b.ToString();
-                                string fileName = string.Format("DiorExport_{0}_{1}_{2:yyyy-MM-dd}.xml", br.BrId, br.IsoId, DateTime.Today);
+                                string fileName = string.Format("{0}_Export_{1}_{2}_{3:yyyy-MM-dd}.xml", ho.Name, br.BrId, br.IsoId, DateTime.Today);
                                 string path = Path.Combine(ExportDirectory, fileName);
                                 File.WriteAllText(path, xml, Encoding.UTF8);
                             }
@@ -100,9 +119,14 @@ namespace DEMATLib.Dior
             }
             catch (Exception ex2)
             {
-                if (Error != null)
-                    Error(this, new ThreadExceptionEventArgs(ex2));
+                FireError(ex2);
             }
+        }
+
+        private void FireError(Exception ex2)
+        {
+            if (Error != null)
+                Error(this, new ThreadExceptionEventArgs(ex2));
         }
     }
 }
