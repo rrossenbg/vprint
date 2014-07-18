@@ -83,8 +83,7 @@ namespace SiteCodeLib
             const string SQL = @"
             SELECT *
             FROM [SQ_Location] 
-            LEFT JOIN [LocationLookup]
-            ON sq_site = ll_site 
+            INNER JOIN [LocationLookup] ON sq_site = ll_site 
             WHERE sq_sequence = 'Location'";
             
             #endregion
@@ -102,7 +101,7 @@ namespace SiteCodeLib
                 var sqisoid = row["sq_iso_id"].Get<int>();
                 var iso = Tools.TryParseCountryID(site);
                 if (!iso.HasValue && sqisoid == 0)
-                    throw new ApplicationException("iso should have a value");
+                    continue;
 
                 yield return new Location()
                 {
@@ -146,23 +145,11 @@ namespace SiteCodeLib
         {
             #region S Q L
 
-            const string SQL1 =
-            @"MERGE INTO LocationLookup AS Target
-            USING (SELECT @ll_code, @ll_site) AS source (ll_code, ll_site)
-                ON Target.ll_site = Source.ll_site
-            WHEN NOT MATCHED BY TARGET THEN
-	            INSERT (ll_code, ll_site) 
-                    VALUES (source.ll_code, source.ll_site);";
+            const string SQL0 = @"DELETE FROM LocationLookup; DELETE FROM SQ_Location;";
 
-            const string SQL2 =
-            @"MERGE INTO SQ_Location AS Target
-            USING (SELECT @sq_id, @sq_number, @sq_site, @sq_iso_id) AS source (sq_id, sq_number, sq_site, sq_iso_id)
-                ON Target.sq_site = Source.sq_site and Target.sq_iso_id = Source.sq_iso_id
-            WHEN MATCHED THEN 
-                    UPDATE SET sq_number = source.sq_number, sq_iso_id = source.sq_iso_id
-            WHEN NOT MATCHED BY TARGET THEN
-	            INSERT (sq_sequence, sq_number, sq_site, sq_iso_id) 
-                    VALUES ('Location', source.sq_number, source.sq_site, source.sq_iso_id);";
+            const string SQL1 = @"INSERT INTO LocationLookup(ll_code, ll_site) VALUES (@ll_code, @ll_site);";
+
+            const string SQL2 = @"INSERT INTO SQ_Location (sq_sequence, sq_number, sq_site, sq_iso_id) VALUES ('Location', @sq_number, @sq_site, @sq_iso_id);";
 
             #endregion
 
@@ -174,6 +161,9 @@ namespace SiteCodeLib
                 {
                     try
                     {
+                        using (var comm = new SqlCommand(SQL0, conn, tran))
+                            comm.ExecuteNonQuery();
+
                         foreach (var loc in items)
                         {
                             using (var comm = new SqlCommand(SQL1, conn, tran))

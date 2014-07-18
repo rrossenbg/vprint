@@ -91,9 +91,7 @@ namespace VPrinting
                     cnt.Updated += new EventHandler(ImageIconControl_Updated);
                     cnt.ContextMenuStrip = scanContextMenuStrip;
                     lpScannedFiles.Controls.Add(cnt);
-
-                    //int index = m_ControlIndexes.Add(args.Item.Id, cnt);
-                    //lpScannedFiles.Controls.SetChildIndex(cnt, index);
+                    lblMessage.Text = string.Concat("Vouchers in folder: ", lpScannedFiles.Controls.Count);
                 }
                 catch
                 {
