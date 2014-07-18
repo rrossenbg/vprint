@@ -40,10 +40,10 @@ namespace SiteCodeSrvc
                 base.RequestAdditionalTime(addtime.TotalMilliseconds.Get<int>());
 
             var lookupLocations = DataAccess.LoadLocationsFromLocations();
-            var voucherPartLocations = DataAccess.LoadLocationsFromVoucherPart();
-            var locations = DataAccess.JoinLocations(voucherPartLocations, lookupLocations);
+            //var voucherPartLocations = DataAccess.LoadLocationsFromVoucherPart();
+            //var locations = DataAccess.JoinLocations(voucherPartLocations, lookupLocations);
 
-            m_Server.LoadLocations(locations);
+            m_Server.LoadLocations(lookupLocations);
             m_Server.LoadCountries(DataAccess.LoadCountries());
 
             m_ServerHost = new ServiceHost(m_Server);
@@ -58,7 +58,6 @@ namespace SiteCodeSrvc
             Trace.WriteLine("It's loaded successfully", Strings.SRVNAME);
             EventLog.WriteEntry("It's loaded successfully", EventLogEntryType.Information);
         }
-
 
         protected override void OnStop()
         {

@@ -49,7 +49,6 @@ namespace SiteCodeLib
                 lock (zNumber = m_CountryIDToMaxChar.GetOrAdd(iso.Value, new ZNumber()))
                 {
                     zNumber.Increase();
-                    m_CountryIDToMaxChar[iso.Value] = zNumber;
 
                     location = new Location() { ISO = iso.Value, Code = zNumber.ToString(), Site = site };
                     location.NextNumber();
