@@ -54,5 +54,12 @@ namespace FintraxPTFImages.Data
             var results = client.RetrieveRetailerList(header, countryId, headOfficeId);
             return results;
         }
+
+        public Dictionary<int, CurrentUser> RetrieveUsers()
+        {
+            var proxy = new PartyManagementSoapClient();
+            var data = proxy.RetrieveTableData(new PAuthenticationHeader(), "us_id, us_first_name, us_last_name, us_iso_id", "Users", "");
+            return data.ToDict(4, (o, i) => { return Convert.ToInt32(o[i]); }, (o, i) => { return new CurrentUser(Convert.ToInt32(o[i]), o[i + 1] + " " + o[i + 2], Convert.ToInt32(o[i + 3])); });
+        }
     }
 }

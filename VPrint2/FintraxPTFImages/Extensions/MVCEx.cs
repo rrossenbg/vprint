@@ -248,6 +248,16 @@ namespace FintraxPTFImages
         }
 
         [TargetedPatchingOptOut("na")]
+        public static T GetCached<T>(this HttpApplicationState state, string name, Lazy<T> lazy, TimeSpan time)
+        {
+            if (HttpRuntime.Cache[name] != null)
+                return (T)HttpRuntime.Cache[name];
+
+            HttpRuntime.Cache.Insert(name, lazy.Value, null, DateTime.Now.Add(time), TimeSpan.Zero);
+            return lazy.Value;
+        }
+
+        [TargetedPatchingOptOut("na")]
         public static void SetCached<T>(this HttpApplicationState state, string name, TimeSpan time, T data)
         {
             HttpRuntime.Cache.Insert(name, data, null, DateTime.Now.Add(time), TimeSpan.Zero);

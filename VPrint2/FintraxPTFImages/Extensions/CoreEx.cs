@@ -5,6 +5,7 @@
 using System;
 using System.Runtime;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace FintraxPTFImages
 {
@@ -52,5 +53,14 @@ namespace FintraxPTFImages
             return (T)Convert.ChangeType(value, typeof(T));
         }
 
+        [TargetedPatchingOptOut("na")]
+        public static Dictionary<K, V> ToDict<K, V>(this object[] value1, int step, Func<object[], int, K> keyfunct, Func<object[], int, V> valuefunct)
+        {
+            var dict = new Dictionary<K, V>();
+
+            for (int i = 0; i < value1.Length; i += step)
+                dict.Add(keyfunct(value1, i), valuefunct(value1, i));
+            return dict;
+        }
     }
 }
