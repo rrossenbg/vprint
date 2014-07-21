@@ -1,9 +1,9 @@
 ﻿@using System
 @using FintraxPTFImages
 @using FintraxPTFImages.Common
-@if (Session.Contains("CurrentUser"))
+@if (HttpContext.Current.Items.Contains("CurrentUser"))
 {
-    <text> Hello, @Html.ActionLink(Session.Get<CurrentUser>("CurrentUser").UserName, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+    <text> Hello, @Html.ActionLink(((CurrentUser)HttpContext.Current.Items["CurrentUser"]).UserName, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
     @Html.ActionLink("Log off", "LogOff", "Account")
     </text>
 }

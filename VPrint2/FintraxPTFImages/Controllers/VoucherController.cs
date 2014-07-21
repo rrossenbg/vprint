@@ -29,7 +29,7 @@ namespace FintraxPTFImages
         {
             get
             {
-                return Session.Get<CurrentUser>("CurrentUser");
+                return (CurrentUser)HttpContext.Items["CurrentUser"];
             }
         }
 
@@ -104,8 +104,17 @@ namespace FintraxPTFImages
             {
                 Session.Set("SearchModel", model);
 
-                ServiceAccess sdc = new ServiceAccess();
+                var sdc = new ServiceAccess();
                 var list = sdc.SelectVouchers(model.Country, model.Retailer);
+
+                var lazy = new Lazy<Dictionary<int, CurrentUser>>(new Func<Dictionary<int, CurrentUser>>(() =>
+                {
+                    var sdc2 = new ServiceAccess();
+                    var uslist = sdc2.RetrieveUsers();
+                    return uslist;
+                }), true);
+
+                ViewBag.UserDictionary = DataTables.Default.Get<Dictionary<int, CurrentUser>>("USERS", lazy);
                 ViewData["VoucherList"] = list;
             }
             return View(model);

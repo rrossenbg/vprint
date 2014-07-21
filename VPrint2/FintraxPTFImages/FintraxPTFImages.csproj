@@ -187,6 +187,7 @@
     <Compile Include="Attributes\HandleErrAttribute.cs" />
     <Compile Include="Common\FileLogger.cs" />
     <Compile Include="Common\Security.cs" />
+    <Compile Include="Data\DataTables.cs" />
     <Compile Include="Data\PTFDataAccess.cs" />
     <Compile Include="Data\PTFImagesData.designer.cs">
       <AutoGen>True</AutoGen>
@@ -199,11 +200,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PTFDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\Class1.cs" />
     <Compile Include="Extensions\DisposableEx.cs" />
     <Compile Include="Extensions\ImagesEx.cs" />
     <Compile Include="Extensions\ObjectEx2.cs" />
     <Compile Include="Extensions\StringEx.cs" />
     <Compile Include="Extensions\ThreadEx.cs" />
+    <Compile Include="Handler\FormsAuthenticationService.cs" />
     <Compile Include="Handler\ImageHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ScanServerClient.cs" />
@@ -334,6 +337,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="WEBVOUCHERFOLDER\Web.config" />
+    <Content Include="Views\Error\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

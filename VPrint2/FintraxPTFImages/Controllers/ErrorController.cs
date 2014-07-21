@@ -10,12 +10,13 @@ namespace FintraxPTFImages.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            string message = (HttpContext.Error != null) ? HttpContext.Error.Message : "Error occurred. Please excuse us";
+            return View((object)message);
         }
 
         public ActionResult Show(string message)
         {
-            return View(message);
+            return View((object)message);
         }
     }
 }

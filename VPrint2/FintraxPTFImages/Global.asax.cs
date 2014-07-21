@@ -9,6 +9,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using FintraxPTFImages.Common;
 using FintraxPTFImages.Data;
+using FintraxPTFImages.Handler;
 
 namespace FintraxPTFImages
 {
@@ -62,6 +63,11 @@ namespace FintraxPTFImages
         {
             var ex = Server.GetLastError();
             FileLogger.LogError(ex.ToString(), "Application_Error");
+        }
+
+        protected void Application_AuthenticateRequest(Object sender, EventArgs e)
+        {
+            new FormsAuthenticationService().AuthenticateRequest();
         }
 
         protected void Session_Start(Object sender, EventArgs e)

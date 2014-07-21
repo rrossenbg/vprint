@@ -2,7 +2,6 @@
 //  Copyright (c) Premium Tax Free 2013
 /***************************************************/
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -11,10 +10,11 @@ using DotNetOpenAuth.AspNet;
 using FintraxPTFImages.Attributes;
 using FintraxPTFImages.Common;
 using FintraxPTFImages.Data;
+using FintraxPTFImages.Handler;
 using FintraxPTFImages.Models;
+using FintraxPTFImages.PartyManagementRef;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using FintraxPTFImages.PartyManagementRef;
 
 namespace FintraxPTFImages.Controllers
 {
@@ -47,9 +47,7 @@ namespace FintraxPTFImages.Controllers
                 var user =  acc.TryLogin(model.Country, model.UserName, model.Password);
                 if (user.IsValid)
                 {
-                    Session.Set("CurrentUser", user);
-                    PTFImagesDataDataContext.Default.BeginHistory(user.UserID, user.CountryID, Session.SessionID, DateTime.Now);
-
+                    new FormsAuthenticationService().SignIn(model.UserName, model.RememberMe, string.Concat(user.UserID, '|', user.CountryID));
                     return RedirectToLocal(returnUrl);
                 }
             }
@@ -61,7 +59,7 @@ namespace FintraxPTFImages.Controllers
         [HttpGet]
         public ActionResult LogOff()
         {
-            Session.RemoveAll();
+            new FormsAuthenticationService().LogOut();
             return RedirectToAction("Index", "Home");
         }
 

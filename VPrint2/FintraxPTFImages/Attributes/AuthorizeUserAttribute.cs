@@ -2,6 +2,7 @@
 //  Copyright (c) Premium Tax Free 2013
 /***************************************************/
 
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using FintraxPTFImages.Common;
@@ -13,10 +14,13 @@ namespace FintraxPTFImages.Attributes
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             if (httpContext.Session == null)
-                return true;
+                return false;
 
-            var user = httpContext.Session.Get<CurrentUser>("CurrentUser", false);
-            return user != null && user.IsValid;
+            if (httpContext.User == null || httpContext.User.Identity == null)
+                return false;
+
+            Thread.CurrentPrincipal = httpContext.User;
+            return httpContext.User.Identity.IsAuthenticated;
         }
     }
 }
