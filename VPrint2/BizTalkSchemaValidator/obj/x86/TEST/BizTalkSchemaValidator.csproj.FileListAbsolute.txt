@@ -1,0 +1,4 @@
+C:\PROJECTS\VPrint\BizTalkSchemaValidator\bin\x86\TEST\BizTalkSchemaValidator.exe
+C:\PROJECTS\VPrint\BizTalkSchemaValidator\bin\x86\TEST\BizTalkSchemaValidator.pdb
+C:\PROJECTS\VPrint\BizTalkSchemaValidator\obj\x86\TEST\BizTalkSchemaValidator.exe
+C:\PROJECTS\VPrint\BizTalkSchemaValidator\obj\x86\TEST\BizTalkSchemaValidator.pdb
