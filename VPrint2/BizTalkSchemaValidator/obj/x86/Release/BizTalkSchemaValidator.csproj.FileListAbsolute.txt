@@ -1,0 +1,6 @@
+C:\PROJECTS\VPrint\BizTalkSchemaValidator\bin\Release\BizTalkSchemaValidator.exe
+C:\PROJECTS\VPrint\BizTalkSchemaValidator\bin\Release\BizTalkSchemaValidator.pdb
+C:\PROJECTS\VPrint\BizTalkSchemaValidator\obj\x86\Release\BizTalkSchemaValidator.Properties.Resources.resources
+C:\PROJECTS\VPrint\BizTalkSchemaValidator\obj\x86\Release\BizTalkSchemaValidator.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint\BizTalkSchemaValidator\obj\x86\Release\BizTalkSchemaValidator.exe
+C:\PROJECTS\VPrint\BizTalkSchemaValidator\obj\x86\Release\BizTalkSchemaValidator.pdb

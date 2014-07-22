@@ -1,0 +1,5 @@
+C:\PROJECTS\VPrint\BzTConsoleApp\bin\Debug\BzTConsoleApp.exe
+C:\PROJECTS\VPrint\BzTConsoleApp\bin\Debug\BzTConsoleApp.pdb
+C:\PROJECTS\VPrint\BzTConsoleApp\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\PROJECTS\VPrint\BzTConsoleApp\obj\x86\Debug\BzTConsoleApp.exe
+C:\PROJECTS\VPrint\BzTConsoleApp\obj\x86\Debug\BzTConsoleApp.pdb
