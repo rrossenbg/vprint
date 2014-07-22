@@ -5,6 +5,7 @@
 using System;
 using System.Threading;
 using DEMATLib;
+using System.Reflection;
 
 namespace DEMATService
 {
@@ -18,7 +19,8 @@ namespace DEMATService
     /// timer.AlarmAt = new TimeSpan(15, 14, 0);
     /// timer.Start();
     /// </example>
-    public class AlarmTimer : IDisposable
+    [Obfuscation(ApplyToMembers = true)]
+    internal class AlarmTimer : IDisposable
     {
         private System.Threading.Timer m_Timer;
 

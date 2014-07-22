@@ -216,6 +216,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FintraxPTFImages", "Fintrax
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FintraxPTFImagesTest", "FintraxPTFImagesTest\FintraxPTFImagesTest.csproj", "{1EBA4F9A-5B30-487D-844C-94C62ED08F4A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FintraxServiceManager", "FintraxServiceManager", "{B5060B05-1740-44DA-8C7A-C6597EF8B151}"
+	ProjectSection(SolutionItems) = preProject
+		FintraxServiceManager\FintraxServiceManager.exe = FintraxServiceManager\FintraxServiceManager.exe
+		FintraxServiceManager\FintraxServiceManager.exe.config = FintraxServiceManager\FintraxServiceManager.exe.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = VPrint2.vsmdi
@@ -1721,6 +1727,7 @@ Global
 		{DCF9DB0A-5F0E-4613-A269-D4E18D494BA5} = {73448A9F-CFE1-4A64-8667-179CDA752DD5}
 		{2917B9D6-D8F5-4A08-ABD5-438328F81540} = {73448A9F-CFE1-4A64-8667-179CDA752DD5}
 		{E084C1CC-8605-4F78-9423-01E4A5DC1EA1} = {73448A9F-CFE1-4A64-8667-179CDA752DD5}
+		{B5060B05-1740-44DA-8C7A-C6597EF8B151} = {73448A9F-CFE1-4A64-8667-179CDA752DD5}
 		{1DBCA9DC-C9A7-487E-AEAB-6FBCB83D1E98} = {6D9106F8-2FAD-4F24-92C5-DE5CFD60FC27}
 		{FD3965DB-CFBE-4CAD-868D-A113419935D4} = {6D9106F8-2FAD-4F24-92C5-DE5CFD60FC27}
 		{E0B3345E-D1DF-4062-87D8-E7CB0C069EAA} = {056F09FF-6019-4040-8543-687B49091186}
