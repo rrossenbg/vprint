@@ -34,4 +34,3 @@ C:\PROJECTS\VPrint2\CPrintTest\bin\Debug\AForge.Math.xml
 C:\PROJECTS\VPrint2\CPrintTest\bin\Debug\FreeImageNET.pdb
 C:\PROJECTS\VPrint2\CPrintTest\obj\Debug\CPrintTest.dll
 C:\PROJECTS\VPrint2\CPrintTest\obj\Debug\CPrintTest.pdb
-C:\PROJECTS\VPrint2\CPrintTest\obj\Debug\CPrintTest.csprojResolveAssemblyReference.cache

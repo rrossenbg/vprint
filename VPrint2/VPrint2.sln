@@ -222,6 +222,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FintraxServiceManager", "Fi
 		FintraxServiceManager\FintraxServiceManager.exe.config = FintraxServiceManager\FintraxServiceManager.exe.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceControlManager", "ServiceControlManager\ServiceControlManager.csproj", "{2E523000-5392-49FD-B99D-D605748CE537}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = VPrint2.vsmdi
@@ -1701,6 +1703,47 @@ Global
 		{1EBA4F9A-5B30-487D-844C-94C62ED08F4A}.VScan_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{1EBA4F9A-5B30-487D-844C-94C62ED08F4A}.VScan_Debug|x64.ActiveCfg = Debug|Any CPU
 		{1EBA4F9A-5B30-487D-844C-94C62ED08F4A}.VScan_Debug|x86.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.ClassCorter|Any CPU.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.ClassCorter|Any CPU.Build.0 = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.ClassCorter|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.ClassCorter|Mixed Platforms.Build.0 = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.ClassCorter|x64.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.ClassCorter|x86.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Deployment_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Deployment_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Deployment_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Deployment_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Deployment_Debug|x64.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Deployment_Debug|x86.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.OCR_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.OCR_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.OCR_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.OCR_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.OCR_Debug|x64.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.OCR_Debug|x86.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Release|x64.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.Release|x86.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.TEST|Any CPU.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.TEST|Any CPU.Build.0 = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.TEST|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.TEST|Mixed Platforms.Build.0 = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.TEST|x64.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.TEST|x86.ActiveCfg = Release|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.VScan_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.VScan_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.VScan_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.VScan_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.VScan_Debug|x64.ActiveCfg = Debug|Any CPU
+		{2E523000-5392-49FD-B99D-D605748CE537}.VScan_Debug|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1748,5 +1791,6 @@ Global
 		{D4034708-8A3D-44E8-B507-6CDD2EB18601} = {E084C1CC-8605-4F78-9423-01E4A5DC1EA1}
 		{29D20126-1A38-4294-A5CE-3DC66DE9E9C4} = {4C615BFD-0C71-43A0-A228-49DBCB8DE112}
 		{1EBA4F9A-5B30-487D-844C-94C62ED08F4A} = {4C615BFD-0C71-43A0-A228-49DBCB8DE112}
+		{2E523000-5392-49FD-B99D-D605748CE537} = {B5060B05-1740-44DA-8C7A-C6597EF8B151}
 	EndGlobalSection
 EndGlobal

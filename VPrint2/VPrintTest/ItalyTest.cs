@@ -64,14 +64,15 @@ namespace VPrintTest
         {
             //BIG
             VoucherPrinter printer = new VoucherPrinter();
-            printer.UseLocalFormat = true;
+            printer.UseLocalFormat = false;
             printer.UseLocalPrinter = true;
             printer.PrintOnce = true;
             printer.SimulatePrint = true;
-            printer.m_PrinterName = Printers.DELL;
+            printer.m_PrinterName = Printers._3TH_FLOOR_PRINTER;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
             printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print380_Type3_RazX.xml";
-            printer.PrintAllocation(360303, false);
+            printer.Test += printer_Test;
+            printer.PrintAllocation(589331, false);
             //435438//384920//211771
             //441786//435438//428314---•	Sephora  head office 106793
         }
