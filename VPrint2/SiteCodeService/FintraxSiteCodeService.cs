@@ -5,6 +5,7 @@
 using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.Reflection;
 using System.ServiceModel;
 using System.ServiceProcess;
 using System.Threading;
@@ -12,6 +13,7 @@ using SiteCodeLib;
 
 namespace SiteCodeSrvc
 {
+    [Obfuscation(ApplyToMembers = true)]
     public partial class FintraxSiteCodeService : ServiceBase
     {
         private SaveThread m_SaveThread;
