@@ -1,0 +1,44 @@
+﻿Installing assembly 'C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\FintraxServiceManager.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\FintraxServiceManager.InstallLog
+   assemblypath = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\FintraxServiceManager.exe
+Installing service FintraxServiceManager...
+Service FintraxServiceManager has been successfully installed.
+Creating EventLog source FintraxServiceManager in log Application...
+Committing assembly 'C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\FintraxServiceManager.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\FintraxServiceManager.InstallLog
+   assemblypath = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\FintraxServiceManager.exe
+Uninstalling assembly 'C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.InstallLog
+   assemblypath = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.exe
+Removing EventLog source FintraxServiceManager.
+Service FintraxServiceManager is being removed from the system...
+Service FintraxServiceManager was successfully removed from the system.
+Installing assembly 'C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.exe'.
+Affected parameters are:
+   logtoconsole = 
+   i = 
+   logfile = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.InstallLog
+   assemblypath = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.exe
+Installing service FintraxServiceManager...
+Service FintraxServiceManager has been successfully installed.
+Creating EventLog source FintraxServiceManager in log Application...
+Committing assembly 'C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.exe'.
+Affected parameters are:
+   logtoconsole = 
+   i = 
+   logfile = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.InstallLog
+   assemblypath = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.exe
+Uninstalling assembly 'C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.InstallLog
+   assemblypath = C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\bin\Debug\fintraxservicemanager.exe
+Removing EventLog source FintraxServiceManager.
+Service FintraxServiceManager is being removed from the system...
+Service FintraxServiceManager was successfully removed from the system.
