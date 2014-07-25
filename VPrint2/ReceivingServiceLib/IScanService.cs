@@ -3,6 +3,7 @@
 /***************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
@@ -146,6 +147,12 @@ namespace ReceivingServiceLib
         [OperationContract]//(Action = "*", ReplyAction = "*")]
         [FaultContract(typeof(MyApplicationFault))]
         List<TransferFileInfo> GetTransferFile(int countryId, int beginNumber, int endNumber, string siteCode, string s1, string s2);
+
+        #endregion
+
+        #region GENERAL
+
+        int UpdateTableData(ArrayList table);
 
         #endregion
     }
