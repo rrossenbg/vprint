@@ -29,9 +29,7 @@ namespace VPrinting
         /// 192.168.58.59
         /// </summary>
         public static string TEST_IP = ConfigurationManager.AppSettings["TestServerIP"];
-        public static string SCAN_IP = "192.168.53.143";//ConfigurationManager.AppSettings["ScanServerIP"];
-        //"127.0.0.1";//192.168.53.143
-            //
+        public static string SCAN_IP = ConfigurationManager.AppSettings["ScanServerIP"];//"192.168.53.143";"127.0.0.1";
 
         public static CurrentUser currentUser = new CurrentUser(1, "NA", 286);
         public static bool IsDebug;
