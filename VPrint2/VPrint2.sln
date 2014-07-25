@@ -218,7 +218,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FintraxPTFImagesTest", "Fin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FintraxServiceManager", "FintraxServiceManager", "{B5060B05-1740-44DA-8C7A-C6597EF8B151}"
 	ProjectSection(SolutionItems) = preProject
-		FintraxServiceManager\FintraxServiceManager.exe = FintraxServiceManager\FintraxServiceManager.exe
 		FintraxServiceManager\FintraxServiceManager.exe.config = FintraxServiceManager\FintraxServiceManager.exe.config
 	EndProjectSection
 EndProject
@@ -1711,7 +1710,6 @@ Global
 		{2E523000-5392-49FD-B99D-D605748CE537}.ClassCorter|x86.ActiveCfg = Release|Any CPU
 		{2E523000-5392-49FD-B99D-D605748CE537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E523000-5392-49FD-B99D-D605748CE537}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2E523000-5392-49FD-B99D-D605748CE537}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{2E523000-5392-49FD-B99D-D605748CE537}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{2E523000-5392-49FD-B99D-D605748CE537}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{2E523000-5392-49FD-B99D-D605748CE537}.Deployment_Debug|Any CPU.ActiveCfg = Debug|Any CPU
