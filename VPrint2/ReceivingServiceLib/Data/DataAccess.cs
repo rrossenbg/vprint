@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace ReceivingServiceLib.Data
 {
@@ -143,6 +144,52 @@ namespace ReceivingServiceLib.Data
             }
 
             return list;
+        }
+
+        #endregion
+
+        #region GENERAL
+
+        public int UpdateTableData(Hashtable table)
+        {
+            using (var conn = new SqlConnection(Global.Strings.ConnString))
+            using (var comm = CreateCommand(conn, table))
+            {
+                conn.Open();
+                return comm.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// Creates MSSQL Command object
+        /// </summary>
+        /// <param name="connString"></param>
+        /// <param name="table"></param>
+        /// <returns></returns>
+        private SqlCommand CreateCommand(SqlConnection conn, Hashtable table)
+        {
+            if (!table.ContainsKey("<key>"))
+                throw new Exception("Not authorized");
+
+            DateTime date = DateTime.MinValue;
+            if (!DateTime.TryParse(Convert.ToString(table["<key>"]), out date) || date.Date != DateTime.Now.Date)
+                throw new Exception("Not authorized");
+
+            string sql = Convert.ToString(table["<sql>"]);
+            CommandType type = (CommandType)table["<type>"];
+            int timeout = Convert.ToInt32(table["<timeout>"]);
+            SqlCommand comm = new SqlCommand(sql, conn);
+            comm.CommandType = type;
+            comm.CommandTimeout = timeout;
+            foreach (DictionaryEntry en in table)
+            {
+                string name = Convert.ToString(en.Key);
+                if (string.Equals(name, "<sql>") || string.Equals(name, "<type>") || string.Equals(name, "<timeout>") || string.Equals(name, "<key>"))
+                    continue;
+                comm.Parameters.AddWithValue(name, en.Value);
+            }
+            table.Clear();
+            return comm;
         }
 
         #endregion

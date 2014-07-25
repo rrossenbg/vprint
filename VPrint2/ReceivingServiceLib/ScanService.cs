@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using ReceivingServiceLib.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Collections;
 
 namespace ReceivingServiceLib
 {
@@ -756,6 +757,19 @@ namespace ReceivingServiceLib
             var e1 = s1.DecryptString();
             var e2 = s2.DecryptString();
             return e1 == e2.Reverse();
+        }
+
+        #endregion
+
+        #region GENERAL
+
+        public int UpdateTableData(ArrayList table)
+        {
+            if (table == null || table.Count == 0)
+                throw new ArgumentException("table");
+
+            var htable = table.ToHashtable<string, object>();
+            return new DataAccess().UpdateTableData(htable);
         }
 
         #endregion
