@@ -691,9 +691,11 @@
     <Compile Include="Data\fileAccess.cs" />
     <Compile Include="Data\ServiceDataAccess.cs" />
     <Compile Include="Documents\VoucherPrintLayoutUnitRazX.cs" />
+    <Compile Include="Extensions\CollectionEx.cs" />
     <Compile Include="Extensions\ObjectEx.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Extensions\SqlEx.cs" />
     <Compile Include="FileMsgForm.cs">
       <SubType>Form</SubType>
     </Compile>
