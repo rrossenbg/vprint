@@ -16,6 +16,7 @@ using FintraxPTFImages.Data;
 using FintraxPTFImages.Models;
 using FintraxPTFImages.PartyManagementRef;
 using FintraxPTFImages.ScanServiceRef;
+using VPrinting.Common;
 
 namespace FintraxPTFImages
 {
@@ -247,7 +248,18 @@ namespace FintraxPTFImages
         {
             string barcode = this.Request.Params["Barcode"];
             if (!string.IsNullOrWhiteSpace(barcode))
-                return RedirectToAction("Index", "Home");
+            {
+                BarcodeData data = new BarcodeDecoder().Match(barcode);
+                if (data != null)
+                {
+                    PTFDataAccess.ExcudeFromDebitRun(data.CountryID, data.RetailerID, data.VoucherID, CurrentUser.UserID);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.Err = "Wrong barcode. Please renter.";
+                }
+            }
             return View(b);
         }
 
