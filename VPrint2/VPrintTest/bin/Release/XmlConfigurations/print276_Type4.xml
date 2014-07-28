@@ -1,0 +1,74 @@
+﻿<?xml version="1.0"?>
+<!-- FORMAT 2 (not tested)-->
+<VoucherPrintLayout276 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <PageSize>
+    <Width>1100</Width>
+    <Height>850</Height>
+  </PageSize>
+  <Landscape>false</Landscape>
+  <RetailerID>
+    <Description></Description>
+    <X>452</X>
+    <Y>144</Y>
+    <Font>
+      <Value>Arial, 10pt</Value>
+    </Font>
+  </RetailerID>
+  <Line1>
+    <Description></Description>
+    <X>135</X>
+    <Y>125</Y>
+    <Font>
+      <Value>Bookman Old Style, 12pt</Value>
+    </Font>
+  </Line1>
+  <Line5>
+    <Description></Description>
+    <X>135</X>
+    <Y>150</Y>
+    <Font>
+      <Value>Bookman Old Style, 12pt</Value>
+    </Font>
+  </Line5>
+  <Line3>
+    <Description></Description>
+    <X>235</X>
+    <Y>150</Y>
+    <Font>
+      <Value>Bookman Old Style, 12pt</Value>
+    </Font>
+  </Line3>
+  <Phone>
+    <Description></Description>
+    <X>200</X>
+    <Y>200</Y>
+    <Font>
+      <Value>Arial, 10pt</Value>
+    </Font>
+  </Phone>
+  <VoucherID>
+    <Description></Description>
+    <X>452</X>
+    <Y>96</Y>
+    <Font>
+      <Value>Arial, 10pt</Value>
+    </Font>
+  </VoucherID>
+  <VATNumber>
+    <Description>MwSt Nr. </Description>
+    <X>135</X>
+    <Y>220</Y>
+    <Font>
+      <Value>Arial, 10pt</Value>
+    </Font>
+  </VATNumber>
+  <ShopName>
+    <Description></Description>
+    <X>135</X>
+    <Y>96</Y>
+    <Font>
+      <Value>Bookman Old Style, 14pt</Value>
+    </Font>
+  </ShopName>
+</VoucherPrintLayout276>

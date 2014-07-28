@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TransferDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="TransferDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Configs" EntityType="TransferDbModel.Config" />
+    <EntitySet Name="EmailLists" EntityType="TransferDbModel.EmailList" />
+    <EntitySet Name="VoucherTransfers" EntityType="TransferDbModel.VoucherTransfer" />
+    <EntitySet Name="EmailedVouchers" EntityType="TransferDbModel.EmailedVoucher" />
+  </EntityContainer>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="cfg_id" />
+    </Key>
+    <Property Name="cfg_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cfg_name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="cfg_value" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="EmailList">
+    <Key>
+      <PropertyRef Name="el_id" />
+    </Key>
+    <Property Name="el_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="el_iso_id" Type="Int32" Nullable="false" />
+    <Property Name="el_list" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="el_subject" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="el_body_template" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="el_active" />
+    <Property Type="String" Name="el_filter" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VoucherTransfer">
+    <Key>
+      <PropertyRef Name="vt_id" />
+    </Key>
+    <Property Type="Int64" Name="vt_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="vt_v_number" Nullable="false" />
+    <Property Type="Int32" Name="vt_v_type_id" Nullable="false" />
+    <Property Type="Int32" Name="vt_v_country_iso_id" Nullable="false" />
+    <Property Type="String" Name="vt_file_xml" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="vt_status_id" Nullable="false" />
+    <Property Type="String" Name="vt_status_description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="vt_creation_date" Nullable="false" />
+    <Property Type="String" Name="vt_created_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="vt_last_modification_date" Nullable="false" />
+    <Property Type="String" Name="vt_last_modified_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="vt_br_id" />
+  </EntityType>
+  <EntityType Name="EmailedVoucher">
+    <Key>
+      <PropertyRef Name="ev_id" />
+    </Key>
+    <Property Type="Int32" Name="ev_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ev_iso" Nullable="false" />
+    <Property Type="Int32" Name="ev_number" Nullable="false" />
+    <Property Type="Int32" Name="ev_el_id" Nullable="false" />
+    <Property Type="DateTime" Name="ev_date" Nullable="false" />
+  </EntityType>
+</Schema>

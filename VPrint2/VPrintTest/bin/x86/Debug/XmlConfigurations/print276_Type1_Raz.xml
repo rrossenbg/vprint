@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- FORMAT 1 (GERMANY)-->
+<VoucherPrintLayoutRaz xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <FormLength>49</FormLength>
+  <!-- Name of the template. Should be unique for the system. -->
+  <TemplateName>3E11B013-B2D9-404B-A5AD-F9CD6A822E49</TemplateName>
+  <Context>
+    <![CDATA[
+@{
+    //Please no code into the body tag!
+    //Only variables
+    const string COL0 = "<ht><ht><ht><ht>"; 
+    const string COL1 = "<ht><ht><ht><ht><ht>"; 
+    const string COL2 = "<nbsp><nbsp><nbsp><nbsp>"; 
+    
+    var id = Model.Retailer.Id;
+    var barcodeNumber = Model.StrVoucherNo.Replace(" ", "").Substring(3);
+    var barcode = MTPL.SetAbsoluteHorizontalPosition(4300) +
+                  MTPL.PrintI2Of5Barcode(barcodeNumber, 1, "000");
+    var barcodeText = Model.StrVoucherNo.Replace(" ", "");    
+    var shopName = Model.Retailer.TradingName ?? Model.Retailer.Name;
+    var voucherNumber = string.Concat(Model.VoucherNo, Model.Printing.CalculateCheckDigit(Model.VoucherNo));   
+    var line1 = Model.Retailer.RetailAddress.Line1;
+    var line2 = Model.Retailer.RetailAddress.Line2;
+    var line3 = Model.Retailer.RetailAddress.Line3;
+    var line5 = Model.Retailer.RetailAddress.Line5;
+    var phone = Model.Retailer.Phone;
+    var vatNumber = string.Concat("DE ",  Model.Retailer.VatNumber); 
+}    
+<body>
+@COL0@barcode<br>
+@COL1@barcodeText<br>
+<br>
+  <br>
+  <br>
+  @COL2@string.Format("{0,-35}",shopName)<ht>@voucherNumber<br>
+  @COL2@line1<br>
+  @COL2@line2<br>
+  @COL2@string.Format("{0,-35}",line3)<ht>@id<br>
+  @COL2@line5<br>
+  <br>
+  @COL2@vatNumber<br><br>
+</body>
+<body>
+@COL0@barcode<br>
+@COL1@barcodeText<br>
+</body>
+<body>
+@COL0@barcode<br>
+</body>
+]]>
+  </Context>
+</VoucherPrintLayoutRaz>

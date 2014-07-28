@@ -1,0 +1,113 @@
+﻿@using System
+@using System.Linq 
+@using System.Globalization
+@using FintraxPTFImages
+@using FintraxPTFImages.Models
+@model IList<ShowModel>
+@{
+    ViewBag.Title = "Show";
+}
+@section script_declarations {
+    <script type="text/javascript">
+
+        function printDiv(divId) {
+            var printContents = document.getElementById(divId).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+
+        $(document).ready(function () {
+            var myVar = window.setInterval(function () { CheckImagesAreShown() }, 25000); //25sec
+            function CheckImagesAreShown() {
+                var images = document.getElementById("Images")
+                if (images == null)
+                    document.location.reload(true);
+                else
+                    window.clearTimeout(myVar);
+            }
+        });
+
+    </script>
+}
+<h2>Voucher</h2>
+@Html.ActionLink("Back", "Search")&nbsp; <a onclick="document.location.reload(true)"
+    style="cursor: pointer;">Refresh</a>
+<div style="display: table; width: 100%; height: auto;">
+    @{
+        var xmlModel = (ShowXmlModel)Model.FirstOrDefault(m => m is ShowXmlModel);
+        if (xmlModel != null)
+        {
+        <table id="Images" style="border: 1px solid black; width: 100%;">
+            <tr>
+                <td>
+                    JobID
+                </td>
+                <td>@xmlModel.JobID
+                </td>
+                <td>
+                    CountryID
+                </td>
+                <td>@xmlModel.CountryID
+                </td>
+                <td>
+                    RetailerID
+                </td>
+                <td>@xmlModel.RetailerID
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    VoucherID
+                </td>
+                <td>@xmlModel.VoucherID
+                </td>
+                <td>
+                    SiteCode
+                </td>
+                <td>@xmlModel.SiteCode
+                </td>
+                <td>
+                    BarCode
+                </td>
+                <td>@xmlModel.BarCode
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    OperatorID
+                </td>
+                <td>@xmlModel.OperatorID
+                </td>
+                <td>
+                    LocationID
+                </td>
+                <td>@xmlModel.LocationID
+                </td>
+                <td>
+                    CreatedAt
+                </td>
+                <td>@xmlModel.CreateAt.ToShortDateString()
+                </td>
+            </tr>
+        </table>
+        }
+    }
+    @foreach (var file in Model)
+    {
+        if (file is ShowXmlModel)
+        {
+            continue;
+        }
+        <br />
+        <div id="@file.Id" >
+            <p style="border: 1px solid black; font-size: 10px;">
+                &nbsp;&nbsp; @file.Name
+                <a onclick="printDiv('@file.Id')" style="cursor: pointer; float: right;" >Print</a></p>
+            <br />
+            <img src="@file.ImgSrc" alt="img"/>
+            <br />
+        </div>}
+</div>
+@Html.Partial("BottomBarPartial", ViewData["MESSAGE"])

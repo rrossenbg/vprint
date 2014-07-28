@@ -1,0 +1,7 @@
+C:\PROJECTS\VPrint2\VPrint_372_addon\bin\Release\VPrint_addon.dll
+C:\PROJECTS\VPrint2\VPrint_372_addon\bin\Release\VPrint_addon.pdb
+C:\PROJECTS\VPrint2\VPrint_372_addon\bin\Release\VPrint.Common.dll
+C:\PROJECTS\VPrint2\VPrint_372_addon\bin\Release\VPrint.Common.pdb
+C:\PROJECTS\VPrint2\VPrint_372_addon\obj\Release\VPrint_addon.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\VPrint_372_addon\obj\Release\VPrint_addon.dll
+C:\PROJECTS\VPrint2\VPrint_372_addon\obj\Release\VPrint_addon.pdb

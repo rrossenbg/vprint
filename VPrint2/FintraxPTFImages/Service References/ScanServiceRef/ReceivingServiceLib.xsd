@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="MyApplicationFault">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="MyApplicationFault" nillable="true" type="tns:MyApplicationFault" />
+  <xs:complexType name="VoucherInfo2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsoId" type="xs:int" />
+      <xs:element minOccurs="0" name="RetailerId" type="xs:int" />
+      <xs:element minOccurs="0" name="VoucherId" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VoucherInfo2" nillable="true" type="tns:VoucherInfo2" />
+  <xs:complexType name="ArrayOfVoucherInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VoucherInfo" nillable="true" type="tns:VoucherInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVoucherInfo" nillable="true" type="tns:ArrayOfVoucherInfo" />
+  <xs:complexType name="VoucherInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BarCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScanDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Location" type="xs:int" />
+      <xs:element minOccurs="0" name="OperatorId" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VoucherInfo" nillable="true" type="tns:VoucherInfo" />
+  <xs:simpleType name="OperationHistory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NA" />
+      <xs:enumeration value="Login" />
+      <xs:enumeration value="Logout" />
+      <xs:enumeration value="Print" />
+      <xs:enumeration value="RePrint" />
+      <xs:enumeration value="Scan" />
+      <xs:enumeration value="Coversheet" />
+      <xs:enumeration value="DispatchVoucher">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SetupPrint">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SetupScan">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ShowScannedImage">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PrintLayoutUpdate">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">101</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ScanLayoutUpdate">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">102</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FolderAdded">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">200</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FolderRenamed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">201</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FolderDeleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">202</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FileDeleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">207</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AllFilesDeleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">208</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FileDownloaded">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">210</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CoverFileDownloaded">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">250</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Error">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">127</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OperationHistory" nillable="true" type="tns:OperationHistory" />
+  <xs:complexType name="ArrayOfHistoryByCountryInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryByCountryInfo" nillable="true" type="tns:HistoryByCountryInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistoryByCountryInfo" nillable="true" type="tns:ArrayOfHistoryByCountryInfo" />
+  <xs:complexType name="HistoryByCountryInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Index" type="xs:int" />
+      <xs:element minOccurs="0" name="IsoId" type="xs:int" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OperType" type="tns:OperationHistory" />
+      <xs:element minOccurs="0" name="BrIsoId" type="xs:int" />
+      <xs:element minOccurs="0" name="BrId" type="xs:int" />
+      <xs:element minOccurs="0" name="VID" type="xs:int" />
+      <xs:element minOccurs="0" name="V2ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistoryByCountryInfo" nillable="true" type="tns:HistoryByCountryInfo" />
+  <xs:complexType name="ArrayOfRetailerPrinterInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RetailerPrinterInfo" nillable="true" type="tns:RetailerPrinterInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRetailerPrinterInfo" nillable="true" type="tns:ArrayOfRetailerPrinterInfo" />
+  <xs:complexType name="RetailerPrinterInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryId" type="xs:int" />
+      <xs:element minOccurs="0" name="HeadOfficeId" type="xs:int" />
+      <xs:element minOccurs="0" name="RetailerId" type="xs:int" />
+      <xs:element minOccurs="0" name="FormatId" type="xs:int" />
+      <xs:element minOccurs="0" name="FormatName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormatType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrinterPath" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RetailerPrinterInfo" nillable="true" type="tns:RetailerPrinterInfo" />
+  <xs:complexType name="ArrayOffileInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="fileInfo" nillable="true" type="tns:fileInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOffileInfo" nillable="true" type="tns:ArrayOffileInfo" />
+  <xs:complexType name="fileInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="FolderId" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryId" type="xs:int" />
+      <xs:element minOccurs="0" name="RetailerId" type="xs:int" />
+      <xs:element minOccurs="0" name="VoucherId" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SiteCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="fileInfo" nillable="true" type="tns:fileInfo" />
+  <xs:complexType name="ArrayOfFolderInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FolderInfo" nillable="true" type="tns:FolderInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFolderInfo" nillable="true" type="tns:ArrayOfFolderInfo" />
+  <xs:complexType name="FolderInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FolderInfo" nillable="true" type="tns:FolderInfo" />
+  <xs:complexType name="ArrayOffile2Info">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="file2Info" nillable="true" type="tns:file2Info" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOffile2Info" nillable="true" type="tns:ArrayOffile2Info" />
+  <xs:complexType name="file2Info">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="FolderId" type="xs:int" />
+      <xs:element minOccurs="0" name="CountryID" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" type="xs:int" />
+      <xs:element minOccurs="0" name="Operator" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="file2Info" nillable="true" type="tns:file2Info" />
+  <xs:complexType name="ArrayOfUpdateFileInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UpdateFileInfo" nillable="true" type="tns:UpdateFileInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUpdateFileInfo" nillable="true" type="tns:ArrayOfUpdateFileInfo" />
+  <xs:complexType name="UpdateFileInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Length" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateFileInfo" nillable="true" type="tns:UpdateFileInfo" />
+  <xs:complexType name="ArrayOfTransferFileInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransferFileInfo" nillable="true" type="tns:TransferFileInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransferFileInfo" nillable="true" type="tns:ArrayOfTransferFileInfo" />
+  <xs:complexType name="TransferFileInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InvNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BranchId" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteLocationNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VoucherNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferFileInfo" nillable="true" type="tns:TransferFileInfo" />
+</xs:schema>

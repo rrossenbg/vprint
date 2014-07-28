@@ -1,0 +1,68 @@
+﻿<?xml version="1.0"?>
+<!-- FORMAT 1 (not tested)-->
+<!-- VoucherAllocationPrintingAAA.exe.config -->
+<!-- German Vouchers -->
+<VoucherPrintLayout276 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <PageSize>
+    <Width>1100</Width>
+    <Height>850</Height>
+  </PageSize>
+  <Landscape>false</Landscape>
+  <RetailerID>
+    <Description></Description>
+    <X>352</X>
+    <Y>144</Y>
+    <Font>
+      <Value>Arial, 10pt</Value>
+    </Font>
+  </RetailerID>
+  <ShopName>
+    <Description></Description>
+    <X>35</X>
+    <Y>96</Y>
+    <Font>
+      <Value>Bookman Old Style, 14pt</Value>
+    </Font>
+  </ShopName>
+  <Line1>
+    <Description></Description>
+    <X>35</X>
+    <Y>125</Y>
+    <Font>
+      <Value>Bookman Old Style, 12pt</Value>
+    </Font>
+  </Line1>
+  <Line3>
+    <Description></Description>
+    <X>35</X>
+    <Y>150</Y>
+    <Font>
+      <Value>Bookman Old Style, 12pt</Value>
+    </Font>
+  </Line3>
+  <Line5>
+    <Description></Description>
+    <X>35</X>
+    <Y>175</Y>
+    <Font>
+      <Value>Bookman Old Style, 12pt</Value>
+    </Font>
+  </Line5>
+  <VoucherID>
+    <Description></Description>
+    <X>352</X>
+    <Y>96</Y>
+    <Font>
+      <Value>Arial, 10pt</Value>
+    </Font>
+  </VoucherID>
+  <VATNumber>
+    <Description>MwSt Nr. {0}</Description>
+    <X>35</X>
+    <Y>220</Y>
+    <Font>
+      <Value>Arial, 10pt</Value>
+    </Font>
+  </VATNumber>
+</VoucherPrintLayout276>

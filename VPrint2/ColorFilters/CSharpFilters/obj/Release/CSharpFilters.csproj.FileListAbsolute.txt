@@ -1,0 +1,16 @@
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\bin\Release\CSharpFilters.exe
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.ColorInput.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.ColorSpaceDlg.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.Convolution.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.Form1.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.GammaInput.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.HLSDemo.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.HSLColorPicker.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.HueDlg.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.LuminanceDlg.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.Parameter.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.Resize.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.SaturationDlg.resources
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Release\CSharpFilters.exe

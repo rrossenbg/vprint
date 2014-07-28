@@ -1,0 +1,45 @@
+﻿<?xml version="1.0"?>
+<!-- FORMAT 1 (tested)-->
+<VoucherPrintLayout250 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <Context>
+    <![CDATA[<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <ht><ht>[ShopName]<ht><ht>[VoucherID]<br>
+    <br>
+    <ht><ht>[Line1]<br>
+    <ht><ht>[Line5]<nbsp>[Line3]<ht><ht><ht>[RetailerID]<br>
+    <ht><ht>Germany<br>
+    <br>
+    <ht><ht>MwSt<nbsp>Nr.<ht>[VATNumber]<br>
+    <ht><ht>St.-Nr<ht>143/172/10370<br>]]>
+  </Context>
+  <FormLength>0</FormLength>
+  <RetailerID>
+    <Description>RetailerID</Description>
+  </RetailerID>
+  <Line1>
+    <Description>Line1</Description>
+  </Line1>
+  <Line5>
+    <Description>Line5</Description>
+  </Line5>
+  <Line3>
+    <Description>Line3</Description>
+  </Line3>
+  <Phone>
+    <Description>Phone</Description>
+  </Phone>
+  <VoucherID>
+    <Description>VoucherID</Description>
+  </VoucherID>
+  <VATNumber>
+    <Description>VATNumber</Description>
+  </VATNumber>
+  <ShopName>
+    <Description>ShopName</Description>
+  </ShopName>
+</VoucherPrintLayout250>
