@@ -61,6 +61,7 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
@@ -84,7 +85,6 @@
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
@@ -185,6 +185,8 @@
     <Content Include="App_Data\ReadMe.txt" />
     <Content Include="Content\ImageGalery\jquery.image-gallery.css" />
     <Compile Include="Attributes\HandleErrAttribute.cs" />
+    <Compile Include="Common\BarcodeConfig.cs" />
+    <Compile Include="Common\BarcodeDecoder.cs" />
     <Compile Include="Common\FileLogger.cs" />
     <Compile Include="Common\Security.cs" />
     <Compile Include="Data\DataTables.cs" />

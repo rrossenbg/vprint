@@ -10,6 +10,7 @@ using System.Web.Routing;
 using FintraxPTFImages.Common;
 using FintraxPTFImages.Data;
 using FintraxPTFImages.Handler;
+using System.Web.Configuration;
 
 namespace FintraxPTFImages
 {
@@ -26,6 +27,8 @@ namespace FintraxPTFImages
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+            BarcodeDecoder.Run();
+            PTFDataAccess.ConnectionString = WebConfigurationManager.ConnectionStrings["PTF_ConnectionString"].ConnectionString;
         }
 
         protected void Application_BeginRequest(Object sender, EventArgs e)
@@ -73,6 +76,7 @@ namespace FintraxPTFImages
         protected void Session_Start(Object sender, EventArgs e)
         {
             //FileLogger.LogInfo("Session_Start", "Session_Start");
+            
         }
 
         protected void Session_End(Object sender, EventArgs e)

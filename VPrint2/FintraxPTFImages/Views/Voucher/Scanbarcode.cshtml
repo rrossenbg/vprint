@@ -25,8 +25,8 @@
             {
                 @Html.ValidationSummary(true)
                 <p>
-                    This is the default dialog which is useful for displaying information. The dialog
-                    window can be moved, resized and closed with the 'x' icon.</p>
+                    Please click in textbox and scan the barcode or enter it manually To close the window
+                    click the 'x' icon.</p>
                 <p>
                     @Html.TextBoxFor(m => m.Barcode)
                 </p>
@@ -35,6 +35,9 @@
                 </p>
             }
         </div>
+        <p style="color: Red;">
+            @ViewBag.Err
+        </p>
     </div>
 </body>
 </html>
