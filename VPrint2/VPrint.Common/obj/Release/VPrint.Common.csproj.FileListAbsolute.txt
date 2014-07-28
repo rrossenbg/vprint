@@ -1,0 +1,4 @@
+C:\PROJECTS\VPrint2\VPrint.Common\bin\Release\VPrint.Common.dll
+C:\PROJECTS\VPrint2\VPrint.Common\bin\Release\VPrint.Common.pdb
+C:\PROJECTS\VPrint2\VPrint.Common\obj\Release\VPrint.Common.dll
+C:\PROJECTS\VPrint2\VPrint.Common\obj\Release\VPrint.Common.pdb

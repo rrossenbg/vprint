@@ -208,6 +208,7 @@
     <Compile Include="Extensions\ThreadEx.cs" />
     <Compile Include="Handler\FormsAuthenticationService.cs" />
     <Compile Include="Handler\ImageHandler.cs" />
+    <Compile Include="Models\BarcodeModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ScanServerClient.cs" />
     <Compile Include="Strings.cs" />
@@ -338,6 +339,7 @@
     </None>
     <Content Include="WEBVOUCHERFOLDER\Web.config" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Voucher\Scanbarcode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

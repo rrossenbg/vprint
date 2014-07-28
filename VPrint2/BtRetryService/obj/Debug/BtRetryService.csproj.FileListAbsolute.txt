@@ -1,0 +1,11 @@
+C:\PROJECTS\VPrint2\BtRetryService\bin\Debug\BtRetryService.exe.config
+C:\PROJECTS\VPrint2\BtRetryService\bin\Debug\BtRetryService.exe
+C:\PROJECTS\VPrint2\BtRetryService\bin\Debug\BtRetryService.pdb
+C:\PROJECTS\VPrint2\BtRetryService\bin\Debug\System.Web.Razor.dll
+C:\PROJECTS\VPrint2\BtRetryService\bin\Debug\System.Web.Razor.xml
+C:\PROJECTS\VPrint2\BtRetryService\obj\Debug\BtRetryService.ProjectInstaller.resources
+C:\PROJECTS\VPrint2\BtRetryService\obj\Debug\BtRetryService.Properties.Resources.resources
+C:\PROJECTS\VPrint2\BtRetryService\obj\Debug\BtRetryService.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\BtRetryService\obj\Debug\BtRetryService.exe
+C:\PROJECTS\VPrint2\BtRetryService\obj\Debug\BtRetryService.pdb
+C:\PROJECTS\VPrint2\BtRetryService\obj\Debug\BtRetryService.csprojResolveAssemblyReference.cache

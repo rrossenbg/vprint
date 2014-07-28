@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="6dcb722d-bcad-4cae-81a9-edc8325b05bb" name="rosen.rusev@PTF-UK-D036 2014-07-22 16:09:16" runUser="FINTRAX\rosen.rusev" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="38f4857c-cc7b-4034-ae0e-bda2f88927a6">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rosen.rusev_PTF-UK-D036 2014-07-22 16_09_16">
+      <DeploymentItem filename="C:\Program Files (x86)\AForge.NET\Framework\Release\AForge.Imaging.dll" />
+      <DeploymentItem filename="C:\PROJECTS\VPrint2\VPrint_372_addon\bin\Debug\VPrint_addon.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\AForge.NET\Framework\Release\AForge.Genetic.dll" />
+      <DeploymentItem filename="C:\PROJECTS\VPrint2\Libraries\DTK.BarReader.dll" />
+      <DeploymentItem filename="C:\PROJECTS\VPrint2\VPrint.Common\bin\Debug\VPrint.Common.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\AForge.NET\Framework\Release\AForge.Imaging.Formats.dll" />
+      <DeploymentItem filename="C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint.exe" />
+      <DeploymentItem filename="C:\Program Files (x86)\AForge.NET\Framework\Release\AForge.dll" />
+      <DeploymentItem filename="C:\PROJECTS\VPrint2\Libraries\Zen.Barcode.Core.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-07-22T16:09:16.1828205+01:00" queuing="2014-07-22T16:09:17.3840051+01:00" start="2014-07-22T16:09:17.4776039+01:00" finish="2014-07-22T16:09:54.0287195+01:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="italy_print_format_Type_4" storage="c:\projects\vprint2\vprinttest\bin\debug\vprinttest.dll" id="db47c3f3-eef0-bc00-49f8-edcb06b140d8">
+      <Execution id="80475e46-829a-4d1a-bb93-fe2bae767b5b" />
+      <TestMethod codeBase="C:/PROJECTS/VPrint2/VPrintTest/bin/Debug/VPrintTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VPrintTest.ItalyTest, VPrintTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="italy_print_format_Type_4" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="db47c3f3-eef0-bc00-49f8-edcb06b140d8" executionId="80475e46-829a-4d1a-bb93-fe2bae767b5b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="80475e46-829a-4d1a-bb93-fe2bae767b5b" testId="db47c3f3-eef0-bc00-49f8-edcb06b140d8" testName="italy_print_format_Type_4" computerName="PTF-UK-D036" duration="00:00:35.0211073" startTime="2014-07-22T16:09:17.5556029+01:00" endTime="2014-07-22T16:09:53.9037195+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="80475e46-829a-4d1a-bb93-fe2bae767b5b">
+    </UnitTestResult>
+  </Results>
+</TestRun>

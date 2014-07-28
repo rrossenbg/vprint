@@ -1,0 +1,86 @@
+﻿<?xml version="1.0"?>
+<!-- FORMAT 1 (not tested)-->
+<!-- Uruguay Vouchers -->
+<VoucherPrintLayout620 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DocumentInitialization />
+  <PageSize>
+    <Width>940</Width>
+    <Height>800</Height>
+  </PageSize>
+  <Landscape>false</Landscape>
+  <PrinterPrintBarcode>false</PrinterPrintBarcode>
+  <ShowRetailerVatRate>true</ShowRetailerVatRate>
+
+  <RetailerAddressFormat>[Name]&lt;br&gt;[Line1]&lt;br&gt;[Line3]&lt;br&gt;[Line5]</RetailerAddressFormat>
+
+  <!-- PrinterFormat1AddressX -->
+  <RetailerAddress>
+    <Description></Description>
+    <X>210</X>
+    <Y>65</Y>
+    <Font>
+      <Value>Arial, 8pt</Value>
+    </Font>
+  </RetailerAddress>
+
+  <!-- PrinterFormat1VoucherNoX -->
+  <VoucherID>
+    <Description></Description>
+    <X>510</X>
+    <Y>90</Y>
+    <Font>
+      <Value>Arial, 8pt</Value>
+    </Font>
+  </VoucherID>
+
+  <!-- PrinterFormat1StoreNoX -->
+  <RetailerID>
+    <Description></Description>
+    <X>510</X>
+    <Y>150</Y>
+    <Font>
+      <Value>Arial, 8pt</Value>
+    </Font>
+  </RetailerID>
+
+  <!-- PrinterFormat1VatNoX -->
+  <VATNumber>
+    <!-- Vat Nr. {0} -->
+    <Description></Description>
+    <X>210</X>
+    <Y>170</Y>
+    <Font>
+      <Value>Arial, 8pt</Value>
+    </Font>
+  </VATNumber>
+
+  <!-- Leave zero tags -->
+  <BarCodeNo>
+    <X>0</X>
+    <Y>0</Y>
+    <TextX>0</TextX>
+    <TextY>0</TextY>
+    <Size>1</Size>
+  </BarCodeNo>
+
+  <!-- PrinterFormat1SubVoucherNoX -->
+  <StoreCode>
+    <Description></Description>
+    <X>0</X>
+    <Y>0</Y>
+    <Font>
+      <Value>Arial, 8pt</Value>
+    </Font>
+  </StoreCode>
+
+  <HOAddress>
+    <Description></Description>
+    <X>0</X>
+    <Y>0</Y>
+    <Font>
+      <Value>Arial, 8pt</Value>
+    </Font>
+  </HOAddress>
+  <!-- Leave zero tags -->
+
+</VoucherPrintLayout620>

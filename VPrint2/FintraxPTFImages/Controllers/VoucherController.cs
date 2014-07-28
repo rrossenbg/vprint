@@ -63,13 +63,11 @@ namespace FintraxPTFImages
 
             #endregion
 
-            int? grid_page = null;
             int value;
             if (Request.QueryString.Count != 0 && int.TryParse(Request.QueryString["grid-page"], out value))
             {
-                grid_page = value;
                 var model = Session.Get<SearchModel>("SearchModel");
-                return Search(model, grid_page);
+                return Search(model, (int?)value);
             }
             else
             {
@@ -235,5 +233,35 @@ namespace FintraxPTFImages
         }
 
         #endregion //Show
+
+        #region Barcodescan
+
+        [HttpGet]
+        public ActionResult Scanbarcode()
+        {
+            return View(new BarcodeModel());
+        }
+
+        [HttpPost]
+        public ActionResult Scanbarcode(BarcodeModel b)
+        {
+            string barcode = this.Request.Params["Barcode"];
+            if (!string.IsNullOrWhiteSpace(barcode))
+                return RedirectToAction("Index", "Home");
+            return View(b);
+        }
+
+        [HttpPost]
+        public ActionResult CheckBarcode(string value)
+        {
+            var isoId = value.cast<int>();
+
+            var headoffices = HttpContext.Session.Get<int, List<HeadOffice>>("HeadOfficeList" + isoId,
+                Helper.CreateHeadOfficeDropDownLoadFunction(), isoId).CreateSelectList((h) => string.Format("{0} - {1}", h.Name, h.Id), (h) => h.Id.ToString());
+
+            return Json(new ArrayList(headoffices), JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
     }
 }

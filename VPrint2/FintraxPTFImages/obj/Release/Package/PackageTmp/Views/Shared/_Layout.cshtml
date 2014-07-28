@@ -1,0 +1,61 @@
+﻿@using FintraxPTFImages
+@using FintraxPTFImages.Common
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - The Voucher Image Store</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @RenderSection("style_declarations", required: false)
+    @RenderSection("script_declarations", required: false)
+</head>
+<body>
+    <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("Premier Tax Free", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Search Voucher", "Search", "Voucher")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            @if (HttpContext.Current.Items["CurrentUser"] != null && ((CurrentUser)HttpContext.Current.Items["CurrentUser"]).IsAdmin)
+                            {
+                            <li>@Html.ActionLink("Admin", "Home", "Admin")</li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+    </div>
+    <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; 2013 - PremierTaxFree Ltd. UK</p>
+                </div>
+            </div>
+        </footer>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TransferDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TransferDbModelStoreContainer">
+    <EntitySet Name="Config" EntityType="TransferDbModel.Store.Config" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmailedVouchers" EntityType="TransferDbModel.Store.EmailedVouchers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmailList" EntityType="TransferDbModel.Store.EmailList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VoucherTransfer" EntityType="TransferDbModel.Store.VoucherTransfer" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="cfg_id" />
+    </Key>
+    <Property Name="cfg_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cfg_name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="cfg_value" Type="ntext" />
+  </EntityType>
+  <EntityType Name="EmailedVouchers">
+    <Key>
+      <PropertyRef Name="ev_id" />
+    </Key>
+    <Property Name="ev_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ev_iso" Type="int" Nullable="false" />
+    <Property Name="ev_number" Type="int" Nullable="false" />
+    <Property Name="ev_el_id" Type="int" Nullable="false" />
+    <Property Name="ev_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailList">
+    <Key>
+      <PropertyRef Name="el_id" />
+    </Key>
+    <Property Name="el_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="el_iso_id" Type="int" Nullable="false" />
+    <Property Name="el_list" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="el_subject" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="el_body_template" Type="ntext" Nullable="false" />
+    <Property Name="el_active" Type="bit" />
+    <Property Name="el_filter" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="VoucherTransfer">
+    <Key>
+      <PropertyRef Name="vt_id" />
+    </Key>
+    <Property Name="vt_id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vt_v_number" Type="int" Nullable="false" />
+    <Property Name="vt_v_type_id" Type="int" Nullable="false" />
+    <Property Name="vt_v_country_iso_id" Type="int" Nullable="false" />
+    <Property Name="vt_file_xml" Type="xml" />
+    <Property Name="vt_status_id" Type="int" Nullable="false" />
+    <Property Name="vt_status_description" Type="nvarchar(max)" />
+    <Property Name="vt_creation_date" Type="datetime" Nullable="false" />
+    <Property Name="vt_created_by" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="vt_last_modification_date" Type="datetime" Nullable="false" />
+    <Property Name="vt_last_modified_by" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="vt_br_id" Type="int" />
+  </EntityType>
+</Schema>

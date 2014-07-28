@@ -32,6 +32,7 @@
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("Search Voucher", "Search", "Voucher")</li>
+                            <li>@Html.ActionLink("Explode from Debit run", "Scanbarcode", "Voucher")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                             @if (HttpContext.Current.Items["CurrentUser"] != null && ((CurrentUser)HttpContext.Current.Items["CurrentUser"]).IsAdmin)

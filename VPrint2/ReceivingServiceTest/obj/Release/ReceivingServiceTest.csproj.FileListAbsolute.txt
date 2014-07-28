@@ -1,0 +1,12 @@
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\Resources\PTF.cer
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\Resources\PTF.pfx
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\Resources\PTFLogo.jpg
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceTest.dll
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceTest.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceLib.Common.dll
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\Ionic.Zip.dll
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\itextsharp.dll
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceLib.Common.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceTest\obj\Release\ReceivingServiceTest.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\ReceivingServiceTest\obj\Release\ReceivingServiceTest.dll
+C:\PROJECTS\VPrint2\ReceivingServiceTest\obj\Release\ReceivingServiceTest.pdb
