@@ -10,13 +10,13 @@ namespace FintraxPTFImages.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Voucher Images database. Search and show all scanned images by Country and Retailer.";
+            ViewBag.Message = "Voucher Images database. Search and show all scanned images.";
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "This application shows all scanned Vouchers by Retails.";
+            ViewBag.Message = "This application shows all scanned Vouchers.";
             return View();
         }
 
