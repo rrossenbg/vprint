@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
@@ -128,6 +129,47 @@ namespace FintraxPTFImages.Models
             OperatorID = xml.Root.ElementThrow("OperatorID").Value.ConvertTo<string, int>("OperatorID");
             LocationID = xml.Root.ElementThrow("LocationID").Value.ConvertTo<string, int>("LocationID");
             SessionID = xml.Root.ElementValueOrDefault("SessionID", () => new List<string>(new FileInfo(Path).PathParts()).Last());
+        }
+    }
+
+    /// <summary>
+    /// select top 10 v_cc_number, v_cheque_name, v_bank_account_name, v_bank_account_no, v_bank_sort_code, v_ic_id, * from Voucher where v_iso_id = 826 
+    /// </summary>
+    public class BarcodeInfo
+    {
+        public int Iso { get; set; }
+        public string Number { get; set; }
+        public string CCNumber { get; set; }
+        public string ChequeName { get; set; }
+        public string BankDetails { get; set; }
+        public bool StampedByPablo { get; set; }
+        public bool RejectedByPablo { get; set; }
+
+        public BarcodeInfo()
+        {
+            Number = "(na)";
+            CCNumber = "(na)";
+            ChequeName = "(na)";
+            BankDetails = "(na)";
+        }
+
+        public static BarcodeInfo ReadFromReader(SqlDataReader voucherReader)
+        {
+            var result = new BarcodeInfo();
+            if (voucherReader.Read())
+            {
+                result.Iso = voucherReader["v_iso_id"].Cast<int>();
+                result.Number = voucherReader["v_number"].Cast<string>("");
+                result.CCNumber = voucherReader["v_cc_number_masked"].Cast<string>("");//v_cc_number
+                result.ChequeName = voucherReader["v_cheque_name"].Cast<string>("");
+                result.BankDetails = string.Format("{0}/ {1}/ {2}",
+                    voucherReader["v_bank_account_name"].Cast<string>(),
+                    voucherReader["v_bank_account_no"].Cast<string>(),
+                    voucherReader["v_bank_sort_code"].Cast<string>());
+                result.StampedByPablo = voucherReader["v_ic_id"].Cast<int>() == 25;
+                result.RejectedByPablo = voucherReader["v_ic_id"].Cast<int>() == 26;
+            }
+            return result;
         }
     }
 }

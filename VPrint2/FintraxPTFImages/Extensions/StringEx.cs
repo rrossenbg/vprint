@@ -82,10 +82,10 @@ namespace FintraxPTFImages
         /// <param name="obj"></param>
         /// <returns></returns>
         [TargetedPatchingOptOut("na")]
-        public static T Cast<T>(this object obj)
+        public static T Cast<T>(this object obj, T DEFAULT = default(T))
         {
             if (obj == null || obj is DBNull)
-                return default(T);
+                return DEFAULT;
             return (T)Convert.ChangeType(obj, typeof(T));
         }
 

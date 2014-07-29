@@ -38,6 +38,41 @@
         <p style="color: Red;">
             @ViewBag.Err
         </p>
+        <div style="width: 90%; height: 90%; margin-top: 10%;">
+            @{if (ViewBag.Info != null)
+              {
+                <p>
+                    @Html.Label("Country: " + (string)ViewBag.Info.Iso.ToString())
+                </p>
+                <p>
+                    @Html.Label("Voucher number: " + (string)ViewBag.Info.Number)
+                </p>
+                <p>
+                    @Html.Label("Credit card number: " + (string)ViewBag.Info.CCNumber)
+                </p>
+                <p>
+                    @Html.Label("Cheque name: " + (string)ViewBag.Info.ChequeName)
+                </p>
+                <p>
+                    @Html.Label("Bank details: " + (string)ViewBag.Info.BankDetails)
+                </p>
+              }
+            }
+            @{if (ViewBag.Info != null && ViewBag.Info.StampedByPablo)
+              {
+                <p style="color: Green;">
+                    Stamped by Pablo
+                </p>
+              }
+            }
+            @{if (ViewBag.Info != null && ViewBag.Info.RejectedByPablo)
+              {
+                <p style="color: Red;">
+                    Rejected by Pablo
+                </p>
+              }
+            }
+        </div>
     </div>
 </body>
 </html>

@@ -202,7 +202,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PTFDataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\Class1.cs" />
+    <Compile Include="Extensions\Class1Ex.cs" />
     <Compile Include="Extensions\DisposableEx.cs" />
     <Compile Include="Extensions\ImagesEx.cs" />
     <Compile Include="Extensions\ObjectEx2.cs" />
