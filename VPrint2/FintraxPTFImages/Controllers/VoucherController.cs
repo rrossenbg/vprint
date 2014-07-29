@@ -263,12 +263,13 @@ namespace FintraxPTFImages
                     }
                     else
                     {
-                        ViewBag.Err = "P1 doesn't exist. Please process voucher by using voucher entry.";
+                        ViewBag.Err =
+                            string.Format("P1 doesn't exist for Iso: '{0}' Voucher Number: '{1}'. Please process voucher by using voucher entry in TRS.", data.CountryID, data.VoucherID);
                     }
                 }
                 else
                 {
-                    ViewBag.Err = "Wrong barcode. Please renter.";
+                    ViewBag.Err = string.Format( "Wrong barcode '{0}'. Please renter.", barcode);
                 }
             }
             else
