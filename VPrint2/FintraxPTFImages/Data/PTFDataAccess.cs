@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using FintraxPTFImages.Data.PTF;
+using FintraxPTFImages.Models;
 
 namespace FintraxPTFImages.Data
 {
@@ -22,7 +23,7 @@ namespace FintraxPTFImages.Data
             #region SQL
 
             const string SQL = @"select 1 from VoucherPart where vp_iso_id = @iso and vp_v_number = @voucher and vp_type_id = 1";
-            
+
             #endregion
 
             using (var conn = new SqlConnection(ConnectionString))
@@ -57,7 +58,7 @@ namespace FintraxPTFImages.Data
             }
         }
 
-        public static void SelectVoucherInfo(int iso, int voucherId)
+        public static BarcodeInfo SelectVoucherInfo(int iso, int voucherId)
         {
             #region SQL
 
@@ -71,7 +72,8 @@ namespace FintraxPTFImages.Data
                 comm.Parameters.AddWithValue("@iso", iso);
                 comm.Parameters.AddWithValue("@voucher", voucherId);
                 conn.Open();
-                var reader = comm.ExecuteReader(CommandBehavior.CloseConnection);
+                using (var reader = comm.ExecuteReader(CommandBehavior.CloseConnection))
+                    return BarcodeInfo.ReadFromReader(reader);
             }
         }
 

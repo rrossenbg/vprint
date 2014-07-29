@@ -252,11 +252,14 @@ namespace FintraxPTFImages
                 BarcodeData data = new BarcodeDecoder().Match(barcode);
                 if (data != null)
                 {
+                    //data.CountryID = 826;
+                    //data.VoucherID = 15715619;
                     if (PTFDataAccess.CheckP1Exists(data.CountryID, data.VoucherID))
                     {
                         PTFDataAccess.ExcudeFromDebitRun(data.CountryID, data.RetailerID, data.VoucherID, CurrentUser.UserID);
                         PTFDataAccess.LogVoucher(data.CountryID, data.VoucherID, CurrentUser.UserID);
-                        return RedirectToAction("Index", "Home");
+                        ViewBag.Info = PTFDataAccess.SelectVoucherInfo(data.CountryID, data.VoucherID);
+                        //return RedirectToAction("Index", "Home");
                     }
                     else
                     {
