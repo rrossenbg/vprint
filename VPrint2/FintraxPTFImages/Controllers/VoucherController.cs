@@ -252,13 +252,25 @@ namespace FintraxPTFImages
                 BarcodeData data = new BarcodeDecoder().Match(barcode);
                 if (data != null)
                 {
-                    PTFDataAccess.ExcudeFromDebitRun(data.CountryID, data.RetailerID, data.VoucherID, CurrentUser.UserID);
-                    return RedirectToAction("Index", "Home");
+                    if (PTFDataAccess.CheckP1Exists(data.CountryID, data.VoucherID))
+                    {
+                        PTFDataAccess.ExcudeFromDebitRun(data.CountryID, data.RetailerID, data.VoucherID, CurrentUser.UserID);
+                        PTFDataAccess.LogVoucher(data.CountryID, data.VoucherID, CurrentUser.UserID);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ViewBag.Err = "P1 doesn't exist. Please process voucher by using voucher entry.";
+                    }
                 }
                 else
                 {
                     ViewBag.Err = "Wrong barcode. Please renter.";
                 }
+            }
+            else
+            {
+                ViewBag.Err = "Barcode may not be empty.";
             }
             return View(b);
         }

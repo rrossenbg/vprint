@@ -1,0 +1,43 @@
+﻿@model FintraxPTFImages.Models.BarcodeModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <title>Barcode Scan</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script>
+        $(function () {
+            $("#dialog").dialog();
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <div id="dialog" title="Scan barcode">
+            @using (Html.BeginForm("Scanbarcode", "Voucher", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true)
+                <p>
+                    Please click in textbox and scan the barcode or enter it manually To close the window
+                    click the 'x' icon.</p>
+                <p>
+                    @Html.TextBoxFor(m => m.Barcode)
+                </p>
+                <p>
+                    <input type="submit" value="Submit" />
+                </p>
+            }
+        </div>
+        <p style="color: Red;">
+            @ViewBag.Err
+        </p>
+    </div>
+</body>
+</html>

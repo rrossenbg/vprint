@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using FintraxPTFImages.Data.PTF;
@@ -14,6 +15,64 @@ namespace FintraxPTFImages.Data
             PTFDataEntities2 db = new PTFDataEntities2();
             var branches = db.Branches.Where(br => br.br_iso_id == countryId);
             return branches;
+        }
+
+        public static bool CheckP1Exists(int iso, int voucherId)
+        {
+            #region SQL
+
+            const string SQL = @"select 1 from VoucherPart where vp_iso_id = @iso and vp_v_number = @voucher and vp_type_id = 1";
+            
+            #endregion
+
+            using (var conn = new SqlConnection(ConnectionString))
+            using (var comm = new SqlCommand(SQL, conn))
+            {
+                comm.Parameters.AddWithValue("@iso", iso);
+                comm.Parameters.AddWithValue("@voucher", voucherId);
+                conn.Open();
+                return comm.ExecuteScalar().Cast<bool>();
+            }
+        }
+
+        public static void LogVoucher(int iso, int voucherId, int userId)
+        {
+            #region SQL
+
+            const string SQL = @"INSERT INTO Logging (log_date, log_type_id, log_level, log_from, log_v_id, log_iso_id, 
+                                    log_us_id, log_login, log_hostname, log_program, log_nt_user) 
+                                 VALUES ( GETDATE() , 3, 1, 'ExcludeFromDR', @voucher, @iso, 
+                                    @usId, 'sa', '192.168.53.143', 'FintraxPTFImages', '\')";
+
+            #endregion
+
+            using (var conn = new SqlConnection(ConnectionString))
+            using (var comm = new SqlCommand(SQL, conn))
+            {
+                comm.Parameters.AddWithValue("@iso", iso);
+                comm.Parameters.AddWithValue("@voucher", voucherId);
+                comm.Parameters.AddWithValue("@usId", userId);
+                conn.Open();
+                comm.ExecuteNonQuery();
+            }
+        }
+
+        public static void SelectVoucherInfo(int iso, int voucherId)
+        {
+            #region SQL
+
+            const string SQL = @"select * from Voucher where v_iso_id = @iso and v_number = @voucher";
+
+            #endregion
+
+            using (var conn = new SqlConnection(ConnectionString))
+            using (var comm = new SqlCommand(SQL, conn))
+            {
+                comm.Parameters.AddWithValue("@iso", iso);
+                comm.Parameters.AddWithValue("@voucher", voucherId);
+                conn.Open();
+                var reader = comm.ExecuteReader(CommandBehavior.CloseConnection);
+            }
         }
 
         public static void ExcudeFromDebitRun(int isoId, int retailerId, int voucherId, int accountId)
