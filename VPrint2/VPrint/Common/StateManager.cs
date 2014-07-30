@@ -744,7 +744,7 @@ namespace VPrinting.Common
                     {
                         m_CurrentItem.State = eState.OK;
 
-                        FireCurrentItemCompleted();
+                        FireCurrentItemCompleted(m_CurrentItem);
 
                         m_CurrentItem.FireUpdated();
 
@@ -758,7 +758,7 @@ namespace VPrinting.Common
 
         public void CreateNewItem_AnyNoDoc()
         {
-            FireCurrentItemCompleted();
+            FireCurrentItemCompleted(m_CurrentItem);
 
             m_CurrentItem = new VoucherItem();
             m_CurrentItem.JobID = 1;
@@ -773,13 +773,13 @@ namespace VPrinting.Common
             FireNewItemAdded(item);
         }
 
-        public void CompleteCurrentItem()
+        public void CompleteCurrentItem(Item item)
         {
-            m_CurrentItem.State = eState.OK;
+            item.State = eState.OK;
 
-            FireCurrentItemCompleted();
+            FireCurrentItemCompleted(item);
 
-            m_CurrentItem.FireUpdated();
+            item.FireUpdated();
         }
 
         #endregion
@@ -801,10 +801,10 @@ namespace VPrinting.Common
             }
         }
 
-        private void FireCurrentItemCompleted()
+        private void FireCurrentItemCompleted(Item item)
         {
-            if (m_CurrentItem != null && CurrentItemCompleted != null)
-                CurrentItemCompleted(this, new CurrentItemEventArgs() { CurrentItem = m_CurrentItem, PrevItem = m_PrevItem });
+            if (item != null && CurrentItemCompleted != null)
+                CurrentItemCompleted(this, new CurrentItemEventArgs() { CurrentItem = item, PrevItem = m_PrevItem });
         }
 
         private void FireItemsCleared()
