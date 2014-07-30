@@ -11,6 +11,8 @@ namespace VPrinting.Controls
 
         private readonly CheckBox[] m_Checks;
 
+        public event EventHandler<ValueEventArgs<int>> CheckedChanged;
+
         public event EventHandler CheckedChanged1
         {
             add
@@ -111,6 +113,24 @@ namespace VPrinting.Controls
             CheckBox cb = (CheckBox)sender;
             cb.BackColor = cb.Checked ? ColorOn : ColorOff;
             ResetText(cb);
+            FireCheckedChanged(cb);
+        }
+
+        private void FireCheckedChanged(CheckBox cb)
+        {
+            if (CheckedChanged != null)
+            {
+                int index = -1;
+
+                if (cb == checkBox1)
+                    index = 0;
+                else if (cb == checkBox2)
+                    index = 1;
+                else if (cb == checkBox3)
+                    index = 2;
+
+                CheckedChanged(this, new ValueEventArgs<int>(index));
+            }
         }
 
         private void ResetText(CheckBox cb)

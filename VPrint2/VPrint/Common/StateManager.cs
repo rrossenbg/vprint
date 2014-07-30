@@ -37,8 +37,9 @@ namespace VPrinting.Common
         public enum eMode
         {
             NA = 0,
-            NoDocument = 1,
-            Document = 2,
+            Barcode = 1,
+            TransferFile = 2,
+            Sitecode = 3,
         }
 
         public class Item : IEquatable<Item>
@@ -64,6 +65,7 @@ namespace VPrinting.Common
             public byte[] Signature { get; set; }
             
             public string Message { get; set; }
+            public string FullFileName { get; set; }
 
             public bool Selected { get; set; }
 
@@ -424,7 +426,7 @@ namespace VPrinting.Common
         {
             get
             {
-                return Mode == eMode.Document;
+                return Mode == eMode.TransferFile;
             }
         }
 
@@ -602,9 +604,14 @@ namespace VPrinting.Common
 
         #region STATE-MANAGER ITEM
 
-        public Item ProcessItem_Begin(bool voucherItem)
+        /// <summary>
+        /// True - Voucher, False - CoverSheet
+        /// </summary>
+        /// <param name="isVoucher"></param>
+        /// <returns></returns>
+        public Item ProcessItem_Begin(bool isVoucher)
         {
-            return voucherItem ? new VoucherItem() : new Item();
+            return isVoucher ? new VoucherItem() : new Item();
         }
 
         public void ProcessItem_End(Item item)
@@ -632,7 +639,7 @@ namespace VPrinting.Common
                             /// No document. No order.
                             /// Everything is going in. 
                             /// Must be a barcode.
-                            case eMode.NoDocument:
+                            case eMode.Barcode:
                                 {
                                     #region
 
@@ -676,7 +683,7 @@ namespace VPrinting.Common
                             /// They scan. Multi scan TIFF document.
                             /// If there is a barcode the barcode has been validated
                             /// Otherwise it has been inserted by using expected barcode details.
-                            case eMode.Document:
+                            case eMode.TransferFile:
                                 {
                                     #region
 
@@ -704,6 +711,22 @@ namespace VPrinting.Common
                                         m_CurrentItem = itm;
                                         ((VoucherItem)m_CurrentItem).CopyFromNoBarcode(vitem);
                                     }
+                                    break;
+                                    #endregion
+                                }
+
+                            /// No order.
+                            /// Barcode is mandatory
+                            /// Must be sitecode
+                            /// System calls TRS to resolve barcode
+                            case eMode.Sitecode:
+                                {
+                                    #region
+                                    m_CurrentItem = new VoucherItem();
+                                    m_CurrentItem.JobID = 1;
+                                    m_ItemCollection.Add(m_CurrentItem);
+                                    FireNewItemAdded(m_CurrentItem);
+                                    ((VoucherItem)m_CurrentItem).CopyFromNoBarcode(vitem);
                                     break;
                                     #endregion
                                 }
@@ -741,6 +764,13 @@ namespace VPrinting.Common
             m_CurrentItem.JobID = 1;
             m_ItemCollection.Add(m_CurrentItem);
             FireNewItemAdded(m_CurrentItem);
+        }
+
+        public void AddNewItem(Item item)
+        {
+            m_ItemCollection.Add(item);
+            m_CurrentItem = item;
+            FireNewItemAdded(item);
         }
 
         #endregion
@@ -847,4 +877,5 @@ namespace VPrinting.Common
         {
         }
     }
+
 }

@@ -15,11 +15,14 @@ using VPrint.Common;
 using VPrinting.Common;
 using VPrinting.Documents;
 using VPrinting.Extentions;
+using VPrinting.ScaningProcessors;
 
 namespace VPrinting.Tools
 {
     public static class DelegateHelper
     {
+        public static event ThreadExceptionEventHandler Error;
+
         /// <summary>
         /// 
         /// </summary>
@@ -145,6 +148,26 @@ namespace VPrinting.Tools
 
         public static Action<TaskProcessOrganizer<string>.TaskItem> CreateScanAction()
         {
+            if(MainForm.ms_ImportCoversheet)
+                return CoversheetProcessor.Default.GetAction();
+
+            switch (StateManager.Default.Mode)
+            {
+                case StateManager.eMode.Barcode:
+                    return VoucherWithBarcodeAndNoDocumentProcessor.Default.GetAction();
+                case StateManager.eMode.Sitecode:
+                    return VoucherWithSiteCodeAndNoDocumentProcessor.Default.GetAction();
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        /// <summary>
+        /// EXAMPLE! NOT IN USE NOW
+        /// </summary>
+        /// <returns></returns>
+        private static Action<TaskProcessOrganizer<string>.TaskItem> CreateScanActionORIGINAL()
+        {
             const int TRIES = 10;
 
             return new Action<TaskProcessOrganizer<string>.TaskItem>((o) =>
@@ -187,7 +210,7 @@ namespace VPrinting.Tools
                         bmp = ((Bitmap)Bitmap.FromFile(info.FullName)).Crop2();
 
                         item = StateManager.Default.ProcessItem_Begin(!MainForm.ms_ImportCoversheet);
-
+                        item.FullFileName = fullFilePath;
                         item.FileInfoList.Add(new FileInfo(fullFilePath)); // Scanned Image
 
                         if (!MainForm.ms_ImportCoversheet)
@@ -195,7 +218,7 @@ namespace VPrinting.Tools
                             StateManager.VoucherItem vitem = (StateManager.VoucherItem)item;
                             FileInfo barcFilePath = null;
                             Rectangle rect = Rectangle.Empty;
-                            CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode, BarcodeTypeEnum.BT_Inter2of5);
+                            CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode, BarcodeTypeEnum.BT_All);
 
                             vitem.Barcode = barcode;
 
@@ -292,7 +315,8 @@ namespace VPrinting.Tools
                         FilePath = fullFilePath
                     };
 
-                    Program.OnThreadException(null, new ThreadExceptionEventArgs(ex));
+                    if (Error != null)
+                        Error(null, new ThreadExceptionEventArgs(ex));
                 }
                 finally
                 {
@@ -318,12 +342,23 @@ namespace VPrinting.Tools
                             SiteCode = siteCode,
                             FilePath = fullFilePath
                         };
-                        Program.OnThreadException(null, new ThreadExceptionEventArgs(scex));
+
+                        if (Error != null)
+                            Error(null, new ThreadExceptionEventArgs(scex));
                     }
                 }
             });
         }
 
-        public static object ShowItemScannedCallback { get; set; }
+        public static void PostItemScannedCallback(StateManager.Item item)
+        {
+            MainForm.Default.m_MainContext.Post(MainForm.Default.ShowItemScannedCallback, item);
+        }
+
+        public static void FireError(object sender, Exception ex)
+        {
+            if (Error != null)
+                Error(sender, new ThreadExceptionEventArgs(ex));
+        }
     }
 }

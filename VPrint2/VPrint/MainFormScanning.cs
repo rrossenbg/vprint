@@ -64,7 +64,7 @@ namespace VPrinting
 
             m_StateManager.NextItemExpected += new EventHandler<ItemEventArgs>(StateManager_NextItemExpected);
 
-            m_StateManager.Mode = StateManager.eMode.NoDocument;
+            m_StateManager.Mode = StateManager.eMode.Barcode;
             m_StateManager.Load(tbTransferFile.Text);
 
             btnBrowseForScanDir.Tag = tbScanDirectory;
@@ -72,6 +72,8 @@ namespace VPrinting
 
             btnBrowseForScanDir.Click += new EventHandler(BrowseForFolder_Click);
             btnBrowseForExprFile.Click += new EventHandler(BrowseForExprFile_Click);
+
+            toggleButtonControl1.CheckedChanged += new EventHandler<ValueEventArgs<int>>(toggleButtonControl1_CheckedChanged);
 
             var list = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
         }

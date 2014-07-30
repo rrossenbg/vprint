@@ -3,17 +3,17 @@
 /***************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Security;
 using System.ServiceModel;
 using System.Threading.Tasks;
+using ReceivingServiceLib.Common.Data;
 using ReceivingServiceLib.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Collections;
 
 namespace ReceivingServiceLib
 {
@@ -774,5 +774,15 @@ namespace ReceivingServiceLib
 
         #endregion
 
+        #region PTF
+
+        public VoucherInfo3 FindVoucher(int countryId, int voucherId)
+        {
+            var da = new PTFDataAccess();
+            var v = da.FindVoucher(countryId, voucherId);
+            return new VoucherInfo3(v);
+        }
+
+        #endregion
     }
 }
