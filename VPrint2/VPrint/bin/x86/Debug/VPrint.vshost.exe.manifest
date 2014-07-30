@@ -4,7 +4,7 @@
   <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VPrint" version="1.0.5324.24298" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="VPrint" version="1.0.5324.29402" language="neutral" processorArchitecture="x86" />
     <commandLine file="VPrint.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="937984">
-      <assemblyIdentity name="VPrint" version="1.0.5324.24298" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="942080">
+      <assemblyIdentity name="VPrint" version="1.0.5324.29402" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aDUpr+bl/oCFYc+XFp5BBjRMqlo=</dsig:DigestValue>
+        <dsig:DigestValue>8lo221k8zvVBlBVhvfUaCV9+5s0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -203,7 +203,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>26XY87HxflWjGvJztU0DadQ3RYI=</dsig:DigestValue>
+      <dsig:DigestValue>1G60ZS+W6EaiSHtrzZJ0/v3//LU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="XmlConfigurations\print203_Type1_Raz.xml" size="2188" writeableType="applicationData">

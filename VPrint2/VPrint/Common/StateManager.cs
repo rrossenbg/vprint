@@ -773,6 +773,15 @@ namespace VPrinting.Common
             FireNewItemAdded(item);
         }
 
+        public void CompleteCurrentItem()
+        {
+            m_CurrentItem.State = eState.OK;
+
+            FireCurrentItemCompleted();
+
+            m_CurrentItem.FireUpdated();
+        }
+
         #endregion
 
         #region PRIVATE METHODS

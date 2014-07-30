@@ -61,7 +61,7 @@ namespace VPrinting.Controls
             Text1 = new string[2];
             Text2 = new string[2];
             Text3 = new string[2];
-            ColorOn = ColorOff = SystemColors.Control;
+            ColorOn = ColorOff = Color.Red;
             m_Checks = new CheckBox[] { checkBox1, checkBox2, checkBox3 };
         }
 
