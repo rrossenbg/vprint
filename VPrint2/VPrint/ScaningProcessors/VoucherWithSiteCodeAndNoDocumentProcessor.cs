@@ -129,6 +129,7 @@ namespace VPrinting.ScaningProcessors
 
                         item.State = StateManager.eState.OK;
                         item.Message = "";
+                        StateManager.Default.CompleteCurrentItem(item);
                     }
                 }
                 catch (Exception ex)
