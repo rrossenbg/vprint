@@ -23,7 +23,7 @@ namespace VPrinting
 
             #region SCAN ORGANIZER
 
-            m_ScanFileOrganizer.RunTask(new TaskProcessOrganizer<string>.TaskItem(fullPath,
+            m_ScanFileOrganizer.RunTask(new TaskProcessOrganizer<string>.TaskItem(fullPath, 
                 DelegateHelper.CreateScanAction()));
 
             #endregion

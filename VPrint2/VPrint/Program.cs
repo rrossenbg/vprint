@@ -14,6 +14,7 @@ using VPrinting.Data;
 using VPrinting.Documents;
 using VPrinting.Extentions;
 using VPrinting.ScanServiceRef;
+using VPrinting.Tools;
 
 namespace VPrinting
 {    
@@ -57,6 +58,7 @@ namespace VPrinting
             DelegateBase.Error += new ThreadExceptionEventHandler(OnThreadException);
             VoucherPrinter.Error += new ThreadExceptionEventHandler(OnThreadException);
             PrinterQueue.Error += new ThreadExceptionEventHandler(OnThreadException);
+            DelegateHelper.Error += new ThreadExceptionEventHandler(OnThreadException);
 
             StateSaver.Default.Path = Path.ChangeExtension(Application.ExecutablePath, "dat");
             StateSaver.Default.Load();
@@ -111,10 +113,7 @@ namespace VPrinting
 
             FileInfoApplicationException ex2 = e.Exception as FileInfoApplicationException;
             if (ex2 != null)
-                MainForm.Default.InvokeSf(() =>
-                {
-                    FileMsgForm.show(MainForm.Default, "Error", ex2.Message, ex2.Info);
-                });
+                MainForm.Default.InvokeSf(() => { FileMsgForm.show(MainForm.Default, "Error", ex2.Message, ex2.Info); });
             else
                 MainForm.Default.InvokeSf(() => ex.ShowDialog(MainForm.Default));
         }

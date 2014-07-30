@@ -685,6 +685,7 @@
     </Compile>
     <Compile Include="Common\Security.cs" />
     <Compile Include="Common\SortedIndexList.cs" />
+    <Compile Include="Common\ValueEventArgs.cs" />
     <Compile Include="Controls\DateTimePicker2.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -727,6 +728,11 @@
       <DependentUpon>MonitorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PluginLoader.cs" />
+    <Compile Include="ScaningProcessors\CoversheetProcessor.cs" />
+    <Compile Include="ScaningProcessors\IScanProcessor.cs" />
+    <Compile Include="ScaningProcessors\VoucherWithBarcodeAndDocumentProcessor.cs" />
+    <Compile Include="ScaningProcessors\VoucherWithBarcodeAndNoDocumentProcessor.cs" />
+    <Compile Include="ScaningProcessors\VoucherWithSiteCodeAndNoDocumentProcessor.cs" />
     <Compile Include="ScanServiceClient.cs" />
     <Compile Include="Common\DynamicSerializable.cs" />
     <Compile Include="Common\FileProtector.cs" />
@@ -1151,6 +1157,7 @@
       <Name>VPrint_addon</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

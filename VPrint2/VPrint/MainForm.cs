@@ -337,6 +337,8 @@ namespace VPrinting
 
                     this.tbScanDirectory.Text = StateSaver.Default.Get<string>("tbScanDirectory.Text");
 
+                    this.toggleButtonControl1.PerformClick(StateSaver.Default.Get<int>("toggleButtonControl1.GetClicked"));
+
                     Global.Instance.LoadCompleted.Set();
 
                     cbHistoryType.Items.Clear();
@@ -357,6 +359,7 @@ namespace VPrinting
         protected override void OnClosed(EventArgs e)
         {
             StateSaver.Default.Set("tbScanDirectory.Text", this.tbScanDirectory.Text);
+            StateSaver.Default.Set("toggleButtonControl1.GetClicked", this.toggleButtonControl1.GetClicked());
 
             new Action(() => ServiceDataAccess.Instance.LogOperation(OperationHistory.Logout, Program.SessionId, 0, 0, 0, 0, 0, "")).RunSafe();
             Global.Instance.ExitSignal = true;
@@ -2934,7 +2937,7 @@ namespace VPrinting
 
         private void Scanning_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F2 && m_StateManager.Mode == StateManager.eMode.NoDocument)
+            if (e.KeyCode == Keys.F2 && m_StateManager.Mode == StateManager.eMode.Barcode)
             {
                 if (m_StateManager.CanCreate)
                     m_StateManager.CreateNewItem_AnyNoDoc();
@@ -3314,6 +3317,11 @@ namespace VPrinting
         //public static volatile BarcodeConfig ms_BarcodeConfig;
 
         #endregion
+
+        private void toggleButtonControl1_CheckedChanged(object sender, ValueEventArgs<int> e)
+        {
+            m_StateManager.Mode = (StateManager.eMode)(e.Value + 1);//cbUseTransferFile.Checked ? StateManager.eMode.TransferFile : StateManager.eMode.Barcode;
+        }
 
         private void UseTransferFile_CheckedChanged(object sender, EventArgs e)
         {

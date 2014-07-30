@@ -9,6 +9,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using ReceivingServiceLib.Data;
+using ReceivingServiceLib.Common.Data;
 
 namespace ReceivingServiceLib
 {
@@ -155,6 +156,8 @@ namespace ReceivingServiceLib
         int UpdateTableData(ArrayList table);
 
         #endregion
+
+        VoucherInfo3 FindVoucher(int countryId, int voucherId);
     }
 
     #region DATA OBJECTS
@@ -225,6 +228,33 @@ namespace ReceivingServiceLib
             RetailerId = data.branch_id;
             VoucherId = data.v_number;
             SessionId = data.session_Id;
+        }
+    }
+
+    [DataContract]
+    public class VoucherInfo3
+    {
+        [DataMember(Order = 0)]
+        public int IsoId { get; set; }
+        [DataMember(Order = 1)]
+        public int RetailerId { get; set; }
+        [DataMember(Order = 2)]
+        public int VoucherId { get; set; }
+        [DataMember(Order = 3)]
+        public string SiteCode { get; set; }
+        [DataMember(Order = 4)]
+        public DateTime VoucherDate { get; set; }
+        [DataMember(Order = 5)]
+        public string FinalCountry { get; set; }
+
+        public VoucherInfo3(PTFDataAccess.FindVoucher_VoucherInfo data)
+        {
+            IsoId = data.v_iso_id;
+            RetailerId = data.v_br_id;
+            VoucherId = data.v_number;
+            SiteCode = data.sitecode;
+            VoucherDate = data.v_date_voucher;
+            FinalCountry = data.v_final_country;
         }
     }
 
