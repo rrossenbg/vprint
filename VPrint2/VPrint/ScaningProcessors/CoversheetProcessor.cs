@@ -43,7 +43,6 @@ namespace VPrinting.ScaningProcessors
 
                         bmp = ((Bitmap)Bitmap.FromFile(info.FullName)).Crop2();
 
-
                         item.FullFileName = fullFilePath;
                         item.FileInfoList.Add(new FileInfo(fullFilePath)); // Scanned Image
 
@@ -56,14 +55,22 @@ namespace VPrinting.ScaningProcessors
                         if (!ext.EqualNoCase(".tif"))
                             bmp.Save(fullFilePath, ImageFormat.Jpeg);
 
+                        if (item.Thumbnail == null)
+                            item.Thumbnail = bmp.GetThumbnailImage(45, 45, () => false, IntPtr.Zero);
+
                         item.State = StateManager.eState.OK;
                         item.Message = "";
+
+                        StateManager.Default.CompleteCurrentItem();
                     }
                 }
                 catch (Exception ex)
                 {
-                    item.State = StateManager.eState.Err;
-                    item.Message = ex.Message;
+                    if (item != null)
+                    {
+                        item.State = StateManager.eState.Err;
+                        item.Message = ex.Message;
+                    }
                     var scex = new ScanException(ex, data)
                     {
                         SiteCode = "na",
@@ -85,9 +92,11 @@ namespace VPrinting.ScaningProcessors
                     }
                     catch (Exception ex0)
                     {
-                        item.State = StateManager.eState.Err;
-                        item.Message = ex0.Message;
-
+                        if (item != null)
+                        {
+                            item.State = StateManager.eState.Err;
+                            item.Message = ex0.Message;
+                        }
                         var scex = new ScanException(ex0, data)
                         {
                             SiteCode = siteCode,

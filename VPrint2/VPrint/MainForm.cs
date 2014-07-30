@@ -14,7 +14,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -1114,11 +1113,15 @@ namespace VPrinting
             this.lblMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.pbScanProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.ScanningSettingPanel = new System.Windows.Forms.Panel();
+            this.toggleButtonControl1 = new VPrinting.Controls.ToggleButtonControl();
             this.cbVoucherMustExist = new System.Windows.Forms.CheckBox();
             this.cbCoversheet = new System.Windows.Forms.CheckBox();
             this.btnShowMonitor = new System.Windows.Forms.Button();
             this.btnCover = new System.Windows.Forms.Button();
             this.llblOpenFolder = new System.Windows.Forms.LinkLabel();
+            this.lblWarningMessage = new VPrinting.Controls.BliningLabel();
+            this.btnShowHide = new VPrinting.Controls.ArrowButton.ArrowButton();
+            this.btnScan = new GaryPerkin.UserControls.Buttons.RoundButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tbTransferFile = new System.Windows.Forms.TextBox();
             this.btnBrowseForExprFile = new System.Windows.Forms.Button();
@@ -1133,7 +1136,10 @@ namespace VPrinting
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabVoucher = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bliningLabel1 = new VPrinting.Controls.BliningLabel();
             this.btSearch = new System.Windows.Forms.Button();
+            this.dtTo = new VPrinting.Controls.DateTimePicker2();
+            this.dtFrom = new VPrinting.Controls.DateTimePicker2();
             this.label8 = new System.Windows.Forms.Label();
             this.tbVoucherId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -1142,6 +1148,7 @@ namespace VPrinting
             this.label3 = new System.Windows.Forms.Label();
             this.tabHistory = new System.Windows.Forms.TabPage();
             this.pnlDataGrid = new System.Windows.Forms.Panel();
+            this.bliningLabel2 = new VPrinting.Controls.BliningLabel();
             this.cbHistoryType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -1178,14 +1185,6 @@ namespace VPrinting
             this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toggleButtonControl1 = new VPrinting.Controls.ToggleButtonControl();
-            this.lblWarningMessage = new VPrinting.Controls.BliningLabel();
-            this.btnShowHide = new VPrinting.Controls.ArrowButton.ArrowButton();
-            this.btnScan = new GaryPerkin.UserControls.Buttons.RoundButton();
-            this.bliningLabel1 = new VPrinting.Controls.BliningLabel();
-            this.dtTo = new VPrinting.Controls.DateTimePicker2();
-            this.dtFrom = new VPrinting.Controls.DateTimePicker2();
-            this.bliningLabel2 = new VPrinting.Controls.BliningLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.printContextMenu.SuspendLayout();
@@ -1824,16 +1823,37 @@ namespace VPrinting
             this.ScanningSettingPanel.Size = new System.Drawing.Size(1116, 105);
             this.ScanningSettingPanel.TabIndex = 0;
             // 
+            // toggleButtonControl1
+            // 
+            this.toggleButtonControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toggleButtonControl1.ColorOff = System.Drawing.Color.Red;
+            this.toggleButtonControl1.ColorOn = System.Drawing.Color.Lime;
+            this.toggleButtonControl1.Location = new System.Drawing.Point(613, 3);
+            this.toggleButtonControl1.Name = "toggleButtonControl1";
+            this.toggleButtonControl1.Padding = new System.Windows.Forms.Padding(5);
+            this.toggleButtonControl1.Size = new System.Drawing.Size(222, 60);
+            this.toggleButtonControl1.TabIndex = 34;
+            this.toggleButtonControl1.Text1 = new string[] {
+        "",
+        "Barcode"};
+            this.toggleButtonControl1.Text2 = new string[] {
+        "",
+        "Trasf file"};
+            this.toggleButtonControl1.Text3 = new string[] {
+        "",
+        "Sitecode"};
+            // 
             // cbVoucherMustExist
             // 
             this.cbVoucherMustExist.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cbVoucherMustExist.BackColor = System.Drawing.Color.White;
-            this.cbVoucherMustExist.Image = ((System.Drawing.Image)(resources.GetObject("cbVoucherMustExist.Image")));
-            this.cbVoucherMustExist.Location = new System.Drawing.Point(509, 3);
+            this.cbVoucherMustExist.BackColor = System.Drawing.Color.LightGray;
+            this.cbVoucherMustExist.Location = new System.Drawing.Point(516, 68);
             this.cbVoucherMustExist.Name = "cbVoucherMustExist";
-            this.cbVoucherMustExist.Size = new System.Drawing.Size(83, 47);
+            this.cbVoucherMustExist.Size = new System.Drawing.Size(75, 23);
             this.cbVoucherMustExist.TabIndex = 33;
-            this.ToolTip1.SetToolTip(this.cbVoucherMustExist, "Voucher must exist");
+            this.cbVoucherMustExist.Text = "Must exist";
+            this.cbVoucherMustExist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ToolTip1.SetToolTip(this.cbVoucherMustExist, "Must exist");
             this.cbVoucherMustExist.UseVisualStyleBackColor = false;
             this.cbVoucherMustExist.CheckedChanged += new System.EventHandler(this.VoucherMustExist_CheckedChanged);
             // 
@@ -1841,7 +1861,7 @@ namespace VPrinting
             // 
             this.cbCoversheet.Appearance = System.Windows.Forms.Appearance.Button;
             this.cbCoversheet.AutoSize = true;
-            this.cbCoversheet.Location = new System.Drawing.Point(509, 68);
+            this.cbCoversheet.Location = new System.Drawing.Point(613, 68);
             this.cbCoversheet.Name = "cbCoversheet";
             this.cbCoversheet.Size = new System.Drawing.Size(76, 23);
             this.cbCoversheet.TabIndex = 29;
@@ -1885,6 +1905,51 @@ namespace VPrinting
             this.llblOpenFolder.TabStop = true;
             this.llblOpenFolder.Text = "...";
             this.llblOpenFolder.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OpenFolder_LinkClicked);
+            // 
+            // lblWarningMessage
+            // 
+            this.lblWarningMessage.AutoSize = true;
+            this.lblWarningMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblWarningMessage.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
+            this.lblWarningMessage.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
+            this.lblWarningMessage.Location = new System.Drawing.Point(732, 85);
+            this.lblWarningMessage.Name = "lblWarningMessage";
+            this.lblWarningMessage.Size = new System.Drawing.Size(123, 13);
+            this.lblWarningMessage.TabIndex = 25;
+            this.lblWarningMessage.Text = "Last voucher processing";
+            this.lblWarningMessage.Visible = false;
+            // 
+            // btnShowHide
+            // 
+            this.btnShowHide.ArrowEnabled = true;
+            this.btnShowHide.HoverEndColor = System.Drawing.Color.DimGray;
+            this.btnShowHide.HoverStartColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Location = new System.Drawing.Point(13, 3);
+            this.btnShowHide.Name = "btnShowHide";
+            this.btnShowHide.NormalEndColor = System.Drawing.Color.DarkGray;
+            this.btnShowHide.NormalStartColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Rotation = 0;
+            this.btnShowHide.Size = new System.Drawing.Size(24, 24);
+            this.btnShowHide.TabIndex = 24;
+            this.btnShowHide.Click += new System.EventHandler(this.ShowHide_Click);
+            // 
+            // btnScan
+            // 
+            this.btnScan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnScan.BackColor = System.Drawing.Color.Silver;
+            this.btnScan.BevelDepth = 5;
+            this.btnScan.BevelHeight = 5;
+            this.btnScan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnScan.Dome = true;
+            this.btnScan.Location = new System.Drawing.Point(980, 22);
+            this.btnScan.Name = "btnScan";
+            this.btnScan.RecessDepth = 0;
+            this.btnScan.Size = new System.Drawing.Size(122, 69);
+            this.btnScan.TabIndex = 20;
+            this.btnScan.Text = "Scan";
+            this.ToolTip1.SetToolTip(this.btnScan, "Scan button");
+            this.btnScan.UseVisualStyleBackColor = false;
+            this.btnScan.Click += new System.EventHandler(this.Scan_Click);
             // 
             // textBox3
             // 
@@ -1936,7 +2001,7 @@ namespace VPrinting
             // 
             this.btnRun.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRun.Image = ((System.Drawing.Image)(resources.GetObject("btnRun.Image")));
-            this.btnRun.Location = new System.Drawing.Point(598, 3);
+            this.btnRun.Location = new System.Drawing.Point(516, 3);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(75, 47);
             this.btnRun.TabIndex = 7;
@@ -2058,6 +2123,19 @@ namespace VPrinting
             this.panel1.Size = new System.Drawing.Size(1102, 63);
             this.panel1.TabIndex = 0;
             // 
+            // bliningLabel1
+            // 
+            this.bliningLabel1.AutoSize = true;
+            this.bliningLabel1.ForeColor = System.Drawing.Color.Red;
+            this.bliningLabel1.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
+            this.bliningLabel1.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
+            this.bliningLabel1.Location = new System.Drawing.Point(58, 42);
+            this.bliningLabel1.Name = "bliningLabel1";
+            this.bliningLabel1.Size = new System.Drawing.Size(220, 13);
+            this.bliningLabel1.TabIndex = 26;
+            this.bliningLabel1.Text = "Note: number of results are limited up to 1000";
+            this.bliningLabel1.Visible = false;
+            // 
             // btSearch
             // 
             this.btSearch.Location = new System.Drawing.Point(901, 10);
@@ -2068,6 +2146,26 @@ namespace VPrinting
             this.ToolTip1.SetToolTip(this.btSearch, "Search button");
             this.btSearch.UseVisualStyleBackColor = true;
             this.btSearch.Click += new System.EventHandler(this.Search_Click);
+            // 
+            // dtTo
+            // 
+            this.dtTo.Location = new System.Drawing.Point(668, 7);
+            this.dtTo.Message = "To";
+            this.dtTo.Name = "dtTo";
+            this.dtTo.Size = new System.Drawing.Size(215, 30);
+            this.dtTo.TabIndex = 7;
+            this.ToolTip1.SetToolTip(this.dtTo, "To date");
+            this.dtTo.Value = null;
+            // 
+            // dtFrom
+            // 
+            this.dtFrom.Location = new System.Drawing.Point(461, 7);
+            this.dtFrom.Message = "From";
+            this.dtFrom.Name = "dtFrom";
+            this.dtFrom.Size = new System.Drawing.Size(209, 32);
+            this.dtFrom.TabIndex = 6;
+            this.ToolTip1.SetToolTip(this.dtFrom, "From date");
+            this.dtFrom.Value = null;
             // 
             // label8
             // 
@@ -2147,6 +2245,19 @@ namespace VPrinting
             this.pnlDataGrid.Name = "pnlDataGrid";
             this.pnlDataGrid.Size = new System.Drawing.Size(1102, 63);
             this.pnlDataGrid.TabIndex = 0;
+            // 
+            // bliningLabel2
+            // 
+            this.bliningLabel2.AutoSize = true;
+            this.bliningLabel2.ForeColor = System.Drawing.Color.Red;
+            this.bliningLabel2.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
+            this.bliningLabel2.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
+            this.bliningLabel2.Location = new System.Drawing.Point(47, 43);
+            this.bliningLabel2.Name = "bliningLabel2";
+            this.bliningLabel2.Size = new System.Drawing.Size(220, 13);
+            this.bliningLabel2.TabIndex = 27;
+            this.bliningLabel2.Text = "Note: number of results are limited up to 1000";
+            this.bliningLabel2.Visible = false;
             // 
             // cbHistoryType
             // 
@@ -2436,117 +2547,6 @@ namespace VPrinting
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // toggleButtonControl1
-            // 
-            this.toggleButtonControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toggleButtonControl1.ColorOff = System.Drawing.Color.Red;
-            this.toggleButtonControl1.ColorOn = System.Drawing.Color.Lime;
-            this.toggleButtonControl1.Location = new System.Drawing.Point(692, 2);
-            this.toggleButtonControl1.Name = "toggleButtonControl1";
-            this.toggleButtonControl1.Padding = new System.Windows.Forms.Padding(5);
-            this.toggleButtonControl1.Size = new System.Drawing.Size(222, 60);
-            this.toggleButtonControl1.TabIndex = 34;
-            this.toggleButtonControl1.Text1 = new string[] {
-        "",
-        "Barcode"};
-            this.toggleButtonControl1.Text2 = new string[] {
-        "",
-        "Trasf file"};
-            this.toggleButtonControl1.Text3 = new string[] {
-        "",
-        "Sitecode"};
-            // 
-            // lblWarningMessage
-            // 
-            this.lblWarningMessage.AutoSize = true;
-            this.lblWarningMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblWarningMessage.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
-            this.lblWarningMessage.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
-            this.lblWarningMessage.Location = new System.Drawing.Point(732, 85);
-            this.lblWarningMessage.Name = "lblWarningMessage";
-            this.lblWarningMessage.Size = new System.Drawing.Size(123, 13);
-            this.lblWarningMessage.TabIndex = 25;
-            this.lblWarningMessage.Text = "Last voucher processing";
-            this.lblWarningMessage.Visible = false;
-            // 
-            // btnShowHide
-            // 
-            this.btnShowHide.ArrowEnabled = true;
-            this.btnShowHide.HoverEndColor = System.Drawing.Color.DimGray;
-            this.btnShowHide.HoverStartColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Location = new System.Drawing.Point(13, 3);
-            this.btnShowHide.Name = "btnShowHide";
-            this.btnShowHide.NormalEndColor = System.Drawing.Color.DarkGray;
-            this.btnShowHide.NormalStartColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Rotation = 0;
-            this.btnShowHide.Size = new System.Drawing.Size(24, 24);
-            this.btnShowHide.TabIndex = 24;
-            this.btnShowHide.Click += new System.EventHandler(this.ShowHide_Click);
-            // 
-            // btnScan
-            // 
-            this.btnScan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnScan.BackColor = System.Drawing.Color.Silver;
-            this.btnScan.BevelDepth = 5;
-            this.btnScan.BevelHeight = 5;
-            this.btnScan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnScan.Dome = true;
-            this.btnScan.Location = new System.Drawing.Point(980, 22);
-            this.btnScan.Name = "btnScan";
-            this.btnScan.RecessDepth = 0;
-            this.btnScan.Size = new System.Drawing.Size(122, 69);
-            this.btnScan.TabIndex = 20;
-            this.btnScan.Text = "Scan";
-            this.ToolTip1.SetToolTip(this.btnScan, "Scan button");
-            this.btnScan.UseVisualStyleBackColor = false;
-            this.btnScan.Click += new System.EventHandler(this.Scan_Click);
-            // 
-            // bliningLabel1
-            // 
-            this.bliningLabel1.AutoSize = true;
-            this.bliningLabel1.ForeColor = System.Drawing.Color.Red;
-            this.bliningLabel1.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
-            this.bliningLabel1.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
-            this.bliningLabel1.Location = new System.Drawing.Point(58, 42);
-            this.bliningLabel1.Name = "bliningLabel1";
-            this.bliningLabel1.Size = new System.Drawing.Size(220, 13);
-            this.bliningLabel1.TabIndex = 26;
-            this.bliningLabel1.Text = "Note: number of results are limited up to 1000";
-            this.bliningLabel1.Visible = false;
-            // 
-            // dtTo
-            // 
-            this.dtTo.Location = new System.Drawing.Point(668, 7);
-            this.dtTo.Message = "To";
-            this.dtTo.Name = "dtTo";
-            this.dtTo.Size = new System.Drawing.Size(215, 30);
-            this.dtTo.TabIndex = 7;
-            this.ToolTip1.SetToolTip(this.dtTo, "To date");
-            this.dtTo.Value = null;
-            // 
-            // dtFrom
-            // 
-            this.dtFrom.Location = new System.Drawing.Point(461, 7);
-            this.dtFrom.Message = "From";
-            this.dtFrom.Name = "dtFrom";
-            this.dtFrom.Size = new System.Drawing.Size(209, 32);
-            this.dtFrom.TabIndex = 6;
-            this.ToolTip1.SetToolTip(this.dtFrom, "From date");
-            this.dtFrom.Value = null;
-            // 
-            // bliningLabel2
-            // 
-            this.bliningLabel2.AutoSize = true;
-            this.bliningLabel2.ForeColor = System.Drawing.Color.Red;
-            this.bliningLabel2.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
-            this.bliningLabel2.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
-            this.bliningLabel2.Location = new System.Drawing.Point(47, 43);
-            this.bliningLabel2.Name = "bliningLabel2";
-            this.bliningLabel2.Size = new System.Drawing.Size(220, 13);
-            this.bliningLabel2.TabIndex = 27;
-            this.bliningLabel2.Text = "Note: number of results are limited up to 1000";
-            this.bliningLabel2.Visible = false;
             // 
             // MainForm
             // 
@@ -3339,7 +3339,7 @@ namespace VPrinting
 
         private void VoucherMustExist_CheckedChanged(object sender, EventArgs e)
         {
-            cbVoucherMustExist.Text = cbVoucherMustExist.Checked ? "V Must Exist" : "Brand New V";
+            cbVoucherMustExist.Text = cbVoucherMustExist.Checked ? "Must Exist" : "Brand New";
             cbVoucherMustExist.BackColor = cbVoucherMustExist.Checked ? OnColor : OffColor;
             m_StateManager.VoucherMustExist = cbVoucherMustExist.Checked;
         }
