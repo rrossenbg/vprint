@@ -262,6 +262,9 @@
     <EmbeddedResource Include="AddVoucherItemForm.resx">
       <DependentUpon>AddVoucherItemForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToggleButtonControl.resx">
+      <DependentUpon>ToggleButtonControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FileMsgForm.resx">
       <DependentUpon>FileMsgForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -687,6 +690,12 @@
     </Compile>
     <Compile Include="Controls\DateTimePicker2.Designer.cs">
       <DependentUpon>DateTimePicker2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToggleButtonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToggleButtonControl.Designer.cs">
+      <DependentUpon>ToggleButtonControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\fileAccess.cs" />
     <Compile Include="Data\ServiceDataAccess.cs" />
