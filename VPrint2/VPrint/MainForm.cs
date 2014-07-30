@@ -231,11 +231,12 @@ namespace VPrinting
         
         #endregion
 
-        private CheckBox cbUseTransferFile;
         private CheckBox cbVoucherMustExist;
         private ToolStripMenuItem nameToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem10;
         private ToolStripMenuItem showSignedToolStripMenuItem;
+        private ToggleButtonControl toggleButtonControl1;
+        private ContextMenuStrip contextMenuStrip1;
 
         #region PUBLIC FIELDS
 
@@ -1111,14 +1112,10 @@ namespace VPrinting
             this.pbScanProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.ScanningSettingPanel = new System.Windows.Forms.Panel();
             this.cbVoucherMustExist = new System.Windows.Forms.CheckBox();
-            this.cbUseTransferFile = new System.Windows.Forms.CheckBox();
             this.cbCoversheet = new System.Windows.Forms.CheckBox();
             this.btnShowMonitor = new System.Windows.Forms.Button();
             this.btnCover = new System.Windows.Forms.Button();
             this.llblOpenFolder = new System.Windows.Forms.LinkLabel();
-            this.lblWarningMessage = new VPrinting.Controls.BliningLabel();
-            this.btnShowHide = new VPrinting.Controls.ArrowButton.ArrowButton();
-            this.btnScan = new GaryPerkin.UserControls.Buttons.RoundButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tbTransferFile = new System.Windows.Forms.TextBox();
             this.btnBrowseForExprFile = new System.Windows.Forms.Button();
@@ -1133,10 +1130,7 @@ namespace VPrinting
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabVoucher = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bliningLabel1 = new VPrinting.Controls.BliningLabel();
             this.btSearch = new System.Windows.Forms.Button();
-            this.dtTo = new VPrinting.Controls.DateTimePicker2();
-            this.dtFrom = new VPrinting.Controls.DateTimePicker2();
             this.label8 = new System.Windows.Forms.Label();
             this.tbVoucherId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -1145,7 +1139,6 @@ namespace VPrinting
             this.label3 = new System.Windows.Forms.Label();
             this.tabHistory = new System.Windows.Forms.TabPage();
             this.pnlDataGrid = new System.Windows.Forms.Panel();
-            this.bliningLabel2 = new VPrinting.Controls.BliningLabel();
             this.cbHistoryType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -1161,6 +1154,7 @@ namespace VPrinting
             this.scanContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiSend = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiScanningShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.showSignedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
             this.nameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiScanningDetailes = new System.Windows.Forms.ToolStripMenuItem();
@@ -1180,7 +1174,15 @@ namespace VPrinting
             this.tsmiSort = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.showSignedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toggleButtonControl1 = new VPrinting.Controls.ToggleButtonControl();
+            this.lblWarningMessage = new VPrinting.Controls.BliningLabel();
+            this.btnShowHide = new VPrinting.Controls.ArrowButton.ArrowButton();
+            this.btnScan = new GaryPerkin.UserControls.Buttons.RoundButton();
+            this.bliningLabel1 = new VPrinting.Controls.BliningLabel();
+            this.dtTo = new VPrinting.Controls.DateTimePicker2();
+            this.dtFrom = new VPrinting.Controls.DateTimePicker2();
+            this.bliningLabel2 = new VPrinting.Controls.BliningLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.printContextMenu.SuspendLayout();
@@ -1795,8 +1797,8 @@ namespace VPrinting
             // 
             this.ScanningSettingPanel.BackColor = System.Drawing.Color.LightGray;
             this.ScanningSettingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ScanningSettingPanel.Controls.Add(this.toggleButtonControl1);
             this.ScanningSettingPanel.Controls.Add(this.cbVoucherMustExist);
-            this.ScanningSettingPanel.Controls.Add(this.cbUseTransferFile);
             this.ScanningSettingPanel.Controls.Add(this.cbCoversheet);
             this.ScanningSettingPanel.Controls.Add(this.btnShowMonitor);
             this.ScanningSettingPanel.Controls.Add(this.btnCover);
@@ -1824,32 +1826,19 @@ namespace VPrinting
             this.cbVoucherMustExist.Appearance = System.Windows.Forms.Appearance.Button;
             this.cbVoucherMustExist.BackColor = System.Drawing.Color.White;
             this.cbVoucherMustExist.Image = ((System.Drawing.Image)(resources.GetObject("cbVoucherMustExist.Image")));
-            this.cbVoucherMustExist.Location = new System.Drawing.Point(616, 56);
+            this.cbVoucherMustExist.Location = new System.Drawing.Point(509, 3);
             this.cbVoucherMustExist.Name = "cbVoucherMustExist";
-            this.cbVoucherMustExist.Size = new System.Drawing.Size(83, 42);
+            this.cbVoucherMustExist.Size = new System.Drawing.Size(83, 47);
             this.cbVoucherMustExist.TabIndex = 33;
             this.ToolTip1.SetToolTip(this.cbVoucherMustExist, "Voucher must exist");
             this.cbVoucherMustExist.UseVisualStyleBackColor = false;
             this.cbVoucherMustExist.CheckedChanged += new System.EventHandler(this.VoucherMustExist_CheckedChanged);
             // 
-            // cbUseTransferFile
-            // 
-            this.cbUseTransferFile.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cbUseTransferFile.BackColor = System.Drawing.Color.White;
-            this.cbUseTransferFile.Image = ((System.Drawing.Image)(resources.GetObject("cbUseTransferFile.Image")));
-            this.cbUseTransferFile.Location = new System.Drawing.Point(616, 3);
-            this.cbUseTransferFile.Name = "cbUseTransferFile";
-            this.cbUseTransferFile.Size = new System.Drawing.Size(83, 47);
-            this.cbUseTransferFile.TabIndex = 32;
-            this.ToolTip1.SetToolTip(this.cbUseTransferFile, "Use transfer file");
-            this.cbUseTransferFile.UseVisualStyleBackColor = false;
-            this.cbUseTransferFile.CheckedChanged += new System.EventHandler(this.UseTransferFile_CheckedChanged);
-            // 
             // cbCoversheet
             // 
             this.cbCoversheet.Appearance = System.Windows.Forms.Appearance.Button;
             this.cbCoversheet.AutoSize = true;
-            this.cbCoversheet.Location = new System.Drawing.Point(516, 68);
+            this.cbCoversheet.Location = new System.Drawing.Point(509, 68);
             this.cbCoversheet.Name = "cbCoversheet";
             this.cbCoversheet.Size = new System.Drawing.Size(76, 23);
             this.cbCoversheet.TabIndex = 29;
@@ -1873,13 +1862,14 @@ namespace VPrinting
             // btnCover
             // 
             this.btnCover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCover.Location = new System.Drawing.Point(726, 54);
+            this.btnCover.Location = new System.Drawing.Point(994, 15);
             this.btnCover.Name = "btnCover";
             this.btnCover.Size = new System.Drawing.Size(108, 23);
             this.btnCover.TabIndex = 27;
             this.btnCover.Text = "Credit Card Cover";
             this.ToolTip1.SetToolTip(this.btnCover, "Gonerate cretid card cover");
             this.btnCover.UseVisualStyleBackColor = true;
+            this.btnCover.Visible = false;
             this.btnCover.Click += new System.EventHandler(this.CoverSetup_Click);
             // 
             // llblOpenFolder
@@ -1892,51 +1882,6 @@ namespace VPrinting
             this.llblOpenFolder.TabStop = true;
             this.llblOpenFolder.Text = "...";
             this.llblOpenFolder.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OpenFolder_LinkClicked);
-            // 
-            // lblWarningMessage
-            // 
-            this.lblWarningMessage.AutoSize = true;
-            this.lblWarningMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblWarningMessage.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
-            this.lblWarningMessage.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
-            this.lblWarningMessage.Location = new System.Drawing.Point(732, 85);
-            this.lblWarningMessage.Name = "lblWarningMessage";
-            this.lblWarningMessage.Size = new System.Drawing.Size(123, 13);
-            this.lblWarningMessage.TabIndex = 25;
-            this.lblWarningMessage.Text = "Last voucher processing";
-            this.lblWarningMessage.Visible = false;
-            // 
-            // btnShowHide
-            // 
-            this.btnShowHide.ArrowEnabled = true;
-            this.btnShowHide.HoverEndColor = System.Drawing.Color.DimGray;
-            this.btnShowHide.HoverStartColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Location = new System.Drawing.Point(13, 3);
-            this.btnShowHide.Name = "btnShowHide";
-            this.btnShowHide.NormalEndColor = System.Drawing.Color.DarkGray;
-            this.btnShowHide.NormalStartColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Rotation = 0;
-            this.btnShowHide.Size = new System.Drawing.Size(24, 24);
-            this.btnShowHide.TabIndex = 24;
-            this.btnShowHide.Click += new System.EventHandler(this.ShowHide_Click);
-            // 
-            // btnScan
-            // 
-            this.btnScan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnScan.BackColor = System.Drawing.Color.Silver;
-            this.btnScan.BevelDepth = 5;
-            this.btnScan.BevelHeight = 5;
-            this.btnScan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnScan.Dome = true;
-            this.btnScan.Location = new System.Drawing.Point(980, 22);
-            this.btnScan.Name = "btnScan";
-            this.btnScan.RecessDepth = 0;
-            this.btnScan.Size = new System.Drawing.Size(122, 69);
-            this.btnScan.TabIndex = 20;
-            this.btnScan.Text = "Scan";
-            this.ToolTip1.SetToolTip(this.btnScan, "Scan button");
-            this.btnScan.UseVisualStyleBackColor = false;
-            this.btnScan.Click += new System.EventHandler(this.Scan_Click);
             // 
             // textBox3
             // 
@@ -1988,7 +1933,7 @@ namespace VPrinting
             // 
             this.btnRun.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRun.Image = ((System.Drawing.Image)(resources.GetObject("btnRun.Image")));
-            this.btnRun.Location = new System.Drawing.Point(516, 3);
+            this.btnRun.Location = new System.Drawing.Point(598, 3);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(75, 47);
             this.btnRun.TabIndex = 7;
@@ -2110,19 +2055,6 @@ namespace VPrinting
             this.panel1.Size = new System.Drawing.Size(1102, 63);
             this.panel1.TabIndex = 0;
             // 
-            // bliningLabel1
-            // 
-            this.bliningLabel1.AutoSize = true;
-            this.bliningLabel1.ForeColor = System.Drawing.Color.Red;
-            this.bliningLabel1.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
-            this.bliningLabel1.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
-            this.bliningLabel1.Location = new System.Drawing.Point(58, 42);
-            this.bliningLabel1.Name = "bliningLabel1";
-            this.bliningLabel1.Size = new System.Drawing.Size(220, 13);
-            this.bliningLabel1.TabIndex = 26;
-            this.bliningLabel1.Text = "Note: number of results are limited up to 1000";
-            this.bliningLabel1.Visible = false;
-            // 
             // btSearch
             // 
             this.btSearch.Location = new System.Drawing.Point(901, 10);
@@ -2133,26 +2065,6 @@ namespace VPrinting
             this.ToolTip1.SetToolTip(this.btSearch, "Search button");
             this.btSearch.UseVisualStyleBackColor = true;
             this.btSearch.Click += new System.EventHandler(this.Search_Click);
-            // 
-            // dtTo
-            // 
-            this.dtTo.Location = new System.Drawing.Point(668, 7);
-            this.dtTo.Message = "To";
-            this.dtTo.Name = "dtTo";
-            this.dtTo.Size = new System.Drawing.Size(215, 30);
-            this.dtTo.TabIndex = 7;
-            this.ToolTip1.SetToolTip(this.dtTo, "To date");
-            this.dtTo.Value = null;
-            // 
-            // dtFrom
-            // 
-            this.dtFrom.Location = new System.Drawing.Point(461, 7);
-            this.dtFrom.Message = "From";
-            this.dtFrom.Name = "dtFrom";
-            this.dtFrom.Size = new System.Drawing.Size(209, 32);
-            this.dtFrom.TabIndex = 6;
-            this.ToolTip1.SetToolTip(this.dtFrom, "From date");
-            this.dtFrom.Value = null;
             // 
             // label8
             // 
@@ -2232,19 +2144,6 @@ namespace VPrinting
             this.pnlDataGrid.Name = "pnlDataGrid";
             this.pnlDataGrid.Size = new System.Drawing.Size(1102, 63);
             this.pnlDataGrid.TabIndex = 0;
-            // 
-            // bliningLabel2
-            // 
-            this.bliningLabel2.AutoSize = true;
-            this.bliningLabel2.ForeColor = System.Drawing.Color.Red;
-            this.bliningLabel2.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
-            this.bliningLabel2.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
-            this.bliningLabel2.Location = new System.Drawing.Point(47, 43);
-            this.bliningLabel2.Name = "bliningLabel2";
-            this.bliningLabel2.Size = new System.Drawing.Size(220, 13);
-            this.bliningLabel2.TabIndex = 27;
-            this.bliningLabel2.Text = "Note: number of results are limited up to 1000";
-            this.bliningLabel2.Visible = false;
             // 
             // cbHistoryType
             // 
@@ -2368,12 +2267,12 @@ namespace VPrinting
             this.toolStripMenuItem7,
             this.tsmiExit});
             this.scanContextMenuStrip.Name = "scanContextMenuStrip";
-            this.scanContextMenuStrip.Size = new System.Drawing.Size(153, 342);
+            this.scanContextMenuStrip.Size = new System.Drawing.Size(136, 320);
             // 
             // tsmiSend
             // 
             this.tsmiSend.Name = "tsmiSend";
-            this.tsmiSend.Size = new System.Drawing.Size(152, 22);
+            this.tsmiSend.Size = new System.Drawing.Size(135, 22);
             this.tsmiSend.Text = "&Send";
             this.tsmiSend.ToolTipText = "Send item to image store";
             this.tsmiSend.Click += new System.EventHandler(this.Send_Click);
@@ -2381,27 +2280,34 @@ namespace VPrinting
             // tsmiScanningShow
             // 
             this.tsmiScanningShow.Name = "tsmiScanningShow";
-            this.tsmiScanningShow.Size = new System.Drawing.Size(152, 22);
+            this.tsmiScanningShow.Size = new System.Drawing.Size(135, 22);
             this.tsmiScanningShow.Text = "S&how";
             this.tsmiScanningShow.ToolTipText = "Download and show voucher";
             this.tsmiScanningShow.Click += new System.EventHandler(this.DownloadShow_Click);
             // 
+            // showSignedToolStripMenuItem
+            // 
+            this.showSignedToolStripMenuItem.Name = "showSignedToolStripMenuItem";
+            this.showSignedToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.showSignedToolStripMenuItem.Text = "Show Si&gned";
+            this.showSignedToolStripMenuItem.Click += new System.EventHandler(this.DownloadShow_Click);
+            // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(132, 6);
             // 
             // nameToolStripMenuItem
             // 
             this.nameToolStripMenuItem.Name = "nameToolStripMenuItem";
-            this.nameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nameToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.nameToolStripMenuItem.Text = "&Rename";
             this.nameToolStripMenuItem.Click += new System.EventHandler(this.NameMenuItem_Click);
             // 
             // tsmiScanningDetailes
             // 
             this.tsmiScanningDetailes.Name = "tsmiScanningDetailes";
-            this.tsmiScanningDetailes.Size = new System.Drawing.Size(152, 22);
+            this.tsmiScanningDetailes.Size = new System.Drawing.Size(135, 22);
             this.tsmiScanningDetailes.Text = "De&tails";
             this.tsmiScanningDetailes.ToolTipText = "Show voucher details";
             this.tsmiScanningDetailes.Click += new System.EventHandler(this.Details_Click);
@@ -2409,12 +2315,12 @@ namespace VPrinting
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(132, 6);
             // 
             // tsmiScaningDelete
             // 
             this.tsmiScaningDelete.Name = "tsmiScaningDelete";
-            this.tsmiScaningDelete.Size = new System.Drawing.Size(152, 22);
+            this.tsmiScaningDelete.Size = new System.Drawing.Size(135, 22);
             this.tsmiScaningDelete.Text = "&Delete";
             this.tsmiScaningDelete.ToolTipText = "Delete sigle item from selected folder of image store";
             this.tsmiScaningDelete.Click += new System.EventHandler(this.DeleteFile_Click);
@@ -2422,7 +2328,7 @@ namespace VPrinting
             // tsmiScaningDeleteAll
             // 
             this.tsmiScaningDeleteAll.Name = "tsmiScaningDeleteAll";
-            this.tsmiScaningDeleteAll.Size = new System.Drawing.Size(152, 22);
+            this.tsmiScaningDeleteAll.Size = new System.Drawing.Size(135, 22);
             this.tsmiScaningDeleteAll.Text = "Delete &All";
             this.tsmiScaningDeleteAll.ToolTipText = "Delete all items from selected folder of image store";
             this.tsmiScaningDeleteAll.Click += new System.EventHandler(this.DeleteAllFilesInFolder_Click);
@@ -2430,7 +2336,7 @@ namespace VPrinting
             // tsmiScanningClear
             // 
             this.tsmiScanningClear.Name = "tsmiScanningClear";
-            this.tsmiScanningClear.Size = new System.Drawing.Size(152, 22);
+            this.tsmiScanningClear.Size = new System.Drawing.Size(135, 22);
             this.tsmiScanningClear.Text = "&Clear";
             this.tsmiScanningClear.ToolTipText = "Clear desktop";
             this.tsmiScanningClear.Click += new System.EventHandler(this.ClearDesktop_Click);
@@ -2438,12 +2344,12 @@ namespace VPrinting
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(132, 6);
             // 
             // tsmiScanningForce
             // 
             this.tsmiScanningForce.Name = "tsmiScanningForce";
-            this.tsmiScanningForce.Size = new System.Drawing.Size(152, 22);
+            this.tsmiScanningForce.Size = new System.Drawing.Size(135, 22);
             this.tsmiScanningForce.Text = "&Force";
             this.tsmiScanningForce.ToolTipText = "Force insert voucher. Ignore barcode checks";
             this.tsmiScanningForce.Click += new System.EventHandler(this.Forse_Click);
@@ -2451,7 +2357,7 @@ namespace VPrinting
             // tsmiScanningForceAll
             // 
             this.tsmiScanningForceAll.Name = "tsmiScanningForceAll";
-            this.tsmiScanningForceAll.Size = new System.Drawing.Size(152, 22);
+            this.tsmiScanningForceAll.Size = new System.Drawing.Size(135, 22);
             this.tsmiScanningForceAll.Text = "F&orce All";
             this.tsmiScanningForceAll.ToolTipText = "Force inszert all vouchers. Ignore barcode checks";
             this.tsmiScanningForceAll.Click += new System.EventHandler(this.ForceAll_Click);
@@ -2459,7 +2365,7 @@ namespace VPrinting
             // tsmiScanningIgnore
             // 
             this.tsmiScanningIgnore.Name = "tsmiScanningIgnore";
-            this.tsmiScanningIgnore.Size = new System.Drawing.Size(152, 22);
+            this.tsmiScanningIgnore.Size = new System.Drawing.Size(135, 22);
             this.tsmiScanningIgnore.Text = "&Ignore";
             this.tsmiScanningIgnore.ToolTipText = "Ignore selected voucher.";
             this.tsmiScanningIgnore.Click += new System.EventHandler(this.Ignore_Click);
@@ -2467,12 +2373,12 @@ namespace VPrinting
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(132, 6);
             // 
             // tsmiScanningAddToTran
             // 
             this.tsmiScanningAddToTran.Name = "tsmiScanningAddToTran";
-            this.tsmiScanningAddToTran.Size = new System.Drawing.Size(152, 22);
+            this.tsmiScanningAddToTran.Size = new System.Drawing.Size(135, 22);
             this.tsmiScanningAddToTran.Text = "&Add to tran";
             this.tsmiScanningAddToTran.ToolTipText = "Add voucher to transfer file";
             this.tsmiScanningAddToTran.Click += new System.EventHandler(this.AddToTran_Click);
@@ -2480,12 +2386,12 @@ namespace VPrinting
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(132, 6);
             // 
             // tsmiExit
             // 
             this.tsmiExit.Name = "tsmiExit";
-            this.tsmiExit.Size = new System.Drawing.Size(152, 22);
+            this.tsmiExit.Size = new System.Drawing.Size(135, 22);
             this.tsmiExit.Text = "&Exit";
             this.tsmiExit.ToolTipText = "Exit application";
             this.tsmiExit.Click += new System.EventHandler(this.Exit_Click);
@@ -2523,12 +2429,121 @@ namespace VPrinting
             this.exitToolStripMenuItem1.ToolTipText = "Exit application";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // showSignedToolStripMenuItem
+            // contextMenuStrip1
             // 
-            this.showSignedToolStripMenuItem.Name = "showSignedToolStripMenuItem";
-            this.showSignedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.showSignedToolStripMenuItem.Text = "Show Si&gned";
-            this.showSignedToolStripMenuItem.Click += new System.EventHandler(this.DownloadShow_Click);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // toggleButtonControl1
+            // 
+            this.toggleButtonControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toggleButtonControl1.ColorOff = System.Drawing.Color.Red;
+            this.toggleButtonControl1.ColorOn = System.Drawing.Color.Lime;
+            this.toggleButtonControl1.Location = new System.Drawing.Point(692, 2);
+            this.toggleButtonControl1.Name = "toggleButtonControl1";
+            this.toggleButtonControl1.Padding = new System.Windows.Forms.Padding(5);
+            this.toggleButtonControl1.Size = new System.Drawing.Size(222, 60);
+            this.toggleButtonControl1.TabIndex = 34;
+            this.toggleButtonControl1.Text1 = new string[] {
+        "",
+        "Barcode"};
+            this.toggleButtonControl1.Text2 = new string[] {
+        "",
+        "Trasf file"};
+            this.toggleButtonControl1.Text3 = new string[] {
+        "",
+        "Sitecode"};
+            // 
+            // lblWarningMessage
+            // 
+            this.lblWarningMessage.AutoSize = true;
+            this.lblWarningMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblWarningMessage.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
+            this.lblWarningMessage.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
+            this.lblWarningMessage.Location = new System.Drawing.Point(732, 85);
+            this.lblWarningMessage.Name = "lblWarningMessage";
+            this.lblWarningMessage.Size = new System.Drawing.Size(123, 13);
+            this.lblWarningMessage.TabIndex = 25;
+            this.lblWarningMessage.Text = "Last voucher processing";
+            this.lblWarningMessage.Visible = false;
+            // 
+            // btnShowHide
+            // 
+            this.btnShowHide.ArrowEnabled = true;
+            this.btnShowHide.HoverEndColor = System.Drawing.Color.DimGray;
+            this.btnShowHide.HoverStartColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Location = new System.Drawing.Point(13, 3);
+            this.btnShowHide.Name = "btnShowHide";
+            this.btnShowHide.NormalEndColor = System.Drawing.Color.DarkGray;
+            this.btnShowHide.NormalStartColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Rotation = 0;
+            this.btnShowHide.Size = new System.Drawing.Size(24, 24);
+            this.btnShowHide.TabIndex = 24;
+            this.btnShowHide.Click += new System.EventHandler(this.ShowHide_Click);
+            // 
+            // btnScan
+            // 
+            this.btnScan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnScan.BackColor = System.Drawing.Color.Silver;
+            this.btnScan.BevelDepth = 5;
+            this.btnScan.BevelHeight = 5;
+            this.btnScan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnScan.Dome = true;
+            this.btnScan.Location = new System.Drawing.Point(980, 22);
+            this.btnScan.Name = "btnScan";
+            this.btnScan.RecessDepth = 0;
+            this.btnScan.Size = new System.Drawing.Size(122, 69);
+            this.btnScan.TabIndex = 20;
+            this.btnScan.Text = "Scan";
+            this.ToolTip1.SetToolTip(this.btnScan, "Scan button");
+            this.btnScan.UseVisualStyleBackColor = false;
+            this.btnScan.Click += new System.EventHandler(this.Scan_Click);
+            // 
+            // bliningLabel1
+            // 
+            this.bliningLabel1.AutoSize = true;
+            this.bliningLabel1.ForeColor = System.Drawing.Color.Red;
+            this.bliningLabel1.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
+            this.bliningLabel1.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
+            this.bliningLabel1.Location = new System.Drawing.Point(58, 42);
+            this.bliningLabel1.Name = "bliningLabel1";
+            this.bliningLabel1.Size = new System.Drawing.Size(220, 13);
+            this.bliningLabel1.TabIndex = 26;
+            this.bliningLabel1.Text = "Note: number of results are limited up to 1000";
+            this.bliningLabel1.Visible = false;
+            // 
+            // dtTo
+            // 
+            this.dtTo.Location = new System.Drawing.Point(668, 7);
+            this.dtTo.Message = "To";
+            this.dtTo.Name = "dtTo";
+            this.dtTo.Size = new System.Drawing.Size(215, 30);
+            this.dtTo.TabIndex = 7;
+            this.ToolTip1.SetToolTip(this.dtTo, "To date");
+            this.dtTo.Value = null;
+            // 
+            // dtFrom
+            // 
+            this.dtFrom.Location = new System.Drawing.Point(461, 7);
+            this.dtFrom.Message = "From";
+            this.dtFrom.Name = "dtFrom";
+            this.dtFrom.Size = new System.Drawing.Size(209, 32);
+            this.dtFrom.TabIndex = 6;
+            this.ToolTip1.SetToolTip(this.dtFrom, "From date");
+            this.dtFrom.Value = null;
+            // 
+            // bliningLabel2
+            // 
+            this.bliningLabel2.AutoSize = true;
+            this.bliningLabel2.ForeColor = System.Drawing.Color.Red;
+            this.bliningLabel2.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
+            this.bliningLabel2.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
+            this.bliningLabel2.Location = new System.Drawing.Point(47, 43);
+            this.bliningLabel2.Name = "bliningLabel2";
+            this.bliningLabel2.Size = new System.Drawing.Size(220, 13);
+            this.bliningLabel2.TabIndex = 27;
+            this.bliningLabel2.Text = "Note: number of results are limited up to 1000";
+            this.bliningLabel2.Visible = false;
             // 
             // MainForm
             // 
@@ -3082,7 +3097,7 @@ namespace VPrinting
         {
             ScanningSettingPanel.Height = (ScanningSettingPanel.Height == 26) ? 105 : 26;
             btnShowHide.Rotation = (ScanningSettingPanel.Height == 26) ? 180 : 0;
-            btnClear.Visible = btnRun.Visible = cbUseTransferFile.Visible =
+            btnClear.Visible = btnRun.Visible = toggleButtonControl1.Visible =
                 btnShowMonitor.Visible = cbVoucherMustExist.Visible = cbCoversheet.Visible =
                 (ScanningSettingPanel.Height != 26);
             //pnlScanMode.Visible = btnScan.Visible = (ScanningSettingPanel.Height != 26);
@@ -3302,15 +3317,16 @@ namespace VPrinting
 
         private void UseTransferFile_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbUseTransferFile.Checked && !m_StateManager.HasUnProcItems)
-            {
-                this.ShowExclamation("Please load transfer file first.");
-                cbUseTransferFile.Checked = false;
-            }
+//TODO
+            //if (cbUseTransferFile.Checked && !m_StateManager.HasUnProcItems)
+            //{
+            //    this.ShowExclamation("Please load transfer file first.");
+            //    cbUseTransferFile.Checked = false;
+            //}
 
-            cbUseTransferFile.Text = cbUseTransferFile.Checked ? "Use Tran File" : "No Tran File";
-            cbUseTransferFile.BackColor = cbUseTransferFile.Checked ? OnColor : OffColor;
-            m_StateManager.Mode = cbUseTransferFile.Checked ? StateManager.eMode.Document : StateManager.eMode.NoDocument;
+            //cbUseTransferFile.Text = cbUseTransferFile.Checked ? "Use Tran File" : "No Tran File";
+            //cbUseTransferFile.BackColor = cbUseTransferFile.Checked ? OnColor : OffColor;
+            //m_StateManager.Mode = cbUseTransferFile.Checked ? StateManager.eMode.Document : StateManager.eMode.NoDocument;
         }
 
         private void VoucherMustExist_CheckedChanged(object sender, EventArgs e)

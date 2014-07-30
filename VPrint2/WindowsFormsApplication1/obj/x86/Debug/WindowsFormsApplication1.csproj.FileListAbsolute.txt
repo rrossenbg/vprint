@@ -1,0 +1,8 @@
+C:\PROJECTS\VPrint2\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\PROJECTS\VPrint2\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\PROJECTS\VPrint2\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\PROJECTS\VPrint2\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\PROJECTS\VPrint2\WindowsFormsApplication1\obj\x86\Debug\VPrinting.Properties.Resources.resources
+C:\PROJECTS\VPrint2\WindowsFormsApplication1\obj\x86\Debug\VPrinting.Controls.ToggleButtonControl.resources
+C:\PROJECTS\VPrint2\WindowsFormsApplication1\obj\x86\Debug\VPrinting.Controls.Form1.resources
