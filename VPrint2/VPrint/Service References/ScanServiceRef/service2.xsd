@@ -486,4 +486,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="FindVoucherTRS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="countryId" type="xs:int" />
+        <xs:element minOccurs="0" name="voucherId" type="xs:int" />
+        <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindVoucherTRSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="FindVoucherTRSResult" nillable="true" type="q14:VoucherInfo3" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

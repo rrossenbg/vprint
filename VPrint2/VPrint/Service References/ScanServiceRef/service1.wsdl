@@ -269,6 +269,15 @@
   <wsdl:message name="IScanService_GetTransferFile_MyApplicationFaultFault_FaultMessage">
     <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q28:MyApplicationFault" />
   </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRS_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherTRS" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherTRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRS_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q29:MyApplicationFault" />
+  </wsdl:message>
   <wsdl:portType name="IScanService">
     <wsdl:operation name="Delete">
       <wsdl:input wsaw:Action="http://tempuri.org/IScanService/Delete" message="tns:IScanService_Delete_InputMessage" />
@@ -409,6 +418,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IScanService/GetTransferFile" message="tns:IScanService_GetTransferFile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IScanService/GetTransferFileResponse" message="tns:IScanService_GetTransferFile_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/GetTransferFileMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_GetTransferFile_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherTRS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRS" message="tns:IScanService_FindVoucherTRS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSResponse" message="tns:IScanService_FindVoucherTRS_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_FindVoucherTRS_MyApplicationFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IScanService" type="tns:IScanService">
@@ -741,6 +755,18 @@
     </wsdl:operation>
     <wsdl:operation name="GetTransferFile">
       <soap12:operation soapAction="http://tempuri.org/IScanService/GetTransferFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherTRS">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/FindVoucherTRS" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

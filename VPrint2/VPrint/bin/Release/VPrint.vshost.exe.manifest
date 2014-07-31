@@ -4,7 +4,7 @@
   <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VPrint" version="1.0.5315.28032" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="VPrint" version="1.0.5325.15018" language="neutral" processorArchitecture="msil" />
     <commandLine file="VPrint.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="884736">
-      <assemblyIdentity name="VPrint" version="1.0.5315.28032" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="897024">
+      <assemblyIdentity name="VPrint" version="1.0.5325.15018" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>49KF2c5lDiJH8RKxIoTe6PrNF6Q=</dsig:DigestValue>
+        <dsig:DigestValue>yOeEHsN1s6dCEu8rwxc8+5z2CEg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>/iEhnJq8X1Q/R1BAbetwQDVTzVo=</dsig:DigestValue>
+        <dsig:DigestValue>eH3cbqqM0c7Kj4NZbHs04ArviC8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -203,7 +203,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>w0BCtzcjiPHx0oBwNTqpOwHLoh4=</dsig:DigestValue>
+      <dsig:DigestValue>1G60ZS+W6EaiSHtrzZJ0/v3//LU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="XmlConfigurations\print203_Type1_Raz.xml" size="2188" writeableType="applicationData">

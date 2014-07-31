@@ -236,6 +236,7 @@ namespace VPrinting
         private ToolStripMenuItem showSignedToolStripMenuItem;
         private ToggleButtonControl toggleButtonControl1;
         private ContextMenuStrip contextMenuStrip1;
+        private Button button1;
 
         #region PUBLIC FIELDS
 
@@ -1185,6 +1186,7 @@ namespace VPrinting
             this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.printContextMenu.SuspendLayout();
@@ -1799,6 +1801,7 @@ namespace VPrinting
             // 
             this.ScanningSettingPanel.BackColor = System.Drawing.Color.LightGray;
             this.ScanningSettingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ScanningSettingPanel.Controls.Add(this.button1);
             this.ScanningSettingPanel.Controls.Add(this.toggleButtonControl1);
             this.ScanningSettingPanel.Controls.Add(this.cbVoucherMustExist);
             this.ScanningSettingPanel.Controls.Add(this.cbCoversheet);
@@ -2547,6 +2550,16 @@ namespace VPrinting
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(871, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -3345,6 +3358,13 @@ namespace VPrinting
         }
         
         #endregion //SCANNING
-      
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int ggg = 114605087;
+            var d = ServiceDataAccess.Instance.FindVoucherTRS(826, ggg);
+            Debug.Assert(d.IsValid);
+            Debug.Assert(d != null);
+        }
     }  
 }

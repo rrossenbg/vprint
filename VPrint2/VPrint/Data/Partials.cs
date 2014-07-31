@@ -70,3 +70,17 @@ namespace VPrinting.PartyManagement
     {
     }
 }
+
+namespace VPrinting.ScanServiceRef
+{
+    partial class VoucherInfo3
+    {
+        public bool IsValid
+        {
+            get
+            {
+                return this.IsoId != 0 && this.VoucherId != 0 && this.RetailerId != 0;
+            }
+        }
+    }
+}

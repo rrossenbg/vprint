@@ -87,3 +87,4 @@ C:\PROJECTS\VPrint2\VPrint\obj\Release\VPrint.TrustInfo.xml
 C:\PROJECTS\VPrint2\VPrint\obj\Release\VPrint.exe.manifest
 C:\PROJECTS\VPrint2\VPrint\obj\Release\VPrint.application
 C:\PROJECTS\VPrint2\VPrint\obj\Release\VPrint.exe
+C:\PROJECTS\VPrint2\VPrint\obj\Release\VPrinting.Controls.ToggleButtonControl.resources
