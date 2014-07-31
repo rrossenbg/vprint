@@ -317,6 +317,9 @@
     <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.VoucherInfo2.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.VoucherInfo3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\VoucherEntryAndModification\VoucherEntryAndModification1.disco" />
     <EmbeddedResource Include="Controls\BliningLabel.resx">
       <DependentUpon>BliningLabel.cs</DependentUpon>

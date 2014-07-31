@@ -58,3 +58,4 @@ C:\PROJECTS\VPrint2\VPrint\obj\x86\Release\VPrinting.FormLayout.resources
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Release\VPrinting.Properties.Resources.resources
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Release\VPrint.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Release\VPrint.exe
+C:\PROJECTS\VPrint2\VPrint\obj\x86\Release\VPrinting.Controls.ToggleButtonControl.resources

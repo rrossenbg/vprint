@@ -192,7 +192,8 @@ namespace VPrinting.Data
         {
             IScanService client = null;
             try
-            { client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            {
+                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 client.AddFolder(parentId, name, Program.currentUser.CountryID, Program.currentUser.UserID, keys.Item1, keys.Item2);
             }
@@ -424,6 +425,25 @@ namespace VPrinting.Data
                 ((IDisposable)client).DisposeSf();
             }
 #endif
+        }
+
+        #endregion
+
+        #region TRS
+
+        public VoucherInfo3 FindVoucherTRS(int countryId, int voucherId)
+        {
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            try
+            {
+                var keys = Security.CreateInstance().GenerateSecurityKeys();
+                var result = client.FindVoucherTRS(countryId, voucherId, keys.Item1, keys.Item2);
+                return result;
+            }
+            finally
+            {
+                ((IDisposable)client).Dispose();
+            }
         }
 
         #endregion

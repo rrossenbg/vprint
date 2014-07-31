@@ -4,7 +4,7 @@
   <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VPrint" version="1.0.5324.29402" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="VPrint" version="1.0.5325.15289" language="neutral" processorArchitecture="x86" />
     <commandLine file="VPrint.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="942080">
-      <assemblyIdentity name="VPrint" version="1.0.5324.29402" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="950272">
+      <assemblyIdentity name="VPrint" version="1.0.5325.15289" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>8lo221k8zvVBlBVhvfUaCV9+5s0=</dsig:DigestValue>
+        <dsig:DigestValue>1T13jgfAHrCgkCvqQ7zj+XZx1RQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>8/Aj5EG11qQ+PM8rDnqvhUhqkz0=</dsig:DigestValue>
+        <dsig:DigestValue>yPxKWT3d8loTb/xZIZSCti4miIA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>A8KzrtQT160v9X/KP79GsV6cvXQ=</dsig:DigestValue>
+        <dsig:DigestValue>BoR9/eel9VdtnBq4rz8Yv5uZusw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

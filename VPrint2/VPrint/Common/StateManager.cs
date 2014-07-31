@@ -773,7 +773,7 @@ namespace VPrinting.Common
             FireNewItemAdded(item);
         }
 
-        public void CompleteCurrentItem(Item item)
+        public void CompleteItem(Item item)
         {
             item.State = eState.OK;
 
