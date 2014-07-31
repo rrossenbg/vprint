@@ -2,3 +2,8 @@ C:\PROJECTS\VPrint\RemoteTracerLib\bin\x86\Release\RemoteTracerLib.dll
 C:\PROJECTS\VPrint\RemoteTracerLib\bin\x86\Release\RemoteTracerLib.pdb
 C:\PROJECTS\VPrint\RemoteTracerLib\obj\x86\Release\RemoteTracerLib.dll
 C:\PROJECTS\VPrint\RemoteTracerLib\obj\x86\Release\RemoteTracerLib.pdb
+C:\PROJECTS\VPrint2\RemoteTracerLib\bin\x86\Release\RemoteTracerLib.dll
+C:\PROJECTS\VPrint2\RemoteTracerLib\bin\x86\Release\RemoteTracerLib.pdb
+C:\PROJECTS\VPrint2\RemoteTracerLib\obj\x86\Release\RemoteTracerLib.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\RemoteTracerLib\obj\x86\Release\RemoteTracerLib.dll
+C:\PROJECTS\VPrint2\RemoteTracerLib\obj\x86\Release\RemoteTracerLib.pdb

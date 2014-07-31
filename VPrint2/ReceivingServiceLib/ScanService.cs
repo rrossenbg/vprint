@@ -776,11 +776,19 @@ namespace ReceivingServiceLib
 
         #region PTF
 
-        public VoucherInfo3 FindVoucher(int countryId, int voucherId)
+        public VoucherInfo3 FindVoucherTRS(int countryId, int voucherId, string s1, string s2)
         {
-            var da = new PTFDataAccess();
-            var v = da.FindVoucher(countryId, voucherId);
-            return new VoucherInfo3(v);
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                var da = new PTFDataAccess();
+                var v = da.FindVoucher(countryId, voucherId);
+                return new VoucherInfo3(v);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
         }
 
         #endregion

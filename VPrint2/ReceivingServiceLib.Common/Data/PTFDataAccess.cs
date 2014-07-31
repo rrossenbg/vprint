@@ -28,7 +28,7 @@ namespace ReceivingServiceLib.Common.Data
             #region SQL
 
             const string SQL = @"
-select vp_site_code, vp_location_number, v_date_voucher, v_final_country, v_br_id from voucher
+select v_iso_id, v_number, vp_site_code, vp_location_number, v_date_voucher, v_final_country, v_br_id from voucher
 inner join voucherpart on vp_iso_id = v_iso_id and vp_v_number = v_number and vp_type_id = 2
 where v_iso_id = @iso and v_number = @number;";
 
@@ -40,7 +40,6 @@ where v_iso_id = @iso and v_number = @number;";
 
                 using (var comm = new SqlCommand(SQL, conn))
                 {
-                    comm.CommandTimeout = 0;
                     comm.CommandType = CommandType.Text;
                     comm.Parameters.AddWithValue("@iso", countryId);
                     comm.Parameters.AddWithValue("@number", voucherId);
@@ -50,13 +49,14 @@ where v_iso_id = @iso and v_number = @number;";
                             reader.ReadRange<FindVoucher_VoucherInfo>((r) =>
                             {
                                 var result = new FindVoucher_VoucherInfo();
+                                result.v_iso_id = r.Get<int>("v_iso_id").Value;
                                 result.v_number = r.Get<int>("v_number").Value;
                                 result.v_br_id = r.Get<int>("v_br_id").Value;
                                 result.sitecode = r.GetString("vp_site_code") + r.GetString("vp_location_number");
                                 result.v_date_voucher = r.Get<DateTime>("v_date_voucher").GetValueOrDefault();
                                 result.v_final_country = r.GetString("v_final_country");
                                 return result;
-                            }).FirstOrDefault();
+                            }).FirstOrDefault() ?? new PTFDataAccess.FindVoucher_VoucherInfo();
                     }
                 }
             }

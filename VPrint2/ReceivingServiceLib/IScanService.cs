@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using ReceivingServiceLib.Data;
 using ReceivingServiceLib.Common.Data;
+using ReceivingServiceLib.Data;
 
 namespace ReceivingServiceLib
 {
@@ -157,7 +157,13 @@ namespace ReceivingServiceLib
 
         #endregion
 
-        VoucherInfo3 FindVoucher(int countryId, int voucherId);
+        #region PTF
+
+        [OperationContract]
+        [FaultContract(typeof(MyApplicationFault))]
+        VoucherInfo3 FindVoucherTRS(int countryId, int voucherId, string s1, string s2);
+
+        #endregion
     }
 
     #region DATA OBJECTS

@@ -5,3 +5,10 @@ C:\PROJECTS\VPrint\DEMATConsole\obj\x86\Release\DEMATConsole.Properties.Resource
 C:\PROJECTS\VPrint\DEMATConsole\obj\x86\Release\DEMATConsole.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint\DEMATConsole\obj\x86\Release\DEMATConsole.exe
 C:\PROJECTS\VPrint\DEMATConsole\obj\x86\Release\DEMATConsole.pdb
+C:\PROJECTS\VPrint2\DEMATConsole\bin\Release\DEMATConsole.exe
+C:\PROJECTS\VPrint2\DEMATConsole\bin\Release\DEMATConsole.pdb
+C:\PROJECTS\VPrint2\DEMATConsole\obj\x86\Release\DEMATConsole.MainForm.resources
+C:\PROJECTS\VPrint2\DEMATConsole\obj\x86\Release\DEMATConsole.Properties.Resources.resources
+C:\PROJECTS\VPrint2\DEMATConsole\obj\x86\Release\DEMATConsole.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\DEMATConsole\obj\x86\Release\DEMATConsole.exe
+C:\PROJECTS\VPrint2\DEMATConsole\obj\x86\Release\DEMATConsole.pdb
