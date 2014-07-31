@@ -8,3 +8,4 @@ C:\PROJECTS\VPrint2\BtRetryService\obj\Release\BtRetryService.Properties.Resourc
 C:\PROJECTS\VPrint2\BtRetryService\obj\Release\BtRetryService.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\BtRetryService\obj\Release\BtRetryService.exe
 C:\PROJECTS\VPrint2\BtRetryService\obj\Release\BtRetryService.pdb
+C:\PROJECTS\VPrint2\BtRetryService\obj\Release\BtRetryService.csprojResolveAssemblyReference.cache
