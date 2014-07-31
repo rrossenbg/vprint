@@ -74,6 +74,8 @@ namespace VPrinting
             btnBrowseForExprFile.Click += new EventHandler(BrowseForExprFile_Click);
 
             toggleButtonControl1.CheckedChanged += new EventHandler<ValueEventArgs<int>>(toggleButtonControl1_CheckedChanged);
+            toggleButtonControl1.RefreshControl();
+
 
             var list = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
         }
