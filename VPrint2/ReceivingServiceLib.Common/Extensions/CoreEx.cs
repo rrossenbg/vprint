@@ -392,5 +392,29 @@ namespace ReceivingServiceLib
         {
             return DateTime.Now.Millisecond % 2 == 0;
         }
+
+        [TargetedPatchingOptOut("na")]
+        public static void RunSafe(this Action handle)
+        {
+            try
+            {
+                handle();
+            }
+            catch
+            {
+            }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static void RunSafe<T>(this Action<T> handle, T t)
+        {
+            try
+            {
+                handle(t);
+            }
+            catch
+            {
+            }
+        }
     }
 }

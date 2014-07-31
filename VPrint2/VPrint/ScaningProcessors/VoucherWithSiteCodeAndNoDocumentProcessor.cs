@@ -14,6 +14,7 @@ using VPrinting.Common;
 using VPrinting.Extentions;
 using VPrinting.Forms;
 using VPrinting.Tools;
+using VPrinting.Data;
 
 namespace VPrinting.ScaningProcessors
 {
@@ -52,13 +53,13 @@ namespace VPrinting.ScaningProcessors
 
                         StateManager.VoucherItem vitem = (StateManager.VoucherItem)item;
                         FileInfo barcFilePath = null;
-                        Rectangle rect = Rectangle.Empty;
-                        CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode, BarcodeTypeEnum.BT_All);
+                        //Rectangle rect = Rectangle.Empty;
+                        //CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode, BarcodeTypeEnum.BT_All);
 
-                        vitem.Barcode = barcode;
+                        //vitem.Barcode = barcode;
 
-                        if (!vitem.HasBarcode)
-                            throw new ApplicationException("Can not find barcode");
+                        //if (!vitem.HasBarcode)
+                        //    throw new ApplicationException("Can not find barcode");
 
                         string user = string.Concat("Country: ", Program.currentUser.CountryID, " User: ", Program.currentUser.UserID);
                         bmp.DrawOnImage((gr, u) =>
@@ -78,14 +79,16 @@ namespace VPrinting.ScaningProcessors
                             bmp.Pixellate(coverArea, size);
                         }
 
-                        List<BarcodeConfig> barcodeLayouts = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
+                        ServiceDataAccess.Instance.FindVoucherTRS(0, 0);
 
-                        foreach (var cfg in barcodeLayouts)
-                            if (cfg.ParseBarcode(barcode, ref data))
-                                break;
+                        //List<BarcodeConfig> barcodeLayouts = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
 
-                        if (data == null)
-                            throw new ApplicationException("Barcode invalid");
+                        //foreach (var cfg in barcodeLayouts)
+                        //    if (cfg.ParseBarcode(barcode, ref data))
+                        //        break;
+
+                        //if (data == null)
+                        //    throw new ApplicationException("Barcode invalid");
 
                         item.CountryID = data.CountryID;
                         vitem.RetailerID = data.RetailerID;

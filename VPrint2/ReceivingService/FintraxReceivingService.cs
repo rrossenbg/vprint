@@ -5,8 +5,10 @@
 using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.IO;
 using System.ServiceModel;
 using System.ServiceProcess;
+using System.Text;
 using System.Threading;
 using ReceivingServiceLib;
 using ReceivingServiceLib.FileWorkers;
@@ -15,6 +17,10 @@ namespace ReceivingService
 {
     public partial class FintraxReceivingService : ServiceBase
     {
+        private const int HISTORY_LEN = 100;
+
+        private readonly CircularBuffer<Tuple<string, string, DateTime>> m_HistiryBuffer = new CircularBuffer<Tuple<string, string, DateTime>>(HISTORY_LEN);
+
         private ServiceHost m_ServerHost;
 
         public FintraxReceivingService()
@@ -45,11 +51,12 @@ namespace ReceivingService
             ImportFileWorker.Default.StartStop();
             ExportFileWorker.Default.StartStop();
 
+            ScanService.NewCall += new EventHandler<ValueEventArgs<Tuple<string, string, DateTime>>>(ScanService_NewCall);
             m_ServerHost = new ServiceHost(typeof(ScanService));
             m_ServerHost.Open();
 
             base.OnStart(args);
-        }
+        }        
 
         protected override void OnStop()
         {
@@ -76,6 +83,26 @@ namespace ReceivingService
             base.OnShutdown();
         }
 
+        protected override void OnCustomCommand(int command)
+        {
+            //Save call history
+            if (command == 222)
+            {
+                new Action(() =>
+                {
+                    var path = Path.Combine("C:\\", base.ServiceName, ".log");
+                    var arr = m_HistiryBuffer.ToArray();
+                    var builder = new StringBuilder();
+
+                    foreach (Tuple<string, string, DateTime> i in arr)
+                        builder.AppendLine(string.Concat(i.Item3, "\t", i.Item1, "\t", i.Item2));
+
+                    File.WriteAllText(path, builder.ToString());
+                }).RunSafe();
+            }
+            base.OnCustomCommand(command);
+        }
+
         private void OnError(object sender, ThreadExceptionEventArgs e)
         {
             if (Monitor.TryEnter(this, 200))
@@ -91,6 +118,11 @@ namespace ReceivingService
                     Monitor.Exit(this);
                 }
             }
+        }
+
+        private void ScanService_NewCall(object sender, ValueEventArgs<Tuple<string, string, DateTime>> e)
+        {
+            m_HistiryBuffer.Add(e.Value);
         }
     }
 }

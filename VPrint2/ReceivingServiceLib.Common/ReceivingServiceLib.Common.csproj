@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CircularBuffer.cs" />
     <Compile Include="Data\PTFDataAccess.cs" />
     <Compile Include="Extensions\CollectionsEx.cs" />
     <Compile Include="fileAccess.cs" />
@@ -76,6 +77,7 @@
     </Compile>
     <Compile Include="Security.cs" />
     <Compile Include="Strings.cs" />
+    <Compile Include="ValueEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\PTF.cer">
