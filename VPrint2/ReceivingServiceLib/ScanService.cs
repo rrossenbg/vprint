@@ -11,7 +11,9 @@ using System.IO;
 using System.Linq;
 using System.Security;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
 using System.Threading.Tasks;
+using ReceivingService;
 using ReceivingServiceLib.Common.Data;
 using ReceivingServiceLib.Data;
 
@@ -23,6 +25,8 @@ namespace ReceivingServiceLib
     [ErrorHandlingBehavior(ExceptionToFaultConverter = typeof(MyServiceFaultProvider))]
     public class ScanService : IScanService
     {
+        public static event EventHandler<ValueEventArgs<Tuple<string, string, DateTime>>> NewCall;
+
         #region SCAN
 
         private class MyServiceFaultProvider : IExceptionToFaultConverter
@@ -54,6 +58,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("Delete");
 
                 var uploadRootFolder = new DirectoryInfo(Global.Strings.UPLOADROOT);
                 var f = uploadRootFolder.Combine(countryId.ToString()).Combine(retailerId.ToString()).Combine(voucherId.ToString()).CombineFileName(fileName);
@@ -71,6 +76,8 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("ReadData");
+
                 var result = DataAccess.Instance.SelectVouchers(countryId, retailerId).ConvertAll<VoucherInfo>((i) => new VoucherInfo(i));
                 return result;
             }
@@ -85,6 +92,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("ReadData2");
 
                 if (!ByteBuffers.ContainsKey(id))
                     ByteBuffers[id] = DataAccess.Instance.SelectImageById(id, isVoucher);
@@ -112,6 +120,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("SaveData");
 
                 if (!FileLocks.Contains(serverDirName, StringComparer.InvariantCultureIgnoreCase))
                     FileLocks.Add(serverDirName);
@@ -137,6 +146,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("SaveDataAsync");
 
                 if (!FileLocks.Contains(serverDirName, StringComparer.InvariantCultureIgnoreCase))
                     FileLocks.Add(serverDirName);
@@ -174,6 +184,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("CommitVoucherChanges");
 
                 var uploadRootFolder = new DirectoryInfo(Global.Strings.UPLOADROOT);
                 var directory = uploadRootFolder.Combine(serverDirName);
@@ -200,6 +211,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("CommitFileChanges");
 
                 var uploadRootFolder = new DirectoryInfo(Global.Strings.UPLOADROOT);
                 var directory = uploadRootFolder.Combine(serverDirName);
@@ -225,6 +237,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("ValidateVoucher");
 
                 var da = DataAccess.Instance;
 
@@ -257,6 +270,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("FindVoucher");
 
                 var da = DataAccess.Instance;
                 return da.FindVoucher(countryId, voucherId, voucherIdCD);
@@ -283,6 +297,8 @@ namespace ReceivingServiceLib
             {
                 if (!SecurityCheck(s1, s2))
                     throw new Exception("Wrong caller id");
+
+                RecordCallHistory("ReadVoucherInfo");
 
                 var result = DataAccess.Instance.SelectVoucherInfo(Id);
 
@@ -343,6 +359,8 @@ namespace ReceivingServiceLib
                 if (!SecurityCheck(s1, s2))
                     throw new Exception("Wrong caller id");
 
+                RecordCallHistory("SaveHistory");
+
                 DataAccess.Instance.SaveHistory(operatorCountryId, operatorUserId, (int)operationType, operationId, brIsoId, brId, vId, v2Id, count, details);
             }
             catch (Exception ex)
@@ -356,6 +374,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("ReadHistory");
 
                 var list = DataAccess.Instance.SelectHistoryByCountryAndOperator(operatorCountryId, operatorUserId, (int)operationType, from, to);
 
@@ -377,6 +396,8 @@ namespace ReceivingServiceLib
                 if (!SecurityCheck(s1, s2))
                     throw new Exception("Wrong caller id");
 
+                RecordCallHistory("ReadRetailerPrinterInfo");
+
                 var list = DataAccess.Instance.SelectRetailerPrinterData(countryId);
 
                 var resultList = new List<RetailerPrinterInfo>();
@@ -395,6 +416,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("SelectFilesBySql");
 
                 if (string.IsNullOrWhiteSpace(whereClause))
                     throw new ArgumentException("whereClause");
@@ -417,6 +439,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("UpdateVouchersOrFilesBySql");
 
                 if (string.IsNullOrWhiteSpace(whereClause))
                     throw new ArgumentException("whereClause");
@@ -447,6 +470,8 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("AddFolder");
+
                 DataAccess.Instance.AddFolder(toParentId, name, countryId, userId);
             }
             catch (Exception ex)
@@ -460,6 +485,8 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("DeleteFolder");
+
                 DataAccess.Instance.DeleteFolder(folderId);
             }
             catch (Exception ex)
@@ -473,6 +500,8 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("DeleteFile");
+
                 DataAccess.Instance.DeleteFile(id, isVoucher);
             }
             catch (Exception ex)
@@ -486,6 +515,8 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("DeleteAllFilesInFolder");
+
                 var db = DataAccess.Instance;
                 db.DeleteAllFilesInFolder(folderId, false);
                 db.DeleteAllFilesInFolder(folderId, true);
@@ -501,6 +532,8 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("RenameFolder");
+
                 DataAccess.Instance.RenameFolder(folderId, name);
             }
             catch (Exception ex)
@@ -514,6 +547,8 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("UpdateFolder");
+
                 DataAccess.Instance.UpdateFolder(folderId, name, parentId);
             }
             catch (Exception ex)
@@ -527,6 +562,8 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("SelectFoldersByParent");
+
                 var dblist = DataAccess.Instance.SelectAllByParent(parentId, createdByIsoId);
                 var list = dblist.ConvertAll(f => new FolderInfo(f));
                 return list;
@@ -542,6 +579,8 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("SelectFilesByFolder");
+
                 var dblist = DataAccess.Instance.SelectVouchersByFolder(folderId);
                 var list = dblist.ConvertAll(f => new fileInfo(f));
                 return list;
@@ -557,6 +596,8 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("SelectCoversByFolder");
+
                 var dblist = DataAccess.Instance.SelectFilesByFolder(folderId);
                 var list = dblist.ConvertAll(f => new file2Info(f));
                 return list;
@@ -579,6 +620,7 @@ namespace ReceivingServiceLib
                 try
                 {
                     SecurityCheckThrow(s1, s2);
+                    RecordCallHistory("SelectFileById");
 
                     if (buffer.IsFirstRun)
                     {
@@ -668,6 +710,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("GetVersionInfo");
 
                 var versionFolder = new DirectoryInfo(Global.Strings.VERSIONFOLDER);
                 versionFolder.EnsureDirectory();
@@ -705,6 +748,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("ReadVersionFile");
 
                 var versionFolder = new DirectoryInfo(Global.Strings.VERSIONFOLDER);
                 versionFolder.EnsureDirectory();
@@ -732,6 +776,7 @@ namespace ReceivingServiceLib
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("GetTransferFile");
 
                 var list = DataAccess.Instance.GetTransferFileReport(countryId, beginNumber, endNumber, siteCode).ConvertAll((d) => new TransferFileInfo(d));
                 return list;
@@ -759,6 +804,26 @@ namespace ReceivingServiceLib
             return e1 == e2.Reverse();
         }
 
+        private void RecordCallHistory(string method)
+        {
+            string ip = GetClientIP();
+            FireNewCall(ip, method);
+        }
+
+        private string GetClientIP()
+        {
+            OperationContext context = OperationContext.Current;
+            MessageProperties messageProperties = context.IncomingMessageProperties;
+            RemoteEndpointMessageProperty endpointProperty = messageProperties[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
+            return endpointProperty.Address;
+        }
+
+        private void FireNewCall(string ip, string method)
+        {
+            if (NewCall != null)
+                NewCall(this, new ValueEventArgs<Tuple<string, string, DateTime>>(new Tuple<string, string, DateTime>(ip, method, DateTime.Now)));
+        }
+
         #endregion
 
         #region GENERAL
@@ -776,14 +841,34 @@ namespace ReceivingServiceLib
 
         #region PTF
 
-        public VoucherInfo3 FindVoucherTRS(int countryId, int voucherId, string s1, string s2)
+        public VoucherInfo3 FindVoucherTRSByVoucherNumber(int countryId, int voucherId, string s1, string s2)
         {
             try
             {
                 SecurityCheckThrow(s1, s2);
+                RecordCallHistory("FindVoucherTRSByVoucherNumber");
+
                 var da = new PTFDataAccess();
                 var v = da.FindVoucher(countryId, voucherId);
                 return new VoucherInfo3(v);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+        }
+
+        public VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("FindVoucherTRSBySiteCode");
+
+                var da = new PTFDataAccess();
+                //var v = da.FindVoucher(countryId, voucherId);
+                //return new VoucherInfo3(v);
+                return null;
             }
             catch (Exception ex)
             {

@@ -446,6 +446,21 @@ namespace VPrinting.Data
             }
         }
 
+        public VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode)
+        {
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            try
+            {
+                var keys = Security.CreateInstance().GenerateSecurityKeys();
+                //var result = client.FindVoucherTRS(countryId, voucherId, keys.Item1, keys.Item2);
+                return null;
+            }
+            finally
+            {
+                ((IDisposable)client).Dispose();
+            }
+        }
+
         #endregion
     }
 }
