@@ -1,5 +1,5 @@
 C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Library\bin\Debug\FreeImageNET.dll
 C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Library\bin\Debug\FreeImageNET.pdb
+C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Library\obj\Debug\FreeImageNET.dll
 C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Library\obj\Debug\FreeImageNET.pdb
-C:\PROJECTS\VPrint2\FreeImage\Wrapper\FreeImage.NET\cs\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache

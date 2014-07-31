@@ -90,12 +90,12 @@ namespace ReceivingService
             {
                 new Action(() =>
                 {
-                    var path = Path.Combine("C:\\", base.ServiceName, ".log");
+                    const string path = "C:\\ReceivingService.log";
                     var arr = m_HistiryBuffer.ToArray();
                     var builder = new StringBuilder();
 
                     foreach (Tuple<string, string, DateTime> i in arr)
-                        builder.AppendLine(string.Concat(i.Item3, "\t", i.Item1, "\t", i.Item2));
+                        builder.AppendLine(string.Concat(i.Item3, "\t\t", i.Item1, "\t\t", i.Item2));
 
                     File.WriteAllText(path, builder.ToString());
                 }).RunSafe();

@@ -1697,14 +1697,24 @@ namespace VPrinting.ScanServiceRef {
         
         VPrinting.ScanServiceRef.TransferFileInfo[] EndGetTransferFile(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/FindVoucherTRS", ReplyAction="http://tempuri.org/IScanService/FindVoucherTRSResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/FindVoucherTRSMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
-        VPrinting.ScanServiceRef.VoucherInfo3 FindVoucherTRS(int countryId, int voucherId, string s1, string s2);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumber", ReplyAction="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumberResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumberMyApplicationFaultFa" +
+            "ult", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        VPrinting.ScanServiceRef.VoucherInfo3 FindVoucherTRSByVoucherNumber(int countryId, int voucherId, string s1, string s2);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/FindVoucherTRS", ReplyAction="http://tempuri.org/IScanService/FindVoucherTRSResponse")]
-        System.IAsyncResult BeginFindVoucherTRS(int countryId, int voucherId, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumber", ReplyAction="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumberResponse")]
+        System.IAsyncResult BeginFindVoucherTRSByVoucherNumber(int countryId, int voucherId, string s1, string s2, System.AsyncCallback callback, object asyncState);
         
-        VPrinting.ScanServiceRef.VoucherInfo3 EndFindVoucherTRS(System.IAsyncResult result);
+        VPrinting.ScanServiceRef.VoucherInfo3 EndFindVoucherTRSByVoucherNumber(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCode", ReplyAction="http://tempuri.org/IScanService/FindVoucherTRSBySiteCodeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCodeMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        VPrinting.ScanServiceRef.VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCode", ReplyAction="http://tempuri.org/IScanService/FindVoucherTRSBySiteCodeResponse")]
+        System.IAsyncResult BeginFindVoucherTRSBySiteCode(string siteCode, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        VPrinting.ScanServiceRef.VoucherInfo3 EndFindVoucherTRSBySiteCode(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1979,11 +1989,30 @@ namespace VPrinting.ScanServiceRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class FindVoucherTRSCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class FindVoucherTRSByVoucherNumberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public FindVoucherTRSCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public FindVoucherTRSByVoucherNumberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public VPrinting.ScanServiceRef.VoucherInfo3 Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((VPrinting.ScanServiceRef.VoucherInfo3)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class FindVoucherTRSBySiteCodeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public FindVoucherTRSBySiteCodeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2168,11 +2197,17 @@ namespace VPrinting.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onGetTransferFileCompletedDelegate;
         
-        private BeginOperationDelegate onBeginFindVoucherTRSDelegate;
+        private BeginOperationDelegate onBeginFindVoucherTRSByVoucherNumberDelegate;
         
-        private EndOperationDelegate onEndFindVoucherTRSDelegate;
+        private EndOperationDelegate onEndFindVoucherTRSByVoucherNumberDelegate;
         
-        private System.Threading.SendOrPostCallback onFindVoucherTRSCompletedDelegate;
+        private System.Threading.SendOrPostCallback onFindVoucherTRSByVoucherNumberCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginFindVoucherTRSBySiteCodeDelegate;
+        
+        private EndOperationDelegate onEndFindVoucherTRSBySiteCodeDelegate;
+        
+        private System.Threading.SendOrPostCallback onFindVoucherTRSBySiteCodeCompletedDelegate;
         
         public ScanServiceClient() {
         }
@@ -2249,7 +2284,9 @@ namespace VPrinting.ScanServiceRef {
         
         public event System.EventHandler<GetTransferFileCompletedEventArgs> GetTransferFileCompleted;
         
-        public event System.EventHandler<FindVoucherTRSCompletedEventArgs> FindVoucherTRSCompleted;
+        public event System.EventHandler<FindVoucherTRSByVoucherNumberCompletedEventArgs> FindVoucherTRSByVoucherNumberCompleted;
+        
+        public event System.EventHandler<FindVoucherTRSBySiteCodeCompletedEventArgs> FindVoucherTRSBySiteCodeCompleted;
         
         public void Delete(string fileName, int countryId, int retailerId, int voucherId, string s1, string s2) {
             base.Channel.Delete(fileName, countryId, retailerId, voucherId, s1, s2);
@@ -3877,60 +3914,114 @@ namespace VPrinting.ScanServiceRef {
                         s2}, this.onEndGetTransferFileDelegate, this.onGetTransferFileCompletedDelegate, userState);
         }
         
-        public VPrinting.ScanServiceRef.VoucherInfo3 FindVoucherTRS(int countryId, int voucherId, string s1, string s2) {
-            return base.Channel.FindVoucherTRS(countryId, voucherId, s1, s2);
+        public VPrinting.ScanServiceRef.VoucherInfo3 FindVoucherTRSByVoucherNumber(int countryId, int voucherId, string s1, string s2) {
+            return base.Channel.FindVoucherTRSByVoucherNumber(countryId, voucherId, s1, s2);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginFindVoucherTRS(int countryId, int voucherId, string s1, string s2, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginFindVoucherTRS(countryId, voucherId, s1, s2, callback, asyncState);
+        public System.IAsyncResult BeginFindVoucherTRSByVoucherNumber(int countryId, int voucherId, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginFindVoucherTRSByVoucherNumber(countryId, voucherId, s1, s2, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public VPrinting.ScanServiceRef.VoucherInfo3 EndFindVoucherTRS(System.IAsyncResult result) {
-            return base.Channel.EndFindVoucherTRS(result);
+        public VPrinting.ScanServiceRef.VoucherInfo3 EndFindVoucherTRSByVoucherNumber(System.IAsyncResult result) {
+            return base.Channel.EndFindVoucherTRSByVoucherNumber(result);
         }
         
-        private System.IAsyncResult OnBeginFindVoucherTRS(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginFindVoucherTRSByVoucherNumber(object[] inValues, System.AsyncCallback callback, object asyncState) {
             int countryId = ((int)(inValues[0]));
             int voucherId = ((int)(inValues[1]));
             string s1 = ((string)(inValues[2]));
             string s2 = ((string)(inValues[3]));
-            return this.BeginFindVoucherTRS(countryId, voucherId, s1, s2, callback, asyncState);
+            return this.BeginFindVoucherTRSByVoucherNumber(countryId, voucherId, s1, s2, callback, asyncState);
         }
         
-        private object[] OnEndFindVoucherTRS(System.IAsyncResult result) {
-            VPrinting.ScanServiceRef.VoucherInfo3 retVal = this.EndFindVoucherTRS(result);
+        private object[] OnEndFindVoucherTRSByVoucherNumber(System.IAsyncResult result) {
+            VPrinting.ScanServiceRef.VoucherInfo3 retVal = this.EndFindVoucherTRSByVoucherNumber(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnFindVoucherTRSCompleted(object state) {
-            if ((this.FindVoucherTRSCompleted != null)) {
+        private void OnFindVoucherTRSByVoucherNumberCompleted(object state) {
+            if ((this.FindVoucherTRSByVoucherNumberCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.FindVoucherTRSCompleted(this, new FindVoucherTRSCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.FindVoucherTRSByVoucherNumberCompleted(this, new FindVoucherTRSByVoucherNumberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void FindVoucherTRSAsync(int countryId, int voucherId, string s1, string s2) {
-            this.FindVoucherTRSAsync(countryId, voucherId, s1, s2, null);
+        public void FindVoucherTRSByVoucherNumberAsync(int countryId, int voucherId, string s1, string s2) {
+            this.FindVoucherTRSByVoucherNumberAsync(countryId, voucherId, s1, s2, null);
         }
         
-        public void FindVoucherTRSAsync(int countryId, int voucherId, string s1, string s2, object userState) {
-            if ((this.onBeginFindVoucherTRSDelegate == null)) {
-                this.onBeginFindVoucherTRSDelegate = new BeginOperationDelegate(this.OnBeginFindVoucherTRS);
+        public void FindVoucherTRSByVoucherNumberAsync(int countryId, int voucherId, string s1, string s2, object userState) {
+            if ((this.onBeginFindVoucherTRSByVoucherNumberDelegate == null)) {
+                this.onBeginFindVoucherTRSByVoucherNumberDelegate = new BeginOperationDelegate(this.OnBeginFindVoucherTRSByVoucherNumber);
             }
-            if ((this.onEndFindVoucherTRSDelegate == null)) {
-                this.onEndFindVoucherTRSDelegate = new EndOperationDelegate(this.OnEndFindVoucherTRS);
+            if ((this.onEndFindVoucherTRSByVoucherNumberDelegate == null)) {
+                this.onEndFindVoucherTRSByVoucherNumberDelegate = new EndOperationDelegate(this.OnEndFindVoucherTRSByVoucherNumber);
             }
-            if ((this.onFindVoucherTRSCompletedDelegate == null)) {
-                this.onFindVoucherTRSCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFindVoucherTRSCompleted);
+            if ((this.onFindVoucherTRSByVoucherNumberCompletedDelegate == null)) {
+                this.onFindVoucherTRSByVoucherNumberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFindVoucherTRSByVoucherNumberCompleted);
             }
-            base.InvokeAsync(this.onBeginFindVoucherTRSDelegate, new object[] {
+            base.InvokeAsync(this.onBeginFindVoucherTRSByVoucherNumberDelegate, new object[] {
                         countryId,
                         voucherId,
                         s1,
-                        s2}, this.onEndFindVoucherTRSDelegate, this.onFindVoucherTRSCompletedDelegate, userState);
+                        s2}, this.onEndFindVoucherTRSByVoucherNumberDelegate, this.onFindVoucherTRSByVoucherNumberCompletedDelegate, userState);
+        }
+        
+        public VPrinting.ScanServiceRef.VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, string s1, string s2) {
+            return base.Channel.FindVoucherTRSBySiteCode(siteCode, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginFindVoucherTRSBySiteCode(string siteCode, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginFindVoucherTRSBySiteCode(siteCode, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public VPrinting.ScanServiceRef.VoucherInfo3 EndFindVoucherTRSBySiteCode(System.IAsyncResult result) {
+            return base.Channel.EndFindVoucherTRSBySiteCode(result);
+        }
+        
+        private System.IAsyncResult OnBeginFindVoucherTRSBySiteCode(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string siteCode = ((string)(inValues[0]));
+            string s1 = ((string)(inValues[1]));
+            string s2 = ((string)(inValues[2]));
+            return this.BeginFindVoucherTRSBySiteCode(siteCode, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndFindVoucherTRSBySiteCode(System.IAsyncResult result) {
+            VPrinting.ScanServiceRef.VoucherInfo3 retVal = this.EndFindVoucherTRSBySiteCode(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnFindVoucherTRSBySiteCodeCompleted(object state) {
+            if ((this.FindVoucherTRSBySiteCodeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.FindVoucherTRSBySiteCodeCompleted(this, new FindVoucherTRSBySiteCodeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void FindVoucherTRSBySiteCodeAsync(string siteCode, string s1, string s2) {
+            this.FindVoucherTRSBySiteCodeAsync(siteCode, s1, s2, null);
+        }
+        
+        public void FindVoucherTRSBySiteCodeAsync(string siteCode, string s1, string s2, object userState) {
+            if ((this.onBeginFindVoucherTRSBySiteCodeDelegate == null)) {
+                this.onBeginFindVoucherTRSBySiteCodeDelegate = new BeginOperationDelegate(this.OnBeginFindVoucherTRSBySiteCode);
+            }
+            if ((this.onEndFindVoucherTRSBySiteCodeDelegate == null)) {
+                this.onEndFindVoucherTRSBySiteCodeDelegate = new EndOperationDelegate(this.OnEndFindVoucherTRSBySiteCode);
+            }
+            if ((this.onFindVoucherTRSBySiteCodeCompletedDelegate == null)) {
+                this.onFindVoucherTRSBySiteCodeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFindVoucherTRSBySiteCodeCompleted);
+            }
+            base.InvokeAsync(this.onBeginFindVoucherTRSBySiteCodeDelegate, new object[] {
+                        siteCode,
+                        s1,
+                        s2}, this.onEndFindVoucherTRSBySiteCodeDelegate, this.onFindVoucherTRSBySiteCodeCompletedDelegate, userState);
         }
     }
 }

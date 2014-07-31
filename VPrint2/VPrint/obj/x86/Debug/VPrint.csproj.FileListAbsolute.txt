@@ -126,10 +126,13 @@ C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\XmlConfigurations\print756_Type1.xml
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\XmlConfigurations\print826.xml
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\XmlConfigurations\print858_Type1.xml
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\XmlConfigurations\print901_ss_Raz.xml
+C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\XmlConfigurations\print901_Type3_RazX.xml
+C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\XmlConfigurations\print901_Type4_RazX.xml
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\XmlConfigurations\print905_Type1_Raz.xml
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint.exe.config
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint.exe.manifest
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint.application
+C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint.exe
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint.pdb
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\DTK.BarReader.dll
 C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\Ionic.Zip.dll
@@ -146,6 +149,7 @@ C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.csprojResolveAssemblyReference.c
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\Interop.DTKBarReaderLib.dll
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.csproj.ResolveComReference.cache
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrinting.AddVoucherItemForm.resources
+C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrinting.Controls.ToggleButtonControl.resources
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrinting.FileMsgForm.resources
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrinting.TransferForm.resources
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrinting.Controls.BliningLabel.resources
@@ -175,7 +179,3 @@ C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.exe.manifest
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.application
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.exe
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.pdb
-C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\XmlConfigurations\print901_Type3_RazX.xml
-C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\XmlConfigurations\print901_Type4_RazX.xml
-C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrinting.Controls.ToggleButtonControl.resources
-C:\PROJECTS\VPrint2\VPrint\bin\x86\Debug\VPrint.exe
