@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnRun = new System.Windows.Forms.Button();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.tbCommand = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMessage = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -56,17 +56,9 @@
             this.btnRun.UseVisualStyleBackColor = true;
             this.btnRun.Click += new System.EventHandler(this.Run_Click);
             // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(82, 2);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(125, 20);
-            this.tbName.TabIndex = 2;
-            this.tbName.Text = "FintraxDEMATService";
-            // 
             // tbCommand
             // 
-            this.tbCommand.Location = new System.Drawing.Point(82, 25);
+            this.tbCommand.Location = new System.Drawing.Point(72, 29);
             this.tbCommand.Name = "tbCommand";
             this.tbCommand.Size = new System.Drawing.Size(68, 20);
             this.tbCommand.TabIndex = 3;
@@ -99,16 +91,28 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "222-Retailers\r\n128-256 Vouchers";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "FintraxDEMATService",
+            "FintraxReceivingService"});
+            this.comboBox1.Location = new System.Drawing.Point(71, 2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(136, 21);
+            this.comboBox1.TabIndex = 7;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(265, 70);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbCommand);
-            this.Controls.Add(this.tbName);
             this.Controls.Add(this.btnRun);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
@@ -126,11 +130,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRun;
-        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbCommand;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

@@ -437,7 +437,7 @@ namespace VPrinting.Data
             try
             {
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
-                var result = client.FindVoucherTRS(countryId, voucherId, keys.Item1, keys.Item2);
+                var result = client.FindVoucherTRSByVoucherNumber(countryId, voucherId, keys.Item1, keys.Item2);
                 return result;
             }
             finally
@@ -452,8 +452,8 @@ namespace VPrinting.Data
             try
             {
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
-                //var result = client.FindVoucherTRS(countryId, voucherId, keys.Item1, keys.Item2);
-                return null;
+                var result = client.FindVoucherTRSBySiteCode(siteCode, keys.Item1, keys.Item2);
+                return result;
             }
             finally
             {

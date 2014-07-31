@@ -37,6 +37,8 @@ C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\XmlConfigurations\print756_Type1.xm
 C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\XmlConfigurations\print826.xml
 C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\XmlConfigurations\print858_Type1.xml
 C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\XmlConfigurations\print901_ss_Raz.xml
+C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\XmlConfigurations\print901_Type3_RazX.xml
+C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\XmlConfigurations\print901_Type4_RazX.xml
 C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\XmlConfigurations\print905_Type1_Raz.xml
 C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\VPrintTest.dll.config
 C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\VPrintTest.dll
@@ -66,5 +68,3 @@ C:\PROJECTS\VPrint2\VPrintTest\obj\x86\Debug\VPrintTest.Properties.Resources.res
 C:\PROJECTS\VPrint2\VPrintTest\obj\x86\Debug\VPrintTest.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\VPrintTest\obj\x86\Debug\VPrintTest.dll
 C:\PROJECTS\VPrint2\VPrintTest\obj\x86\Debug\VPrintTest.pdb
-C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\XmlConfigurations\print901_Type3_RazX.xml
-C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug\XmlConfigurations\print901_Type4_RazX.xml
