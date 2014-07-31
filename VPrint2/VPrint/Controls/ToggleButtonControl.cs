@@ -61,7 +61,7 @@ namespace VPrinting.Controls
             Text1 = new string[2];
             Text2 = new string[2];
             Text3 = new string[2];
-            ColorOn = ColorOff = Color.Red;
+            ColorOn = ColorOff = Color.LightGray;
             m_Checks = new CheckBox[] { checkBox1, checkBox2, checkBox3 };
         }
 
@@ -85,12 +85,17 @@ namespace VPrinting.Controls
 
         protected override void OnParentChanged(EventArgs e)
         {
+            RefreshControl();
+            base.OnParentChanged(e);
+        }
+
+        public void RefreshControl()
+        {
             foreach (var cb in m_Checks)
             {
                 cb.BackColor = ColorOff;
                 ResetText(cb);
             }
-            base.OnParentChanged(e);
         }
 
         private void checkBox_Click(object sender, EventArgs e)
