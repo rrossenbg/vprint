@@ -4,7 +4,7 @@
   <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VPrint" version="1.0.5326.24371" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="VPrint" version="1.0.5326.26457" language="neutral" processorArchitecture="x86" />
     <commandLine file="VPrint.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -79,25 +79,25 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="966656">
-      <assemblyIdentity name="VPrint" version="1.0.5326.24371" language="neutral" processorArchitecture="x86" />
+      <assemblyIdentity name="VPrint" version="1.0.5326.26457" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>2m+Bspqb3z3IbTNPFuw7iTG+2ko=</dsig:DigestValue>
+        <dsig:DigestValue>Z0jIFQJlwbyD/PUU/bXPr37TcvM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.Common.dll" size="64000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.Common.dll" size="64512">
       <assemblyIdentity name="VPrint.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>2/X9tmXBZEQ1Z8/9Epmf6SdkbSc=</dsig:DigestValue>
+        <dsig:DigestValue>vbrTvAQ2wd4Ny3JXGfFavoA2qsw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>EC5CHQsUlev3wz6JB15wPz63/v8=</dsig:DigestValue>
+        <dsig:DigestValue>1UIRs34CPDwT4ipxkMmcFeF8AgY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

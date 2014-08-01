@@ -25,7 +25,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>VPrinting</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>VPrinting.Test5</StartupObject>
+    <StartupObject>VPrinting.Program</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <SccAuxPath>

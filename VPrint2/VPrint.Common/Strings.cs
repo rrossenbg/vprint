@@ -148,6 +148,7 @@ Otherwise it has been inserted by using expected barcode details.";
 
         public const string ClearScanDirectory = "ClearScanDirectory";
         public const string tbScanDirectory = "tbScanDirectory";
+        public const string ScanCopyDelay = "ScanCopyDelay";
     }
 
     public static class Messages

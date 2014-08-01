@@ -336,7 +336,7 @@ namespace VPrinting
                         groupBox2.Left = 636;
                     }
 
-                    this.tbScanDirectory.Text = StateSaver.Default.Get<string>(Strings.tbScanDirectory);
+                    this.tbScanDirectory.Text = StateSaver.Default.Get<string>(Strings.tbScanDirectory, "C:\\");
 
                     this.toggleButtonControl1.PerformClick(StateSaver.Default.Get<int>("toggleButtonControl1.GetClicked"));
 
@@ -2868,7 +2868,10 @@ namespace VPrinting
                 Debug.Assert(tb != null);
 
                 if (dlg.ShowDialog(this) == DialogResult.OK)
+                {
                     tb.Text = dlg.SelectedPath;
+                    StateSaver.Default.Set(Strings.tbScanDirectory, dlg.SelectedPath);
+                }
             }
         }
 
