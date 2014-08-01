@@ -431,7 +431,7 @@ namespace VPrinting.Data
 
         #region TRS
 
-        public VoucherInfo3 FindVoucherTRS(int countryId, int voucherId)
+        public VoucherInfo3 FindVoucherTRSByVoucherNumber(int countryId, int voucherId)
         {
             var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
             try
@@ -446,13 +446,14 @@ namespace VPrinting.Data
             }
         }
 
-        public VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode)
+        public VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, int location)
         {
+            return new VoucherInfo3() { RetailerId = 1234, VoucherId = 1234567, IsoId = 826, FinalCountry = "USA", SiteCode = siteCode + location };
             var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
             try
             {
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
-                var result = client.FindVoucherTRSBySiteCode(siteCode, keys.Item1, keys.Item2);
+                var result = client.FindVoucherTRSBySiteCode(siteCode, keys.Item1, keys.Item2); // TODO:
                 return result;
             }
             finally

@@ -17,7 +17,7 @@ namespace ReceivingService
 {
     public partial class FintraxReceivingService : ServiceBase
     {
-        private const int HISTORY_LEN = 100;
+        private const int HISTORY_LEN = 500;
 
         private readonly CircularBuffer<Tuple<string, string, DateTime>> m_HistiryBuffer = new CircularBuffer<Tuple<string, string, DateTime>>(HISTORY_LEN);
 
@@ -68,6 +68,8 @@ namespace ReceivingService
                 m_ServerHost.Close();
                 m_ServerHost = null;
             }
+
+            m_HistiryBuffer.Clear();
 
             base.OnStop();
         }

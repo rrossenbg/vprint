@@ -360,7 +360,9 @@
     </None>
     <None Include="Service References\VoucherEntryAndModification\configuration.svcinfo" />
     <None Include="Service References\VoucherEntryAndModification\configuration91.svcinfo" />
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Data\VoucherDS.xsc">
       <DependentUpon>VoucherDS.xsd</DependentUpon>
     </None>

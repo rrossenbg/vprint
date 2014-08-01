@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace VPrinting
 {
@@ -103,6 +104,23 @@ namespace VPrinting
                     break;
                 }
             }
+        }
+
+        /// <summary>
+        ///  button.BackColor == Color.Green
+        /// </summary>
+        /// <param name="button"></param>
+        /// <returns></returns>
+        [TargetedPatchingOptOut("na")]
+        public static bool IsOn(this Button button)
+        {
+            return button.BackColor == Color.Green;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static void Set(this Button button, bool on)
+        {
+            button.BackColor = on ? Color.Green : SystemColors.Control;
         }
     }
 }

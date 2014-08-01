@@ -73,9 +73,9 @@ namespace VPrinting
             btnBrowseForScanDir.Click += new EventHandler(BrowseForFolder_Click);
             btnBrowseForExprFile.Click += new EventHandler(BrowseForExprFile_Click);
 
-            toggleButtonControl1.CheckedChanged += new EventHandler<ValueEventArgs<int>>(toggleButtonControl1_CheckedChanged);
+            toggleButtonControl1.ActiveChanged += new EventHandler<ValueEventArgs<int>>(toggleButtonControl1_ActiveChanged);
+            toggleButtonControl1.Padding = new Padding(0);
             toggleButtonControl1.RefreshControl();
-
 
             var list = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
         }
@@ -275,7 +275,6 @@ namespace VPrinting
             //CLEAR SCAN DIRECTORY
             var t0 = Task.Factory.StartNew((o) =>
             {
-#if CLEAR_SCANS
                 var dir = new DirectoryInfo(Convert.ToString(o));
                 var dirs = dir.GetDirectories();
                 foreach (var di in dirs)
@@ -296,8 +295,6 @@ namespace VPrinting
                             f.Delete();
                     }).RunSafe(fi);
                 }
-#endif
-
             }, tbScanDirectory.Text);
         }
 

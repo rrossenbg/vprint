@@ -267,4 +267,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TransferFileInfo" nillable="true" type="tns:TransferFileInfo" />
+  <xs:complexType name="VoucherInfo3">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsoId" type="xs:int" />
+      <xs:element minOccurs="0" name="RetailerId" type="xs:int" />
+      <xs:element minOccurs="0" name="VoucherId" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VoucherDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FinalCountry" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VoucherInfo3" nillable="true" type="tns:VoucherInfo3" />
 </xs:schema>

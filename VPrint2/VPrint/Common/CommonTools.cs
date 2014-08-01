@@ -5,11 +5,10 @@
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Reflection;
-using System.Runtime;
 using System.Text;
+using System.Text.RegularExpressions;
 using DTKBarReader;
 using Microsoft.CSharp;
 using VPrinting.Extentions;
@@ -88,6 +87,14 @@ namespace VPrinting.Common
 
             var value = string.Format("{0:000}{1:00}{2:000000}{3:00000000}", countryId, type, retailerId, voucherId);
             return string.Concat(value, value.CheckDigit());
+        }
+
+        public static bool ParseSiteCode(string siteCode, out string site, out int location)
+        {
+            var m = Regex.Match(siteCode, @"(?<CH>[A-Za-z]+)[_\-\s]*(?<NUM>[0-9]+)", RegexOptions.CultureInvariant | RegexOptions.Compiled);
+            site = m.Groups["CH"].Value;
+            location = 0;
+            return m.Groups["CH"].Success && m.Groups["NUM"].Success && int.TryParse(m.Groups["NUM"].Value, out location);
         }
 
         public static bool ParseVoucherImage(ref Bitmap bmp, ref Bitmap bmpBarcode, out Rectangle rect, ref string barcode, BarcodeTypeEnum barcodeType = BarcodeTypeEnum.BT_All)

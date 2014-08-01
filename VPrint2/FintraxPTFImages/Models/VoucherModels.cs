@@ -81,6 +81,34 @@ namespace FintraxPTFImages.Models
         }
     }
 
+    public class SearchModel2
+    {
+        [Required]
+        [DataType(DataType.Text)]
+        public int Country { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        public int HeadOffice { get; set; }
+
+        public SearchModel2()
+        {
+            Country = 0;
+        }
+
+        public void Validate(ModelStateDictionary errorTable)
+        {
+            if (Country <= 0)
+                errorTable.AddModelError("Country", "Country invalid");
+
+            if (HeadOffice <= 0)
+                errorTable.AddModelError("HeadOffice", "HeadOffice invalid");
+
+            if (!errorTable.IsValid)
+                errorTable.AddModelError("", "There are some errors. Please correct");
+        }
+    }
+
     public class ShowModel
     {
         public string Name { get; set; }

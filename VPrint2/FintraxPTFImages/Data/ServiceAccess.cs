@@ -4,7 +4,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using FintraxPTFImages.AuthenticationRef;
 using FintraxPTFImages.Common;
 using FintraxPTFImages.PartyManagementRef;
@@ -16,13 +15,13 @@ namespace FintraxPTFImages.Data
 {
     public class ServiceAccess
     {
-        public List<VoucherInfo> SelectVouchers(int countryId, int retailerId)
+        public List<VoucherInfo> SelectVouchersByRetailer(int countryId, int retailerId)
         {
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy();
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
+                client = ScanServiceClient.CreateProxy();
                 return new List<VoucherInfo>(client.ReadData(countryId, retailerId, keys.Item1, keys.Item2));
             }
             finally

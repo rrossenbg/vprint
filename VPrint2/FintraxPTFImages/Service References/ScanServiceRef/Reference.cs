@@ -1315,6 +1315,131 @@ namespace FintraxPTFImages.ScanServiceRef {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VoucherInfo3", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+    [System.SerializableAttribute()]
+    public partial class VoucherInfo3 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IsoIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RetailerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VoucherIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SiteCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime VoucherDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalCountryField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IsoId {
+            get {
+                return this.IsoIdField;
+            }
+            set {
+                if ((this.IsoIdField.Equals(value) != true)) {
+                    this.IsoIdField = value;
+                    this.RaisePropertyChanged("IsoId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RetailerId {
+            get {
+                return this.RetailerIdField;
+            }
+            set {
+                if ((this.RetailerIdField.Equals(value) != true)) {
+                    this.RetailerIdField = value;
+                    this.RaisePropertyChanged("RetailerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int VoucherId {
+            get {
+                return this.VoucherIdField;
+            }
+            set {
+                if ((this.VoucherIdField.Equals(value) != true)) {
+                    this.VoucherIdField = value;
+                    this.RaisePropertyChanged("VoucherId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string SiteCode {
+            get {
+                return this.SiteCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SiteCodeField, value) != true)) {
+                    this.SiteCodeField = value;
+                    this.RaisePropertyChanged("SiteCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.DateTime VoucherDate {
+            get {
+                return this.VoucherDateField;
+            }
+            set {
+                if ((this.VoucherDateField.Equals(value) != true)) {
+                    this.VoucherDateField = value;
+                    this.RaisePropertyChanged("VoucherDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string FinalCountry {
+            get {
+                return this.FinalCountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FinalCountryField, value) != true)) {
+                    this.FinalCountryField = value;
+                    this.RaisePropertyChanged("FinalCountry");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ScanServiceRef.IScanService")]
     public interface IScanService {
@@ -1571,6 +1696,25 @@ namespace FintraxPTFImages.ScanServiceRef {
         System.IAsyncResult BeginGetTransferFile(int countryId, int beginNumber, int endNumber, string siteCode, string s1, string s2, System.AsyncCallback callback, object asyncState);
         
         FintraxPTFImages.ScanServiceRef.TransferFileInfo[] EndGetTransferFile(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumber", ReplyAction="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumberResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumberMyApplicationFaultFa" +
+            "ult", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        FintraxPTFImages.ScanServiceRef.VoucherInfo3 FindVoucherTRSByVoucherNumber(int countryId, int voucherId, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumber", ReplyAction="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumberResponse")]
+        System.IAsyncResult BeginFindVoucherTRSByVoucherNumber(int countryId, int voucherId, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        FintraxPTFImages.ScanServiceRef.VoucherInfo3 EndFindVoucherTRSByVoucherNumber(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCode", ReplyAction="http://tempuri.org/IScanService/FindVoucherTRSBySiteCodeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCodeMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        FintraxPTFImages.ScanServiceRef.VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCode", ReplyAction="http://tempuri.org/IScanService/FindVoucherTRSBySiteCodeResponse")]
+        System.IAsyncResult BeginFindVoucherTRSBySiteCode(string siteCode, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        FintraxPTFImages.ScanServiceRef.VoucherInfo3 EndFindVoucherTRSBySiteCode(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1845,6 +1989,44 @@ namespace FintraxPTFImages.ScanServiceRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class FindVoucherTRSByVoucherNumberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public FindVoucherTRSByVoucherNumberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public FintraxPTFImages.ScanServiceRef.VoucherInfo3 Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((FintraxPTFImages.ScanServiceRef.VoucherInfo3)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class FindVoucherTRSBySiteCodeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public FindVoucherTRSBySiteCodeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public FintraxPTFImages.ScanServiceRef.VoucherInfo3 Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((FintraxPTFImages.ScanServiceRef.VoucherInfo3)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ScanServiceClient : System.ServiceModel.ClientBase<FintraxPTFImages.ScanServiceRef.IScanService>, FintraxPTFImages.ScanServiceRef.IScanService {
         
         private BeginOperationDelegate onBeginDeleteDelegate;
@@ -2015,6 +2197,18 @@ namespace FintraxPTFImages.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onGetTransferFileCompletedDelegate;
         
+        private BeginOperationDelegate onBeginFindVoucherTRSByVoucherNumberDelegate;
+        
+        private EndOperationDelegate onEndFindVoucherTRSByVoucherNumberDelegate;
+        
+        private System.Threading.SendOrPostCallback onFindVoucherTRSByVoucherNumberCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginFindVoucherTRSBySiteCodeDelegate;
+        
+        private EndOperationDelegate onEndFindVoucherTRSBySiteCodeDelegate;
+        
+        private System.Threading.SendOrPostCallback onFindVoucherTRSBySiteCodeCompletedDelegate;
+        
         public ScanServiceClient() {
         }
         
@@ -2089,6 +2283,10 @@ namespace FintraxPTFImages.ScanServiceRef {
         public event System.EventHandler<ReadVersionFileCompletedEventArgs> ReadVersionFileCompleted;
         
         public event System.EventHandler<GetTransferFileCompletedEventArgs> GetTransferFileCompleted;
+        
+        public event System.EventHandler<FindVoucherTRSByVoucherNumberCompletedEventArgs> FindVoucherTRSByVoucherNumberCompleted;
+        
+        public event System.EventHandler<FindVoucherTRSBySiteCodeCompletedEventArgs> FindVoucherTRSBySiteCodeCompleted;
         
         public void Delete(string fileName, int countryId, int retailerId, int voucherId, string s1, string s2) {
             base.Channel.Delete(fileName, countryId, retailerId, voucherId, s1, s2);
@@ -3714,6 +3912,116 @@ namespace FintraxPTFImages.ScanServiceRef {
                         siteCode,
                         s1,
                         s2}, this.onEndGetTransferFileDelegate, this.onGetTransferFileCompletedDelegate, userState);
+        }
+        
+        public FintraxPTFImages.ScanServiceRef.VoucherInfo3 FindVoucherTRSByVoucherNumber(int countryId, int voucherId, string s1, string s2) {
+            return base.Channel.FindVoucherTRSByVoucherNumber(countryId, voucherId, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginFindVoucherTRSByVoucherNumber(int countryId, int voucherId, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginFindVoucherTRSByVoucherNumber(countryId, voucherId, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public FintraxPTFImages.ScanServiceRef.VoucherInfo3 EndFindVoucherTRSByVoucherNumber(System.IAsyncResult result) {
+            return base.Channel.EndFindVoucherTRSByVoucherNumber(result);
+        }
+        
+        private System.IAsyncResult OnBeginFindVoucherTRSByVoucherNumber(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int countryId = ((int)(inValues[0]));
+            int voucherId = ((int)(inValues[1]));
+            string s1 = ((string)(inValues[2]));
+            string s2 = ((string)(inValues[3]));
+            return this.BeginFindVoucherTRSByVoucherNumber(countryId, voucherId, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndFindVoucherTRSByVoucherNumber(System.IAsyncResult result) {
+            FintraxPTFImages.ScanServiceRef.VoucherInfo3 retVal = this.EndFindVoucherTRSByVoucherNumber(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnFindVoucherTRSByVoucherNumberCompleted(object state) {
+            if ((this.FindVoucherTRSByVoucherNumberCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.FindVoucherTRSByVoucherNumberCompleted(this, new FindVoucherTRSByVoucherNumberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void FindVoucherTRSByVoucherNumberAsync(int countryId, int voucherId, string s1, string s2) {
+            this.FindVoucherTRSByVoucherNumberAsync(countryId, voucherId, s1, s2, null);
+        }
+        
+        public void FindVoucherTRSByVoucherNumberAsync(int countryId, int voucherId, string s1, string s2, object userState) {
+            if ((this.onBeginFindVoucherTRSByVoucherNumberDelegate == null)) {
+                this.onBeginFindVoucherTRSByVoucherNumberDelegate = new BeginOperationDelegate(this.OnBeginFindVoucherTRSByVoucherNumber);
+            }
+            if ((this.onEndFindVoucherTRSByVoucherNumberDelegate == null)) {
+                this.onEndFindVoucherTRSByVoucherNumberDelegate = new EndOperationDelegate(this.OnEndFindVoucherTRSByVoucherNumber);
+            }
+            if ((this.onFindVoucherTRSByVoucherNumberCompletedDelegate == null)) {
+                this.onFindVoucherTRSByVoucherNumberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFindVoucherTRSByVoucherNumberCompleted);
+            }
+            base.InvokeAsync(this.onBeginFindVoucherTRSByVoucherNumberDelegate, new object[] {
+                        countryId,
+                        voucherId,
+                        s1,
+                        s2}, this.onEndFindVoucherTRSByVoucherNumberDelegate, this.onFindVoucherTRSByVoucherNumberCompletedDelegate, userState);
+        }
+        
+        public FintraxPTFImages.ScanServiceRef.VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, string s1, string s2) {
+            return base.Channel.FindVoucherTRSBySiteCode(siteCode, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginFindVoucherTRSBySiteCode(string siteCode, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginFindVoucherTRSBySiteCode(siteCode, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public FintraxPTFImages.ScanServiceRef.VoucherInfo3 EndFindVoucherTRSBySiteCode(System.IAsyncResult result) {
+            return base.Channel.EndFindVoucherTRSBySiteCode(result);
+        }
+        
+        private System.IAsyncResult OnBeginFindVoucherTRSBySiteCode(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string siteCode = ((string)(inValues[0]));
+            string s1 = ((string)(inValues[1]));
+            string s2 = ((string)(inValues[2]));
+            return this.BeginFindVoucherTRSBySiteCode(siteCode, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndFindVoucherTRSBySiteCode(System.IAsyncResult result) {
+            FintraxPTFImages.ScanServiceRef.VoucherInfo3 retVal = this.EndFindVoucherTRSBySiteCode(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnFindVoucherTRSBySiteCodeCompleted(object state) {
+            if ((this.FindVoucherTRSBySiteCodeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.FindVoucherTRSBySiteCodeCompleted(this, new FindVoucherTRSBySiteCodeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void FindVoucherTRSBySiteCodeAsync(string siteCode, string s1, string s2) {
+            this.FindVoucherTRSBySiteCodeAsync(siteCode, s1, s2, null);
+        }
+        
+        public void FindVoucherTRSBySiteCodeAsync(string siteCode, string s1, string s2, object userState) {
+            if ((this.onBeginFindVoucherTRSBySiteCodeDelegate == null)) {
+                this.onBeginFindVoucherTRSBySiteCodeDelegate = new BeginOperationDelegate(this.OnBeginFindVoucherTRSBySiteCode);
+            }
+            if ((this.onEndFindVoucherTRSBySiteCodeDelegate == null)) {
+                this.onEndFindVoucherTRSBySiteCodeDelegate = new EndOperationDelegate(this.OnEndFindVoucherTRSBySiteCode);
+            }
+            if ((this.onFindVoucherTRSBySiteCodeCompletedDelegate == null)) {
+                this.onFindVoucherTRSBySiteCodeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFindVoucherTRSBySiteCodeCompleted);
+            }
+            base.InvokeAsync(this.onBeginFindVoucherTRSBySiteCodeDelegate, new object[] {
+                        siteCode,
+                        s1,
+                        s2}, this.onEndFindVoucherTRSBySiteCodeDelegate, this.onFindVoucherTRSBySiteCodeCompletedDelegate, userState);
         }
     }
 }

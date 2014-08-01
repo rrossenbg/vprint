@@ -104,7 +104,7 @@ namespace FintraxPTFImages
                 Session.Set("SearchModel", model);
 
                 var sdc = new ServiceAccess();
-                var list = sdc.SelectVouchers(model.Country, model.Retailer);
+                var list = sdc.SelectVouchersByRetailer(model.Country, model.Retailer);
 
                 var lazy = new Lazy<Dictionary<int, CurrentUser>>(new Func<Dictionary<int, CurrentUser>>(() =>
                 {
@@ -116,6 +116,53 @@ namespace FintraxPTFImages
                 ViewBag.UserDictionary = DataTables.Default.Get<Dictionary<int, CurrentUser>>("USERS", lazy);
                 ViewData["VoucherList"] = list;
             }
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult SearchByNumber()
+        {
+            ViewData["VoucherList"] = Enumerable.Empty<VoucherInfo>();
+
+            ViewData["CountryList"] = HttpContext.Application.Get<List<CountryDetail>>("CountryList",
+                Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
+                (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SearchByNumber(SearchModel2 model, int? grid_page)
+        {
+            ViewData["VoucherList"] = Enumerable.Empty<VoucherInfo>();
+
+            ViewData["CountryList"] = HttpContext.Application.Get<List<CountryDetail>>("CountryList", 
+                Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
+                (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
+
+            if (model.Country == 0)
+                throw new ArgumentException("model.Country");
+
+            model.Validate(this.ModelState);
+
+            if (this.ModelState.IsValid)
+            {
+                Session.Set("SearchModel", model);
+
+                var sdc = new ServiceAccess();
+                var list = sdc.SelectVouchersByRetailer(model.Country, 0);
+
+                var lazy = new Lazy<Dictionary<int, CurrentUser>>(new Func<Dictionary<int, CurrentUser>>(() =>
+                {
+                    var sdc2 = new ServiceAccess();
+                    var uslist = sdc2.RetrieveUsers();
+                    return uslist;
+                }), true);
+
+                ViewBag.UserDictionary = DataTables.Default.Get<Dictionary<int, CurrentUser>>("USERS", lazy);
+                ViewData["VoucherList"] = list;
+            }
+
             return View(model);
         }
 
