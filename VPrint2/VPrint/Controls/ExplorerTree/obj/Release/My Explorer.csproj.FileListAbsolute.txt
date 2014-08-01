@@ -1,0 +1,6 @@
+C:\PROJECTS\VPrint2\VPrint\Controls\ExplorerTree\bin\Release\My Exploryer.exe
+C:\PROJECTS\VPrint2\VPrint\Controls\ExplorerTree\bin\Release\My Exploryer.pdb
+C:\PROJECTS\VPrint2\VPrint\Controls\ExplorerTree\obj\Release\My_Explorer.Explorer.resources
+C:\PROJECTS\VPrint2\VPrint\Controls\ExplorerTree\obj\Release\My Explorer.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\VPrint\Controls\ExplorerTree\obj\Release\My Exploryer.exe
+C:\PROJECTS\VPrint2\VPrint\Controls\ExplorerTree\obj\Release\My Exploryer.pdb

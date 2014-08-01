@@ -25,7 +25,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>VPrinting</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>VPrinting.Program</StartupObject>
+    <StartupObject>VPrinting.Test5</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <SccAuxPath>
@@ -267,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FileMsgForm.resx">
       <DependentUpon>FileMsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BrowserForm\Explorer.resx">
+      <DependentUpon>Explorer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransferForm.resx">
       <DependentUpon>TransferForm.cs</DependentUpon>
@@ -621,6 +624,21 @@
     <None Include="Resources\DB.png" />
     <None Include="Resources\document.png" />
     <None Include="Resources\application_certificate %281%29.png" />
+    <Content Include="Forms\BrowserForm\35FLOPPY.ICO" />
+    <Content Include="Forms\BrowserForm\525FLOP1.ICO" />
+    <Content Include="Forms\BrowserForm\CDDRIVE.ICO" />
+    <Content Include="Forms\BrowserForm\Close.bmp" />
+    <Content Include="Forms\BrowserForm\Copy of 35FLOPPY.ICO" />
+    <Content Include="Forms\BrowserForm\Copy of Refresh.bmp" />
+    <Content Include="Forms\BrowserForm\DRIVENET.ICO" />
+    <Content Include="Forms\BrowserForm\Explorer.bmp" />
+    <Content Include="Forms\BrowserForm\File.bmp" />
+    <Content Include="Forms\BrowserForm\FloppyDrive.bmp" />
+    <Content Include="Forms\BrowserForm\FolderClose.bmp" />
+    <Content Include="Forms\BrowserForm\FolderOpen.bmp" />
+    <Content Include="Forms\BrowserForm\MyComputer.bmp" />
+    <Content Include="Forms\BrowserForm\Recycle.bmp" />
+    <Content Include="Forms\BrowserForm\Refresh.bmp" />
     <Content Include="Resources\enter.gif" />
     <None Include="Resources\Expand.png" />
     <None Include="Web References\PartyManagement\CountryDetail.datasource">
@@ -716,6 +734,9 @@
     </Compile>
     <Compile Include="FileMsgForm.Designer.cs">
       <DependentUpon>FileMsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BrowserForm\Explorer.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\RetailerForm.cs">
       <SubType>Form</SubType>
@@ -1162,7 +1183,9 @@
       <Name>VPrint_addon</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controls\ExplorerTree\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

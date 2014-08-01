@@ -179,3 +179,4 @@ C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.exe.manifest
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.application
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.exe
 C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrint.pdb
+C:\PROJECTS\VPrint2\VPrint\obj\x86\Debug\VPrinting.Forms.Explorer.Explorer.resources
