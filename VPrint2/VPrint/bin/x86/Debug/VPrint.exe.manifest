@@ -4,7 +4,7 @@
   <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VPrint" version="1.0.5326.19285" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="VPrint" version="1.0.5326.24371" language="neutral" processorArchitecture="x86" />
     <commandLine file="VPrint.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="950272">
-      <assemblyIdentity name="VPrint" version="1.0.5326.19285" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="966656">
+      <assemblyIdentity name="VPrint" version="1.0.5326.24371" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Kd3QCenb42afeKghFBNGv7Hvv2g=</dsig:DigestValue>
+        <dsig:DigestValue>2m+Bspqb3z3IbTNPFuw7iTG+2ko=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>qF/22lGUQp+c/k2nNaeiurvwpg0=</dsig:DigestValue>
+        <dsig:DigestValue>2/X9tmXBZEQ1Z8/9Epmf6SdkbSc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>f3kJueNbPLDAggU5AySo5F6n55Q=</dsig:DigestValue>
+        <dsig:DigestValue>EC5CHQsUlev3wz6JB15wPz63/v8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -186,6 +186,141 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>Nh8y+jnD/DceVuPq6VyLYs7bDp8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\35FLOPPY.ICO" size="1078">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>vZFFnSnQWm+Qgn3W05XXaixSKSw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\525FLOP1.ICO" size="1078">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>IfaUKba0nNae+gFlDCShhmPdMxg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\CDDRIVE.ICO" size="1078">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>2COl24xW4PyhvaiYQKCzporvSCk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\Close.bmp" size="1498">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>/A/oxPMJNIKDpl554//EVZednpA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\Copy of 35FLOPPY.ICO" size="1078">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>vZFFnSnQWm+Qgn3W05XXaixSKSw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\Copy of Refresh.bmp" size="1498">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>7avGVfl6D3IpJrk5ClUHh88aOkc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\DRIVENET.ICO" size="1078">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>VO2lHtFXv3wYTzMsx1uN+MmUZ0k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\Explorer.bmp" size="1498">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>kFDJHZ7CMgLORG9wUsq9oVLku0g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\File.bmp" size="918">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>h6Le4DCrwuUWBHOWy/b8MoeLOUY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\FloppyDrive.bmp" size="950">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>iI7ITiGfrTuY5pdtvG7h5jAKCGI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\FolderClose.bmp" size="886">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>QHA0G+eVHquSl/h4zZFhJcAi0R8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\FolderOpen.bmp" size="950">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>uogc0iReeeQGmvPEN2M0GUnlPqk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\MyComputer.bmp" size="1438">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Im4b/nwSzq4wilMqEX93N/BogRI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\Recycle.bmp" size="1062">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>9VjZ3PJy2rr8qhaD53MsFa/29is=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Forms\BrowserForm\Refresh.bmp" size="1498">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>7avGVfl6D3IpJrk5ClUHh88aOkc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\enter.gif" size="1107">

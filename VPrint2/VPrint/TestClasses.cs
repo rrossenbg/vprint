@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 using VPrinting.Common;
+using VPrinting.Forms.Explorer;
 
 namespace VPrinting
 {
@@ -111,6 +112,15 @@ namespace VPrinting
         static void form_Load(object sender, EventArgs e)
         {
             FileMsgForm.show(sender as Form, "Test", "Test");
+        }
+    }
+
+    static class Test5
+    {
+        [STAThread]
+        static void Main()
+        {
+            Application.Run(new Explorer());
         }
     }
 }
