@@ -52,7 +52,6 @@
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(45, 23);
             this.btnRun.TabIndex = 1;
-            this.btnRun.Text = "Run";
             this.btnRun.UseVisualStyleBackColor = true;
             this.btnRun.Click += new System.EventHandler(this.Run_Click);
             // 

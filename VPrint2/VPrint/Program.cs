@@ -68,6 +68,8 @@ namespace VPrinting
             PluginLoader loader = new PluginLoader();
             loader.Start(path);
 
+            StateSaver.Default.Set(Strings.ClearScanDirectory, ConfigurationManager.AppSettings["ClearScanDirectory"].Cast<bool>());
+
 #if ! DEBUG
             if (ConfigurationManager.AppSettings["USE_SCAN_SERVER"].Cast<bool>())
             {

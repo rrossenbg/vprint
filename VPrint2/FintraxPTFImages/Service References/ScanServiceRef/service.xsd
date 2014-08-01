@@ -486,4 +486,37 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="FindVoucherTRSByVoucherNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="countryId" type="xs:int" />
+        <xs:element minOccurs="0" name="voucherId" type="xs:int" />
+        <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindVoucherTRSByVoucherNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="FindVoucherTRSByVoucherNumberResult" nillable="true" type="q14:VoucherInfo3" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindVoucherTRSBySiteCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="siteCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindVoucherTRSBySiteCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="FindVoucherTRSBySiteCodeResult" nillable="true" type="q15:VoucherInfo3" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

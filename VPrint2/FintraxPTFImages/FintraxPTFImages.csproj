@@ -329,6 +329,9 @@
     <None Include="Service References\ScanServiceRef\FintraxPTFImages.ScanServiceRef.UpdateFileInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ScanServiceRef\FintraxPTFImages.ScanServiceRef.VoucherInfo3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ScanServiceRef\ReceivingServiceLib.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -342,6 +345,7 @@
     <Content Include="WEBVOUCHERFOLDER\Web.config" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Voucher\Scanbarcode.cshtml" />
+    <Content Include="Views\Voucher\SearchByNumber.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

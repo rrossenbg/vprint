@@ -31,12 +31,6 @@ namespace VPrinting.ScaningProcessors
                 var fullFilePath = o.Item;
 
                 Bitmap bmp = null;
-                Bitmap bmpBarcode = null;
-                BarcodeData data = null;
-
-                string barcode = null;
-                string siteCode = null;
-
                 StateManager.VoucherItem item = (StateManager.VoucherItem)StateManager.Default.ProcessItem_Begin(true);
 
                 try
@@ -52,14 +46,6 @@ namespace VPrinting.ScaningProcessors
                         item.FileInfoList.Add(new FileInfo(fullFilePath)); // Scanned Image
 
                         StateManager.VoucherItem vitem = (StateManager.VoucherItem)item;
-                        FileInfo barcFilePath = null;
-                        //Rectangle rect = Rectangle.Empty;
-                        //CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode, BarcodeTypeEnum.BT_All);
-
-                        //vitem.Barcode = barcode;
-
-                        //if (!vitem.HasBarcode)
-                        //    throw new ApplicationException("Can not find barcode");
 
                         string user = string.Concat("Country: ", Program.currentUser.CountryID, " User: ", Program.currentUser.UserID);
                         bmp.DrawOnImage((gr, u) =>
@@ -79,38 +65,16 @@ namespace VPrinting.ScaningProcessors
                             bmp.Pixellate(coverArea, size);
                         }
 
-                        ServiceDataAccess.Instance.FindVoucherTRS(0, 0);
+                        string site;
+                        int location;
+                        if (!CommonTools.ParseSiteCode(info.Name, out site, out location))
+                            throw new Exception("Wrong sitecode");
 
-                        //List<BarcodeConfig> barcodeLayouts = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
-
-                        //foreach (var cfg in barcodeLayouts)
-                        //    if (cfg.ParseBarcode(barcode, ref data))
-                        //        break;
-
-                        //if (data == null)
-                        //    throw new ApplicationException("Barcode invalid");
-
-                        item.CountryID = data.CountryID;
-                        vitem.RetailerID = data.RetailerID;
-                        vitem.VoucherID = data.VoucherID;
-                        vitem.Barcode = barcode;
-
-                        var barcodePath = fullFilePath.ChangeFilePath((name) => name.Replace(".", "_barcode."));
-                        Global.IgnoreList.Add(barcodePath);
-
-                        bmpBarcode.DrawOnImage((gr, s) =>
-                        {
-                            using (var font = new Font(FontFamily.GenericSansSerif, 10f, FontStyle.Regular))
-                            {
-                                var str = Convert.ToString(s);
-                                gr.DrawString(str, font, Brushes.Red, new PointF(10, 10));
-                            }
-                        }, barcode);
-
-                        bmpBarcode.Save(barcodePath, bmp.RawFormat);
-
-                        barcFilePath = new FileInfo(barcodePath); // Scanned Barcode
-                        vitem.FileInfoList.Add(barcFilePath); // Scanned Barcode Image
+                        var vinfo = ServiceDataAccess.Instance.FindVoucherTRSBySiteCode(site, location);
+                        item.CountryID = vinfo.IsoId;
+                        vitem.RetailerID = vinfo.RetailerId;
+                        vitem.VoucherID = vinfo.VoucherId;
+                        vitem.Barcode = "";
 
                         if (item.CountryID == 0)
                             item.CountryID = MainForm.ms_DefaultCountryId;
@@ -139,18 +103,11 @@ namespace VPrinting.ScaningProcessors
                 {
                     item.State = StateManager.eState.Err;
                     item.Message = ex.Message;
-                    var scex = new ScanException(ex, data)
-                    {
-                        SiteCode = siteCode,
-                        FilePath = fullFilePath
-                    };
-
                     DelegateHelper.FireError(this, ex);
                 }
                 finally
                 {
                     bmp.DisposeSf();
-                    bmpBarcode.DisposeSf();
 
                     DelegateHelper.PostItemScannedCallback(item);
 
@@ -173,14 +130,7 @@ namespace VPrinting.ScaningProcessors
                     {
                         item.State = StateManager.eState.Err;
                         item.Message = ex0.Message;
-
-                        var scex = new ScanException(ex0, data)
-                        {
-                            SiteCode = siteCode,
-                            FilePath = fullFilePath
-                        };
-
-                        DelegateHelper.FireError(this, scex);
+                        DelegateHelper.FireError(this, ex0);
                     }
                 }
             });

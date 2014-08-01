@@ -165,7 +165,7 @@ namespace ReceivingServiceLib
 
         [OperationContract]
         [FaultContract(typeof(MyApplicationFault))]
-        VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, string s1, string s2);
+        VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, int location, string s1, string s2);
 
         #endregion
     }

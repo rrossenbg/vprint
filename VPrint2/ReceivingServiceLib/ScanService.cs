@@ -858,7 +858,7 @@ namespace ReceivingServiceLib
             }
         }
 
-        public VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, string s1, string s2)
+        public VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, int location, string s1, string s2)
         {
             try
             {
@@ -866,9 +866,8 @@ namespace ReceivingServiceLib
                 RecordCallHistory("FindVoucherTRSBySiteCode");
 
                 var da = new PTFDataAccess();
-                //var v = da.FindVoucher(countryId, voucherId);
-                //return new VoucherInfo3(v);
-                return null;
+                var v = da.FindVoucher(siteCode, location);
+                return new VoucherInfo3(v);
             }
             catch (Exception ex)
             {

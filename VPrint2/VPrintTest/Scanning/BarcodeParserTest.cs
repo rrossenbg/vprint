@@ -1,7 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VPrinting;
 using VPrinting.Common;
 using VPrinting.Tools;
-using VPrinting;
 
 namespace VPrintTest.Scanning
 {
@@ -22,6 +24,16 @@ namespace VPrintTest.Scanning
         public void test_a()
         {
             var v = string.Format("{0:000}{2:000000}{3:000000000}", 826, 1, 12345, 4567890);
+        }
+
+        [TestMethod]
+        public void test_sitecode_parser()
+        {
+            var info = new FileInfo(@"C:\IMAGES\PD\PD149002.jpg");
+            string site;
+            int location;
+            if (!CommonTools.ParseSiteCode(info.Name, out site, out location))
+                throw new Exception("Wrong sitecode");
         }
     }
 }

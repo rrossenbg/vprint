@@ -145,6 +145,8 @@ Otherwise it has been inserted by using expected barcode details.";
         /// Version: 3
         /// </summary>
         public const string CERTNUMBER = "3C35B35DAD31648C43DEFBA51B021336";
+
+        public const string ClearScanDirectory = "ClearScanDirectory";
     }
 
     public static class Messages

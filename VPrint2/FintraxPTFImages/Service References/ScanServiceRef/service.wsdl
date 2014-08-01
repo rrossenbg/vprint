@@ -269,6 +269,24 @@
   <wsdl:message name="IScanService_GetTransferFile_MyApplicationFaultFault_FaultMessage">
     <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q28:MyApplicationFault" />
   </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSByVoucherNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherTRSByVoucherNumber" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSByVoucherNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherTRSByVoucherNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSByVoucherNumber_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q29:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSBySiteCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherTRSBySiteCode" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSBySiteCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherTRSBySiteCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSBySiteCode_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q30:MyApplicationFault" />
+  </wsdl:message>
   <wsdl:portType name="IScanService">
     <wsdl:operation name="Delete">
       <wsdl:input wsaw:Action="http://tempuri.org/IScanService/Delete" message="tns:IScanService_Delete_InputMessage" />
@@ -409,6 +427,16 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IScanService/GetTransferFile" message="tns:IScanService_GetTransferFile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IScanService/GetTransferFileResponse" message="tns:IScanService_GetTransferFile_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/GetTransferFileMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_GetTransferFile_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherTRSByVoucherNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumber" message="tns:IScanService_FindVoucherTRSByVoucherNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumberResponse" message="tns:IScanService_FindVoucherTRSByVoucherNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumberMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_FindVoucherTRSByVoucherNumber_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherTRSBySiteCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCode" message="tns:IScanService_FindVoucherTRSBySiteCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCodeResponse" message="tns:IScanService_FindVoucherTRSBySiteCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCodeMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_FindVoucherTRSBySiteCode_MyApplicationFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IScanService" type="tns:IScanService">
@@ -741,6 +769,30 @@
     </wsdl:operation>
     <wsdl:operation name="GetTransferFile">
       <soap12:operation soapAction="http://tempuri.org/IScanService/GetTransferFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherTRSByVoucherNumber">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherTRSBySiteCode">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/FindVoucherTRSBySiteCode" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
