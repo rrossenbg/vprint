@@ -754,9 +754,10 @@
       <DependentUpon>MonitorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PluginLoader.cs" />
+    <Compile Include="ScaningProcessors\VoucherWithTransferFileProcessor.cs" />
     <Compile Include="ScaningProcessors\CoversheetProcessor.cs" />
     <Compile Include="ScaningProcessors\IScanProcessor.cs" />
-    <Compile Include="ScaningProcessors\VoucherWithBarcodeAndDocumentProcessor.cs" />
+    <Compile Include="ScaningProcessors\VoucherWithBarcodeAndTransferFileProcessor.cs" />
     <Compile Include="ScaningProcessors\VoucherWithBarcodeAndNoDocumentProcessor.cs" />
     <Compile Include="ScaningProcessors\VoucherWithSiteCodeAndNoDocumentProcessor.cs" />
     <Compile Include="ScanServiceClient.cs" />

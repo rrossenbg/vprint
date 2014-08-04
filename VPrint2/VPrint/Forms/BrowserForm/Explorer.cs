@@ -6,6 +6,7 @@ using System.Management;
 using System.Threading;
 using System.Windows.Forms;
 using VPrinting.Common;
+using VPrinting.Tools;
 
 namespace VPrinting.Forms.Explorer
 {
@@ -20,13 +21,14 @@ namespace VPrinting.Forms.Explorer
         private System.Windows.Forms.ListView lvFiles;
         private System.Windows.Forms.ImageList m_imageListTreeView;
         private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem browseToolStripMenuItem;
+        private ToolStripMenuItem runCopyWaitMenuItem;
         private ToolStripSeparator toolStripMenuItem1;
         private ToolStripMenuItem closeToolStripMenuItem;
         private BackgroundWorker backgroundWorker1;
         private StatusStrip statusStrip1;
         private ToolStripProgressBar toolStripProgressBar1;
         private ToolStripMenuItem cancelToolStripMenuItem;
+        private ToolStripMenuItem runCopyMenuItem;
         private System.ComponentModel.IContainer components;
         #endregion
 
@@ -65,7 +67,7 @@ namespace VPrinting.Forms.Explorer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Explorer));
             this.tvFolders = new System.Windows.Forms.TreeView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.browseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runCopyWaitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +80,7 @@ namespace VPrinting.Forms.Explorer
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.runCopyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -98,37 +101,38 @@ namespace VPrinting.Forms.Explorer
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.browseToolStripMenuItem,
+            this.runCopyMenuItem,
+            this.runCopyWaitMenuItem,
             this.cancelToolStripMenuItem,
             this.toolStripMenuItem1,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 120);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenu_Opening);
             // 
-            // browseToolStripMenuItem
+            // runCopyWaitMenuItem
             // 
-            this.browseToolStripMenuItem.Name = "browseToolStripMenuItem";
-            this.browseToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.browseToolStripMenuItem.Text = "Run Copy";
-            this.browseToolStripMenuItem.Click += new System.EventHandler(this.BrowseMenu_Click);
+            this.runCopyWaitMenuItem.Name = "runCopyWaitMenuItem";
+            this.runCopyWaitMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.runCopyWaitMenuItem.Text = "Run Copy Wait";
+            this.runCopyWaitMenuItem.Click += new System.EventHandler(this.BrowseMenu_Click);
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cancelToolStripMenuItem.Text = "Cancel";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.CancelMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(118, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.CloseMenuItem_Click);
             // 
@@ -202,6 +206,13 @@ namespace VPrinting.Forms.Explorer
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(300, 16);
+            // 
+            // runCopyMenuItem
+            // 
+            this.runCopyMenuItem.Name = "runCopyMenuItem";
+            this.runCopyMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.runCopyMenuItem.Text = "Run Copy";
+            this.runCopyMenuItem.Click += new System.EventHandler(this.BrowseMenu_Click);
             // 
             // Explorer
             // 
@@ -518,31 +529,49 @@ namespace VPrinting.Forms.Explorer
             if (note != null)
             {
                 var fromPath = getFullPath(note.FullPath);
-                backgroundWorker1.RunWorkerAsync(fromPath);
+                bool wait = sender == runCopyWaitMenuItem;
+                backgroundWorker1.RunWorkerAsync(new Tuple<string, bool>(fromPath, wait));
             }
         }
 
         private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            string pathFrom = e.Argument.Cast<string>();
-            string pathTo = StateSaver.Default.Get<string>(Strings.tbScanDirectory, "C:\\");
-            var copyDelay = StateSaver.Default.Get<TimeSpan>(Strings.ScanCopyDelay, TimeSpan.FromSeconds(2));
-
-            backgroundWorker1.ReportProgress(0);
-
-            var from = new DirectoryInfo(pathFrom);
-
-            var files = from.GetFiles();
-
-            int count = 0;
-            foreach (var file in files)
+            var ev = DelegateHelper.GetEvent();
+            try
             {
-                var newFileName = Path.Combine(pathTo, file.Name);
-                file.CopyTo(newFileName, true);
-                backgroundWorker1.ReportProgress(Convert.ToInt32(((float)++count / files.Length) * 100));
-                Thread.Sleep(copyDelay);
-                if (backgroundWorker1.CancellationPending)
-                    break;
+                Tuple<string, bool> para = e.Argument.Cast<Tuple<string, bool>>();
+                string pathTo = StateSaver.Default.Get<string>(Strings.tbScanDirectory, "C:\\");
+                var timeout = StateSaver.Default.Get<TimeSpan>(Strings.ScanCopyTimeout, TimeSpan.FromSeconds(20));
+                var wait = StateSaver.Default.Get<TimeSpan>(Strings.ScanCopyWait, TimeSpan.FromSeconds(2));
+
+                backgroundWorker1.ReportProgress(0);
+
+                var from = new DirectoryInfo(para.Item1);
+
+                var files = from.GetFiles();
+
+                int count = 0;
+                foreach (var file in files)
+                {
+                    var newFileName = Path.Combine(pathTo, file.Name);
+                    file.CopyTo(newFileName, true);
+                    backgroundWorker1.ReportProgress(Convert.ToInt32(((float)++count / files.Length) * 100));
+                    if (para.Item2)
+                    {
+                        if (!ev.WaitOne(timeout))
+                            throw new TimeoutException();
+                    }
+                    else
+                    {
+                        Thread.Sleep(wait);
+                    }
+                    if (backgroundWorker1.CancellationPending)
+                        break;
+                }
+            }
+            finally
+            {
+                ev.Close();
             }
         }
 
