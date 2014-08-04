@@ -21,6 +21,7 @@ namespace VPrinting.Tools
 {
     public static class DelegateHelper
     {
+        private const string DONEEVENTNAME = "DelegateHelper_Done";
         public static event ThreadExceptionEventHandler Error;
 
         /// <summary>
@@ -157,9 +158,43 @@ namespace VPrinting.Tools
                     return VoucherWithBarcodeAndNoDocumentProcessor.Default.GetAction();
                 case StateManager.eMode.Sitecode:
                     return VoucherWithSiteCodeAndNoDocumentProcessor.Default.GetAction();
+                case StateManager.eMode.TransferFile:
+                    return VoucherWithTransferFileProcessor.Default.GetAction();
+                case StateManager.eMode.TransferFileAndBarcode:
+                    return VoucherWithBarcodeAndTransferFileProcessor.Default.GetAction();
                 default:
                     throw new NotImplementedException();
             }
+        }        
+
+        private static EventWaitHandle ms_Done;
+
+        static DelegateHelper()
+        {
+            bool created;
+            ms_Done = new EventWaitHandle(false, EventResetMode.AutoReset, DONEEVENTNAME, out created);
+        }
+
+        public static EventWaitHandle GetEvent()
+        {
+            return EventWaitHandle.OpenExisting(DONEEVENTNAME);
+        }
+
+        public static void PostItemScannedCallback(StateManager.Item item)
+        {
+            MainForm.Default.m_MainContext.Post(MainForm.Default.ShowItemScannedCallback, item);
+            ms_Done.Set();
+        }
+
+        public static void Close()
+        {
+            ms_Done.Close();
+        }
+
+        public static void FireError(object sender, Exception ex)
+        {
+            if (Error != null)
+                Error(sender, new ThreadExceptionEventArgs(ex));
         }
 
         /// <summary>
@@ -348,17 +383,6 @@ namespace VPrinting.Tools
                     }
                 }
             });
-        }
-
-        public static void PostItemScannedCallback(StateManager.Item item)
-        {
-            MainForm.Default.m_MainContext.Post(MainForm.Default.ShowItemScannedCallback, item);
-        }
-
-        public static void FireError(object sender, Exception ex)
-        {
-            if (Error != null)
-                Error(sender, new ThreadExceptionEventArgs(ex));
         }
     }
 }

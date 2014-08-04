@@ -87,6 +87,7 @@ namespace VPrinting
                 Application.Run(new MainForm());
 
             StateSaver.Default.Save();
+            DelegateHelper.Close();
 
             new Action(() =>
             {

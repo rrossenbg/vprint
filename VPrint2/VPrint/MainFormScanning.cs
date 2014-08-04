@@ -133,6 +133,7 @@ namespace VPrinting
 
                 ToolTip1.RemoveAll();
                 lpScannedFiles.Controls.Clear();
+                tbTransferFile.Clear();
                 //m_ControlIndexes.Clear();
             }));
         }

@@ -40,6 +40,7 @@ namespace VPrinting.Common
             Barcode = 1,
             TransferFile = 2,
             Sitecode = 3,
+            TransferFileAndBarcode = 4,
         }
 
         public class Item : IEquatable<Item>
@@ -326,8 +327,8 @@ namespace VPrinting.Common
             public void CopyFromNoBarcode(VoucherItem itemNoBarcode)
             {
                 Debug.Assert(itemNoBarcode != null);
-                Debug.Assert(!itemNoBarcode.HasBarcode);
-                Debug.Assert(HasBarcode);
+                //Debug.Assert(!itemNoBarcode.HasBarcode);
+                //Debug.Assert(HasBarcode);
 
                 //JobID = itemNoBarcode.JobID;
                 //CountryID = item.CountryID;
@@ -780,6 +781,35 @@ namespace VPrinting.Common
             FireCurrentItemCompleted(item);
 
             item.FireUpdated();
+        }
+
+        public VoucherItem AddTransferFileItem(VoucherItem vitem)
+        {
+            if (vitem.IsSetup)
+            {
+                var itm = m_ItemCollection.FindFirstOrDefault((ii) => (ii.State == eState.NA && ii.Forsed) || ((ii.State == eState.NA) && ((VoucherItem)ii).Equals(vitem)));
+                if (itm == null)
+                {
+                    throw new FileInfoApplicationException(
+                        string.Concat("Cannot match voucher.\r\nCountry: ", vitem.CountryID, "\r\nRetailer: ",
+                        vitem.RetailerID, "\r\nVoucher: ", vitem.VoucherID, "\r\nState: NA"))
+                    {
+                        Info = vitem.FileInfoList.FirstOrDefault(fi => !fi.Name.Contains("barcode"))
+                    };
+                }
+
+                m_CurrentItem = itm;
+                ((VoucherItem)m_CurrentItem).CopyFromWithBarcode(vitem);
+            }
+            else
+            {
+                var itm = m_ItemCollection.FindFirstOrDefault((ii) => (ii.State == eState.NA && !ii.Ignored));
+                if (itm == null)
+                    throw new ApplicationException("No more vouchers are expected.");
+                m_CurrentItem = itm;
+                ((VoucherItem)m_CurrentItem).CopyFromNoBarcode(vitem);
+            }
+            return ((VoucherItem)m_CurrentItem);
         }
 
         #endregion

@@ -3324,7 +3324,8 @@ namespace VPrinting
 
         private void toggleButtonControl1_ActiveChanged(object sender, ValueEventArgs<int> e)
         {
-            m_StateManager.Mode = (StateManager.eMode)(e.Value + 1);//cbUseTransferFile.Checked ? StateManager.eMode.TransferFile : StateManager.eMode.Barcode;
+            StateManager.eMode mode = (StateManager.eMode)(e.Value + 1);
+            m_StateManager.Mode = mode; ///cbUseTransferFile.Checked ? StateManager.eMode.TransferFile : StateManager.eMode.Barcode;
         }
 
         private void VoucherMustExist_CheckedChanged(object sender, EventArgs e)
