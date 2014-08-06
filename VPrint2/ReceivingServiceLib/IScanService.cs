@@ -153,7 +153,9 @@ namespace ReceivingServiceLib
 
         #region GENERAL
 
-        int UpdateTableData(ArrayList table);
+        ArrayList RetrieveTableData(string fieldList, string tableName, string where, string s1, string s2);
+
+        int UpdateTableData(ArrayList table, string s1, string s2);
 
         #endregion
 

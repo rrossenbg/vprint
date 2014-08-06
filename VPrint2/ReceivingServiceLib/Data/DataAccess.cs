@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections;
+using System.Security;
+using ReceivingServiceLib;
 
 namespace ReceivingServiceLib.Data
 {
@@ -149,6 +151,43 @@ namespace ReceivingServiceLib.Data
         #endregion
 
         #region GENERAL
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fieldList"></param>
+        /// <param name="tableName"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public ArrayList RetrieveTableData(string fieldList, string tableName, string where)
+        {
+            if (tableName.IsNullOrEmpty())
+                throw new ArgumentNullException("tableName");
+
+            if (tableName.Contains((c) => !Char.IsLetter(c)))
+                throw new SecurityException("Wrong data");
+
+            if (fieldList.IsNullOrEmpty())
+                throw new ArgumentNullException("fieldList");
+
+            if (fieldList.Contains((c) => c == ';'))
+                throw new SecurityException("Wrong data");
+
+            if (!where.IsNullOrEmpty() && where.Contains((c) => c == ';'))
+                throw new SecurityException("Wrong data");
+
+            string SQL = string.Format("SELECT {0} FROM {1} {2};", fieldList, tableName, where);
+
+            ArrayList result = new ArrayList();
+
+            using (var conn = new SqlConnection(Global.Strings.ConnString))
+            using (SqlCommand cmd = new SqlCommand(SQL, conn))
+            using (SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection))
+                while (reader.Read())
+                    for (int i = 0; i < reader.FieldCount; i++)
+                        result.Add(reader[i]);
+            return result;
+        }
 
         public int UpdateTableData(Hashtable table)
         {

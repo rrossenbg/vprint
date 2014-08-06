@@ -31,7 +31,7 @@ namespace FintraxPTFImages.Common
             UserID = userId;
             UserName = userName;
             CountryID = countryId;
-            IsAdmin = userName.Contains("rosen");
+            IsAdmin = userName.ContainsSafe("rosen");
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace FintraxPTFImages.Common
             UserID = int.Parse(userData[0]);
             UserName = userName;
             CountryID = int.Parse(userData[1]);
-            IsAdmin = userName.Contains("rosen");
+            IsAdmin = userName.ContainsSafe("rosen");
         }
     }
 }

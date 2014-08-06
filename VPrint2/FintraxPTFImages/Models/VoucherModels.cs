@@ -89,7 +89,7 @@ namespace FintraxPTFImages.Models
 
         [Required]
         [DataType(DataType.Text)]
-        public int HeadOffice { get; set; }
+        public int Voucher { get; set; }
 
         public SearchModel2()
         {
@@ -101,8 +101,8 @@ namespace FintraxPTFImages.Models
             if (Country <= 0)
                 errorTable.AddModelError("Country", "Country invalid");
 
-            if (HeadOffice <= 0)
-                errorTable.AddModelError("HeadOffice", "HeadOffice invalid");
+            if (Voucher <= 0)
+                errorTable.AddModelError("Voucher", "Voucher invalid");
 
             if (!errorTable.IsValid)
                 errorTable.AddModelError("", "There are some errors. Please correct");

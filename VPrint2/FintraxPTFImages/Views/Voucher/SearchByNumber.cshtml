@@ -8,7 +8,7 @@
 @model SearchModel2
 @{
     ViewBag.Title = "Search";
-    Layout = "~/Views/SharxPTFImages.Models.SearchModel2\u0027 does not contain a definition for \u0027Voucher\u0027 and no extension method \u0027Voucher\u0027 accepting a first argument of type \u0027FintraxPTFImages.Models.SearchModel2\u0027 could be found (are you missing a using directive or an assembly reference?)"ed/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section style_declarations {
     <style type="text/css">
@@ -34,7 +34,7 @@
             <td>
                 <label>
                     Voucher</label>
-                    @Html.TextBoxFor(model => model.Voucher, new { style = "display:none; width: 185px;" })
+                    @Html.TextBoxFor(model => model.Voucher)
                     @Html.ValidationMessageFor(model => model.Voucher)
             </td>
         </tr>
@@ -53,17 +53,17 @@
 }
 @{
     <div style="width: 600px;">
-        @Html.Grid((IEnumerable<VoucherInfo>)ViewData["VoucherList"]).Columns(columns =>
+        @Html.Grid((IEnumerable<fileInfo>)ViewData["VoucherList"]).Columns(columns =>
    {
        columns.Add(c => c.Id).Titled("ID").Sanitized(false).Encoded(false)
             .RenderValueAs(c => Html.ActionLink("Show", "Show", "Voucher", new { Id = c.Id }, null).ToHtmlString());
-       columns.Add(c => c.Number).Titled("Number").Filterable(true);
+       columns.Add(c => c.VoucherId).Titled("Voucher ID").Filterable(true);
+       columns.Add(c => c.CountryId).Titled("Country ID").Filterable(true);
+       columns.Add(c => c.RetailerId).Titled("Retailer ID");
        columns.Add(c => c.SiteCode).Titled("SiteCode").Filterable(true);
-       columns.Add(c => c.BarCode).Titled("BarCode");
-       columns.Add(c => c.ScanDate).Titled("ScanDate").Filterable(true);
-       columns.Add(c => c.Location).Titled("Location").Filterable(true);
-       columns.Add(c => c.OperatorId).Titled("OperatorId").Filterable(true);
-       columns.Add(c => c.SessionId).Titled("SessionId");
+       columns.Add(c => c.FolderId).Titled("FolderID").Filterable(true);
+       columns.Add(c => c.SessionId).Titled("Session ID").Filterable(true);
+       columns.Add(c => c.Name).Titled("Name");
    }).WithPaging(10).Sortable(true)
     </div>
 }
