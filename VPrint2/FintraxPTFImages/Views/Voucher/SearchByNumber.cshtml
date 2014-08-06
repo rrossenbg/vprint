@@ -19,7 +19,7 @@
     </style>
 }
 @section script_declarations{
-
+    <link rel="stylesheet" href="/resources/demos/style.css" />
 }
 @using (Html.BeginForm("SearchByNumber", "Voucher", FormMethod.Post))
 {
@@ -57,12 +57,12 @@
    {
        columns.Add(c => c.Id).Titled("ID").Sanitized(false).Encoded(false)
             .RenderValueAs(c => Html.ActionLink("Show", "Show", "Voucher", new { Id = c.Id }, null).ToHtmlString());
-       columns.Add(c => c.VoucherId).Titled("Voucher ID").Filterable(true);
-       columns.Add(c => c.CountryId).Titled("Country ID").Filterable(true);
-       columns.Add(c => c.RetailerId).Titled("Retailer ID");
+       columns.Add(c => c.VoucherId).Titled("Voucher").Filterable(true);
+       columns.Add(c => c.CountryId).Titled("Country").Filterable(true);
+       columns.Add(c => c.RetailerId).Titled("Retailer");
        columns.Add(c => c.SiteCode).Titled("SiteCode").Filterable(true);
-       columns.Add(c => c.FolderId).Titled("FolderID").Filterable(true);
-       columns.Add(c => c.SessionId).Titled("Session ID").Filterable(true);
+       columns.Add(c => c.FolderId).Titled("Folder").Filterable(true);
+       columns.Add(c => c.SessionId).Titled("Session").Filterable(true);
        columns.Add(c => c.Name).Titled("Name");
    }).WithPaging(10).Sortable(true)
     </div>

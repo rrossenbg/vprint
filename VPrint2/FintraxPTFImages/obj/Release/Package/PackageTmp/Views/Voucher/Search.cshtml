@@ -124,8 +124,8 @@
        columns.Add(c => c.BarCode).Titled("BarCode");
        columns.Add(c => c.ScanDate).Titled("ScanDate").Filterable(true);
        columns.Add(c => c.Location).Titled("Location").Filterable(true);
-       columns.Add(c => c.OperatorId).Titled("OperatorId").Filterable(true);
-       columns.Add(c => c.SessionId).Titled("SessionId");
+       columns.Add(c => c.OperatorId).Titled("Operator").Filterable(true);
+       columns.Add(c => c.SessionId).Titled("Session");
    }).WithPaging(10).Sortable(true)
     </div>
 }
