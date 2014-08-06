@@ -104,6 +104,14 @@ namespace FintraxPTFImages
         }
 
         [TargetedPatchingOptOut("na")]
+        public static bool ContainsSafe(this string value, string value2)
+        {
+            if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value2))
+                return false;
+            return value.Contains(value2);
+        }
+
+        [TargetedPatchingOptOut("na")]
         public static char CharOfString(this string value, int index)
         {
             if (value == null)

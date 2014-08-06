@@ -828,13 +828,45 @@ namespace ReceivingServiceLib
 
         #region GENERAL
 
-        public int UpdateTableData(ArrayList table)
+        public ArrayList RetrieveTableData(string fieldList, string tableName, string where, string s1, string s2)
         {
-            if (table == null || table.Count == 0)
-                throw new ArgumentException("table");
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("RetrieveTableData");
 
-            var htable = table.ToHashtable<string, object>();
-            return new DataAccess().UpdateTableData(htable);
+                if (fieldList.IsNullOrWhiteSpace())
+                    throw new ArgumentException("fieldList");
+                if (tableName.IsNullOrWhiteSpace())
+                    throw new ArgumentException("tableName");
+                if (where.IsNullOrWhiteSpace())
+                    throw new ArgumentException("where");
+
+                return new DataAccess().RetrieveTableData(fieldList, tableName, where);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+        }
+
+        public int UpdateTableData(ArrayList table, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("UpdateTableData");
+
+                if (table == null || table.Count == 0)
+                    throw new ArgumentException("table");
+
+                var htable = table.ToHashtable<string, object>();
+                return new DataAccess().UpdateTableData(htable);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
         }
 
         #endregion

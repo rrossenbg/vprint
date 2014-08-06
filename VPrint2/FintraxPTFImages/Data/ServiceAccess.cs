@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using FintraxPTFImages.AuthenticationRef;
 using FintraxPTFImages.Common;
 using FintraxPTFImages.PartyManagementRef;
@@ -23,6 +24,22 @@ namespace FintraxPTFImages.Data
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 client = ScanServiceClient.CreateProxy();
                 return new List<VoucherInfo>(client.ReadData(countryId, retailerId, keys.Item1, keys.Item2));
+            }
+            finally
+            {
+                ((IDisposable)client).DisposeSf();
+            }
+        }
+
+        public fileInfo[] SelectVouchersByNumber(int countryId, int voucherId)
+        {
+            IScanService client = null;
+            try
+            {
+                var keys = Security.CreateInstance().GenerateSecurityKeys();
+                client = ScanServiceClient.CreateProxy();
+                string where = string.Format("[iso_id] = {0} and [v_number] = {1}", countryId, voucherId);
+                return client.SelectFilesBySql(where, keys.Item1, keys.Item2);
             }
             finally
             {

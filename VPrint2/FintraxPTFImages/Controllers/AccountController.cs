@@ -53,7 +53,7 @@ namespace FintraxPTFImages.Controllers
             }
 
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            return View(model);
+            return Login(returnUrl);
         }
 
         [HttpGet]

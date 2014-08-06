@@ -58,6 +58,7 @@
     <Compile Include="CircularBuffer.cs" />
     <Compile Include="Data\PTFDataAccess.cs" />
     <Compile Include="Extensions\CollectionsEx.cs" />
+    <Compile Include="Extensions\StringEx.cs" />
     <Compile Include="fileAccess.cs" />
     <Compile Include="Common\MSSQL.cs" />
     <Compile Include="Common\SQL.cs" />
