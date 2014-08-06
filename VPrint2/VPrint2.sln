@@ -146,6 +146,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Others", "_Others", "{0A5B
 	ProjectSection(SolutionItems) = preProject
 		CPrint2\Others\DisableSecuritySettingsCheck.reg = CPrint2\Others\DisableSecuritySettingsCheck.reg
 		KnowHow.txt = KnowHow.txt
+		Links.txt = Links.txt
 		VPrint\TextFile4.txt = VPrint\TextFile4.txt
 	EndProjectSection
 EndProject
