@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="http://192.168.53.143/VPrint/VPrint.application" />
+    <deploymentProvider codebase="file://192.168.53.143/VPrint/VPrint.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
@@ -21,7 +21,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>RPMVVQhASHeS/oB7uNrBlT6BhCU=</dsig:DigestValue>
+        <dsig:DigestValue>TsCNhKRE5cxu2hdpTfnSVsyC/Gs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

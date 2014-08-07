@@ -1,0 +1,14 @@
+﻿
+Canon EDSDK Tutorial in C#
+http://www.codeproject.com/Articles/688276/Canon-EDSDK-Tutorial-in-Csharp
+
+Using Canon EDSDK in .NET Development
+http://www.magora-systems.com/using-canon-edsdk-in-net-development/
+
+CANON
+Welcome to the
+Digital Imaging Developer Programme
+http://www.didp.canon-europa.com/
+
+
+

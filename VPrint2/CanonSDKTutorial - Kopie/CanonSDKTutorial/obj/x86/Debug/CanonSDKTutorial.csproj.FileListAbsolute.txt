@@ -1,0 +1,7 @@
+C:\PROJECTS\VPrint2\CanonSDKTutorial - Kopie\CanonSDKTutorial\bin\Debug\CanonSDKTutorial.exe
+C:\PROJECTS\VPrint2\CanonSDKTutorial - Kopie\CanonSDKTutorial\bin\Debug\CanonSDKTutorial.pdb
+C:\PROJECTS\VPrint2\CanonSDKTutorial - Kopie\CanonSDKTutorial\obj\x86\Debug\CanonSDKTutorial.MainForm.resources
+C:\PROJECTS\VPrint2\CanonSDKTutorial - Kopie\CanonSDKTutorial\obj\x86\Debug\CanonSDKTutorial.Properties.Resources.resources
+C:\PROJECTS\VPrint2\CanonSDKTutorial - Kopie\CanonSDKTutorial\obj\x86\Debug\CanonSDKTutorial.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\CanonSDKTutorial - Kopie\CanonSDKTutorial\obj\x86\Debug\CanonSDKTutorial.exe
+C:\PROJECTS\VPrint2\CanonSDKTutorial - Kopie\CanonSDKTutorial\obj\x86\Debug\CanonSDKTutorial.pdb
