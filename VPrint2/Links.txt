@@ -1,1 +1,11 @@
+IMAGES 
 http://softwarebydefault.com/2013/04/22/bitwise-bitmap-blending/
+
+CLICK ONCE DEPLOYMENT
+http://www.codeguru.com/csharp/.net/article.php/c19523/ClickOnce-Deployment-in-NET-Framework-20.htm
+
+
+CLICKONCE DEPLOYMENT
+\\192.168.53.143\VPrint\publish.htm
+
+

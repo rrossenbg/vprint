@@ -2,7 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
-    <PublishUrlHistory>http://localhost/VPrint/|http://192.168.58.57/VPrint/|http://192.168.58.59/VPrint/|http://192.168.53.235/VPrint/|http://192.168.44.110/VPrint/</PublishUrlHistory>
+    <PublishUrlHistory>\\192.168.53.143\VPrint\|http://192.168.53.143/VPrint/|http://localhost/VPrint/|http://192.168.58.57/VPrint/|http://192.168.58.59/VPrint/</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory>http://localhost/VPrint</SupportUrlHistory>
     <UpdateUrlHistory />
