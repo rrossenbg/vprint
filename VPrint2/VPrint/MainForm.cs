@@ -2776,8 +2776,10 @@ namespace VPrinting
             BuildFiles(info.Id);
         }
 
+        private readonly CancellationTokenSource buildFilesCancelation = new CancellationTokenSource();
+
         private void BuildFiles(int folderId)
-        {
+        {         
             var t = Task.Factory.StartNew((o) =>
             {
                 var fId = Convert.ToInt32(o);
@@ -2800,7 +2802,7 @@ namespace VPrinting
                     m_StateManager.AddVoucherItem(voucher.Id, voucher.CountryId, voucher.RetailerId, voucher.VoucherId,
                         StateManager.eState.VOUCHER, session, voucher.SiteCode, voucher.Name);
                 }
-            }, folderId);
+            }, folderId, buildFilesCancelation.Token);
         }
 
         private void EnableDisableScanPanel(bool enable)
@@ -3148,6 +3150,7 @@ namespace VPrinting
                 //This is 'Image Root'
                 if (ninfo == null)
                 {
+                    buildFilesCancelation.Cancel();
                     m_StateManager.Clear();
                     tbTransferFile.Clear();
                 }
