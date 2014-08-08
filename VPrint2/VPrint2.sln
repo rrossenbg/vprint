@@ -224,6 +224,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FintraxServiceManager", "Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceControlManager", "ServiceControlManager\ServiceControlManager.csproj", "{2E523000-5392-49FD-B99D-D605748CE537}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KNOWHOW", "KNOWHOW", "{FEE03215-3529-45BA-8904-3953B62A7A08}"
+	ProjectSection(SolutionItems) = preProject
+		KNOWHOW\Canon.txt = KNOWHOW\Canon.txt
+		KNOWHOW\Canon.xlsx = KNOWHOW\Canon.xlsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = VPrint2.vsmdi

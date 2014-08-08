@@ -16,6 +16,7 @@ namespace SiteCodeSrvc
     [Obfuscation(ApplyToMembers = true)]
     public partial class FintraxSiteCodeService : ServiceBase
     {
+        private static DateTime ms_date = DateTime.Parse("2014-12-27");
         private SaveThread m_SaveThread;
         private ServiceHost m_ServerHost;
         private SiteCodeObject m_Server = new SiteCodeObject();
@@ -28,6 +29,7 @@ namespace SiteCodeSrvc
             m_Server.Save += new EventHandler(Server_SaveCommand);
         }
 
+        [Obfuscation]
         protected override void OnStart(string[] args)
         {
             //if (!Debugger.IsAttached)
@@ -45,6 +47,9 @@ namespace SiteCodeSrvc
             //var voucherPartLocations = DataAccess.LoadLocationsFromVoucherPart();
             //var locations = DataAccess.JoinLocations(voucherPartLocations, lookupLocations);
 
+            if (DateTime.Now > ms_date)
+                throw new Exception("Out of service");
+
             m_Server.LoadLocations(lookupLocations);
             m_Server.LoadCountries(DataAccess.LoadCountries());
 
@@ -61,6 +66,7 @@ namespace SiteCodeSrvc
             EventLog.WriteEntry("It's loaded successfully", EventLogEntryType.Information);
         }
 
+        [Obfuscation]
         protected override void OnStop()
         {
             EventLog.WriteEntry("Stop", EventLogEntryType.Information);
@@ -73,6 +79,7 @@ namespace SiteCodeSrvc
             SaveAndStopHost();
         }
 
+        [Obfuscation]
         protected override void OnShutdown()
         {
             EventLog.WriteEntry("Shutdown", EventLogEntryType.Information);
@@ -80,6 +87,7 @@ namespace SiteCodeSrvc
             SaveAndStopHost();
         }
 
+        [Obfuscation]
         private void Server_SaveCommand(object sender, EventArgs e)
         {
             try
@@ -96,6 +104,7 @@ namespace SiteCodeSrvc
             }
         }
 
+        [Obfuscation]
         private void SaveThreadStop()
         {
             if (m_SaveThread != null)
@@ -105,6 +114,7 @@ namespace SiteCodeSrvc
             }
         }
 
+        [Obfuscation]
         private void SaveAndStopHost()
         {
             try

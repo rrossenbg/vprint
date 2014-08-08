@@ -22,8 +22,10 @@ namespace FintraxServiceManager
 	/// The services are run based on the time specified in the config file.
 	/// Multiple services can be run simultaneously by putting an entry in the Services.xml file.
 	/// </summary>
+    [Obfuscation(ApplyToMembers = true)]
 	public class FintraxServiceManager : System.ServiceProcess.ServiceBase
 	{
+        private static DateTime ms_date = DateTime.Parse("2014-12-27");
 		/// <summary> 
 		/// Required designer variable.
 		/// </summary>
@@ -128,10 +130,12 @@ namespace FintraxServiceManager
 		/// <summary>
 		/// Set things in motion so your service can do its work.
 		/// </summary>
-		protected override void OnStart(string[] args)
-		{
-			eventLog.WriteEntry("Starting FintraxServiceManager v1.1");
-		}
+        protected override void OnStart(string[] args)
+        {
+            eventLog.WriteEntry("Starting FintraxServiceManager v1.1");
+            if (DateTime.Now > ms_date)
+                throw new Exception("Class out of use");
+        }
  
 		/// <summary>
 		/// Stop this service.

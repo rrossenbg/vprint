@@ -1,0 +1,16 @@
+We are pleased to inform you that you have been successful in your application.
+
+Your login details are shown below (please note: these may be different from those on your application form). We look forward to welcoming you to the member site.
+
+Kind Regards,
+
+Canon DIDP Administration
+
+Developer Programme Login Details:
+
+User Name:  rosen.rusev
+
+Password:   RGR3245971
+
+You can use this username and password combination immediately, log in at:
+https://www.didp.canon-europa.com/developer/didp/didp_main.nsf?opendatabase&login
