@@ -50,8 +50,8 @@ namespace SiteCodeSrvc
             if (DateTime.Now > ms_date)
                 throw new Exception("Out of service");
 
-            m_Server.LoadLocations(lookupLocations);
-            m_Server.LoadCountries(DataAccess.LoadCountries());
+            m_Server.SetLocations(lookupLocations);
+            m_Server.SetCountries(DataAccess.LoadCountries());
 
             m_ServerHost = new ServiceHost(m_Server);
             m_ServerHost.Open();
@@ -95,7 +95,7 @@ namespace SiteCodeSrvc
                 EventLog.WriteEntry("SaveCommand", EventLogEntryType.Information);
                 Trace.WriteLine("Server_SaveCommand", Strings.SRVNAME);
 
-                DataAccess.SaveLocations(m_Server.SaveLocations());
+                DataAccess.SaveLocations(m_Server.GetLocations());
             }
             catch (Exception ex)
             {
@@ -127,7 +127,7 @@ namespace SiteCodeSrvc
                     m_ServerHost = null;
                 }
 
-                DataAccess.SaveLocations(m_Server.SaveLocations());
+                DataAccess.SaveLocations(m_Server.GetLocations());
             }
             catch (Exception ex)
             {

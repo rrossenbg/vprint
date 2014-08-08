@@ -72,7 +72,7 @@ namespace SiteCodeLib
             return null;
         }
 
-        public void LoadLocations(IEnumerable<Location> locations)
+        public void SetLocations(IEnumerable<Location> locations)
         {
             foreach (var location in locations)
             {
@@ -88,15 +88,15 @@ namespace SiteCodeLib
             }
         }
 
-        public void LoadCountries(IEnumerable<KeyValuePair<string, string>> countryCodes)
+        public void SetCountries(IEnumerable<KeyValuePair<string, string>> countryCodes)
         {
             foreach (var pair in countryCodes)
                 m_CountryIDToShortCountryCode[pair.Key] = pair.Value;
         }
 
-        public IEnumerable<Location> SaveLocations()
+        public IEnumerable<Location> GetLocations()
         {
-            foreach (var item in m_SiteToLocation)
+            foreach (var item in new ConcurrentDictionary<string, Location>(m_SiteToLocation))
                 yield return item.Value;
         }
 
@@ -131,7 +131,7 @@ namespace SiteCodeLib
 
         public void LoadLocation(Location location)
         {
-            LoadLocations(new Location[] { location });
+            SetLocations(new Location[] { location });
         }
 
         public void LoadCountry(string CountryID, string iso2)
