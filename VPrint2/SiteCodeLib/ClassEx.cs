@@ -7,11 +7,16 @@ using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Runtime;
+using System.Reflection;
 
 namespace SiteCodeLib
 {
+    [Obfuscation(ApplyToMembers = true)]
     public static class ClassEx
     {
+        [Obfuscation]
+        [TargetedPatchingOptOut("na")]
         public static T Get<T>(this object data) where T : IConvertible
         {
             if (data == null || data == DBNull.Value)
@@ -20,6 +25,8 @@ namespace SiteCodeLib
             return (T)Convert.ChangeType(data, typeof(T));
         }
 
+        [Obfuscation]
+        [TargetedPatchingOptOut("na")]
         public static T? GetNull<T>(this object data) where T : struct, IConvertible
         {
             if (data == null || data == DBNull.Value)
@@ -28,6 +35,8 @@ namespace SiteCodeLib
             return (T)Convert.ChangeType(data, typeof(T));
         }
 
+        [Obfuscation]
+        [TargetedPatchingOptOut("na")]
         public static Hashtable CreateSerializationData(this IDbCommand comm)
         {
             Debug.Assert(comm != null);
@@ -43,6 +52,8 @@ namespace SiteCodeLib
             return table;
         }
 
+        [Obfuscation]
+        [TargetedPatchingOptOut("na")]
         public static SqlCommand CreateCommand(this Hashtable table, string connString)
         {
             Debug.Assert(table != null);
@@ -65,6 +76,8 @@ namespace SiteCodeLib
             return comm;
         }
 
+        [Obfuscation]
+        [TargetedPatchingOptOut("na")]
         public static string RemoveStart(this string value, int count)
         {
             if (string.IsNullOrEmpty(value))
