@@ -68,7 +68,7 @@ namespace SiteCodeTest
             DataAccess.SaveLocationsToFile(locations, "C:\\test\\locations.xml");
 
             SiteCodeObject server = new SiteCodeObject();
-            server.LoadLocations(locations);
+            server.SetLocations(locations);
 
             for (int i = 0; i < 100; i++)
             {
@@ -93,7 +93,54 @@ namespace SiteCodeTest
                 }
             }
 
-            DataAccess.SaveLocations(server.SaveLocations());
+            DataAccess.SaveLocations(server.GetLocations());
+        }
+
+        [TestMethod]
+        public void sitecode_merge_locations_test_2()
+        {
+            DataAccess.ConnectionString = "data source=192.168.58.57;initial catalog=ptf;persist security info=False;user id=sa;pwd=sa;packet size=4096;";
+            var lookupLocations = DataAccess.LoadLocationsFromLocations();
+
+            SiteCodeObject server = new SiteCodeObject();
+            server.SetLocations(lookupLocations);
+
+            foreach (var site in new string[] {
+                    "160018P1348D2",
+                    "170018P1348D2",
+                    "180018P1348D2",
+                    "190018P1348D2",
+                    "210018P1348D2",
+                    "220018P1348D2",
+                    "230018P1348D2",
+                    "240018P1348D2",
+                    "241018P1348D2",
+                    "242018P1348D2",
+                    "243118P1348D2",
+                    "244118P1348D2",
+                    "244218P1348D2",
+                    "244318P1348D2",
+                    "244418P1348D2",
+                    "244518P1348D2",
+                    "244618P1348D2",
+                    "244718P1348D2",
+                    "244818P1348D2",
+                    "244918P1348D2",
+                    "244998P1348D2",
+                    "244888P1348D2",
+                    "254778P1348D2",
+                    "254818P1348D2",
+                    "264918P1348D2",
+                    "274998P1348D2",
+                    "284888P1348D2",
+                    "294778P1348D2",
+                })
+            {
+                var result = server.GetLocation(site);
+                Trace.WriteLine(site + "\t" + result);
+            }
+
+            DataAccess.SaveLocations(server.GetLocations());
         }
 
         [TestMethod]

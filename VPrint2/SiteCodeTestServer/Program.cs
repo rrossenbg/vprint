@@ -22,19 +22,19 @@ namespace SiteCodeTestServer
             }
 
             SiteCodeObject server = new SiteCodeObject();
-            server.LoadLocations(DataAccess.LoadLocationsFromLocations());
-            server.LoadCountries(DataAccess.LoadCountries());
+            server.SetLocations(DataAccess.LoadLocationsFromLocations());
+            server.SetCountries(DataAccess.LoadCountries());
             var svcHost = new ServiceHost(server);
             svcHost.Open();
             Console.Write("Click to exit");
             Console.ReadLine();
             try
             {
-                DataAccess.SaveLocations(server.SaveLocations());
+                DataAccess.SaveLocations(server.GetLocations());
             }
             catch (SqlException)
             {
-                DataAccess.SaveLocationsToFile(server.SaveLocations(), fileName);
+                DataAccess.SaveLocationsToFile(server.GetLocations(), fileName);
             }
         }
     }
