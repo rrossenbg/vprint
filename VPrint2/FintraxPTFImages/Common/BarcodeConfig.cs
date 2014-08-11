@@ -26,7 +26,6 @@ namespace VPrinting.Common
         /// With out check digits
         /// </summary>
         public int Length { get; set; }
-        public bool HasCheckDigit { get; set; }
         public string Template { get; set; }
         public string Sample { get; set; }
         public Tuple<int, int> CountryID { get; set; }
@@ -47,6 +46,18 @@ namespace VPrinting.Common
             return string.Format(Template, countryID, bizType, retailerID, voucherId);
         }
 
+        public void Test()
+        {
+            if (string.IsNullOrEmpty(Sample))
+                throw new Exception("Barcode sample not valid");
+
+            BarcodeData data = null;
+            if (!ParseBarcode(Sample.Replace(" ", ""), ref data))
+                throw new Exception("Barcode template not valid");
+
+            data.Test();
+        }
+
         /// <summary>
         /// 001977684 056 100353
         /// </summary>
@@ -57,7 +68,7 @@ namespace VPrinting.Common
             if (string.IsNullOrWhiteSpace(barcode))
                 throw new ArgumentException("empty barcode", "barcode");
 
-            if (barcode.Length < this.Length)
+            if (barcode.Length != this.Length)
                 return false;
 
             //Remove check digits if any
@@ -71,10 +82,11 @@ namespace VPrinting.Common
                 int.Parse(barcode.Substring(this.CountryID.Item1)) :
                 int.Parse(barcode.Substring(this.CountryID.Item1, this.CountryID.Item2));
 
-            var retailerId =
+            var retailerId = this.RetailerID != null ?
                 this.RetailerID.Item2 <= 0 ?
                 int.Parse(barcode.Substring(this.RetailerID.Item1)) :
-                int.Parse(barcode.Substring(this.RetailerID.Item1, this.RetailerID.Item2));
+                int.Parse(barcode.Substring(this.RetailerID.Item1, this.RetailerID.Item2)) :
+                0;
 
             data = new BarcodeData(countryId, retailerId, voucherId, barcode);
             return true;
@@ -94,6 +106,16 @@ namespace VPrinting.Common
             RetailerID = retailerId;
             VoucherID = voucherId;
             Barcode = barcode;
+        }
+
+        public void Test()
+        {
+            if (CountryID != 012)
+                throw new ArgumentException("CountryID");
+            if (RetailerID != 0 || RetailerID != 012345)
+                throw new ArgumentException("RetailerID");
+            if (VoucherID != 012345678)
+                throw new ArgumentException("VoucherID");
         }
     }
 }
