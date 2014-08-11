@@ -316,7 +316,7 @@ namespace FintraxPTFImages
                     else
                     {
                         ViewBag.Err =
-                            string.Format("P1 doesn't exist for Iso: '{0}' Voucher Number: '{1}'. Please process voucher by using voucher entry in TRS.", data.CountryID, data.VoucherID);
+                            string.Format("P1 doesn't exist for Iso:'{0}' Branch:'{1}' Voucher:'{2}'. Please process voucher by using voucher entry in TRS.", data.CountryID, data.RetailerID, data.VoucherID);
                     }
                 }
                 else

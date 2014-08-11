@@ -7,6 +7,7 @@ using FintraxPTFImages;
 using System.Drawing.Imaging;
 using System.Diagnostics;
 using System.Threading;
+using FintraxPTFImages.Common;
 
 namespace FintraxPTFImagesTest
 {
@@ -80,6 +81,13 @@ namespace FintraxPTFImagesTest
         public void GuidTest()
         {
 
+        }
+
+        [TestMethod]
+        public void test_barcode()
+        {
+            BarcodeDecoder.Run();
+            new BarcodeDecoder().Test();
         }
     }
 }
