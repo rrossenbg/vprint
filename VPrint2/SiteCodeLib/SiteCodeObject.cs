@@ -7,6 +7,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.Text;
+using System.Diagnostics;
 
 namespace SiteCodeLib
 {
@@ -72,19 +73,18 @@ namespace SiteCodeLib
             return null;
         }
 
-        public void SetLocations(IEnumerable<Location> locations)
+        public void SetLocations(List<Location> locations)
         {
             foreach (var location in locations)
             {
-                if (string.IsNullOrWhiteSpace(location.Code))
+                if (location == null || string.IsNullOrWhiteSpace(location.Site) || string.IsNullOrWhiteSpace(location.Code))
                     continue;
 
-                m_SiteToLocation[location.Site] = location;
+                m_SiteToLocation.AddOrUpdate(location.Site, location, (site, loc) => (loc.Number < location.Number) ? location : loc);
 
                 var znum = ZNumber.Parse(location.Code);
 
-                if (!m_CountryIDToMaxChar.ContainsKey(location.ISO) || m_CountryIDToMaxChar[location.ISO] < znum)
-                    m_CountryIDToMaxChar[location.ISO] = znum;
+                m_CountryIDToMaxChar.AddOrUpdate(location.ISO, znum, (iso, num) => (num < znum) ? znum : num);
             }
         }
 
@@ -131,7 +131,7 @@ namespace SiteCodeLib
 
         public void LoadLocation(Location location)
         {
-            SetLocations(new Location[] { location });
+            SetLocations(new List<Location>{ location });
         }
 
         public void LoadCountry(string CountryID, string iso2)

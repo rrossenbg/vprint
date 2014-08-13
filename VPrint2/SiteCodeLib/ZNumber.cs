@@ -101,6 +101,13 @@ namespace SiteCodeLib
 
         public static bool operator ==(ZNumber n1, ZNumber n2)
         {
+            if (object.ReferenceEquals(n1, null) && object.ReferenceEquals(n2, null))
+                return true;
+
+            if ((object.ReferenceEquals(n1, null) && !object.ReferenceEquals(n2, null)) ||
+                (!object.ReferenceEquals(n1, null) && object.ReferenceEquals(n2, null)))
+                return false;
+
             if (n1.m_Coefficients.Count == n2.m_Coefficients.Count)
             {
                 for (int i = n1.m_Coefficients.Count - 1; i >= 0; i--)
