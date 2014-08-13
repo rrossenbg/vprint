@@ -47,6 +47,19 @@ namespace VPrinting.Common
             return string.Format(Template, countryID, bizType, retailerID, voucherId);
         }
 
+
+        public void Test()
+        {
+            if (string.IsNullOrEmpty(Sample))
+                throw new Exception("Barcode sample not valid");
+
+            BarcodeData data = null;
+            if (!ParseBarcode(Sample.Replace(" ", ""), ref data))
+                throw new Exception("Barcode template not valid");
+
+            data.Test();
+        }
+
         /// <summary>
         /// 001977684 056 100353
         /// </summary>
@@ -57,7 +70,7 @@ namespace VPrinting.Common
             if (string.IsNullOrWhiteSpace(barcode))
                 throw new ArgumentException("empty barcode", "barcode");
 
-            if (barcode.Length < this.Length)
+            if (barcode.Length != this.Length)
                 return false;
 
             //Remove check digits if any
@@ -71,29 +84,14 @@ namespace VPrinting.Common
                 int.Parse(barcode.Substring(this.CountryID.Item1)) :
                 int.Parse(barcode.Substring(this.CountryID.Item1, this.CountryID.Item2));
 
-            var retailerId =
+            var retailerId = this.RetailerID != null ?
                 this.RetailerID.Item2 <= 0 ?
                 int.Parse(barcode.Substring(this.RetailerID.Item1)) :
-                int.Parse(barcode.Substring(this.RetailerID.Item1, this.RetailerID.Item2));
+                int.Parse(barcode.Substring(this.RetailerID.Item1, this.RetailerID.Item2)) :
+                0;
 
             data = new BarcodeData(countryId, retailerId, voucherId, barcode);
             return true;
-        }
-    }
-
-    public class BarcodeData
-    {
-        public int CountryID;
-        public int RetailerID;
-        public int VoucherID;
-        public string Barcode;
-
-        public BarcodeData(int countryId, int retailerId, int voucherId, string barcode)
-        {
-            CountryID = countryId;
-            RetailerID = retailerId;
-            VoucherID = voucherId;
-            Barcode = barcode;
         }
     }
 }

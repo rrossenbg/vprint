@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
 using System.ServiceModel;
 using SiteCodeLib;
 
@@ -22,7 +23,8 @@ namespace SiteCodeTestServer
             }
 
             SiteCodeObject server = new SiteCodeObject();
-            server.SetLocations(DataAccess.LoadLocationsFromLocations());
+            var list = DataAccess.LoadLocationsFromLocations().ToList();
+            server.SetLocations(list);
             server.SetCountries(DataAccess.LoadCountries());
             var svcHost = new ServiceHost(server);
             svcHost.Open();

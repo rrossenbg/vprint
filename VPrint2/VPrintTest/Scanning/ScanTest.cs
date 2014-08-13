@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using System.Windows.Media.Imaging;
+using DTKBarReader;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VPrinting;
 using VPrinting.Common;
-using System.Threading;
-using System.Windows.Forms;
-using DTKBarReader;
 
 namespace VPrintTest
 {
@@ -23,7 +22,7 @@ namespace VPrintTest
             string path = @"C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug";
             loader.Start(path);
 
-            var files = Directory.GetFiles(@"C:\SCANS");
+            var files = Directory.GetFiles(@"C:\IMAGES\PN");
 
             StateSaver.Default.Path = "asd";
             StateSaver.Default.Load();
@@ -34,32 +33,38 @@ namespace VPrintTest
                 Debug.WriteLine(fileName);
 
                 Bitmap bmp = (Bitmap)Bitmap.FromFile(fileName);
-                Bitmap bmpBarcode = null;
                 {
-                    var time = Stopwatch.StartNew();
-
-                    Rectangle rect = Rectangle.Empty;
-                    string barcode = null;
-                    bool result = CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode, BarcodeTypeEnum.BT_Inter2of5);
-                    Assert.IsTrue(result);
-
-                    BarcodeData data = null;
-
-                    if (barcode != null)
+                    Bitmap bmpBarcode = null;
                     {
-                        foreach (var cfg in barcodeLayouts)
-                            if (cfg.ParseBarcode(barcode, ref data))
-                                break;
-                    }
-                    else
-                    {
-                        Debug.WriteLine("Wrong barcode " + barcode);
-                    }
+                        var time = Stopwatch.StartNew();
 
-                    if (data == null)
-                        Debug.WriteLine("Wrong barcode " + barcode);
+                        Rectangle rect = Rectangle.Empty;
+                        string barcode = null;
+                        bool result = CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode, BarcodeTypeEnum.BT_All);
+                        if (!result)
+                        {
+                            Debug.WriteLine("Cant read barcode");
+                            continue;
+                        }
 
-                    Debug.WriteLine(time.Elapsed);
+                        BarcodeData data = null;
+
+                        if (barcode != null)
+                        {
+                            foreach (var cfg in barcodeLayouts)
+                                if (cfg.ParseBarcode(barcode, ref data))
+                                    break;
+                        }
+                        else
+                        {
+                            Debug.WriteLine("Wrong barcode " + barcode);
+                        }
+
+                        if (data == null)
+                            Debug.WriteLine("Wrong barcode " + barcode);
+
+                        Debug.WriteLine(time.Elapsed);
+                    }
                 }
 
                 Debug.WriteLine("===================================");
@@ -177,6 +182,72 @@ namespace VPrintTest
             encoder.Frames.Add(BitmapFrame.Create(img));
             encoder.Frames.Add(BitmapFrame.Create(img));
             encoder.Save(stream);
+        }
+
+        [TestMethod]
+        public void test_BarcodeConfig_List()
+        {
+            var list = new List<BarcodeConfig>()
+            {
+                 new BarcodeConfig()
+                {
+                    Name = "CCC-SS-RRRRRR-VVVVVVVVV",
+                    Length = 20,
+                    //iso, ty, br, voucher
+                    Template = "{0:000}{1:00}{2:000000}{3:00000000}",
+                    Sample = "012 01 012345 012345678",
+                    CountryID = new Tuple<int,int>(0, 3),
+                    BuzType = new Tuple<int,int>(3, 2),
+                    RetailerID = new Tuple<int,int>(5, 6),
+                    VoucherID = new Tuple<int,int>(11, 9),
+                },
+                new BarcodeConfig()
+                {
+                    Name = "CCC-RRRRRR-VVVVVVVVV",
+                    Length = 18,
+                    //iso, ty, br, voucher
+                    Template = "{0:000}{2:000000}{3:00000000}",
+                    Sample = "012 012345 012345678",
+                    CountryID = new Tuple<int,int>(0, 3),
+                    RetailerID = new Tuple<int,int>(3, 6),
+                    VoucherID = new Tuple<int,int>(9, 9),
+                },
+                new BarcodeConfig()
+                {
+                    Name = "VVVVVVVVV-CCC-SS",
+                    Length = 14,
+                    //iso, ty, br, voucher
+                    Template = "{3:000000000}{0:000}{1:00}",
+                    Sample = "012345678 012 01",
+                    VoucherID = new Tuple<int,int>(0, 9),
+                    CountryID = new Tuple<int,int>(9, 3),
+                    BuzType = new Tuple<int,int>(12,2),
+                },
+                new BarcodeConfig()
+                {
+                    Name = "CCC-SS-RRRRRR-VVVVVVVVV-AAAAAAAAAAA",
+                    Length = 31,
+                    //iso, ty, br, voucher
+                    Template = "{0:000}{2:000000}{3:00000000}",
+                    Sample = "012 01 012345 012345678 01234567890",
+                    CountryID = new Tuple<int,int>(0, 3),
+                    BuzType = new Tuple<int,int>(3, 2),
+                    RetailerID = new Tuple<int,int>(5, 6),
+                    VoucherID = new Tuple<int,int>(11, 9),
+                },
+            };
+
+            foreach (var c in list)
+            {
+                try
+                {
+                    c.Test();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
         }
 
 

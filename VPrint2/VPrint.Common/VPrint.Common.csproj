@@ -72,6 +72,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\BarcodeConfig.cs" />
+    <Compile Include="Common\BarcodeData.cs" />
     <Compile Include="Common\Security.cs" />
     <Compile Include="Extensions\BitmapEx.cs">
       <SubType>Code</SubType>

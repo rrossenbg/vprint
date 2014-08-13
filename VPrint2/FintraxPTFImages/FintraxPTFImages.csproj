@@ -186,6 +186,7 @@
     <Content Include="Content\ImageGalery\jquery.image-gallery.css" />
     <Compile Include="Attributes\HandleErrAttribute.cs" />
     <Compile Include="Common\BarcodeConfig.cs" />
+    <Compile Include="Common\BarcodeData.cs" />
     <Compile Include="Common\BarcodeDecoder.cs" />
     <Compile Include="Common\FileLogger.cs" />
     <Compile Include="Common\Security.cs" />
