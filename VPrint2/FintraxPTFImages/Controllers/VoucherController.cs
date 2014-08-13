@@ -16,7 +16,6 @@ using FintraxPTFImages.Data;
 using FintraxPTFImages.Models;
 using FintraxPTFImages.PartyManagementRef;
 using FintraxPTFImages.ScanServiceRef;
-using VPrinting.Common;
 
 namespace FintraxPTFImages
 {

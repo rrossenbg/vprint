@@ -100,7 +100,7 @@ namespace SiteCodeTest
         public void sitecode_merge_locations_test_2()
         {
             DataAccess.ConnectionString = "data source=192.168.58.57;initial catalog=ptf;persist security info=False;user id=sa;pwd=sa;packet size=4096;";
-            var lookupLocations = DataAccess.LoadLocationsFromLocations();
+            var lookupLocations = DataAccess.LoadLocationsFromLocations().ToList();
 
             SiteCodeObject server = new SiteCodeObject();
             server.SetLocations(lookupLocations);
