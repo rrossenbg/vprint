@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using System.Collections;
 
 namespace SiteCodeLib
 {
@@ -127,18 +128,36 @@ namespace SiteCodeLib
 
         public static List<Location> JoinLocations(IEnumerable<Location> voucherPartLocations, IEnumerable<Location> lookupLocations)
         {
-#if OLD_CODE
+#if VERY_OLD_CODE
             var q1 = from vp in voucherPartLocations
                      join ll in lookupLocations on new { vp.ISO, vp.Code } equals new { ll.ISO, ll.Code }
                      select new Location() { Id = ll.Id, ISO = vp.ISO, Code = vp.Code, Number = vp.Number, Site = ll.Site };
             return q1.ToList();
-#else //OLD_CODE
+#elif OLD_CODE
             var q1 = from ll in lookupLocations
                      join vp in voucherPartLocations on new { ll.ISO, ll.Code } equals new { vp.ISO, vp.Code } into j1
                      from j2 in j1.DefaultIfEmpty()
                      select new Location() { Id = ll.Id, ISO = ll.ISO, Code = ll.Code, Number = (j2 != null ? j2.Number : ll.Number), Site = ll.Site };
             return q1.ToList();
-#endif //OLD_CODE
+#else
+            var dict = new Hashtable();
+            var list = new List<Location>();
+
+            foreach (var lloc in lookupLocations)
+                dict[lloc.ISO + lloc.Code] = lloc;
+
+            foreach (var ploc in voucherPartLocations)
+            {
+                var lloc = (Location)dict[ploc.ISO + ploc.Code];
+                if (lloc != null)
+                {
+                    ploc.Site = lloc.Site;
+                    list.Add(ploc);
+                }
+            }
+            dict.Clear();
+            return list;
+#endif
         }
 
         public static void SaveLocations(IEnumerable<Location> items)

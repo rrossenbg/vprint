@@ -5,6 +5,7 @@
 using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.ServiceModel;
 using System.ServiceProcess;
@@ -25,8 +26,6 @@ namespace SiteCodeSrvc
         {
             InitializeComponent();
             AutoLog = true;
-            SaveThread.Save += new EventHandler(Server_SaveCommand);
-            m_Server.Save += new EventHandler(Server_SaveCommand);
         }
 
         [Obfuscation]
@@ -43,14 +42,11 @@ namespace SiteCodeSrvc
             if (TimeSpan.TryParse(ConfigurationManager.AppSettings["AdditionalTime"], out addtime))
                 base.RequestAdditionalTime(addtime.TotalMilliseconds.Get<int>());
 
-            var lookupLocations = DataAccess.LoadLocationsFromLocations();
-            //var voucherPartLocations = DataAccess.LoadLocationsFromVoucherPart();
-            //var locations = DataAccess.JoinLocations(voucherPartLocations, lookupLocations);
+            var lookupLocations = DataAccess.LoadLocationsFromLocations().ToList();
+            var voucherPartLocations = DataAccess.LoadLocationsFromVoucherPart().ToList();
+            var locations = DataAccess.JoinLocations(voucherPartLocations, lookupLocations).ToList();
 
-            if (DateTime.Now > ms_date)
-                throw new Exception("Out of service");
-
-            m_Server.SetLocations(lookupLocations);
+            m_Server.SetLocations(locations);
             m_Server.SetCountries(DataAccess.LoadCountries());
 
             m_ServerHost = new ServiceHost(m_Server);
@@ -61,6 +57,9 @@ namespace SiteCodeSrvc
             m_SaveThread = new SaveThread();
             m_SaveThread.SleepTime = TimeSpan.Parse(ConfigurationManager.AppSettings["SleepTime"]);
             m_SaveThread.Start(ThreadPriority.BelowNormal, "SaveThread");
+
+            SaveThread.Save += new EventHandler(Server_SaveCommand);
+            m_Server.Save += new EventHandler(Server_SaveCommand);
 
             Trace.WriteLine("It's loaded successfully", Strings.SRVNAME);
             EventLog.WriteEntry("It's loaded successfully", EventLogEntryType.Information);
@@ -94,8 +93,9 @@ namespace SiteCodeSrvc
             {
                 EventLog.WriteEntry("SaveCommand", EventLogEntryType.Information);
                 Trace.WriteLine("Server_SaveCommand", Strings.SRVNAME);
-
-                DataAccess.SaveLocations(m_Server.GetLocations());
+                var list = m_Server.GetLocations().ToList();
+                if (list.Count > 0)
+                    DataAccess.SaveLocations(list);
             }
             catch (Exception ex)
             {
