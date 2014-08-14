@@ -18,6 +18,8 @@ namespace VPrinting.Controls
             {
                 if (m_Item != null)
                     m_Item.Updated -= new EventHandler(m_Item_Updated);
+                if (this.m_ActionTimer != null)
+                    this.m_ActionTimer.Tick -= new System.EventHandler(this.ActionTimer_Tick);
 
                 components.Dispose();
             }

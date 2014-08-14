@@ -17,6 +17,7 @@ using VPrinting.Data;
 using VPrinting.Extentions;
 using VPrinting.ScanServiceLocalRef;
 using VPrinting.ScanServiceRef;
+using System.Threading;
 
 namespace VPrinting
 {
@@ -86,20 +87,23 @@ namespace VPrinting
         {
             this.InvokeSafe(new System.Action<ItemEventArgs>((args) =>
             {
-                try
+                if (Monitor.TryEnter(lpScannedFiles, 4000))
                 {
-                    var cnt = new ItemControl();
-                    ToolTip1.SetToolTip(cnt, args.Item.SessionID.ToString());
-                    cnt.Item = args.Item;
-                    cnt.Click += new EventHandler(ImageIconControl_Click);
-                    cnt.Updated += new EventHandler(ImageIconControl_Updated);
-                    cnt.ContextMenuStrip = scanContextMenuStrip;
-                    lpScannedFiles.Controls.Add(cnt);
-                    lblMessage.Text = string.Concat("Vouchers in folder: ", lpScannedFiles.Controls.Count);
-                }
-                catch
-                {
-                    //No errors
+                    try
+                    {
+                        var cnt = ItemControl.GetInstance();
+                        ToolTip1.SetToolTip(cnt, args.Item.SessionID.ToString());
+                        cnt.Item = args.Item;
+                        cnt.Click += new EventHandler(ImageIconControl_Click);
+                        cnt.Updated += new EventHandler(ImageIconControl_Updated);
+                        cnt.ContextMenuStrip = scanContextMenuStrip;
+                        lpScannedFiles.Controls.Add(cnt);
+                        lblMessage.Text = string.Concat("Vouchers in folder: ", lpScannedFiles.Controls.Count);
+                    }
+                    finally
+                    {
+                        Monitor.Exit(lpScannedFiles);
+                    }
                 }
             }), e);
         }
@@ -108,14 +112,25 @@ namespace VPrinting
         {
             this.InvokeSafe(new System.Action<ItemEventArgs>((args) =>
             {
-                foreach (Control cnt in lpScannedFiles.Controls)
+                if(Monitor.TryEnter(lpScannedFiles, 4000))
                 {
-                    var icnt = (ItemControl)cnt;
-                    if (icnt != null && icnt.Item != null && icnt.Item.Equals(args.Item))
+                    try
                     {
-                        lpScannedFiles.Controls.Remove(icnt);
-                        //m_ControlIndexes.Remove(icnt.Item.Id);
-                        break;
+                        foreach (Control cnt in lpScannedFiles.Controls)
+                        {
+                            var icnt = (ItemControl)cnt;
+                            if (icnt != null && icnt.Item != null && icnt.Item.Equals(args.Item))
+                            {
+                                lpScannedFiles.Controls.Remove(icnt);
+                                //icnt.DisposeSf();
+                                ItemControl.SetInstance(icnt);
+                                break;
+                            }
+                        }
+                    }
+                    finally
+                    {
+                        Monitor.Exit(lpScannedFiles);
                     }
                 }
             }), e);
@@ -125,15 +140,27 @@ namespace VPrinting
         {
             this.InvokeSafe(new System.Action(() =>
             {
-                foreach (ItemControl cnt in lpScannedFiles.Controls)
+                if (Monitor.TryEnter(lpScannedFiles, 4000))
                 {
-                    cnt.Click -= new EventHandler(ImageIconControl_Click);
-                    cnt.Updated -= new EventHandler(ImageIconControl_Updated);
-                }
+                    try
+                    {
+                        foreach (ItemControl cnt in lpScannedFiles.Controls)
+                        {
+                            cnt.Click -= new EventHandler(ImageIconControl_Click);
+                            cnt.Updated -= new EventHandler(ImageIconControl_Updated);
+                            //cnt.DisposeSf();
+                            ItemControl.SetInstance(cnt);
+                        }
 
-                ToolTip1.RemoveAll();
-                lpScannedFiles.Controls.Clear();
-                tbTransferFile.Clear();
+                        ToolTip1.RemoveAll();
+                        lpScannedFiles.Controls.Clear();
+                        tbTransferFile.Clear();
+                    }
+                    finally
+                    {
+                        Monitor.Exit(lpScannedFiles);
+                    }
+                }
                 //m_ControlIndexes.Clear();
             }));
         }

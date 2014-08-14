@@ -8,11 +8,14 @@ using System.Drawing;
 using System.Windows.Forms;
 using VPrinting.Common;
 using VPrinting.Properties;
+using System.Collections.Concurrent;
 
 namespace VPrinting.Controls
 {
     public partial class ItemControl : Control
     {
+        private static readonly ConcurrentQueue<ItemControl> ms_ControlStore = new ConcurrentQueue<ItemControl>();
+
         private bool m_ShowBorder = false;
         protected bool m_ShowThumbnail = false;
         private StateManager.Item m_Item;
@@ -29,11 +32,24 @@ namespace VPrinting.Controls
             set
             {
                 Debug.Assert(value != null);
-                Debug.Assert(m_Item == null);
-
-                value.Updated += new EventHandler(m_Item_Updated);
+                if (m_Item != null)
+                    m_Item.Updated -= new EventHandler(m_Item_Updated);
                 m_Item = value;
+                m_Item.Updated += new EventHandler(m_Item_Updated);
             }
+        }
+
+        public static ItemControl GetInstance()
+        {
+            ItemControl control;
+            if (!ms_ControlStore.TryDequeue(out control))
+                control = new ItemControl();
+            return control;
+        }
+
+        public static void SetInstance(ItemControl control)
+        {
+            ms_ControlStore.Enqueue(control);
         }
 
         private void m_Item_Updated(object sender, EventArgs e)

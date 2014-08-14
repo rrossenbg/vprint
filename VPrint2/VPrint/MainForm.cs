@@ -2776,8 +2776,6 @@ namespace VPrinting
             BuildFiles(info.Id);
         }
 
-        private readonly CancellationTokenSource buildFilesCancelation = new CancellationTokenSource();
-
         private void BuildFiles(int folderId)
         {         
             var t = Task.Factory.StartNew((o) =>
@@ -3142,8 +3140,13 @@ namespace VPrinting
             }
         }
 
+        private CancellationTokenSource buildFilesCancelation;
+
         private void ImageNode_Click(object sender, TreeNodeMouseClickEventArgs e)
         {
+            buildFilesCancelation.DisposeSf();
+            buildFilesCancelation = new CancellationTokenSource();
+
             var ninfo = (FolderInfo)e.Node.Tag;
             if (e.Node.Nodes.Count != 0)
             {
