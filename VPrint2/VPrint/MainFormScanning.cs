@@ -155,6 +155,11 @@ namespace VPrinting
                         ToolTip1.RemoveAll();
                         lpScannedFiles.Controls.Clear();
                         tbTransferFile.Clear();
+
+                        m_ScanFileOrganizer.Clear();
+                        m_SendFileOrganizer.Clear();
+
+                        lblMessage.Text = string.Empty;
                     }
                     finally
                     {

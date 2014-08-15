@@ -2708,14 +2708,16 @@ namespace VPrinting
         /// <param name="data">StateManager.Item</param>
         public void ShowItemScannedCallback(object data)
         {
+            if (this.IsDisposed)
+                return;
+
             var item = (StateManager.Item)data;
-            if (item != null && !this.IsDisposed)
-            {
+            if (item != null)
                 lblMessage.Text = string.Format(Messages.VoucherStatus_2, item.SessionID, item.State);
-                lblScanned.Text = string.Format(Messages.ItemsProcessed_1, m_ScanFileOrganizer.ProcessedItems);
-                pbScanProgress.ProgressBar.Value = Math.Min((int)(((double)m_SendFileOrganizer.ProcessedItems) /
-                    m_ScanFileOrganizer.ProcessedItems.Replace(0, 1) * 100), 100);
-            }
+
+            lblScanned.Text = string.Format(Messages.ItemsProcessed_1, m_ScanFileOrganizer.ProcessedItems + 1);
+            pbScanProgress.ProgressBar.Value = Math.Min((int)(((double)m_SendFileOrganizer.ProcessedItems) /
+                m_ScanFileOrganizer.ProcessedItems.Replace(0, 1) * 100), 100);
         }
 
         /// <summary>
@@ -2724,14 +2726,16 @@ namespace VPrinting
         /// <param name="data">StateManager.Item</param>
         private void ShowItemCommitedCallback(object data)
         {
+            if (this.IsDisposed)
+                return;
+
             var item = (StateManager.Item)data;
-            if (item != null && !this.IsDisposed)
-            {
+            if (item != null)
                 lblMessage.Text = string.Format(Messages.VoucherStatus_2, item.SessionID, item.State);
-                lblSent.Text = string.Format(Messages.ItemsSent_1, m_SendFileOrganizer.ProcessedItems);
-                pbScanProgress.ProgressBar.Value = Math.Min((int)(((double)m_SendFileOrganizer.ProcessedItems) /
-                    m_ScanFileOrganizer.ProcessedItems.Replace(0, 1) * 100), 100);
-            }
+
+            lblSent.Text = string.Format(Messages.ItemsSent_1, m_SendFileOrganizer.ProcessedItems);
+            pbScanProgress.ProgressBar.Value = Math.Min((int)(((double)m_SendFileOrganizer.ProcessedItems) /
+                m_ScanFileOrganizer.ProcessedItems.Replace(0, 1) * 100), 100);
         }
 
         private void Client_StartScanCompleted(object sender, AsyncCompletedEventArgs e)
