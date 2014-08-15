@@ -422,7 +422,7 @@ namespace VPrinting
             return null;
         }
 
-        private static Bitmap ConvertToBitonal(Bitmap original)
+        public static Bitmap ConvertToBitonal(this Bitmap original)
         {
             Bitmap source = null;
 
