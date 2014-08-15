@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Threading;
 using System.Windows.Media.Imaging;
+using AForge.Imaging.Filters;
 using DTKBarReader;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VPrint.Common;
 using VPrinting;
 using VPrinting.Common;
 
@@ -250,8 +253,76 @@ namespace VPrintTest
             }
         }
 
-
         public ThreadExceptionEventHandler OnThreadException { get; set; }
+
+        [TestMethod]
+        public void test_creditcardcover()
+        {
+            try
+            {
+                const string FILE1 = @"C:\IMAGES\PB\PB742042.jpg";
+                const string FILE2 = @"C:\IMAGES\PB\PB742042_done.jpg";
+                const string FILE3 = @"C:\IMAGES\PB\PB742042_done2.jpg";
+
+                using (var image = (Bitmap)Bitmap.FromFile(FILE1))
+                using (var img = image.ConvertToBitonal())
+                {
+                    img.Save(FILE2, ImageFormat.Jpeg);
+                }
+
+                using (var image = (Bitmap)Bitmap.FromFile(FILE2))
+                {
+                    //ConservativeSmoothing filter = new ConservativeSmoothing();
+                    //filter.ApplyInPlace(image);
+
+                    //BilateralSmoothing filter = new BilateralSmoothing();
+                    //filter.KernelSize = 25;
+                    //filter.SpatialFactor = 10;
+                    //filter.ColorFactor = 60;
+                    //filter.ColorPower = 0.5;
+                    //// apply the filter
+                    //filter.ApplyInPlace(image);
+                    
+                    // create filter
+                    BlobsFiltering filter = new BlobsFiltering();
+                    // configure filter
+                    filter.CoupledSizeFiltering = true;
+                    filter.MinWidth = 70;
+                    filter.MinHeight = 70;
+                    // apply the filter
+                    filter.ApplyInPlace(image);
+                    image.Save(FILE3, ImageFormat.Jpeg);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
+        [TestMethod]
+        public void A()
+        {
+            //var cu = Voodoo<CurrentUser>.NewInUnmanagedMemory();
+            //cu.CountryID = 123;
+            //cu.Username = "Rosen";
+            //cu.Username = "Rosen";
+            //Voodoo<CurrentUser>.FreeUnmanagedInstance(cu);
+
+            using (var a = new ObjectHandle<A>())
+            {
+                a.Value.M1 = 0;
+                a.Value.M2 = "Rosen";
+                a.Value.M3 = 0;
+            }
+        }
+    }
+
+    public class A
+    {
+        public int M1 { get; set; }
+        public string M2 { get; set; }
+        public decimal M3 { get; set; }
     }
 
     //public class ImageHelper
