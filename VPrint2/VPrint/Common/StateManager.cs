@@ -566,6 +566,12 @@ namespace VPrinting.Common
             }
         }
 
+        public void ShowNextItemExpected()
+        {
+            var nextItem = m_ItemCollection.FindFirstOrDefault((ii) => ii.State == eState.NA && !ii.Ignored);
+            FireNextItemExpected(nextItem);
+        }
+
         public void Remove(Item item)
         {
             if (!m_ItemCollection.Remove(item))
