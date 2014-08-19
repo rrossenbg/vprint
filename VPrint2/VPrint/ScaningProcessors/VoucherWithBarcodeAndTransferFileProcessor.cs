@@ -127,6 +127,7 @@ namespace VPrinting.ScaningProcessors
                             item.Signature = sec.SignData(bmp.ToArray());
                             File.WriteAllBytes(signFilePath.FullName, item.Signature);
                             item.FileInfoList.Add(signFilePath);
+                            Global.IgnoreList.Add(signFilePath.FullName);
                         }
 
                         item.State = StateManager.eState.OK;
@@ -152,6 +153,7 @@ namespace VPrinting.ScaningProcessors
                     bmp.DisposeSf();
                     bmpBarcode.DisposeSf();
                     DelegateHelper.PostItemScannedCallback(item);
+                    StateManager.Default.ShowNextItemExpected();
                 }
             });
         }
