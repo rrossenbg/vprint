@@ -1,0 +1,247 @@
+﻿LUMIX DMC-XS3
+ 
+24-04-14
+C# Crop white space from around the image
+http://www.itdevspace.com/2012/07/c-crop-white-space-from-around-image.html
+ 
+ 
+24-04-14
+stackoverflow: Crop/Remove Unwanted Space at the edges of image
+http://stackoverflow.com/questions/13548962/crop-remove-unwanted-space-at-the-edges-of-image
+ 
+ 
+24-04-14
+AForge.NET open source framework
+http://www.codeproject.com/Articles/16859/AForge-NET-open-source-framework
+ 
+ AForge.NET
+C:\Program Files (x86)\AForge.NET\Framework
+ 
+ 
+C# LUMIX  sample
+ 
+PANASONIC FIRMWARES (DOWNLOADS)
+http://panasonic.jp/support/global/cs/dsc/download/
+ 
+PANASONIC API
+Office Communication Systems
+http://panasonic.net/pcc/products/pbx/products/application/sdk/
+ 
+PANASONIC SDK
+Software Development Kits
+http://www.panasonic.com/business/toughbook/computer-support-sdk.asp
+ 
+PANASONIC SDK – 2
+IP cameras
+http://security.panasonic.com/pss/security/library/developer.html
+ 
+GPS Assist Data update service
+http://www.datastead.com/products/tvideograbber/download.html
+ 
+ 
+PANASONIC LUMIX AV CABLE
+http://www.ebay.co.uk/itm/like/140845248481?limghlpsr=true&hlpv=2&ops=true&viphx=1&hlpht=true&lpid=108&device=c&adtype=pla&crdt=0&ff3=1&ff11=ICEP3.0.0&ff12=67&ff13=80&ff14=108 
+ 
+LUMIX LINK
+https://play.google.com/store/apps/details?id=jp.co.panasonic.lumix_link.activity
+ 
+http://panasonic.jp/support/global/cs/dsc/download/gpsassist/index1.html
+ 
+LIMUX LINK FOR WINDOWS
+http://panasonic.jp/support/global/cs/soft/download/index.html
+ 
+http://panasonic.jp/support/global/cs/info/windows7.html
+ 
+ 
+http://developer.android.com/sdk/index.html?hl=sk#download
+ 
+DOWNLOAD LIMUX LINK
+https://support.google.com/googleplay/answer/1141080?hl=en-GB&ctx=en&rd=1
+ 
+ 
+ 
+ 
+ALLIED VISION CAMERAS G-609BC 6MP
+http://www.alliedvisiontec.com/emea/products/cameras/gigabit-ethernet/manta/g-609bc.html
+ 
+ 
+STEMMER IMAGING
+http://www.stemmer-imaging.co.uk/
+ 
+ 
+buy AVT Manta G-609 1" Color CCD Camera $3,395.00
+http://www.edmundoptics.com/imaging/cameras/gigabit-ethernet-cameras/avt-manta-gige-cameras/88-462
+ 
+ 
+SENSOR Sony ICX687
+http://www.sony.net/Products/SC-HP/cx_news/vol67/pdf/icx687ala_aqa.pdf
+ 
+ 
+ 
+8 Megapixel Scientific-Grade Cameras for Microscopy - ?4,284.00
+http://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=6540&gclid=CM7g26Lh-70CFYGx2wodPCcAmw#ad-image-0
+ 
+ 
+FastPictureViewer Codec Pack 3.6 Windows Add-In  (3.6.0.92)
+http://www.fastpictureviewer.com/codecs/
+ 
+ 
+http://panasonic.net/pcc/support/netwkcam/technic/live_img_web.html
+ 
+ 
+C# CONNECT DIGITAL CAMERA
+http://www.codeproject.com/Articles/2303/WIA-Scripting-and-NET
+ 
+ 
+Win 7 SP 1
+Install http://www.microsoft.com/download/en/details.aspx?id=18287
+ 
+ 
+Panasonic Lumix DMC-SZ8 Digital Camera, HD 720p, 16MP, 12x Optical Zoom, Wi-Fi, 3" LCD Screen, Black
+http://www.johnlewis.com/panasonic-lumix-dmc-sz8-digital-camera-hd-720p-16mp-12x-optical-zoom-wi-fi-3-lcd-screen/p1193282?kpid=233138316&s_kenid=27873b66-b3b0-a609-9bd8-00007242cedd&s_kwcid=128x37615&tmad=c&tmcampid=73
+ 
+Panasonic Lumix DMC-SZ8 USER MANUAL
+http://service.us.panasonic.com/OPERMANPDF/DMCZS9.PDF
+ 
+Panasonic Lumix TZ40 camera WiFi
+ 
+LUMIX REMOTE
+https://play.google.com/store/apps/details?id=com.panasonic.avc.cng.lumixremote1&hl=et
+ 
+RUN ANDROID ON WINDOWS 7
+Install and Run Android 4.0 on your Windows PC
+https://www.youtube.com/watch?v=Wje6MWbgP9g
+ 
+ 
+BUY 4MP WEB CAMERA
+https://www.google.co.uk/?gfe_rd=cr&ei=XIRaU5nFAqjY8geklIDAAw#q=buy++4MP+IP+Camera&tbm=shop
+ 
+ 
+Nikon - Current SDK s
+https://sdk.nikonimaging.com/apply/
+Nikon - Modules for SDK
+http://sourceforge.net/p/nikoncswrapper/wiki/Model%20Information/
+ 
+Panasonic Lumix DMC-SZ8 Digital Camera, HD 720p, 16MP, 12x Optical Zoom, Wi-Fi, 3" LCD Screen, Black
+ 
+http://www.johnlewis.com/panasonic-lumix-dmc-sz8-digital-camera-hd-720p-16mp-12x-optical-zoom-wi-fi-3-lcd-screen/p1193282?kpid=233138316&s_kenid=702ea76c-7821-29c8-42f7-000046994ef1&s_kwcid=128x37615&tmad=c&tmcampid=73
+ 
+Записи с меткой: пакет для разработчиков ПО
+http://www.mx-camera.ru/tag/paket-dlya-razrabotchikov-po/
+http://www.mx-camera.ru/dlya-razrabotchikov-programmnogo-obespecheniya-stala-dostupna-obolochka-upravleniya-fotokamerami-nikon/
+ 
+Lumix DMC-SZ8
+ 
+Nikon SDK C# Wrapper
+http://sourceforge.net/projects/nikoncswrapper/files/latest/download
+ 
+Nikon SDK C# Wrapper
+An easy-to-use C# wrapper for the Nikon MAID SDK
+http://sourceforge.net/p/nikoncswrapper/wiki/Model%20Information/
+http://sourceforge.net/p/nikoncswrapper/wiki/Getting%20Started/
+http://sourceforge.net/p/nikoncswrapper/wiki/Frequently%20Asked%20Questions/
+ 
+Nikon D5000 Digital SLR Camera with 18-55mm VR Lens Kit (12.3MP) 2.7 inch LCD - £450
+12.3 Megapixel Nikon DX format CMOS
+Vari-angle 2.7 inch LCD colour monitor
+18-55mm f/3.5-5.6G lens
+Video facility records 720p HD movie clips
+11-point autofocus system with 3D focus tracking
+http://www.amazon.co.uk/Nikon-D5000-Digital-Camera-18-55mm/dp/B0025KV8Y0/ref=sr_1_1?ie=UTF8&qid=1398501653&sr=8-1&keywords=nikon+D5000
+ 
+Nikon D5200 Digital SLR with 18-55mm VR II Compact Lens Kit - Black (24.1 MP) 3.0 inch LCD - £560
+Capture beautifully detailed photos and movies with the 24.1MP DX-format CMOS sensor giving great low light performance and enabling clear shots of fast moving subjects
+Explore your creativity with the versatile swivel monitor - capture unique shots from any angle
+Record finely detailed Full HD video clips you'll want to share - take advantage of smooth recording (up to 60i) and a built-in stereo microphone
+Nikon's fast and powerful EXPEED 3 image processing engine provides high-speed operation, remarkably clear images with excellent colour reproduction, and enhanced movie recording
+This updated kit boasts a much smaller, lighter, retractable 18-55mm VR II kit lens, making it more comfortable than ever to carry a Digital SLR
+http://www.amazon.co.uk/Nikon-D5200-Digital-18-55mm-Compact/dp/B00I3M61H8/ref=dp_ob_title_ce
+
+ 
+ 
+WEB CAM - Microsoft Expression Encoder 4
+http://www.codeproject.com/Articles/202464/How-to-use-a-WebCam-in-C-with-the-NET-Framework
+Microsoft Web Platform Installer 4.6
+http://www.microsoft.com/web/downloads/platform.aspx
+ 
+Best HD web cameras
+http://webcam-review.toptenreviews.com/
+ 
+HP HD 5210
+HP HD 4310
+http://www.pcworld.co.uk/gbuk/pc-accessories/webcams-headsets/webcams/hp-hd-4310-full-hd-webcam-21445533-pdt.html?intcmpid=display~RR~Home+%2f+PC+Accessories+%2f+Webcams+%26+Headsets+%2f+Webcams~21445533
+ 
+Pixel calc
+http://web.forret.com/tools/megapixel.asp?width=1920&height=1080
+ 
+ 
+FujiFilm
+http://blog.fujifilmapi.com/
+ 
+SDK and sample
+https://github.com/FujifilmDeveloperNetwork/Fujifilm.SPA.SampleApp.iOS
+ 
+ 
+ 
+Camera Hacker Forums SDK
+http://www.camerahacker.com/Forums/SDK/
+ 
+ 
+Canon EOS 1100D Digital SLR Camera (inc. 18-55 f/3.5-5.6 DC III Lens Kit)- £279.00
+http://www.tesco.com/direct/canon-eos-1100d-digital-slr-camera-inc-18-55-f35-56-dc-iii-lens-kit/211-1856.prd?pageLevel=&skuId=211-1856&sc_cmp=pcp_GSF_Cameras%20%26%20Camcorders_211-1856kpid=211-1856&sc_cmp=ppc_g__&gclid=CI7E4KC5_r0CFevItAodDikA9w
+ 
+Canon SDK
+http://www.usa.canon.com/cusa/support/consumer/eos_slr_camera_systems/eos_digital_slr_cameras/eos_1d_mark_iv?pageKeyCode=downloadSDK&productOverviewCid=0901e0248003d09c&WT.mc_id=EM1104243
+ 
+Download SDK
+http://www.didp.canon-europa.com/
+ 
+Canon developer center
+http://www.didp.canon-europa.com/developer/didp/didp_pub.nsf?opendatabase
+user: rrossenbg
+pass: RGR3245
+ 
+Canon SDK
+http://www.didp.canon-europa.com/developer/didp/didp_pub.nsf?opendatabase
+ 
+Canon EDSDK Tutorial and C# sample
+http://www.codeproject.com/Articles/688276/Canon-EDSDK-Tutorial-in-Csharp
+ 
+ 
+ 
+Elmo MO-1 Visual Presenter, White $369.99
+
+http://www.amazon.com/Elmo-MO-1-Visual-Presenter-White/dp/B007T1YO64
+
+ 
+==================================================================================
+ 
+IPEVO Ziggi-HD High-Definition USB Document Camera
+ 
+http://www.amazon.co.uk/IPEVO-Ziggi-HD-High-Definition-Document-Camera/dp/B008DBF5Z8/ref=sr_1_1?ie=UTF8&qid=1398773688&sr=8-1&keywords=document+cameras
+ 
+==================================================================================
+ 
+Logitech B910 Webcam
+Logitech® for Business
+B910 HD Webcam
+ 
+5 megapixel native resolution, 10 megapixel software enhanced – Carl Zeiss lens (Should be reasonably good quality) £60
+ 
+http://www.onedirect.co.uk/logitech/logitech-b910-webcam?gclid=CKvmpsmvg74CFWjKtAodFkYAtg&LGWCODE=LOB910%3b55331%3b2389
+ 
+==================================================================================
+ 
+http://www.instructables.com/id/How-to-use-your-digital-cameracanon-only-as-a-re/
+ 
+==================================================================================
+ 
+IPEVO Ziggi-HD High-Definition USB Document Camera  £79.95
+ 
+http://www.amazon.co.uk/IPEVO-Ziggi-HD-High-Definition-Document-Camera/dp/B008DBF5Z8/ref=sr_1_1?ie=UTF8&qid=1398773688&sr=8-1&keywords=document+cameras
+ 
+IPEVO DOCUMENT CAM COMPARISON
+ 
+http://www.ipevo.com/prods/IPEVO-Ziggi-HD-USB-Document-Camera
+ 
+==================================================================================
