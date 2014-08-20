@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
+using System.Transactions;
 
 namespace ReceivingServiceLib.Data
 {
@@ -33,14 +34,15 @@ namespace ReceivingServiceLib.Data
 
         public void AddVoucher(
             int jobId, int isoId, int branchId, int voucherId, int? folderId, string siteCode, string barCode,
-            int locationId, int operatorId, byte[] buffer, int length, string sessionId, bool merge)
+            int locationId, int operatorId, byte[] buffer, int length, string sessionId, bool merge, bool isProtected)
         {
             CheckConnectionStringThrow();
 
             #region SQL
 
-            const string SQL1 = @"INSERT Voucher( job_id, iso_id,   branch_id,  v_number,  v_fl_id,  sitecode,  barcode, scandate,   location,  operator_id,  scan_image_size,  scan_image, session_id)
-	                                    VALUES (@job_id, @iso_id, @branch_id, @v_number, @v_fl_id, @sitecode, @barcode, getdate(), @location, @operator_id, @scan_image_size, @scan_image, @session_id);";
+            const string SQL1 = @"INSERT Voucher( job_id, iso_id,   branch_id,  v_number,  v_fl_id,  sitecode,  barcode, scandate,   location,  operator_id,  scan_image_size,  scan_image, session_id, v_protected)
+	                                    VALUES (@job_id, @iso_id, @branch_id, @v_number, @v_fl_id, @sitecode, @barcode, getdate(), @location, @operator_id, @scan_image_size, @scan_image, @session_id, @protected);
+                                  SELECT SCOPE_IDENTITY();";
 
             const string SQL2 = @"
             MERGE Voucher AS t
@@ -61,7 +63,8 @@ namespace ReceivingServiceLib.Data
 	        WHEN NOT MATCHED THEN	
 	            INSERT (job_id,   iso_id,   branch_id,   v_number,   v_fl_id,   sitecode,   barcode,  scandate,   location,   operator_id,   scan_image_size,  scan_image, session_id)
 	            VALUES (s.job_id, s.iso_id, s.branch_id, s.v_number, s.v_fl_id, s.sitecode, s.barcode, getdate(), s.location, s.operator_id, s.scan_image_size, s.scan_image, s.session_id);
-	            --OUTPUT deleted.*, $action, inserted.* INTO #MyTempTable;";
+	            --OUTPUT deleted.*, $action, inserted.* INTO #MyTempTable;
+                SELECT SCOPE_IDENTITY();";
 
             #endregion
 
@@ -70,6 +73,7 @@ namespace ReceivingServiceLib.Data
                 conn.Open();
 
                 var sql = merge ? SQL2 : SQL1;
+                int v_id;
 
                 using (var comm = new SqlCommand(sql, conn))
                 {
@@ -80,6 +84,7 @@ namespace ReceivingServiceLib.Data
                     comm.Parameters.AddWithValue("@branch_id", branchId);
                     comm.Parameters.AddWithValue("@v_number", voucherId);
                     comm.Parameters.AddWithValue("@sitecode", siteCode);
+                    comm.Parameters.AddWithValue("@protected", isProtected);
                     comm.Parameters.AddWithValue("@barcode", barCode);
                     comm.Parameters.AddWithValue("@location", locationId);
                     comm.Parameters.AddWithValue("@operator_id", operatorId);
@@ -88,17 +93,17 @@ namespace ReceivingServiceLib.Data
                     var p1 = comm.Parameters.Add("@scan_image", SqlDbType.Binary, length);
                     p1.Value = buffer;
                     comm.Parameters.AddWithValue("@session_Id", sessionId);
-                    comm.ExecuteNonQuery();
+                    v_id = comm.ExecuteScalar().Cast<int>();
                 }
             }
         }
 
-        public void AddCoversheet(int? folderId, int locationId, int operatorId, byte[] buffer, int length, string sessionId)
+        public void AddCoversheet(int? folderId, int locationId, int operatorId, byte[] buffer, int length, string sessionId, bool isProtected)
         {
             #region SQL
 
-            const string SQL = @"INSERT INTO [File] ([f_fl_id], [f_location], [f_operator_id], [f_session_id], [f_image_size], [f_image], [f_createdAt])
-                                             VALUES (@f_fl_id, @f_location, @f_operator_id, @f_session_id, @f_image_size, @f_image, @f_createdAt)";
+            const string SQL = @"INSERT INTO [File] ([f_fl_id], [f_location], [f_operator_id], [f_session_id], [f_image_size], [f_image], [f_createdAt], [f_protected])
+                                 VALUES (@f_fl_id, @f_location, @f_operator_id, @f_session_id, @f_image_size, @f_image, @f_createdAt, @protected)";
             
             #endregion
 
@@ -119,6 +124,7 @@ namespace ReceivingServiceLib.Data
                     var p1 = comm.Parameters.Add("@f_image", SqlDbType.Binary, length);
                     p1.Value = buffer;
                     comm.Parameters.AddWithValue("@session_Id", sessionId);
+                    comm.Parameters.AddWithValue("@protected", isProtected);
                     comm.ExecuteNonQuery();
                 }
             }
@@ -135,12 +141,13 @@ namespace ReceivingServiceLib.Data
             public int operator_id { get; set; }
             public string session_id { get; set; }
             public string v_name { get; set; }
+            public bool v_protected { get; set; }
 
             public SelectVouchersData()
             {
             }
 
-            public SelectVouchersData(int id, int v_number, string sitecode, string barcode, DateTime scandate, int location, int operator_id, string session_id, string v_name)
+            public SelectVouchersData(int id, int v_number, string sitecode, string barcode, DateTime scandate, int location, int operator_id, string session_id, string v_name, bool isProtected)
             {
                 this.id = id;
                 this.v_number = v_number;
@@ -151,6 +158,7 @@ namespace ReceivingServiceLib.Data
                 this.operator_id = operator_id;
                 this.session_id = session_id;
                 this.v_name = v_name;
+                this.v_protected = isProtected;
             }
         }
 
@@ -160,7 +168,7 @@ namespace ReceivingServiceLib.Data
 
             #region SQL
 
-            const string SQL = @"select id, job_id,  v_number, sitecode, barcode, scandate, location, operator_id, session_Id, v_name from Voucher
+            const string SQL = @"select id, job_id,  v_number, sitecode, barcode, scandate, location, operator_id, session_Id, v_name, v_protected from Voucher
                                 where iso_id = @iso_id and branch_id = @branch_id;";
 
             #endregion
@@ -191,7 +199,8 @@ namespace ReceivingServiceLib.Data
                                 var operator_id = r.Get<int>("operator_id").GetValueOrDefault();
                                 var session_id = r.GetString("session_Id");
                                 var v_name = r.GetString("v_name");
-                                var t = new SelectVouchersData(id, v_number, sitecode, barcode, scandate, location, operator_id, session_id, v_name);
+                                var v_protected = r.Get<bool>("v_protected").GetValueOrDefault();
+                                var t = new SelectVouchersData(id, v_number, sitecode, barcode, scandate, location, operator_id, session_id, v_name, v_protected);
                                 return t;
                             }));
                     }
@@ -491,15 +500,15 @@ namespace ReceivingServiceLib.Data
             }
         }
 
-        public void DeleteFile(int id, bool isVoucher)
+        public void DeleteVoucherOrFile(int id, bool isVoucher)
         {
             CheckConnectionStringThrow();
 
             #region SQL
 
             string SQL = isVoucher ? 
-                "update Voucher set v_fl_id = null where id = @id;" :
-                "update [File] set f_fl_id = null where f_id = @id;";
+                "update Voucher set v_fl_id = null, deletedAt=getdate() where id = @id;" :
+                "update [File] set f_fl_id = null, f_deletedAt=getdate() where f_id = @id;";
 
             #endregion
 
@@ -710,7 +719,7 @@ namespace ReceivingServiceLib.Data
 
             #region SQL
 
-            const string SQL = @"SELECT [id], [iso_id], [v_fl_id], [branch_id], [v_number], [session_Id], [sitecode], [v_name] FROM [Voucher] WHERE [v_fl_id] = @flId;";
+            const string SQL = @"SELECT [id], [iso_id], [v_fl_id], [branch_id], [v_number], [session_Id], [sitecode], [v_name] FROM [Voucher] WHERE [v_fl_id] = @flId and deletedAt is NULL;";
 
             #endregion
 
@@ -764,7 +773,7 @@ namespace ReceivingServiceLib.Data
 
             #region SQL
 
-            const string SQL = @"SELECT [f_id], [f_fl_id], [f_location], [f_operator_id], [f_country_id], [f_session_Id] , [f_name] FROM [File] WHERE [f_fl_id] = @flId;";
+            const string SQL = @"SELECT [f_id], [f_fl_id], [f_location], [f_operator_id], [f_country_id], [f_session_Id] , [f_name] FROM [File] WHERE [f_fl_id] = @flId and f_deletedAt is NULL;";
 
             #endregion
 
@@ -870,7 +879,7 @@ namespace ReceivingServiceLib.Data
             }
         }
 
-        public byte[] SelectVoucherById(int id, bool isVoucher)
+        public byte[] SelectVoucherById(int id, bool isVoucher, out bool isProtected)
         {
             CheckConnectionStringThrow();
 
@@ -880,9 +889,13 @@ namespace ReceivingServiceLib.Data
                 "scan_image_size" :
                 "f_image_size";
 
+            string ProtectedField = isVoucher ?
+                "v_protected" :
+                "f_protected";
+
             string SQL = isVoucher ?
-                 "SELECT [scan_image], [scan_image_size] FROM [Voucher] WHERE [id] = @id;" :
-                 "SELECT f_image, f_image_size FROM [File] WHERE f_id = @id";
+                 "SELECT [scan_image], [scan_image_size], [v_protected] FROM [Voucher] WHERE [id] = @id;" :
+                 "SELECT [f_image], [f_image_size], [f_protected] FROM [File] WHERE f_id = @id";
 
             #endregion
 
@@ -896,46 +909,18 @@ namespace ReceivingServiceLib.Data
 
                     using (var reader = comm.ExecuteReader(CommandBehavior.CloseConnection))
                     {
-                        while (reader.Read())
+                        if (reader.Read())
                         {
                             int size = reader.Get<int>(LengthField).GetValueOrDefault();
+                            isProtected = reader.Get<bool>(ProtectedField).GetValueOrDefault();
+
                             var buffer = new byte[size];
                             reader.GetBytes(0, 0, buffer, 0, size);
                             return buffer;
                         }
+                        isProtected = false;
                         return null;
                     }
-                }
-            }
-        }
-
-
-        public string FindVoucher(int countryId, int voucherId, int voucherIdCD)
-        {
-            CheckPTFConnectionStringThrow();
-
-            const string SQL = "select vp_site_code, vp_location_number from  VoucherPart where (vp_v_number = @v_number or vp_v_number = @v_numberCD) and vp_iso_id = @iso_id and vp_type_id = 3";
-
-            using (var conn = new SqlConnection(Global.Strings.PTFConnString))
-            {
-                conn.Open();
-
-                using (var comm = new SqlCommand(SQL, conn))
-                {
-                    comm.Parameters.AddWithValue("iso_id", countryId);
-                    comm.Parameters.AddWithValue("v_number", voucherId);
-                    comm.Parameters.AddWithValue("v_numberCD", voucherIdCD);
-
-                    using (var reader = comm.ExecuteReader(CommandBehavior.CloseConnection))
-                    {
-                        if (reader.Read())
-                        {
-                            string a = reader.GetString("vp_site_code");
-                            int b = reader.Get<int>("vp_location_number").GetValueOrDefault();
-                            return string.Concat(a, b);
-                        }
-                    }
-                    return null;
                 }
             }
         }
@@ -972,6 +957,40 @@ namespace ReceivingServiceLib.Data
 
             return ids;
         }
+
+        #region TRS
+
+        public string FindVoucher(int countryId, int voucherId, int voucherIdCD)
+        {
+            CheckPTFConnectionStringThrow();
+
+            const string SQL = "select vp_site_code, vp_location_number from  VoucherPart where (vp_v_number = @v_number or vp_v_number = @v_numberCD) and vp_iso_id = @iso_id and vp_type_id = 3";
+
+            using (var conn = new SqlConnection(Global.Strings.PTFConnString))
+            {
+                conn.Open();
+
+                using (var comm = new SqlCommand(SQL, conn))
+                {
+                    comm.Parameters.AddWithValue("iso_id", countryId);
+                    comm.Parameters.AddWithValue("v_number", voucherId);
+                    comm.Parameters.AddWithValue("v_numberCD", voucherIdCD);
+
+                    using (var reader = comm.ExecuteReader(CommandBehavior.CloseConnection))
+                    {
+                        if (reader.Read())
+                        {
+                            string a = reader.GetString("vp_site_code");
+                            int b = reader.Get<int>("vp_location_number").GetValueOrDefault();
+                            return string.Concat(a, b);
+                        }
+                    }
+                    return null;
+                }
+            }
+        }
+
+        #endregion
 
         #endregion
 

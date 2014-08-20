@@ -38,13 +38,6 @@ namespace ReceivingServiceLib.FileWorkers
                     var uploadRoot = new DirectoryInfo(Global.Strings.UPLOADROOT);
                     uploadRoot.CreateIfNotExist();
 
-                    //TODO: When it starts if there are zip insert them to the database
-
-                    //var zips = uploadRoot.GetFiles(".zip");
-                    //foreach (var zip in zips)
-                    //{
-                    //}
-
                     var dirs = uploadRoot.GetDirectories();                    
 
                     if (dirs.Length != 0)
@@ -112,12 +105,15 @@ namespace ReceivingServiceLib.FileWorkers
                                 zipFile.DeleteSafe();
                                 
                                 fac.CreateZip(zipPath, fromDir.FullName, message);
+
+                                string binPath = Path.Combine(uploadRoot.FullName, string.Concat(fromDir.Name, ".bin"));
+                                var binFile = new FileInfo(binPath);
+                                zipFile.EncriptFile(binFile);
 #if DEBUGGER
                                 Trace.WriteLine("Read xml ".concat(fromDir.Name), Strings.APPNAME);
                                 Trace.WriteLine("Sql Insert ".concat(fromDir.Name), Strings.APPNAME);
 #endif
-
-                                using (var file = zipFile.Open(FileMode.Open))
+                                using (var file = binFile.Open(FileMode.Open))
                                 using (var reader = new BinaryReader(file))
                                 {
                                     var length = reader.Read(m_Buffer50MB, 0, (int)file.Length);
@@ -125,27 +121,26 @@ namespace ReceivingServiceLib.FileWorkers
                                     if (isVoucher)
                                     {
                                         DataAccess.Instance.AddVoucher(jobId, countryId, retailerId, voucherId, folderId,
-                                            siteCode, barCode, locationId, userId, m_Buffer50MB, length, sessionId, false);
+                                            siteCode, barCode, locationId, userId, m_Buffer50MB, length, sessionId, false, true);
                                     }
                                     else
                                     {
-                                        DataAccess.Instance.AddCoversheet(folderId,
-                                            locationId, userId, m_Buffer50MB, length, sessionId);
+                                        DataAccess.Instance.AddCoversheet(folderId, locationId, userId, m_Buffer50MB, length, sessionId, true);
                                     }
                                 }
 
 #if DEBUGGER
                                 Trace.WriteLine("Save to history ".concat(fromDir.Name), Strings.APPNAME);
 #endif
-                                
                                 var voucherDirectory = fac.CreateDirectoryHerarchy(Global.Strings.VOCUHERSFOLDER, countryId, retailerId, voucherId);
                                 fromDir.CopyFiles(voucherDirectory, true);
-
+                           
+#if DEBUGGER
                                 Trace.WriteLine("Clean up ".concat(fromDir.Name), Strings.APPNAME);
-
+#endif
                                 fromDir.DeleteSafe(true);
                                 zipFile.DeleteSafe();
-
+                                binFile.DeleteSafe();
                                 Array.Clear(m_Buffer50MB, 0, m_Buffer50MB.Length);
                             }
                             catch (Exception ex)

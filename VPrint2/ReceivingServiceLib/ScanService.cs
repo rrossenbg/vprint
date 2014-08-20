@@ -518,7 +518,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("DeleteFile");
 
-                DataAccess.Instance.DeleteFile(id, isVoucher);
+                DataAccess.Instance.DeleteVoucherOrFile(id, isVoucher);
             }
             catch (Exception ex)
             {
@@ -624,6 +624,16 @@ namespace ReceivingServiceLib
             }
         }
 
+        /// <summary>
+        /// Read voucher/file from database
+        /// </summary>
+        /// <param name="fileId"></param>
+        /// <param name="isVoucher"></param>
+        /// <param name="signed"></param>
+        /// <param name="startFrom"></param>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns></returns>
         public byte[] SelectFileById(int fileId, bool isVoucher, bool signed, int startFrom, string s1, string s2)
         {
             //if (!Debugger.IsAttached)
@@ -640,68 +650,82 @@ namespace ReceivingServiceLib
 
                     if (buffer.IsFirstRun)
                     {
-                        if (isVoucher)
+                        if (signed)
                         {
-                            if (signed)
+                            if (!isVoucher)
+                                throw new NotImplementedException("Signing for files not implemented yet.");
+
+                            #region signed voucher
+                            //signed voucher
+                            var db = DataAccess.Instance;
+                            var vinfo = db.SelectVoucherInfo(fileId);
+                            var countryName = ISOs.ResourceManager.GetString(string.Concat('_', vinfo.isoId));
+                            var buf = db.SelectImageById(fileId, true);
+
+                            DirectoryInfo exportDirectory = null;
+                            FileInfo exportZipFile = null;
+                            DirectoryInfo operationDirectory = null;
+                            FileInfo operationZipFile = null;
+
+                            try
                             {
-                                //signed voucher
-                                var db = DataAccess.Instance;
-                                var vinfo = db.SelectVoucherInfo(fileId);
-                                var countryName = ISOs.ResourceManager.GetString(string.Concat('_', vinfo.isoId));
+                                var uploadRootFolder = new DirectoryInfo(Global.Strings.UPLOADROOT);
+                                uploadRootFolder.EnsureDirectory();
 
-                                var buf = db.SelectImageById(fileId, true);
+                                exportDirectory = uploadRootFolder.Combine(vinfo.session_Id);
+                                exportDirectory.EnsureDirectory();
 
-                                DirectoryInfo exportDirectory = null;
-                                FileInfo exportZipFile = null;
-                                DirectoryInfo operationDirectory = null;
-                                FileInfo operationZipFile = null;
+                                operationDirectory = uploadRootFolder.Combine(vinfo.session_Id + "_result");
+                                operationDirectory.EnsureDirectory();
 
-                                try
+                                exportZipFile = uploadRootFolder.CombineFileName(vinfo.session_Id + ".zip");
+                                operationZipFile = uploadRootFolder.CombineFileName(vinfo.session_Id + "result.zip");
+
+                                File.WriteAllBytes(exportZipFile.FullName, buf);
+
+                                var files = fileAccess.Instance.ExtractFileZip(exportZipFile.FullName, exportDirectory.FullName);
+                                var imageFileToSing = files.Max((f, f1) => f.Length > f1.Length);
+
+                                using (var bmp = (Bitmap)Image.FromFile(imageFileToSing.FullName))
                                 {
-                                    var uploadRootFolder = new DirectoryInfo(Global.Strings.UPLOADROOT);
-                                    uploadRootFolder.EnsureDirectory();
+                                    var resultFile = pdfFileAccess.Instance.CreateSignPdf(bmp, "barcode", countryName, "Madrid", vinfo.branch_id, vinfo.v_number);
+                                    var imageFileName = operationDirectory.CombineFileName(vinfo.session_Id + ".pdf").FullName;
+                                    File.Move(resultFile, imageFileName);
 
-                                    exportDirectory = uploadRootFolder.Combine(vinfo.session_Id);
-                                    exportDirectory.EnsureDirectory();
-
-                                    operationDirectory = uploadRootFolder.Combine(vinfo.session_Id + "_result");
-                                    operationDirectory.EnsureDirectory();
-
-                                    exportZipFile = uploadRootFolder.CombineFileName(vinfo.session_Id + ".zip");
-                                    operationZipFile = uploadRootFolder.CombineFileName(vinfo.session_Id + "result.zip");
-
-                                    File.WriteAllBytes(exportZipFile.FullName, buf);
-
-                                    var files = fileAccess.Instance.ExtractFileZip(exportZipFile.FullName, exportDirectory.FullName);
-                                    var imageFileToSing = files.Max((f, f1) => f.Length > f1.Length);
-
-                                    using (var bmp = (Bitmap)Image.FromFile(imageFileToSing.FullName))
-                                    {
-                                        var resultFile = pdfFileAccess.Instance.CreateSignPdf(bmp, "barcode", countryName, "Madrid", vinfo.branch_id, vinfo.v_number);
-                                        var imageFileName = operationDirectory.CombineFileName(vinfo.session_Id + ".pdf").FullName;
-                                        File.Move(resultFile, imageFileName);
-
-                                        fileAccess.Instance.CreateZip(operationZipFile.FullName, operationDirectory.FullName, "File created at: " + DateTime.Now);
-                                        buffer.Buffer = operationZipFile.ReadAllBytes();
-                                    }
-                                }
-                                finally
-                                {
-                                    exportDirectory.DeleteSafe(true);
-                                    exportZipFile.DeleteSafe();
-                                    operationZipFile.DeleteSafe();
+                                    fileAccess.Instance.CreateZip(operationZipFile.FullName, operationDirectory.FullName, "File created at: " + DateTime.Now);
+                                    buffer.Buffer = operationZipFile.ReadAllBytes();
                                 }
                             }
-                            else
+                            finally
                             {
-                                //cover page
-                                buffer.Buffer = DataAccess.Instance.SelectVoucherById(fileId, true);
+                                exportDirectory.DeleteSafe(true);
+                                exportZipFile.DeleteSafe();
+                                operationZipFile.DeleteSafe();
                             }
+                            #endregion
                         }
                         else
                         {
-                            //voucher
-                            buffer.Buffer = DataAccess.Instance.SelectVoucherById(fileId, false);
+                            //voucher || file
+                            bool isProtected = false;
+                            byte[] buf = DataAccess.Instance.SelectVoucherById(fileId, isVoucher, out isProtected);
+
+                            if (isProtected)
+                            {
+                                var downloadRoot = new DirectoryInfo(Global.Strings.DOWNLOADROOT);
+                                downloadRoot.CreateIfNotExist();
+                                var binInfo = downloadRoot.CombineFileName(string.Concat(fileId, ".bin"));
+                                binInfo.WriteAllBytes(buf);
+                                var zipInfo = downloadRoot.CombineFileName(string.Concat(fileId, ".zip"));
+                                binInfo.DecriptFile(zipInfo);
+                                buffer.Buffer = zipInfo.ReadAllBytes();
+                                zipInfo.DeleteSafe();
+                                binInfo.DeleteSafe();
+                            }
+                            else
+                            {
+                                buffer.Buffer = buf;
+                            }
                         }
                     }
 
