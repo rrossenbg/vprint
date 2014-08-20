@@ -226,11 +226,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceControlManager", "Se
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KNOWHOW", "KNOWHOW", "{FEE03215-3529-45BA-8904-3953B62A7A08}"
 	ProjectSection(SolutionItems) = preProject
+		KNOWHOW\ab011c03-fd67-40af-8f5c-26edceaf21d3.pdf = KNOWHOW\ab011c03-fd67-40af-8f5c-26edceaf21d3.pdf
 		KNOWHOW\Canon.txt = KNOWHOW\Canon.txt
 		KNOWHOW\Canon.xlsx = KNOWHOW\Canon.xlsx
+		digital camera remote capture.txt = digital camera remote capture.txt
 		Panasonics.txt = Panasonics.txt
 		Samsung.txt = Samsung.txt
+		SCANNING PROJECT - 29-04-14 - 14pm.txt = SCANNING PROJECT - 29-04-14 - 14pm.txt
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOWNLOADS", "DOWNLOADS", "{5B5C91F7-6D59-46EA-8972-9917F9930AC9}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution

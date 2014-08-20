@@ -12,6 +12,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VPrint.Common;
 using VPrinting;
 using VPrinting.Common;
+using AForge.Imaging;
 
 namespace VPrintTest
 {
@@ -260,18 +261,91 @@ namespace VPrintTest
         {
             try
             {
-                const string FILE1 = @"C:\IMAGES\PB\PB742042.jpg";
-                const string FILE2 = @"C:\IMAGES\PB\PB742042_done.jpg";
-                const string FILE3 = @"C:\IMAGES\PB\PB742042_done2.jpg";
+                const string FILE1 = @"C:\IMAGES\PB\PB742030.jpg";
+                const string FILE2 = @"C:\IMAGES\PB\PB742030_done2.jpg";
+                const string FILE3 = @"C:\IMAGES\PB\PB742030_done3.jpg";
+                const string FILE4 = @"C:\IMAGES\PB\PB742030_done4.jpg";
+
+                //using (var image = (Bitmap)Bitmap.FromFile(FILE1))
+                //{
+                //    //Invert filter = new Invert();
+                //    //filter.ApplyInPlace(image);
+                //    using (var img = image.ConvertToBitonal())
+                //    {
+                //        img.Save(FILE2, ImageFormat.Jpeg);
+                //    }
+                //}
 
                 using (var image = (Bitmap)Bitmap.FromFile(FILE1))
-                using (var img = image.ConvertToBitonal())
                 {
-                    img.Save(FILE2, ImageFormat.Jpeg);
+                    EuclideanColorFiltering filter = new EuclideanColorFiltering();
+                    filter.CenterColor = new AForge.Imaging.RGB(Color.BlueViolet); //Pure White
+                    filter.Radius = 0; //Increase this to allow off-whites
+                    filter.FillColor = new AForge.Imaging.RGB(Color.Red); //Replacement Colour
+                    filter.ApplyInPlace(image);
                 }
+
+                return;
+
+                using (var image = (Bitmap)Bitmap.FromFile(FILE1))
+                {
+                    FiltersSequence seq = new FiltersSequence();
+                    seq.Add(Grayscale.CommonAlgorithms.BT709);  //First add  GrayScaling filter
+                    seq.Add(new OtsuThreshold()); //Then add binarization(thresholding) filter
+                    var img = seq.Apply(image); // Apply filters on source image
+                    img.Save(FILE2, ImageFormat.Jpeg);
+                    return;
+                }
+
+                using (var image = (Bitmap)Bitmap.FromFile(FILE1))
+                {
+                    Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
+                    // apply the filter
+                    using (Bitmap grayImage = filter.Apply(image))
+                    {
+                        VerticalIntensityStatistics vis = new VerticalIntensityStatistics(grayImage);
+                        // get gray histogram (for grayscale image)
+                        var histogram = vis.Gray;
+                        // output some histogram's information
+                        System.Diagnostics.Debug.WriteLine("Mean = " + histogram.Mean);
+                        System.Diagnostics.Debug.WriteLine("Min = " + histogram.Min);
+                        System.Diagnostics.Debug.WriteLine("Max = " + histogram.Max);
+                    }
+                }
+
+                
 
                 using (var image = (Bitmap)Bitmap.FromFile(FILE2))
                 {
+                    VerticalIntensityStatistics vis = new VerticalIntensityStatistics(image);
+                    // get gray histogram (for grayscale image)
+                    var histogram = vis.Gray;
+                    // output some histogram's information
+                    System.Diagnostics.Debug.WriteLine("Mean = " + histogram.Mean);
+                    System.Diagnostics.Debug.WriteLine("Min = " + histogram.Min);
+                    System.Diagnostics.Debug.WriteLine("Max = " + histogram.Max);
+                }
+                //using (var image = (Bitmap)Bitmap.FromFile(FILE2))
+                //{
+                //    //EuclideanColorFiltering filter = new EuclideanColorFiltering();
+                //    //// set center colol and radius
+                //    //filter.CenterColor = new RGB(82, 26, 39);
+                //    //filter.Radius = 100;
+                //    //// apply the filter
+                //    //filter.ApplyInPlace(image);
+
+                //    Median filter2 = new Median();
+                //    // apply the filter
+                //    filter2.ApplyInPlace(image);
+                //    image.Save(FILE3, ImageFormat.Jpeg);
+                //}
+
+                using (var image = (Bitmap)Bitmap.FromFile(FILE2))
+                {
+                    //Median filter2 = new Median();
+                    //// apply the filter
+                    //filter2.ApplyInPlace(image);
+
                     //ConservativeSmoothing filter = new ConservativeSmoothing();
                     //filter.ApplyInPlace(image);
 
@@ -282,15 +356,24 @@ namespace VPrintTest
                     //filter.ColorPower = 0.5;
                     //// apply the filter
                     //filter.ApplyInPlace(image);
+
+                    ///////////////////////////////////////////
                     
                     // create filter
-                    BlobsFiltering filter = new BlobsFiltering();
+                    BlobsFiltering filter3 = new BlobsFiltering();
                     // configure filter
-                    filter.CoupledSizeFiltering = true;
-                    filter.MinWidth = 70;
-                    filter.MinHeight = 70;
-                    // apply the filter
-                    filter.ApplyInPlace(image);
+                    //filter.CoupledSizeFiltering = true;
+                    filter3.MinWidth = 20;
+                    filter3.MinHeight = 20;
+                    filter3.MaxWidth = 150;
+                    filter3.MaxHeight = 150;
+                    filter3.ApplyInPlace(image); //apply the filter
+                    ////////////////////////////
+
+
+                    //ExtractBiggestBlob filter = new ExtractBiggestBlob();
+                    //// apply the filter
+                    //Bitmap biggestBlobsImage = filter.Apply(image);
                     image.Save(FILE3, ImageFormat.Jpeg);
                 }
             }

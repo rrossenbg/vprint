@@ -33,22 +33,16 @@ namespace ReceivingServiceLib.Data
 
         public void AddVoucher(
             int jobId, int isoId, int branchId, int voucherId, int? folderId, string siteCode, string barCode,
-            int locationId, int operatorId, byte[] buffer, int length, string sessionId)
+            int locationId, int operatorId, byte[] buffer, int length, string sessionId, bool merge)
         {
-            Security.Check(true);
-
             CheckConnectionStringThrow();
 
             #region SQL
 
-#if USE_INSERT
-
-            const string SQL = @"INSERT Voucher( job_id, iso_id,   branch_id,  v_number,  v_fl_id,  sitecode,  barcode, scandate,   location,  operator_id,  scan_image_size,  scan_image, session_id)
+            const string SQL1 = @"INSERT Voucher( job_id, iso_id,   branch_id,  v_number,  v_fl_id,  sitecode,  barcode, scandate,   location,  operator_id,  scan_image_size,  scan_image, session_id)
 	                                    VALUES (@job_id, @iso_id, @branch_id, @v_number, @v_fl_id, @sitecode, @barcode, getdate(), @location, @operator_id, @scan_image_size, @scan_image, @session_id);";
 
-#elif USE_MERGE
-
-            const string SQL = @"
+            const string SQL2 = @"
             MERGE Voucher AS t
             USING (SELECT @job_id, @iso_id, @branch_id, @v_number, @v_fl_id, @sitecode, @barcode, @location, @operator_id, @scan_image_size, @scan_image, @session_Id) AS s 
 			              (job_id, iso_id,  branch_id,  v_number, v_fl_id, sitecode,  barcode,  location, operator_id,   scan_image_size, scan_image, session_id)
@@ -69,15 +63,15 @@ namespace ReceivingServiceLib.Data
 	            VALUES (s.job_id, s.iso_id, s.branch_id, s.v_number, s.v_fl_id, s.sitecode, s.barcode, getdate(), s.location, s.operator_id, s.scan_image_size, s.scan_image, s.session_id);
 	            --OUTPUT deleted.*, $action, inserted.* INTO #MyTempTable;";
 
-#endif
-
             #endregion
 
             using (var conn = new SqlConnection(Global.Strings.ConnString))
             {
                 conn.Open();
 
-                using (var comm = new SqlCommand(SQL, conn))
+                var sql = merge ? SQL2 : SQL1;
+
+                using (var comm = new SqlCommand(sql, conn))
                 {
                     comm.CommandTimeout = 0;
                     comm.CommandType = CommandType.Text;
@@ -101,8 +95,6 @@ namespace ReceivingServiceLib.Data
 
         public void AddCoversheet(int? folderId, int locationId, int operatorId, byte[] buffer, int length, string sessionId)
         {
-            Security.Check(true);
-
             #region SQL
 
             const string SQL = @"INSERT INTO [File] ([f_fl_id], [f_location], [f_operator_id], [f_session_id], [f_image_size], [f_image], [f_createdAt])
@@ -285,8 +277,6 @@ namespace ReceivingServiceLib.Data
 
         public byte[] SelectImageById(int id, bool isVoucher)
         {
-            Security.Check(true);
-
             CheckConnectionStringThrow();
 
             #region SQL
@@ -919,6 +909,7 @@ namespace ReceivingServiceLib.Data
             }
         }
 
+
         public string FindVoucher(int countryId, int voucherId, int voucherIdCD)
         {
             CheckPTFConnectionStringThrow();
@@ -947,6 +938,39 @@ namespace ReceivingServiceLib.Data
                     return null;
                 }
             }
+        }
+
+        public List<int> FindVoucherImage(int countryId, int voucherId, int voucherIdCD)
+        {
+            CheckConnectionStringThrow();
+
+            //, branch_id, v_fl_id, sitecode, barcode, scandate, location, operator_id, scan_image_size
+            const string SQL = "select id from voucher where iso_id = @iso_id and (v_number = @v_number or v_number = @v_numberCD)";
+
+            List<int> ids = new List<int>();
+
+            using (var conn = new SqlConnection(Global.Strings.ConnString))
+            {
+                conn.Open();
+
+                using (var comm = new SqlCommand(SQL, conn))
+                {
+                    comm.Parameters.AddWithValue("iso_id", countryId);
+                    comm.Parameters.AddWithValue("v_number", voucherId);
+                    comm.Parameters.AddWithValue("v_numberCD", voucherIdCD);
+
+                    using (var reader = comm.ExecuteReader(CommandBehavior.CloseConnection))
+                    {
+                        if (reader.Read())
+                        {
+                            int id = reader.Get<int>("id").GetValueOrDefault();
+                            ids.Add(id);
+                        }
+                    }
+                }
+            }
+
+            return ids;
         }
 
         #endregion

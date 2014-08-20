@@ -190,10 +190,10 @@ namespace FintraxPTFImages.Models
                 result.Number = voucherReader["v_number"].Cast<string>("");
                 result.CCNumber = voucherReader["v_cc_number_masked"].Cast<string>("");//v_cc_number
                 result.ChequeName = voucherReader["v_cheque_name"].Cast<string>("");
-                result.BankDetails = string.Format("{0}/ {1}/ {2}",
-                    voucherReader["v_bank_account_name"].Cast<string>(),
-                    voucherReader["v_bank_account_no"].Cast<string>(),
-                    voucherReader["v_bank_sort_code"].Cast<string>());
+                result.BankDetails = string.Format("acc.name: '{0}'/ acc.num: '{1}'/ sort.code: '{2}'",
+                    voucherReader["v_bank_account_name"].Cast<string>("na"),
+                    voucherReader["v_bank_account_no"].Cast<string>("na"),
+                    voucherReader["v_bank_sort_code"].Cast<string>("na"));
                 result.StampedByPablo = voucherReader["v_ic_id"].Cast<int>() == 25;
                 result.RejectedByPablo = voucherReader["v_ic_id"].Cast<int>() == 26;
             }

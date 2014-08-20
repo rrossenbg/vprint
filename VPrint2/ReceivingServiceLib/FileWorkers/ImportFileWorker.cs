@@ -125,7 +125,7 @@ namespace ReceivingServiceLib.FileWorkers
                                     if (isVoucher)
                                     {
                                         DataAccess.Instance.AddVoucher(jobId, countryId, retailerId, voucherId, folderId,
-                                            siteCode, barCode, locationId, userId, m_Buffer50MB, length, sessionId);
+                                            siteCode, barCode, locationId, userId, m_Buffer50MB, length, sessionId, false);
                                     }
                                     else
                                     {
