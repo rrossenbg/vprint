@@ -30,7 +30,6 @@ namespace ReceivingServiceLib
     {
         public SQL()
         {
-            Security.Check();
         }
         /// <summary>
         /// Executes SqlDbCommand

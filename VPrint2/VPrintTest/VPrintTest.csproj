@@ -91,6 +91,10 @@
     <Reference Include="AForge.Imaging.Formats">
       <HintPath>..\..\..\Program Files (x86)\AForge.NET\Framework\Release\AForge.Imaging.Formats.dll</HintPath>
     </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\AForge.NET\Framework\Release\AForge.Math.dll</HintPath>
+    </Reference>
     <Reference Include="DTK.BarReader, Version=4.2.69.0, Culture=neutral, PublicKeyToken=ec94283068bbf5cd, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\DTK.BarReader.dll</HintPath>

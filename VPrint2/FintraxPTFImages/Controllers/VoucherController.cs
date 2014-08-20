@@ -304,19 +304,20 @@ namespace FintraxPTFImages
                 if (data != null)
                 {
                     //data.CountryID = 826;
-                    //data.VoucherID = 15715619;
-                    if (PTFDataAccess.CheckP1Exists(data.CountryID, data.VoucherID))
+                    //data.VoucherID = 15715619; 
+                    // Ravi: Don't test!
+                    //if (PTFDataAccess.CheckP1Exists(data.CountryID, data.VoucherID))
                     {
                         PTFDataAccess.ExcudeFromDebitRun(data.CountryID, data.RetailerID, data.VoucherID, CurrentUser.UserID);
                         PTFDataAccess.LogVoucher(data.CountryID, data.VoucherID, CurrentUser.UserID);
                         ViewBag.Info = PTFDataAccess.SelectVoucherInfo(data.CountryID, data.VoucherID);
                         //return RedirectToAction("Index", "Home");
                     }
-                    else
-                    {
-                        ViewBag.Err =
-                            string.Format("P1 doesn't exist for Iso:'{0}' Branch:'{1}' Voucher:'{2}'. Please process voucher by using voucher entry in TRS.", data.CountryID, data.RetailerID, data.VoucherID);
-                    }
+                    //else
+                    //{
+                    //    ViewBag.Err =
+                    //        string.Format("P1 doesn't exist for Iso:'{0}' Branch:'{1}' Voucher:'{2}'. Please process voucher by using voucher entry in TRS.", data.CountryID, data.RetailerID, data.VoucherID);
+                    //}
                 }
                 else
                 {

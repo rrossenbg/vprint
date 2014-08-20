@@ -281,6 +281,22 @@ namespace ReceivingServiceLib
             }
         }
 
+        public int[] FindVoucherImage(int countryId, int voucherId, int voucherIdCD, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("FindVoucherImage");
+
+                var da = DataAccess.Instance;
+                return da.FindVoucherImage(countryId, voucherId, voucherIdCD).ToArray();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+        }
+
         #endregion
 
         #region REPORTS

@@ -30,7 +30,6 @@ namespace ReceivingServiceLib
         [Obfuscation]
         public static string join(this string format, params object[] data)
         {
-            Security.Check();
             return string.Join("", data);
         }
 
@@ -38,7 +37,6 @@ namespace ReceivingServiceLib
         [Obfuscation]
         public static bool IsNullOrWhiteSpace(this string value)
         {
-            Security.Check();
             return string.IsNullOrWhiteSpace(value);
         }
 
@@ -116,7 +114,6 @@ namespace ReceivingServiceLib
         [Obfuscation]
         public static T Cast<T>(this object value) where T : IConvertible
         {
-            Security.Check();
             return (T)Convert.ChangeType(value, typeof(T));
         }
 
@@ -124,8 +121,7 @@ namespace ReceivingServiceLib
         [Obfuscation]
         public static string concat(this string str, params object[] values)
         {
-            Security.Check();
-            StringBuilder b = new StringBuilder(str);
+            var b = new StringBuilder(str);
             foreach (var o in values)
                 b.Append(o);
             return b.ToString();
@@ -160,7 +156,6 @@ namespace ReceivingServiceLib
         [Obfuscation]
         public static XElement ElementThrow(this XContainer container, string name)
         {
-            Security.Check();
             var node = container.Element(name);
             if (node == null)
                 throw new Exception("Can not find " + name);
@@ -183,8 +178,6 @@ namespace ReceivingServiceLib
         {
             Debug.Assert(from != null);
 
-            Security.Check();
-
             var files = from.GetFiles();
 
             foreach (var file in files)
@@ -197,7 +190,6 @@ namespace ReceivingServiceLib
         [Obfuscation]
         public static bool EqualsNoCase(this string value1, string value2)
         {
-            Security.Check();
             return string.Equals(value1, value2, StringComparison.InvariantCultureIgnoreCase);
         }
 
@@ -205,7 +197,6 @@ namespace ReceivingServiceLib
         [Obfuscation]
         public static string Unique(this string str)
         {
-            Security.Check();
             var u = Guid.NewGuid().ToString().Replace('-', '_');
             return string.Concat(str, u);
         }
@@ -228,7 +219,6 @@ namespace ReceivingServiceLib
         [Obfuscation]
         public static string ToUniqueFileName(this string name)
         {
-            Security.Check();
             return Path.GetFileNameWithoutExtension(name).Unique().Limit(MAX_FILE_LENGTH).concat(Path.GetExtension(name));
         }
 
@@ -236,7 +226,6 @@ namespace ReceivingServiceLib
         [Obfuscation]
         public static string FromObject<T>(this XmlSerializer serializer, T value)
         {
-            Security.Check();
             var builder = new StringBuilder();
             using (var str = XmlWriter.Create(new StringWriter(builder)))
             {
@@ -251,7 +240,6 @@ namespace ReceivingServiceLib
         public static T ToObject<T>(this string text)
         {
             Debug.Assert(!string.IsNullOrEmpty(text));
-            Security.Check();
             XmlSerializer formatter = new XmlSerializer(typeof(T));
             using (var str = XmlReader.Create(new StringReader(text)))
             {
@@ -264,7 +252,6 @@ namespace ReceivingServiceLib
         [Obfuscation]
         public static T ToObject<T>(this XmlSerializer serializer, string text)
         {
-            Security.Check();
             using (var str = XmlReader.Create(new StringReader(text)))
             {
                 Debug.Assert(str != null);
@@ -274,9 +261,14 @@ namespace ReceivingServiceLib
 
         #region SECURITY
         [Obfuscation(StripAfterObfuscation = true)]
-        private static readonly byte[] rgbIV = Encoding.ASCII.GetBytes("ryojvlzmdalyglrj");
+        private static readonly byte[] IVString = Encoding.ASCII.GetBytes("ryojvlzmdalyglrj");
         [Obfuscation(StripAfterObfuscation = true)]
-        private static readonly byte[] key = Encoding.ASCII.GetBytes("hcxilkqbbhczfeultgbskdmaunivmfuo");
+        private static readonly byte[] keyString = Encoding.ASCII.GetBytes("hcxilkqbbhczfeultgbskdmaunivmfuo");
+
+        [Obfuscation(StripAfterObfuscation = true)]
+        private static readonly byte[] IVFile = Encoding.ASCII.GetBytes("RYO777ZMDALYGLRJ");
+        [Obfuscation(StripAfterObfuscation = true)]
+        private static readonly byte[] keyFile = Encoding.ASCII.GetBytes("HCXILKQBBHCZF666TGBSKDMAUNIVMFUO");
         #endregion
 
         [TargetedPatchingOptOut("na")]
@@ -291,13 +283,30 @@ namespace ReceivingServiceLib
             using (var rijn = SymmetricAlgorithm.Create())
             using (var memory = new MemoryStream())
             {
-                using (var cs = new CryptoStream(memory, rijn.CreateEncryptor(key, rgbIV), CryptoStreamMode.Write))
+                using (var cs = new CryptoStream(memory, rijn.CreateEncryptor(keyString, IVString), CryptoStreamMode.Write))
                 {
                     cs.Write(clearTextBytes, 0, clearTextBytes.Length);
                     cs.Close();
                 }
                 return Convert.ToBase64String(memory.ToArray());
             }
+        }
+
+        private const int BUFSIZE = 16384;
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static void EncriptFile(this FileInfo fromFile, FileInfo toFile)
+        {
+            Debug.Assert(fromFile != null);
+            Debug.Assert(toFile != null);
+
+            using (SymmetricAlgorithm algorithm = Rijndael.Create())
+            using (ICryptoTransform encryptor = algorithm.CreateEncryptor(keyFile, IVFile))
+            using (Stream from = fromFile.Open(FileMode.Open, FileAccess.Read))
+            using (Stream to = toFile.Open(FileMode.OpenOrCreate, FileAccess.Write))
+            using (Stream c = new CryptoStream(to, encryptor, CryptoStreamMode.Write))
+                from.CopyTo(c, BUFSIZE);
         }
 
         [TargetedPatchingOptOut("na")]
@@ -312,7 +321,7 @@ namespace ReceivingServiceLib
             using (var rijn = SymmetricAlgorithm.Create())
             using (var memory = new MemoryStream())
             {
-                using (var cs = new CryptoStream(memory, rijn.CreateDecryptor(key, rgbIV), CryptoStreamMode.Write))
+                using (var cs = new CryptoStream(memory, rijn.CreateDecryptor(keyString, IVString), CryptoStreamMode.Write))
                 {
                     cs.Write(encryptedTextBytes, 0, encryptedTextBytes.Length);
                     cs.Close();
@@ -324,12 +333,25 @@ namespace ReceivingServiceLib
 
         [TargetedPatchingOptOut("na")]
         [Obfuscation]
+        public static void DecriptFile(this FileInfo fromFile, FileInfo toFile)
+        {
+            Debug.Assert(fromFile != null);
+            Debug.Assert(toFile != null);
+
+            using (SymmetricAlgorithm algorithm = Rijndael.Create())
+            using (ICryptoTransform decryptor = algorithm.CreateDecryptor(keyFile, IVFile))
+            using (Stream from = fromFile.Open(FileMode.Open, FileAccess.Read))
+            using (Stream to = toFile.Open(FileMode.OpenOrCreate, FileAccess.Write))
+            using (Stream c = new CryptoStream(from, decryptor, CryptoStreamMode.Read))
+                c.CopyTo(to, BUFSIZE);     
+        }
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
         public static string Reverse(this string value)
         {
             if (value == null)
                 throw new ArgumentNullException("value");
-
-            Security.Check();
 
             char[] charArray = value.ToCharArray();
             Array.Reverse(charArray);
@@ -372,9 +394,7 @@ namespace ReceivingServiceLib
             Debug.Assert(list != null);
             Debug.Assert(funct != null);
 
-            Security.Check();
-
-            StringBuilder b = new StringBuilder();
+            var b = new StringBuilder();
 
             for (int i = 0; i < list.Count; i++)
             {
