@@ -40,6 +40,7 @@ namespace ReceivingService
             strings.ConnString = ConfigurationManager.ConnectionStrings["PTF_ImagesDB"].ConnectionString.IfNullOrEmptyThrow<ArgumentException>();
             strings.PTFConnString = ConfigurationManager.ConnectionStrings["PTF_DB"].ConnectionString.IfNullOrEmptyThrow<ArgumentException>();
             strings.UPLOADROOT = ConfigurationManager.AppSettings["UPLOADFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
+            strings.DOWNLOADROOT = ConfigurationManager.AppSettings["DOWNLOADFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
             strings.VOCUHERSFOLDER = ConfigurationManager.AppSettings["VOUCHERSFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
             strings.VOCUHERSEXPORTFOLDER = ConfigurationManager.AppSettings["VOCUHERSEXPORTFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
             strings.UPLOADERRORS = ConfigurationManager.AppSettings["UPLOADERRORS"].IfNullOrEmptyThrow<ArgumentException>();
