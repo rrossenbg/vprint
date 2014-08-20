@@ -12,10 +12,15 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css">
-    <script>
+    <script type="text/javascript">
         $(function () {
             $("#dialog").dialog();
         });
+
+        function DeleteTextBox() {
+            var txt = document.getElementsByName("Barcode");
+            txt[0].value = "";
+        }
     </script>
 </head>
 <body>
@@ -32,6 +37,7 @@
                 </p>
                 <p>
                     <input type="submit" value="Submit" />
+                    <input type="button" value="Delete" onclick="DeleteTextBox()" />
                 </p>
             }
         </div>
