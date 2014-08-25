@@ -5,6 +5,7 @@
 using System.IO;
 using System.Runtime;
 using System.Diagnostics;
+using System;
 
 namespace FintraxPTFImages
 {
@@ -30,6 +31,30 @@ namespace FintraxPTFImages
             Debug.Assert(info != null);
             foreach (var dir in info.GetDirectories())
                 dir.Delete(recursive);
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static void DeleteSubFoldersSafe(this DirectoryInfo info, bool recursive = true)
+        {
+            Debug.Assert(info != null);
+            try
+            {
+                foreach (var dir in info.GetDirectories())
+                {
+                    try
+                    {
+                        dir.Delete(recursive);
+                    }
+                    catch (Exception ex1)
+                    {
+                        Debug.WriteLine(ex1);
+                    }
+                }
+            }
+            catch (Exception ex2)
+            {
+                Debug.WriteLine(ex2);
+            }
         }
 
         [TargetedPatchingOptOut("na")]

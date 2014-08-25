@@ -75,7 +75,6 @@ namespace VPrintTest
             }
         }
 
-
         [TestMethod]
         public void test_barcode_reader()
         {
@@ -287,6 +286,7 @@ namespace VPrintTest
 
                 return;
 
+                //To gray scale
                 using (var image = (Bitmap)Bitmap.FromFile(FILE1))
                 {
                     FiltersSequence seq = new FiltersSequence();
@@ -375,6 +375,37 @@ namespace VPrintTest
                     //// apply the filter
                     //Bitmap biggestBlobsImage = filter.Apply(image);
                     image.Save(FILE3, ImageFormat.Jpeg);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
+        [TestMethod]
+        public void test_template_matching()
+        {
+            try
+            {
+                using (var sourceImage = ((Bitmap)Bitmap.FromFile(@"C:\IMAGES\PB\PB742007.jpg")).ToGrayScale())
+                using (var template = ((Bitmap)Bitmap.FromFile(@"C:\IMAGES\PB\PB742007_cover2.jpg")).ToGrayScale())
+                {
+                    // create template matching algorithm's instance
+                    // (set similarity threshold to 92.5%)
+                    ExhaustiveTemplateMatching tm = new ExhaustiveTemplateMatching(0.80f);
+                    // find all matchings with specified above similarity
+                    TemplateMatch[] matchings = tm.ProcessImage(sourceImage, template);
+                    // highlight found matchings
+
+                    BitmapData data = sourceImage.LockBits(new Rectangle(0, 0, sourceImage.Width, sourceImage.Height),
+                        ImageLockMode.ReadWrite, sourceImage.PixelFormat);
+                    foreach (TemplateMatch m in matchings)
+                    {
+                        Drawing.Rectangle(data, m.Rectangle, Color.Red);
+                        Debug.WriteLine(m.Rectangle.Location.ToString());
+                    }
+                    sourceImage.UnlockBits(data);
                 }
             }
             catch (Exception ex)
@@ -648,5 +679,16 @@ namespace VPrintTest
     //        return new Rectangle(minX, minY, maxX - minX + 1, maxY - minY + 1);
     //    }
     //}
+
+    public static class ImageEx
+    {
+        public static Bitmap ToGrayScale(this Bitmap image)
+        {
+            var seq = new FiltersSequence();
+            seq.Add(Grayscale.CommonAlgorithms.BT709);  //First add  GrayScaling filter
+            seq.Add(new OtsuThreshold());               //Then add binarization(thresholding) filter
+            return seq.Apply(image);                    // Apply filters on source image
+        }
+    }
 }
 
