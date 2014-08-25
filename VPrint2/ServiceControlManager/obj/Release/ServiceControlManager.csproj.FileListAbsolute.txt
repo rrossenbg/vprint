@@ -6,9 +6,3 @@ C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\obj\Release\ServiceC
 C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\obj\Release\GenerateResource.read.1.tlog
 C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\obj\Release\GenerateResource.write.1.tlog
 C:\TFSProjects\Development\FintraxPtf\ServiceControlManager\obj\Release\FintraxServiceManager.exe
-C:\PROJECTS\VPrint2\ServiceControlManager\bin\Release\FintraxServiceManager.exe.config
-C:\PROJECTS\VPrint2\ServiceControlManager\bin\Release\FintraxServiceManager.exe
-C:\PROJECTS\VPrint2\ServiceControlManager\obj\Release\FintraxServiceManager.FintraxServiceManager.resources
-C:\PROJECTS\VPrint2\ServiceControlManager\obj\Release\ServiceControlManager.ProjectInstaller.resources
-C:\PROJECTS\VPrint2\ServiceControlManager\obj\Release\ServiceControlManager.csproj.GenerateResource.Cache
-C:\PROJECTS\VPrint2\ServiceControlManager\obj\Release\FintraxServiceManager.exe

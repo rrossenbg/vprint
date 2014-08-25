@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using System.Threading;
+using System.Web.Configuration;
 using System.Web.Hosting;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -10,7 +11,6 @@ using System.Web.Routing;
 using FintraxPTFImages.Common;
 using FintraxPTFImages.Data;
 using FintraxPTFImages.Handler;
-using System.Web.Configuration;
 
 namespace FintraxPTFImages
 {
@@ -44,15 +44,8 @@ namespace FintraxPTFImages
         protected void Application_End(Object sender, EventArgs e)
         {
             string webRootPath = HostingEnvironment.MapPath("~/WEBVOUCHERFOLDER");
-            try
-            {
-                var dir = new DirectoryInfo(webRootPath);
-                dir.DeleteSubFolders();
-            }
-            catch (Exception ex)
-            {
-                
-            }
+            var dir = new DirectoryInfo(webRootPath);
+            dir.DeleteSubFoldersSafe();
         }
 
         /// <summary>
