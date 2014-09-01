@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Runtime;
 using System.Collections;
 
-namespace ReceivingServiceLib
+namespace VPrinting
 {
     public static class CollectionsEx
     {
@@ -22,6 +22,18 @@ namespace ReceivingServiceLib
                     tt = t;
 
             return tt;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static ArrayList ToList(this Hashtable table)
+        {
+            var list = new ArrayList();
+            foreach (DictionaryEntry kv in table)
+            {
+                list.Add(kv.Key);
+                list.Add(kv.Value);
+            }
+            return list;
         }
 
         [TargetedPatchingOptOut("na")]

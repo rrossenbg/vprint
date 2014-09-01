@@ -14,10 +14,14 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,11 +54,16 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CovertWorkerTest.cs" />
     <Compile Include="DataAccessTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PdfTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PTF.Common\PTF.Common.csproj">
+      <Project>{E99DEC6F-4363-467E-AF5A-18B03E017B12}</Project>
+      <Name>PTF.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReceivingServiceLib.Common\ReceivingServiceLib.Common.csproj">
       <Project>{5866870C-D0F8-4C42-90A4-6F33BB99B447}</Project>
       <Name>ReceivingServiceLib.Common</Name>

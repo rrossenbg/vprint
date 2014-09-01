@@ -47,6 +47,11 @@ namespace ReceivingServiceLib
         void CommitVoucherChanges(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, int? folderId, string siteCode, string barCode, 
             int locationId, int userId, string s1, string s2);
 
+        [OperationContract]//(IsOneWay = true)]
+        [FaultContract(typeof(MyApplicationFault))]
+        void CommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, int? folderId,
+            string siteCode, string barCode, int locationId, int userId, int? action, string s1, string s2);
+
         [OperationContract]
         [FaultContract(typeof(MyApplicationFault))]
         void CommitFileChanges(string serverDirName, int countryId, int? folderId,
@@ -63,6 +68,14 @@ namespace ReceivingServiceLib
         [OperationContract]
         [FaultContract(typeof(MyApplicationFault))]
         int[] FindVoucherImage(int countryId, int voucherId, int voucherIdCD, string s1, string s2);
+
+        #endregion
+
+        #region CCC COVER
+
+        [OperationContract]
+        [FaultContract(typeof(MyApplicationFault))]
+        string ReadCoverInfo(int id, string s1, string s2);
 
         #endregion
 
@@ -206,7 +219,7 @@ namespace ReceivingServiceLib
         {
         }
 
-        public VoucherInfo(DataAccess.SelectVouchersData data)
+        public VoucherInfo(VoucherDataAccess.SelectVouchersData data)
         {
             //id, v_number, sitecode, barcode, scandate, location, operator_id, session_id
             Id = data.id;
@@ -237,7 +250,7 @@ namespace ReceivingServiceLib
         [DataMember(Order = 5)]
         public string Message { get; set; }
 
-        public VoucherInfo2(DataAccess.SelectVoucherInfoData data)
+        public VoucherInfo2(VoucherDataAccess.SelectVoucherInfoData data)
         {
             Id = data.vid;
             IsoId = data.isoId;
@@ -398,7 +411,7 @@ namespace ReceivingServiceLib
         {
         }
 
-        public HistoryByCountryInfo(DataAccess.HistoryByCountryData data)
+        public HistoryByCountryInfo(VoucherDataAccess.HistoryByCountryData data)
         {
             Index = data.Index;
             IsoId = data.h_iso_id;
@@ -437,7 +450,7 @@ namespace ReceivingServiceLib
         {
         }
 
-        public RetailerPrinterInfo(DataAccess.RetailerPrinterData data)
+        public RetailerPrinterInfo(VoucherDataAccess.RetailerPrinterData data)
         {
             CountryId = data.CountryId;
             HeadOfficeId = data.HeadOfficeId;
@@ -466,7 +479,7 @@ namespace ReceivingServiceLib
         {
         }
 
-        public FolderInfo(DataAccess.FolderData data)
+        public FolderInfo(VoucherDataAccess.FolderData data)
         {
             Name = data.Name;
             Id = data.Id;
@@ -498,7 +511,7 @@ namespace ReceivingServiceLib
         {
         }
 
-        public fileInfo(DataAccess.fileData data)
+        public fileInfo(VoucherDataAccess.fileData data)
         {
             Id = data.Id;
             FolderId = data.FolderId;
@@ -533,7 +546,7 @@ namespace ReceivingServiceLib
         {
         }
 
-        public file2Info(DataAccess.file2Data data)
+        public file2Info(VoucherDataAccess.file2Data data)
         {
             Id = data.Id;
             FolderId = data.FolderId;
@@ -580,7 +593,7 @@ namespace ReceivingServiceLib
         {
         }
 
-        public TransferFileInfo(DataAccess.TransferFileData data)
+        public TransferFileInfo(VoucherDataAccess.TransferFileData data)
         {
             InvNo = data.InvNo;
             BranchId = data.BranchId;

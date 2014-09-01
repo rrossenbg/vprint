@@ -72,6 +72,12 @@ namespace CardCodeCover
         }
 
         [TargetedPatchingOptOut("na")]
+        public static Size Offset(this Rectangle rect1, Rectangle rect2)
+        {
+            return new Size((rect1.X - rect2.X), (rect1.Y - rect2.Y));
+        }
+
+        [TargetedPatchingOptOut("na")]
         public static double Distance(this Rectangle rect1, Rectangle rect2)
         {
             var c1 = rect1.Center();

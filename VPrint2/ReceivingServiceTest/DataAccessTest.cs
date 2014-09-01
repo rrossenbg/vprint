@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ReceivingServiceLib;
 using ReceivingServiceLib.Data;
+using VPrinting;
 
 namespace ReceivingServiceTest
 {
@@ -15,7 +16,7 @@ namespace ReceivingServiceTest
             var binInfo = new FileInfo("C:\\TEST2.bin");
             zipInfo.EncriptFile(binInfo);
             var test2 = File.ReadAllBytes(binInfo.FullName);
-            DataAccess.Instance.AddVoucher(0, 250, 12345, 123456789, 1, "AA12345", "122344567890", 0, 0, test2, test2.Length, "122343556", true, true);
+            VoucherDataAccess.Instance.AddVoucher(0, 250, 12345, 123456789, 1, "AA12345", "122344567890", 0, 0, test2, test2.Length, "122343556", true);
         }
     }
 }

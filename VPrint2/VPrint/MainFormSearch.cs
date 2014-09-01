@@ -96,7 +96,8 @@ namespace VPrinting
         private void Search_Click(object sender, EventArgs e)
         {
             var sql = new StringBuilder();
-            sql.Append(" location=".concat(Program.currentUser.CountryID));
+            if (!Program.IsAdmin)
+                sql.Append(" location=".concat(Program.currentUser.CountryID));
 
             if (cbCountryId.SelectedItem != null)
             {

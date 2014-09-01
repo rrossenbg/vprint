@@ -196,7 +196,7 @@ namespace DEMATLib
             m_VouchersCount++;
 
             m_vstatusList.Add(new XElement("VoucherStatus",
-                new XElement("VoucherNumber", s.VoucherNumber),
+                new XElement("VoucherNumber", s.VoucherNumber.ToString("000000000")),
                 new XElement("PremierStoreId", s.PremierStoreId),
                 new XElement("CountryCode", s.CountryCode),
                 new XElement("TimeStamp", s.TimeStamp),

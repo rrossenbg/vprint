@@ -12,10 +12,14 @@
     <AssemblyName>VPrint.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +41,22 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging.Formats, Version=2.2.4.0, Culture=neutral, PublicKeyToken=8065ed5a639199a0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\AForge.Imaging.Formats.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\AForge.Math.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -55,65 +75,13 @@
     <Compile Include="CertificateSecurity.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Colections\bitArray.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Colections\IgnoreList.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Colections\MemoryBuffer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Colections\SortableBindingList.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Common\BarcodeConfig.cs" />
     <Compile Include="Common\BarcodeData.cs" />
+    <Compile Include="Common\LockBitmap.cs" />
+    <Compile Include="Common\RawBitmap.cs" />
     <Compile Include="Common\UnManagedAllocators.cs" />
     <Compile Include="Common\Security.cs" />
     <Compile Include="Extensions\BitmapEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\CollectionEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\CoreEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\DelegateEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\DelegateEx2.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\DisposableEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\DrawingEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\EnumerableEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\FileInfoEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\IntEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\ObjectEx2.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\StreamEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\StringEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Extensions\XElementEx.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Global.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IRunnable.cs" />
@@ -122,14 +90,16 @@
     <Compile Include="Strings.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Tools\CString.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Tools\FontWrapper.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PTF.Common\PTF.Common.csproj">
+      <Project>{E99DEC6F-4363-467E-AF5A-18B03E017B12}</Project>
+      <Name>PTF.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tools\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

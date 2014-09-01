@@ -12,10 +12,14 @@
     <AssemblyName>ReceivingServiceLib.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,18 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CircularBuffer.cs" />
+    <Compile Include="Common\Interfaces.cs" />
     <Compile Include="Data\PTFDataAccess.cs" />
-    <Compile Include="Extensions\CollectionsEx.cs" />
-    <Compile Include="Extensions\StringEx.cs" />
     <Compile Include="fileAccess.cs" />
     <Compile Include="Common\MSSQL.cs" />
     <Compile Include="Common\SQL.cs" />
     <Compile Include="Common\UniqueStringList.cs" />
     <Compile Include="Data\DataAccess.cs" />
-    <Compile Include="Extensions\CoreEx.cs" />
-    <Compile Include="Extensions\DrawingEx.cs" />
-    <Compile Include="Extensions\IOEx.cs" />
-    <Compile Include="Extensions\SqlEx.cs" />
+    <Compile Include="Extensions\Drawing3Ex.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="PdfManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +95,12 @@
     <Content Include="Resources\PTFLogo.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PTF.Common\PTF.Common.csproj">
+      <Project>{E99DEC6F-4363-467E-AF5A-18B03E017B12}</Project>
+      <Name>PTF.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

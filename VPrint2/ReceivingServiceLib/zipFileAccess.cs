@@ -4,8 +4,10 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 using Ionic.Zip;
+using VPrinting;
 
 namespace ReceivingServiceLib
 {
@@ -58,28 +60,28 @@ namespace ReceivingServiceLib
             out int userId, out int locationId, out string sessionId)
         {
             var xml = XDocument.Load(xmlPath);
-            userId = xml.Root.ElementThrow("OperatorID").Value.ConvertTo<string, int>("OperatorID");
-            locationId = xml.Root.ElementThrow("LocationID").Value.ConvertTo<string, int>("LocationID");
+            userId = xml.Root.ElementThrow("OperatorID").Value.ConvertToThrow<string, int>("OperatorID");
+            locationId = xml.Root.ElementThrow("LocationID").Value.ConvertToThrow<string, int>("LocationID");
             sessionId = xml.Root.ElementThrow("SessionID").Value;
             folderId = xml.Root.ElementThrow("FolderID").Value.IsNullOrWhiteSpace() ? (int?)null :
-                        xml.Root.ElementThrow("FolderID").Value.ConvertTo<string, int>("FolderID");
+                        xml.Root.ElementThrow("FolderID").Value.ConvertToThrow<string, int>("FolderID");
         }
 
         public void ReadVoucherXml(string xmlPath, out int jobId, out int countryId, out int retailerId, out int voucherId, out int? folderId,
             out string siteCode, out string barCode, out int userId, out int locationId, out string sessionId)
         {
             var xml = XDocument.Load(xmlPath);
-            jobId = xml.Root.ElementThrow("JobID").Value.ConvertTo<string, int>("JobID");
-            countryId = xml.Root.ElementThrow("CountryID").Value.ConvertTo<string, int>("CountryID");
-            retailerId = xml.Root.ElementThrow("RetailerID").Value.ConvertTo<string, int>("RetailerID");
-            voucherId = xml.Root.ElementThrow("VoucherID").Value.ConvertTo<string, int>("VoucherID");
+            jobId = xml.Root.ElementThrow("JobID").Value.ConvertToThrow<string, int>("JobID");
+            countryId = xml.Root.ElementThrow("CountryID").Value.ConvertToThrow<string, int>("CountryID");
+            retailerId = xml.Root.ElementThrow("RetailerID").Value.ConvertToThrow<string, int>("RetailerID");
+            voucherId = xml.Root.ElementThrow("VoucherID").Value.ConvertToThrow<string, int>("VoucherID");
             siteCode = xml.Root.ElementThrow("SiteCode").Value;
             barCode = xml.Root.ElementThrow("BarCode").Value;
-            userId = xml.Root.ElementThrow("OperatorID").Value.ConvertTo<string, int>("OperatorID");
-            locationId = xml.Root.ElementThrow("LocationID").Value.ConvertTo<string, int>("LocationID");
+            userId = xml.Root.ElementThrow("OperatorID").Value.ConvertToThrow<string, int>("OperatorID");
+            locationId = xml.Root.ElementThrow("LocationID").Value.ConvertToThrow<string, int>("LocationID");
             sessionId = xml.Root.ElementThrow("SessionID").Value;
             folderId = xml.Root.ElementThrow("FolderID").Value.IsNullOrWhiteSpace() ? (int?)null :
-                        xml.Root.ElementThrow("FolderID").Value.ConvertTo<string, int>("FolderID");
+                        xml.Root.ElementThrow("FolderID").Value.ConvertToThrow<string, int>("FolderID");
         }
 
         public void SaveCoversheetXml(FileInfo xmlName, int countryId, int? folderId,

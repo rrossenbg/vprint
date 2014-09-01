@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using ReceivingService;
 using ReceivingServiceLib.Common.Data;
 using ReceivingServiceLib.Data;
+using VPrinting;
 
 namespace ReceivingServiceLib
 {
@@ -78,7 +79,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("ReadData");
 
-                var result = DataAccess.Instance.SelectVouchers(countryId, retailerId).ConvertAll<VoucherInfo>((i) => new VoucherInfo(i));
+                var result = VoucherDataAccess.Instance.SelectVouchers(countryId, retailerId).ConvertAll<VoucherInfo>((i) => new VoucherInfo(i));
                 return result;
             }
             catch (Exception ex)
@@ -95,7 +96,7 @@ namespace ReceivingServiceLib
                 RecordCallHistory("ReadData2");
 
                 if (!ByteBuffers.ContainsKey(id))
-                    ByteBuffers[id] = DataAccess.Instance.SelectImageById(id, isVoucher);
+                    ByteBuffers[id] = VoucherDataAccess.Instance.SelectImageById(id, isVoucher);
 
                 byte[] buffer = ByteBuffers[id];
                 byte[] result = new byte[length];
@@ -205,6 +206,57 @@ namespace ReceivingServiceLib
             }
         }
 
+        /// <summary>
+        /// VScan calls WCF service to complete data transfer on the server side.
+        /// </summary>
+        /// <param name="serverDirName"></param>
+        /// <param name="countryId"></param>
+        /// <param name="retailerId"></param>
+        /// <param name="voucherId"></param>
+        /// <param name="siteCode"></param>
+        /// <param name="locationId"></param>
+        /// <param name="userId"></param>
+        public void CommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, int? folderId,
+            string siteCode, string barCode, int locationId, int userId, int? action, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("CommitVoucherChangesModify");
+
+                var uploadRootFolder = new DirectoryInfo(Global.Strings.UPLOADROOT);
+                var directory = uploadRootFolder.Combine(serverDirName);
+                if (directory.Exists)
+                {
+                    var xmlName = directory.CombineFileName(GetXmlFileNamePerAction(action));
+                    zipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
+                        retailerId, voucherId, folderId, siteCode, barCode, userId, locationId, serverDirName);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+            finally
+            {
+                FileLocks.Remove(serverDirName);
+            }
+        }
+
+        private string GetXmlFileNamePerAction(int? action)
+        {
+            switch (action)
+            {
+                case 0:
+                case null:
+                    return "data.xml";
+                case 1:
+                    return "adddata.xml";
+                default:
+                    return string.Empty;
+            }
+        }
+
         public void CommitFileChanges(string serverDirName, int countryId, int? folderId,
             int locationId, int userId, string s1, string s2)
         {
@@ -239,7 +291,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("ValidateVoucher");
 
-                var da = DataAccess.Instance;
+                var da = VoucherDataAccess.Instance;
 
                 if (!Global.Data.ContainsKey(Strings.SingleSaleCountries))
                     Global.Data[Strings.SingleSaleCountries] = da.GetConfigValue(Strings.SingleSaleCountries);
@@ -272,7 +324,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("FindVoucher");
 
-                var da = DataAccess.Instance;
+                var da = VoucherDataAccess.Instance;
                 return da.FindVoucher(countryId, voucherId, voucherIdCD);
             }
             catch (Exception ex)
@@ -288,8 +340,29 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("FindVoucherImage");
 
-                var da = DataAccess.Instance;
+                var da = VoucherDataAccess.Instance;
                 return da.FindVoucherImage(countryId, voucherId, voucherIdCD).ToArray();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region CCC COVER
+
+        public string ReadCoverInfo(int id, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("ReadCoverInfo");
+
+                var da = VoucherDataAccess.Instance;
+                var result = da.SelectCoverInfo(id);
+                return result;
             }
             catch (Exception ex)
             {
@@ -316,7 +389,7 @@ namespace ReceivingServiceLib
 
                 RecordCallHistory("ReadVoucherInfo");
 
-                var result = DataAccess.Instance.SelectVoucherInfo(Id);
+                var result = VoucherDataAccess.Instance.SelectVoucherInfo(Id);
 
                 var info = new VoucherInfo2(result);
                 if (info.SessionId == null)
@@ -343,9 +416,9 @@ namespace ReceivingServiceLib
                     {
                         try
                         {
-                            var result2 = o.cast<DataAccess.SelectVoucherInfoData>();
+                            var result2 = o.cast<VoucherDataAccess.SelectVoucherInfoData>();
 
-                            byte[] data = DataAccess.Instance.SelectImageById(result2.vid, true);
+                            byte[] data = VoucherDataAccess.Instance.SelectImageById(result2.vid, true);
 
                             var exportRoot = new DirectoryInfo(Global.Strings.VOCUHERSEXPORTFOLDER);
                             exportRoot.EnsureDirectory();
@@ -377,7 +450,7 @@ namespace ReceivingServiceLib
 
                 RecordCallHistory("SaveHistory");
 
-                DataAccess.Instance.SaveHistory(operatorCountryId, operatorUserId, (int)operationType, operationId, brIsoId, brId, vId, v2Id, count, details);
+                VoucherDataAccess.Instance.SaveHistory(operatorCountryId, operatorUserId, (int)operationType, operationId, brIsoId, brId, vId, v2Id, count, details);
             }
             catch (Exception ex)
             {
@@ -392,7 +465,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("ReadHistory");
 
-                var list = DataAccess.Instance.SelectHistoryByCountryAndOperator(operatorCountryId, operatorUserId, (int)operationType, from, to);
+                var list = VoucherDataAccess.Instance.SelectHistoryByCountryAndOperator(operatorCountryId, operatorUserId, (int)operationType, from, to);
 
                 var resultList = new List<HistoryByCountryInfo>();
                 foreach (var data in list)
@@ -414,7 +487,7 @@ namespace ReceivingServiceLib
 
                 RecordCallHistory("ReadRetailerPrinterInfo");
 
-                var list = DataAccess.Instance.SelectRetailerPrinterData(countryId);
+                var list = VoucherDataAccess.Instance.SelectRetailerPrinterData(countryId);
 
                 var resultList = new List<RetailerPrinterInfo>();
                 foreach (var data in list)
@@ -440,7 +513,7 @@ namespace ReceivingServiceLib
                 if (whereClause.Contains((c) => c == ';'))
                     throw new SecurityException("Wrong data");
 
-                var dblist = DataAccess.Instance.SelectVouchersBySql(whereClause);
+                var dblist = VoucherDataAccess.Instance.SelectVouchersBySql(whereClause);
                 var list = dblist.ConvertAll(f => new fileInfo(f));
                 return list;
             }
@@ -467,9 +540,9 @@ namespace ReceivingServiceLib
                     throw new ArgumentException("setClause");
 
                 if (isVoucher)
-                    DataAccess.Instance.UpdateVouchersBySql(setSql, whereClause);
+                    VoucherDataAccess.Instance.UpdateVouchersBySql(setSql, whereClause);
                 else
-                    DataAccess.Instance.UpdateFilesBySql(setSql, whereClause);
+                    VoucherDataAccess.Instance.UpdateFilesBySql(setSql, whereClause);
             }
             catch (Exception ex)
             {
@@ -488,7 +561,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("AddFolder");
 
-                DataAccess.Instance.AddFolder(toParentId, name, countryId, userId);
+                VoucherDataAccess.Instance.AddFolder(toParentId, name, countryId, userId);
             }
             catch (Exception ex)
             {
@@ -503,7 +576,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("DeleteFolder");
 
-                DataAccess.Instance.DeleteFolder(folderId);
+                VoucherDataAccess.Instance.DeleteFolder(folderId);
             }
             catch (Exception ex)
             {
@@ -518,7 +591,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("DeleteFile");
 
-                DataAccess.Instance.DeleteVoucherOrFile(id, isVoucher);
+                VoucherDataAccess.Instance.DeleteVoucherOrFile(id, isVoucher);
             }
             catch (Exception ex)
             {
@@ -533,7 +606,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("DeleteAllFilesInFolder");
 
-                var db = DataAccess.Instance;
+                var db = VoucherDataAccess.Instance;
                 db.DeleteAllFilesInFolder(folderId, false);
                 db.DeleteAllFilesInFolder(folderId, true);
             }
@@ -550,7 +623,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("RenameFolder");
 
-                DataAccess.Instance.RenameFolder(folderId, name);
+                VoucherDataAccess.Instance.RenameFolder(folderId, name);
             }
             catch (Exception ex)
             {
@@ -565,7 +638,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("UpdateFolder");
 
-                DataAccess.Instance.UpdateFolder(folderId, name, parentId);
+                VoucherDataAccess.Instance.UpdateFolder(folderId, name, parentId);
             }
             catch (Exception ex)
             {
@@ -580,7 +653,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("SelectFoldersByParent");
 
-                var dblist = DataAccess.Instance.SelectAllByParent(parentId, createdByIsoId);
+                var dblist = VoucherDataAccess.Instance.SelectAllByParent(parentId, createdByIsoId);
                 var list = dblist.ConvertAll(f => new FolderInfo(f));
                 return list;
             }
@@ -597,7 +670,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("SelectFilesByFolder");
 
-                var dblist = DataAccess.Instance.SelectVouchersByFolder(folderId);
+                var dblist = VoucherDataAccess.Instance.SelectVouchersByFolder(folderId);
                 var list = dblist.ConvertAll(f => new fileInfo(f));
                 return list;
             }
@@ -614,7 +687,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("SelectCoversByFolder");
 
-                var dblist = DataAccess.Instance.SelectFilesByFolder(folderId);
+                var dblist = VoucherDataAccess.Instance.SelectFilesByFolder(folderId);
                 var list = dblist.ConvertAll(f => new file2Info(f));
                 return list;
             }
@@ -657,7 +730,7 @@ namespace ReceivingServiceLib
 
                             #region signed voucher
                             //signed voucher
-                            var db = DataAccess.Instance;
+                            var db = VoucherDataAccess.Instance;
                             var vinfo = db.SelectVoucherInfo(fileId);
                             var countryName = ISOs.ResourceManager.GetString(string.Concat('_', vinfo.isoId));
                             var buf = db.SelectImageById(fileId, true);
@@ -708,7 +781,7 @@ namespace ReceivingServiceLib
                         {
                             //voucher || file
                             bool isProtected = false;
-                            byte[] buf = DataAccess.Instance.SelectVoucherById(fileId, isVoucher, out isProtected);
+                            byte[] buf = VoucherDataAccess.Instance.SelectVoucherById(fileId, isVoucher, out isProtected);
 
                             if (isProtected)
                             {
@@ -818,7 +891,7 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("GetTransferFile");
 
-                var list = DataAccess.Instance.GetTransferFileReport(countryId, beginNumber, endNumber, siteCode).ConvertAll((d) => new TransferFileInfo(d));
+                var list = VoucherDataAccess.Instance.GetTransferFileReport(countryId, beginNumber, endNumber, siteCode).ConvertAll((d) => new TransferFileInfo(d));
                 return list;
             }
             catch (Exception ex)
@@ -882,7 +955,7 @@ namespace ReceivingServiceLib
                 if (where.IsNullOrWhiteSpace())
                     throw new ArgumentException("where");
 
-                return new DataAccess().RetrieveTableData(fieldList, tableName, where);
+                return new VoucherDataAccess().RetrieveTableData(fieldList, tableName, where);
             }
             catch (Exception ex)
             {
@@ -901,7 +974,7 @@ namespace ReceivingServiceLib
                     throw new ArgumentException("table");
 
                 var htable = table.ToHashtable<string, object>();
-                return new DataAccess().UpdateTableData(htable);
+                return new VoucherDataAccess().UpdateTableData(htable);
             }
             catch (Exception ex)
             {

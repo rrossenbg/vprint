@@ -198,18 +198,31 @@ namespace CardCodeCover
 
                             if (CoverDetails.HasMatch)
                             {
-                                e.Graphics.DrawRectangle(Pens.Red, CoverDetails.Match.ScrollOffsetY(offset));
-
-                                using (var font = new Font("Arial", 9f, FontStyle.Bold))
+                                using (var font = new Font("Arial", 12f, FontStyle.Bold))
                                 using (var pen = new Pen(Color.BlueViolet, 2f))
                                 {
-                                    var center = CoverDetails.Match.ScrollOffsetY(offset).Location;
+                                    var match = CoverDetails.Match.ScrollOffsetY(offset);
+
+                                    var matchLocation = CoverDetails.Match.ScrollOffsetY(offset).Location;
+
+                                    e.Graphics.DrawRectangle(Pens.Red, match);
+
+                                    e.Graphics.DrawString(string.Format("Rectangle : {0}", matchLocation), font,
+                                            Brushes.BlueViolet, new PointF(matchLocation.X + 10, matchLocation.Y - 20));
 
                                     foreach (var cover in CoverDetails.HiddenAreas)
                                     {
                                         var point = cover.Rectangle.ScrollOffsetY(offset).Location;
-                                        e.Graphics.DrawLine(pen, center, point);
-                                        e.Graphics.DrawString(cover.Distance.ToString("0.00"), font, 
+
+                                        e.Graphics.DrawLine(pen, matchLocation, point);
+
+                                        e.Graphics.DrawString(string.Format("Distance: {0:0.00}", cover.Distance), font,
+                                            Brushes.BlueViolet, new PointF(point.X + 10, point.Y - 60));
+
+                                        e.Graphics.DrawString(string.Format("Offset: {0}", cover.Offset), font,
+                                            Brushes.BlueViolet, new PointF(point.X + 10, point.Y - 40));
+
+                                        e.Graphics.DrawString(string.Format("Rectangle : {0}", cover.Rectangle), font,
                                             Brushes.BlueViolet, new PointF(point.X + 10, point.Y - 20));
                                     }
                                 }
@@ -323,7 +336,10 @@ namespace CardCodeCover
                     CoverDetails.Match = match;
 
                     foreach (var cover in CoverDetails.HiddenAreas)
-                        cover.Distance = match.Distance(cover.Rectangle);
+                    {
+                        cover.Offset = cover.Rectangle.Offset(match);
+                        cover.Distance = cover.Rectangle.Distance(match);
+                    }
                 }
             }
         }
@@ -331,6 +347,22 @@ namespace CardCodeCover
         private void CloseMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void TestMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            var strid = Interaction.InputBox("Db Id", Application.ProductName);
+
+            if (int.TryParse(strid, out id))
+            {
+                using (MatchForm form = new MatchForm())
+                {
+                    form.MatchTemplate = this.MatchTemplate;
+                    form.Show();
+                }
+            }
         }
     }
 }

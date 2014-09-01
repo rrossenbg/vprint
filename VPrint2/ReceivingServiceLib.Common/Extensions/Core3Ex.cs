@@ -16,10 +16,10 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace ReceivingServiceLib
+namespace VPrinting
 {
     [Obfuscation(StripAfterObfuscation = true)]
-    public static class CoreEx
+    public static class Core3Ex
     {
         /// <summary>
         /// 250
@@ -193,22 +193,22 @@ namespace ReceivingServiceLib
             return string.Equals(value1, value2, StringComparison.InvariantCultureIgnoreCase);
         }
 
-        [TargetedPatchingOptOut("na")]
-        [Obfuscation]
-        public static string Unique(this string str)
-        {
-            var u = Guid.NewGuid().ToString().Replace('-', '_');
-            return string.Concat(str, u);
-        }
+        //[TargetedPatchingOptOut("na")]
+        //[Obfuscation]
+        //public static string Unique(this string str)
+        //{
+        //    var u = Guid.NewGuid().ToString().Replace('-', '_');
+        //    return string.Concat(str, u);
+        //}
 
-        [TargetedPatchingOptOut("na")]
-        [Obfuscation]
-        public static string Limit(this string str, int length)
-        {
-            if (str == null)
-                return null;
-            return str.Substring(0, Math.Min(str.Length, length));
-        }
+        //[TargetedPatchingOptOut("na")]
+        //[Obfuscation]
+        //public static string Limit(this string str, int length)
+        //{
+        //    if (str == null)
+        //        return null;
+        //    return str.Substring(0, Math.Min(str.Length, length));
+        //}
 
         /// <summary>
         /// 

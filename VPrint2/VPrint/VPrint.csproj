@@ -5,9 +5,12 @@
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CA89200F-243A-487C-ACF8-03F538A6C413}</ProjectGuid>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
@@ -25,7 +28,8 @@
     <StartupObject>VPrinting.Program</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <SccAuxPath>SAK</SccAuxPath>
+    <SccAuxPath>
+    </SccAuxPath>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -273,6 +277,9 @@
     <None Include="Resources\spreadsheet.png" />
     <None Include="Resources\letter.png" />
     <None Include="Resources\FL.png" />
+    <None Include="Service References\ScanServiceRef\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ScanServiceRef\ReceivingServiceLib1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -720,11 +727,9 @@
     <Compile Include="Data\fileAccess.cs" />
     <Compile Include="Data\ServiceDataAccess.cs" />
     <Compile Include="Documents\VoucherPrintLayoutUnitRazX.cs" />
-    <Compile Include="Extensions\CollectionEx.cs" />
     <Compile Include="Extensions\ObjectEx.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Extensions\SqlEx.cs" />
     <Compile Include="FileMsgForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -760,7 +765,6 @@
     <Compile Include="Common\DynamicSerializable.cs" />
     <Compile Include="Common\FileProtector.cs" />
     <Compile Include="Common\IgnoreList.cs" />
-    <Compile Include="Common\RawBitmap.cs" />
     <Compile Include="Common\TaskProcessOrganizer.cs" />
     <Compile Include="Common\ScanException.cs" />
     <Compile Include="Common\StateManager.cs" />
@@ -792,7 +796,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\RoundButton\VerticalString.cs" />
-    <Compile Include="Extensions\ReflectionEx.cs" />
     <Compile Include="MainFormScanningFuncs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -853,7 +856,6 @@
     <Compile Include="Extensions\BarCodeEx.cs" />
     <Compile Include="Extensions\ExceptionEx.cs" />
     <Compile Include="Extensions\FormsEx.cs" />
-    <Compile Include="Extensions\RegexEx.cs" />
     <Compile Include="Extensions\WinFormsEx.cs" />
     <Compile Include="FormAssignFormat.cs">
       <SubType>Form</SubType>
@@ -902,7 +904,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="TestClasses.cs" />
     <Compile Include="Tools\ASCII.cs" />
     <Compile Include="Tools\BarcodeInter2of5a.cs">
       <SubType>Code</SubType>
@@ -1176,6 +1177,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PTF.Common\PTF.Common.csproj">
+      <Project>{E99DEC6F-4363-467E-AF5A-18B03E017B12}</Project>
+      <Name>PTF.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VPrint.Common\VPrint.Common.csproj">
       <Project>{299F65C9-2BDF-42B2-BA4B-CA39F06328CA}</Project>
       <Name>VPrint.Common</Name>

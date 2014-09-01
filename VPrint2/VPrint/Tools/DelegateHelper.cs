@@ -274,7 +274,7 @@ namespace VPrinting.Tools
                                 if (!coverArea.IsEmpty)
                                 {
                                     var size = StateSaver.Default.Get<int>(Strings.PIXELSIZE, 5);
-                                    bmp.Pixellate(coverArea, size);
+                                    bmp.Pixellate(coverArea);
                                 }
 
                                 List<BarcodeConfig> barcodeLayouts = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);

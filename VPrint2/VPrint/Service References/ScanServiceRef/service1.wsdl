@@ -15,6 +15,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IScanService_Delete_InputMessage">
@@ -107,6 +108,24 @@
   <wsdl:message name="IScanService_FindVoucher_MyApplicationFaultFault_FaultMessage">
     <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q10:MyApplicationFault" />
   </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherImage" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherImage_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q11:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadCoverInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadCoverInfo" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadCoverInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadCoverInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadCoverInfo_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q12:MyApplicationFault" />
+  </wsdl:message>
   <wsdl:message name="IScanService_SaveHistory_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveHistory" />
   </wsdl:message>
@@ -114,7 +133,7 @@
     <wsdl:part name="parameters" element="tns:SaveHistoryResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_SaveHistory_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q11:MyApplicationFault" />
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q13:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_ReadHistory_InputMessage">
     <wsdl:part name="parameters" element="tns:ReadHistory" />
@@ -123,7 +142,7 @@
     <wsdl:part name="parameters" element="tns:ReadHistoryResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_ReadHistory_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q12:MyApplicationFault" />
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q14:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_ReadRetailerPrinterInfo_InputMessage">
     <wsdl:part name="parameters" element="tns:ReadRetailerPrinterInfo" />
@@ -132,7 +151,7 @@
     <wsdl:part name="parameters" element="tns:ReadRetailerPrinterInfoResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_ReadRetailerPrinterInfo_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q13:MyApplicationFault" />
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q15:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_SelectFilesBySql_InputMessage">
     <wsdl:part name="parameters" element="tns:SelectFilesBySql" />
@@ -141,7 +160,7 @@
     <wsdl:part name="parameters" element="tns:SelectFilesBySqlResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_SelectFilesBySql_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q14:MyApplicationFault" />
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q16:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_UpdateVouchersOrFilesBySql_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateVouchersOrFilesBySql" />
@@ -150,7 +169,7 @@
     <wsdl:part name="parameters" element="tns:UpdateVouchersOrFilesBySqlResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_UpdateVouchersOrFilesBySql_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q15:MyApplicationFault" />
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q17:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_AddFolder_InputMessage">
     <wsdl:part name="parameters" element="tns:AddFolder" />
@@ -159,7 +178,7 @@
     <wsdl:part name="parameters" element="tns:AddFolderResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_AddFolder_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q16:MyApplicationFault" />
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q18:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_UpdateFolder_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateFolder" />
@@ -168,7 +187,7 @@
     <wsdl:part name="parameters" element="tns:UpdateFolderResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_UpdateFolder_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q17:MyApplicationFault" />
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q19:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_DeleteFolder_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteFolder" />
@@ -177,7 +196,7 @@
     <wsdl:part name="parameters" element="tns:DeleteFolderResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_DeleteFolder_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q18:MyApplicationFault" />
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q20:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_DeleteFile_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteFile" />
@@ -186,7 +205,7 @@
     <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_DeleteFile_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q19:MyApplicationFault" />
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q21:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_DeleteAllFilesInFolder_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteAllFilesInFolder" />
@@ -195,7 +214,7 @@
     <wsdl:part name="parameters" element="tns:DeleteAllFilesInFolderResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_DeleteAllFilesInFolder_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q20:MyApplicationFault" />
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q22:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_RenameFolder_InputMessage">
     <wsdl:part name="parameters" element="tns:RenameFolder" />
@@ -204,7 +223,7 @@
     <wsdl:part name="parameters" element="tns:RenameFolderResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_RenameFolder_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q21:MyApplicationFault" />
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q23:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_SelectFoldersByParent_InputMessage">
     <wsdl:part name="parameters" element="tns:SelectFoldersByParent" />
@@ -213,7 +232,7 @@
     <wsdl:part name="parameters" element="tns:SelectFoldersByParentResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_SelectFoldersByParent_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q22:MyApplicationFault" />
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q24:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_SelectFilesByFolder_InputMessage">
     <wsdl:part name="parameters" element="tns:SelectFilesByFolder" />
@@ -222,7 +241,7 @@
     <wsdl:part name="parameters" element="tns:SelectFilesByFolderResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_SelectFilesByFolder_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q23:MyApplicationFault" />
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q25:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_SelectCoversByFolder_InputMessage">
     <wsdl:part name="parameters" element="tns:SelectCoversByFolder" />
@@ -231,7 +250,7 @@
     <wsdl:part name="parameters" element="tns:SelectCoversByFolderResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_SelectCoversByFolder_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q24:MyApplicationFault" />
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q26:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_SelectFileById_InputMessage">
     <wsdl:part name="parameters" element="tns:SelectFileById" />
@@ -240,7 +259,7 @@
     <wsdl:part name="parameters" element="tns:SelectFileByIdResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_SelectFileById_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q25:MyApplicationFault" />
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q27:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_GetVersionInfo_InputMessage">
     <wsdl:part name="parameters" element="tns:GetVersionInfo" />
@@ -249,7 +268,7 @@
     <wsdl:part name="parameters" element="tns:GetVersionInfoResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_GetVersionInfo_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q26:MyApplicationFault" />
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q28:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_ReadVersionFile_InputMessage">
     <wsdl:part name="parameters" element="tns:ReadVersionFile" />
@@ -258,7 +277,7 @@
     <wsdl:part name="parameters" element="tns:ReadVersionFileResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_ReadVersionFile_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q27:MyApplicationFault" />
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q29:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_GetTransferFile_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTransferFile" />
@@ -267,7 +286,7 @@
     <wsdl:part name="parameters" element="tns:GetTransferFileResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_GetTransferFile_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q28:MyApplicationFault" />
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q30:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_FindVoucherTRSByVoucherNumber_InputMessage">
     <wsdl:part name="parameters" element="tns:FindVoucherTRSByVoucherNumber" />
@@ -276,7 +295,7 @@
     <wsdl:part name="parameters" element="tns:FindVoucherTRSByVoucherNumberResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_FindVoucherTRSByVoucherNumber_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q29:MyApplicationFault" />
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q31:MyApplicationFault" />
   </wsdl:message>
   <wsdl:message name="IScanService_FindVoucherTRSBySiteCode_InputMessage">
     <wsdl:part name="parameters" element="tns:FindVoucherTRSBySiteCode" />
@@ -285,7 +304,7 @@
     <wsdl:part name="parameters" element="tns:FindVoucherTRSBySiteCodeResponse" />
   </wsdl:message>
   <wsdl:message name="IScanService_FindVoucherTRSBySiteCode_MyApplicationFaultFault_FaultMessage">
-    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q30:MyApplicationFault" />
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q32:MyApplicationFault" />
   </wsdl:message>
   <wsdl:portType name="IScanService">
     <wsdl:operation name="Delete">
@@ -337,6 +356,16 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IScanService/FindVoucher" message="tns:IScanService_FindVoucher_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IScanService/FindVoucherResponse" message="tns:IScanService_FindVoucher_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/FindVoucherMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_FindVoucher_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/FindVoucherImage" message="tns:IScanService_FindVoucherImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/FindVoucherImageResponse" message="tns:IScanService_FindVoucherImage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/FindVoucherImageMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_FindVoucherImage_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadCoverInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/ReadCoverInfo" message="tns:IScanService_ReadCoverInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/ReadCoverInfoResponse" message="tns:IScanService_ReadCoverInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/ReadCoverInfoMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_ReadCoverInfo_MyApplicationFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="SaveHistory">
       <wsdl:input wsaw:Action="http://tempuri.org/IScanService/SaveHistory" message="tns:IScanService_SaveHistory_InputMessage" />
@@ -553,6 +582,30 @@
     </wsdl:operation>
     <wsdl:operation name="FindVoucher">
       <soap12:operation soapAction="http://tempuri.org/IScanService/FindVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherImage">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/FindVoucherImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadCoverInfo">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/ReadCoverInfo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

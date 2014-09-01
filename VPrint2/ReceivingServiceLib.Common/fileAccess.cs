@@ -58,7 +58,7 @@ namespace ReceivingServiceLib
                 var en = zip.GetEnumerator();
                 while (en.MoveNext())
                 {
-                    if (en.Current.FileName.EqualNoCase(fileToExtract))
+                    if (string.Equals(en.Current.FileName, fileToExtract, StringComparison.InvariantCultureIgnoreCase))
                     {
                         en.Current.Extract(toDirName, ExtractExistingFileAction.OverwriteSilently);
                         break;

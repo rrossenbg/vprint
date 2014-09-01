@@ -14,10 +14,14 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>\\192.168.53.143\ReceivingService\</PublishUrl>
     <Install>true</Install>
@@ -153,6 +157,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PTF.Common\PTF.Common.csproj">
+      <Project>{E99DEC6F-4363-467E-AF5A-18B03E017B12}</Project>
+      <Name>PTF.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReceivingServiceLib.Common\ReceivingServiceLib.Common.csproj">
       <Project>{5866870C-D0F8-4C42-90A4-6F33BB99B447}</Project>
       <Name>ReceivingServiceLib.Common</Name>

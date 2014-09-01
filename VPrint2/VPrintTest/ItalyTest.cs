@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Linq;
 using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VPrinting;
 using VPrinting.Documents;
-using System.Drawing;
+using VPrinting;
 
 namespace VPrintTest
 {

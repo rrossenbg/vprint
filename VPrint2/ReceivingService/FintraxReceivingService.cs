@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using ReceivingServiceLib;
 using ReceivingServiceLib.FileWorkers;
+using VPrinting;
 
 namespace ReceivingService
 {
@@ -31,6 +32,7 @@ namespace ReceivingService
 
             ImportFileWorker.Error += OnError;
             ExportFileWorker.Error += OnError;
+            CoverWorker.Error += OnError;
             ErrorHandler.Error += OnError;
         }
 
@@ -43,6 +45,8 @@ namespace ReceivingService
             strings.DOWNLOADROOT = ConfigurationManager.AppSettings["DOWNLOADFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
             strings.VOCUHERSFOLDER = ConfigurationManager.AppSettings["VOUCHERSFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
             strings.VOCUHERSEXPORTFOLDER = ConfigurationManager.AppSettings["VOCUHERSEXPORTFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
+            strings.COVERWORKFOLDER = ConfigurationManager.AppSettings["COVERWORKFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
+            strings.CONTENTWORKFOLDER = ConfigurationManager.AppSettings["CONTENTWORKFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
             strings.UPLOADERRORS = ConfigurationManager.AppSettings["UPLOADERRORS"].IfNullOrEmptyThrow<ArgumentException>();
             strings.VERSIONFOLDER = ConfigurationManager.AppSettings["VERSIONFOLDER"].IfNullOrEmptyThrow<ArgumentException>();
             strings.pfxFileFullPath = ConfigurationManager.AppSettings["pfxFileFullPath"].IfNullOrEmptyThrow<ArgumentException>();
@@ -51,6 +55,7 @@ namespace ReceivingService
 
             ImportFileWorker.Default.StartStop();
             ExportFileWorker.Default.StartStop();
+            CoverWorker.Default.StartStop();
 
             ScanService.NewCall += new EventHandler<ValueEventArgs<Tuple<string, string, DateTime>>>(ScanService_NewCall);
             m_ServerHost = new ServiceHost(typeof(ScanService));
@@ -63,6 +68,7 @@ namespace ReceivingService
         {
             ImportFileWorker.Default.StartStop();
             ExportFileWorker.Default.StartStop();
+            CoverWorker.Default.StartStop();
 
             if (m_ServerHost != null)
             {
@@ -88,21 +94,33 @@ namespace ReceivingService
 
         protected override void OnCustomCommand(int command)
         {
-            //Save call history
-            if (command == 222)
+            switch (command)
             {
-                new Action(() =>
-                {
-                    const string path = "C:\\ReceivingService.log";
-                    var arr = m_HistiryBuffer.ToArray();
-                    var builder = new StringBuilder();
+                //Save call history
+                case 222:
+                    new Action(() =>
+                    {
+                        const string path = "C:\\ReceivingService.log";
+                        var arr = m_HistiryBuffer.ToArray();
+                        var builder = new StringBuilder();
 
-                    foreach (Tuple<string, string, DateTime> i in arr)
-                        builder.AppendLine(string.Concat(i.Item3, "\t\t", i.Item1, "\t\t", i.Item2));
+                        foreach (Tuple<string, string, DateTime> i in arr)
+                            builder.AppendLine(string.Concat(i.Item3, "\t\t", i.Item1, "\t\t", i.Item2));
 
-                    File.WriteAllText(path, builder.ToString());
-                }).RunSafe();
+                        File.WriteAllText(path, builder.ToString());
+                    }).RunSafe();
+                    break;
+                case 223:
+                    ImportFileWorker.Default.StartStop();
+                    break;
+                case 224:
+                    ExportFileWorker.Default.StartStop();
+                    break;
+                case 225:
+                    CoverWorker.Default.StartStop();
+                    break;
             }
+
             base.OnCustomCommand(command);
         }
 

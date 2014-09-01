@@ -108,7 +108,7 @@ namespace DEMATLib.Data
             const string SQL = @"SELECT v_iso_id, v_br_id, v_number, v_voucher_void, v_date_purchase, v_date_qualified, 
                                         v_date_stamp, v_date_refund, v_date_rebate, v_date_debit, v_date_P0, v_date_P1, v_date_P15, v_date_P2, 
                                         P2_site_code, P2_location_number, v_ic_id
-                                FROM Voucher (nolock) WHERE v_iso_id = @iso and v_br_id = @brId;";
+                                FROM Voucher (nolock) WHERE v_iso_id = @iso and v_br_id = @brId and v_date_purchase > '2014-07-01';";
 
             #endregion
 

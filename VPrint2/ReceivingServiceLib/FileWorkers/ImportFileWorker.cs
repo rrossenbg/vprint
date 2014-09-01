@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using ReceivingServiceLib.Data;
+using VPrinting;
 
 namespace ReceivingServiceLib.FileWorkers
 {
@@ -73,9 +74,12 @@ namespace ReceivingServiceLib.FileWorkers
                                     fac.ReadVoucherXml(xmlPath, out jobId, out countryId, out retailerId, out voucherId, out folderId,
                                         out siteCode, out barCode, out userId, out locationId, out sessionId);
 
-                                    message = string.Concat("Job ID: ", jobId, Environment.NewLine, "Country ID: ", countryId, Environment.NewLine, "Retailer ID: ", retailerId, Environment.NewLine,
-                                       "Voucher ID: ", voucherId, Environment.NewLine, "Folder ID: ", folderId, Environment.NewLine, "Site code: ", siteCode, Environment.NewLine,
-                                       "User ID: ", userId, Environment.NewLine, "Location ID: ", locationId, Environment.NewLine, "Session ID: ", sessionId, Environment.NewLine,
+                                    message = string.Concat("Job ID: ", jobId, Environment.NewLine, "Country ID: ", 
+                                        countryId, Environment.NewLine, "Retailer ID: ", retailerId, Environment.NewLine,
+                                       "Voucher ID: ", voucherId, Environment.NewLine, "Folder ID: ", folderId, Environment.NewLine, 
+                                       "Site code: ", siteCode, Environment.NewLine,
+                                       "User ID: ", userId, Environment.NewLine, "Location ID: ", locationId, Environment.NewLine,
+                                       "Session ID: ", sessionId, Environment.NewLine,
                                        string.Format("Archive created: {0:G}", DateTime.Now));
                                 }
                                 else
@@ -88,7 +92,8 @@ namespace ReceivingServiceLib.FileWorkers
                                     {
                                         fac.ReadCoversheetXml(xmlPath, out folderId, out userId, out locationId, out sessionId);
 
-                                        message = string.Concat("User ID: ", userId, Environment.NewLine, "Location ID: ", locationId, Environment.NewLine, "Session ID: ", sessionId, Environment.NewLine,
+                                        message = string.Concat("User ID: ", userId, Environment.NewLine, "Location ID: ", locationId, 
+                                            Environment.NewLine, "Session ID: ", sessionId, Environment.NewLine,
                                             string.Format("Archive created: {0:G}", DateTime.Now));
                                     }
                                     else
@@ -120,12 +125,12 @@ namespace ReceivingServiceLib.FileWorkers
 
                                     if (isVoucher)
                                     {
-                                        DataAccess.Instance.AddVoucher(jobId, countryId, retailerId, voucherId, folderId,
-                                            siteCode, barCode, locationId, userId, m_Buffer50MB, length, sessionId, false, true);
+                                        VoucherDataAccess.Instance.AddVoucher(jobId, countryId, retailerId, voucherId, folderId,
+                                            siteCode, barCode, locationId, userId, m_Buffer50MB, length, sessionId, true);
                                     }
                                     else
                                     {
-                                        DataAccess.Instance.AddCoversheet(folderId, locationId, userId, m_Buffer50MB, length, sessionId, true);
+                                        VoucherDataAccess.Instance.AddCoversheet(folderId, locationId, userId, m_Buffer50MB, length, sessionId, true);
                                     }
                                 }
 
