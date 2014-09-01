@@ -5,9 +5,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VPrint.Common;
@@ -17,7 +20,6 @@ using VPrinting.Data;
 using VPrinting.Extentions;
 using VPrinting.ScanServiceLocalRef;
 using VPrinting.ScanServiceRef;
-using System.Threading;
 
 namespace VPrinting
 {
@@ -243,6 +245,30 @@ namespace VPrinting
                 var gdir = temp.Combine(e.Value.SessionID.ToString());
                 gdir.EnsureDirectory();
                 e.Value.FileInfoList.AddRange(fileAccess.Instance.ExtractFileZip(fullFileName, gdir.FullName));
+
+                var cover = ServiceDataAccess.Instance.ReadCoverInfo(e.Value.Id);
+                if (!string.IsNullOrWhiteSpace(cover))
+                {
+                    var covers = cover.ToObject<List<Rectangle>>();
+                    var voucherFile = e.Value.FileInfoList.Max((i1, i2) => i1.Length > i2.Length);
+                    using (var bmp = (Bitmap)Bitmap.FromFile(voucherFile.FullName))
+                    {
+                        using (Graphics g = Graphics.FromImage(bmp))
+                        {
+                            foreach (var area in covers)
+                            {
+                                bmp.Pixellate(area);
+                                g.DrawString(string.Format("{0}", area), this.Font, Brushes.BlueViolet, area.Left, area.Top);
+                            }
+                        }
+
+                        var newvoucherfile = voucherFile.Rename((i) => i.GetFileNameWithoutExtension() + "_new");
+                        e.Value.FileInfoList.Remove(voucherFile);
+                        e.Value.FileInfoList.Add(newvoucherfile);
+                        bmp.Save(newvoucherfile.FullName, ImageFormat.Jpeg);
+                    }
+                    voucherFile.DeleteSafe();
+                }
 
                 var sgn = e.Value.FileInfoList.FirstOrDefault(f => f.Extension == ".sgn");
                 if (sgn != null)

@@ -74,7 +74,7 @@ namespace DEMATTest
             s.RefundedDate = DateTime.Now;
             s.StampedDate = DateTime.Now;
             s.TimeStamp = DateTime.Now;
-            s.VoidedDate = DateTime.Now; 
+            s.VoidedDate = DateTime.Now;
 
             for (int i = 0; i < 3; i++)
                 b.AddStatus(s);
@@ -84,6 +84,12 @@ namespace DEMATTest
         }
 
         const string DBNAME = "diordb4";
+
+        [TestMethod]
+        public void test_formating()
+        {
+            var value = 12345.ToString("000000000");
+        }
 
         //[TestMethod]
         //public void test_dior_save_nosql()

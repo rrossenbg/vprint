@@ -14,6 +14,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Reflection;
 
 namespace CPrint2
 {
@@ -530,6 +531,7 @@ namespace CPrint2
         }
 
         [TargetedPatchingOptOut("na")]
+        [Obfuscation]
         public static string ToUniqueFileName(this string name)
         {
             return Path.GetFileNameWithoutExtension(name).Unique().Limit(MAX_FILE_LENGTH).concat(Path.GetExtension(name));

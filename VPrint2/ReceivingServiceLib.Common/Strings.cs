@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Xml.Serialization;
 using System.Reflection;
+using VPrinting;
 
 namespace ReceivingServiceLib
 {
@@ -17,17 +18,65 @@ namespace ReceivingServiceLib
         public const string APPNAME = "RSV";
         public const string APPNAMEWEB = "RSVWEB";
         public const string SingleSaleCountries = "SingleSaleCountries";
+        public const string COVER = "COVER";
 
+        /// <summary>
+        /// Images connection string
+        /// </summary>
         public string ConnString { get; set; }
+
+        /// <summary>
+        /// PTF connection string
+        /// </summary>
         public string PTFConnString { get; set; }
+
+        /// <summary>
+        /// Upload folder
+        /// </summary>
         public string UPLOADROOT { get; set; }
+
+        /// <summary>
+        /// Download folder
+        /// </summary>
         public string DOWNLOADROOT { get; set; }
 
+        /// <summary>
+        /// Country/ Retailer/ Voucher hierarchy
+        /// </summary>
         public string VOCUHERSFOLDER { get; set; }
+
+        /// <summary>
+        /// Export service folder
+        /// </summary>
         public string VOCUHERSEXPORTFOLDER { get; set; }
+
+        /// <summary>
+        /// Cover service folder
+        /// </summary>
+        public string COVERWORKFOLDER { get; set; }
+
+        /// <summary>
+        /// Content service folder
+        /// </summary>
+        public string CONTENTWORKFOLDER { get; set; }
+
+        /// <summary>
+        /// General work folder
+        /// </summary>
+        public string SERVICESWORKFOLDER { get; set; }
+
+        /// <summary>
+        /// General error folder
+        /// </summary>
         public string UPLOADERRORS { get; set; }
+
+        /// <summary>
+        /// Version folder
+        /// </summary>
         public string VERSIONFOLDER { get; set; }
+
         public string pfxFileFullPath { get; set; }
+
         public string PTFLogoFileFullPath { get; set; }
 
         public static Strings Read()
@@ -64,6 +113,7 @@ namespace ReceivingServiceLib
             DOWNLOADROOT = "C:\\";
             VOCUHERSFOLDER = "C:\\";
             VOCUHERSEXPORTFOLDER = "C:\\";
+            COVERWORKFOLDER = "C:\\";
             UPLOADERRORS = "C:\\";
             pfxFileFullPath = "C:\\test.pfx";
             PTFLogoFileFullPath = "C:\\test.png";
@@ -72,14 +122,15 @@ namespace ReceivingServiceLib
         public bool IsValid()
         {
             return
-                !ConnString.IsNullOrWhiteSpace() &&
-                !PTFConnString.IsNullOrWhiteSpace() &&
-                !UPLOADROOT.IsNullOrWhiteSpace() &&
-                !VOCUHERSFOLDER.IsNullOrWhiteSpace() &&
-                !VOCUHERSEXPORTFOLDER.IsNullOrWhiteSpace() &&
-                !UPLOADERRORS.IsNullOrWhiteSpace() &&
-                !pfxFileFullPath.IsNullOrWhiteSpace() &&
-                !PTFLogoFileFullPath.IsNullOrWhiteSpace();
+                !string.IsNullOrWhiteSpace(ConnString) &&
+                !string.IsNullOrWhiteSpace(PTFConnString) &&
+                !string.IsNullOrWhiteSpace(UPLOADROOT) &&
+                !string.IsNullOrWhiteSpace(VOCUHERSFOLDER) &&
+                !string.IsNullOrWhiteSpace(VOCUHERSEXPORTFOLDER) &&
+                !string.IsNullOrWhiteSpace(COVERWORKFOLDER) &&
+                !string.IsNullOrWhiteSpace(UPLOADERRORS) &&
+                !string.IsNullOrWhiteSpace(pfxFileFullPath) &&
+                !string.IsNullOrWhiteSpace(PTFLogoFileFullPath);
         }
     }
 }

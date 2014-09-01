@@ -11,7 +11,6 @@ using System.Security.Cryptography.X509Certificates;
 using DTKBarReader;
 using VPrint.Common;
 using VPrinting.Common;
-using VPrinting.Extentions;
 using VPrinting.Tools;
 
 namespace VPrinting.ScaningProcessors
@@ -71,7 +70,7 @@ namespace VPrinting.ScaningProcessors
                         if (!coverArea.IsEmpty)
                         {
                             var size = StateSaver.Default.Get<int>(Strings.PIXELSIZE, 5);
-                            bmp.Pixellate(coverArea, size);
+                            bmp.Pixellate(coverArea);
                         }
 
                         if (vitem.HasBarcode)

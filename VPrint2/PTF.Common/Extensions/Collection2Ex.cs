@@ -12,7 +12,7 @@ using System.Reflection;
 namespace VPrinting
 {
     [Obfuscation(StripAfterObfuscation = true, ApplyToMembers = true)]
-    public static class CollectionEx
+    public static class Collection2Ex
     {
         [TargetedPatchingOptOut("na")]
         public static bool IsNullOrEmpty<T>(this ICollection<T> coll)

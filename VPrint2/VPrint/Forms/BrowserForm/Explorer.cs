@@ -5,6 +5,7 @@ using System.IO;
 using System.Management;
 using System.Threading;
 using System.Windows.Forms;
+using VPrinting;
 using VPrinting.Common;
 using VPrinting.Tools;
 

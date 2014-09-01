@@ -15,10 +15,14 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,9 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBox.cs" />
-    <Compile Include="Data\DataAccess.cs" />
+    <Compile Include="Data\CoverDataAccess.cs" />
+    <Compile Include="Data\VoucherDataAccess.cs" />
     <Compile Include="ErrorHandler.cs" />
     <Compile Include="ErrorHandlingBehaviorAttribute.cs" />
+    <Compile Include="FileWorkers\ContentModifyWorker.cs" />
+    <Compile Include="FileWorkers\CoverWorker.cs" />
+    <Compile Include="FileWorkers\~WorkerBase.cs" />
     <Compile Include="ISOs.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -69,7 +77,7 @@
     <Compile Include="pdfFileAccess.cs" />
     <Compile Include="zipFileAccess.cs" />
     <Compile Include="FileWorkers\ExportFileWorker.cs" />
-    <Compile Include="FileWorkers\FileWorkerBase.cs" />
+    <Compile Include="FileWorkers\~FileWorkerBase.cs" />
     <Compile Include="FileWorkers\ImportFileWorker.cs" />
     <Compile Include="IExceptionToFaultConverter.cs" />
     <Compile Include="IScanService.cs" />
@@ -85,9 +93,17 @@
     <Content Include="KnowHow.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PTF.Common\PTF.Common.csproj">
+      <Project>{E99DEC6F-4363-467E-AF5A-18B03E017B12}</Project>
+      <Name>PTF.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReceivingServiceLib.Common\ReceivingServiceLib.Common.csproj">
       <Project>{5866870C-D0F8-4C42-90A4-6F33BB99B447}</Project>
       <Name>ReceivingServiceLib.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReceivingServiceLib.Drawing\ReceivingServiceLib.Drawing.csproj">
+      <Project>{295F5DAD-6B99-4CE4-9F88-AD94CB879AE5}</Project>
+      <Name>ReceivingServiceLib.Drawing</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

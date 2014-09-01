@@ -1,9 +1,13 @@
-﻿
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+/***************************************************/
+
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Xml.Linq;
+using VPrinting;
 
 namespace ReceivingServiceLib.FileWorkers
 {
@@ -49,10 +53,10 @@ namespace ReceivingServiceLib.FileWorkers
                                     continue;
 
                                 XDocument xml = XDocument.Load(xmlPath.FullName);
-                                int jobId = xml.Root.ElementThrow("JobID").Value.ConvertTo<string, int>("JobID");
-                                int countryId = xml.Root.ElementThrow("CountryID").Value.ConvertTo<string, int>("CountryID");
-                                int retailerId = xml.Root.ElementThrow("RetailerID").Value.ConvertTo<string, int>("RetailerID");
-                                int voucherId = xml.Root.ElementThrow("VoucherID").Value.ConvertTo<string, int>("VoucherID");
+                                int jobId = xml.Root.ElementThrow("JobID").Value.ConvertToThrow<string, int>("JobID");
+                                int countryId = xml.Root.ElementThrow("CountryID").Value.ConvertToThrow<string, int>("CountryID");
+                                int retailerId = xml.Root.ElementThrow("RetailerID").Value.ConvertToThrow<string, int>("RetailerID");
+                                int voucherId = xml.Root.ElementThrow("VoucherID").Value.ConvertToThrow<string, int>("VoucherID");
                                 string sessionId = xml.Root.ElementValueOrDefault("SessionID", zipfile.GetFileNameWithoutExtension());
 
                                 var fac2 = new zipFileAccess();

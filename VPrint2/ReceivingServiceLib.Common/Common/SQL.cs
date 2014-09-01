@@ -12,15 +12,7 @@ using System.Reflection;
 
 namespace ReceivingServiceLib
 {
-    public interface IReadable
-    {
-        void Load(IDataReader reader);
-    }
 
-    public interface IBinaryReadable
-    {
-        void Read(BinaryReader stream);
-    }   
 
     /// <summary>
     /// Common SQL class

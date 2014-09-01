@@ -106,6 +106,24 @@ namespace VPrinting.Data
 
         #endregion
 
+        #region CCC Cover
+
+        public string ReadCoverInfo(int id)
+        {
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            try
+            {
+                var keys = Security.CreateInstance().GenerateSecurityKeys();
+                return client.ReadCoverInfo(id, keys.Item1, keys.Item2);
+            }
+            finally
+            {
+                ((IDisposable)client).Dispose();
+            }
+        }
+
+        #endregion
+
         #region SEARCH
 
         public HistoryByCountryInfo[] ReadHistory(OperationHistory data, DateTime fromTime, DateTime toTime)

@@ -1534,6 +1534,24 @@ namespace VPrinting.ScanServiceRef {
         
         string EndFindVoucher(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/FindVoucherImage", ReplyAction="http://tempuri.org/IScanService/FindVoucherImageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/FindVoucherImageMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        int[] FindVoucherImage(int countryId, int voucherId, int voucherIdCD, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/FindVoucherImage", ReplyAction="http://tempuri.org/IScanService/FindVoucherImageResponse")]
+        System.IAsyncResult BeginFindVoucherImage(int countryId, int voucherId, int voucherIdCD, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        int[] EndFindVoucherImage(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/ReadCoverInfo", ReplyAction="http://tempuri.org/IScanService/ReadCoverInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/ReadCoverInfoMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        string ReadCoverInfo(int id, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/ReadCoverInfo", ReplyAction="http://tempuri.org/IScanService/ReadCoverInfoResponse")]
+        System.IAsyncResult BeginReadCoverInfo(int id, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        string EndReadCoverInfo(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/SaveHistory", ReplyAction="http://tempuri.org/IScanService/SaveHistoryResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SaveHistoryMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
         void SaveHistory(int operatorCountryId, int operatorUserId, VPrinting.ScanServiceRef.OperationHistory operationType, System.Guid operationId, int brIsoId, int brId, int vId, int v2Id, int count, string details, string s1, string s2);
@@ -1785,6 +1803,44 @@ namespace VPrinting.ScanServiceRef {
         private object[] results;
         
         public FindVoucherCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class FindVoucherImageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public FindVoucherImageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ReadCoverInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ReadCoverInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2089,6 +2145,18 @@ namespace VPrinting.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onFindVoucherCompletedDelegate;
         
+        private BeginOperationDelegate onBeginFindVoucherImageDelegate;
+        
+        private EndOperationDelegate onEndFindVoucherImageDelegate;
+        
+        private System.Threading.SendOrPostCallback onFindVoucherImageCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginReadCoverInfoDelegate;
+        
+        private EndOperationDelegate onEndReadCoverInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onReadCoverInfoCompletedDelegate;
+        
         private BeginOperationDelegate onBeginSaveHistoryDelegate;
         
         private EndOperationDelegate onEndSaveHistoryDelegate;
@@ -2247,6 +2315,10 @@ namespace VPrinting.ScanServiceRef {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> ValidateVoucherCompleted;
         
         public event System.EventHandler<FindVoucherCompletedEventArgs> FindVoucherCompleted;
+        
+        public event System.EventHandler<FindVoucherImageCompletedEventArgs> FindVoucherImageCompleted;
+        
+        public event System.EventHandler<ReadCoverInfoCompletedEventArgs> ReadCoverInfoCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SaveHistoryCompleted;
         
@@ -2884,6 +2956,118 @@ namespace VPrinting.ScanServiceRef {
                         voucherIdCD,
                         s1,
                         s2}, this.onEndFindVoucherDelegate, this.onFindVoucherCompletedDelegate, userState);
+        }
+        
+        public int[] FindVoucherImage(int countryId, int voucherId, int voucherIdCD, string s1, string s2) {
+            return base.Channel.FindVoucherImage(countryId, voucherId, voucherIdCD, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginFindVoucherImage(int countryId, int voucherId, int voucherIdCD, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginFindVoucherImage(countryId, voucherId, voucherIdCD, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public int[] EndFindVoucherImage(System.IAsyncResult result) {
+            return base.Channel.EndFindVoucherImage(result);
+        }
+        
+        private System.IAsyncResult OnBeginFindVoucherImage(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int countryId = ((int)(inValues[0]));
+            int voucherId = ((int)(inValues[1]));
+            int voucherIdCD = ((int)(inValues[2]));
+            string s1 = ((string)(inValues[3]));
+            string s2 = ((string)(inValues[4]));
+            return this.BeginFindVoucherImage(countryId, voucherId, voucherIdCD, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndFindVoucherImage(System.IAsyncResult result) {
+            int[] retVal = this.EndFindVoucherImage(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnFindVoucherImageCompleted(object state) {
+            if ((this.FindVoucherImageCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.FindVoucherImageCompleted(this, new FindVoucherImageCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void FindVoucherImageAsync(int countryId, int voucherId, int voucherIdCD, string s1, string s2) {
+            this.FindVoucherImageAsync(countryId, voucherId, voucherIdCD, s1, s2, null);
+        }
+        
+        public void FindVoucherImageAsync(int countryId, int voucherId, int voucherIdCD, string s1, string s2, object userState) {
+            if ((this.onBeginFindVoucherImageDelegate == null)) {
+                this.onBeginFindVoucherImageDelegate = new BeginOperationDelegate(this.OnBeginFindVoucherImage);
+            }
+            if ((this.onEndFindVoucherImageDelegate == null)) {
+                this.onEndFindVoucherImageDelegate = new EndOperationDelegate(this.OnEndFindVoucherImage);
+            }
+            if ((this.onFindVoucherImageCompletedDelegate == null)) {
+                this.onFindVoucherImageCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFindVoucherImageCompleted);
+            }
+            base.InvokeAsync(this.onBeginFindVoucherImageDelegate, new object[] {
+                        countryId,
+                        voucherId,
+                        voucherIdCD,
+                        s1,
+                        s2}, this.onEndFindVoucherImageDelegate, this.onFindVoucherImageCompletedDelegate, userState);
+        }
+        
+        public string ReadCoverInfo(int id, string s1, string s2) {
+            return base.Channel.ReadCoverInfo(id, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginReadCoverInfo(int id, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginReadCoverInfo(id, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public string EndReadCoverInfo(System.IAsyncResult result) {
+            return base.Channel.EndReadCoverInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginReadCoverInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int id = ((int)(inValues[0]));
+            string s1 = ((string)(inValues[1]));
+            string s2 = ((string)(inValues[2]));
+            return this.BeginReadCoverInfo(id, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndReadCoverInfo(System.IAsyncResult result) {
+            string retVal = this.EndReadCoverInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnReadCoverInfoCompleted(object state) {
+            if ((this.ReadCoverInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ReadCoverInfoCompleted(this, new ReadCoverInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ReadCoverInfoAsync(int id, string s1, string s2) {
+            this.ReadCoverInfoAsync(id, s1, s2, null);
+        }
+        
+        public void ReadCoverInfoAsync(int id, string s1, string s2, object userState) {
+            if ((this.onBeginReadCoverInfoDelegate == null)) {
+                this.onBeginReadCoverInfoDelegate = new BeginOperationDelegate(this.OnBeginReadCoverInfo);
+            }
+            if ((this.onEndReadCoverInfoDelegate == null)) {
+                this.onEndReadCoverInfoDelegate = new EndOperationDelegate(this.OnEndReadCoverInfo);
+            }
+            if ((this.onReadCoverInfoCompletedDelegate == null)) {
+                this.onReadCoverInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReadCoverInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginReadCoverInfoDelegate, new object[] {
+                        id,
+                        s1,
+                        s2}, this.onEndReadCoverInfoDelegate, this.onReadCoverInfoCompletedDelegate, userState);
         }
         
         public void SaveHistory(int operatorCountryId, int operatorUserId, VPrinting.ScanServiceRef.OperationHistory operationType, System.Guid operationId, int brIsoId, int brId, int vId, int v2Id, int count, string details, string s1, string s2) {

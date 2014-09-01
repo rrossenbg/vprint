@@ -8,7 +8,7 @@ using System.IO;
 using System.Runtime;
 using System.Reflection;
 
-namespace ReceivingServiceLib
+namespace VPrinting
 {
     public static class IOEx
     {
@@ -72,19 +72,19 @@ namespace ReceivingServiceLib
             }
         }
 
-        [TargetedPatchingOptOut("na")]
-        [Obfuscation]
-        public static DirectoryInfo Combine(this DirectoryInfo info, string subFolder)
-        {
-            return new DirectoryInfo(Path.Combine(info.FullName, subFolder));
-        }
+        //[TargetedPatchingOptOut("na")]
+        //[Obfuscation]
+        //public static DirectoryInfo Combine(this DirectoryInfo info, string subFolder)
+        //{
+        //    return new DirectoryInfo(Path.Combine(info.FullName, subFolder));
+        //}
 
-        [TargetedPatchingOptOut("na")]
-        [Obfuscation]
-        public static FileInfo CombineFileName(this DirectoryInfo info, string fileName)
-        {
-            return new FileInfo(Path.Combine(info.FullName, fileName));
-        }
+        //[TargetedPatchingOptOut("na")]
+        //[Obfuscation]
+        //public static FileInfo CombineFileName(this DirectoryInfo info, string fileName)
+        //{
+        //    return new FileInfo(Path.Combine(info.FullName, fileName));
+        //}
 
         [TargetedPatchingOptOut("na")]
         [Obfuscation]

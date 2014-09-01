@@ -133,14 +133,14 @@ namespace VPrinting
             return str.Replace("\n\r", "").Replace("\n", "").Replace(" ", "");
         }
 
-        [TargetedPatchingOptOut("na")]
-        public static string concat(this string str, params object[] values)
-        {
-            StringBuilder b = new StringBuilder(str);
-            foreach (var o in values)
-                b.Append(o);
-            return b.ToString();
-        }
+        //[TargetedPatchingOptOut("na")]
+        //public static string concat(this string str, params object[] values)
+        //{
+        //    StringBuilder b = new StringBuilder(str);
+        //    foreach (var o in values)
+        //        b.Append(o);
+        //    return b.ToString();
+        //}
 
         [TargetedPatchingOptOut("na")]
         public static string join(this string str, string separ, params object[] values)
@@ -533,7 +533,9 @@ namespace VPrinting
         [TargetedPatchingOptOut("na")]
         public static string ToUniqueFileName(this string name)
         {
-            return Path.GetFileNameWithoutExtension(name).Unique().Limit(MAX_FILE_LENGTH).concat(Path.GetExtension(name));
+            return
+                string.Concat(Path.GetFileNameWithoutExtension(name).Unique().Limit(MAX_FILE_LENGTH), 
+                Path.GetExtension(name));
         }
 
         [TargetedPatchingOptOut("na")]
@@ -635,6 +637,12 @@ namespace VPrinting
             {
                 Trace.WriteLine(ex);
             }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static string EmptyOrWhiteSpaceToNull(this string value)
+        {
+            return string.IsNullOrWhiteSpace(value) ? null : value;
         }
     }
 }

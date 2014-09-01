@@ -224,10 +224,10 @@ namespace VPrinting
             return new DirectoryInfo(Path.Combine(info.FullName, subFolder));
         }
 
-        [TargetedPatchingOptOut("na")]
-        public static FileInfo CombineFileName(this DirectoryInfo info, string fileName)
-        {
-            return new FileInfo(Path.Combine(info.FullName, fileName));
-        }
+        //[TargetedPatchingOptOut("na")]
+        //public static FileInfo CombineFileName(this DirectoryInfo info, string fileName)
+        //{
+        //    return new FileInfo(Path.Combine(info.FullName, fileName));
+        //}
     }
 }

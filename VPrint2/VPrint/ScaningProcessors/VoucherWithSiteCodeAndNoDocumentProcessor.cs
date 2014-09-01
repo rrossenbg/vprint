@@ -3,18 +3,15 @@
 /***************************************************/
 
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
-using DTKBarReader;
 using VPrint.Common;
 using VPrinting.Common;
-using VPrinting.Extentions;
+using VPrinting.Data;
 using VPrinting.Forms;
 using VPrinting.Tools;
-using VPrinting.Data;
 
 namespace VPrinting.ScaningProcessors
 {
@@ -62,7 +59,7 @@ namespace VPrinting.ScaningProcessors
                         if (!coverArea.IsEmpty)
                         {
                             var size = StateSaver.Default.Get<int>(Strings.PIXELSIZE, 5);
-                            bmp.Pixellate(coverArea, size);
+                            bmp.Pixellate(coverArea);
                         }
 
                         string site;
@@ -75,6 +72,7 @@ namespace VPrinting.ScaningProcessors
                         vitem.RetailerID = vinfo.RetailerId;
                         vitem.VoucherID = vinfo.VoucherId;
                         vitem.Barcode = "";
+                        vitem.SiteCode = info.GetFileNameWithoutExtension();
 
                         if (item.CountryID == 0)
                             item.CountryID = MainForm.ms_DefaultCountryId;

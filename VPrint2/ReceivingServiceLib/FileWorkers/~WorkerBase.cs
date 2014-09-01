@@ -9,11 +9,10 @@ using Thr = System.Threading;
 
 namespace ReceivingServiceLib.FileWorkers
 {
-    public abstract class FileWorkerBase
+    public abstract class WorkerBase
     {
+        protected volatile bool m_Exit;
         public static event ThreadExceptionEventHandler Error;
-
-        protected readonly byte[] m_Buffer50MB = new byte[50 * 1024 * 1024];
 
         private Thread m_WorkerThread = null;
 
@@ -22,7 +21,7 @@ namespace ReceivingServiceLib.FileWorkers
         /// </summary>
         protected readonly TimeSpan TIMEOUT =
 #if DEBUG
-            TimeSpan.FromSeconds(2);
+ TimeSpan.FromSeconds(2);
 #else
             TimeSpan.FromSeconds(30);
 #endif
@@ -30,9 +29,9 @@ namespace ReceivingServiceLib.FileWorkers
         /// <summary>
         /// 15 sec.
         /// </summary>
-        protected readonly TimeSpan EMPTYTIMEOUT = 
+        protected readonly TimeSpan EMPTYTIMEOUT =
 #if DEBUG
-            TimeSpan.FromSeconds(15);
+ TimeSpan.FromSeconds(15);
 #else
             TimeSpan.FromMinutes(5);
 #endif

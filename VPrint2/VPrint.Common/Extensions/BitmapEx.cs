@@ -12,7 +12,9 @@ using System.Reflection;
 using System.Runtime;
 using System.Runtime.InteropServices;
 using System.Text;
+using VPrint.Common;
 using ImgEncoder = System.Drawing.Imaging.Encoder;
+using AForge.Imaging.Filters;
 
 namespace VPrinting
 {
@@ -177,7 +179,6 @@ namespace VPrinting
             }
         }
 
-        [TargetedPatchingOptOut("na")]
         public static void ConvolutionFilter(this Bitmap sourceBitmap, double[,] filterMatrix, double factor = 1, int bias = 0)
         {
             BitmapData sourceData = sourceBitmap.LockBits(new Rectangle(0, 0, sourceBitmap.Width, sourceBitmap.Height), 
@@ -278,30 +279,37 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
-        public static void Pixellate(this Bitmap image, Rectangle rectangle, int pixelSize)
+        public static void Pixellate(this Bitmap image, Rectangle rec)
+        {
+            Pixellate filter = new Pixellate();
+            // apply the filter
+            filter.ApplyInPlace(image, rec);
+        }
+
+        public static void Pixellate(this LockBitmap bmp, Rectangle rectangle, int pixelSize)
         {
             // look at every pixel in the rectangle while making sure we're within the image bounds
-            for (int xx = rectangle.X; xx < rectangle.X + rectangle.Width && xx < image.Width; xx += pixelSize)
+            for (int xx = rectangle.X; xx < rectangle.X + rectangle.Width && xx < bmp.Width; xx += pixelSize)
             {
-                for (int yy = rectangle.Y; yy < rectangle.Y + rectangle.Height && yy < image.Height; yy += pixelSize)
+                for (int yy = rectangle.Y; yy < rectangle.Y + rectangle.Height && yy < bmp.Height; yy += pixelSize)
                 {
                     int offsetX = pixelSize / 2;
                     int offsetY = pixelSize / 2;
 
                     // make sure that the offset is within the boundry of the image
-                    while (xx + offsetX >= image.Width) 
+                    while (xx + offsetX >= bmp.Width)
                         offsetX--;
 
-                    while (yy + offsetY >= image.Height) 
+                    while (yy + offsetY >= bmp.Height)
                         offsetY--;
 
                     // get the pixel color in the center of the soon to be pixelated area
-                    Color pixel = image.GetPixel(xx + offsetX, yy + offsetY);
+                    Color pixel = bmp.GetPixel(xx + offsetX, yy + offsetY);
 
                     // for each pixel in the pixelate size, set it to the center color
-                    for (int x = xx; x < xx + pixelSize && x < image.Width; x++)
-                        for (int y = yy; y < yy + pixelSize && y < image.Height; y++)
-                            image.SetPixel(x, y, pixel);
+                    for (int x = xx; x < xx + pixelSize && x < bmp.Width; x++)
+                        for (int y = yy; y < yy + pixelSize && y < bmp.Height; y++)
+                            bmp.SetPixel(x, y, pixel);
                 }
             }
         }
