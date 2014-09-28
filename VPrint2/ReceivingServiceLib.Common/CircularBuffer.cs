@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections;
+using System.Threading;
 
 namespace ReceivingServiceLib
 {
@@ -20,15 +21,26 @@ namespace ReceivingServiceLib
 
         public void Add(T value)
         {
-            m_List.Add(value);
+            if (Monitor.TryEnter(this, 150))
+            {
+                try
+                {
+                    m_List.Add(value);
 
-            if (m_List.Count > MaxLength)
-                m_List.RemoveAt(0);
+                    if (m_List.Count > MaxLength)
+                        m_List.RemoveAt(0);
+                }
+                finally
+                {
+                    Monitor.Exit(this);
+                }
+            }
         }
 
         public Array ToArray()
         {
-            return m_List.ToArray(typeof(T));
+            lock (this)
+                return m_List.ToArray(typeof(T));
         }
 
         public void Clear()

@@ -64,5 +64,13 @@ namespace VPrint_372_addon
             };
             StateSaver.Default.Set(Strings.LIST_OF_BARCODECONFIGS, list);
         }
-    }
+
+        public void Exec(object data)
+        {
+        }
+
+        public void Exit()
+        {
+        }
+    }    
 }

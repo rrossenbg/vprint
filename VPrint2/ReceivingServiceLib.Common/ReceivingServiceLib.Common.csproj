@@ -12,14 +12,10 @@
     <AssemblyName>ReceivingServiceLib.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\VPrint.Common\Pdf\PdfAManager.cs">
+      <Link>Pdf\PdfAManager.cs</Link>
+    </Compile>
+    <Compile Include="..\VPrint\Data\pdfFileAccess.cs">
+      <Link>Data\pdfFileAccess.cs</Link>
+    </Compile>
     <Compile Include="CircularBuffer.cs" />
     <Compile Include="Common\Interfaces.cs" />
     <Compile Include="Data\PTFDataAccess.cs" />
@@ -64,9 +66,7 @@
     <Compile Include="Common\SQL.cs" />
     <Compile Include="Common\UniqueStringList.cs" />
     <Compile Include="Data\DataAccess.cs" />
-    <Compile Include="Extensions\Drawing3Ex.cs" />
     <Compile Include="Global.cs" />
-    <Compile Include="PdfManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -101,6 +101,12 @@
       <Project>{E99DEC6F-4363-467E-AF5A-18B03E017B12}</Project>
       <Name>PTF.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReceivingServiceLib.CommonDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

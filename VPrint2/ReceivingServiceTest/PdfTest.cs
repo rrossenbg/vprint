@@ -6,6 +6,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ReceivingServiceLib;
 using System.IO;
 using System.Drawing;
+using VPrint.Common.Pdf;
+using VPrinting;
+using VPrinting.Pdf;
 
 namespace ReceivingServiceTest
 {
@@ -67,7 +70,7 @@ namespace ReceivingServiceTest
         {
             string[] files = Directory.GetFiles(@"C:\Users\Rosen.rusev\Pictures\Presenter");
 
-            PdfManager manager = new PdfManager();
+            PdfAManager manager = new PdfAManager();
 
             string fileName = "C:\\test\\SES724-320377-0013491924-5.pdf";
             string signedFileName = "C:\\test\\SES724-320377-0013491924-5_Signed.pdf";
@@ -75,7 +78,7 @@ namespace ReceivingServiceTest
             using (var bmp = Image.FromFile("C:\\test\\SES724-320377-0013491924-5.jpg"))
             {
                 manager.CreatePdf(fileName, new Image[] { bmp },
-                    new PdfManager.CreationInfo()
+                    new PdfCreationInfo()
                 {
                     Title = "Voucher SES724-320377-0013491924-5",
                     Subject = "Retailer 320377",
@@ -87,7 +90,7 @@ namespace ReceivingServiceTest
             manager.SignPdfFile(
                 fileName,
                 signedFileName,
-            new PdfManager.SignInfo()
+            new PdfSignInfo()
             {
                 pfxFilePath = @"C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\PTF.pfx",
                 pfxKeyPass = "",

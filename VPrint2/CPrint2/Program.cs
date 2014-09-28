@@ -52,13 +52,15 @@ namespace CPrint2
                 {
                     try
                     {
+                        Config.CAMERAS = Tools.GetNumberOfCameras(Config.CAMERA_CAPTION);
+
                         ThreadPool.SetMaxThreads(50, 100);
                         Thread.CurrentThread.CurrentCulture =
                         Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-us");
 
                         AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
                         Application.ThreadException += new ThreadExceptionEventHandler(OnThreadException);
-                        StartUp.TryToAddApp();
+                        StartUp.TryToAddAppSafe();
 
                         Application.EnableVisualStyles();
                         Application.SetCompatibleTextRenderingDefault(false);
@@ -87,11 +89,8 @@ namespace CPrint2
 
                         var ctn = new AppContext();
                         ctn.NewCommandFileEvent += new EventHandler<ValueEventArgs<string>>(NewCommandFileEvent);
-                        ctn.NewImageFileEvent += new EventHandler<ValueEventArgs<string>>(NewImageFileEvent);
                         ctn.Error += new ThreadExceptionEventHandler(OnThreadException);
 
-                        ImageProcessor.NewVoucherStarted += new EventHandler(ImageProcessor_NewVoucherStarted);
-                        ImageProcessor.VoucherProcessCompleted += new EventHandler<ValueEventArgs<string>>(ImageProcessor_VoucherProcessCompleted);
                         StateSaver.Error += new ThreadExceptionEventHandler(OnThreadException);
                         ImageProcessor.Error += new ThreadExceptionEventHandler(OnThreadException);
                         AppContext.Default.Error += new ThreadExceptionEventHandler(OnThreadException);
@@ -120,12 +119,22 @@ namespace CPrint2
             Debug.Assert(e.Exception != null);
             Debug.Assert(e.Exception.Message != null);
 
-            Exception ex = e.Exception;
-            if (ex is ObjectDisposedException)
-                return;
+            if (Monitor.TryEnter(typeof(Program), 500))
+            {
+                try
+                {
+                    Exception ex = e.Exception;
+                    if (ex is ObjectDisposedException)
+                        return;
 
-            new Action<Exception>((ee) => ServiceDataAccess.Instance.LogOperation(OperationHistory.Error, Program.SessionId, Program.currentUser.CountryID, 0, 0, 0, 0, ee.ToString())).FireAndForgetSafe(ex);
-            MainForm.Default.InvokeSf(() => ex.ShowDialog(MainForm.Default));
+                    new Action<Exception>((ee) => ServiceDataAccess.Instance.LogOperation(OperationHistory.Error, Program.SessionId, Program.currentUser.CountryID, 0, 0, 0, 0, ee.ToString())).FireAndForgetSafe(ex);
+                    MainForm.Default.InvokeSf(() => ex.ShowDialog(MainForm.Default));
+                }
+                finally
+                {
+                    Monitor.Exit(typeof(Program));
+                }
+            }
         }
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -136,14 +145,10 @@ namespace CPrint2
 
         private static void NewCommandFileEvent(object sender, ValueEventArgs<string> e)
         {
-            ImageProcessor.Instance.ProcessCommandFile(e.Value);
+            ImageProcessor.Default.ProcessCommandFile(e.Value);
         }
 
-        private static void NewImageFileEvent(object sender, ValueEventArgs<string> e)
-        {
-            ImageProcessor.Instance.ProcessReadyImage(e.Value);
-        }
-
+#warning NOT IN USE
         private static void ImageProcessor_NewVoucherStarted(object sender, EventArgs e)
         {
             AppContext.Default.Reset();
@@ -152,6 +157,15 @@ namespace CPrint2
         private static void ImageProcessor_VoucherProcessCompleted(object sender, ValueEventArgs<string> e)
         {
             MainForm.Default.ShowImageAsynch(e.Value);
+        }
+    }
+
+    static class TestProgram
+    {
+        [STAThread]
+        static void Main()
+        {
+            Application.Run(new MultyCamForm());
         }
     }
 }

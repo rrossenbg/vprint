@@ -8,7 +8,7 @@ using iTextSharp.text.pdf.security;
 using Org.BouncyCastle.Pkcs;
 using Org.BouncyCastle.X509;
 
-namespace ReceivingServiceLib
+namespace PTF.Common
 {
     public class PdfManager
     {
@@ -57,12 +57,12 @@ namespace ReceivingServiceLib
 
         public class SignInfo
         {
-            public string pfxFilePath;
-            public string pfxKeyPass;
-            public byte[] docPass;
-            public string signImagePath;
-            public string reasonForSigning;
-            public string location;
+            public string pfxFilePath { get; set; }
+            public string pfxKeyPass { get; set; }
+            public byte[] docPass { get; set; }
+            public string signImagePath { get; set; }
+            public string reasonForSigning { get; set; }
+            public string location { get; set; }
         }
 
         /// <summary>

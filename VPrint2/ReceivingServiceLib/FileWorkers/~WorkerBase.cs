@@ -19,22 +19,12 @@ namespace ReceivingServiceLib.FileWorkers
         /// <summary>
         /// 2 sec.
         /// </summary>
-        protected readonly TimeSpan TIMEOUT =
-#if DEBUG
- TimeSpan.FromSeconds(2);
-#else
-            TimeSpan.FromSeconds(30);
-#endif
+        protected readonly TimeSpan TIMEOUT = TimeSpan.FromSeconds(2);
 
         /// <summary>
         /// 15 sec.
         /// </summary>
-        protected readonly TimeSpan EMPTYTIMEOUT =
-#if DEBUG
- TimeSpan.FromSeconds(15);
-#else
-            TimeSpan.FromMinutes(5);
-#endif
+        protected readonly TimeSpan EMPTYTIMEOUT = TimeSpan.FromSeconds(15);
 
         /// <summary>
         /// Starts/stops printer queue

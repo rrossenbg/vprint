@@ -1,3 +1,7 @@
+/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+***************************************************/
+
 using System;
 using System.Collections;
 using System.Collections.Specialized;
@@ -53,12 +57,11 @@ namespace FintraxServiceManager
 			set{ state = value;}
 		}
 		
-		//~ Default ctor
 		public TypeParam()
-		{}
+		{
+        
+        }
 			
-
-		//~ctor
 		public TypeParam(string serviceNameIn, string typeIn, string methodIn, string parametersIn)
 		{
 			this.serviceName = serviceNameIn;
@@ -83,7 +86,7 @@ namespace FintraxServiceManager
 				return false;
 
 			//Two TypeParam objects match only if the type to instantiate and the methods to invoke are exactly same
-			if (String.Equals(typeToRun, t.Type) && String.Equals(methodToRun, t.Method))
+			if (string.Equals(typeToRun, t.Type) && string.Equals(methodToRun, t.Method))
 			{
 				return true;
 			}
@@ -102,8 +105,6 @@ namespace FintraxServiceManager
 			string uniqueString = ToString();
 			return uniqueString.GetHashCode();
 		}
-
-
 	}
 
 	/// <summary>
@@ -156,6 +157,5 @@ namespace FintraxServiceManager
 		{
 			this.List.Clear();
 		}
-
 	}
 }

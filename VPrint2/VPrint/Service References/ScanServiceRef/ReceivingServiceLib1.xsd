@@ -37,6 +37,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="VoucherInfo" nillable="true" type="tns:VoucherInfo" />
+  <xs:simpleType name="ChangeContentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INIT" />
+      <xs:enumeration value="ADD" />
+      <xs:enumeration value="INSERT" />
+      <xs:enumeration value="UPDATE" />
+      <xs:enumeration value="DELETE" />
+      <xs:enumeration value="REMOVE" />
+      <xs:enumeration value="MERGE" />
+      <xs:enumeration value="REPLACE" />
+      <xs:enumeration value="VERIFY" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ChangeContentType" nillable="true" type="tns:ChangeContentType" />
   <xs:simpleType name="OperationHistory">
     <xs:restriction base="xs:string">
       <xs:enumeration value="NA" />

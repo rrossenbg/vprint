@@ -413,6 +413,8 @@ namespace VPrinting.Common
 
         public static StateManager Default { get; set; }
 
+        private volatile int m_ItemsWithErr;
+
         public StateManager()
         {
             Default = this;
@@ -428,6 +430,14 @@ namespace VPrinting.Common
             get
             {
                 return Mode == eMode.TransferFile;
+            }
+        }
+
+        public int Count
+        {
+            get
+            {
+                return m_ItemCollection.Count;
             }
         }
 
@@ -591,6 +601,8 @@ namespace VPrinting.Common
                         file.DeleteSafe();
 
                 m_ItemCollection.Clear();
+
+                m_ItemsWithErr = 0;
 
                 FireItemsCleared();
             }
@@ -816,6 +828,11 @@ namespace VPrinting.Common
                 ((VoucherItem)m_CurrentItem).CopyFromNoBarcode(vitem);
             }
             return ((VoucherItem)m_CurrentItem);
+        }
+
+        public int SetItemWithErr()
+        {
+            return (m_ItemsWithErr += 1);
         }
 
         #endregion

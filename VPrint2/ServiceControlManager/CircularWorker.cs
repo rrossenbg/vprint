@@ -21,6 +21,7 @@ namespace FintraxServiceManager
         public readonly ConcurrentSortedList<TimeSpan, TypeParam> DoneList = new ConcurrentSortedList<TimeSpan, TypeParam>();
         public event EventHandler<EntryEventArgs<string>> Info;
         public event ThreadExceptionEventHandler Error;
+
         public void Start()
         {
             this.m_Running = true;
@@ -28,6 +29,7 @@ namespace FintraxServiceManager
             this.m_Worker.IsBackground = true;
             this.m_Worker.Start();
         }
+
         public void Stop()
         {
             try
@@ -39,6 +41,7 @@ namespace FintraxServiceManager
             {
             }
         }
+
         public void Run()
         {
             while (this.m_Running)
@@ -157,19 +160,17 @@ namespace FintraxServiceManager
                 Thread.Sleep(timeout);
             }
         }
+
         private void FireInfo(string message)
         {
             if (this.Info != null)
-            {
                 this.Info(this, new EntryEventArgs<string>(message));
-            }
         }
+
         private void FireError(Exception ex)
         {
             if (this.Error != null)
-            {
                 this.Error(this, new ThreadExceptionEventArgs(ex));
-            }
         }
     }
 }

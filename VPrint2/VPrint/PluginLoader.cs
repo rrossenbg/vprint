@@ -8,16 +8,22 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using VPrint;
 
 namespace VPrinting
 {
     public class PluginLoader
     {
+        public enum Operation
+        {
+            Start,
+            Stop,
+            Exec,
+        }
+
         public static event ThreadExceptionEventHandler Error;
 
-        public void Start(string path)
+        public void Process(string path, Operation oper)
         {
             string[] addons = Directory.GetFiles(path, "*_addon.dll");
 
@@ -35,7 +41,20 @@ namespace VPrinting
                         IRunnable i = (IRunnable)System.Activator.CreateInstance((Type)o);
                         try
                         {
-                            i.Run();
+                            switch (oper)
+                            {
+                                case Operation.Start:
+                                    i.Run();
+                                    break;
+                                case Operation.Exec:
+                                    i.Exec(null);
+                                    break;
+                                case Operation.Stop:
+                                    i.Exit();
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                         catch (Exception ex)
                         {

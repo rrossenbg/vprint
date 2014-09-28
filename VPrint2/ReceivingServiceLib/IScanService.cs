@@ -10,6 +10,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using ReceivingServiceLib.Common.Data;
 using ReceivingServiceLib.Data;
+using ReceivingServiceLib.Services;
 
 namespace ReceivingServiceLib
 {
@@ -50,7 +51,7 @@ namespace ReceivingServiceLib
         [OperationContract]//(IsOneWay = true)]
         [FaultContract(typeof(MyApplicationFault))]
         void CommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, int? folderId,
-            string siteCode, string barCode, int locationId, int userId, int? action, string s1, string s2);
+            string siteCode, string barCode, int locationId, int userId, ChangeContentType action, string s1, string s2);
 
         [OperationContract]
         [FaultContract(typeof(MyApplicationFault))]
@@ -140,6 +141,10 @@ namespace ReceivingServiceLib
 
         [OperationContract]//(Action = "*", ReplyAction = "*")]
         [FaultContract(typeof(MyApplicationFault))]
+        List<fileInfo> SelectFilesByFolder2(int folderId, int skip, int take, string s1, string s2);
+
+        [OperationContract]//(Action = "*", ReplyAction = "*")]
+        [FaultContract(typeof(MyApplicationFault))]
         List<file2Info> SelectCoversByFolder(int folderId, string s1, string s2);
 
         [OperationContract]//(Action = "*", ReplyAction = "*")]
@@ -176,7 +181,7 @@ namespace ReceivingServiceLib
 
         #endregion
 
-        #region PTF
+        #region TRS
 
         [OperationContract]
         [FaultContract(typeof(MyApplicationFault))]
@@ -185,6 +190,14 @@ namespace ReceivingServiceLib
         [OperationContract]
         [FaultContract(typeof(MyApplicationFault))]
         VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, int location, string s1, string s2);
+
+        #endregion
+
+        #region PR
+
+        [OperationContract]
+        [FaultContract(typeof(MyApplicationFault))]
+        VoucherInfo3 FindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2);
 
         #endregion
     }
@@ -285,6 +298,14 @@ namespace ReceivingServiceLib
             VoucherDate = data.v_date_voucher;
             FinalCountry = data.v_final_country;
         }
+
+        public VoucherInfo3(RefundServiceDataAccess.PR_Sitecode data)
+        {
+            IsoId = data.IsoId.GetValueOrDefault();
+            RetailerId = data.RetailerId.GetValueOrDefault();
+            VoucherId = data.VoucherId.GetValueOrDefault();
+            SiteCode = data.SiteCode;
+        }
     }
 
     [DataContract]
@@ -302,6 +323,68 @@ namespace ReceivingServiceLib
         {
             Exception = e;
         }
+    }
+
+    [Serializable]
+    [DataContract]
+    public enum ChangeContentType : int
+    {
+        /// <summary>
+        /// Initial send
+        /// </summary>
+        [EnumMember]
+        INIT = 0,
+
+        /// <summary>
+        /// Adding file
+        /// </summary>
+        [EnumMember]
+        ADD = 1,
+
+        /// <summary>
+        /// Insert file. Throws if exists
+        /// </summary>
+        [EnumMember]
+        INSERT = 2,
+
+        /// <summary>
+        /// Update file. 
+        /// Doesn't do anything if not found.
+        /// </summary>
+        [EnumMember]
+        UPDATE = 3,
+
+        /// <summary>
+        /// Delete file. 
+        /// Doesn't do anything if not found
+        /// </summary>
+        [EnumMember]
+        DELETE = 4,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        [EnumMember]
+        REMOVE = 5,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        [EnumMember]
+        MERGE = 6,
+
+        /// <summary>
+        /// Replaces file.
+        /// Add it if not exists
+        /// </summary>
+        [EnumMember]
+        REPLACE = 7,
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        [EnumMember]
+        VERIFY = 8,
     }
 
     [Serializable]

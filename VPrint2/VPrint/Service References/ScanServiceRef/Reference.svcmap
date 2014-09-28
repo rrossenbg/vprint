@@ -25,6 +25,7 @@
     <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="2788c448-600a-46e5-ba37-522eee6c2980" SourceId="1" SourceUrl="net.tcp://192.168.53.143:8080/ReceivingServiceLib.ScanService/mex" />
     <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="c98acf17-349b-4a1c-aa41-f934a5b8b828" SourceId="1" SourceUrl="net.tcp://192.168.53.143:8080/ReceivingServiceLib.ScanService/mex" />
     <MetadataFile FileName="ReceivingServiceLib1.xsd" MetadataType="Schema" ID="6ae12b19-384d-4fa2-a09a-b9b570a85393" SourceId="1" SourceUrl="net.tcp://192.168.53.143:8080/ReceivingServiceLib.ScanService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="05e0fd85-22aa-47ee-a8d9-7f418f05381b" SourceId="1" SourceUrl="net.tcp://192.168.53.143:8080/ReceivingServiceLib.ScanService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

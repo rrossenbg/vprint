@@ -21,7 +21,7 @@ namespace VPrinting.Data
 
         public void SendFile(FileInfo info, string serverSessionId, Tuple<string, string> keys)
         {
-            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 var name = info.Name.ToUniqueFileName();
@@ -35,7 +35,7 @@ namespace VPrinting.Data
 
         public void SendFileAsync(FileInfo info, string serverSessionId, Tuple<string, string> keys)
         {
-            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 var name = info.Name.ToUniqueFileName();
@@ -50,7 +50,7 @@ namespace VPrinting.Data
         public void CommitVoucherChanges(string serverSessionId, int jobId, int countryId, int retailerId, int voucherId, 
             int? folderId, string siteCode, string barCode, Tuple<string, string> keys)
         {
-            var client2 = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client2 = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 client2.CommitVoucherChanges(serverSessionId, jobId, countryId, retailerId,
@@ -64,7 +64,7 @@ namespace VPrinting.Data
 
         public void CommitFileChanges(string serverSessionId, int countryId, int? folderId, Tuple<string, string> keys)
         {
-            var client2 = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client2 = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 client2.CommitFileChanges(serverSessionId, countryId, folderId, Program.currentUser.CountryID, Program.currentUser.UserID, keys.Item1, keys.Item2);
@@ -78,7 +78,7 @@ namespace VPrinting.Data
         public void ValidateVoucherThrow(int countryId, bool ss, int retailerId, int voucherId, bool voucherMustExist)
         {
             var keys = Security.CreateInstance().GenerateSecurityKeys();
-            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 client.ValidateVoucher(countryId, ss, retailerId, voucherId, voucherMustExist, keys.Item1, keys.Item2);
@@ -91,7 +91,7 @@ namespace VPrinting.Data
 
         public string FindVoucher(int countryId, int voucherId, int voucherIdCD)
         {
-            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
@@ -110,7 +110,7 @@ namespace VPrinting.Data
 
         public string ReadCoverInfo(int id)
         {
-            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
@@ -131,7 +131,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 var list = client.ReadHistory(Program.currentUser.CountryID, Program.currentUser.UserID,
                     data, fromTime, toTime, keys.Item1, keys.Item2);
@@ -161,7 +161,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 client.SaveHistory(Program.currentUser.CountryID, Program.currentUser.UserID, operationType, operationId, brIsoId, brId, vId, v2Id, count, details,
                     keys.Item1, keys.Item2);
             }
@@ -176,7 +176,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 var list = client.SelectFilesBySql(whereCause, keys.Item1, keys.Item2);
                 return list;
@@ -192,7 +192,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 client.UpdateVouchersOrFilesBySql(setSql, whereCause, isVoucher, keys.Item1, keys.Item2);
             }
@@ -211,7 +211,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 client.AddFolder(parentId, name, Program.currentUser.CountryID, Program.currentUser.UserID, keys.Item1, keys.Item2);
             }
@@ -226,7 +226,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 client.DeleteFolder(id, keys.Item1, keys.Item2);
             }
@@ -241,7 +241,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 client.DeleteFile(id, isVoucher, keys.Item1, keys.Item2);
             }
@@ -256,7 +256,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 client.DeleteAllFilesInFolder(folderId, keys.Item1, keys.Item2);
             }
@@ -271,7 +271,7 @@ namespace VPrinting.Data
             IScanService client = null; 
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 client.RenameFolder(id, name, keys.Item1, keys.Item2);
             }
@@ -286,7 +286,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 var list = client.SelectFoldersByParent(parentId, countryId, keys.Item1, keys.Item2);
                 return list;
@@ -297,14 +297,14 @@ namespace VPrinting.Data
             }
         }
 
-        public fileInfo[] ReadFileList(int folderId)
+        public fileInfo[] ReadFileList(int folderId, int from)
         {
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
-                var list = client.SelectFilesByFolder(folderId, keys.Item1, keys.Item2);
+                var list = client.SelectFilesByFolder2(folderId, from, Program.ITEMS_SHOWN, keys.Item1, keys.Item2);
                 return list;
             }
             finally
@@ -318,7 +318,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 var list = client.SelectCoversByFolder(folderId, keys.Item1, keys.Item2);
                 return list;
@@ -337,7 +337,7 @@ namespace VPrinting.Data
 
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
 
                 for (; ; )
@@ -372,7 +372,7 @@ namespace VPrinting.Data
 
         public UpdateFileInfo[] GetVersionInfo(string currentVersion)
         {
-            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
@@ -387,7 +387,7 @@ namespace VPrinting.Data
 
         public byte[] ReadVersionFile(string fileName, long from)
         {
-            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
@@ -409,7 +409,7 @@ namespace VPrinting.Data
             IScanService client = null;
             try
             {
-                client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+                client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 return client.GetTransferFile(countryId, beginNumber, endNumber, siteCode, keys.Item1, keys.Item2);
             }
@@ -451,7 +451,7 @@ namespace VPrinting.Data
 
         public VoucherInfo3 FindVoucherTRSByVoucherNumber(int countryId, int voucherId)
         {
-            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
@@ -466,11 +466,30 @@ namespace VPrinting.Data
 
         public VoucherInfo3 FindVoucherTRSBySiteCode(string siteCode, int location)
         {
-            var client = ScanServiceClient.CreateProxy(Program.SCAN_IP);
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
                 var keys = Security.CreateInstance().GenerateSecurityKeys();
                 var result = client.FindVoucherTRSBySiteCode(siteCode, location, keys.Item1, keys.Item2); 
+                return result;
+            }
+            finally
+            {
+                ((IDisposable)client).Dispose();
+            }
+        }
+
+        #endregion
+
+        #region PR
+
+        public VoucherInfo3 FindVoucherPRBySiteCode(string siteCode, int location)
+        {
+            var client = ScanServiceClient.CreateProxy(Program.SCAN_URL);
+            try
+            {
+                var keys = Security.CreateInstance().GenerateSecurityKeys();
+                var result = client.FindVoucherPRBySiteCode(siteCode, location, keys.Item1, keys.Item2);
                 return result;
             }
             finally

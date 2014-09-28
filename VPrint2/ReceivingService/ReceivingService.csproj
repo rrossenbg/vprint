@@ -14,14 +14,10 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>\\192.168.53.143\ReceivingService\</PublishUrl>
     <Install>true</Install>
@@ -132,6 +128,7 @@
     <None Include="..\ReceivingServiceLib\App.config">
       <Link>App.config</Link>
     </None>
+    <None Include="ReceivingServiceDiagram.cd" />
     <None Include="ReceivingService_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +166,9 @@
       <Project>{966666A1-F146-4BDE-B30A-E743E660BFC3}</Project>
       <Name>ReceivingServiceLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

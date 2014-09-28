@@ -3,12 +3,12 @@
 /***************************************************/
 
 using System;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using VPrinting.Common;
 using VPrinting.Properties;
-using System.Collections.Concurrent;
 
 namespace VPrinting.Controls
 {
@@ -110,9 +110,9 @@ namespace VPrinting.Controls
         {
             if (m_Item != null)
             {
-                e.Graphics.Clear((m_Item.Selected) ? Color.GreenYellow : Color.White);
+                e.Graphics.Clear(m_Item.State != StateManager.eState.Err ? ((m_Item.Selected) ? Color.GreenYellow : Color.White) : Color.Tomato);
 
-                #region STATUSES 
+                #region STATUSES
 
                 var img = GetImageFromStatus();
 
@@ -189,6 +189,10 @@ namespace VPrinting.Controls
                 }
 
                 #endregion
+            }
+            else
+            {
+                e.Graphics.Clear(Color.Black);
             }
             base.OnPaint(e);
         }

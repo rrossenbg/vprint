@@ -5,6 +5,8 @@
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Reflection;
+using VPrinting.Common;
+using VPrinting;
 
 namespace VPrint.Common
 {
@@ -12,6 +14,16 @@ namespace VPrint.Common
     /// 
     /// </summary>
     /// <see cref="http://ianreddy.wordpress.com/2011/02/14/sign-data-using-certificates-in-c/"/>
+    /// <example>
+    ///  var sec = new CertificateSecurity(X509FindType.FindBySerialNumber, Strings.CERTNUMBER, StoreLocation.LocalMachine);
+    ///  if (sec.Loaded)
+    ///  {
+    ///     var signFilePath = new FileInfo(Path.ChangeExtension(fullFilePath, ".sgn"));
+    ///     item.Signature = sec.SignData(bmp.ToArray());
+    ///     File.WriteAllBytes(signFilePath.FullName, item.Signature);
+    ///     item.FileInfoList.Add(signFilePath);
+    ///   }
+    /// </example>
     [Obfuscation(ApplyToMembers = true)]
     public class CertificateSecurity
     {
@@ -78,6 +90,14 @@ namespace VPrint.Common
                     var certificates = FindCertificateInStore(findType, findValue, storeLocation);
                     ms_certificate = (certificates != null && certificates.Count != 0) ? ms_certificate = certificates[0] : null;
                 }
+            }
+        }
+
+        public CertificateSecurity(byte[] buffer, string pass)
+        {
+            if (ms_certificate == null)
+            {
+                ms_certificate = new X509Certificate2(buffer, pass);
             }
         }
 

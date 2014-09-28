@@ -15,26 +15,34 @@ using VPrinting.Documents;
 using VPrinting.Extentions;
 using VPrinting.ScanServiceRef;
 using VPrinting.Tools;
+using System.Security.Cryptography.X509Certificates;
 
 namespace VPrinting
 {    
     static class Program
     {
+        /// <summary>
+        /// 1000
+        /// </summary>
+        public static readonly int ITEMS_SHOWN = ConfigurationManager.AppSettings["ITEMSSHOWN"].Cast<int>(500);
         public static Guid SessionId = Guid.NewGuid();
         /// <summary>
         /// 192.168.53.117
         /// </summary>
-        public static string LIVE_IP = ConfigurationManager.AppSettings["LiveServerIP"];
+        public static readonly string LIVE_IP = ConfigurationManager.AppSettings["LiveServerIP"];
 
         /// <summary>
         /// 192.168.58.59
         /// </summary>
-        public static string TEST_IP = ConfigurationManager.AppSettings["TestServerIP"];
-        public static string SCAN_IP = ConfigurationManager.AppSettings["ScanServerIP"];//"192.168.53.143";"127.0.0.1";
+        public static readonly string TEST_IP = ConfigurationManager.AppSettings["TestServerIP"];
+        public static readonly string SCAN_URL = string.Concat("net.tcp://", ConfigurationManager.AppSettings["ScanServerIP"], ":8080/ReceivingServiceLib.ScanService");
+        //"192.168.53.143";"127.0.0.1";
 
         public static CurrentUser currentUser = new CurrentUser(1, "NA", 286);
         public static bool IsDebug;
         public static bool IsAdmin;
+
+        private static PluginLoader loader = new PluginLoader();
 
         [STAThread]
         static void Main()
@@ -65,9 +73,8 @@ namespace VPrinting
 
             PluginLoader.Error += new ThreadExceptionEventHandler(OnThreadException);
             string path = Path.GetDirectoryName(Application.ExecutablePath);
-            PluginLoader loader = new PluginLoader();
-            loader.Start(path);
-
+            
+            loader.Process(path, PluginLoader.Operation.Start);
             StateSaver.Default.Set(Strings.ClearScanDirectory, ConfigurationManager.AppSettings["ClearScanDirectory"].Cast<bool>());
 
 #if ! DEBUG
@@ -96,6 +103,7 @@ namespace VPrinting
             }).RunSafe();
 
             Global.Instance.DisposeSf();
+            loader.Process(path, PluginLoader.Operation.Stop);
         }
 
         public static void OnThreadException(object sender, ThreadExceptionEventArgs e)

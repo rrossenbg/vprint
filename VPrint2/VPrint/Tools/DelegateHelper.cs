@@ -186,6 +186,12 @@ namespace VPrinting.Tools
             ms_Done.Set();
         }
 
+        public static void PostShowItemsWithErrCallback(int count)
+        {
+            MainForm.Default.m_MainContext.Post(MainForm.Default.ShowItemsWithErrCallback, count);
+            ms_Done.Set();
+        }
+
         public static void Close()
         {
             ms_Done.Close();

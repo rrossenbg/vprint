@@ -47,7 +47,23 @@ namespace VPrintTest
             printer.m_PrinterName = Printers.Empty;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRaz";
             printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print905_Type1_Raz.xml";
+            printer.PrintOnce = true;
+            printer.UseLocalFormat = true;
+            printer.UseLocalPrinter = true;
             printer.PrintAllocation(377222, false);
+        }
+
+        [TestMethod]
+        public void germany_print_format_Type_6_RazX()
+        {
+            VoucherPrinter printer = new VoucherPrinter();
+            printer.m_PrinterName = Printers._3TH_FLOOR_PRINTER;
+            printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRazX";
+            printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print276_Type6_RazX.xml";
+            printer.PrintOnce = true;
+            printer.UseLocalFormat = true;
+            printer.UseLocalPrinter = true;
+            printer.PrintAllocation(80882, false);
         }
 
         [TestMethod]
@@ -57,6 +73,9 @@ namespace VPrintTest
             printer.m_PrinterName = Printers.Empty;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayoutRaz";
             printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print40_Type1_Raz.xml";
+            printer.PrintOnce = true;
+            printer.UseLocalFormat = true;
+            printer.UseLocalPrinter = true;
             printer.PrintAllocation(203931, false);
         }
     }

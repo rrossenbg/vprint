@@ -8,89 +8,190 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Runtime;
 using System.Runtime.InteropServices;
 using AForge;
 using AForge.Imaging;
 using AForge.Imaging.Filters;
-using AForge.Math.Geometry;
-using DBitmap = System.Drawing.Bitmap;
+using Emgu.CV;
+using Emgu.CV.CvEnum;
+using Emgu.CV.Structure;
 using DImage = System.Drawing.Image;
 using PPoint = System.Drawing.Point;
 
 namespace CPrint2
 {
-    public static class ImageEx
+    public static class ImageEx1
     {
-        /// <summary>
-        /// http://www.codeproject.com/Articles/265354/Playing-Card-Recognition-Using-AForge-Net-Framewor
-        /// http://www.aforgenet.com/framework/features/
-        /// </summary>
-        public static Bitmap CropRotateFree(this Bitmap source, Size minSizeInch, Size maxSizeInch)
+        ////        /// <summary>
+        ////        /// http://www.codeproject.com/Articles/265354/Playing-Card-Recognition-Using-AForge-Net-Framewor
+        ////        /// http://www.aforgenet.com/framework/features/
+        ////        /// </summary>
+        ////        public static Bitmap CropRotateFree(this Bitmap source, Size minSizeInch, Size maxSizeInch)
+        ////        {
+        ////            using (source)
+        ////            {
+        ////                using (Graphics g = Graphics.FromImage(source))
+        ////                {
+        ////                    #region OLD_CODE
+        ////                    //int w1 = source.Width - 1;
+        ////                    //int w6 = source.Width - 6;
+        ////                    //int h1 = source.Height - 1;
+        ////                    //int h6 = source.Height - 6;
+
+        ////                    //Rectangle[] rects = new Rectangle[] { 
+        ////                    //    Rectangle.FromLTRB( 0, 0, w1, 5),
+        ////                    //    Rectangle.FromLTRB( 0, 0, 5, h1),
+        ////                    //    Rectangle.FromLTRB( 0, h6, w1, h1),
+        ////                    //    Rectangle.FromLTRB( w6, 0, w1, h1),
+        ////                    //};
+
+        ////                    //g.FillRectangles(Brushes.Black, rects);
+        ////                    #endregion
+
+        ////                    var monitor = new PictureModifier(source);
+        ////                    monitor.ApplyGrayscale();
+        ////                    monitor.ApplySobelEdgeFilter();
+        ////                    //monitor.ApplyThresholdedDifference();
+        ////                    //monitor.ApplyFilling();
+
+        ////                    var list = new List<Region>();
+        ////                    try
+        ////                    {
+        ////                        list.AddRange(monitor.EnumKnownForms());
+        ////                        list.Sort(new RegionComparer(g));
+
+        ////                        foreach (var r in list)
+        ////                        {
+        ////                            var rectange = Rectangle.Round(r.GetBounds(g));
+
+        ////                            if (rectange.Size.InBetween(minSizeInch, maxSizeInch) ||
+        ////                                rectange.Size.InBetween(maxSizeInch, minSizeInch))
+        ////                            {
+        ////                                using (var bmp3 = source.CropImageNoFree(rectange))
+        ////                                {
+        ////                                    if (bmp3.Width > bmp3.Height)
+        ////                                        bmp3.RotateFlip(RotateFlipType.Rotate90FlipNone);
+
+        ////                                    return bmp3.ToGrayscale4bpp();
+        ////                                }
+        ////                            }
+
+        ////#if TEST
+        ////                            Debug.WriteLine(rectange);
+        ////                            g.DrawRectangle(Pens.Red, rectange);
+        ////                            using (Font font = new Font("Arial", 10, FontStyle.Bold))
+        ////                                g.DrawString(rectange.Size.ToString(), font, Brushes.White, rectange.Location);
+        ////#endif
+        ////                        }
+        ////                    }
+        ////                    finally
+        ////                    {
+        ////                        list.ForEach((r) => r.DisposeSf());
+        ////                    }
+        ////                }
+        ////                return null;
+        ////            }
+        ////        }
+
+        public static void CropPicture(this Image<Bgr, byte> cameraFrame, double tolerance = 10)
         {
-            using (source)
+            // Get the image from the camera.
+
+            // Crop the camera image a little -- it seems to include a black area on one side, which gets detected as a contour later.
+            cameraFrame.ROI = new System.Drawing.Rectangle(0, 10, cameraFrame.Width, cameraFrame.Height - 14);
+            Image<Bgr, byte> croppedFrame = new Image<Bgr, byte>(cameraFrame.ROI.Size);
+            cameraFrame.CopyTo(croppedFrame);
+
+            // Convert to grayscale.
+            Image<Gray, byte> grayFrame = croppedFrame.Convert<Gray, byte>();
+
+            // Blur the image to minimize noise.
+            Image<Gray, byte> smoothedFrame = new Image<Gray, byte>(cameraFrame.ROI.Size);
+            CvInvoke.cvSmooth(grayFrame.Ptr, smoothedFrame.Ptr, SMOOTH_TYPE.CV_BLUR, 2, 2, 0, 0);
+
+            // Detect edges.
+            Image<Gray, byte> cannyFrame = smoothedFrame.Canny(100, 60);
+
+            // Detect contours.
+            Contour<System.Drawing.Point> nativeContours = cannyFrame.FindContours(CHAIN_APPROX_METHOD.CV_CHAIN_APPROX_SIMPLE, RETR_TYPE.CV_RETR_EXTERNAL);
+
+            // Draw contours.
+            Image<Gray, byte> contourFrame = new Image<Gray, byte>(cameraFrame.ROI.Size);
+            if (nativeContours != null)
+                CvInvoke.cvDrawContours(contourFrame.Ptr, nativeContours.Ptr, new MCvScalar(255), new MCvScalar(128), 10, 1, LINE_TYPE.FOUR_CONNECTED, new System.Drawing.Point());
+
+            // Process contour data.
+            List<List<System.Drawing.Point>> contours = ExtractContours(nativeContours, contourFrame, tolerance);
+            // do lots of stuff with the resulting contours
+        }
+
+        private static List<List<System.Drawing.Point>> ExtractContours(Contour<System.Drawing.Point> nativeContours, Image<Gray, byte> contourFrame, double tolerance)
+        {
+            List<List<System.Drawing.Point>> contours = new List<List<System.Drawing.Point>>();
+            Contour<System.Drawing.Point> nativeContour = nativeContours;
+            while (nativeContour != null)
             {
-                using (Graphics g = Graphics.FromImage(source))
+                if (nativeContour.Area >= tolerance)
                 {
-                    #region OLD_CODE
-                    //int w1 = source.Width - 1;
-                    //int w6 = source.Width - 6;
-                    //int h1 = source.Height - 1;
-                    //int h6 = source.Height - 6;
+                    List<System.Drawing.Point> contour = new List<System.Drawing.Point>();
 
-                    //Rectangle[] rects = new Rectangle[] { 
-                    //    Rectangle.FromLTRB( 0, 0, w1, 5),
-                    //    Rectangle.FromLTRB( 0, 0, 5, h1),
-                    //    Rectangle.FromLTRB( 0, h6, w1, h1),
-                    //    Rectangle.FromLTRB( w6, 0, w1, h1),
-                    //};
-
-                    //g.FillRectangles(Brushes.Black, rects);
-                    #endregion
-
-                    var monitor = new PictureModifier(source);
-                    monitor.ApplyGrayscale();
-                    monitor.ApplySobelEdgeFilter();
-                    //monitor.ApplyThresholdedDifference();
-                    //monitor.ApplyFilling();
-
-                    var list = new List<Region>();
-                    try
+                    System.Drawing.Point endPoint = nativeContour.FirstOrDefault(p => IsEndPixel(p, contourFrame));
+                    if (endPoint == new System.Drawing.Point())
                     {
-                        list.AddRange(monitor.EnumKnownForms());
-                        list.Sort(new RegionComparer(g));
-
-                        foreach (var r in list)
+                        contour.AddRange(nativeContour.Select(p => new System.Drawing.Point(p.X, p.Y)));
+                    }
+                    else
+                    {
+                        contour.Add(new System.Drawing.Point(endPoint.X, endPoint.Y));
+                        foreach (System.Drawing.Point point in nativeContour.Skip(nativeContour.ToList().IndexOf(endPoint) + 1))
                         {
-                            var rectange = Rectangle.Round(r.GetBounds(g));
-
-                            if (rectange.Size.InBetween(minSizeInch, maxSizeInch) || 
-                                rectange.Size.InBetween(maxSizeInch, minSizeInch))
+                            contour.Add(new System.Drawing.Point(point.X, point.Y));
+                            if (IsEndPixel(point, contourFrame))
                             {
-                                using (var bmp3 = source.CropImageNoFree(rectange))
-                                {
-                                    if (bmp3.Width > bmp3.Height)
-                                        bmp3.RotateFlip(RotateFlipType.Rotate90FlipNone);
-
-                                    return bmp3.ToGrayscale4bpp();
-                                }
+                                break;
                             }
-
-#if TEST
-                            Debug.WriteLine(rectange);
-                            g.DrawRectangle(Pens.Red, rectange);
-                            using (Font font = new Font("Arial", 10, FontStyle.Bold))
-                                g.DrawString(rectange.Size.ToString(), font, Brushes.White, rectange.Location);
-#endif
                         }
                     }
-                    finally
+
+                    foreach (System.Drawing.Point point in nativeContour)
                     {
-                        list.ForEach((r) => r.DisposeSf());
+                        contourFrame.Data[point.Y, point.X, 0] = 128;
                     }
+
+                    contours.Add(contour);
                 }
-                return null;
+
+                nativeContour = nativeContour.HNext;
             }
+
+            return contours;
+        }
+
+        private static bool IsEndPixel(System.Drawing.Point point, Image<Gray, byte> contourFrame)
+        {
+            return SumNeighbors(point, contourFrame) == 510;
+        }
+
+        private static bool IsLinePixel(System.Drawing.Point point, Image<Gray, byte> contourFrame)
+        {
+            return SumNeighbors(point, contourFrame) == 765;
+        }
+
+        private static int SumNeighbors(System.Drawing.Point point, Image<Gray, byte> contourFrame)
+        {
+            int val = 0;
+            val += contourFrame.Data[point.Y, point.X, 0];
+            val += contourFrame.Data[point.Y - 1, point.X, 0];
+            val += contourFrame.Data[point.Y - 1, point.X + 1, 0];
+            val += contourFrame.Data[point.Y, point.X + 1, 0];
+            val += contourFrame.Data[point.Y + 1, point.X + 1, 0];
+            val += contourFrame.Data[point.Y + 1, point.X, 0];
+            val += contourFrame.Data[point.Y + 1, point.X - 1, 0];
+            val += contourFrame.Data[point.Y, point.X - 1, 0];
+            val += contourFrame.Data[point.Y - 1, point.X - 1, 0];
+            return val;
         }
 
         private class RegionComparer : IComparer<Region>
@@ -107,82 +208,94 @@ namespace CPrint2
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="bitmap"></param>
-        /// <see cref="http://www.aforgenet.com/articles/shape_checker/"/>
-        public static IEnumerable<Tuple<DetectedShape, PPoint[]>> FindMarks(this Bitmap bitmap, Size min, Size max)
+        public static void SaveAsJpg(this Emgu.CV.Image<Bgr, Byte> img, string filename, double quality = 85)
         {
-            // lock image
-            BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadWrite, bitmap.PixelFormat);
+            var encoderParams = new EncoderParameters(1);
+            encoderParams.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (long)quality);
 
-            // step 1 - turn background to black
-            ////ColorFiltering colorFilter = new ColorFiltering();
+            var jpegCodec = (from codec in ImageCodecInfo.GetImageEncoders()
+                             where codec.MimeType == "image/jpeg"
+                             select codec).Single();
 
-            ////colorFilter.Red = new IntRange(0, 64);
-            ////colorFilter.Green = new IntRange(0, 64);
-            ////colorFilter.Blue = new IntRange(0, 64);
-            ////colorFilter.FillOutsideRange = false;
+            img.Bitmap.Save(filename, jpegCodec, encoderParams);
+        }
 
-            ////colorFilter.ApplyInPlace(bitmapData);
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="bitmap"></param>
+        ///// <see cref="http://www.aforgenet.com/articles/shape_checker/"/>
+        //public static IEnumerable<Tuple<DetectedShape, PPoint[]>> FindMarks(this Bitmap bitmap, Size min, Size max)
+        //{
+        //    // lock image
+        //    BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadWrite, bitmap.PixelFormat);
 
-            // step 2 - locating objects
-            BlobCounter blobCounter = new BlobCounter();
+        //    // step 1 - turn background to black
+        //    ////ColorFiltering colorFilter = new ColorFiltering();
 
-            blobCounter.FilterBlobs = true;
-            blobCounter.MinHeight = min.Height;
-            blobCounter.MaxHeight = max.Height;
-            blobCounter.MinWidth = min.Width;
-            blobCounter.MaxWidth = max.Width;
+        //    ////colorFilter.Red = new IntRange(0, 64);
+        //    ////colorFilter.Green = new IntRange(0, 64);
+        //    ////colorFilter.Blue = new IntRange(0, 64);
+        //    ////colorFilter.FillOutsideRange = false;
 
-            blobCounter.ProcessImage(bitmapData);
-            Blob[] blobs = blobCounter.GetObjectsInformation();
-            bitmap.UnlockBits(bitmapData);
+        //    ////colorFilter.ApplyInPlace(bitmapData);
 
-            // step 3 - check objects' type and highlight
-            SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
+        //    // step 2 - locating objects
+        //    BlobCounter blobCounter = new BlobCounter();
 
-            for (int i = 0, n = blobs.Length; i < n; i++)
-            {
-                List<IntPoint> edgePoints = blobCounter.GetBlobsEdgePoints(blobs[i]);
+        //    blobCounter.FilterBlobs = true;
+        //    blobCounter.MinHeight = min.Height;
+        //    blobCounter.MaxHeight = max.Height;
+        //    blobCounter.MinWidth = min.Width;
+        //    blobCounter.MaxWidth = max.Width;
 
-                AForge.Point center;
-                float radius;
+        //    blobCounter.ProcessImage(bitmapData);
+        //    Blob[] blobs = blobCounter.GetObjectsInformation();
+        //    bitmap.UnlockBits(bitmapData);
 
-                // is circle ?
-                if (shapeChecker.IsCircle(edgePoints, out center, out radius))
-                {
-                    //g.DrawEllipse(yellowPen,
-                    //    (float)(center.X - radius), (float)(center.Y - radius),
-                    //    (float)(radius * 2), (float)(radius * 2));
-                }
-                else
-                {
-                    // is triangle or quadrilateral
+        //    // step 3 - check objects' type and highlight
+        //    SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
 
-                    List<IntPoint> corners;
+        //    for (int i = 0, n = blobs.Length; i < n; i++)
+        //    {
+        //        List<IntPoint> edgePoints = blobCounter.GetBlobsEdgePoints(blobs[i]);
 
-                    if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
-                    {
-                        // get sub-type
-                        PolygonSubType subType = shapeChecker.CheckPolygonSubType(corners);
+        //        AForge.Point center;
+        //        float radius;
 
-                        DetectedShape shape;
+        //        // is circle ?
+        //        if (shapeChecker.IsCircle(edgePoints, out center, out radius))
+        //        {
+        //            //g.DrawEllipse(yellowPen,
+        //            //    (float)(center.X - radius), (float)(center.Y - radius),
+        //            //    (float)(radius * 2), (float)(radius * 2));
+        //        }
+        //        else
+        //        {
+        //            // is triangle or quadrilateral
 
-                        if (subType == PolygonSubType.Unknown)
-                            shape = (corners.Count == 4) ? DetectedShape.quadrilateral : DetectedShape.triangle;
-                        else
-                            shape = (corners.Count == 4) ? DetectedShape.quadrilateral_with_nown_sub_type : DetectedShape.known_triangle;
+        //            List<IntPoint> corners;
 
-                        var polygon = ToPointsArray(corners);
+        //            if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
+        //            {
+        //                // get sub-type
+        //                PolygonSubType subType = shapeChecker.CheckPolygonSubType(corners);
 
-                        yield return new Tuple<DetectedShape, PPoint[]>(shape, polygon);
-                        //g.DrawPolygon(pen, ToPointsArray(corners));
-                    }
-                }
-            }
-        }        
+        //                DetectedShape shape;
+
+        //                if (subType == PolygonSubType.Unknown)
+        //                    shape = (corners.Count == 4) ? DetectedShape.quadrilateral : DetectedShape.triangle;
+        //                else
+        //                    shape = (corners.Count == 4) ? DetectedShape.quadrilateral_with_nown_sub_type : DetectedShape.known_triangle;
+
+        //                var polygon = ToPointsArray(corners);
+
+        //                yield return new Tuple<DetectedShape, PPoint[]>(shape, polygon);
+        //                //g.DrawPolygon(pen, ToPointsArray(corners));
+        //            }
+        //        }
+        //    }
+        //}
 
         private static PPoint[] ToPointsArray(List<IntPoint> points)
         {
@@ -200,6 +313,28 @@ namespace CPrint2
             Pixellate filter = new Pixellate();
             // apply the filter
             filter.ApplyInPlace(image, rec);
+        }
+
+        private class Lock_ExtractBiggestBlob { }
+
+        [TargetedPatchingOptOut("na")]
+        public static Bitmap ExtractBiggestBlob(this Bitmap image1, ref Rectangle rec)
+        {
+            lock (typeof(Lock_ExtractBiggestBlob))
+            {
+                FiltersSequence commonSeq = new FiltersSequence();
+                commonSeq.Add(Grayscale.CommonAlgorithms.BT709);
+                commonSeq.Add(new BradleyLocalThresholding());
+                commonSeq.Add(new DifferenceEdgeDetector());
+
+                using (Bitmap temp = commonSeq.Apply(image1))
+                {
+                    ExtractBiggestBlob extractor = new ExtractBiggestBlob();
+                    var img = extractor.Apply(temp);
+                    rec = new Rectangle(extractor.BlobPosition.X, extractor.BlobPosition.Y, img.Width, img.Height);
+                    return img;
+                }
+            }
         }
 
         [TargetedPatchingOptOut("na")]
@@ -259,6 +394,14 @@ namespace CPrint2
 
                 return mem.ToArray();
             }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static System.Drawing.Point FirstOrDefault(this System.Drawing.Point[] points)
+        {
+            if (points == null || points.Length == 0)
+                return System.Drawing.Point.Empty;
+            return points[0];
         }
 
         [TargetedPatchingOptOut("na")]
@@ -337,12 +480,12 @@ namespace CPrint2
             bmi.cols = new uint[256];
             if (bpp == 1)
             {
-                bmi.cols[0] = MAKERGB(0, 0, 0); 
+                bmi.cols[0] = MAKERGB(0, 0, 0);
                 bmi.cols[1] = MAKERGB(255, 255, 255);
             }
             else
             {
-                for (int i = 0; i < ncols; i++) 
+                for (int i = 0; i < ncols; i++)
                     bmi.cols[i] = MAKERGB(i, i, i);
             }
             IntPtr bits0;
@@ -536,142 +679,142 @@ namespace CPrint2
         known_triangle
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <see cref="http://leakingmemory.wordpress.com/2012/03/17/shape-recognition-using-c-and-aforge/"/>
-    public class PictureModifier
-    {
-        private DBitmap m_currentImage;
+    /////// <summary>
+    /////// 
+    /////// </summary>
+    /////// <see cref="http://leakingmemory.wordpress.com/2012/03/17/shape-recognition-using-c-and-aforge/"/>
+    ////public class PictureModifier
+    ////{
+    ////    private DBitmap m_currentImage;
 
-        public PictureModifier(DBitmap currentImage)
-        {
-            this.m_currentImage = currentImage;
-        }
+    ////    public PictureModifier(DBitmap currentImage)
+    ////    {
+    ////        this.m_currentImage = currentImage;
+    ////    }
 
-        public void ApplySobelEdgeFilter()
-        {
-            var filter = new SobelEdgeDetector();
-            filter.ApplyInPlace(this.m_currentImage);
-        }
+    ////    public void ApplySobelEdgeFilter()
+    ////    {
+    ////        var filter = new SobelEdgeDetector();
+    ////        filter.ApplyInPlace(this.m_currentImage);
+    ////    }
 
-        public void ApplyGrayscale()
-        {
-            // create grayscale filter (BT709)
-            var filter = new Grayscale(0.2125, 0.7154, 0.0721);
-            m_currentImage = filter.Apply(m_currentImage);
-        }
+    ////    public void ApplyGrayscale()
+    ////    {
+    ////        // create grayscale filter (BT709)
+    ////        var filter = new Grayscale(0.2125, 0.7154, 0.0721);
+    ////        m_currentImage = filter.Apply(m_currentImage);
+    ////    }
 
-        public void ApplyFilling()
-        {
-            // create filter
-            PointedColorFloodFill filter = new PointedColorFloodFill();
-            // configure the filter
-            filter.Tolerance = Color.FromArgb(150, 150, 150);
-            filter.FillColor = Color.FromArgb(255, 255, 255);
-            filter.StartingPoint = new IntPoint(m_currentImage.Size.Width / 2, m_currentImage.Size.Height / 2);
-            // apply the filter
-            filter.ApplyInPlace(m_currentImage);
-        }
+    ////    public void ApplyFilling()
+    ////    {
+    ////        // create filter
+    ////        PointedColorFloodFill filter = new PointedColorFloodFill();
+    ////        // configure the filter
+    ////        filter.Tolerance = Color.FromArgb(150, 150, 150);
+    ////        filter.FillColor = Color.FromArgb(255, 255, 255);
+    ////        filter.StartingPoint = new IntPoint(m_currentImage.Size.Width / 2, m_currentImage.Size.Height / 2);
+    ////        // apply the filter
+    ////        filter.ApplyInPlace(m_currentImage);
+    ////    }
 
-        public void ApplyThresholdedDifference(int threshold = 250)
-        {
-            ThresholdedDifference diff = new ThresholdedDifference(threshold);
-            diff.OverlayImage = CreateBlackImage(m_currentImage.Size, m_currentImage.PixelFormat);
-            m_currentImage = diff.Apply(m_currentImage);
-        }
+    ////    public void ApplyThresholdedDifference(int threshold = 250)
+    ////    {
+    ////        ThresholdedDifference diff = new ThresholdedDifference(threshold);
+    ////        diff.OverlayImage = CreateBlackImage(m_currentImage.Size, m_currentImage.PixelFormat);
+    ////        m_currentImage = diff.Apply(m_currentImage);
+    ////    }
 
-        public IEnumerable<Region> EnumKnownForms()
-        {
-            Debug.Assert(m_currentImage != null);
+    ////    public IEnumerable<Region> EnumKnownForms()
+    ////    {
+    ////        Debug.Assert(m_currentImage != null);
 
-            DBitmap image = new DBitmap(this.m_currentImage);
+    ////        DBitmap image = new DBitmap(this.m_currentImage);
 
-            // lock image
-            BitmapData bmData = image.LockBits(new Rectangle(0, 0, image.Width, image.Height),
-                ImageLockMode.ReadWrite, image.PixelFormat);
+    ////        // lock image
+    ////        BitmapData bmData = image.LockBits(new Rectangle(0, 0, image.Width, image.Height),
+    ////            ImageLockMode.ReadWrite, image.PixelFormat);
 
-            // turn background to black
-            ColorFiltering cFilter = new ColorFiltering();
-            cFilter.Red = new IntRange(0, 64);
-            cFilter.Green = new IntRange(0, 64);
-            cFilter.Blue = new IntRange(0, 64);
-            cFilter.FillOutsideRange = false;
-            cFilter.ApplyInPlace(bmData);
+    ////        // turn background to black
+    ////        ColorFiltering cFilter = new ColorFiltering();
+    ////        cFilter.Red = new IntRange(0, 64);
+    ////        cFilter.Green = new IntRange(0, 64);
+    ////        cFilter.Blue = new IntRange(0, 64);
+    ////        cFilter.FillOutsideRange = false;
+    ////        cFilter.ApplyInPlace(bmData);
 
-            // locate objects
-            BlobCounter bCounter = new BlobCounter();
+    ////        // locate objects
+    ////        BlobCounter bCounter = new BlobCounter();
 
-            bCounter.FilterBlobs = true;
-            bCounter.BackgroundThreshold = Color.Black;
-            bCounter.ObjectsOrder = ObjectsOrder.Size;
-            bCounter.MinHeight = 30;
-            bCounter.MinWidth = 30;
+    ////        bCounter.FilterBlobs = true;
+    ////        bCounter.BackgroundThreshold = Color.Black;
+    ////        bCounter.ObjectsOrder = ObjectsOrder.Size;
+    ////        bCounter.MinHeight = 30;
+    ////        bCounter.MinWidth = 30;
 
-            bCounter.ProcessImage(bmData);
-            Blob[] baBlobs = bCounter.GetObjectsInformation();
-            image.UnlockBits(bmData);
+    ////        bCounter.ProcessImage(bmData);
+    ////        Blob[] baBlobs = bCounter.GetObjectsInformation();
+    ////        image.UnlockBits(bmData);
 
-            // coloring objects
-            SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
+    ////        // coloring objects
+    ////        SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
 
-            for (int i = 0, n = baBlobs.Length; i < n; i++)
-            {
-                List<IntPoint> edgePoints = bCounter.GetBlobsEdgePoints(baBlobs[i]);
+    ////        for (int i = 0, n = baBlobs.Length; i < n; i++)
+    ////        {
+    ////            List<IntPoint> edgePoints = bCounter.GetBlobsEdgePoints(baBlobs[i]);
 
-                using (var path = new System.Drawing.Drawing2D.GraphicsPath())
-                {
-                    path.AddPolygon(ToPointsArray(edgePoints));
-                    var region = new Region(path);
-                    yield return region;
-                }      
+    ////            using (var path = new System.Drawing.Drawing2D.GraphicsPath())
+    ////            {
+    ////                path.AddPolygon(ToPointsArray(edgePoints));
+    ////                var region = new Region(path);
+    ////                yield return region;
+    ////            }
 
-                //AForge.Point center;
-                //float radius;
+    ////            //AForge.Point center;
+    ////            //float radius;
 
-                //if (shapeChecker.IsCircle(edgePoints, out center, out radius))
-                //{
-                //    //g.DrawEllipse(yellowPen, (float)(center.X - radius), (float)(center.Y - radius),
-                //    //    (float)(radius * 2), (float)(radius * 2));
-                //}
-                //else
-                //{
-                //    List<IntPoint> corners;
-                //    // is triangle or quadrilateral
-                //    if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
-                //    {
-                //        using (var path = new System.Drawing.Drawing2D.GraphicsPath())
-                //        {
-                //            path.AddPolygon(ToPointsArray(edgePoints));
-                //            var region = new Region(path);
-                //            yield return region;
-                //        }                        
-                //    }
-                //}
-            }
+    ////            //if (shapeChecker.IsCircle(edgePoints, out center, out radius))
+    ////            //{
+    ////            //    //g.DrawEllipse(yellowPen, (float)(center.X - radius), (float)(center.Y - radius),
+    ////            //    //    (float)(radius * 2), (float)(radius * 2));
+    ////            //}
+    ////            //else
+    ////            //{
+    ////            //    List<IntPoint> corners;
+    ////            //    // is triangle or quadrilateral
+    ////            //    if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
+    ////            //    {
+    ////            //        using (var path = new System.Drawing.Drawing2D.GraphicsPath())
+    ////            //        {
+    ////            //            path.AddPolygon(ToPointsArray(edgePoints));
+    ////            //            var region = new Region(path);
+    ////            //            yield return region;
+    ////            //        }                        
+    ////            //    }
+    ////            //}
+    ////        }
 
-            this.m_currentImage = image;
-        }
+    ////        this.m_currentImage = image;
+    ////    }
 
-        private Bitmap CreateBlackImage(Size s, PixelFormat format)
-        {
-            Bitmap bmp = new DBitmap(s.Width, s.Height, format);
-            using (Graphics g = Graphics.FromImage(bmp))
-                g.FillRectangle(Brushes.Black, new Rectangle(PPoint.Empty, s));
-            return bmp;
-        }
+    ////    private Bitmap CreateBlackImage(Size s, PixelFormat format)
+    ////    {
+    ////        Bitmap bmp = new DBitmap(s.Width, s.Height, format);
+    ////        using (Graphics g = Graphics.FromImage(bmp))
+    ////            g.FillRectangle(Brushes.Black, new Rectangle(PPoint.Empty, s));
+    ////        return bmp;
+    ////    }
 
-        private System.Drawing.Point[] ToPointsArray(List<IntPoint> points)
-        {
-            System.Drawing.Point[] array = new System.Drawing.Point[points.Count];
-            for (int i = 0, n = points.Count; i < n; i++)
-                array[i] = new System.Drawing.Point(points[i].X, points[i].Y);
-            return array;
-        }
+    ////    private System.Drawing.Point[] ToPointsArray(List<IntPoint> points)
+    ////    {
+    ////        System.Drawing.Point[] array = new System.Drawing.Point[points.Count];
+    ////        for (int i = 0, n = points.Count; i < n; i++)
+    ////            array[i] = new System.Drawing.Point(points[i].X, points[i].Y);
+    ////        return array;
+    ////    }
 
-        public Bitmap GetCurrentImage()
-        {
-            return m_currentImage;
-        }
-    }
+    ////    public Bitmap GetCurrentImage()
+    ////    {
+    ////        return m_currentImage;
+    ////    }
+    ////}
 }

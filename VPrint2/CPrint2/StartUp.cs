@@ -11,20 +11,32 @@ namespace CPrint2
     {
         const string PATH = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
 
-        public static void TryToAddApp()
+        public static void TryToAddAppSafe()
         {
-            RegistryKey rkApp = Registry.CurrentUser.OpenSubKey(PATH, true);
+            try
+            {
+                RegistryKey rkApp = Registry.CurrentUser.OpenSubKey(PATH, true);
 
-            if (!IsStartupItem())
-                rkApp.SetValue(Application.ProductName, Application.ExecutablePath);
+                if (!IsStartupItem())
+                    rkApp.SetValue(Application.ProductName, Application.ExecutablePath);
+            }
+            catch
+            {
+            }
         }
 
-        public static void TryToRemoveApp()
+        public static void TryToRemoveAppSafe()
         {
-            RegistryKey rkApp = Registry.CurrentUser.OpenSubKey(PATH, true);
+            try
+            {
+                RegistryKey rkApp = Registry.CurrentUser.OpenSubKey(PATH, true);
 
-            if (IsStartupItem())
-                rkApp.DeleteValue(Application.ProductName, false);
+                if (IsStartupItem())
+                    rkApp.DeleteValue(Application.ProductName, false);
+            }
+            catch
+            {
+            }
         }
 
         private static bool IsStartupItem()

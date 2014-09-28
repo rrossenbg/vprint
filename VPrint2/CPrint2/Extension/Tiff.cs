@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using FreeImageAPI;
@@ -13,9 +14,9 @@ namespace CPrint2
         /// </summary>
         /// <param name="jpegs">The JPEG-image to convert</param>
         /// <returns></returns>
-        public byte[] WrapJpegs(List<byte[]> jpegs)
+        public byte[] WrapJpegs(IList<byte[]> jpegs)
         {
-            if (jpegs == null || jpegs.Count == 0 || jpegs.FindIndex(b => b.Length == 0) > -1)
+            if (jpegs == null || jpegs.Count == 0 || jpegs.FirstOrDefault(b => b.Length == 0) != null)
                 throw new ArgumentNullException("Image data must not be null or empty");
 
             using (MemoryStream tiffData = new MemoryStream())

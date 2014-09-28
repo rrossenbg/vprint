@@ -6,13 +6,16 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Threading;
 using System.Windows.Media.Imaging;
+using AForge.Imaging;
 using AForge.Imaging.Filters;
 using DTKBarReader;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VPrint.Common;
 using VPrinting;
 using VPrinting.Common;
-using AForge.Imaging;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.Globalization;
 
 namespace VPrintTest
 {
@@ -24,7 +27,7 @@ namespace VPrintTest
         {
             PluginLoader loader = new PluginLoader();
             string path = @"C:\PROJECTS\VPrint2\VPrintTest\bin\x86\Debug";
-            loader.Start(path);
+            loader.Process(path, PluginLoader.Operation.Start);
 
             var files = Directory.GetFiles(@"C:\IMAGES\PN");
 
@@ -42,7 +45,7 @@ namespace VPrintTest
                     {
                         var time = Stopwatch.StartNew();
 
-                        Rectangle rect = Rectangle.Empty;
+                        System.Drawing.Rectangle rect = System.Drawing.Rectangle.Empty;
                         string barcode = null;
                         bool result = CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode, BarcodeTypeEnum.BT_All);
                         if (!result)
@@ -73,6 +76,8 @@ namespace VPrintTest
 
                 Debug.WriteLine("===================================");
             }
+
+            loader.Process(path, PluginLoader.Operation.Stop);
         }
 
         [TestMethod]
@@ -98,7 +103,7 @@ namespace VPrintTest
                 {
                     var time = Stopwatch.StartNew();
 
-                    Rectangle rect = Rectangle.Empty;
+                    System.Drawing.Rectangle rect = System.Drawing.Rectangle.Empty;
                     string barcode = null;
                     bool result = CommonTools.ParseVoucherImage(ref bmp, ref bmpBarcode, out rect, ref barcode);
                     Assert.IsTrue(result);
@@ -398,7 +403,7 @@ namespace VPrintTest
                     TemplateMatch[] matchings = tm.ProcessImage(sourceImage, template);
                     // highlight found matchings
 
-                    BitmapData data = sourceImage.LockBits(new Rectangle(0, 0, sourceImage.Width, sourceImage.Height),
+                    BitmapData data = sourceImage.LockBits(new System.Drawing.Rectangle(0, 0, sourceImage.Width, sourceImage.Height),
                         ImageLockMode.ReadWrite, sourceImage.PixelFormat);
                     foreach (TemplateMatch m in matchings)
                     {
@@ -412,6 +417,97 @@ namespace VPrintTest
             {
                 Debug.WriteLine(ex);
             }
+        }
+
+        [TestMethod]
+        public void test_pdf_opening()
+        {
+            ExtractImagesFromPDF(@"C:\IMAGES\PORTUGAL\OF_68401.pdf", @"C:\test");
+        }
+
+        public static void ExtractImagesFromPDF(string sourcePdf, string outputPath)
+        {
+            // NOTE:  This will only get the first image it finds per page.
+            PdfReader pdf = new PdfReader(sourcePdf);
+            RandomAccessFileOrArray raf = new RandomAccessFileOrArray(sourcePdf);
+
+            try
+            {
+                for (int pageNumber = 1; pageNumber <= pdf.NumberOfPages; pageNumber++)
+                {
+                    PdfDictionary pg = pdf.GetPageN(pageNumber);
+
+                    // recursively search pages, forms and groups for images.
+                    PdfObject obj = FindImageInPDFDictionary(pg);
+                    if (obj != null)
+                    {
+
+                        int XrefIndex = Convert.ToInt32(((PRIndirectReference)obj).Number.ToString(CultureInfo.InvariantCulture));
+                        PdfObject pdfObj = pdf.GetPdfObject(XrefIndex);
+                        PdfStream pdfStrem = (PdfStream)pdfObj;
+                        byte[] bytes = PdfReader.GetStreamBytesRaw((PRStream)pdfStrem);
+                        if ((bytes != null))
+                        {
+                            using (var memStream = new MemoryStream(bytes))
+                            {
+                                memStream.Position = 0;
+                                var img = System.Drawing.Image.FromStream(memStream);
+                                if (!Directory.Exists(outputPath))
+                                    Directory.CreateDirectory(outputPath);
+                                img.Save("C:\\test.bmp");
+                            }
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                pdf.Close();
+                raf.Close();
+            }
+        }
+
+        private static PdfObject FindImageInPDFDictionary(PdfDictionary pg)
+        {
+            PdfDictionary res =
+                (PdfDictionary)PdfReader.GetPdfObject(pg.Get(PdfName.RESOURCES));
+
+
+            PdfDictionary xobj =
+              (PdfDictionary)PdfReader.GetPdfObject(res.Get(PdfName.XOBJECT));
+            if (xobj != null)
+            {
+                foreach (PdfName name in xobj.Keys)
+                {
+
+                    PdfObject obj = xobj.Get(name);
+                    if (obj.IsIndirect())
+                    {
+                        PdfDictionary tg = (PdfDictionary)PdfReader.GetPdfObject(obj);
+
+                        PdfName type =
+                          (PdfName)PdfReader.GetPdfObject(tg.Get(PdfName.SUBTYPE));
+
+                        //image at the root of the pdf
+                        if (PdfName.IMAGE.Equals(type))
+                        {
+                            return obj;
+                        }// image inside a form
+                        else if (PdfName.FORM.Equals(type))
+                        {
+                            return FindImageInPDFDictionary(tg);
+                        } //image inside a group
+                        else if (PdfName.GROUP.Equals(type))
+                        {
+                            return FindImageInPDFDictionary(tg);
+                        }
+
+                    }
+                }
+            }
+
+            return null;
+
         }
 
         [TestMethod]

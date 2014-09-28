@@ -93,5 +93,17 @@ namespace VPrinting.Common
             data = new BarcodeData(countryId, retailerId, voucherId, barcode);
             return true;
         }
+
+        public bool ParseBarcodeSafe(string barcode, ref BarcodeData data)
+        {
+            try
+            {
+                return ParseBarcode(barcode, ref data);
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

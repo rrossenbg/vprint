@@ -3,7 +3,6 @@
 /***************************************************/
 
 using System;
-using System.Collections;
 using System.IO;
 using CPrint2.Common;
 
@@ -15,8 +14,8 @@ namespace CPrint2.Data
         public int BrId { get; set; }
         public int VId { get; set; }
         public int PartN { get; set; }
-        public bool Submit { get; set; }
         public Guid Id { get; private set; }
+        public string FileName { get; set; }
 
         public bool IsValid
         {
@@ -26,15 +25,13 @@ namespace CPrint2.Data
             }
         }
 
-        public ArrayList Files = ArrayList.Synchronized(new ArrayList());
-
         /// <summary>
         /// 826;123456;34567890;1;True
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("{0};{1};{2};{3};{4}", Iso, BrId, VId, PartN, Submit);
+            return string.Format("{0};{1};{2};{3}", Iso, BrId, VId, PartN);
         }
 
         public DataObj(DataObj other)
@@ -43,18 +40,15 @@ namespace CPrint2.Data
             this.BrId = other.BrId;
             this.VId = other.VId;
             this.PartN = other.PartN;
-            this.Submit = other.Submit;
             this.Id = other.Id;
-            this.Files = ArrayList.Synchronized(new ArrayList(other.Files));
         }
 
-        public DataObj(int iso, int brid, int vid, int partN, bool submit)
+        public DataObj(int iso, int brid, int vid, int partN)
         {
             this.Iso = iso;
             this.BrId = brid;
             this.VId = vid;
             this.PartN = partN;
-            this.Submit = submit;
             this.Id = CommonTools.ToGuid(iso, brid, vid, partN);
         }
 
@@ -70,7 +64,7 @@ namespace CPrint2.Data
             string[] strs = value.Split(';');
 
             if (strs.Length != 5)
-                throw new ArgumentException("strs.Length must be 5 (Iso, BrId, VId, PartN, Submit)");
+                throw new ArgumentException("strs.Length must be 5 (Iso, BrId, VId, PartN)");
 
             int iso = 0, brid = 0, vid = 0, partN = 0;
             bool submit = false;
@@ -90,8 +84,13 @@ namespace CPrint2.Data
             if (!bool.TryParse(strs[4], out submit))
                 return null;
 
-            var obj = new DataObj(iso, brid, vid, partN, submit);
+            var obj = new DataObj(iso, brid, vid, partN);
             return obj;
+        }
+
+        public static DataObj Test()
+        {
+            return new DataObj(826, 12345, 1234567, 1);
         }
 
         public bool Equals(DataObj other)
@@ -103,12 +102,12 @@ namespace CPrint2.Data
 
         public void DeleteFiles()
         {
-            lock (Files)
+            try
             {
-                foreach (FileInfo fl in Files)
-                    fl.DeleteSafe();
-
-                Files.Clear();
+                File.Delete(FileName);
+            }
+            catch
+            {
             }
         }
 

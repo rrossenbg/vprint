@@ -16,6 +16,9 @@ using System.Threading.Tasks;
 using ReceivingService;
 using ReceivingServiceLib.Common.Data;
 using ReceivingServiceLib.Data;
+using ReceivingServiceLib.Services;
+using VPrint.Common.Pdf;
+using VPrinting.Pdf;
 using VPrinting;
 
 namespace ReceivingServiceLib
@@ -179,7 +182,7 @@ namespace ReceivingServiceLib
         /// <param name="siteCode"></param>
         /// <param name="locationId"></param>
         /// <param name="userId"></param>
-        public void CommitVoucherChanges(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, int? folderId, 
+        public void CommitVoucherChanges(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, int? folderId,
             string siteCode, string barCode, int locationId, int userId, string s1, string s2)
         {
             try
@@ -217,7 +220,7 @@ namespace ReceivingServiceLib
         /// <param name="locationId"></param>
         /// <param name="userId"></param>
         public void CommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, int? folderId,
-            string siteCode, string barCode, int locationId, int userId, int? action, string s1, string s2)
+            string siteCode, string barCode, int locationId, int userId, ChangeContentType action, string s1, string s2)
         {
             try
             {
@@ -243,15 +246,27 @@ namespace ReceivingServiceLib
             }
         }
 
-        private string GetXmlFileNamePerAction(int? action)
+        private string GetXmlFileNamePerAction(ChangeContentType action)
         {
             switch (action)
             {
-                case 0:
-                case null:
+                case ChangeContentType.INIT:
                     return "data.xml";
-                case 1:
+
+                case ChangeContentType.ADD:
                     return "adddata.xml";
+
+                case ChangeContentType.INSERT:
+                    return "insertdata.xml";
+
+                case ChangeContentType.UPDATE:
+                    return "updatedata.xml";
+
+                case ChangeContentType.REMOVE:
+                    return "removedata.xml";
+
+                case ChangeContentType.DELETE:
+                    return "deletedata.xml";
                 default:
                     return string.Empty;
             }
@@ -680,6 +695,23 @@ namespace ReceivingServiceLib
             }
         }
 
+        public List<fileInfo> SelectFilesByFolder2(int folderId, int skip, int take, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("SelectFilesByFolder2");
+
+                var dblist = VoucherDataAccess.Instance.SelectVouchersByFolder(folderId, skip, skip + take);
+                var list = dblist.ConvertAll(f => new fileInfo(f));
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+        }
+
         public List<file2Info> SelectCoversByFolder(int folderId, string s1, string s2)
         {
             try
@@ -759,11 +791,30 @@ namespace ReceivingServiceLib
                                 var files = fileAccess.Instance.ExtractFileZip(exportZipFile.FullName, exportDirectory.FullName);
                                 var imageFileToSing = files.Max((f, f1) => f.Length > f1.Length);
 
+                                PdfCreationInfo crInfo = new PdfCreationInfo()
+                                {
+                                    Title = string.Concat("Voucher ", vinfo.v_number),
+                                    Subject = string.Concat("Retailer ", vinfo.branch_id),
+                                    Author = string.Concat("PTF ", countryName),
+                                    Creator = string.Concat("PTF ", countryName),
+                                };
+
+                                PdfSignInfo signInfo = new PdfSignInfo()
+                                {
+                                    pfxFilePath = Global.Strings.pfxFileFullPath,
+                                    pfxKeyPass = "",
+                                    docPass = null,
+                                    signImagePath = Global.Strings.PTFLogoFileFullPath,
+                                    reasonForSigning = string.Concat("Voucher ", vinfo.v_number),
+                                    location = "Madrid"
+                                };
+
                                 using (var bmp = (Bitmap)Image.FromFile(imageFileToSing.FullName))
                                 {
-                                    var resultFile = pdfFileAccess.Instance.CreateSignPdf(bmp, "barcode", countryName, "Madrid", vinfo.branch_id, vinfo.v_number);
+                                    var pdfFileName = pdfFileAccess.Instance.CreateSignPdf(bmp, "barcode", vinfo.branch_id, vinfo.v_number, crInfo, signInfo);
+
                                     var imageFileName = operationDirectory.CombineFileName(vinfo.session_Id + ".pdf").FullName;
-                                    File.Move(resultFile, imageFileName);
+                                    File.Move(pdfFileName, imageFileName);
 
                                     fileAccess.Instance.CreateZip(operationZipFile.FullName, operationDirectory.FullName, "File created at: " + DateTime.Now);
                                     buffer.Buffer = operationZipFile.ReadAllBytes();
@@ -830,7 +881,7 @@ namespace ReceivingServiceLib
 
                 var versionFile = versionFolder.CombineFileName(VERSIONFILENAME);
                 var text = versionFile.ReadAllText();
-                
+
                 var list = new List<UpdateFileInfo>();
 
                 var serverVersion = new Version(text);
@@ -846,7 +897,7 @@ namespace ReceivingServiceLib
                     var info = new UpdateFileInfo(file);
                     list.Add(info);
                 }
-                
+
                 return list;
             }
             catch (Exception ex)
@@ -914,7 +965,8 @@ namespace ReceivingServiceLib
         {
             var e1 = s1.DecryptString();
             var e2 = s2.DecryptString();
-            return e1 == e2.Reverse();
+            var re2 = e2.Reverse();
+            return string.Equals(e1, re2, StringComparison.InvariantCultureIgnoreCase);
         }
 
         private void RecordCallHistory(string method)
@@ -984,7 +1036,7 @@ namespace ReceivingServiceLib
 
         #endregion
 
-        #region PTF
+        #region TRS
 
         public VoucherInfo3 FindVoucherTRSByVoucherNumber(int countryId, int voucherId, string s1, string s2)
         {
@@ -1012,6 +1064,27 @@ namespace ReceivingServiceLib
 
                 var da = new PTFDataAccess();
                 var v = da.FindVoucher(siteCode, location);
+                return new VoucherInfo3(v);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region PR
+
+        public VoucherInfo3 FindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("FindVoucherPRBySiteCode");
+
+                var da = new RefundServiceDataAccess();
+                var v = da.CallRefundService(string.Concat(siteCode, location));
                 return new VoucherInfo3(v);
             }
             catch (Exception ex)

@@ -8,10 +8,8 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CPrint2.Data;
 
 namespace CPrint2
 {
@@ -110,17 +108,15 @@ namespace CPrint2
 
         public void ShowImageAsynch(string fileName)
         {
-            Task.Factory.StartNew((o) =>
+            new Action<string>((fName) =>
             {
-                Thread.Sleep(Config.ImagePickupDelay);
-
-                this.InvokeSf(() =>
+                this.InvokeSafe(new Action<string>((name) =>
                 {
                     this.imageBox1.Image = imageBox1.Image.DisposeSf();
 
-                    string imageFileName = Convert.ToString(o);
+                    string imageFileName = Convert.ToString(name);
                     var img = Image.FromFile(imageFileName);
-                    
+
                     this.imageBox1.Image = img.CopyFree(new Rectangle(0, 0, img.Width, img.Height));
                     var thumbnail = imageBox1.Image.GetThumbnailImage(60, 60, null, IntPtr.Zero);
                     var pictureBox1 = new PictureBox();
@@ -130,10 +126,12 @@ namespace CPrint2
 
                     this.imageBox1.Controls.Add(pictureBox1);
                     pictureBox1.Click += new EventHandler(PictureBox1_Click);
-                });
+
+                }), fName);
 
                 hWnd.SetTopmost();
-            }, fileName);
+
+            }).FireAndForgetSafe(fileName);
         }
 
         public void ResetState()

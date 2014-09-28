@@ -73,7 +73,6 @@ C:\PROJECTS\VPrint\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.exe
 C:\PROJECTS\VPrint\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.pdb
 C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\bin\Debug\CSharpFilters.exe
 C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\bin\Debug\CSharpFilters.pdb
-C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.ColorInput.resources
 C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.ColorSpaceDlg.resources
 C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.Convolution.resources
@@ -89,3 +88,4 @@ C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.Saturatio
 C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.exe
 C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.pdb
+C:\PROJECTS\VPrint2\ColorFilters\CSharpFilters\obj\Debug\CSharpFilters.csprojResolveAssemblyReference.cache

@@ -58,7 +58,7 @@ namespace ReceivingServiceLib.Data
             MERGE Voucher AS t
             USING (SELECT @job_id, @iso_id, @branch_id, @v_number, @v_fl_id, @sitecode, @barcode, @location, @operator_id, @scan_image_size, @scan_image, @session_Id, @protected) AS s 
 			              (job_id, iso_id,  branch_id,  v_number, v_fl_id, sitecode,  barcode,  location, operator_id,   scan_image_size, scan_image, session_id, v_protected)
-            ON (t.iso_id = s.iso_id and t.branch_id = s.branch_id and t.v_number = s.v_number and t.sitecode = s.sitecode)
+            ON (t.iso_id = s.iso_id and t.v_number = s.v_number and t.sitecode = s.sitecode)
             WHEN MATCHED THEN 
                 UPDATE SET  job_id = s.job_id,
 					        sitecode = s.sitecode,
@@ -541,8 +541,8 @@ namespace ReceivingServiceLib.Data
             #region SQL
 
             string SQL = isVoucher ?
-                "update Voucher set v_fl_id = null, deletedAt=getdate() where id = @id;" :
-                "update [File] set f_fl_id = null, f_deletedAt=getdate() where f_id = @id;";
+                "delete Voucher where id = @id;":
+                "delete [File] where f_id = @id;";
 
             #endregion
 
@@ -747,13 +747,28 @@ namespace ReceivingServiceLib.Data
             public string Name { get; set; }
         }
 
-        public List<fileData> SelectVouchersByFolder(int folderId)
+        private const int MAX_VOUCHERS_ON_ONE_GO = 3000;
+
+        public List<fileData> SelectVouchersByFolder(int folderId, int start = 0, int end = MAX_VOUCHERS_ON_ONE_GO)
         {
             CheckImagesConnectionStringThrow();
 
             #region SQL
 
-            const string SQL = @"SELECT [id], [iso_id], [v_fl_id], [branch_id], [v_number], [session_Id], [sitecode], [v_name] FROM [Voucher] WHERE [v_fl_id] = @flId and deletedAt is NULL;";
+            //const string SQL = @"SELECT  [id], [iso_id], [v_fl_id], [branch_id], [v_number], [session_Id], [sitecode], [v_name] FROM [Voucher] WHERE [v_fl_id] = @flId and deletedAt is NULL;";
+
+            const string SQL1 =
+@";WITH PostCTE AS 
+(
+SELECT  [id], [iso_id], [v_fl_id], [branch_id], [v_number], [session_Id], [sitecode], [v_name], 
+	ROW_NUMBER() OVER (ORDER BY Id) AS RowNumber 
+FROM [Voucher] 
+WHERE [v_fl_id] = @flId
+)
+SELECT [id], [iso_id], [v_fl_id], [branch_id], [v_number], [session_Id], [sitecode], [v_name] 
+from PostCTE
+WHERE RowNumber > @Start AND RowNumber <= @End
+ORDER BY [Id]";
 
             #endregion
 
@@ -763,9 +778,11 @@ namespace ReceivingServiceLib.Data
             {
                 conn.Open();
 
-                using (var comm = new SqlCommand(SQL, conn))
+                using (var comm = new SqlCommand(SQL1, conn))
                 {
                     comm.Parameters.AddWithValue("@flId", folderId);
+                    comm.Parameters.AddWithValue("@Start", start);
+                    comm.Parameters.AddWithValue("@End", end);
 
                     using (var reader = comm.ExecuteReader(CommandBehavior.CloseConnection))
                     {

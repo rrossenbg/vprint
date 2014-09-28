@@ -44,8 +44,10 @@ namespace VPrinting.ScaningProcessors
                     {
                         // ".tif"
                         var ext = Path.GetExtension(info.FullName);
+                        if (ext.EqualNoCase(".pdf"))
+                            fullFilePath = new PDFFileHelper().Run(info, item);
 
-                        bmp = ((Bitmap)Bitmap.FromFile(info.FullName)).Crop2();
+                        bmp = ((Bitmap)Bitmap.FromFile(fullFilePath)).Crop2();
                         item.FullFileName = fullFilePath;
                         item.FileInfoList.Add(new FileInfo(fullFilePath)); // Scanned Image
 
@@ -78,7 +80,7 @@ namespace VPrinting.ScaningProcessors
                             List<BarcodeConfig> barcodeLayouts = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
 
                             foreach (var cfg in barcodeLayouts)
-                                if (cfg.ParseBarcode(barcode, ref data))
+                                if (cfg.ParseBarcodeSafe(barcode, ref data))
                                     break;
 
                             if (data != null)
@@ -143,7 +145,8 @@ namespace VPrinting.ScaningProcessors
                         SiteCode = siteCode,
                         FilePath = fullFilePath
                     };
-
+                    int count = StateManager.Default.SetItemWithErr();
+                    DelegateHelper.PostShowItemsWithErrCallback(count);
                     DelegateHelper.FireError(this, ex);
                 }
                 finally

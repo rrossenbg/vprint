@@ -6,7 +6,10 @@ using System;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using VPrinting.Common;
 using VPrinting.Data;
 using VPrinting.Documents;
 using VPrinting.ScanServiceRef;
@@ -127,21 +130,39 @@ namespace VPrinting
             {
                 string filePath = Path.GetTempFileName();
                 File.WriteAllText(filePath, txtXmlText.Text);
+                string formatType = txtType.Text;
 
-                VoucherPrinter printer = new VoucherPrinter();
-                printer.m_PrinterName = ConfigurationManager.AppSettings["PrinterName"];
-                printer.m_ReportType2 = txtType.Text; //"VPrinting.Documents.VoucherPrintLayoutUnitRazX";
-                printer.m_PrinterXmlFilePath = filePath;
-                printer.PrintOnce = true;
-                printer.UseLocalFormat = true;
-                printer.UseLocalPrinter = true;
-                printer.SimulatePrint = false;
-                printer.PrintAllocation(allocationId, false);
+                Task.Factory.StartNew((o) =>
+                {
+                    try
+                    {
+                        Tuple<string, string, int> t = (Tuple<string, string, int>)o;
+
+                        using (var printer = new VoucherPrinter())
+                        {
+                            printer.m_PrinterName = ConfigurationManager.AppSettings["PrinterName"];
+                            printer.m_ReportType2 = t.Item2; //"VPrinting.Documents.VoucherPrintLayoutUnitRazX";
+                            printer.m_PrinterXmlFilePath = t.Item1;
+                            printer.PrintOnce = true;
+                            printer.UseLocalFormat = true;
+                            printer.UseLocalPrinter = true;
+                            printer.SimulatePrint = false;
+                            printer.PrintAllocation(t.Item3, false);
+                        }
+                        File.Delete(t.Item1);
+                    }
+                    catch (Exception ex)
+                    {
+                        Program.OnThreadException(this, new ThreadExceptionEventArgs(ex));
+                    }
+                }, new Tuple<string, string, int>(filePath, formatType, allocationId));
             }
-            else
-            {
-                this.ShowExclamation("Can't parse allocation id.");
-            }
+        }
+
+        private void btnClearCache_Click(object sender, EventArgs e)
+        {
+            CacheManager.Instance.Clear();
+            PrinterQueue.EmptyCache();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

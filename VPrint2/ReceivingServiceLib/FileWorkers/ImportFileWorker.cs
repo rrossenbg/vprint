@@ -14,6 +14,7 @@ namespace ReceivingServiceLib.FileWorkers
 {
     public class ImportFileWorker : FileWorkerBase
     {
+        const int WAIT_BEFORE_DELETE_MINUTES = 4;
         protected static ImportFileWorker ms_instance;
         public static ImportFileWorker Default
         {
@@ -74,9 +75,9 @@ namespace ReceivingServiceLib.FileWorkers
                                     fac.ReadVoucherXml(xmlPath, out jobId, out countryId, out retailerId, out voucherId, out folderId,
                                         out siteCode, out barCode, out userId, out locationId, out sessionId);
 
-                                    message = string.Concat("Job ID: ", jobId, Environment.NewLine, "Country ID: ", 
+                                    message = string.Concat("Job ID: ", jobId, Environment.NewLine, "Country ID: ",
                                         countryId, Environment.NewLine, "Retailer ID: ", retailerId, Environment.NewLine,
-                                       "Voucher ID: ", voucherId, Environment.NewLine, "Folder ID: ", folderId, Environment.NewLine, 
+                                       "Voucher ID: ", voucherId, Environment.NewLine, "Folder ID: ", folderId, Environment.NewLine,
                                        "Site code: ", siteCode, Environment.NewLine,
                                        "User ID: ", userId, Environment.NewLine, "Location ID: ", locationId, Environment.NewLine,
                                        "Session ID: ", sessionId, Environment.NewLine,
@@ -87,17 +88,19 @@ namespace ReceivingServiceLib.FileWorkers
                                     isVoucher = false;
 
                                     xmlPath = Path.Combine(uploadRoot.FullName, fromDir.Name, "cover.xml");
-
                                     if (File.Exists(xmlPath))
                                     {
                                         fac.ReadCoversheetXml(xmlPath, out folderId, out userId, out locationId, out sessionId);
 
-                                        message = string.Concat("User ID: ", userId, Environment.NewLine, "Location ID: ", locationId, 
+                                        message = string.Concat("User ID: ", userId, Environment.NewLine, "Location ID: ", locationId,
                                             Environment.NewLine, "Session ID: ", sessionId, Environment.NewLine,
                                             string.Format("Archive created: {0:G}", DateTime.Now));
                                     }
                                     else
                                     {
+                                        if (fromDir.CreationTime.AddMinutes(WAIT_BEFORE_DELETE_MINUTES) > DateTime.Now)
+                                            continue;
+
                                         throw new Exception("Cannot find: " + xmlPath);
                                     }
                                 }
@@ -143,15 +146,14 @@ namespace ReceivingServiceLib.FileWorkers
 #if DEBUGGER
                                 Trace.WriteLine("Clean up ".concat(fromDir.Name), Strings.APPNAME);
 #endif
-                                fromDir.DeleteSafe(true);
                                 zipFile.DeleteSafe();
                                 binFile.DeleteSafe();
+                                fromDir.DeleteSafe(true);
                                 Array.Clear(m_Buffer50MB, 0, m_Buffer50MB.Length);
                             }
                             catch (Exception ex)
                             {
                                 FireError(ex);
-
                                 try
                                 {
                                     var errDir = errorRoot.Combine(fromDir.Name);
@@ -164,7 +166,7 @@ namespace ReceivingServiceLib.FileWorkers
                                 }
                             }
                             finally
-                            {
+                            {                                
 #if DEBUGGER
                                 Trace.WriteLine("===================================", Strings.APPNAME);
 #endif

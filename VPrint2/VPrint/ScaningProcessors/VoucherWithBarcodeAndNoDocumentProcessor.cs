@@ -143,6 +143,8 @@ namespace VPrinting.ScaningProcessors
                         FilePath = fullFilePath
                     };
 
+                    int count = StateManager.Default.SetItemWithErr();
+                    DelegateHelper.PostShowItemsWithErrCallback(count);
                     DelegateHelper.FireError(this, ex);
                 }
                 finally

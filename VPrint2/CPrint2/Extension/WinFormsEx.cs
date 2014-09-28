@@ -124,5 +124,32 @@ namespace CPrint2
         {
             SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
         }
+
+        [TargetedPatchingOptOut("na")]
+        public static void AddRow(this TableLayoutPanel panel, Control control)
+        {
+            int rowIndex = AddTableRow(panel);
+            panel.Controls.Add(control, 0, rowIndex);
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static void ResizeRows(this TableLayoutPanel panel)
+        {
+            Debug.Assert(panel != null);
+
+            foreach (RowStyle row in panel.RowStyles)
+            {
+                row.SizeType = SizeType.Absolute;
+                row.Height = panel.Height / panel.RowStyles.Count;
+            }
+        }
+
+        public static int AddTableRow(TableLayoutPanel panel)
+        {
+            int index = panel.RowCount++;
+            RowStyle style = new RowStyle(SizeType.AutoSize);
+            panel.RowStyles.Add(style);
+            return index;
+        }
     }
 }
