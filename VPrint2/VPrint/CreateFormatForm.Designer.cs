@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtType = new System.Windows.Forms.TextBox();
             this.txtXmlText = new VPrinting.XmlEditor.XmlEditorControl();
+            this.btnClearCache = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -106,7 +107,7 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(618, 108);
+            this.groupBox1.Size = new System.Drawing.Size(716, 108);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Details";
@@ -116,12 +117,13 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnClearCache);
             this.groupBox2.Controls.Add(this.tbAllocationId);
             this.groupBox2.Controls.Add(this.btnTryPrint);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(420, 8);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(192, 94);
+            this.groupBox2.Size = new System.Drawing.Size(290, 94);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Test Print";
@@ -185,15 +187,25 @@
             this.txtXmlText.Location = new System.Drawing.Point(6, 114);
             this.txtXmlText.Name = "txtXmlText";
             this.txtXmlText.ReadOnly = false;
-            this.txtXmlText.Size = new System.Drawing.Size(618, 415);
+            this.txtXmlText.Size = new System.Drawing.Size(716, 415);
             this.txtXmlText.TabIndex = 7;
+            // 
+            // btnClearCache
+            // 
+            this.btnClearCache.Location = new System.Drawing.Point(178, 50);
+            this.btnClearCache.Name = "btnClearCache";
+            this.btnClearCache.Size = new System.Drawing.Size(75, 21);
+            this.btnClearCache.TabIndex = 3;
+            this.btnClearCache.Text = "Clear Cache";
+            this.btnClearCache.UseVisualStyleBackColor = true;
+            this.btnClearCache.Click += new System.EventHandler(this.btnClearCache_Click);
             // 
             // CreateFormatForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 535);
+            this.ClientSize = new System.Drawing.Size(728, 535);
             this.Controls.Add(this.txtXmlText);
             this.Controls.Add(this.groupBox1);
             this.Name = "CreateFormatForm";
@@ -224,5 +236,6 @@
         private System.Windows.Forms.TextBox tbAllocationId;
         private System.Windows.Forms.Button btnTryPrint;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnClearCache;
     }
 }

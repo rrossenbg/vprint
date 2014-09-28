@@ -3,48 +3,38 @@
 /***************************************************/
 
 using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using CPrint2.Colections;
 using CPrint2.Common;
 using CPrint2.Data;
-using CPrint2.ScanServiceRef;
 
 namespace CPrint2
 {
     public class ImageProcessor
     {
-        public static event EventHandler NewVoucherStarted;
-        public static event EventHandler<ValueEventArgs<string>> VoucherProcessCompleted;
-        public static event ThreadExceptionEventHandler Error;
-
-        public static ImageProcessor Instance
-        {
-            get
-            {
-                return new ImageProcessor();
-            }
-        }
-
+        /// <summary>
+        /// KNOW HOW
+        /// http://www.emgu.com/forum/viewtopic.php?f=7&t=4238
+        /// http://stackoverflow.com/questions/18727747/how-to-get-video-stream-from-webcam-in-emgu-cv
+        /// </summary>
         private static readonly IgnoreList<string> ms_Files = new IgnoreList<string>();
 
-        private static readonly ConcurrentDictionary<Guid, DataObj> ms_Queue = new ConcurrentDictionary<Guid, DataObj>();
+        public static event ThreadExceptionEventHandler Error;
 
-        private static volatile object ms_CurrentDataObj;
+        public static readonly ImageProcessor Default = new ImageProcessor();
 
-        private class Lock1 { }
-        private class Lock2 { }
-        private class Lock3 { }
-
-        static ImageProcessor()
+        public ImageProcessor()
         {
-            ms_CurrentDataObj = (object)Guid.Empty;
+            Control.CheckForIllegalCrossThreadCalls = false;
+        }
+
+        public void ProcessCommand()
+        {
+            var obj = new DataObj(826, 12345, 1234567, 1);
+            MultyCamForm.Default.ProcessCommand(false, obj);
         }
 
         public void ProcessCommandFile(string fileName)
@@ -58,150 +48,30 @@ namespace CPrint2
 
                 string fullFileName = Convert.ToString(o);
 
-                try
-                {
-                    try
-                    {
-                        string text = File.ReadAllText(fullFileName);
-
-                        var obj = DataObj.Parse(text);
-
-                        if (obj == null || !obj.IsValid)
-                            return;
-
-                        ms_CurrentDataObj = obj.Id;
-
-                        DataObj obj3 = null;
-
-                        if (ms_Queue.TryGetValue(obj.Id, out obj3) && obj.Submit)
-                        {
-                            #region SUBMIT
-                            try
-                            {
-                                string tifFullFileName = Path.Combine(Config.ImageOutputPath, string.Format("{0}_{1}_{2}.tif", obj3.Iso, obj3.BrId, obj3.VId));
-
-                                var tifFile = new FileInfo(tifFullFileName);
-                                var images = new List<Bitmap>();
-
-                                lock (obj3.Files)
-                                {
-                                    foreach (FileInfo fl in obj3.Files)
-                                        if (fl.Exists(true))
-                                            images.Add((Bitmap)Bitmap.FromFile(fl.FullName));
-                                }
-
-                                if (images.Count > 0)
-                                {
-                                    TiffConverter converter = new TiffConverter();
-                                    var tiff = converter.WrapJpegs(images.ConvertAll<byte[]>((b) => b.ToArray()));
-                                    File.WriteAllBytes(tifFullFileName, tiff);
-
-                                    images.ForEach(i => i.DisposeSf());
-                                    images.Clear();
-
-                                    //copy voucher
-                                    var keys = Security.CreateInstance().GenerateSecurityKeys();
-                                    var serverSessionId = obj3.Id;
-                                    var sserverSessionId = obj3.Id.ToString();
-
-                                    var srv = ServiceDataAccess.Instance;
-
-                                    srv.SendFile(tifFile, sserverSessionId, keys);
-
-                                    srv.CommitVoucherChanges(sserverSessionId, 0, obj3.Iso, obj3.BrId, obj3.VId,
-                                        Global.FolderID.HasValue ? Global.FolderID.Value : (int?)null, "", "", keys);
-
-                                    srv.SaveHistory(OperationHistory.Scan, serverSessionId, obj3.Iso, obj3.BrId, obj3.VId,
-                                        0, 0, "", keys);
-                                }
-
-                                tifFile.DeleteSafe();
-                            }
-                            finally
-                            {
-                                ms_Queue.TryRemove(obj3.Id, out obj3);
-                            }
-                            #endregion
-                        }
-                        else
-                        {
-                            if (ms_Queue.TryAdd(obj.Id, obj) && NewVoucherStarted != null)
-                                NewVoucherStarted(this, EventArgs.Empty);
-
-                            PresenterCameraShooter shooter = new PresenterCameraShooter();
-                            shooter.TryStartPresenter(Config.PresenterPath);
-                            shooter.ClickCameraButton();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        if (Error != null)
-                            Error(this, new ThreadExceptionEventArgs(ex));
-                    }
-                }
-                finally
-                {
-                    new Action(() => File.Delete(fullFileName)).RunSafe();
-                }
-
-            }, fileName, TaskCreationOptions.LongRunning);
-        }
-
-        public void ProcessReadyImage(string fileName)
-        {
-            if (!ms_Files.Add(fileName))
-                return;
-
-            Task.Factory.StartNew((o) =>
-            {
-                string fullFileName = Convert.ToString(o);
-                Guid current = (Guid)ms_CurrentDataObj;
-
-                Thread.Sleep(Config.ImagePickupDelay);
+                var file1 = new FileInfo(fullFileName);
 
                 try
                 {
-                    var file1 = new FileInfo(fullFileName);
-                    var file2 = new FileInfo(Path.Combine(file1.DirectoryName, Path.GetFileNameWithoutExtension(file1.Name) + "_2.jpg"));
-                    ms_Files.Add(file2.FullName);
+                    string text = File.ReadAllText(fullFileName);
 
-                    DataObj obj = null;
+                    var obj = DataObj.Parse(text);
 
-                    if (file1.Exists && ms_Queue.TryGetValue(current, out obj) && obj != null)
-                    {
-                        using (var bmp = (Bitmap)Bitmap.FromFile(file1.FullName))
-                        {
-                            var img = bmp.CropRotateFree(Config.MinSize, Config.MaxSize);
-                            if (img != null)
-                            {
-                                var jpegCodec = ImageCodecInfo.GetImageEncoders().First(enc => enc.FormatID == ImageFormat.Jpeg.Guid);
-                                var jpegParams = new EncoderParameters(1);
-                                jpegParams.Param = new[] { new EncoderParameter(Encoder.Quality, 100L) };
-                                img.Save(file2.FullName, jpegCodec, jpegParams);
+                    if (obj == null || !obj.IsValid)
+                        return;
 
-                                obj.Files.Add(file2);
-                                file1.DeleteSafe();
-
-                                if (VoucherProcessCompleted != null)
-                                    VoucherProcessCompleted(this, new ValueEventArgs<string>(file2.FullName));
-                            }
-                            else
-                            {
-                                obj.Files.Add(file1);
-
-                                if (VoucherProcessCompleted != null)
-                                    VoucherProcessCompleted(this, new ValueEventArgs<string>(file1.FullName));
-                            }
-                        }                        
-                    }
+                    MultyCamForm.Default.ProcessCommand(false, obj);
                 }
                 catch (Exception ex)
                 {
-                    if (Error != null)
-                        Error(this, new ThreadExceptionEventArgs(ex));
+                    FireError(ex);
                 }
+                finally
+                {
+                    file1.DeleteSafe();
+                }
+
             }, fileName, TaskCreationOptions.LongRunning);
-        }
+        }     
 
         public static void EmptyCommandFolderSafe()
         {
@@ -235,9 +105,32 @@ namespace CPrint2
 
         public static void Clear()
         {
-            ms_Queue.Clear();
             ms_Files.Clear();
-            ms_CurrentDataObj = (object)Guid.Empty;
+        }
+
+        public static void FireError(Exception ex)
+        {
+            if (Error != null)
+                Error(typeof(ImageProcessor), new ThreadExceptionEventArgs(ex));
         }
     }
 }
+
+
+////Image Sensor: 1/4"CMOS, 640×480 Pixels
+////Frame Rate: 30fps@320x240,
+////@160x120, 15fps@640x480, @800x600
+////Lens: F=2.4, f=3.8 mm
+////View Angle: 79 degree
+////Focus Range: 10cm to infinity
+////Exposure Control: Automatic
+////White Balance: Automatic
+////Still Image Capture Res.:
+////(Installing Driver)
+////2560x1920, 1600x1200,
+////2048x1536,1280X1024,
+////1024x768, 800x600, 640X480,
+////352x288, 320x240, 160x120
+////Microphone for WebCam: Built-in Microphone
+////Flicker Control: 50Hz, 60Hz and None
+////Interface: USB 2.0 Port

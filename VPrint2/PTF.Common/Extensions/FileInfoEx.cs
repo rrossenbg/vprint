@@ -202,6 +202,24 @@ namespace VPrinting
             var newname = func(info);
             return info.Directory.CombineFileName(string.Concat(newname, info.Extension));
         }
+
+        [TargetedPatchingOptOut("na")]
+        public static FileInfo Temp(this FileInfo info, string ext = ".jpg")
+        {
+            var file2 = new FileInfo(Path.ChangeExtension(Path.GetTempFileName(), ext));
+            return file2;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static FileInfo IfDebug(this FileInfo info, string debugPath)
+        {
+#if DEBUG
+            var info2 = new FileInfo(debugPath);
+            return info2;
+#else
+            return info;
+#endif
+        }
     }
 
     public static class DirectoryInfoEx
@@ -220,7 +238,7 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
-        public static void ClearSf(this DirectoryInfo info)
+        public static void ClearSafe(this DirectoryInfo info)
         {
             if (info == null)
                 throw new ArgumentNullException("info");
@@ -230,9 +248,9 @@ namespace VPrinting
                 try
                 {
                     foreach (var file in info.GetFiles())
-                        file.Delete();
+                        file.DeleteSafe();
                     foreach (var dir in info.GetDirectories())
-                        dir.Delete(true);
+                        dir.DeleteSafe(true);
                 }
                 catch
                 {

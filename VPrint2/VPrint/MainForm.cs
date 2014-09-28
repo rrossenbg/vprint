@@ -24,11 +24,11 @@ using VPrinting.Controls.ArrowButton;
 using VPrinting.Data;
 using VPrinting.Documents;
 using VPrinting.Extentions;
+using VPrinting.Forms.Explorer;
 using VPrinting.PartyManagement;
 using VPrinting.ScanServiceLocalRef;
 using VPrinting.ScanServiceRef;
 using VPrinting.VoucherNumberingAllocationPrinting;
-using VPrinting.Forms.Explorer;
 
 namespace VPrinting
 {
@@ -85,9 +85,9 @@ namespace VPrinting
         /// </summary>
         private const int MAX_ITEMS_TODOWNLOAD_ON_ONE_GO = 5;
 
-        private const int PRINT_TAB = 0;
-        private const int SCAN_TAB = 1;
-        private const int HISTORY_TAB = 2;
+        private const int PRINT_TAB0 = 0;
+        private const int SCAN_TAB1 = 1;
+        private const int HISTORY_TAB2 = 2;
 
         private readonly Color OffColor = Color.White;
         private readonly Color OnColor = Color.Gray;
@@ -98,7 +98,7 @@ namespace VPrinting
 
         private delegate void RemoveRowFromViewDelegate(DataGridView view, DataGridViewRow row);
 
-        #endregion        
+        #endregion
 
         #region PRIVATE FIELDS
 
@@ -142,7 +142,7 @@ namespace VPrinting
         private ToolStripMenuItem saveToolStripMenuItem;
         private ImageList imageList1;
         private Button btnClear;
-        
+
         private TextBox tbTransferFile;
         private Button btnBrowseForExprFile;
 
@@ -215,7 +215,7 @@ namespace VPrinting
         private ToolStripMenuItem updateVersionToolStripMenuItem;
         private ToolStripMenuItem tsmiScanningClear;
         private ToolStripSeparator toolStripMenuItem7;
-        
+
         private ToolStripMenuItem tsmiScanningForce;
         private ToolStripMenuItem tsmiScanningIgnore;
         private ToolStripMenuItem tsmiShow;
@@ -228,7 +228,7 @@ namespace VPrinting
         private ToolStripSeparator toolStripMenuItem9;
         private ToolStripMenuItem tsmiScanningAddToTran;
         private ToolStripMenuItem exitToolStripMenuItem1;
-        
+
         #endregion
 
         private CheckBox cbVoucherMustExist;
@@ -236,8 +236,10 @@ namespace VPrinting
         private ToolStripSeparator toolStripMenuItem10;
         private ToolStripMenuItem showSignedToolStripMenuItem;
         private ToggleButtonControl toggleButtonControl1;
-        private ContextMenuStrip contextMenuStrip1;
         private Button btnFileBrowser;
+        private ToolStripStatusLabel lblItemsWithErr;
+        private LinkLabel lblNext;
+        private LinkLabel lblPrev;
 
         #region PUBLIC FIELDS
 
@@ -261,7 +263,7 @@ namespace VPrinting
 
             m_DownloadFileOrganizer.Completed += new EventHandler<TaskProcessOrganizer<StateManager.Item>.CompletedEventArgs>(DownloadOrganizer_Completed);
 
-            foreach (var ex in EXTS)
+            foreach (var ex in SUPPORTED_FILE_EXTENTIONS)
                 this.m_FileSysWatchers.Add(new FileSystemWatcher());
 
             this.m_FileSysWatchers.ForEach(f => f.Changed += new System.IO.FileSystemEventHandler(this.FileSysWatcher_Event));
@@ -283,9 +285,13 @@ namespace VPrinting
             PrinterQueue.CacheDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Application.ProductName);
 
             if (ConfigurationManager.AppSettings["PRINTINGONLY"].Cast<bool>())
+            {
                 tabControl1.TabPages.RemoveAt(1);
+            }
             else if (ConfigurationManager.AppSettings["SCANNINGONLY"].Cast<bool>())
+            {
                 tabControl1.TabPages.RemoveAt(0);
+            }
 
             if (!ConfigurationManager.AppSettings["USE_SCAN_SERVER"].Cast<bool>())
                 this.ScanningSettingPanel.Controls.Remove(this.btnScan);
@@ -362,8 +368,10 @@ namespace VPrinting
             StateSaver.Default.Set(Strings.tbScanDirectory, this.tbScanDirectory.Text);
             StateSaver.Default.Set("toggleButtonControl1.GetClicked", this.toggleButtonControl1.GetClicked());
 
+            m_StateManager.Clear();
             new Action(() => ServiceDataAccess.Instance.LogOperation(OperationHistory.Logout, Program.SessionId, 0, 0, 0, 0, 0, "")).RunSafe();
             Global.Instance.ExitSignal = true;
+            m_BuildFilesExit.DisposeSf();
             base.OnClosed(e);
         }
 
@@ -552,8 +560,8 @@ namespace VPrinting
 
         private void PrintDemo_Click(object sender, EventArgs e)
         {
-            var printing = new VoucherPrinter();
-            printing.PrintAllocation(0, true);
+            using (var printing = new VoucherPrinter())
+                printing.PrintAllocation(0, true);
         }
 
         private void Print_Click(object sender, EventArgs e)
@@ -574,13 +582,15 @@ namespace VPrinting
 
                     for (int i = 0; i < m_PendingVouchersList.Count; i++)
                     {
-                        var printing = new VoucherPrinter();
-                        printing.SimulatePrint = MainForm.ms_SimulatePrint;
-                        printing.Done += OnAllocationRowIsPrinted;
-                        Interlocked.Increment(ref m_AllocationPrintings);
-                        printing.PrintAllocation(m_PendingVouchersList[i], false);
-                        ServiceDataAccess.Instance.LogOperation(OperationHistory.Print, printing.SessionId, Program.currentUser.CountryID, printing.Retailer.Id,
-                            printing.RangeFrom, printing.RangeTo, 0, "");
+                        using (var printing = new VoucherPrinter())
+                        {
+                            printing.SimulatePrint = MainForm.ms_SimulatePrint;
+                            printing.Done += OnAllocationRowIsPrinted;
+                            Interlocked.Increment(ref m_AllocationPrintings);
+                            printing.PrintAllocation(m_PendingVouchersList[i], false);
+                            ServiceDataAccess.Instance.LogOperation(OperationHistory.Print, printing.SessionId, Program.currentUser.CountryID, printing.Retailer.Id,
+                                printing.RangeFrom, printing.RangeTo, 0, "");
+                        }
                     }
 
                     ClearDataGridViewItems(m_PendingVouchersList);
@@ -718,16 +728,18 @@ namespace VPrinting
                             {
                                 if (frmPrint.ShowDialog(this) == DialogResult.OK)
                                 {
-                                    var printing = new VoucherPrinter();
-                                    printing.SimulatePrint = MainForm.ms_SimulatePrint;
-                                    printing.Done += OnAllocationRowIsPrinted;
-                                    Interlocked.Increment(ref m_AllocationPrintings);
-                                    printing.PrintAllocation(id, frmPrint.ReprintVouchers);
+                                    using (var printing = new VoucherPrinter())
+                                    {
+                                        printing.SimulatePrint = MainForm.ms_SimulatePrint;
+                                        printing.Done += OnAllocationRowIsPrinted;
+                                        Interlocked.Increment(ref m_AllocationPrintings);
+                                        printing.PrintAllocation(id, frmPrint.ReprintVouchers);
 
-                                    ServiceDataAccess.Instance.LogOperation(
-                                        OperationHistory.RePrint, printing.SessionId,
-                                        Program.currentUser.CountryID, printing.Retailer.Id,
-                                        printing.RangeFrom, printing.RangeTo, 0, "");
+                                        ServiceDataAccess.Instance.LogOperation(
+                                            OperationHistory.RePrint, printing.SessionId,
+                                            Program.currentUser.CountryID, printing.Retailer.Id,
+                                            printing.RangeFrom, printing.RangeTo, 0, "");
+                                    }
                                 }
                             }
                         });
@@ -1112,15 +1124,22 @@ namespace VPrinting
             this.ssScaningStatus = new System.Windows.Forms.StatusStrip();
             this.lblScanned = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblSent = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblItemsWithErr = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.pbScanProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.ScanningSettingPanel = new System.Windows.Forms.Panel();
+            this.lblNext = new System.Windows.Forms.LinkLabel();
+            this.lblPrev = new System.Windows.Forms.LinkLabel();
             this.btnFileBrowser = new System.Windows.Forms.Button();
+            this.toggleButtonControl1 = new VPrinting.Controls.ToggleButtonControl();
             this.cbVoucherMustExist = new System.Windows.Forms.CheckBox();
             this.cbCoversheet = new System.Windows.Forms.CheckBox();
             this.btnShowMonitor = new System.Windows.Forms.Button();
             this.btnCover = new System.Windows.Forms.Button();
             this.llblOpenFolder = new System.Windows.Forms.LinkLabel();
+            this.lblWarningMessage = new VPrinting.Controls.BliningLabel();
+            this.btnShowHide = new VPrinting.Controls.ArrowButton.ArrowButton();
+            this.btnScan = new GaryPerkin.UserControls.Buttons.RoundButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tbTransferFile = new System.Windows.Forms.TextBox();
             this.btnBrowseForExprFile = new System.Windows.Forms.Button();
@@ -1135,7 +1154,10 @@ namespace VPrinting
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabVoucher = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bliningLabel1 = new VPrinting.Controls.BliningLabel();
             this.btSearch = new System.Windows.Forms.Button();
+            this.dtTo = new VPrinting.Controls.DateTimePicker2();
+            this.dtFrom = new VPrinting.Controls.DateTimePicker2();
             this.label8 = new System.Windows.Forms.Label();
             this.tbVoucherId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -1144,6 +1166,7 @@ namespace VPrinting
             this.label3 = new System.Windows.Forms.Label();
             this.tabHistory = new System.Windows.Forms.TabPage();
             this.pnlDataGrid = new System.Windows.Forms.Panel();
+            this.bliningLabel2 = new VPrinting.Controls.BliningLabel();
             this.cbHistoryType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -1179,15 +1202,6 @@ namespace VPrinting
             this.tsmiSort = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toggleButtonControl1 = new VPrinting.Controls.ToggleButtonControl();
-            this.lblWarningMessage = new VPrinting.Controls.BliningLabel();
-            this.btnShowHide = new VPrinting.Controls.ArrowButton.ArrowButton();
-            this.btnScan = new GaryPerkin.UserControls.Buttons.RoundButton();
-            this.bliningLabel1 = new VPrinting.Controls.BliningLabel();
-            this.dtTo = new VPrinting.Controls.DateTimePicker2();
-            this.dtFrom = new VPrinting.Controls.DateTimePicker2();
-            this.bliningLabel2 = new VPrinting.Controls.BliningLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.printContextMenu.SuspendLayout();
@@ -1378,6 +1392,7 @@ namespace VPrinting
             // 
             this.dgvAllocations.AllowUserToAddRows = false;
             this.dgvAllocations.AllowUserToDeleteRows = false;
+            this.dgvAllocations.ContextMenuStrip = this.printContextMenu;
             this.dgvAllocations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAllocations.Location = new System.Drawing.Point(3, 147);
             this.dgvAllocations.Name = "dgvAllocations";
@@ -1616,7 +1631,6 @@ namespace VPrinting
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1136, 564);
             this.tabControl1.TabIndex = 29;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_SelectedIndexChanged);
             // 
             // tpPrint
             // 
@@ -1756,6 +1770,7 @@ namespace VPrinting
             // 
             this.lpScannedFiles.AutoScroll = true;
             this.lpScannedFiles.BackColor = System.Drawing.Color.White;
+            this.lpScannedFiles.ContextMenuStrip = this.scanContextMenuStrip;
             this.lpScannedFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lpScannedFiles.Location = new System.Drawing.Point(0, 0);
             this.lpScannedFiles.Name = "lpScannedFiles";
@@ -1767,6 +1782,7 @@ namespace VPrinting
             this.ssScaningStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblScanned,
             this.lblSent,
+            this.lblItemsWithErr,
             this.lblMessage,
             this.pbScanProgress});
             this.ssScaningStatus.Location = new System.Drawing.Point(3, 507);
@@ -1787,6 +1803,13 @@ namespace VPrinting
             this.lblSent.Name = "lblSent";
             this.lblSent.Size = new System.Drawing.Size(137, 17);
             // 
+            // lblItemsWithErr
+            // 
+            this.lblItemsWithErr.AutoSize = false;
+            this.lblItemsWithErr.ForeColor = System.Drawing.Color.Red;
+            this.lblItemsWithErr.Name = "lblItemsWithErr";
+            this.lblItemsWithErr.Size = new System.Drawing.Size(109, 17);
+            // 
             // lblMessage
             // 
             this.lblMessage.AutoSize = false;
@@ -1802,6 +1825,8 @@ namespace VPrinting
             // 
             this.ScanningSettingPanel.BackColor = System.Drawing.Color.LightGray;
             this.ScanningSettingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ScanningSettingPanel.Controls.Add(this.lblNext);
+            this.ScanningSettingPanel.Controls.Add(this.lblPrev);
             this.ScanningSettingPanel.Controls.Add(this.btnFileBrowser);
             this.ScanningSettingPanel.Controls.Add(this.toggleButtonControl1);
             this.ScanningSettingPanel.Controls.Add(this.cbVoucherMustExist);
@@ -1827,6 +1852,28 @@ namespace VPrinting
             this.ScanningSettingPanel.Size = new System.Drawing.Size(1116, 105);
             this.ScanningSettingPanel.TabIndex = 0;
             // 
+            // lblNext
+            // 
+            this.lblNext.AutoSize = true;
+            this.lblNext.Location = new System.Drawing.Point(866, 63);
+            this.lblNext.Name = "lblNext";
+            this.lblNext.Size = new System.Drawing.Size(51, 13);
+            this.lblNext.TabIndex = 37;
+            this.lblNext.TabStop = true;
+            this.lblNext.Text = "NEXT >>";
+            this.lblNext.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.PrevNextClicked);
+            // 
+            // lblPrev
+            // 
+            this.lblPrev.AutoSize = true;
+            this.lblPrev.Location = new System.Drawing.Point(812, 63);
+            this.lblPrev.Name = "lblPrev";
+            this.lblPrev.Size = new System.Drawing.Size(48, 13);
+            this.lblPrev.TabIndex = 36;
+            this.lblPrev.TabStop = true;
+            this.lblPrev.Text = "<<PREV";
+            this.lblPrev.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.PrevNextClicked);
+            // 
             // btnFileBrowser
             // 
             this.btnFileBrowser.Location = new System.Drawing.Point(718, 68);
@@ -1836,6 +1883,27 @@ namespace VPrinting
             this.btnFileBrowser.Text = "File Browser";
             this.btnFileBrowser.UseVisualStyleBackColor = true;
             this.btnFileBrowser.Click += new System.EventHandler(this.FileBrowser_Click);
+            // 
+            // toggleButtonControl1
+            // 
+            this.toggleButtonControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toggleButtonControl1.ColorOff = System.Drawing.Color.LightGray;
+            this.toggleButtonControl1.ColorOn = System.Drawing.Color.Lime;
+            this.toggleButtonControl1.Location = new System.Drawing.Point(613, 3);
+            this.toggleButtonControl1.Margin = new System.Windows.Forms.Padding(1);
+            this.toggleButtonControl1.Name = "toggleButtonControl1";
+            this.toggleButtonControl1.Padding = new System.Windows.Forms.Padding(1);
+            this.toggleButtonControl1.Size = new System.Drawing.Size(222, 47);
+            this.toggleButtonControl1.TabIndex = 34;
+            this.toggleButtonControl1.Text1 = new string[] {
+        "Barcode",
+        "Barcode"};
+            this.toggleButtonControl1.Text2 = new string[] {
+        "Tras file",
+        "Tras file"};
+            this.toggleButtonControl1.Text3 = new string[] {
+        "Sitecode",
+        "Sitecode"};
             // 
             // cbVoucherMustExist
             // 
@@ -1899,6 +1967,51 @@ namespace VPrinting
             this.llblOpenFolder.TabStop = true;
             this.llblOpenFolder.Text = "...";
             this.llblOpenFolder.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OpenFolder_LinkClicked);
+            // 
+            // lblWarningMessage
+            // 
+            this.lblWarningMessage.AutoSize = true;
+            this.lblWarningMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblWarningMessage.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
+            this.lblWarningMessage.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
+            this.lblWarningMessage.Location = new System.Drawing.Point(869, 85);
+            this.lblWarningMessage.Name = "lblWarningMessage";
+            this.lblWarningMessage.Size = new System.Drawing.Size(123, 13);
+            this.lblWarningMessage.TabIndex = 25;
+            this.lblWarningMessage.Text = "Last voucher processing";
+            this.lblWarningMessage.Visible = false;
+            // 
+            // btnShowHide
+            // 
+            this.btnShowHide.ArrowEnabled = true;
+            this.btnShowHide.HoverEndColor = System.Drawing.Color.DimGray;
+            this.btnShowHide.HoverStartColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Location = new System.Drawing.Point(13, 3);
+            this.btnShowHide.Name = "btnShowHide";
+            this.btnShowHide.NormalEndColor = System.Drawing.Color.DarkGray;
+            this.btnShowHide.NormalStartColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHide.Rotation = 0;
+            this.btnShowHide.Size = new System.Drawing.Size(24, 24);
+            this.btnShowHide.TabIndex = 24;
+            this.btnShowHide.Click += new System.EventHandler(this.ShowHide_Click);
+            // 
+            // btnScan
+            // 
+            this.btnScan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnScan.BackColor = System.Drawing.Color.Silver;
+            this.btnScan.BevelDepth = 5;
+            this.btnScan.BevelHeight = 5;
+            this.btnScan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnScan.Dome = true;
+            this.btnScan.Location = new System.Drawing.Point(980, 22);
+            this.btnScan.Name = "btnScan";
+            this.btnScan.RecessDepth = 0;
+            this.btnScan.Size = new System.Drawing.Size(122, 69);
+            this.btnScan.TabIndex = 20;
+            this.btnScan.Text = "Scan";
+            this.ToolTip1.SetToolTip(this.btnScan, "Scan button");
+            this.btnScan.UseVisualStyleBackColor = false;
+            this.btnScan.Click += new System.EventHandler(this.Scan_Click);
             // 
             // textBox3
             // 
@@ -1980,6 +2093,7 @@ namespace VPrinting
             this.tbScanDirectory.TabIndex = 1;
             this.tbScanDirectory.Text = "M:\\Scans";
             this.ToolTip1.SetToolTip(this.tbScanDirectory, "Scan directory path");
+            this.tbScanDirectory.TextChanged += new System.EventHandler(this.ScanDirectory_TextChanged);
             // 
             // btnBrowseForScanDir
             // 
@@ -2072,6 +2186,19 @@ namespace VPrinting
             this.panel1.Size = new System.Drawing.Size(1102, 63);
             this.panel1.TabIndex = 0;
             // 
+            // bliningLabel1
+            // 
+            this.bliningLabel1.AutoSize = true;
+            this.bliningLabel1.ForeColor = System.Drawing.Color.Red;
+            this.bliningLabel1.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
+            this.bliningLabel1.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
+            this.bliningLabel1.Location = new System.Drawing.Point(58, 42);
+            this.bliningLabel1.Name = "bliningLabel1";
+            this.bliningLabel1.Size = new System.Drawing.Size(220, 13);
+            this.bliningLabel1.TabIndex = 26;
+            this.bliningLabel1.Text = "Note: number of results are limited up to 1000";
+            this.bliningLabel1.Visible = false;
+            // 
             // btSearch
             // 
             this.btSearch.Location = new System.Drawing.Point(901, 10);
@@ -2082,6 +2209,26 @@ namespace VPrinting
             this.ToolTip1.SetToolTip(this.btSearch, "Search button");
             this.btSearch.UseVisualStyleBackColor = true;
             this.btSearch.Click += new System.EventHandler(this.Search_Click);
+            // 
+            // dtTo
+            // 
+            this.dtTo.Location = new System.Drawing.Point(668, 7);
+            this.dtTo.Message = "To";
+            this.dtTo.Name = "dtTo";
+            this.dtTo.Size = new System.Drawing.Size(215, 30);
+            this.dtTo.TabIndex = 7;
+            this.ToolTip1.SetToolTip(this.dtTo, "To date");
+            this.dtTo.Value = null;
+            // 
+            // dtFrom
+            // 
+            this.dtFrom.Location = new System.Drawing.Point(461, 7);
+            this.dtFrom.Message = "From";
+            this.dtFrom.Name = "dtFrom";
+            this.dtFrom.Size = new System.Drawing.Size(209, 32);
+            this.dtFrom.TabIndex = 6;
+            this.ToolTip1.SetToolTip(this.dtFrom, "From date");
+            this.dtFrom.Value = null;
             // 
             // label8
             // 
@@ -2162,6 +2309,19 @@ namespace VPrinting
             this.pnlDataGrid.Size = new System.Drawing.Size(1102, 63);
             this.pnlDataGrid.TabIndex = 0;
             // 
+            // bliningLabel2
+            // 
+            this.bliningLabel2.AutoSize = true;
+            this.bliningLabel2.ForeColor = System.Drawing.Color.Red;
+            this.bliningLabel2.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
+            this.bliningLabel2.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
+            this.bliningLabel2.Location = new System.Drawing.Point(47, 43);
+            this.bliningLabel2.Name = "bliningLabel2";
+            this.bliningLabel2.Size = new System.Drawing.Size(220, 13);
+            this.bliningLabel2.TabIndex = 27;
+            this.bliningLabel2.Text = "Note: number of results are limited up to 1000";
+            this.bliningLabel2.Visible = false;
+            // 
             // cbHistoryType
             // 
             this.cbHistoryType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -2223,6 +2383,7 @@ namespace VPrinting
             this.dgvSearchData.AllowUserToDeleteRows = false;
             this.dgvSearchData.AllowUserToOrderColumns = true;
             this.dgvSearchData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearchData.ContextMenuStrip = this.historyMenuStrip;
             this.dgvSearchData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSearchData.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvSearchData.Location = new System.Drawing.Point(0, 0);
@@ -2446,123 +2607,6 @@ namespace VPrinting
             this.exitToolStripMenuItem1.ToolTipText = "Exit application";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // toggleButtonControl1
-            // 
-            this.toggleButtonControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toggleButtonControl1.ColorOff = System.Drawing.Color.LightGray;
-            this.toggleButtonControl1.ColorOn = System.Drawing.Color.Lime;
-            this.toggleButtonControl1.Location = new System.Drawing.Point(613, 3);
-            this.toggleButtonControl1.Margin = new System.Windows.Forms.Padding(1);
-            this.toggleButtonControl1.Name = "toggleButtonControl1";
-            this.toggleButtonControl1.Padding = new System.Windows.Forms.Padding(1);
-            this.toggleButtonControl1.Size = new System.Drawing.Size(222, 47);
-            this.toggleButtonControl1.TabIndex = 34;
-            this.toggleButtonControl1.Text1 = new string[] {
-        "Barcode",
-        "Barcode"};
-            this.toggleButtonControl1.Text2 = new string[] {
-        "Tras file",
-        "Tras file"};
-            this.toggleButtonControl1.Text3 = new string[] {
-        "Sitecode",
-        "Sitecode"};
-            // 
-            // lblWarningMessage
-            // 
-            this.lblWarningMessage.AutoSize = true;
-            this.lblWarningMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblWarningMessage.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
-            this.lblWarningMessage.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
-            this.lblWarningMessage.Location = new System.Drawing.Point(869, 85);
-            this.lblWarningMessage.Name = "lblWarningMessage";
-            this.lblWarningMessage.Size = new System.Drawing.Size(123, 13);
-            this.lblWarningMessage.TabIndex = 25;
-            this.lblWarningMessage.Text = "Last voucher processing";
-            this.lblWarningMessage.Visible = false;
-            // 
-            // btnShowHide
-            // 
-            this.btnShowHide.ArrowEnabled = true;
-            this.btnShowHide.HoverEndColor = System.Drawing.Color.DimGray;
-            this.btnShowHide.HoverStartColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Location = new System.Drawing.Point(13, 3);
-            this.btnShowHide.Name = "btnShowHide";
-            this.btnShowHide.NormalEndColor = System.Drawing.Color.DarkGray;
-            this.btnShowHide.NormalStartColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHide.Rotation = 0;
-            this.btnShowHide.Size = new System.Drawing.Size(24, 24);
-            this.btnShowHide.TabIndex = 24;
-            this.btnShowHide.Click += new System.EventHandler(this.ShowHide_Click);
-            // 
-            // btnScan
-            // 
-            this.btnScan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnScan.BackColor = System.Drawing.Color.Silver;
-            this.btnScan.BevelDepth = 5;
-            this.btnScan.BevelHeight = 5;
-            this.btnScan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnScan.Dome = true;
-            this.btnScan.Location = new System.Drawing.Point(980, 22);
-            this.btnScan.Name = "btnScan";
-            this.btnScan.RecessDepth = 0;
-            this.btnScan.Size = new System.Drawing.Size(122, 69);
-            this.btnScan.TabIndex = 20;
-            this.btnScan.Text = "Scan";
-            this.ToolTip1.SetToolTip(this.btnScan, "Scan button");
-            this.btnScan.UseVisualStyleBackColor = false;
-            this.btnScan.Click += new System.EventHandler(this.Scan_Click);
-            // 
-            // bliningLabel1
-            // 
-            this.bliningLabel1.AutoSize = true;
-            this.bliningLabel1.ForeColor = System.Drawing.Color.Red;
-            this.bliningLabel1.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
-            this.bliningLabel1.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
-            this.bliningLabel1.Location = new System.Drawing.Point(58, 42);
-            this.bliningLabel1.Name = "bliningLabel1";
-            this.bliningLabel1.Size = new System.Drawing.Size(220, 13);
-            this.bliningLabel1.TabIndex = 26;
-            this.bliningLabel1.Text = "Note: number of results are limited up to 1000";
-            this.bliningLabel1.Visible = false;
-            // 
-            // dtTo
-            // 
-            this.dtTo.Location = new System.Drawing.Point(668, 7);
-            this.dtTo.Message = "To";
-            this.dtTo.Name = "dtTo";
-            this.dtTo.Size = new System.Drawing.Size(215, 30);
-            this.dtTo.TabIndex = 7;
-            this.ToolTip1.SetToolTip(this.dtTo, "To date");
-            this.dtTo.Value = null;
-            // 
-            // dtFrom
-            // 
-            this.dtFrom.Location = new System.Drawing.Point(461, 7);
-            this.dtFrom.Message = "From";
-            this.dtFrom.Name = "dtFrom";
-            this.dtFrom.Size = new System.Drawing.Size(209, 32);
-            this.dtFrom.TabIndex = 6;
-            this.ToolTip1.SetToolTip(this.dtFrom, "From date");
-            this.dtFrom.Value = null;
-            // 
-            // bliningLabel2
-            // 
-            this.bliningLabel2.AutoSize = true;
-            this.bliningLabel2.ForeColor = System.Drawing.Color.Red;
-            this.bliningLabel2.IntervalLow = System.TimeSpan.Parse("00:00:00.1000000");
-            this.bliningLabel2.IntervalUp = System.TimeSpan.Parse("00:00:00.3000000");
-            this.bliningLabel2.Location = new System.Drawing.Point(47, 43);
-            this.bliningLabel2.Name = "bliningLabel2";
-            this.bliningLabel2.Size = new System.Drawing.Size(220, 13);
-            this.bliningLabel2.TabIndex = 27;
-            this.bliningLabel2.Text = "Note: number of results are limited up to 1000";
-            this.bliningLabel2.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
@@ -2738,6 +2782,15 @@ namespace VPrinting
                 m_ScanFileOrganizer.ProcessedItems.Replace(0, 1) * 100), 100);
         }
 
+        public void ShowItemsWithErrCallback(object data)
+        {
+            if (this.IsDisposed || data == null)
+                return;
+
+            var item = (int)data;
+            lblItemsWithErr.Text = (item <= 0) ? null : string.Concat("Items with err ", item);
+        }
+
         private void Client_StartScanCompleted(object sender, AsyncCompletedEventArgs e)
         {
             if (e.Error != null)
@@ -2754,44 +2807,79 @@ namespace VPrinting
 
         #region PRIVATE METHODS
 
-        private void BuildNode(TreeNode node)
+        private readonly ManualResetEvent m_BuildFilesExit = new ManualResetEvent(false);
+
+        private void RefreshVoucherPanel()
         {
-            FolderInfo ninfo = (FolderInfo)node.Tag;
+            var tvNode = this.tvFolders.SelectedNode;
+            if (tvNode == null)
+                return;
+
+            m_BuildFilesExit.Set();
+
+            if (tvNode.Nodes.Count == 0)
+                BuildNode(tvNode);
+
+            var ninfo = (FolderInfo)tvNode.Tag;
             if (ninfo != null)
             {
                 Global.FolderID = (int?)ninfo.Id;
                 BuildFiles(ninfo.Id);
             }
             else
-            {
-                Global.FolderID = null;
-            }
+                m_StateManager.Clear();
+        }
 
-            var list = ServiceDataAccess.Instance.ReadFolderList(Global.FolderID, Program.currentUser.CountryID);
+        private void ImageNode_Click(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            m_CurrentVoucher = 0;
+
+            m_BuildFilesExit.Set();
+
+            if (e.Node.Nodes.Count == 0)
+                BuildNode(e.Node);
+
+            var ninfo = (FolderInfo)e.Node.Tag;
+            if (ninfo != null)
+            {
+                Global.FolderID = (int?)ninfo.Id;
+                BuildFiles(ninfo.Id);
+            }
+            else
+                m_StateManager.Clear();
+        }
+
+        private void BuildNode(TreeNode node)
+        {
+            var ninfo = (FolderInfo)node.Tag;
+
+            var list = ServiceDataAccess.Instance.ReadFolderList((ninfo != null ? ninfo.Id : (int?)null), Program.currentUser.CountryID);
 
             foreach (var info in list)
-                AddNode(node, info);
+            {
+                var newNode = node.Nodes.Add(info.Name);
+                newNode.Tag = info;
+            }
         }
 
-        private void AddNode(TreeNode node, FolderInfo info)
-        {
-            var newNode = node.Nodes.Add(info.Name);
-            newNode.Tag = info;
-            BuildFiles(info.Id);
-        }
+        private volatile int m_CurrentVoucher;
 
         private void BuildFiles(int folderId)
-        {         
-            var t = Task.Factory.StartNew((o) =>
+        {
+            Task.Factory.StartNew((o) =>
             {
+                m_BuildFilesExit.Reset();
+                m_StateManager.Clear();
+
                 var fId = Convert.ToInt32(o);
                 var files = ServiceDataAccess.Instance.ReadCoverList(fId);
-                var vouchers = ServiceDataAccess.Instance.ReadFileList(fId);
-
-                m_StateManager.Clear();
+                var vouchers = ServiceDataAccess.Instance.ReadFileList(fId, m_CurrentVoucher);
 
                 foreach (var file in files)
                 {
+                    if (m_BuildFilesExit.WaitOne(10))
+                        return;
+
                     Guid session = Guid.Empty;
                     Guid.TryParse(file.SessionId, out session);
                     m_StateManager.AddItem(file.Id, file.CountryID, StateManager.eState.COVER, session, file.Name);
@@ -2799,12 +2887,15 @@ namespace VPrinting
 
                 foreach (var voucher in vouchers)
                 {
+                    if (m_BuildFilesExit.WaitOne(10))
+                        return;
+
                     Guid session = Guid.Empty;
                     Guid.TryParse(voucher.SessionId, out session);
                     m_StateManager.AddVoucherItem(voucher.Id, voucher.CountryId, voucher.RetailerId, voucher.VoucherId,
                         StateManager.eState.VOUCHER, session, voucher.SiteCode, voucher.Name);
                 }
-            }, folderId, buildFilesCancelation.Token);
+            }, folderId);
         }
 
         private void EnableDisableScanPanel(bool enable)
@@ -2917,8 +3008,8 @@ namespace VPrinting
                     btnRun.Set(true);
                     m_FileSysWatchers.ForEach(f => f.Path = tbScanDirectory.Text);
 
-                    for (int i = 0; i < 3; i++)
-                        m_FileSysWatchers[i].Filter = EXTS[i];
+                    for (int i = 0; i < SUPPORTED_FILE_EXTENTIONS.Length; i++)
+                        m_FileSysWatchers[i].Filter = SUPPORTED_FILE_EXTENTIONS[i];
 
                     m_FileSysWatchers.ForEach(f => f.IncludeSubdirectories = true);
                     m_FileSysWatchers.ForEach(f => f.EnableRaisingEvents = true);
@@ -3126,50 +3217,6 @@ namespace VPrinting
             }
         }
 
-        private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (tabControl1.SelectedIndex)
-            {
-                case PRINT_TAB:
-                    this.ContextMenuStrip = printContextMenu;
-                    break;
-                case SCAN_TAB:
-                    this.ContextMenuStrip = scanContextMenuStrip;
-                    break;
-                case HISTORY_TAB:
-                    this.ContextMenuStrip = this.historyMenuStrip;
-                    break;
-                default:
-                    throw new NotImplementedException();
-            }
-        }
-
-        private CancellationTokenSource buildFilesCancelation;
-
-        private void ImageNode_Click(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            buildFilesCancelation.DisposeSf();
-            buildFilesCancelation = new CancellationTokenSource();
-
-            var ninfo = (FolderInfo)e.Node.Tag;
-            if (e.Node.Nodes.Count != 0)
-            {
-                //This is 'Image Root'
-                if (ninfo == null)
-                {
-                    buildFilesCancelation.Cancel();
-                    m_StateManager.Clear();
-                    tbTransferFile.Clear();
-                }
-                else
-                    BuildFiles(ninfo.Id);
-            }
-            else
-            {
-                BuildNode(e.Node);
-            }
-        }
-
         private void FolderMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (tvFolders.SelectedNode == null)
@@ -3317,7 +3364,7 @@ namespace VPrinting
             else
                 this.ShowExclamation("Don't scan to the image root\r\nOpen tree and create folder");
         }
-        
+
         #endregion //EVENT HANDLERS
 
         #region PUBLIC STATIC VOLATILE FIELDS
@@ -3344,7 +3391,7 @@ namespace VPrinting
             cbVoucherMustExist.BackColor = cbVoucherMustExist.Checked ? OnColor : OffColor;
             m_StateManager.VoucherMustExist = cbVoucherMustExist.Checked;
         }
-        
+
         #endregion //SCANNING
 
         private void FileBrowser_Click(object sender, EventArgs e)
@@ -3352,5 +3399,42 @@ namespace VPrinting
             var explorer = new Explorer();
             explorer.Show(this);
         }
-    }  
+
+        private void ScanDirectory_TextChanged(object sender, EventArgs e)
+        {
+            StateSaver.Default.Set(Strings.tbScanDirectory, tbScanDirectory.Text);
+        }
+
+        private void PrevNextClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (sender == lblPrev)
+            {
+                lblNext.Visible = true;
+
+                if (m_CurrentVoucher > 0)
+                {
+                    m_CurrentVoucher -= Program.ITEMS_SHOWN;
+                    RefreshVoucherPanel();
+                }
+                else
+                {
+                    lblPrev.Visible = false;
+                }
+            }
+            else
+            {
+                lblPrev.Visible = true;
+
+                if (m_StateManager.Count > 0)
+                {
+                    m_CurrentVoucher += Program.ITEMS_SHOWN;
+                    RefreshVoucherPanel();
+                }
+                else
+                {
+                    lblNext.Visible = false;
+                }
+            }
+        }
+    }
 }

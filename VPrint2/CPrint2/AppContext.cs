@@ -17,26 +17,31 @@ namespace CPrint2
     {
         public static AppContext Default { get; set; }
 
-        private readonly MainForm m_form = new MainForm();
-        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_startMenuItem, m_lockMenuItem, m_exitMenuItem;
+        private readonly MultyCamForm m_form = new MultyCamForm();
+        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_runMenuItem, m_startMenuItem, m_initMenuItem, m_lockMenuItem, m_exitMenuItem;
         private readonly NotifyIcon m_notifyIcon = new NotifyIcon();
         private readonly FileSystemWatcher m_commandWatcher = new FileSystemWatcher();
-        private readonly FileSystemWatcher m_imageWatcher = new FileSystemWatcher();
 
         public event EventHandler<ValueEventArgs<string>> NewCommandFileEvent;
-        public event EventHandler<ValueEventArgs<string>> NewImageFileEvent;
         public event ThreadExceptionEventHandler Error;
 
         public AppContext()
         {
             m_showMenuItem = new MenuItem("Login", new EventHandler(ShowHideMainForm_Click));
+            m_initMenuItem = new MenuItem("Init", new EventHandler(InitMenuItem_Click));
+            m_runMenuItem = new MenuItem("Run", new EventHandler(RunOnceMenuItem_Click));
             m_startMenuItem = new MenuItem("Start", new EventHandler(StartStopMenuItem_Click));
             m_lockMenuItem = new MenuItem("Lock", new EventHandler(LockUnlockMenuItem_Click));
             m_closeMenuItem = new MenuItem("Close", new EventHandler(Close_Click));
             m_exitMenuItem = new MenuItem("Exit", new EventHandler(Exit_Click));
             
             m_notifyIcon.Icon = Resources.camera_unmount2;
-            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { m_showMenuItem, m_startMenuItem, m_lockMenuItem, m_closeMenuItem, m_exitMenuItem });
+            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { m_showMenuItem, m_initMenuItem, 
+                
+#if DEBUG
+                m_runMenuItem ,
+#endif
+                m_startMenuItem, m_lockMenuItem, m_closeMenuItem, m_exitMenuItem });
             m_notifyIcon.Visible = true;
             m_notifyIcon.ContextMenu.Popup += new EventHandler(ContextMenu_Popup);
             m_notifyIcon.DoubleClick += new EventHandler(ShowHideMainForm_Click);
@@ -45,11 +50,12 @@ namespace CPrint2
             m_commandWatcher.Filter = Config.CommandFilter;
             m_commandWatcher.Created += new FileSystemEventHandler(CommandWatcher_Created);
 
-            m_imageWatcher.Path = Config.ImageOutputPath;
-            m_imageWatcher.Filter = Config.ImageFileFilter; ;
-            m_imageWatcher.Created += new FileSystemEventHandler(ImageWatcher_Created);
+            Default = this; 
+            Application.ApplicationExit += new EventHandler(Application_ApplicationExit);
+        }
 
-            Default = this;
+        private void Application_ApplicationExit(object sender, EventArgs e)
+        {
         }
 
         public bool IsStarted
@@ -71,32 +77,29 @@ namespace CPrint2
         public void Start()
         {
             m_commandWatcher.EnableRaisingEvents = true;
-            m_imageWatcher.EnableRaisingEvents = true;
-
-            PresenterCameraShooter shooter = new PresenterCameraShooter();
-            shooter.TryStartPresenter(Config.PresenterPath);
         }
 
         public void Stop()
         {
             m_commandWatcher.EnableRaisingEvents = false;
-            m_imageWatcher.EnableRaisingEvents = false;
-
-            PresenterCameraShooter shooter = new PresenterCameraShooter();
-            shooter.TryStopPresenter();
-
             ImageProcessor.Clear();
         }
 
         public void Exit()
         {
             m_notifyIcon.Visible = false;
+            
             Application.Exit();
         }
 
         public void Reset()
         {
             m_form.ResetState();
+        }
+
+        private void RunOnceMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageProcessor.Default.ProcessCommand();
         }
 
         private void StartStopMenuItem_Click(object sender, EventArgs e)
@@ -111,6 +114,11 @@ namespace CPrint2
                 m_startMenuItem.Text = "Stop";
                 Start();
             }
+        }
+
+        private void InitMenuItem_Click(object sender, EventArgs e)
+        {
+            m_form.ProcessCommand(true);
         }
 
         private void LockUnlockMenuItem_Click(object sender, EventArgs e)
@@ -163,6 +171,7 @@ namespace CPrint2
         {
             m_showMenuItem.Text = (Program.currentUser == null) ? "Login" : "Show";
             m_startMenuItem.Enabled = (Program.currentUser != null);
+            m_initMenuItem.Enabled = (Program.currentUser != null);
             m_lockMenuItem.Enabled = (Program.currentUser != null);
         }
 
@@ -170,12 +179,6 @@ namespace CPrint2
         {
             if (NewCommandFileEvent != null)
                 NewCommandFileEvent(this, new ValueEventArgs<string>(e.FullPath));
-        }
-
-        private void ImageWatcher_Created(object sender, FileSystemEventArgs e)
-        {
-            if (NewImageFileEvent != null)
-                NewImageFileEvent(this, new ValueEventArgs<string>(e.FullPath));
         }
     }
 }

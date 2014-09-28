@@ -24,10 +24,9 @@ namespace VPrinting.ScanServiceRef
 
         public static ScanServiceClient Instance { get { return new ScanServiceClient(); } }
 
-        public static IScanService CreateProxy(string ip)
+        public static IScanService CreateProxy(string url)
         {
             ///net.tcp://localhost:8080/ReceivingServiceLib.ScanService/mex
-            var endPointAddr = string.Concat("net.tcp://", ip, ":8080/ReceivingServiceLib.ScanService");
             NetTcpBinding tcpBinding = new NetTcpBinding();
             tcpBinding.MaxBufferSize = 2147483647;
             tcpBinding.MaxBufferPoolSize = 2147483647;
@@ -41,7 +40,7 @@ namespace VPrinting.ScanServiceRef
             tcpBinding.Security.Transport.ProtectionLevel = ProtectionLevel.None;
             tcpBinding.Security.Transport.ClientCredentialType = TcpClientCredentialType.None;
             tcpBinding.Security.Mode = SecurityMode.None;
-            EndpointAddress endpointAddress = new EndpointAddress(endPointAddr);
+            EndpointAddress endpointAddress = new EndpointAddress(url);
             IScanService proxy = ChannelFactory<IScanService>.CreateChannel(tcpBinding, endpointAddress);
             return proxy;
         }

@@ -35,7 +35,7 @@ namespace VPrinting
         /// </summary>
         private const int DAYS_BACK = -7;
 
-        private readonly string[] EXTS = new string[] { "*.jpg", "*.jpeg", "*.tif" };
+        private readonly string[] SUPPORTED_FILE_EXTENTIONS = new string[] { "*.jpg", "*.jpeg", "*.tif", "*.pdf" };
 
         #endregion
 
@@ -85,11 +85,13 @@ namespace VPrinting
 
         #region StateManager & ImageIconControl HANDLERS        
 
+        const int TIMEOUT = 1000;
+
         private void StateManager_NewItemAdd(object sender, ItemEventArgs e)
         {
             this.InvokeSafe(new System.Action<ItemEventArgs>((args) =>
             {
-                if (Monitor.TryEnter(lpScannedFiles, 4000))
+                if(Monitor.TryEnter(lpScannedFiles, TIMEOUT))
                 {
                     try
                     {
@@ -100,7 +102,7 @@ namespace VPrinting
                         cnt.Updated += new EventHandler(ImageIconControl_Updated);
                         cnt.ContextMenuStrip = scanContextMenuStrip;
                         lpScannedFiles.Controls.Add(cnt);
-                        lblMessage.Text = string.Concat("Vouchers in folder: ", lpScannedFiles.Controls.Count);
+                        lblMessage.Text = string.Concat("Vouchers in folder: ", lpScannedFiles.Controls.Count, "     Starting from: ", m_CurrentVoucher);
                     }
                     finally
                     {
@@ -114,7 +116,7 @@ namespace VPrinting
         {
             this.InvokeSafe(new System.Action<ItemEventArgs>((args) =>
             {
-                if(Monitor.TryEnter(lpScannedFiles, 4000))
+                if(Monitor.TryEnter(lpScannedFiles,TIMEOUT))
                 {
                     try
                     {
@@ -142,7 +144,7 @@ namespace VPrinting
         {
             this.InvokeSafe(new System.Action(() =>
             {
-                if (Monitor.TryEnter(lpScannedFiles, 4000))
+                if(Monitor.TryEnter(lpScannedFiles, TIMEOUT))
                 {
                     try
                     {
@@ -161,6 +163,7 @@ namespace VPrinting
                         m_ScanFileOrganizer.Clear();
                         m_SendFileOrganizer.Clear();
 
+                        lblItemsWithErr.Text = null;
                         lblMessage.Text = string.Empty;
                     }
                     finally

@@ -14,14 +14,10 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -99,6 +95,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\DTK.BarReader.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\Libraries\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -163,6 +162,7 @@
     <Compile Include="RGPrintLineTest.cs" />
     <Compile Include="Scanning\BarcodeParserTest.cs" />
     <Compile Include="Scanning\DrawingTest.cs" />
+    <Compile Include="Scanning\ScanningMethodsTest.cs" />
     <Compile Include="Scanning\ScanTest.cs" />
     <Compile Include="SEPATest.cs" />
     <Compile Include="ServiceAccessTest.cs" />

@@ -1,19 +1,11 @@
-/*****************************************************************************************
-* Service Control Manager (v1.1)
-* Written by:- Sumit Sengupta
-* Date:- 16/08/2006
-*****************************************************************************************/
+/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+***************************************************/
 using System;
-using System.Collections;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.ServiceProcess;
 using System.Configuration;
-using System.Xml;
-using System.Xml.XPath;
+using System.Diagnostics;
 using System.Reflection;
+using System.Xml.XPath;
 
 namespace FintraxServiceManager
 {
@@ -25,7 +17,6 @@ namespace FintraxServiceManager
     [Obfuscation(ApplyToMembers = true)]
 	public class FintraxServiceManager : System.ServiceProcess.ServiceBase
 	{
-        private static DateTime ms_date = DateTime.Parse("2014-12-27");
 		/// <summary> 
 		/// Required designer variable.
 		/// </summary>
@@ -40,8 +31,8 @@ namespace FintraxServiceManager
 		XPathNodeIterator nodeIterator5;
 		String strExpression = "count(/Services/Service)";
 		System.Timers.Timer timer = new System.Timers.Timer(30000);
-		System.Diagnostics.EventLog eventLog = new EventLog();
-		string logPath = System.Configuration.ConfigurationSettings.AppSettings["LogPath"].ToString();
+		EventLog eventLog = new EventLog();
+		string logPath = ConfigurationSettings.AppSettings["LogPath"].ToString();
 		TypeParamCollection typeParamColl = new TypeParamCollection();
 
 		public FintraxServiceManager()
@@ -133,8 +124,6 @@ namespace FintraxServiceManager
         protected override void OnStart(string[] args)
         {
             eventLog.WriteEntry("Starting FintraxServiceManager v1.1");
-            if (DateTime.Now > ms_date)
-                throw new Exception("Class out of use");
         }
  
 		/// <summary>
@@ -360,142 +349,5 @@ namespace FintraxServiceManager
 				}
 			}
 		}
-
-		#region commented out - DELETE LATER!!!
-
-		/*
-		private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-		{
-			System.Diagnostics.Trace.WriteLine(e.SignalTime.ToString());
-			nav = docNav.CreateNavigator();
-			string count = nav.Evaluate(strExpression).ToString();
-
-			for(int i = 1; i <= int.Parse(count); i++)
-			{
-				string name = "";
-				string time = "";
-				string type = "";
-				string method = "";
-				string parameters = "";
-				string str = "//Services//Service[position()=" + i + "]";
-
-				//~1. Get the Name
-				#region Get Name
-				string nameExpr = str + "//name";
-				nodeIterator1 = nav.Select(nameExpr);
-				while(nodeIterator1.MoveNext())
-				{
-					name = nodeIterator1.Current.Value;
-				}
-				#endregion
-				
-				//2. Get the Time.
-				#region Get Time
-				string timeExpr = str + "//time";
-				nodeIterator2 = nav.Select(timeExpr);
-				while(nodeIterator2.MoveNext())
-				{
-					time = nodeIterator2.Current.Value;
-				}
-				#endregion
-
-				//3. Get the Type to run.
-				#region Get Type to instantiate
-				string typeExpr = str + "//type";
-				nodeIterator3 = nav.Select(typeExpr);
-				while(nodeIterator3.MoveNext())
-				{
-					type = nodeIterator3.Current.Value;
-				}
-				#endregion
-
-				//4. Get the Method to run.
-				#region Get the method to run
-				string methodExpr = str + "//method";
-				nodeIterator4 = nav.Select(methodExpr);
-				while(nodeIterator4.MoveNext())
-				{
-					method = nodeIterator4.Current.Value;
-				}
-				#endregion
-
-				//5. Get the parameters to run.
-
-				#region Parameters to pass to the method
-				string parameterExpr = str + "//parameters";
-				nodeIterator5 = nav.Select(parameterExpr);
-				while(nodeIterator5.MoveNext())
-				{
-					parameters = nodeIterator5.Current.Value;
-				}
-				#endregion
-
-			
-#if DEBUG
-				Console.WriteLine("Name: {0} Time: {1} Type: {2} Method: {3}",name,time, type, method);
-#endif
-
-				//~Now run the method.
-				Console.WriteLine(System.Convert.ToDateTime(time));
-				Console.WriteLine(System.DateTime.Now);
-
-				if(System.DateTime.Now == System.Convert.ToDateTime(time))
-				{
-					//Type is of the form assembly,classname.
-					//Ex:- DiData.Ptf.Business,VoucherEntryAndModification.
-
-					string [] typeName = type.Split(',');
-					string assembly = typeName[0];
-					string typeToInstantiate = typeName[1];
-					try
-					{
-						Assembly asm = Assembly.Load(assembly);
-						Type class1 = asm.GetType(typeToInstantiate);
-
-						Object obj = Activator.CreateInstance(class1);
-						//Object obj = System.Activator.CreateInstance(assembly,typeToInstantiate);
-
-						MethodInfo mi = class1.GetMethod(method);
-						// Invoke method ('null' for no parameters).
-
-						//Get the parameters
-						string [] p = parameters.Split(',');
-						object [] paramArray = new object[p.Length];
-						for(int cnt = 0; cnt < paramArray.Length; cnt++)
-						{
-							string [] p2 = p[cnt].Split('-');
-							switch(p2[1])
-							{
-								case "string":	paramArray[cnt] = p2[0];
-									break;
-								case "int": paramArray[cnt] = System.Convert.ToInt32(p2[0]);
-									break;
-								case "bool": paramArray[cnt] = System.Convert.ToBoolean(p2[0]);
-									break;
-								case "double": paramArray[cnt] = System.Convert.ToDouble(p2[0]);
-									break;
-								case "char": paramArray[cnt] = System.Convert.ToChar(p2[0]);
-									break;
-								case "decimal": paramArray[cnt] = System.Convert.ToDecimal(p2[0]);
-									break;
-							}
-						}
-				
-						mi.Invoke(obj, paramArray);
-					}
-					catch (Exception ex)
-					{
-						eventLog.WriteEntry(name + " exception: " + ex.Message);
-					}
-						
-				}
-				else
-				{
-					//Continue. Time to run this service doesn't match current time.
-				}
-			}
-		}
-		*/
-		#endregion
 	}
 }

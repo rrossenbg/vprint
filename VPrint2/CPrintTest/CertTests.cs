@@ -2,6 +2,8 @@
 using System.IO;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AForge.Imaging.Filters;
+using System.Drawing;
 
 namespace CPrintTest
 {
@@ -43,6 +45,16 @@ namespace CPrintTest
             string[] files = Directory.GetFiles(dir);
             var rnd = new Random();
             return files[rnd.Next(0, files.Length - 1)];
+        }
+
+        [TestMethod]
+        public void sharpen_image()
+        {
+            var image = (Bitmap)Bitmap.FromFile(@"C:\Users\Rosen.rusev\Pictures\Logitech Webcam\Picture 6.jpg");
+            GaussianSharpen filter = new GaussianSharpen(4, 11);
+            // apply the filter
+            filter.ApplyInPlace(image);
+            image.Save(@"C:\Users\Rosen.rusev\Pictures\Logitech Webcam\Picture 6_1.jpg");
         }
     }
 }

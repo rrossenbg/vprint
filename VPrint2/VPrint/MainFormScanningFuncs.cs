@@ -256,6 +256,11 @@ namespace VPrinting
                                 {
                                     i.Item.Message = srex.Message;
                                     i.Item.State = StateManager.eState.Err;
+
+                                    int count = StateManager.Default.SetItemWithErr();
+                                    DelegateHelper.PostShowItemsWithErrCallback(count);
+                                    DelegateHelper.FireError(this, srex);
+
 #if DEBUGGER
                                     Trace.WriteLine(srex, Strings.VRPINT);
 #endif
@@ -264,6 +269,11 @@ namespace VPrinting
                                 {
                                     i.Item.Message = ex.Message;
                                     i.Item.State = StateManager.eState.Err;
+
+                                    int count = StateManager.Default.SetItemWithErr();
+                                    DelegateHelper.PostShowItemsWithErrCallback(count);
+                                    DelegateHelper.FireError(this, ex);
+
 #if DEBUGGER
                                     Trace.WriteLine(ex, Strings.VRPINT);
 #endif

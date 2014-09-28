@@ -147,9 +147,11 @@ namespace CPrint2
         [TargetedPatchingOptOut("na")]
         public static bool DeleteSafe(this FileSystemInfo info)
         {
-            Debug.Assert(info != null);
             try
             {
+                if (info == null)
+                    return false;
+
                 info.Refresh();
                 if (info.Exists)
                 {
@@ -162,6 +164,53 @@ namespace CPrint2
             {
                 return false;
             }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static FileInfo Temp(this FileInfo info, string ext = ".jpg")
+        {
+            var file2 = new FileInfo(Path.ChangeExtension(Path.GetTempFileName(), ext));
+            return file2;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static FileInfo DeleteSave(this FileInfo info)
+        {
+            try
+            {
+                if (info != null && info.Exists)
+                    info.Delete();
+                return info;
+            }
+            catch
+            {
+                return info;
+            }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static FileInfo IfDebug(this FileInfo info, string debugPath)
+        {
+#if DEBUG
+            var info2 = new FileInfo(debugPath);
+            return info2;
+#else
+            return info;
+#endif
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static byte[] ToArray(this FileSystemInfo info)
+        {
+            Debug.Assert(info != null);
+            return File.ReadAllBytes(info.FullName);
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static void WriteAllBytes(this FileSystemInfo info, byte[] buffer)
+        {
+            Debug.Assert(info != null);
+            File.WriteAllBytes(info.FullName, buffer);
         }
     }
 

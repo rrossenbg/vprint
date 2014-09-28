@@ -44,6 +44,10 @@ namespace ReceivingServiceLib.FileWorkers
             {
                 try
                 {
+                    var coverFolder = new DirectoryInfo(Global.Strings.COVERWORKFOLDER);
+                    coverFolder.CreateIfNotExist();
+                    coverFolder.ClearSafe();
+
                     var isos = CoverDataAccess.Default.GetIsos();
 
                     foreach (var iso in isos)
@@ -57,14 +61,11 @@ namespace ReceivingServiceLib.FileWorkers
 
                         var priorityTemplateQueue = new PriorityQueue<CoverDataAccess.SelectTemplates_Data>(templates);
 
-                        var vouchers = CoverDataAccess.Default.SelectNextNotCoveredVouchers(50194, iso);
+                        var vouchers = CoverDataAccess.Default.SelectNextNotCoveredVouchers(0, iso);
 
                         do
                         {
                             int lastId = 0;
-
-                            var coverFolder = new DirectoryInfo(Global.Strings.COVERWORKFOLDER);
-                            coverFolder.CreateIfNotExist();
 
                             foreach (var v in vouchers)
                             {
@@ -130,7 +131,7 @@ namespace ReceivingServiceLib.FileWorkers
                                             {
                                                 string cover = null;
 
-                                                if (new ImageToolsCV().MatchTemplate(buffer.Buffer, tmp.TemplateImage, tmp.HiddenAreas, ref cover))
+                                                if (new ImageToolsCV().MatchTemplateSafe(buffer.Buffer, tmp.TemplateImage, tmp.HiddenAreas, ref cover))
                                                 {
                                                     Trace.WriteLine("Match found", Strings.COVER);
                                                     Trace.WriteLine(cover, Strings.COVER);
@@ -138,7 +139,7 @@ namespace ReceivingServiceLib.FileWorkers
                                                     new CoverDataAccess().UpdateVoucher(voucher.Id, cover, tmp.Id);
 
                                                     priorityTemplateQueue.Set(tmp);
-                                                    return;
+                                                    break;
                                                 }
                                                 else
                                                 {
@@ -150,7 +151,6 @@ namespace ReceivingServiceLib.FileWorkers
                                     catch (Exception ex)
                                     {
                                         Trace.WriteLine(ex.toString(), Strings.COVER);
-
                                         FireError(ex);
                                     }
                                     finally

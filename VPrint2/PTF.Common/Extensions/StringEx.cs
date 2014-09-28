@@ -573,6 +573,15 @@ namespace VPrinting
             return value.Trim();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fullFilePath"></param>
+        /// <param name="changeFunct"></param>
+        /// <returns></returns>
+        /// <example>
+        /// fullFilePath.ChangeFilePath((name) => name.Replace(".", "_barcode."));
+        /// </example>
         [TargetedPatchingOptOut("na")]
         public static string ChangeFilePath(this string fullFilePath, Func<string, string> changeFunct)
         {
@@ -595,52 +604,6 @@ namespace VPrinting
             var u = Guid.NewGuid().ToString().Replace('-', '_');
             return string.Concat(str, u, ext);
         }
-
-        //#region SECURITY
-        //private static readonly byte[] rgbIV = Encoding.ASCII.GetBytes("ryojvlzmdalyglrj");
-        //private static readonly byte[] key = Encoding.ASCII.GetBytes("hcxilkqbbhczfeultgbskdmaunivmfuo");
-        //#endregion
-
-        //[TargetedPatchingOptOut("na")]
-        //public static string EncryptString(this string clearText)
-        //{
-        //    if (string.IsNullOrWhiteSpace(clearText))
-        //        throw new ArgumentNullException("clearText");
-
-        //    byte[] clearTextBytes = Encoding.UTF8.GetBytes(clearText);
-
-        //    using (var rijn = SymmetricAlgorithm.Create())
-        //    using (var memory = new MemoryStream())
-        //    {
-        //        using (var cs = new CryptoStream(memory, rijn.CreateEncryptor(key, rgbIV), CryptoStreamMode.Write))
-        //        {
-        //            cs.Write(clearTextBytes, 0, clearTextBytes.Length);
-        //            cs.Close();
-        //        }
-        //        return Convert.ToBase64String(memory.ToArray());
-        //    }
-        //}
-
-        //[TargetedPatchingOptOut("na")]
-        //public static string DecryptString(this string encryptedText)
-        //{
-        //    if (string.IsNullOrWhiteSpace(encryptedText))
-        //        throw new ArgumentNullException("encryptedText");
-
-        //    byte[] encryptedTextBytes = Convert.FromBase64String(encryptedText);
-
-        //    using (var rijn = SymmetricAlgorithm.Create())
-        //    using (var memory = new MemoryStream())
-        //    {
-        //        using (var cs = new CryptoStream(memory, rijn.CreateDecryptor(key, rgbIV), CryptoStreamMode.Write))
-        //        {
-        //            cs.Write(encryptedTextBytes, 0, encryptedTextBytes.Length);
-        //            cs.Close();
-        //        }
-
-        //        return Encoding.UTF8.GetString(memory.ToArray());
-        //    }
-        //}
 
         [TargetedPatchingOptOut("na")]
         public static string Reverse(this string value)

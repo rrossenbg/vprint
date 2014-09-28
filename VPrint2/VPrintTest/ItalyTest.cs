@@ -201,6 +201,15 @@ namespace VPrintTest
             var certificate3 = Convert.ToString(officeData.Length > 3 ? officeData[3] : "");
             var category = Convert.ToString(officeData.Length > 4 ? officeData[4] : "");
             var vatNumber = Model.Retailer.VatNumber;
+
+            Assert.AreEqual(id, 123456);
+            Assert.IsNotNull(Model.Retailer);
+            Assert.IsTrue(Model.Retailer.HeadOfficeId != 0);
+            Assert.IsTrue(Model.Retailer.CountryId != 0);
+            Assert.IsNotNull(oLine2);
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(certificate3));
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(officeName));
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(vatNumber));
         }
     }
 }

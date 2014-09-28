@@ -407,7 +407,7 @@ namespace VPrinting
         [Obfuscation]
         public static bool Random(this bool value)
         {
-            return DateTime.Now.Millisecond % 2 == 0;
+            return DateTime.Now.Second % 2 == 0;
         }
 
         //[TargetedPatchingOptOut("na")]

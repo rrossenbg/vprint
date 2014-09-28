@@ -5,12 +5,9 @@
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CA89200F-243A-487C-ACF8-03F538A6C413}</ProjectGuid>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
@@ -28,8 +25,7 @@
     <StartupObject>VPrinting.Program</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <SccAuxPath>
-    </SccAuxPath>
+    <SccAuxPath>SAK</SccAuxPath>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -256,6 +252,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="VPrintDiagram.cd" />
     <None Include="Resources\MessageBoxIcons.jpeg" />
     <None Include="Resources\no.png" />
     <None Include="Resources\lightning.png" />
@@ -504,6 +501,9 @@
       <Link>XmlConfigurations\print276_Type5.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\XmlConfigurations\print276_Type6_RazX.xml">
+      <Link>XmlConfigurations\print276_Type6_RazX.xml</Link>
+    </Content>
     <Content Include="..\XmlConfigurations\print300_Type1_RazX.xml">
       <Link>XmlConfigurations\print300_Type1_RazX.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -725,6 +725,7 @@
       <DependentUpon>ToggleButtonControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\fileAccess.cs" />
+    <Compile Include="Data\pdfFileAccess.cs" />
     <Compile Include="Data\ServiceDataAccess.cs" />
     <Compile Include="Documents\VoucherPrintLayoutUnitRazX.cs" />
     <Compile Include="Extensions\ObjectEx.cs">
@@ -755,6 +756,7 @@
       <DependentUpon>MonitorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PluginLoader.cs" />
+    <Compile Include="ScaningProcessors\PDFFileHelper.cs" />
     <Compile Include="ScaningProcessors\VoucherWithTransferFileProcessor.cs" />
     <Compile Include="ScaningProcessors\CoversheetProcessor.cs" />
     <Compile Include="ScaningProcessors\IScanProcessor.cs" />

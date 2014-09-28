@@ -357,6 +357,38 @@ namespace VPrinting.ScanServiceRef {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ChangeContentType", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+    public enum ChangeContentType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        INIT = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ADD = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        INSERT = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UPDATE = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DELETE = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        REMOVE = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MERGE = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        REPLACE = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VERIFY = 8,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OperationHistory", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
     public enum OperationHistory : int {
         
@@ -1507,6 +1539,16 @@ namespace VPrinting.ScanServiceRef {
         
         void EndCommitVoucherChanges(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/CommitVoucherChangesModify", ReplyAction="http://tempuri.org/IScanService/CommitVoucherChangesModifyResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/CommitVoucherChangesModifyMyApplicationFaultFault" +
+            "", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        void CommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, VPrinting.ScanServiceRef.ChangeContentType action, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/CommitVoucherChangesModify", ReplyAction="http://tempuri.org/IScanService/CommitVoucherChangesModifyResponse")]
+        System.IAsyncResult BeginCommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, VPrinting.ScanServiceRef.ChangeContentType action, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        void EndCommitVoucherChangesModify(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/CommitFileChanges", ReplyAction="http://tempuri.org/IScanService/CommitFileChangesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/CommitFileChangesMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
         void CommitFileChanges(string serverDirName, int countryId, System.Nullable<int> folderId, int locationId, int userId, string s1, string s2);
@@ -1670,6 +1712,15 @@ namespace VPrinting.ScanServiceRef {
         
         VPrinting.ScanServiceRef.fileInfo[] EndSelectFilesByFolder(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/SelectFilesByFolder2", ReplyAction="http://tempuri.org/IScanService/SelectFilesByFolder2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SelectFilesByFolder2MyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        VPrinting.ScanServiceRef.fileInfo[] SelectFilesByFolder2(int folderId, int skip, int take, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/SelectFilesByFolder2", ReplyAction="http://tempuri.org/IScanService/SelectFilesByFolder2Response")]
+        System.IAsyncResult BeginSelectFilesByFolder2(int folderId, int skip, int take, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        VPrinting.ScanServiceRef.fileInfo[] EndSelectFilesByFolder2(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/SelectCoversByFolder", ReplyAction="http://tempuri.org/IScanService/SelectCoversByFolderResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SelectCoversByFolderMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
         VPrinting.ScanServiceRef.file2Info[] SelectCoversByFolder(int folderId, string s1, string s2);
@@ -1733,6 +1784,15 @@ namespace VPrinting.ScanServiceRef {
         System.IAsyncResult BeginFindVoucherTRSBySiteCode(string siteCode, int location, string s1, string s2, System.AsyncCallback callback, object asyncState);
         
         VPrinting.ScanServiceRef.VoucherInfo3 EndFindVoucherTRSBySiteCode(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/FindVoucherPRBySiteCode", ReplyAction="http://tempuri.org/IScanService/FindVoucherPRBySiteCodeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(VPrinting.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/FindVoucherPRBySiteCodeMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        VPrinting.ScanServiceRef.VoucherInfo3 FindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/FindVoucherPRBySiteCode", ReplyAction="http://tempuri.org/IScanService/FindVoucherPRBySiteCodeResponse")]
+        System.IAsyncResult BeginFindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        VPrinting.ScanServiceRef.VoucherInfo3 EndFindVoucherPRBySiteCode(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1950,6 +2010,25 @@ namespace VPrinting.ScanServiceRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SelectFilesByFolder2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SelectFilesByFolder2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public VPrinting.ScanServiceRef.fileInfo[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((VPrinting.ScanServiceRef.fileInfo[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class SelectCoversByFolderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -2083,6 +2162,25 @@ namespace VPrinting.ScanServiceRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class FindVoucherPRBySiteCodeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public FindVoucherPRBySiteCodeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public VPrinting.ScanServiceRef.VoucherInfo3 Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((VPrinting.ScanServiceRef.VoucherInfo3)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ScanServiceClient : System.ServiceModel.ClientBase<VPrinting.ScanServiceRef.IScanService>, VPrinting.ScanServiceRef.IScanService {
         
         private BeginOperationDelegate onBeginDeleteDelegate;
@@ -2126,6 +2224,12 @@ namespace VPrinting.ScanServiceRef {
         private EndOperationDelegate onEndCommitVoucherChangesDelegate;
         
         private System.Threading.SendOrPostCallback onCommitVoucherChangesCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCommitVoucherChangesModifyDelegate;
+        
+        private EndOperationDelegate onEndCommitVoucherChangesModifyDelegate;
+        
+        private System.Threading.SendOrPostCallback onCommitVoucherChangesModifyCompletedDelegate;
         
         private BeginOperationDelegate onBeginCommitFileChangesDelegate;
         
@@ -2235,6 +2339,12 @@ namespace VPrinting.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onSelectFilesByFolderCompletedDelegate;
         
+        private BeginOperationDelegate onBeginSelectFilesByFolder2Delegate;
+        
+        private EndOperationDelegate onEndSelectFilesByFolder2Delegate;
+        
+        private System.Threading.SendOrPostCallback onSelectFilesByFolder2CompletedDelegate;
+        
         private BeginOperationDelegate onBeginSelectCoversByFolderDelegate;
         
         private EndOperationDelegate onEndSelectCoversByFolderDelegate;
@@ -2277,6 +2387,12 @@ namespace VPrinting.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onFindVoucherTRSBySiteCodeCompletedDelegate;
         
+        private BeginOperationDelegate onBeginFindVoucherPRBySiteCodeDelegate;
+        
+        private EndOperationDelegate onEndFindVoucherPRBySiteCodeDelegate;
+        
+        private System.Threading.SendOrPostCallback onFindVoucherPRBySiteCodeCompletedDelegate;
+        
         public ScanServiceClient() {
         }
         
@@ -2309,6 +2425,8 @@ namespace VPrinting.ScanServiceRef {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SaveDataAsyncCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CommitVoucherChangesCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CommitVoucherChangesModifyCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CommitFileChangesCompleted;
         
@@ -2346,6 +2464,8 @@ namespace VPrinting.ScanServiceRef {
         
         public event System.EventHandler<SelectFilesByFolderCompletedEventArgs> SelectFilesByFolderCompleted;
         
+        public event System.EventHandler<SelectFilesByFolder2CompletedEventArgs> SelectFilesByFolder2Completed;
+        
         public event System.EventHandler<SelectCoversByFolderCompletedEventArgs> SelectCoversByFolderCompleted;
         
         public event System.EventHandler<SelectFileByIdCompletedEventArgs> SelectFileByIdCompleted;
@@ -2359,6 +2479,8 @@ namespace VPrinting.ScanServiceRef {
         public event System.EventHandler<FindVoucherTRSByVoucherNumberCompletedEventArgs> FindVoucherTRSByVoucherNumberCompleted;
         
         public event System.EventHandler<FindVoucherTRSBySiteCodeCompletedEventArgs> FindVoucherTRSBySiteCodeCompleted;
+        
+        public event System.EventHandler<FindVoucherPRBySiteCodeCompletedEventArgs> FindVoucherPRBySiteCodeCompleted;
         
         public void Delete(string fileName, int countryId, int retailerId, int voucherId, string s1, string s2) {
             base.Channel.Delete(fileName, countryId, retailerId, voucherId, s1, s2);
@@ -2776,6 +2898,79 @@ namespace VPrinting.ScanServiceRef {
                         userId,
                         s1,
                         s2}, this.onEndCommitVoucherChangesDelegate, this.onCommitVoucherChangesCompletedDelegate, userState);
+        }
+        
+        public void CommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, VPrinting.ScanServiceRef.ChangeContentType action, string s1, string s2) {
+            base.Channel.CommitVoucherChangesModify(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, action, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, VPrinting.ScanServiceRef.ChangeContentType action, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCommitVoucherChangesModify(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, action, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndCommitVoucherChangesModify(System.IAsyncResult result) {
+            base.Channel.EndCommitVoucherChangesModify(result);
+        }
+        
+        private System.IAsyncResult OnBeginCommitVoucherChangesModify(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string serverDirName = ((string)(inValues[0]));
+            int jobId = ((int)(inValues[1]));
+            int countryId = ((int)(inValues[2]));
+            int retailerId = ((int)(inValues[3]));
+            int voucherId = ((int)(inValues[4]));
+            System.Nullable<int> folderId = ((System.Nullable<int>)(inValues[5]));
+            string siteCode = ((string)(inValues[6]));
+            string barCode = ((string)(inValues[7]));
+            int locationId = ((int)(inValues[8]));
+            int userId = ((int)(inValues[9]));
+            VPrinting.ScanServiceRef.ChangeContentType action = ((VPrinting.ScanServiceRef.ChangeContentType)(inValues[10]));
+            string s1 = ((string)(inValues[11]));
+            string s2 = ((string)(inValues[12]));
+            return this.BeginCommitVoucherChangesModify(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, action, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndCommitVoucherChangesModify(System.IAsyncResult result) {
+            this.EndCommitVoucherChangesModify(result);
+            return null;
+        }
+        
+        private void OnCommitVoucherChangesModifyCompleted(object state) {
+            if ((this.CommitVoucherChangesModifyCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CommitVoucherChangesModifyCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CommitVoucherChangesModifyAsync(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, VPrinting.ScanServiceRef.ChangeContentType action, string s1, string s2) {
+            this.CommitVoucherChangesModifyAsync(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, action, s1, s2, null);
+        }
+        
+        public void CommitVoucherChangesModifyAsync(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, VPrinting.ScanServiceRef.ChangeContentType action, string s1, string s2, object userState) {
+            if ((this.onBeginCommitVoucherChangesModifyDelegate == null)) {
+                this.onBeginCommitVoucherChangesModifyDelegate = new BeginOperationDelegate(this.OnBeginCommitVoucherChangesModify);
+            }
+            if ((this.onEndCommitVoucherChangesModifyDelegate == null)) {
+                this.onEndCommitVoucherChangesModifyDelegate = new EndOperationDelegate(this.OnEndCommitVoucherChangesModify);
+            }
+            if ((this.onCommitVoucherChangesModifyCompletedDelegate == null)) {
+                this.onCommitVoucherChangesModifyCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCommitVoucherChangesModifyCompleted);
+            }
+            base.InvokeAsync(this.onBeginCommitVoucherChangesModifyDelegate, new object[] {
+                        serverDirName,
+                        jobId,
+                        countryId,
+                        retailerId,
+                        voucherId,
+                        folderId,
+                        siteCode,
+                        barCode,
+                        locationId,
+                        userId,
+                        action,
+                        s1,
+                        s2}, this.onEndCommitVoucherChangesModifyDelegate, this.onCommitVoucherChangesModifyCompletedDelegate, userState);
         }
         
         public void CommitFileChanges(string serverDirName, int countryId, System.Nullable<int> folderId, int locationId, int userId, string s1, string s2) {
@@ -3814,6 +4009,64 @@ namespace VPrinting.ScanServiceRef {
                         s2}, this.onEndSelectFilesByFolderDelegate, this.onSelectFilesByFolderCompletedDelegate, userState);
         }
         
+        public VPrinting.ScanServiceRef.fileInfo[] SelectFilesByFolder2(int folderId, int skip, int take, string s1, string s2) {
+            return base.Channel.SelectFilesByFolder2(folderId, skip, take, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginSelectFilesByFolder2(int folderId, int skip, int take, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSelectFilesByFolder2(folderId, skip, take, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public VPrinting.ScanServiceRef.fileInfo[] EndSelectFilesByFolder2(System.IAsyncResult result) {
+            return base.Channel.EndSelectFilesByFolder2(result);
+        }
+        
+        private System.IAsyncResult OnBeginSelectFilesByFolder2(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int folderId = ((int)(inValues[0]));
+            int skip = ((int)(inValues[1]));
+            int take = ((int)(inValues[2]));
+            string s1 = ((string)(inValues[3]));
+            string s2 = ((string)(inValues[4]));
+            return this.BeginSelectFilesByFolder2(folderId, skip, take, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndSelectFilesByFolder2(System.IAsyncResult result) {
+            VPrinting.ScanServiceRef.fileInfo[] retVal = this.EndSelectFilesByFolder2(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSelectFilesByFolder2Completed(object state) {
+            if ((this.SelectFilesByFolder2Completed != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SelectFilesByFolder2Completed(this, new SelectFilesByFolder2CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SelectFilesByFolder2Async(int folderId, int skip, int take, string s1, string s2) {
+            this.SelectFilesByFolder2Async(folderId, skip, take, s1, s2, null);
+        }
+        
+        public void SelectFilesByFolder2Async(int folderId, int skip, int take, string s1, string s2, object userState) {
+            if ((this.onBeginSelectFilesByFolder2Delegate == null)) {
+                this.onBeginSelectFilesByFolder2Delegate = new BeginOperationDelegate(this.OnBeginSelectFilesByFolder2);
+            }
+            if ((this.onEndSelectFilesByFolder2Delegate == null)) {
+                this.onEndSelectFilesByFolder2Delegate = new EndOperationDelegate(this.OnEndSelectFilesByFolder2);
+            }
+            if ((this.onSelectFilesByFolder2CompletedDelegate == null)) {
+                this.onSelectFilesByFolder2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSelectFilesByFolder2Completed);
+            }
+            base.InvokeAsync(this.onBeginSelectFilesByFolder2Delegate, new object[] {
+                        folderId,
+                        skip,
+                        take,
+                        s1,
+                        s2}, this.onEndSelectFilesByFolder2Delegate, this.onSelectFilesByFolder2CompletedDelegate, userState);
+        }
+        
         public VPrinting.ScanServiceRef.file2Info[] SelectCoversByFolder(int folderId, string s1, string s2) {
             return base.Channel.SelectCoversByFolder(folderId, s1, s2);
         }
@@ -4208,6 +4461,62 @@ namespace VPrinting.ScanServiceRef {
                         location,
                         s1,
                         s2}, this.onEndFindVoucherTRSBySiteCodeDelegate, this.onFindVoucherTRSBySiteCodeCompletedDelegate, userState);
+        }
+        
+        public VPrinting.ScanServiceRef.VoucherInfo3 FindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2) {
+            return base.Channel.FindVoucherPRBySiteCode(siteCode, location, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginFindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginFindVoucherPRBySiteCode(siteCode, location, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public VPrinting.ScanServiceRef.VoucherInfo3 EndFindVoucherPRBySiteCode(System.IAsyncResult result) {
+            return base.Channel.EndFindVoucherPRBySiteCode(result);
+        }
+        
+        private System.IAsyncResult OnBeginFindVoucherPRBySiteCode(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string siteCode = ((string)(inValues[0]));
+            int location = ((int)(inValues[1]));
+            string s1 = ((string)(inValues[2]));
+            string s2 = ((string)(inValues[3]));
+            return this.BeginFindVoucherPRBySiteCode(siteCode, location, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndFindVoucherPRBySiteCode(System.IAsyncResult result) {
+            VPrinting.ScanServiceRef.VoucherInfo3 retVal = this.EndFindVoucherPRBySiteCode(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnFindVoucherPRBySiteCodeCompleted(object state) {
+            if ((this.FindVoucherPRBySiteCodeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.FindVoucherPRBySiteCodeCompleted(this, new FindVoucherPRBySiteCodeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void FindVoucherPRBySiteCodeAsync(string siteCode, int location, string s1, string s2) {
+            this.FindVoucherPRBySiteCodeAsync(siteCode, location, s1, s2, null);
+        }
+        
+        public void FindVoucherPRBySiteCodeAsync(string siteCode, int location, string s1, string s2, object userState) {
+            if ((this.onBeginFindVoucherPRBySiteCodeDelegate == null)) {
+                this.onBeginFindVoucherPRBySiteCodeDelegate = new BeginOperationDelegate(this.OnBeginFindVoucherPRBySiteCode);
+            }
+            if ((this.onEndFindVoucherPRBySiteCodeDelegate == null)) {
+                this.onEndFindVoucherPRBySiteCodeDelegate = new EndOperationDelegate(this.OnEndFindVoucherPRBySiteCode);
+            }
+            if ((this.onFindVoucherPRBySiteCodeCompletedDelegate == null)) {
+                this.onFindVoucherPRBySiteCodeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFindVoucherPRBySiteCodeCompleted);
+            }
+            base.InvokeAsync(this.onBeginFindVoucherPRBySiteCodeDelegate, new object[] {
+                        siteCode,
+                        location,
+                        s1,
+                        s2}, this.onEndFindVoucherPRBySiteCodeDelegate, this.onFindVoucherPRBySiteCodeCompletedDelegate, userState);
         }
     }
 }

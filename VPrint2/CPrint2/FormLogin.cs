@@ -13,6 +13,7 @@ using CPrint2.AuthenticationRef;
 using CPrint2.Data;
 using CPrint2.PartyManagementRef;
 using CPrint2.ScanServiceRef;
+using System.Drawing;
 
 namespace CPrint2
 {
@@ -23,7 +24,7 @@ namespace CPrint2
         public FormLogin()
         {
             InitializeComponent();
-
+            
             m_Version = Assembly.GetEntryAssembly().GetName().Version;
             lblVersion.Text = "Version: ".concat(m_Version.ToString());
 #if DEBUG

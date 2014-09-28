@@ -31,11 +31,11 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.pnlBottons = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OpenColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pnlBottons = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.pnlBottons.SuspendLayout();
@@ -43,9 +43,9 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 245);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 257);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(333, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(393, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -56,7 +56,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(333, 245);
+            this.groupBox1.Size = new System.Drawing.Size(393, 257);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select files";
@@ -77,29 +77,9 @@
             this.dgvData.RowHeadersVisible = false;
             this.dgvData.ShowCellErrors = false;
             this.dgvData.ShowEditingIcon = false;
-            this.dgvData.Size = new System.Drawing.Size(327, 194);
+            this.dgvData.Size = new System.Drawing.Size(387, 206);
             this.dgvData.TabIndex = 2;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Data_CellClick);
-            // 
-            // pnlBottons
-            // 
-            this.pnlBottons.Controls.Add(this.btnClose);
-            this.pnlBottons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottons.Location = new System.Drawing.Point(3, 210);
-            this.pnlBottons.Name = "pnlBottons";
-            this.pnlBottons.Size = new System.Drawing.Size(327, 32);
-            this.pnlBottons.TabIndex = 1;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(266, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(52, 23);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.Close_Click);
             // 
             // Number
             // 
@@ -126,11 +106,31 @@
             this.OpenColumn.ToolTipText = "Click to open file";
             this.OpenColumn.Width = 30;
             // 
+            // pnlBottons
+            // 
+            this.pnlBottons.Controls.Add(this.btnClose);
+            this.pnlBottons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBottons.Location = new System.Drawing.Point(3, 222);
+            this.pnlBottons.Name = "pnlBottons";
+            this.pnlBottons.Size = new System.Drawing.Size(387, 32);
+            this.pnlBottons.TabIndex = 1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(326, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(52, 23);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.Close_Click);
+            // 
             // SelectFilesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 267);
+            this.ClientSize = new System.Drawing.Size(393, 279);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.MinimumSize = new System.Drawing.Size(237, 172);

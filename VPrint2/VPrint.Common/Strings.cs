@@ -111,7 +111,13 @@ Otherwise it has been inserted by using expected barcode details.";
         public const string DOWNLOAD = "DOWNLOAD";
         public const string VERSION = "VERSION";
 
+        public const string CERTIFICATE_SIGNING_AVAILABLE = "CERTIFICATE_SIGNING_AVAILABLE";
         public const string LIST_OF_BARCODECONFIGS = "List of BarcodeConfigs";
+        public const string COUNTRY_CERTIFICATE_PATH = "COUNTRY_CERTIFICATE_PATH";
+        public const string COUNTRY_CERTIFICATE_PASS = "COUNTRY_CERTIFICATE_PASS";
+        public const string PTFLogoFileFullPath = "PTFLogoFileFullPath";
+        public const string Certigicate_COUNTRY = "Certigicate_COUNTRY";
+        public const string Certigicate_LOCATION = "Certigicate_LOCATION";
 
         /// <summary>
         /// {

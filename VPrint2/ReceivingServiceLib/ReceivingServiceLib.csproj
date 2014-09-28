@@ -15,14 +15,10 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,7 +70,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ISOs.resx</DependentUpon>
     </Compile>
-    <Compile Include="pdfFileAccess.cs" />
+    <Compile Include="PremierRefundVoucherService.cs" />
+    <Compile Include="Services\RefundServiceDataAccess.cs" />
     <Compile Include="zipFileAccess.cs" />
     <Compile Include="FileWorkers\ExportFileWorker.cs" />
     <Compile Include="FileWorkers\~FileWorkerBase.cs" />
@@ -88,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ReceivingServiceLibDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="KnowHow.txt" />
