@@ -1,0 +1,14 @@
+
+(A2) SSL with Self-hosted WCF Service
+http://www.codeproject.com/Articles/24027/SSL-with-Self-hosted-WCF-Service
+----------------------------------------------------
+
+(A2) Multiple wcf services in one solution with multiple endpoints and hosting
+http://dotnetmentors.com/multiple-wcf-services-in-one-solution-with-multiple-endpoints-and-hosting.aspx
+----------------------------------------------------
+
+(A2) WCF how to bind multiple service contracts?
+One service class, two service interfaces, two services bindings
+
+http://stackoverflow.com/questions/14336861/wcf-how-to-bind-multiple-service-contracts
+----------------------------------------------------

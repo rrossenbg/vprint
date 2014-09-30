@@ -1,0 +1,62 @@
+http://www.codeproject.com/Articles/202464/How-to-use-a-WebCam-in-C-with-the-NET-Framework
+
+http://stackoverflow.com/questions/16224658/capture-still-image-with-microsoft-expression-encoder-sdk
+
+http://www.tutorialsto.com/software/c/voice-and-video-related-code-c-2b-2b-builder-complete-source-code.html
+
+http://stackoverflow.com/questions/18124646/manually-focus-camera-in-emgu-cv
+DirectShow.NET library
+http://directshownet.sourceforge.net/index.html
+
+
+(A3)->TVideoGrabber Evaluation Package
+note: the developer license covers all the versions of the component (Visual Studio, Delphi, C++Builder, etc...).
+http://www.datastead.com/products/tvideograbber/download.html
+
+--------------------------------------
+DVRMSToolbox - 1.2.1.8 Source
+http://babgvant.com/files/folders/dvrmstoolbox/entry13791.aspx
+
+http://www.datastead.com/products/tvideograbber/download.html
+--------------------------------------
+Logitech
+http://forums.logitech.com/t5/Webcams/SDK-for-C920/td-p/1001311
+http://web.archive.org/web/20110101111625/http://www.quickcamteam.net/documentation/how-to/logitech-uvc-driver-public-property-set
+
+http://sonnati.wordpress.com/2011/08/08/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-ii/
+
+SAMPLE
+http://stackoverflow.com/questions/22644937/logitech-sdk-c-sharp-usage
+
+
+Download Logitech wrapper
+https://github.com/sidewinder94/Logitech-LCD
+
+Logitech releases
+http://www.logitech.com/en-us/press/press-releases/1185
+
+//////////////////
+http://stackoverflow.com/questions/25079641/play-stream-cam-with-vlc-dotnet
+
+------------------------------------------------------------
+
+
+http://www.ffmpeg.org/
+
+---------------------------------------------
+
+download ffmpeg
+http://ffmpeg.zeranoe.com/builds/
+
+
+---------------------------------------------
+Video Encoding & Streaming Technologies
+http://sonnati.wordpress.com/2011/08/08/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-ii/
+
+
+http://www.codeproject.com/Articles/34663/DirectShow-Examples-for-Using-SampleGrabber-for-Gr
+---------------------------------------------
+http://camonweb.codeplex.com/releases/view/83732
+
+
+http://www.microsoft.com/en-us/download/details.aspx?id=8279
