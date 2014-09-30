@@ -37,9 +37,7 @@ namespace VPrint.Common.Pdf
 
             try
             {
-                var list = bitmap.GetAllPages(System.Drawing.Imaging.ImageFormat.Jpeg);
-
-                manager.CreatePdf(pdfFileName, list, creationInfo);
+                manager.CreatePdf(pdfFileName, new Bitmap[] {bitmap}, creationInfo);
 
                 manager.SignPdfFile(pdfFileName, signedPdfFileName, signInfo);
 

@@ -97,17 +97,14 @@ namespace VPrinting
         {
             Debug.Assert(image != null);
 
+            ImageCodecInfo jgpEncoder = ImageFormat.Jpeg.GetEncoder();
+
             using (MemoryStream mem = new MemoryStream())
+            using (var encoderParameters = new EncoderParameters(1))
+            using (var parameter1 = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, compression))
             {
-                ImageCodecInfo jgpEncoder = ImageFormat.Jpeg.GetEncoder();
-
-                using (var encoderParameters = new EncoderParameters(1))
-                using (var parameter1 = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, compression))
-                {
-                    encoderParameters.Param[0] = parameter1;
-                    image.Save(mem, jgpEncoder, encoderParameters);
-                }
-
+                encoderParameters.Param[0] = parameter1;
+                image.Save(mem, jgpEncoder, encoderParameters);
                 return mem.ToArray();
             }
         }

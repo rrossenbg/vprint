@@ -75,9 +75,9 @@ namespace ReceivingServiceTest
             string fileName = "C:\\test\\SES724-320377-0013491924-5.pdf";
             string signedFileName = "C:\\test\\SES724-320377-0013491924-5_Signed.pdf";
 
-            using (var bmp = Image.FromFile("C:\\test\\SES724-320377-0013491924-5.jpg"))
+            using (var bmp = (Bitmap)Bitmap.FromFile("C:\\test\\SES724-320377-0013491924-5.jpg"))
             {
-                manager.CreatePdf(fileName, new Image[] { bmp },
+                manager.CreatePdf(fileName, new Bitmap[] { bmp },
                     new PdfCreationInfo()
                 {
                     Title = "Voucher SES724-320377-0013491924-5",

@@ -1,5 +1,0 @@
-C:\PROJECTS\VPrint2\RemoteTracerLib\bin\x86\Debug\RemoteTracerLib.dll
-C:\PROJECTS\VPrint2\RemoteTracerLib\bin\x86\Debug\RemoteTracerLib.pdb
-C:\PROJECTS\VPrint2\RemoteTracerLib\obj\x86\Debug\RemoteTracerLib.dll
-C:\PROJECTS\VPrint2\RemoteTracerLib\obj\x86\Debug\RemoteTracerLib.pdb
-C:\PROJECTS\VPrint2\RemoteTracerLib\obj\x86\Debug\RemoteTracerLib.csprojResolveAssemblyReference.cache

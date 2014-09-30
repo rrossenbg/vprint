@@ -1,0 +1,148 @@
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+using Emgu.CV;
+using Emgu.CV.CvEnum;
+using Emgu.CV.Structure;
+using Emgu.CV.VideoSurveillance;
+
+namespace VCam
+{
+    /// <summary>
+    /// http://www.codeproject.com/Articles/257502/Creating-Your-First-EMGU-Image-Processing-Project
+    /// http://www.emgu.com/forum/viewtopic.php?f=2&t=2284
+    /// </summary>
+    public partial class Form1 : Form
+    {
+        private Capture cap0 = default(Capture);
+        private Capture cap1 = default(Capture);
+
+        BlobTrackerAutoParam<Bgr> blobTrackerParam;
+        BlobDetector blobDetector;
+        FGDetector<Bgr> fgDetector;
+        BlobTracker blobTracker;
+
+        FGDetector<Bgr> m_fgDetector;
+        BlobTrackerAuto<Bgr> m_blobTracker;
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            cap0 = new Capture(0);
+            cap0.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_COUNT, 10);//
+            cap0.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_WIDTH, 2304);//Config.FRAME_WIDTH);//5168, 1280, 2304, 
+            cap0.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_HEIGHT, 1536);//Config.FRAME_HEIGHT);//2907, 720, 1536 
+            cap0.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FOURCC, CvInvoke.CV_FOURCC('U', '2', '6', '3')); //622,3730
+
+            //cap1 = new Capture(1);
+            //cap1.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_COUNT, 10);//
+            //cap1.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_WIDTH, 2304);//Config.FRAME_WIDTH);//5168, 1280, 2304, 
+            //cap1.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_HEIGHT, 1536);//Config.FRAME_HEIGHT);//2907, 720, 1536 
+            //cap1.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FOURCC, CvInvoke.CV_FOURCC('U', '2', '6', '3')); //622,3730
+
+            cap0.ImageGrabbed += new EventHandler(cap0_ImageGrabbed);
+            //cap1.ImageGrabbed += new EventHandler(cap1_ImageGrabbed);
+
+            blobTrackerParam = new BlobTrackerAutoParam<Bgr>();
+            blobDetector = new BlobDetector(BLOB_DETECTOR_TYPE.Simple);
+            fgDetector = new FGDetector<Bgr>(FORGROUND_DETECTOR_TYPE.MOG);
+            blobTracker = new BlobTracker(BLOBTRACKER_TYPE.MSFG);
+            blobTrackerParam.BlobDetector = new BlobDetector(Emgu.CV.CvEnum.BLOB_DETECTOR_TYPE.Simple);
+            blobTrackerParam.BlobTracker = blobTracker;
+            blobTrackerParam.FGDetector = fgDetector;
+            blobTrackerParam.FGTrainFrames = 10;
+
+            //blobTrackerParam = new BlobTrackerAutoParam<Bgr>();
+            //blobDetector = new BlobDetector(BLOB_DETECTOR_TYPE.CC);
+            //blobTracker = new BlobTracker(BLOBTRACKER_TYPE.MSFG);
+            //blobTrackerParam.BlobDetector = bd;
+            //blobTrackerParam.BlobTracker = bt;
+            //blobTrackerParam.FGDetector = fd;
+            //blobTrackerParam.FGTrainFrames = 1;
+
+            m_fgDetector = new FGDetector<Bgr>(FORGROUND_DETECTOR_TYPE.MOG);
+            m_blobTracker = new BlobTrackerAuto<Bgr>();
+            m_blobTracker.Param.FGTrainFrames = 1;
+            m_blobTracker.Param.BTA = (IntPtr)1;
+
+            cap0.Start();
+            //cap1.Start();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            cap0.Stop();
+            //cap1.Stop();
+            base.OnClosing(e);
+        }
+
+        private Image<Bgr, byte> img0;
+
+        private void InitMenu_Click(object sender, EventArgs e)
+        {
+            using (img0) ;
+            img0 = null;
+        }
+
+        private void cap0_ImageGrabbed(object sender, EventArgs e)
+        {
+            using (var img = cap0.RetrieveBgrFrame())
+            {
+                if (img0 == null)
+                {
+                    img0 = img.Copy();
+                    return;
+                }
+
+                m_fgDetector.Update(img);
+
+                using (var i0 = img0.Sub(img, m_fgDetector.ForegroundMask))
+                {
+                    //double[] minValues, maxValues;
+                    //Point[] minLoc, maxLoc;
+                    //motionHistory0.Mask.MinMax(out minValues, out maxValues, out minLoc, out maxLoc);
+                    //Image<Gray, Byte> motionMask = motionHistory0.Mask.Mul(255.0 / maxValues[0]);
+                    imageBox0.Image = i0;
+                }
+            }
+        }
+
+        private void cap1_ImageGrabbed(object sender, EventArgs e)
+        {
+            using (var img = cap1.RetrieveBgrFrame())
+            {
+                //forgroundDetector1.Update(img);
+
+                //motionHistory1.Update(forgroundDetector1.ForegroundMask);
+
+                //double[] minValues, maxValues;
+                //Point[] minLoc, maxLoc;
+
+                //motionHistory1.Mask.MinMax(out minValues, out maxValues, out minLoc, out maxLoc);
+
+                //Image<Gray, Byte> motionMask = motionHistory1.Mask.Mul(255.0 / maxValues[0]);
+
+                imageBox1.Image = img;
+            }
+        }
+    }
+
+    public static class Ex
+    {
+        public static Point FirstOrDefault(this Point[] points)
+        {
+            if (points == null || points.Length == 0)
+                return Point.Empty;
+            return points[0];
+        }
+    }
+}
+
+ 
+Best Regards,
+
+Rosen Rusev
+
+PLEASE CONSIDER THE ENVIRONMENT BEFORE PRINTING THIS E-MAIL.

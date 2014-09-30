@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ReceivingServiceLib.CircularBuffer&lt;T&gt;">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAQAABAAAA=</HashCode>
+      <FileName>CircularBuffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.MSSQL">
+    <Position X="0.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQCAAABAEAEAAAAAAAAABQAAAAAAAAAA=</HashCode>
+      <FileName>Common\MSSQL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.SQL">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAEAAAAAAAAABAAACBAAAAAA=</HashCode>
+      <FileName>Common\SQL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.DrawingEx">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\Drawing3Ex.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.fileAccess">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAACAAAAAAAAAAAAAQAAAQAAAAAAAAAA=</HashCode>
+      <FileName>fileAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.Global" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Global.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.PdfManager">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ReceivingServiceLib.PdfManager.CreationInfo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>PdfManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="ReceivingServiceLib.PdfManager.SignInfo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>PdfManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>PdfManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.ProjectTimedOutException">
+    <Position X="10.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Security.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.Strings">
+    <Position X="4.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQIEoBAKAAAAAAAgAEAAgAIAAEAABoABAgAAghIA=</HashCode>
+      <FileName>Strings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.Common.UniqueSyncStringList">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAIAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\UniqueStringList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.Data.BaseDataAccess">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\DataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.Common.Data.PTFDataAccess">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ReceivingServiceLib.Common.Data.PTFDataAccess.FindVoucher_VoucherInfo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Data\PTFDataAccess.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\PTFDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.Common.Properties.Resources">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAwAAAAAAABEAAAAQAAABAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingService.ValueEventArgs&lt;T&gt;">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ValueEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ReceivingServiceLib.IReadable">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ReceivingServiceLib.IDbReadable">
+    <Position X="4.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ReceivingServiceLib.IBinaryReadable">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
