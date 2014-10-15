@@ -50,6 +50,11 @@ namespace ReceivingServiceLib
 
         [OperationContract]//(IsOneWay = true)]
         [FaultContract(typeof(MyApplicationFault))]
+        void CommitVoucherChangesModify_V2(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, int? folderId,
+            string siteCode, string barCode, int locationId, int userId, int typeId, ChangeContentType action, string s1, string s2);
+
+        [OperationContract]//(IsOneWay = true)]
+        [FaultContract(typeof(MyApplicationFault))]
         void CommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, int? folderId,
             string siteCode, string barCode, int locationId, int userId, ChangeContentType action, string s1, string s2);
 

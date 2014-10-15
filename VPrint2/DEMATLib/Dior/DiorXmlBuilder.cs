@@ -142,7 +142,7 @@ namespace DEMATLib
                 vs.CountryCode = v.IsoId;
                 vs.TimeStamp = DateTime.Now;
                 vs.BdvDate = v.v_date_purchase;
-                
+
                 vs.VoidedDate = v.VoidedDate;
                 vs.ClaimedDate = v.ClaimedDate;
 
@@ -151,7 +151,7 @@ namespace DEMATLib
                 vs.DebitDate = v.v_date_debited;
                 vs.ErrorCode = v.v_ic_id;
                 vs.SiteCodeRose = v.SiteCodeRose;
-                vs.FactureP1Date = v.v_date_p1;
+                vs.FactureP1Date = v.v_date_p1 ?? v.v_date_p0;
                 vs.FactureP2Date = v.v_date_p2;
 
                 vs.IsVoided = v.v_voucher_void;

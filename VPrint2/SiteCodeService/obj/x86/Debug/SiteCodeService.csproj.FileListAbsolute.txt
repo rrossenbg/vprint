@@ -18,3 +18,13 @@ C:\PROJECTS\VPrint\SiteCodeService\obj\x86\Debug\SiteCodeSrvc.ProjectInstaller.r
 C:\PROJECTS\VPrint\SiteCodeService\obj\x86\Debug\SiteCodeService.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint\SiteCodeService\obj\x86\Debug\SiteCodeService.exe
 C:\PROJECTS\VPrint\SiteCodeService\obj\x86\Debug\SiteCodeService.pdb
+C:\PROJECTS\VPrint2\SiteCodeService\bin\Debug\SiteCodeService.exe.config
+C:\PROJECTS\VPrint2\SiteCodeService\bin\Debug\SiteCodeService.exe
+C:\PROJECTS\VPrint2\SiteCodeService\bin\Debug\SiteCodeService.pdb
+C:\PROJECTS\VPrint2\SiteCodeService\bin\Debug\SiteCodeLib.dll
+C:\PROJECTS\VPrint2\SiteCodeService\bin\Debug\SiteCodeLib.pdb
+C:\PROJECTS\VPrint2\SiteCodeService\obj\x86\Debug\SiteCodeService.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\SiteCodeService\obj\x86\Debug\SiteCodeSrvc.ProjectInstaller.resources
+C:\PROJECTS\VPrint2\SiteCodeService\obj\x86\Debug\SiteCodeService.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\SiteCodeService\obj\x86\Debug\SiteCodeService.exe
+C:\PROJECTS\VPrint2\SiteCodeService\obj\x86\Debug\SiteCodeService.pdb

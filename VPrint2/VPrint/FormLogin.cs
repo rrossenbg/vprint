@@ -4,17 +4,17 @@
 
 using System;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
+using VPrinting;
 using VPrinting.Common;
 using VPrinting.Data;
-using VPrinting.Extentions;
 using VPrinting.PartyManagement;
 using VPrinting.ScanServiceRef;
 using mng = VPrinting.PartyManagement;
-using System.Threading;
-using System.Diagnostics;
 
 namespace VPrinting
 {
@@ -26,7 +26,8 @@ namespace VPrinting
         {
             InitializeComponent();
 
-            m_Version = Assembly.GetEntryAssembly().GetName().Version;
+            m_Version = StateSaver.Default.Get<AssemblyName>(Strings.VERSION).Version;
+
             lblVersion.Text = "Version: ".concat(m_Version.ToString());
 #if DEBUG
             //lblVersion.Text = lblVersion.Text.concat(" <DEBUG>");

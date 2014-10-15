@@ -1,11 +1,16 @@
+/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+/***************************************************/
+
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Management;
 using System.Threading;
 using System.Windows.Forms;
-using VPrinting;
 using VPrinting.Common;
 using VPrinting.Tools;
 
@@ -32,6 +37,37 @@ namespace VPrinting.Forms.Explorer
         private ToolStripMenuItem runCopyMenuItem;
         private System.ComponentModel.IContainer components;
         #endregion
+
+        private class ListViewItemComparer : IComparer
+        {
+            private int m_column;
+
+            private int m_comparertype = 1;
+
+            public ListViewItemComparer()
+            {
+                m_column = 0;
+            }
+
+            public ListViewItemComparer(int column)
+            {
+                m_column = column;
+            }
+
+            public void Reset(int column)
+            {
+                if (m_column == column)
+                    m_comparertype *= -1;
+                else
+                    m_column = column;
+            }
+
+            public int Compare(object x, object y)
+            {
+                int returnVal = m_comparertype * string.Compare(((ListViewItem)x).SubItems[m_column].Text, ((ListViewItem)y).SubItems[m_column].Text);
+                return returnVal;
+            }
+        }
 
         public Explorer()
         {
@@ -68,6 +104,7 @@ namespace VPrinting.Forms.Explorer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Explorer));
             this.tvFolders = new System.Windows.Forms.TreeView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.runCopyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runCopyWaitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -81,7 +118,6 @@ namespace VPrinting.Forms.Explorer
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.runCopyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -95,7 +131,7 @@ namespace VPrinting.Forms.Explorer
             this.tvFolders.Location = new System.Drawing.Point(0, 0);
             this.tvFolders.Name = "tvFolders";
             this.tvFolders.SelectedImageIndex = 0;
-            this.tvFolders.Size = new System.Drawing.Size(168, 357);
+            this.tvFolders.Size = new System.Drawing.Size(224, 520);
             this.tvFolders.TabIndex = 2;
             this.tvFolders.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvFolders_AfterSelect);
             // 
@@ -108,32 +144,39 @@ namespace VPrinting.Forms.Explorer
             this.toolStripMenuItem1,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 120);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(147, 98);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenu_Opening);
+            // 
+            // runCopyMenuItem
+            // 
+            this.runCopyMenuItem.Name = "runCopyMenuItem";
+            this.runCopyMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.runCopyMenuItem.Text = "Run Copy";
+            this.runCopyMenuItem.Click += new System.EventHandler(this.BrowseMenu_Click);
             // 
             // runCopyWaitMenuItem
             // 
             this.runCopyWaitMenuItem.Name = "runCopyWaitMenuItem";
-            this.runCopyWaitMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.runCopyWaitMenuItem.Size = new System.Drawing.Size(146, 22);
             this.runCopyWaitMenuItem.Text = "Run Copy Wait";
             this.runCopyWaitMenuItem.Click += new System.EventHandler(this.BrowseMenu_Click);
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.cancelToolStripMenuItem.Text = "Cancel";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.CancelMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(143, 6);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.CloseMenuItem_Click);
             // 
@@ -153,21 +196,24 @@ namespace VPrinting.Forms.Explorer
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(168, 0);
+            this.splitter1.Location = new System.Drawing.Point(224, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 335);
+            this.splitter1.Size = new System.Drawing.Size(3, 498);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
             // lvFiles
             // 
             this.lvFiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvFiles.Location = new System.Drawing.Point(171, 0);
+            this.lvFiles.HideSelection = false;
+            this.lvFiles.Location = new System.Drawing.Point(227, 0);
             this.lvFiles.Name = "lvFiles";
-            this.lvFiles.Size = new System.Drawing.Size(429, 335);
+            this.lvFiles.Size = new System.Drawing.Size(671, 498);
+            this.lvFiles.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lvFiles.TabIndex = 4;
             this.lvFiles.UseCompatibleStateImageBehavior = false;
             this.lvFiles.View = System.Windows.Forms.View.Details;
+            this.lvFiles.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvFiles_ColumnClick);
             // 
             // mainMenu1
             // 
@@ -197,28 +243,21 @@ namespace VPrinting.Forms.Explorer
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(168, 335);
+            this.statusStrip1.Location = new System.Drawing.Point(224, 498);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(432, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(674, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(300, 16);
-            // 
-            // runCopyMenuItem
-            // 
-            this.runCopyMenuItem.Name = "runCopyMenuItem";
-            this.runCopyMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.runCopyMenuItem.Text = "Run Copy";
-            this.runCopyMenuItem.Click += new System.EventHandler(this.BrowseMenu_Click);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(400, 16);
             // 
             // Explorer
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(600, 357);
+            this.ClientSize = new System.Drawing.Size(898, 520);
             this.Controls.Add(this.lvFiles);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.statusStrip1);
@@ -531,7 +570,12 @@ namespace VPrinting.Forms.Explorer
             {
                 var fromPath = getFullPath(note.FullPath);
                 bool wait = sender == runCopyWaitMenuItem;
-                backgroundWorker1.RunWorkerAsync(new Tuple<string, bool>(fromPath, wait));
+                var list = new List<FileInfo>();
+
+                foreach (ListViewItem lv in lvFiles.SelectedItems)
+                    list.Add(new FileInfo(Path.Combine(fromPath, lv.Text)));
+
+                backgroundWorker1.RunWorkerAsync(new Tuple<string, bool, List<FileInfo>>(fromPath, wait, list));
             }
         }
 
@@ -540,18 +584,17 @@ namespace VPrinting.Forms.Explorer
             var ev = DelegateHelper.GetEvent();
             try
             {
-                Tuple<string, bool> para = e.Argument.Cast<Tuple<string, bool>>();
+                Tuple<string, bool, List<FileInfo>> para = e.Argument.Cast<Tuple<string, bool, List<FileInfo>>>();
                 string pathTo = StateSaver.Default.Get<string>(Strings.tbScanDirectory, "C:\\");
                 var timeout = StateSaver.Default.Get<TimeSpan>(Strings.ScanCopyTimeout, TimeSpan.FromSeconds(20));
                 var wait = StateSaver.Default.Get<TimeSpan>(Strings.ScanCopyWait, TimeSpan.FromSeconds(2));
 
                 backgroundWorker1.ReportProgress(0);
 
-                var from = new DirectoryInfo(para.Item1);
-
-                var files = from.GetFiles();
+                var files = (para.Item3 != null && para.Item3.Count > 0) ? para.Item3.ToArray() : new DirectoryInfo(para.Item1).GetFiles();
 
                 int count = 0;
+
                 foreach (var file in files)
                 {
                     var newFileName = Path.Combine(pathTo, file.Name);
@@ -602,6 +645,16 @@ namespace VPrinting.Forms.Explorer
         private void CloseMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lvFiles_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            ListViewItemComparer comp = lvFiles.ListViewItemSorter as ListViewItemComparer;
+            if (comp == null)
+                lvFiles.ListViewItemSorter = new ListViewItemComparer(e.Column);
+            else
+                comp.Reset(e.Column);
+            lvFiles.Sort();
         }
     }
 }

@@ -1,0 +1,13 @@
+
+            if (_capture != null)
+            {
+                _capture.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_BRIGHTNESS, Brightness_Store);
+                _capture.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_CONTRAST, Contrast_Store);
+                _capture.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_SHARPNESS, Sharpness_Store);
+                RetrieveCaptureInformation(); // This will refresh the settings
+            }
+
+
+			OPENCV: IMAGE PROCESSING USING MORPHOLOGICAL FILTERS
+
+			https://www.packtpub.com/books/content/opencv-image-processing-using-morphological-filters

@@ -93,9 +93,9 @@ namespace VPrinting
         [STAThread]
         static void Main()
         {
-            Bitmap bmp = new Bitmap(@"C:\Users\Rosen.rusev\Desktop\Images\img-130628084640-0001.jpg");
-            bmp.Pixellate(new Rectangle(300, 300, 300, 300), 8);
-            bmp.Save(@"C:\Users\Rosen.rusev\Desktop\Images\result.jpg", ImageFormat.Jpeg);
+            //Bitmap bmp = new Bitmap(@"C:\Users\Rosen.rusev\Desktop\Images\img-130628084640-0001.jpg");
+            //bmp.Pixellate(new Rectangle(300, 300, 300, 300), 8);
+            //bmp.Save(@"C:\Users\Rosen.rusev\Desktop\Images\result.jpg", ImageFormat.Jpeg);
         }
     }
 

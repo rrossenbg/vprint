@@ -4,6 +4,8 @@
 
 using System.Collections.Generic;
 using System.Reflection;
+using System;
+using System.Diagnostics;
 
 namespace VPrinting.Colections
 {
@@ -11,7 +13,7 @@ namespace VPrinting.Colections
     public class IgnoreList<T>
     {
         [Obfuscation]
-        private readonly HashSet<T> m_State = new HashSet<T>();        
+        private readonly HashSet<T> m_State = new HashSet<T>();
 
         public bool Add(T value)
         {
@@ -37,4 +39,5 @@ namespace VPrinting.Colections
             }
         }
     }
+   
 }

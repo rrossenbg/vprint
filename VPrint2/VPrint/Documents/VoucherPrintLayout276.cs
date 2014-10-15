@@ -187,5 +187,10 @@ namespace VPrinting.Documents
                 b.AppendLine(line.ToString());
             return b.ToString();
         }
+
+        public void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, List<IList<IPrintLine>> multilines)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

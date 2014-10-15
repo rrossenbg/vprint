@@ -1,0 +1,3 @@
+
+Playing Card Recognition Using AForge.Net Framework
+http://www.codeproject.com/Articles/265354/Playing-Card-Recognition-Using-AForge-Net-Framewor

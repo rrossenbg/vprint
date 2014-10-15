@@ -78,12 +78,14 @@ namespace VPrinting.Documents
         public bool UseLocalPrinter { get; set; }
         public bool PrintOnce { get; set; }
         public bool SimulatePrint { get; set; }
+        public bool MultyPagePrint { get; set; }
 
         public VoucherPrinter()
         {
             SessionId = Guid.NewGuid();
             ms_VPItems.Add(this);
             UseLocalFormat = UseLocalPrinter = false;
+            MultyPagePrint = false;
         }
 
         public void Dispose()
@@ -200,6 +202,8 @@ namespace VPrinting.Documents
 
                 CacheManager.Instance.Table[Strings.SubRangeFrom] = RangeFrom;
 
+                var multyLines = new List<IList<IPrintLine>>();
+
                 int index = 0;
 
                 foreach (int voucher in voucherNumbers)
@@ -217,12 +221,24 @@ namespace VPrinting.Documents
 #if DEBUGGER
                     Debug.WriteLine(string.Format("{0}\t{1}\t{2}", countryId, Retailer.Name, voucher), Strings.VRPINT);
 #endif
-
-                    if (!SimulatePrint)
-                        layout.PrintVoucher(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, layout.PrintLines);
+                    if (MultyPagePrint)
+                    {
+                        //Single document
+                        multyLines.Add(layout.PrintLines);
+                    }
+                    else
+                    {
+                        if (!SimulatePrint)
+                            layout.PrintVoucher(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, layout.PrintLines);
+                    }
 
                     if (PrintOnce)
                         break;
+                }
+
+                if (!SimulatePrint && multyLines.Count > 0)
+                {
+                    layout.PrintVouchers(printer.Path, Strings.VRPINT, layout.FormLength, layout.DocumentInitialization, multyLines);
                 }
 
                 if (!SimulatePrint)
@@ -339,6 +355,8 @@ namespace VPrinting.Documents
 
                     CacheManager.Instance.Table[Strings.SubRangeFrom] = RangeFrom;
 
+                    var multyPageDocumentLines = new List<IList<IPrintLine>>();
+
                     for (int voucher = RangeFrom, index = 0; voucher < RangeTo + 1; voucher++, index++)
                     {
                         CacheManager.Instance.Table[Strings.Index] = index;
@@ -357,8 +375,16 @@ namespace VPrinting.Documents
                             Debug.WriteLine(string.Format("{0}\t{1}\t{2}", countryId, Retailer.Name, voucher), Strings.VRPINT);
 #endif
 
-                            if (!SimulatePrint)
-                                layout.PrintVoucher(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, layout.PrintLines);
+                            if (MultyPagePrint)
+                            {
+                                //Single document
+                                multyPageDocumentLines.Add(layout.PrintLines);
+                            }
+                            else
+                            {
+                                if (!SimulatePrint)
+                                    layout.PrintVoucher(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, layout.PrintLines);
+                            }
 
                             if (Test != null)
                                 Test(this, EventArgs.Empty);
@@ -366,6 +392,11 @@ namespace VPrinting.Documents
                             if (PrintOnce)
                                 break;
                         }
+                    }
+
+                    if (!SimulatePrint && multyPageDocumentLines.Count > 0)
+                    {
+                        layout.PrintVouchers(printer.Path, Strings.VRPINT, layout.FormLength, layout.DocumentInitialization, multyPageDocumentLines);
                     }
 
                     if (!SimulatePrint)

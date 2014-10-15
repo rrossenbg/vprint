@@ -17,6 +17,14 @@ namespace VPrinting
     [Obfuscation(StripAfterObfuscation = true, ApplyToMembers = true)]
     public static class FileInfoEx
     {
+        static readonly DirectoryInfo st_appLocation;
+
+        static FileInfoEx()
+        {
+            var asm = Assembly.GetEntryAssembly();
+            st_appLocation = new FileInfo(asm.Location).Directory;
+        }
+
         [TargetedPatchingOptOut("na")]
         public static bool IsReadOnly(this FileInfo info, int tries)
         {
@@ -201,6 +209,12 @@ namespace VPrinting
 
             var newname = func(info);
             return info.Directory.CombineFileName(string.Concat(newname, info.Extension));
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static FileInfo App(this FileInfo info, string fileName)
+        {
+            return st_appLocation.CombineFileName(fileName);
         }
 
         [TargetedPatchingOptOut("na")]

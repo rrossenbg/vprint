@@ -14,3 +14,4 @@ C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Release\SiteCodeTestClient.Properties
 C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Release\SiteCodeTestClient.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Release\SiteCodeTestClient.exe
 C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Release\SiteCodeTestClient.pdb
+C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Release\SiteCodeTestClient.csprojResolveAssemblyReference.cache

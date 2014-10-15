@@ -13,7 +13,6 @@ using System.Security;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading.Tasks;
-using ReceivingService;
 using ReceivingServiceLib.Common.Data;
 using ReceivingServiceLib.Data;
 using ReceivingServiceLib.Services;
@@ -196,7 +195,7 @@ namespace ReceivingServiceLib
                 {
                     var xmlName = directory.CombineFileName("data.xml");
                     zipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
-                        retailerId, voucherId, folderId, siteCode, barCode, userId, locationId, serverDirName);
+                        retailerId, voucherId, folderId, siteCode, barCode, userId, locationId, serverDirName, typeId: 2);
                 }
             }
             catch (Exception ex)
@@ -233,7 +232,34 @@ namespace ReceivingServiceLib
                 {
                     var xmlName = directory.CombineFileName(GetXmlFileNamePerAction(action));
                     zipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
-                        retailerId, voucherId, folderId, siteCode, barCode, userId, locationId, serverDirName);
+                        retailerId, voucherId, folderId, siteCode, barCode, userId, locationId, serverDirName, typeId: 2);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+            finally
+            {
+                FileLocks.Remove(serverDirName);
+            }
+        }
+
+        public void CommitVoucherChangesModify_V2(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, int? folderId,
+            string siteCode, string barCode, int locationId, int userId, int typeId, ChangeContentType action, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("CommitVoucherChangesModify");
+
+                var uploadRootFolder = new DirectoryInfo(Global.Strings.UPLOADROOT);
+                var directory = uploadRootFolder.Combine(serverDirName);
+                if (directory.Exists)
+                {
+                    var xmlName = directory.CombineFileName(GetXmlFileNamePerAction(action));
+                    zipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
+                        retailerId, voucherId, folderId, siteCode, barCode, userId, locationId, serverDirName, typeId);
                 }
             }
             catch (Exception ex)
@@ -803,10 +829,10 @@ namespace ReceivingServiceLib
                                 {
                                     pfxFilePath = Global.Strings.pfxFileFullPath,
                                     pfxKeyPass = "",
-                                    docPass = null,
-                                    signImagePath = Global.Strings.PTFLogoFileFullPath,
-                                    reasonForSigning = string.Concat("Voucher ", vinfo.v_number),
-                                    location = "Madrid"
+                                    DocPass = null,
+                                    SignImagePath = Global.Strings.PTFLogoFileFullPath,
+                                    ReasonForSigning = string.Concat("Voucher ", vinfo.v_number),
+                                    Location = "Madrid"
                                 };
 
                                 using (var bmp = (Bitmap)Image.FromFile(imageFileToSing.FullName))

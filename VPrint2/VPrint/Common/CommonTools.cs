@@ -11,7 +11,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using DTKBarReader;
 using Microsoft.CSharp;
-using VPrinting.Extentions;
 
 namespace VPrinting.Common
 {
