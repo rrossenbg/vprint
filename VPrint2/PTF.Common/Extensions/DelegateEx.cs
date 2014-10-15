@@ -9,8 +9,9 @@ using System.Reflection;
 using System.Runtime;
 using System.Runtime.Remoting.Messaging;
 using System.Threading;
+using System.Runtime.InteropServices;
 
-namespace VPrinting 
+namespace VPrinting
 {
     [Obfuscation(StripAfterObfuscation = true, ApplyToMembers = true)]
     public static class DelegateBase
@@ -181,7 +182,7 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
-        public static void ReTry<T,U>(this Action<T, U> handle, T t, U u)
+        public static void ReTry<T, U>(this Action<T, U> handle, T t, U u)
         {
             int count = 0;
         go:
@@ -233,7 +234,7 @@ namespace VPrinting
             {
                 return handle(t);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Trace.WriteLine(ex, "VPRINT");
 
@@ -336,6 +337,34 @@ namespace VPrinting
             catch
             {
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="del"></param>
+        /// <returns></returns>
+        /// <example>
+        /// WriteLineDelegate act1 = new WriteLineDelegate(WriteLine);
+        /// IntPtr ptr1 = Marshal.GetFunctionPointerForDelegate(act1);
+        /// </example>
+        [TargetedPatchingOptOut("na")]
+        public static IntPtr GetFunctionPointer(this Delegate del)
+        {
+            IntPtr ptr1 = Marshal.GetFunctionPointerForDelegate(del);
+            return ptr1;
+        }
+
+        /// <summary>
+        /// ptr1.GetDelegate(WriteLineDelegate)().DynamicInvoke(item.Params);
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="pointer"></param>
+        /// <returns></returns>
+        [TargetedPatchingOptOut("na")]
+        public static Delegate GetDelegate<T>(this IntPtr pointer)
+        {
+            return Marshal.GetDelegateForFunctionPointer(pointer, typeof(T));
         }
     }
 }

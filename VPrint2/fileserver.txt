@@ -1,0 +1,34 @@
+
+(A3) Windows Server 2012 R2 Storage: Step-by-step with Storage Spaces, SMB Scale-Out and Shared VHDX (Physical)
+http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx
+
+Google search - buy biggest drive
+https://www.google.co.uk/search?q=C%23+save+data+on+backup+device&oq=C%23+save+data+on+backup+device&aqs=chrome..69i57j69i58.9413j0j8&client=ubuntu-browser&sourceid=chrome&es_sm=125&ie=UTF-8#q=buy+biggest+drive&tbm=shop
+
+C# database backup
+http://www.codeproject.com/Tips/461494/Backing-up-an-SQL-Database-in-Csharp
+
+Google search - backup devices 20TB
+https://www.google.co.uk/search?q=buy+back+devices&oq=buy+back+device&aqs=chrome.1.69i57j0l4.7557j0j9&client=ubuntu-browser&sourceid=chrome&es_sm=125&ie=UTF-8#tbm=shop&q=backup+devices+20TB
+
+Google search - jbod storage 20TB
+https://www.google.co.uk/search?q=jbod+storage&oq=JBOD+S&aqs=chrome.1.69i57j0l5.9510j0j7&client=ubuntu-browser&sourceid=chrome&es_sm=125&ie=UTF-8#q=jbod+storage+20TB&tbm=shop&spd=12924055888501049389
+
+(A)External hard drive 4TB - 100pounds
+https://www.google.co.uk/shopping/product/3023431952528543452?q=buy+4tb+external+hard+drive&client=ubuntu-browser&es_sm=125&biw=1215&bih=687&bav=on.2,or.r_cp.r_qf.&bvm=bv.77161500,d.ZGU&tch=1&ech=1&psi=YzI6VLncHMPV7gartYCIBQ.1413100132732.5&sa=X&ei=MjQ6VJPeBbKM7Ab2xoGICg&ved=0CHoQ8wIwAA
+
+(A)Enhance-Tech UltraStor RS16 JS
+SAS-to-SAS/SATA 16-Disk Expandable JBOD Storage System (32TB-64TB)
+http://www.rentaraid.co.uk/proddetail.php?prod=enhancetechrs16js&gclid=CjwKEAjwzeihBRCQ84bhxrz_0w8SJAAohyh1MiVuawSIzFX_uTQZa0q_YNGMMOErhR3jCGME08FH1hoC5Xvw_wcB
+
+(A)Synology DS1513+ 20TB 5 Bay NAS - (£1450)
+http://www.dabs.com/products/synology-ds1513--20tb-5-bay-nas-9F10.html?utm_source=google&utm_medium=ppc%20product%20search&utm_campaign=Components%20and%20Storage%20-%20Hard%20Drives%20-%20NAS
+
+(A)Synology DS214se DiskStation 2-Bay 4TB Network Attached NAS Storage w/ 2x 2TB WD RED Hard Drive (1TB-12TB) - (£200-£500)
+http://www.broadbandbuyer.co.uk/products/19187-synology-ds214se-12tb-red/
+
+(A)Network storage 40TB+ (£3200)
+http://www.broadbandbuyer.co.uk/shop/ShopSearch.asp?CategoryID=771&t=1104,879#T
+
+Google search - data tape drive
+

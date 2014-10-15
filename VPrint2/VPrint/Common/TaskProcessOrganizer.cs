@@ -100,8 +100,12 @@ namespace VPrinting.Common
 
                     if (m_ActiveList.Count < m_MaxActiveTasks && m_ToDoList.Count > 0)
                     {
-                        TaskItem task2 = (TaskItem)m_ToDoList[0];
-                        m_ToDoList.RemoveAt(0);
+                        TaskItem task2 = null;
+                        lock (m_ToDoList.SyncRoot)
+                        {
+                            task2 = (TaskItem)m_ToDoList[0];
+                            m_ToDoList.RemoveAt(0);
+                        }
                         m_ActiveList.Add(task2);
                         task2.Method.BeginInvoke(task2, new AsyncCallback(TaskCompleted), task2);
                     }

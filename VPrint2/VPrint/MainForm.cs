@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GaryPerkin.UserControls.Buttons;
+using VPrinting;
 using VPrinting.Common;
 using VPrinting.Controls;
 using VPrinting.Controls.ArrowButton;
@@ -26,7 +27,6 @@ using VPrinting.Documents;
 using VPrinting.Extentions;
 using VPrinting.Forms.Explorer;
 using VPrinting.PartyManagement;
-using VPrinting.ScanServiceLocalRef;
 using VPrinting.ScanServiceRef;
 using VPrinting.VoucherNumberingAllocationPrinting;
 
@@ -279,6 +279,8 @@ namespace VPrinting
             dgvAllocations.Click += new EventHandler(DataGrid_Click);
             dgvAllocations.DataError += new DataGridViewDataErrorEventHandler(Allocations_DataError);
             m_MainContext = SynchronizationContext.Current;
+
+            ms_MiltuPagePrint = Convert.ToBoolean(ConfigurationManager.AppSettings["MILTUPAGEPRINT"]);
 
             Default = this;
 
@@ -585,6 +587,8 @@ namespace VPrinting
                         using (var printing = new VoucherPrinter())
                         {
                             printing.SimulatePrint = MainForm.ms_SimulatePrint;
+                            printing.MultyPagePrint = MainForm.ms_MiltuPagePrint;
+
                             printing.Done += OnAllocationRowIsPrinted;
                             Interlocked.Increment(ref m_AllocationPrintings);
                             printing.PrintAllocation(m_PendingVouchersList[i], false);
@@ -731,6 +735,8 @@ namespace VPrinting
                                     using (var printing = new VoucherPrinter())
                                     {
                                         printing.SimulatePrint = MainForm.ms_SimulatePrint;
+                                        printing.MultyPagePrint = MainForm.ms_MiltuPagePrint;
+
                                         printing.Done += OnAllocationRowIsPrinted;
                                         Interlocked.Increment(ref m_AllocationPrintings);
                                         printing.PrintAllocation(id, frmPrint.ReprintVouchers);
@@ -2791,18 +2797,6 @@ namespace VPrinting
             lblItemsWithErr.Text = (item <= 0) ? null : string.Concat("Items with err ", item);
         }
 
-        private void Client_StartScanCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            if (e.Error != null)
-                e.Error.ShowDialog();
-
-            var clin = (ScanServiceLocalClient)sender;
-            clin.StartScanCompleted -= new EventHandler<AsyncCompletedEventArgs>(Client_StartScanCompleted);
-#if DEBUGGER
-            Trace.WriteLine("Scan Completed", "VPRINT");
-#endif
-        }
-
         #endregion
 
         #region PRIVATE METHODS
@@ -3054,13 +3048,6 @@ namespace VPrinting
 
             if (!Directory.Exists(tbScanDirectory.Text))
                 this.ShowExclamation(Messages.CanNotFindDir + tbScanDirectory.Text);
-
-            if (m_ScanClient != null)
-                m_ScanClient.StartScanCompleted -= new EventHandler<AsyncCompletedEventArgs>(Client_StartScanCompleted);
-
-            m_ScanClient = new ScanServiceLocalClient();
-            m_ScanClient.StartScanCompleted += new EventHandler<AsyncCompletedEventArgs>(Client_StartScanCompleted);
-            m_ScanClient.StartScanAsync(tbScanDirectory.Text);
         }
 
         private void Send_Click(object sender, EventArgs e)
@@ -3370,6 +3357,8 @@ namespace VPrinting
         #region PUBLIC STATIC VOLATILE FIELDS
 
         public static volatile bool ms_SimulatePrint;
+
+        public static volatile bool ms_MiltuPagePrint;
 
         public static volatile bool ms_ImportCoversheet;
 

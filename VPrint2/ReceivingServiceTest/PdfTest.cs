@@ -94,10 +94,10 @@ namespace ReceivingServiceTest
             {
                 pfxFilePath = @"C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\PTF.pfx",
                 pfxKeyPass = "",
-                docPass = null,
-                signImagePath = @"C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\Resources\PTFLogo.jpg",
-                reasonForSigning = "Voucher SES724-320377-0013491924-5",
-                location = "Madrid, Spain"
+                DocPass = null,
+                SignImagePath = @"C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\Resources\PTFLogo.jpg",
+                ReasonForSigning = "Voucher SES724-320377-0013491924-5",
+                Location = "Madrid, Spain"
             });
         }
 

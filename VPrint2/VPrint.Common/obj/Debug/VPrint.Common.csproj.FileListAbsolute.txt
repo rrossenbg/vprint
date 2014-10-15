@@ -7,3 +7,11 @@ C:\PROJECTS\VPrint2\VPrint.Common\bin\Debug\VPrint.Common.dll
 C:\PROJECTS\VPrint2\VPrint.Common\bin\Debug\VPrint.Common.pdb
 C:\PROJECTS\VPrint2\VPrint.Common\obj\Debug\VPrint.Common.dll
 C:\PROJECTS\VPrint2\VPrint.Common\obj\Debug\VPrint.Common.pdb
+C:\PROJECTS\VPrint2\VPrint.Common\bin\Debug\AForge.dll
+C:\PROJECTS\VPrint2\VPrint.Common\bin\Debug\AForge.Imaging.dll
+C:\PROJECTS\VPrint2\VPrint.Common\bin\Debug\AForge.Imaging.Formats.dll
+C:\PROJECTS\VPrint2\VPrint.Common\bin\Debug\AForge.Math.dll
+C:\PROJECTS\VPrint2\VPrint.Common\bin\Debug\itextsharp.dll
+C:\PROJECTS\VPrint2\VPrint.Common\bin\Debug\PTF.Common.dll
+C:\PROJECTS\VPrint2\VPrint.Common\bin\Debug\PTF.Common.pdb
+C:\PROJECTS\VPrint2\VPrint.Common\obj\Debug\VPrint.Common.csprojResolveAssemblyReference.cache

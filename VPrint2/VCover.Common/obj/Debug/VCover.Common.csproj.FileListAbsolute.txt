@@ -1,0 +1,13 @@
+C:\PROJECTS\VPrint2\VCover.Common\bin\Debug\VCover.Common.dll
+C:\PROJECTS\VPrint2\VCover.Common\bin\Debug\VCover.Common.pdb
+C:\PROJECTS\VPrint2\VCover.Common\bin\Debug\Emgu.CV.dll
+C:\PROJECTS\VPrint2\VCover.Common\bin\Debug\Emgu.CV.GPU.dll
+C:\PROJECTS\VPrint2\VCover.Common\bin\Debug\Emgu.CV.UI.dll
+C:\PROJECTS\VPrint2\VCover.Common\bin\Debug\Emgu.Util.dll
+C:\PROJECTS\VPrint2\VCover.Common\bin\Debug\PTF.Common.dll
+C:\PROJECTS\VPrint2\VCover.Common\bin\Debug\System.Data.SQLite.DLL
+C:\PROJECTS\VPrint2\VCover.Common\bin\Debug\ZedGraph.dll
+C:\PROJECTS\VPrint2\VCover.Common\bin\Debug\PTF.Common.pdb
+C:\PROJECTS\VPrint2\VCover.Common\obj\Debug\VCover.Common.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\VCover.Common\obj\Debug\VCover.Common.dll
+C:\PROJECTS\VPrint2\VCover.Common\obj\Debug\VCover.Common.pdb

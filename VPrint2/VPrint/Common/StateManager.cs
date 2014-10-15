@@ -9,10 +9,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using VPrinting.Extentions;
+using VPrinting.Colections;
+using VPrinting.Data;
 using VPrinting.Forms;
 using VPrinting.ScanServiceRef;
-using VPrinting.Data;
 
 namespace VPrinting.Common
 {
@@ -60,11 +60,11 @@ namespace VPrinting.Common
 
             public eState State { get; set; }
             public Guid SessionID { get; protected set; }
-            public List<FileInfo> FileInfoList { get; set; }
+            public UniqueList<FileInfo> FileInfoList { get; set; }
             public Image Thumbnail { get; set; }
             public bool? IsSignatureValid { get; set; }
             public byte[] Signature { get; set; }
-            
+
             public string Message { get; set; }
             public string FullFileName { get; set; }
 
@@ -105,7 +105,7 @@ namespace VPrinting.Common
             public Item()
             {
                 SessionID = Guid.NewGuid();
-                FileInfoList = new List<FileInfo>();
+                FileInfoList = new UniqueList<FileInfo>((f) => f.FullName);
             }
 
             public Item(int id, int jobId, int countryId, eState state, Guid sessionID, string name)
@@ -115,7 +115,7 @@ namespace VPrinting.Common
                 State = state;
                 CountryID = countryId;
                 SessionID = sessionID;
-                FileInfoList = new List<FileInfo>();
+                FileInfoList = new UniqueList<FileInfo>((f) => f.FullName);
                 Name = name;
             }
 
@@ -251,7 +251,7 @@ namespace VPrinting.Common
                 Name = name;
                 //TODO:
                 Barcode = CommonTools.ToBarcode(countryId, 20, RetailerID, VoucherID);
-                FileInfoList = new List<FileInfo>();
+                FileInfoList = new UniqueList<FileInfo>((f) => f.FullName);
             }
 
             /// <summary>

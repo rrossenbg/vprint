@@ -29,6 +29,7 @@
     
     //Retailer
     var id = Model.Retailer.Id;
+    var strId = string.Concat("Handler Nr. ", id);
     var retailerName = Model.Retailer.TradingName.EscapeXml();
     var rLine1 = Model.Retailer.RetailAddress.Line1;
     var rLine2 = Model.Retailer.RetailAddress.Line2;
@@ -59,54 +60,11 @@
 <VoucherPrintRazX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <!-- -->
   <Lines>
-    <!-- VoucherNumber - VoucherNo -->
-    <GPrintLine>
-      <X>500</X>
-      <Y>40</Y>
-      <Size>0</Size>
-      <Text>@voucherNumber</Text>
-      <Font>
-        <Value>Arial, 11pt</Value>
-      </Font>
-    </GPrintLine>
     
-    <!-- RetailerID - StoreNo -->
-    <GPrintLine>
-      <X>500</X>
-      <Y>60</Y>
-      <Size>0</Size>
-      <Text>@id</Text>
-      <Font>
-        <Value>Arial, 11pt</Value>
-      </Font>
-    </GPrintLine>
-    
-   <!-- HeadOffice- HeadOffice-->
-   <GPrintLine>
-      <X>100</X>
-      <Y>160</Y>
-      <Size>0</Size>
-      <Text>@officeName</Text>
-      <Font>
-        <Value>Arial, 11pt</Value>
-      </Font>
-    </GPrintLine>  
-    
-    <!-- HeadOfficeAddress - Address -->
-    <GPrintLine>
-      <X>100</X>
-      <Y>180</Y>
-      <Size>0</Size>
-      <Text>@officeAddress</Text>
-      <Font>
-        <Value>Arial, 11pt</Value>
-      </Font>
-    </GPrintLine>  
-
     <!-- RetailerName - RetailerName -->
    <GPrintLine>
       <X>100</X>
-      <Y>220</Y>
+      <Y>120</Y>
       <Size>0</Size>
       <Text>@retailerName</Text>
       <Font>
@@ -117,7 +75,7 @@
     <!-- RetailerAddress - Address -->
     <GPrintLine>
       <X>100</X>
-      <Y>240</Y>
+      <Y>140</Y>
       <Size>0</Size>
       <Text>@retailerAddress</Text>
       <Font>
@@ -125,17 +83,19 @@
       </Font>
     </GPrintLine>  
     
-   <!-- VatNumber - VatNo -->
+    <!-- RetailerID - StoreNo -->
     <GPrintLine>
-      <X>160</X>
-      <Y>280</Y>
+      <X>100</X>
+      <Y>220</Y>
       <Size>0</Size>
-      <Text>@vatNumber</Text>
+      <Text>@strId</Text>
       <Font>
-        <Value>Arial, 13pt</Value>
+        <Value>Arial, 11pt</Value>
       </Font>
     </GPrintLine>
     
+   
+    <!--  -->
     <!-- RetailerName - RetailerName -->
    <GPrintLine>
       <X>100</X>
@@ -157,18 +117,17 @@
         <Value>Arial, 11pt</Value>
       </Font>
     </GPrintLine>  
-    
-   <!-- VatNumber - VatNo -->
+
+    <!-- RetailerID - StoreNo -->
     <GPrintLine>
-      <X>160</X>
-      <Y>880</Y>
+      <X>100</X>
+      <Y>900</Y>
       <Size>0</Size>
-      <Text>@vatNumber</Text>
+      <Text>@strId</Text>
       <Font>
-        <Value>Arial, 13pt</Value>
+        <Value>Arial, 11pt</Value>
       </Font>
-    </GPrintLine>
-    
+    </GPrintLine>    
   </Lines>
     
   <Barcodes>
@@ -179,6 +138,8 @@
         <Height>25</Height>
         <Size>2</Size>
         <BarText>
+           <X>0</X>
+           <Y>3</Y>
           <Text>@barcodeText</Text>
           <Font>
             <Value>Arial, 11pt</Value>
@@ -193,6 +154,8 @@
       <Height>25</Height>
       <Size>2</Size>
       <BarText>
+           <X>0</X>
+           <Y>3</Y>
         <Text>@barcodeText</Text>
         <Font>
           <Value>Arial, 11pt</Value>

@@ -5,6 +5,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using VPrint.Common.Pdf;
 using VPrinting.Common;
 
@@ -12,6 +13,13 @@ namespace VPrinting.ScaningProcessors
 {
     internal class PDFFileHelper
     {
+        public FileInfo Run2(FileInfo info, StateManager.VoucherItem item)
+        {
+            var images = info.DrawToImage();
+            item.FileInfoList.AddRange(images);
+            return item.FileInfoList.FirstOrDefault();
+        }
+
         public string Run(FileInfo info, StateManager.VoucherItem item)
         {
             string fullFilePath = null;

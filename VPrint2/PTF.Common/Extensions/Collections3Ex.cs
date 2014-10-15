@@ -47,5 +47,35 @@ namespace VPrinting
                 table.Add(Convert.ChangeType(list[i], typeof(K)), Convert.ChangeType(list[i + 1], typeof(V)));
             return table;
         }
+
+        [TargetedPatchingOptOut("na")]
+        public static void AddRange<T>(this HashSet<T> set, IEnumerable<T> items)
+        {
+            foreach (T t in items)
+                set.Add(t);
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static IEnumerable<T> ForEach<T>(this HashSet<T> set)
+        {
+            foreach (T t in set)
+                yield return t;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static bool Empty<T>(this HashSet<T> set)
+        {
+            return set.Count == 0;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static IEnumerable<T> ForEach<T>(this HashSet<T> set, Action<T> funct)
+        {
+            foreach (T t in set)
+            {
+                funct(t);
+                yield return t;
+            }
+        }
     }
 }

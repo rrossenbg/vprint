@@ -25,6 +25,7 @@ namespace VPrinting.Razor.RazorTemplating
             host.NamespaceImports.Add("System.Text");
             host.NamespaceImports.Add("System.Text.RegularExpressions");
             host.NamespaceImports.Add("System.Xml.Serialization");
+            host.NamespaceImports.Add("VPrinting");
             host.NamespaceImports.Add("VPrinting.Tools");
             host.NamespaceImports.Add("VPrinting.Common");
             host.NamespaceImports.Add("VPrinting.Documents");
@@ -37,7 +38,7 @@ namespace VPrinting.Razor.RazorTemplating
             var @params = new CompilerParameters();
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                if (assembly.ManifestModule.Name != "<In Memory Module>")
+                if (!assembly.IsDynamic && assembly.ManifestModule.Name != "<In Memory Module>")
                     @params.ReferencedAssemblies.Add(assembly.Location);
             }
             @params.GenerateInMemory = true;

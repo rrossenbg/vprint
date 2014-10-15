@@ -30,9 +30,9 @@ namespace VPrint.Common.Pdf
                 list.Add(iTextSharp.text.Image.GetInstance(img.ToArray()));
 
             float width = list.Max(i => i.Width);
-            float height = list.Max(i => i.Height);
+            float height = list.Max(i => i.Height) + (info.MetaData != null ? info.MetaData.Count * 20 : 0);
 
-            Document doc = new Document(new iTextSharp.text.Rectangle(width, height), 25, 25, 25, 25);
+            Document doc = new Document(new iTextSharp.text.Rectangle(width, height), 5, 25, 25, 5);
             try
             {
                 var pdfWriter = PdfWriter.GetInstance(doc, new FileStream(destinationFileName, FileMode.Create));
@@ -47,6 +47,32 @@ namespace VPrint.Common.Pdf
                 doc.AddCreator(info.Creator);
                 doc.AddCreationDate();
                 doc.AddProducer();
+
+                PdfPTable table = new PdfPTable(2);
+                table.SetWidths(new int[] { 1, 2 });
+                table.SpacingAfter = 5f;
+                table.SpacingBefore = 5f;
+
+                if (info.MetaData != null)
+                {
+                    lock (info.MetaData)
+                    {
+                        var bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
+                        var times = new iTextSharp.text.Font(bfTimes, 7, iTextSharp.text.Font.ITALIC, BaseColor.BLACK);
+
+                        foreach (Tuple<string, string> kv in info.MetaData)
+                        {
+                            table.AddCell(new Phrase(new Chunk(kv.Item1) { Font = times }));
+                            table.AddCell(new Phrase(new Chunk(kv.Item2) { Font = times }));
+                        }
+                    }
+                }
+                
+                //.BackgroundColor = new GrayColor(0.75f);
+                doc.Add(table);
+                doc.Add(new Phrase(" "));
+                doc.Add(new Phrase(" "));
+                //TODO: http://kuujinbo.info/iTextInAction2Ed/index.aspx?ch=Chapter08&ex=TextFields
 
                 foreach (var img in list)
                     doc.Add(img);
@@ -88,20 +114,59 @@ namespace VPrint.Common.Pdf
                 using (var fout = new FileStream(destinationDocument, FileMode.Create, FileAccess.ReadWrite))
                 using (var stamper = PdfStamper.CreateSignature(reader, fout, '\0'))
                 {
-                    if (info.docPass != null)
-                        stamper.SetEncryption(info.docPass, info.docPass, PdfWriter.ALLOW_SCREENREADERS, PdfWriter.STRENGTH128BITS);
+                    if (info.DocPass != null)
+                        stamper.SetEncryption(info.DocPass, info.DocPass, PdfWriter.ALLOW_SCREENREADERS, PdfWriter.STRENGTH128BITS);
 
-                    var img = new iTextSharp.text.Jpeg(new Uri(info.signImagePath));
+                    var img = new iTextSharp.text.Jpeg(new Uri(info.SignImagePath));
                     PdfSignatureAppearance appearance = stamper.SignatureAppearance;
                     appearance.Image = img;
-                    appearance.Reason = info.reasonForSigning;
-                    appearance.Location = info.location;
+                    appearance.Reason = info.ReasonForSigning;
+                    appearance.Location = info.Location;
                     const float x = 20, y = 10;
                     appearance.SetVisibleSignature(new iTextSharp.text.Rectangle(x, y, x + img.Width, y + img.Width), 1, "Icsi-Vendor");
 
                     IExternalSignature es = new PrivateKeySignature(pk, "SHA-256");
                     MakeSignature.SignDetached(appearance, es,
                         new X509Certificate[] { pk12.GetCertificate(alias).Certificate }, null, null, null, 0, CryptoStandard.CMS);
+
+                    //http://www.phronesisweb.com/blog/filling-pdf-acrofields-in-c-using-itextsharp/
+                    AcroFields form = stamper.AcroFields;
+                    form.GenerateAppearances = true; 
+                    ////form.SetField("name", "John Doe");
+                    ////form.SetField("address", "xxxxx, yyyy");
+                    ////form.SetField("postal_code", "12345");
+                    ////form.SetField("email", "johndoe@xxx.com");
+                    if (info.MetaData != null)
+                    {
+                        lock (info.MetaData)
+                        {
+                            foreach (Tuple<string, string> kv in info.MetaData)
+                            {
+                                form.SetField(kv.Item1, kv.Item2);
+                                //form.SetFieldProperty(kv.Item1.Compress(), "fflags", 0, null);
+                            }
+                        }
+                    }
+
+                    //http://forums.asp.net/t/1846462.aspx?PDF+form+contents+are+not+visible+iTextSharp
+                    //Dictionary<string, string> inf = reader.Info;
+                    ////inf.Add("Title", "Hello World stamped");
+                    ////inf.Add("Subject", "Hello World with changed metadata");
+                    ////inf.Add("Keywords", "iText in Action, PdfStamper");
+                    ////inf.Add("Creator", "Silly standalone example");
+                    ////inf.Add("Author", "Also Bruno Lowagie");
+
+                    //if (info.MetaData != null)
+                    //{
+                    //    lock (info.MetaData)
+                    //        foreach (Tuple<string, string> kv in info.MetaData)
+                    //            inf.Add(kv.Item1, kv.Item2);
+                    //    stamper.MoreInfo = inf;
+                    //}
+
+                    //stamper.SetFullCompression();
+                    //stamper.Writer.SetFullCompression();
+                    stamper.FormFlattening = true;
                     stamper.Close();
                 }
             }

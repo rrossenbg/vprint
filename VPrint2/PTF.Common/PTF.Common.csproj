@@ -12,14 +12,10 @@
     <AssemblyName>PTF.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +41,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,10 +54,14 @@
     <Compile Include="Colections\MemoryBuffer.cs" />
     <Compile Include="Colections\PriorityQueue.cs" />
     <Compile Include="Colections\SortableBindingList.cs" />
+    <Compile Include="Colections\UniqueList.cs" />
+    <Compile Include="CommonClasses.cs" />
     <Compile Include="Extensions\BitmapEx.cs" />
     <Compile Include="Extensions\CoreEx.cs" />
     <Compile Include="Extensions\DrawingEx.cs" />
     <Compile Include="Extensions\EnumerableEx.cs" />
+    <Compile Include="Extensions\ExceptionEx.cs" />
+    <Compile Include="Extensions\IntEx.cs" />
     <Compile Include="Extensions\ObjectEx2.cs" />
     <Compile Include="Extensions\ReflectionEx.cs" />
     <Compile Include="Extensions\RegexEx.cs" />
@@ -74,11 +75,14 @@
     <Compile Include="Extensions\DelegateEx2.cs" />
     <Compile Include="Extensions\DisposableEx.cs" />
     <Compile Include="Extensions\FileInfoEx.cs" />
-    <Compile Include="Extensions\IntEx.cs" />
     <Compile Include="Extensions\StringEx.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Interfaces\IServiceData.cs" />
+    <Compile Include="Extensions\WinFormsEx.cs" />
+    <Compile Include="Loggers\FileLogger.cs" />
     <Compile Include="Pdf\CommonClasses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateSaver.cs" />
     <Compile Include="Tools\CString.cs" />
     <Compile Include="Tools\FontWrapper.cs" />
   </ItemGroup>

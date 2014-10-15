@@ -70,6 +70,7 @@ namespace VPrinting
         void DataBind(IDataProvider pr, string voucherNo, int voucher, bool printDemo);
         void InitPrinter(string printDoc);
         void PrintVoucher(string printerName, string printDocName, int length, string docInitialization, IList<IPrintLine> lines);
+        void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, List<IList<IPrintLine>> multilines);
     }
 
     /// <summary>

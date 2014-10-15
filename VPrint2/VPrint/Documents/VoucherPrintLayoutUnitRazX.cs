@@ -98,10 +98,29 @@ namespace VPrinting.Documents
                     new PaperSize("CustomPaper", PageSize.Width, PageSize.Height);
                 doc.DefaultPageSettings.Landscape = Landscape;
 
-                var handler = DelegateHelper.CreatePrintPageEventHandler(lines);
-                doc.PrintPage += handler;
+                DelegateHelper.m_printLines = lines;
+                doc.PrintPage += DelegateHelper.CreatePrintPageEventHandler;
                 doc.Print();
-                doc.PrintPage -= handler;
+                doc.PrintPage -= DelegateHelper.CreatePrintPageEventHandler;
+            }
+        }
+
+        public override void PrintVouchers(string printerName, string printDocName, 
+            int length, string docInitialization, List<IList<IPrintLine>> multilines)
+        {
+            using (var doc = new PrintDocument())
+            {
+                doc.DocumentName = printDocName;
+                doc.PrintController = new StandardPrintController();
+                doc.PrinterSettings.PrinterName = printerName;
+                doc.DefaultPageSettings.PaperSize =
+                    new PaperSize("CustomPaper", PageSize.Width, PageSize.Height);
+                doc.DefaultPageSettings.Landscape = Landscape;
+
+                DelegateHelper.m_multyPrintLines = multilines;
+                doc.PrintPage += DelegateHelper.CreatePrintPageMultyEventHandler;
+                doc.Print();
+                doc.PrintPage -= DelegateHelper.CreatePrintPageMultyEventHandler;
             }
         }
 

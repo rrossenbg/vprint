@@ -5,12 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Xml.Serialization;
 using VPrinting.Tools;
-using System.ComponentModel;
 using Zen.Barcode;
+using SSize = System.Drawing.Size;
 
 namespace VPrinting.Documents
 {
@@ -94,6 +95,23 @@ namespace VPrinting.Documents
         {
             Description = description;
         }
+
+        public void Print(PrintPageEventArgs e, Brush brush, Point moveAll)
+        {
+            if (Font == null)
+                throw new ArgumentNullException("Line.Font");
+            if (Font.Value == null)
+                throw new ArgumentNullException("Line.Font.Value");
+
+            var lines = Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+            Size size;
+            for (int i = 0, y = (int)Y; i < lines.Length; i++, y += size.Height)
+            {
+                e.Graphics.DrawString(lines[i], Font.Value, brush, X + moveAll.X, y + moveAll.Y);
+                size = SSize.Round(e.Graphics.MeasureString(lines[i], Font.Value));
+            }
+        }
     }
 
     /// <summary>
@@ -124,6 +142,27 @@ namespace VPrinting.Documents
         {
             Description = description;
         }
+
+        public void Print(PrintPageEventArgs e, Brush brush, Point moveAll)
+        {
+            if (Font == null)
+                throw new ArgumentNullException("Line.Font");
+            if (Font.Value == null)
+                throw new ArgumentNullException("Line.Font.Value");
+
+            var lines = Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+            SizeF size;
+
+            float x = (Units == GraphicsUnit.Inch) ? X.FromInch() : X;
+            float y = (Units == GraphicsUnit.Inch) ? Y.FromInch() : Y;
+
+            for (int i = 0; i < lines.Length; i++, y += size.Height)
+            {
+                e.Graphics.DrawString(lines[i], Font.Value, brush, x + moveAll.X, y + moveAll.Y);
+                size = e.Graphics.MeasureString(lines[i], Font.Value);
+            }
+        }
     }
 
     /// <summary>
@@ -148,6 +187,23 @@ namespace VPrinting.Documents
         public BarPrintLine()
         {
         }
+
+        public void Print(PrintPageEventArgs e, Brush brush, Point moveAll)
+        {
+            using (var bmp = BarcodeTools.BinaryWritePicture(Text, Height, Size))
+            {
+                e.Graphics.DrawImage(bmp, X + moveAll.X, Y + moveAll.Y);
+
+                if (BarText == null)
+                    throw new ApplicationException("BarText empty");
+
+                SizeF s = e.Graphics.MeasureString(BarText.Text, BarText.Font.Value);
+
+                e.Graphics.DrawString(BarText.Text, BarText.Font.Value, brush,
+                    X + ((bmp.Width - s.Width) / 2 + BarText.X) + moveAll.X, // Middle
+                    Y + (bmp.Height + BarText.Y) + moveAll.Y);//Bottom
+            }
+        }
     }
 
     /// <summary>
@@ -170,6 +226,26 @@ namespace VPrinting.Documents
         public BarPrintLineUnit()
         {
             Units = GraphicsUnit.Inch;
+        }
+
+        public void Print(PrintPageEventArgs e, Brush brush, Point moveAll)
+        {
+            using (var bmp = BarcodeTools.BinaryWritePicture(Text, Height, Size))
+            {
+                float x = (Units == GraphicsUnit.Inch) ? X.FromInch() : X;
+                float y = (Units == GraphicsUnit.Inch) ? Y.FromInch() : Y;
+
+                e.Graphics.DrawImage(bmp, X + moveAll.X, Y + moveAll.Y);
+
+                if (BarText == null)
+                    throw new ApplicationException("BarText empty");
+
+                SizeF s = e.Graphics.MeasureString(BarText.Text, BarText.Font.Value);
+
+                e.Graphics.DrawString(BarText.Text, BarText.Font.Value, brush,
+                    (x + ((bmp.Width - s.Width) / 2 + BarText.X) + moveAll.X), // Middle
+                    (y + (bmp.Height + BarText.Y)) + moveAll.Y);//Bottom
+            }
         }
     }
 

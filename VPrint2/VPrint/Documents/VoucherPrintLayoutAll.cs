@@ -63,6 +63,11 @@ namespace VPrinting.Documents
             var docText = b.ToString();
 
             PrinterQueue.AddJob(printName, printDocName, docText);
-        } 
+        }
+
+        public void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, List<IList<IPrintLine>> multilines)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

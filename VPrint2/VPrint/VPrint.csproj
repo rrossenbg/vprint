@@ -5,19 +5,17 @@
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CA89200F-243A-487C-ACF8-03F538A6C413}</ProjectGuid>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>PTFLogo.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>VPrint</AssemblyName>
-    <AssemblyOriginatorKeyFile>VPrint.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
@@ -28,8 +26,7 @@
     <StartupObject>VPrinting.Program</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <SccAuxPath>
-    </SccAuxPath>
+    <SccAuxPath>SAK</SccAuxPath>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -205,6 +202,9 @@
     <Reference Include="DTK.BarReader">
       <HintPath>..\Libraries\DTK.BarReader.dll</HintPath>
     </Reference>
+    <Reference Include="Ghostscript.NET">
+      <HintPath>..\packages\Ghostscript.NET.1.1.9\lib\net40\Ghostscript.NET.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip">
       <HintPath>..\Libraries\Ionic.Zip.dll</HintPath>
     </Reference>
@@ -256,12 +256,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="VPrintDiagram.cd" />
-    <None Include="Resources\MessageBoxIcons.jpeg" />
-    <None Include="Resources\no.png" />
-    <None Include="Resources\lightning.png" />
+    <Content Include="..\Others\gsdll32.dll">
+      <Link>gsdll32.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App.ico" />
+    <Content Include="Controls\RoundButton\Images\RoundButtonRecess0.bmp" />
+    <Content Include="Controls\RoundButton\Images\RoundButtonRecess2.bmp" />
+    <Content Include="Controls\RoundButton\Images\RoundButtonRecess3.bmp" />
+    <Content Include="Controls\RoundButton\Images\RoundButtonRecess4.bmp" />
+    <Content Include="Controls\RoundButton\Images\RoundButtonRecess5.bmp" />
+    <Content Include="favicon.ico" />
+    <Content Include="PTFLogo.ico" />
+    <Content Include="Resources\enter.gif" />
     <EmbeddedResource Include="AddVoucherItemForm.resx">
       <DependentUpon>AddVoucherItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BliningLabel.resx">
+      <DependentUpon>BliningLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DateTimePicker2.resx">
+      <DependentUpon>DateTimePicker2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ItemControl.resx">
+      <DependentUpon>ItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RoundButton\Images\RoundButton.bmp" />
+    <EmbeddedResource Include="Controls\RoundButton\RecessEditorControl.resx">
+      <DependentUpon>RecessEditorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ToggleButtonControl.resx">
       <DependentUpon>ToggleButtonControl.cs</DependentUpon>
@@ -269,15 +292,83 @@
     <EmbeddedResource Include="FileMsgForm.resx">
       <DependentUpon>FileMsgForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAssignFormat.resx">
+      <DependentUpon>FormAssignFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLayout.resx">
+      <DependentUpon>FormLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrint.resx">
+      <DependentUpon>FormPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BrowserForm\Explorer.resx">
       <DependentUpon>Explorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RetailerForm.resx">
+      <DependentUpon>RetailerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputForm.resx">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapPrinterForm.resx">
+      <DependentUpon>MapPrinterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonitorForm.resx">
+      <DependentUpon>MonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumberForm.resx">
+      <DependentUpon>NumberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintObjectForm.resx">
+      <DependentUpon>PrintObjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectPrinterDialog.resx">
+      <DependentUpon>SelectPrinterDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetupForm.resx">
+      <DependentUpon>SetupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransferForm.resx">
       <DependentUpon>TransferForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Resources\spreadsheet.png" />
-    <None Include="Resources\letter.png" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\VoucherDS.xsc">
+      <DependentUpon>VoucherDS.xsd</DependentUpon>
+    </None>
+    <None Include="Data\VoucherDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VoucherDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\VoucherDS.xss">
+      <DependentUpon>VoucherDS.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Resources\application_certificate %281%29.png" />
+    <None Include="Resources\Collapse.png" />
+    <None Include="Resources\DB.png" />
+    <None Include="Resources\document.png" />
+    <None Include="Resources\Err.png" />
+    <None Include="Resources\Expand.png" />
     <None Include="Resources\FL.png" />
+    <None Include="Resources\letter.png" />
+    <None Include="Resources\lightning.png" />
+    <None Include="Resources\MessageBoxIcons.jpeg" />
+    <None Include="Resources\NA.png" />
+    <None Include="Resources\no.png" />
+    <None Include="Resources\OK.png" />
+    <None Include="Resources\Sent.png" />
+    <None Include="Resources\spreadsheet.png" />
     <None Include="Service References\ScanServiceRef\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -327,65 +418,18 @@
     <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.VoucherInfo3.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\VoucherEntryAndModification\VoucherEntryAndModification1.disco" />
-    <EmbeddedResource Include="Controls\BliningLabel.resx">
-      <DependentUpon>BliningLabel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\DateTimePicker2.resx">
-      <DependentUpon>DateTimePicker2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RetailerForm.resx">
-      <DependentUpon>RetailerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MonitorForm.resx">
-      <DependentUpon>MonitorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SetupForm.resx">
-      <DependentUpon>SetupForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="Service References\ScanServiceLocalRef\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ScanServiceLocalRef\configuration.svcinfo" />
-    <None Include="Service References\ScanServiceLocalRef\configuration91.svcinfo" />
-    <None Include="Service References\ScanServiceLocalRef\ScanServiceLocal.disco" />
-    <None Include="Resources\Sent.png" />
-    <None Include="Resources\Err.png" />
-    <None Include="Resources\OK.png" />
-    <None Include="Resources\NA.png" />
-    <None Include="Service References\ScanServiceLocalRef\ScanServiceLocal.wsdl" />
-    <None Include="Service References\ScanServiceLocalRef\ScanServiceLocal.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ScanServiceLocalRef\ScanServiceLocal1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\VoucherEntryAndModification\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\VoucherEntryAndModification\configuration.svcinfo" />
-    <None Include="Service References\VoucherEntryAndModification\configuration91.svcinfo" />
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Data\VoucherDS.xsc">
-      <DependentUpon>VoucherDS.xsd</DependentUpon>
-    </None>
-    <None Include="Data\VoucherDS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VoucherDS.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Data\VoucherDS.xss">
-      <DependentUpon>VoucherDS.xsd</DependentUpon>
-    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Service References\VoucherEntryAndModification\configuration.svcinfo" />
+    <None Include="Service References\VoucherEntryAndModification\configuration91.svcinfo" />
+    <None Include="Service References\VoucherEntryAndModification\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VoucherEntryAndModification\VoucherEntryAndModification1.disco" />
     <None Include="Service References\VoucherEntryAndModification\VoucherEntryAndModification1.wsdl" />
     <None Include="Service References\VoucherEntryAndModification\VPrinting.VoucherEntryAndModification.ValidationException.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -393,7 +437,6 @@
     <None Include="Views\SampleViewPage.cshtml" />
     <None Include="VoucherAllocationPrinting_TemporaryKey.pfx" />
     <None Include="VPrint.snk" />
-    <None Include="Web References\Authentication\Authentication.wsdl" />
     <Content Include="..\XmlConfigurations\print203_Type1_Raz.xml">
       <Link>XmlConfigurations\print203_Type1_Raz.xml</Link>
     </Content>
@@ -619,18 +662,6 @@
       <Link>XmlConfigurations\print905_Type1_Raz.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="App.ico" />
-    <EmbeddedResource Include="Controls\RoundButton\Images\RoundButton.bmp" />
-    <Content Include="Controls\RoundButton\Images\RoundButtonRecess0.bmp" />
-    <Content Include="Controls\RoundButton\Images\RoundButtonRecess2.bmp" />
-    <Content Include="Controls\RoundButton\Images\RoundButtonRecess3.bmp" />
-    <Content Include="Controls\RoundButton\Images\RoundButtonRecess4.bmp" />
-    <Content Include="Controls\RoundButton\Images\RoundButtonRecess5.bmp" />
-    <Content Include="favicon.ico" />
-    <None Include="Resources\Collapse.png" />
-    <None Include="Resources\DB.png" />
-    <None Include="Resources\document.png" />
-    <None Include="Resources\application_certificate %281%29.png" />
     <Content Include="Forms\BrowserForm\35FLOPPY.ICO" />
     <Content Include="Forms\BrowserForm\525FLOP1.ICO" />
     <Content Include="Forms\BrowserForm\CDDRIVE.ICO" />
@@ -646,54 +677,75 @@
     <Content Include="Forms\BrowserForm\MyComputer.bmp" />
     <Content Include="Forms\BrowserForm\Recycle.bmp" />
     <Content Include="Forms\BrowserForm\Refresh.bmp" />
-    <Content Include="Resources\enter.gif" />
-    <None Include="Resources\Expand.png" />
-    <None Include="Web References\PartyManagement\CountryDetail.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\PartyManagement\PrinterDetails.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\VoucherNumberingAllocationPrinting\PrinterFormat.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\VoucherNumberingAllocationPrinting\Reference.map">
+    <None Include="Web References\Authentication\Authentication.disco" />
+    <None Include="Web References\Authentication\Authentication.wsdl" />
+    <None Include="Web References\Authentication\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherAllocation.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumber.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumberingAllocationPrinting.disco" />
     <None Include="Web References\PartyManagement\AgentBranch.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\AgentBranch1.datasource" />
+    <None Include="Web References\PartyManagement\AgentBranch2.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\PartyManagement\AgentHeadOffice.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\PartyManagement\AgentHeadOffice1.datasource" />
+    <None Include="Web References\PartyManagement\AgentHeadOffice2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\CountryDetail.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\CountryDetail1.datasource" />
+    <None Include="Web References\PartyManagement\CountryDetail2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\PartyManagement\HeadOffice.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\HeadOffice1.datasource" />
+    <None Include="Web References\PartyManagement\HeadOffice2.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\PartyManagement\NameIdData.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\PartyManagement\PartyManagement.disco" />
-    <None Include="Web References\Authentication\Authentication.disco" />
-    <None Include="Web References\Authentication\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
+    <None Include="Web References\PartyManagement\NameIdData1.datasource" />
+    <None Include="Web References\PartyManagement\NameIdData2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\PartyManagement\PartyManagement.disco" />
     <None Include="Web References\PartyManagement\PartyManagement.wsdl" />
     <None Include="Web References\PartyManagement\PartyTransactionLookup.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\PartyTransactionLookup1.datasource" />
+    <None Include="Web References\PartyManagement\PartyTransactionLookup2.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\PartyManagement\POS.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\PartyManagement\POS1.datasource" />
+    <None Include="Web References\PartyManagement\POS2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\PrinterDetails.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\PrinterDetails1.datasource" />
+    <None Include="Web References\PartyManagement\PrinterDetails2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\PartyManagement\PtfOffice.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\PartyManagement\PtfOffice1.datasource" />
+    <None Include="Web References\PartyManagement\PtfOffice2.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\PartyManagement\Reference.map">
@@ -703,77 +755,81 @@
     <None Include="Web References\PartyManagement\Retailer.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\PartyManagement\Retailer2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\PartyManagement\SalesPerson.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumberingAllocationPrinting.wsdl" />
+    <None Include="Web References\PartyManagement\SalesPerson2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\PrinterFormat.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\PrinterFormat1.datasource" />
+    <None Include="Web References\VoucherNumberingAllocationPrinting\PrinterFormat2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherAllocation.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherAllocation1.datasource" />
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherAllocation2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumber.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumber1.datasource" />
     <Compile Include="AddVoucherItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddVoucherItemForm.Designer.cs">
       <DependentUpon>AddVoucherItemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Common\Security.cs" />
-    <Compile Include="Common\SortedIndexList.cs" />
-    <Compile Include="Common\ValueEventArgs.cs" />
-    <Compile Include="Controls\DateTimePicker2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\DateTimePicker2.Designer.cs">
-      <DependentUpon>DateTimePicker2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ToggleButtonControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ToggleButtonControl.Designer.cs">
-      <DependentUpon>ToggleButtonControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Data\fileAccess.cs" />
-    <Compile Include="Data\pdfFileAccess.cs" />
-    <Compile Include="Data\ServiceDataAccess.cs" />
-    <Compile Include="Documents\VoucherPrintLayoutUnitRazX.cs" />
-    <Compile Include="Extensions\ObjectEx.cs">
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Common\CacheManager.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FileMsgForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Common\CommonTools.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FileMsgForm.Designer.cs">
-      <DependentUpon>FileMsgForm.cs</DependentUpon>
+    <Compile Include="Common\DynamicSerializable.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Forms\BrowserForm\Explorer.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Common\FileProtector.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Forms\RetailerForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Common\IgnoreList.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Forms\RetailerForm.Designer.cs">
-      <DependentUpon>RetailerForm.cs</DependentUpon>
+    <Compile Include="Common\ScanException.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainFormSearch.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Common\Security.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MonitorForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Common\SortedIndexList.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MonitorForm.Designer.cs">
-      <DependentUpon>MonitorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PluginLoader.cs" />
-    <Compile Include="ScaningProcessors\PDFFileHelper.cs" />
-    <Compile Include="ScaningProcessors\VoucherWithTransferFileProcessor.cs" />
-    <Compile Include="ScaningProcessors\CoversheetProcessor.cs" />
-    <Compile Include="ScaningProcessors\IScanProcessor.cs" />
-    <Compile Include="ScaningProcessors\VoucherWithBarcodeAndTransferFileProcessor.cs" />
-    <Compile Include="ScaningProcessors\VoucherWithBarcodeAndNoDocumentProcessor.cs" />
-    <Compile Include="ScaningProcessors\VoucherWithSiteCodeAndNoDocumentProcessor.cs" />
-    <Compile Include="ScanServiceClient.cs" />
-    <Compile Include="Common\DynamicSerializable.cs" />
-    <Compile Include="Common\FileProtector.cs" />
-    <Compile Include="Common\IgnoreList.cs" />
-    <Compile Include="Common\TaskProcessOrganizer.cs" />
-    <Compile Include="Common\ScanException.cs" />
     <Compile Include="Common\StateManager.cs" />
+    <Compile Include="Common\TaskProcessOrganizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\ValueEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\Accordion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Accordion.designer.cs">
+      <DependentUpon>Accordion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ArrowButton\ArrowButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -782,6 +838,18 @@
     </Compile>
     <Compile Include="Controls\BliningLabel.Designer.cs">
       <DependentUpon>BliningLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DateTimePicker2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DateTimePicker2.Designer.cs">
+      <DependentUpon>DateTimePicker2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Expander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Expander.designer.cs">
+      <DependentUpon>Expander.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ExpandPanel.cs">
       <SubType>Component</SubType>
@@ -792,6 +860,9 @@
     <Compile Include="Controls\ItemControl.Designer.cs">
       <DependentUpon>ItemControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MultyColorComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\RoundButton\RecessEditorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -801,181 +872,67 @@
     <Compile Include="Controls\RoundButton\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\RoundButton\VerticalString.cs" />
-    <Compile Include="MainFormScanningFuncs.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Controls\RoundButton\VerticalString.cs">
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainFormScanning.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SelectFilesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SelectFilesForm.Designer.cs">
-      <DependentUpon>SelectFilesForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ScanServiceLocalRef\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ScanServiceRef\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="SetupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SetupForm.Designer.cs">
-      <DependentUpon>SetupForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Speeker.cs" />
-    <Compile Include="Common\CacheManager.cs" />
-    <Compile Include="Common\CommonTools.cs" />
-    <Compile Include="Controls\Accordion.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\Accordion.designer.cs">
-      <DependentUpon>Accordion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Expander.cs">
+    <Compile Include="Controls\ToggleButtonControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Expander.designer.cs">
-      <DependentUpon>Expander.cs</DependentUpon>
+    <Compile Include="Controls\ToggleButtonControl.Designer.cs">
+      <DependentUpon>ToggleButtonControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\CurrentUser.cs" />
+    <Compile Include="Data\fileAccess.cs" />
     <Compile Include="Data\Partials.cs" />
+    <Compile Include="Data\pdfFileAccess.cs" />
+    <Compile Include="Data\ServiceDataAccess.cs" />
+    <Compile Include="Data\VoucherDS.cs">
+      <DependentUpon>VoucherDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\VoucherDS.Designer.cs">
+      <DependentUpon>VoucherDS.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Documents\Interfaces.cs" />
     <Compile Include="Documents\PrinterQueue.cs" />
     <Compile Include="Documents\PrintLine.cs" />
+    <Compile Include="Documents\VoucherPrinter.cs" />
+    <Compile Include="Documents\VoucherPrinterSettings.cs" />
     <Compile Include="Documents\VoucherPrintLayout250.cs" />
     <Compile Include="Documents\VoucherPrintLayout276.cs" />
     <Compile Include="Documents\VoucherPrintLayout380.cs" />
     <Compile Include="Documents\VoucherPrintLayout826.cs" />
     <Compile Include="Documents\VoucherPrintLayoutAll.cs" />
-    <Compile Include="Documents\VoucherPrinter.cs" />
-    <Compile Include="Documents\VoucherPrinterSettings.cs" />
     <Compile Include="Documents\VoucherPrintLayoutRaz.cs" />
     <Compile Include="Documents\VoucherPrintLayoutRazX.cs" />
+    <Compile Include="Documents\VoucherPrintLayoutUnitRazX.cs" />
     <Compile Include="Documents\~VoucherPrintLayoutRaz_Base.cs" />
     <Compile Include="Extensions\BarCodeEx.cs" />
     <Compile Include="Extensions\ExceptionEx.cs" />
     <Compile Include="Extensions\FormsEx.cs" />
-    <Compile Include="Extensions\WinFormsEx.cs" />
+    <Compile Include="Extensions\ObjectEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\PdfEx.cs" />
+    <Compile Include="FileMsgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileMsgForm.Designer.cs">
+      <DependentUpon>FileMsgForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAssignFormat.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAssignFormat.Designer.cs">
       <DependentUpon>FormAssignFormat.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateFormatForm.cs">
+    <Compile Include="FormLayout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateFormatForm.Designer.cs">
-      <DependentUpon>CreateFormatForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InputForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InputForm.Designer.cs">
-      <DependentUpon>InputForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AsyncFormManager.cs" />
-    <Compile Include="MapPrinterForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MapPrinterForm.Designer.cs">
-      <DependentUpon>MapPrinterForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Native\winspool.cs" />
-    <Compile Include="NumberForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NumberForm.Designer.cs">
-      <DependentUpon>NumberForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Razor\Facts\RazorTemplateGeneratorFacts.cs" />
-    <Compile Include="Razor\ModelsAndTemplates\SampleModel.cs" />
-    <Compile Include="Razor\ModelsAndTemplates\SampleTemplateStrings.cs" />
-    <Compile Include="Razor\RazorTemplating\Compiler.cs" />
-    <Compile Include="Razor\RazorTemplating\IRazorTemplateGenerator.cs" />
-    <Compile Include="Razor\RazorTemplating\RazorTemplateBase.cs" />
-    <Compile Include="Razor\RazorTemplating\RazorTemplateEntry.cs" />
-    <Compile Include="Razor\RazorTemplating\RazorTemplateGenerator.cs" />
-    <Compile Include="Razor\RazorTemplating\TemplateCompileException.cs" />
-    <Compile Include="Razor\SampleUsage.cs" />
-    <Compile Include="Service References\VoucherEntryAndModification\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Tools\ASCII.cs" />
-    <Compile Include="Tools\BarcodeInter2of5a.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Tools\BarcodeTools.cs" />
-    <Compile Include="Tools\DelegateHelper.cs" />
-    <Compile Include="Tools\Helper.cs" />
-    <Compile Include="Tools\EscapePrintHelper.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Tools\PrintManager.cs" />
-    <Compile Include="Tools\ESC_P2.cs" />
-    <Compile Include="Tools\MTPL.cs" />
-    <Compile Include="Tools\RawPrinterHelper.cs" />
-    <Compile Include="TransferForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TransferForm.Designer.cs">
-      <DependentUpon>TransferForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XmlEditor\RichTextBoxEx.cs" />
-    <Compile Include="XmlEditor\XmlEditorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="XmlEditor\XmlEditorControl.designer.cs">
-      <DependentUpon>XmlEditorControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XmlEditor\XmlToken.cs" />
-    <Compile Include="XmlEditor\XmlTokenizer.cs" />
-    <Compile Include="_\AllocationDocumentLayout.cs" />
-    <Compile Include="Controls\MultyColorComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Data\VoucherDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VoucherDS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SelectPrinterDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SelectPrinterDialog.Designer.cs">
-      <DependentUpon>SelectPrinterDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PrintForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrintForm.Designer.cs">
-      <DependentUpon>PrintForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PrintObjectForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrintObjectForm.Designer.cs">
-      <DependentUpon>PrintObjectForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Data\CurrentUser.cs" />
-    <Compile Include="Data\VoucherDS.cs">
-      <DependentUpon>VoucherDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="FormLayout.Designer.cs">
+      <DependentUpon>FormLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -989,16 +946,173 @@
     <Compile Include="FormPrint.designer.cs">
       <DependentUpon>FormPrint.cs</DependentUpon>
     </Compile>
-    <Compile Include="_\IImageObject.cs" />
-    <Compile Include="FormLayout.cs">
+    <Compile Include="Forms\AsyncFormManager.cs" />
+    <Compile Include="Forms\BrowserForm\Explorer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLayout.Designer.cs">
-      <DependentUpon>FormLayout.cs</DependentUpon>
+    <Compile Include="Forms\RetailerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RetailerForm.Designer.cs">
+      <DependentUpon>RetailerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputForm.Designer.cs">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFormSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapPrinterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapPrinterForm.Designer.cs">
+      <DependentUpon>MapPrinterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonitorForm.Designer.cs">
+      <DependentUpon>MonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Native\winspool.cs" />
+    <Compile Include="NumberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NumberForm.Designer.cs">
+      <DependentUpon>NumberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PluginLoader.cs" />
+    <Compile Include="PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintObjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintObjectForm.Designer.cs">
+      <DependentUpon>PrintObjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Razor\Facts\RazorTemplateGeneratorFacts.cs" />
+    <Compile Include="Razor\ModelsAndTemplates\SampleModel.cs" />
+    <Compile Include="Razor\ModelsAndTemplates\SampleTemplateStrings.cs" />
+    <Compile Include="Razor\RazorTemplating\Compiler.cs" />
+    <Compile Include="Razor\RazorTemplating\IRazorTemplateGenerator.cs" />
+    <Compile Include="Razor\RazorTemplating\RazorTemplateBase.cs" />
+    <Compile Include="Razor\RazorTemplating\RazorTemplateEntry.cs" />
+    <Compile Include="Razor\RazorTemplating\RazorTemplateGenerator.cs" />
+    <Compile Include="Razor\RazorTemplating\TemplateCompileException.cs" />
+    <Compile Include="Razor\SampleUsage.cs" />
+    <Compile Include="ScaningProcessors\CoversheetProcessor.cs" />
+    <Compile Include="ScaningProcessors\IScanProcessor.cs" />
+    <Compile Include="ScaningProcessors\PDFFileHelper.cs" />
+    <Compile Include="ScaningProcessors\VoucherWithBarcodeAndNoDocumentProcessor.cs" />
+    <Compile Include="ScaningProcessors\VoucherWithBarcodeAndTransferFileProcessor.cs" />
+    <Compile Include="ScaningProcessors\VoucherWithSiteCodeAndNoDocumentProcessor.cs" />
+    <Compile Include="ScaningProcessors\VoucherWithTransferFileProcessor.cs" />
+    <Compile Include="ScanServiceClient.cs" />
+    <Compile Include="MainFormScanningFuncs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormScanning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectFilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectFilesForm.Designer.cs">
+      <DependentUpon>SelectFilesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectPrinterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectPrinterDialog.Designer.cs">
+      <DependentUpon>SelectPrinterDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ScanServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="CreateFormatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateFormatForm.Designer.cs">
+      <DependentUpon>CreateFormatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VoucherEntryAndModification\Reference.cs">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="SetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetupForm.Designer.cs">
+      <DependentUpon>SetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Speeker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestClasses.cs" />
+    <Compile Include="Tools\ASCII.cs" />
+    <Compile Include="Tools\BarcodeInter2of5a.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tools\BarcodeTools.cs" />
+    <Compile Include="Tools\DelegateHelper.cs" />
+    <Compile Include="Tools\EscapePrintHelper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\ESC_P2.cs" />
+    <Compile Include="Tools\Helper.cs" />
+    <Compile Include="Tools\MTPL.cs" />
+    <Compile Include="Tools\PrintManager.cs" />
+    <Compile Include="Tools\RawPrinterHelper.cs" />
+    <Compile Include="TransferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferForm.Designer.cs">
+      <DependentUpon>TransferForm.cs</DependentUpon>
     </Compile>
     <Compile Include="VoucherPrintEngine.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Web References\Authentication\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\PartyManagement\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\VoucherNumberingAllocationPrinting\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="XmlEditor\RichTextBoxEx.cs" />
+    <Compile Include="XmlEditor\XmlEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="XmlEditor\XmlEditorControl.designer.cs">
+      <DependentUpon>XmlEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XmlEditor\XmlToken.cs" />
+    <Compile Include="XmlEditor\XmlTokenizer.cs" />
+    <Compile Include="_\AllocationDocumentLayout.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_\IImageObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1011,76 +1125,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="_\TextObject.cs" />
-    <Compile Include="Web References\Authentication\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\PartyManagement\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\VoucherNumberingAllocationPrinting\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Controls\ItemControl.resx">
-      <DependentUpon>ItemControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\RoundButton\RecessEditorControl.resx">
-      <DependentUpon>RecessEditorControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="CreateFormatForm.resx">
       <DependentUpon>CreateFormatForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAssignFormat.resx">
-      <DependentUpon>FormAssignFormat.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InputForm.resx">
-      <DependentUpon>InputForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MapPrinterForm.resx">
-      <DependentUpon>MapPrinterForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NumberForm.resx">
-      <DependentUpon>NumberForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectFilesForm.resx">
       <DependentUpon>SelectFilesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelectPrinterDialog.resx">
-      <DependentUpon>SelectPrinterDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PrintForm.resx">
-      <DependentUpon>PrintForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PrintObjectForm.resx">
-      <DependentUpon>PrintObjectForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPrint.resx">
-      <DependentUpon>FormPrint.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLayout.resx">
-      <DependentUpon>FormLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumber2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumberingAllocationPrinting.disco" />
+    <None Include="Web References\VoucherNumberingAllocationPrinting\VoucherNumberingAllocationPrinting.wsdl" />
     <None Include="Web References\VoucherNumberingAllocationPrinting\Vouchers.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VoucherNumberingAllocationPrinting\Vouchers1.datasource" />
+    <None Include="Web References\VoucherNumberingAllocationPrinting\Vouchers2.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
   </ItemGroup>
@@ -1158,7 +1227,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ScanServiceLocalRef\" />
     <WCFMetadataStorage Include="Service References\ScanServiceRef\" />
     <WCFMetadataStorage Include="Service References\VoucherEntryAndModification\" />
   </ItemGroup>
@@ -1191,14 +1259,8 @@
       <Project>{299F65C9-2BDF-42B2-BA4B-CA39F06328CA}</Project>
       <Name>VPrint.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VPrint_372_addon\VPrint_addon.csproj">
-      <Project>{7BBFF6A1-4EB9-40F3-AA85-0C81CAE1AD5E}</Project>
-      <Name>VPrint_addon</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\ExplorerTree\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

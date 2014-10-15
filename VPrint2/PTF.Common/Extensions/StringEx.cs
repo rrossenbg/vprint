@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Runtime;
@@ -606,6 +607,13 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
+        public static string Compress(this string str, string str2 = "_")
+        {
+            Debug.Assert(str != null);
+            return str.Replace(" ", str2);
+        }
+
+        [TargetedPatchingOptOut("na")]
         public static string Reverse(this string value)
         {
             if (value == null)
@@ -633,6 +641,46 @@ namespace VPrinting
         public static string EmptyOrWhiteSpaceToNull(this string value)
         {
             return string.IsNullOrWhiteSpace(value) ? null : value;
+        }
+
+        /// <summary>
+        /// Expected format A;B or A,B or A:B
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [TargetedPatchingOptOut("na")]
+        public static Size ParseSize(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+                throw new ArgumentException("s");
+
+            string[] ss = s.Split(',', ';', ':');
+            if (ss.Length != 2)
+                throw new ArgumentOutOfRangeException();
+
+            int width = int.Parse(ss[0].Trim());
+            int height = int.Parse(ss[1].Trim());
+            return new Size(width, height);
+        }
+
+        /// <summary>
+        /// Expected format A;B or A,B or A:B
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [TargetedPatchingOptOut("na")]
+        public static Point ParsePoint(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+                throw new ArgumentException("s");
+
+            string[] ss = s.Split(',', ';', ':');
+            if (ss.Length != 2)
+                throw new ArgumentOutOfRangeException();
+
+            int x = int.Parse(ss[0].Trim());
+            int y = int.Parse(ss[1].Trim());
+            return new Point(x, y);
         }
     }
 }

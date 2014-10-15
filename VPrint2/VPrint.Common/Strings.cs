@@ -28,6 +28,7 @@ namespace VPrinting
         public const string SubRangeFrom = "SubRangeFrom";
 
         public const string IVoucherLayout = "IVoucherLayout";
+        public const string CurrentPrintedPage = "CurrentPrintedPage";
 
         /// <summary>
         /// Index
@@ -118,6 +119,7 @@ Otherwise it has been inserted by using expected barcode details.";
         public const string PTFLogoFileFullPath = "PTFLogoFileFullPath";
         public const string Certigicate_COUNTRY = "Certigicate_COUNTRY";
         public const string Certigicate_LOCATION = "Certigicate_LOCATION";
+        public const string Certigicate_METADATA_FUNC = "Certigicate_METADATA_FUNC";
 
         /// <summary>
         /// {
@@ -156,6 +158,8 @@ Otherwise it has been inserted by using expected barcode details.";
         public const string tbScanDirectory = "tbScanDirectory";
         public const string ScanCopyWait = "ScanCopyWait";
         public const string ScanCopyTimeout = "ScanCopyTimeout";
+
+        public const string CROPIMAGE = "CROPIMAGE";
     }
 
     public static class Messages

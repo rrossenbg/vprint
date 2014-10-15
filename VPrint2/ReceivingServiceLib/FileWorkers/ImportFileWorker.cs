@@ -45,7 +45,7 @@ namespace ReceivingServiceLib.FileWorkers
                     if (dirs.Length != 0)
                     {
                         int jobId = 0, countryId = 0, retailerId = 0, voucherId = 0, userId, locationId;
-                        int? folderId;
+                        int? folderId, v_type;
                         string siteCode = null, barCode = null, sessionId;
                         string message = null;
 
@@ -73,7 +73,7 @@ namespace ReceivingServiceLib.FileWorkers
                                     isVoucher = true;
 
                                     fac.ReadVoucherXml(xmlPath, out jobId, out countryId, out retailerId, out voucherId, out folderId,
-                                        out siteCode, out barCode, out userId, out locationId, out sessionId);
+                                        out siteCode, out barCode, out userId, out locationId, out sessionId, out v_type);
 
                                     message = string.Concat("Job ID: ", jobId, Environment.NewLine, "Country ID: ",
                                         countryId, Environment.NewLine, "Retailer ID: ", retailerId, Environment.NewLine,
@@ -107,7 +107,6 @@ namespace ReceivingServiceLib.FileWorkers
 #if DEBUGGER
                                 Trace.WriteLine("Create zip ".concat(fromDir.Name), Strings.APPNAME);
 #endif
-
                                 string zipPath = Path.Combine(uploadRoot.FullName, string.Concat(fromDir.Name, ".zip"));
                                 var zipFile = new FileInfo(zipPath);
                                 zipFile.DeleteSafe();
@@ -129,7 +128,7 @@ namespace ReceivingServiceLib.FileWorkers
                                     if (isVoucher)
                                     {
                                         VoucherDataAccess.Instance.AddVoucher(jobId, countryId, retailerId, voucherId, folderId,
-                                            siteCode, barCode, locationId, userId, m_Buffer50MB, length, sessionId, true);
+                                            siteCode, barCode, locationId, userId, m_Buffer50MB, length, sessionId, true, 2);
                                     }
                                     else
                                     {

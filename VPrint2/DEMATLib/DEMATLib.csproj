@@ -12,14 +12,10 @@
     <AssemblyName>DEMATLib</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\~CycleWorkerBase.cs" />
+    <Compile Include="Data\DataObjects.cs" />
     <Compile Include="Data\DiorObjDataAccess.cs" />
     <Compile Include="DEMAT\BDVInvoiceSchema.designer.cs" />
     <Compile Include="DEMAT\BDV_InvoiceBuilder.cs" />

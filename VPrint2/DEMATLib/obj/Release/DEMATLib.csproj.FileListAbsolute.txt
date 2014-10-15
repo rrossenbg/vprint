@@ -8,4 +8,3 @@ C:\PROJECTS\VPrint2\DEMATLib\bin\Release\DEMATLib.dll
 C:\PROJECTS\VPrint2\DEMATLib\bin\Release\DEMATLib.pdb
 C:\PROJECTS\VPrint2\DEMATLib\obj\Release\DEMATLib.dll
 C:\PROJECTS\VPrint2\DEMATLib\obj\Release\DEMATLib.pdb
-C:\PROJECTS\VPrint2\DEMATLib\obj\Release\DEMATLib.csprojResolveAssemblyReference.cache

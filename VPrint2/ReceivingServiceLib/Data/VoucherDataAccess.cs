@@ -42,7 +42,7 @@ namespace ReceivingServiceLib.Data
 
         public void AddVoucher(
             int jobId, int isoId, int branchId, int voucherId, int? folderId, string siteCode, string barCode,
-            int locationId, int operatorId, byte[] buffer, int length, string sessionId, bool isProtected)
+            int locationId, int operatorId, byte[] buffer, int length, string sessionId, bool isProtected, int v_type)
         {
             CheckImagesConnectionStringThrow();
 
@@ -56,8 +56,8 @@ namespace ReceivingServiceLib.Data
 
             const string SQL2 = @"
             MERGE Voucher AS t
-            USING (SELECT @job_id, @iso_id, @branch_id, @v_number, @v_fl_id, @sitecode, @barcode, @location, @operator_id, @scan_image_size, @scan_image, @session_Id, @protected) AS s 
-			              (job_id, iso_id,  branch_id,  v_number, v_fl_id, sitecode,  barcode,  location, operator_id,   scan_image_size, scan_image, session_id, v_protected)
+            USING (SELECT @job_id, @iso_id, @branch_id, @v_number, @v_fl_id, @sitecode, @barcode, @location, @operator_id, @scan_image_size, @scan_image, @session_Id, @protected, @v_type) AS s 
+			              (job_id, iso_id,  branch_id,  v_number, v_fl_id, sitecode,  barcode,  location, operator_id,   scan_image_size, scan_image, session_id, v_protected, v_type)
             ON (t.iso_id = s.iso_id and t.v_number = s.v_number and t.sitecode = s.sitecode)
             WHEN MATCHED THEN 
                 UPDATE SET  job_id = s.job_id,
@@ -70,10 +70,11 @@ namespace ReceivingServiceLib.Data
 					        scan_image = s.scan_image,
 					        session_id = s.session_id,
                             v_protected = s.v_protected,
-                            v_fl_id = s.v_fl_id
+                            v_fl_id = s.v_fl_id,
+                            v_type = s.v_type
 	        WHEN NOT MATCHED THEN	
-	            INSERT (job_id,   iso_id,   branch_id,   v_number,   v_fl_id,   sitecode,   barcode,  scandate,   location,   operator_id,   scan_image_size,  scan_image, session_id, v_protected)
-	            VALUES (s.job_id, s.iso_id, s.branch_id, s.v_number, s.v_fl_id, s.sitecode, s.barcode, getdate(), s.location, s.operator_id, s.scan_image_size, s.scan_image, s.session_id, s.v_protected);
+	            INSERT (job_id,   iso_id,   branch_id,   v_number,   v_fl_id,   sitecode,   barcode,  scandate,   location,   operator_id,   scan_image_size,  scan_image, session_id, v_protected, v_type)
+	            VALUES (s.job_id, s.iso_id, s.branch_id, s.v_number, s.v_fl_id, s.sitecode, s.barcode, getdate(), s.location, s.operator_id, s.scan_image_size, s.scan_image, s.session_id, s.v_protected, s.v_type);
 	            --OUTPUT deleted.*, $action, inserted.* INTO #MyTempTable;
                 SELECT SCOPE_IDENTITY();";
 #endif
@@ -104,6 +105,7 @@ namespace ReceivingServiceLib.Data
                     var p1 = comm.Parameters.Add("@scan_image", SqlDbType.Binary, length);
                     p1.Value = buffer;
                     comm.Parameters.AddWithValue("@session_Id", sessionId);
+                    comm.Parameters.AddWithValue("@v_type", v_type);
                     v_id = comm.ExecuteScalar().Cast<int>();
                 }
             }

@@ -19,7 +19,7 @@ namespace VPrinting
             this.StartPosition = FormStartPosition.CenterParent;
         }
 
-        public static bool ShowFiles(IWin32Window owner, IList<FileInfo> files)
+        public static bool ShowFiles(IWin32Window owner, ICollection<FileInfo> files)
         {
             if (files.Count == 0)
                 return false;
@@ -32,7 +32,7 @@ namespace VPrinting
             return true;
         }
 
-        public void LoadData(IList<FileInfo> files)
+        public void LoadData(ICollection<FileInfo> files)
         {
             foreach (var fi in files)
             {

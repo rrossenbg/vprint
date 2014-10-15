@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using VPrinting.Common;
@@ -15,7 +16,7 @@ using VPrinting.Documents;
 using VPrinting.Extentions;
 using VPrinting.ScanServiceRef;
 using VPrinting.Tools;
-using System.Security.Cryptography.X509Certificates;
+using VPrinting.Loggers;
 
 namespace VPrinting
 {    
@@ -77,6 +78,10 @@ namespace VPrinting
             loader.Process(path, PluginLoader.Operation.Start);
             StateSaver.Default.Set(Strings.ClearScanDirectory, ConfigurationManager.AppSettings["ClearScanDirectory"].Cast<bool>());
 
+            Speeker.Enabled = ConfigurationManager.AppSettings["SPEAK"].Cast<bool>();
+
+            StateSaver.Default.Set(Strings.VERSION, Assembly.GetEntryAssembly().GetName());
+
 #if ! DEBUG
             if (ConfigurationManager.AppSettings["USE_SCAN_SERVER"].Cast<bool>())
             {
@@ -121,6 +126,9 @@ namespace VPrinting
 #endif
             new Action<Exception>((ee) => ServiceDataAccess.Instance.LogOperation(OperationHistory.Error, Program.SessionId, Program.currentUser.CountryID, 0, 0, 0, 0, ee.ToString())).FireAndForgetSafe(ex);
             Speeker.SpeakAsynchSf(ex.Message);
+#if !USE_LOGGER
+            FileLogger.LogError(ex, Strings.VRPINT);
+#endif
 
             FileInfoApplicationException ex2 = e.Exception as FileInfoApplicationException;
             if (ex2 != null)

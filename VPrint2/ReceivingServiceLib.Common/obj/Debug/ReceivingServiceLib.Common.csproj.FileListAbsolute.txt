@@ -3,3 +3,14 @@ C:\PROJECTS\VPrint\ReceivingServiceLib.Common\bin\Debug\ReceivingServiceLib.Comm
 C:\PROJECTS\VPrint\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.dll
 C:\PROJECTS\VPrint\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Debug\ReceivingServiceLib.Common.dll
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Debug\ReceivingServiceLib.Common.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Debug\Ionic.Zip.dll
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Debug\itextsharp.dll
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Debug\PTF.Common.dll
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\bin\Debug\PTF.Common.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.Properties.Resources.resources
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.csproj.GenerateResource.Cache
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.dll
+C:\PROJECTS\VPrint2\ReceivingServiceLib.Common\obj\Debug\ReceivingServiceLib.Common.pdb

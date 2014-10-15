@@ -14,7 +14,6 @@ using DTKBarReader;
 using VPrint.Common;
 using VPrinting.Common;
 using VPrinting.Documents;
-using VPrinting.Extentions;
 using VPrinting.ScaningProcessors;
 
 namespace VPrinting.Tools
@@ -23,6 +22,9 @@ namespace VPrinting.Tools
     {
         private const string DONEEVENTNAME = "DelegateHelper_Done";
         public static event ThreadExceptionEventHandler Error;
+
+        public static IList<IPrintLine> m_printLines;
+        public static List<IList<IPrintLine>> m_multyPrintLines;
 
         /// <summary>
         /// 
@@ -33,17 +35,70 @@ namespace VPrinting.Tools
         /// EscapePrintDocument doc = sender as EscapePrintDocument;
         /// EscapePrintHelper hlp = new EscapePrintHelper(e.Graphics);
         /// </example>
-        public static PrintPageEventHandler CreatePrintPageEventHandler(IList<IPrintLine> printLines)
+        public static void CreatePrintPageEventHandler(object sender, PrintPageEventArgs e)
         {
-            return new PrintPageEventHandler((sender, e) =>
-            {
-                IVoucherLayout layout = (IVoucherLayout)CacheManager.Instance.Table[Strings.IVoucherLayout];
+            IVoucherLayout layout = (IVoucherLayout)CacheManager.Instance.Table[Strings.IVoucherLayout];
 
-                Point moveAll = (layout != null) ? layout.MoveAll : Point.Empty;
+            Point moveAll = (layout != null) ? layout.MoveAll : Point.Empty;
+
+            using (var brush = new SolidBrush(Color.Black))
+            {
+                foreach (IPrintLine line in m_printLines)
+                {
+                    if (line == null)
+                        continue;
+
+                    GPrintLine gline = line as GPrintLine;
+                    if (gline != null && !gline.Text.IsNullOrEmpty() && (!gline.IsEmpty()))
+                    {
+                        gline.Print(e, brush, moveAll);
+                    }
+                    else
+                    {
+                        BarPrintLine bline = line as BarPrintLine;
+                        if (bline != null && !bline.IsEmpty())
+                        {
+                            bline.Print(e, brush, moveAll);
+                        }
+                        else
+                        {
+                            GPrintLineUnit inline = line as GPrintLineUnit;
+                            if (inline != null && !inline.Text.IsNullOrEmpty() && (!inline.IsEmpty()))
+                            {
+                                inline.Print(e, brush, moveAll);
+                            }
+                            else
+                            {
+                                BarPrintLineUnit inbline = line as BarPrintLineUnit;
+                                if (inbline != null && !inbline.IsEmpty())
+                                {
+                                    inbline.Print(e, brush, moveAll);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            e.HasMorePages = false;
+        }
+
+        public static void CreatePrintPageMultyEventHandler(object sender, PrintPageEventArgs e)
+        {
+            IVoucherLayout layout = (IVoucherLayout)CacheManager.Instance.Table[Strings.IVoucherLayout];
+
+            Point moveAll = (layout != null) ? layout.MoveAll : Point.Empty;
+
+            var index = Convert.ToInt32(CacheManager.Instance.Table[Strings.CurrentPrintedPage]);
+
+            try
+            {
+
+                var currentPage = m_multyPrintLines[index];
 
                 using (var brush = new SolidBrush(Color.Black))
                 {
-                    foreach (IPrintLine line in printLines)
+                    foreach (IPrintLine line in currentPage)
                     {
                         if (line == null)
                             continue;
@@ -51,100 +106,46 @@ namespace VPrinting.Tools
                         GPrintLine gline = line as GPrintLine;
                         if (gline != null && !gline.Text.IsNullOrEmpty() && (!gline.IsEmpty()))
                         {
-                            if (gline.Font == null)
-                                throw new ArgumentNullException("Line.Font");
-                            if (gline.Font.Value == null)
-                                throw new ArgumentNullException("Line.Font.Value");
-
-                            var lines = gline.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-                            Size size;
-                            for (int i = 0, y = (int)line.Y; i < lines.Length; i++, y += size.Height)
-                            {
-                                e.Graphics.DrawString(lines[i], gline.Font.Value, brush, line.X + moveAll.X, y + moveAll.Y);
-                                size = Size.Round(e.Graphics.MeasureString(lines[i], gline.Font.Value));
-                            }
+                            gline.Print(e, brush, moveAll);
                         }
                         else
                         {
                             BarPrintLine bline = line as BarPrintLine;
                             if (bline != null && !bline.IsEmpty())
                             {
-                                using (var bmp = BarcodeTools.BinaryWritePicture(bline.Text, bline.Height, bline.Size))
-                                {
-                                    e.Graphics.DrawImage(bmp, bline.X + moveAll.X, bline.Y + moveAll.Y);
-
-                                    if (bline.BarText == null)
-                                        throw new ApplicationException("BarText empty");
-
-                                    SizeF s = e.Graphics.MeasureString(bline.BarText.Text, bline.BarText.Font.Value);
-
-                                    e.Graphics.DrawString(bline.BarText.Text, bline.BarText.Font.Value, brush,
-                                        bline.X + ((bmp.Width - s.Width) / 2 + bline.BarText.X) + moveAll.X, // Middle
-                                        bline.Y + (bmp.Height + bline.BarText.Y) + moveAll.Y);//Bottom
-                                }
+                                bline.Print(e, brush, moveAll);
                             }
                             else
                             {
                                 GPrintLineUnit inline = line as GPrintLineUnit;
                                 if (inline != null && !inline.Text.IsNullOrEmpty() && (!inline.IsEmpty()))
                                 {
-                                    if (inline.Font == null)
-                                        throw new ArgumentNullException("Line.Font");
-                                    if (inline.Font.Value == null)
-                                        throw new ArgumentNullException("Line.Font.Value");
-
-                                    var lines = inline.Text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-                                    SizeF size;
-
-                                    float X = (inline.Units == GraphicsUnit.Inch) ?
-                                        inline.X.FromInch() :
-                                        inline.X;
-                                    float y = (inline.Units == GraphicsUnit.Inch) ?
-                                        inline.Y.FromInch() :
-                                        inline.Y;
-
-                                    for (int i = 0; i < lines.Length; i++, y += size.Height)
-                                    {
-                                        e.Graphics.DrawString(lines[i], inline.Font.Value, brush, X + moveAll.X, y + moveAll.Y);
-                                        size = e.Graphics.MeasureString(lines[i], inline.Font.Value);
-                                    }
+                                    inline.Print(e, brush, moveAll);
                                 }
                                 else
                                 {
                                     BarPrintLineUnit inbline = line as BarPrintLineUnit;
                                     if (inbline != null && !inbline.IsEmpty())
                                     {
-                                        using (var bmp = BarcodeTools.BinaryWritePicture(inbline.Text, inbline.Height, inbline.Size))
-                                        {
-                                            float X = (inline.Units == GraphicsUnit.Inch) ?
-                                                inbline.X.FromInch() :
-                                                inbline.X;
-                                            float Y = (inline.Units == GraphicsUnit.Inch) ?
-                                                inbline.Y.FromInch() :
-                                                inbline.Y;
-
-                                            e.Graphics.DrawImage(bmp, X + moveAll.X, Y + moveAll.Y);
-
-                                            if (inbline.BarText == null)
-                                                throw new ApplicationException("BarText empty");
-
-                                            SizeF s = e.Graphics.MeasureString(inbline.BarText.Text, inbline.BarText.Font.Value);
-
-                                            e.Graphics.DrawString(inbline.BarText.Text, inbline.BarText.Font.Value, brush,
-                                                (X + ((bmp.Width - s.Width) / 2 + inbline.BarText.X) + moveAll.X), // Middle
-                                                (Y + (bmp.Height + inbline.BarText.Y)) + moveAll.Y);//Bottom
-                                        }
+                                        inbline.Print(e, brush, moveAll);
                                     }
                                 }
                             }
                         }
                     }
                 }
+            }
+            finally
+            {
+                bool hasmore = ((index) < (m_multyPrintLines.Count - 1));
 
-                e.HasMorePages = false;
-            });
+                if (hasmore)
+                    CacheManager.Instance.Table[Strings.CurrentPrintedPage] = index + 1;
+                else
+                    CacheManager.Instance.Table[Strings.CurrentPrintedPage] = 0;
+
+                e.HasMorePages = hasmore;
+            }
         }
 
         public static Action<TaskProcessOrganizer<string>.TaskItem> CreateScanAction()

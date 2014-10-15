@@ -1,0 +1,2509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ptf.com/PtfWebService" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.ptf.com/PtfWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Service supplies all the function calls required for Party Management.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ptf.com/PtfWebService">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="RecreateRefundSpreadsheets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="batch_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecreateRefundSpreadsheetsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecreateRefundSpreadsheetsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticationHeader" type="tns:AuthenticationHeader" />
+      <s:complexType name="AuthenticationHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Salt" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="RecreateVatClaimreport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="inv_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecreateVatClaimreportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecreateVatClaimreportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveVATClaimInvoice">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveVATClaimInvoiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveVATClaimInvoiceResult" type="tns:ArrayOfNameIdData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNameIdData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NameIdData" nillable="true" type="tns:NameIdData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NameIdData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrievePftOfficeList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePftOfficeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrievePftOfficeListResult" type="tns:ArrayOfPtfOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPtfOffice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PtfOffice" nillable="true" type="tns:PtfOffice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PtfOffice">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OfficeAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="Manager" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankInfo" type="tns:BankDetail" />
+          <s:element minOccurs="1" maxOccurs="1" name="SelectedVoucherPrinter" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherPrinter1Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherPrinter1Format" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherPrinter2Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherPrinter2Format" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LetterPrinterIp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportPrinterIp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChequePrinterIp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VATString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BIC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Line1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line6" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SortCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="BIC" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DisablePtfOffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ptfOfficeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="disableFlag" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisablePtfOfficeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrievePtfOfficeDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ptfOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePtfOfficeDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrievePtfOfficeDetailResult" type="tns:PtfOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePtfOffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ptfOffice" type="tns:PtfOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePtfOfficeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePtfOfficeResult" type="tns:PtfOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreatePtfOffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ptfOffice" type="tns:PtfOffice" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreatePtfOfficeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreatePtfOfficeResult" type="tns:PtfOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePtfSalePersonList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePtfSalePersonListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrievePtfSalePersonListResult" type="tns:ArrayOfSalesPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesPerson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesPerson" nillable="true" type="tns:SalesPerson" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesPerson">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeAddress" type="tns:Address" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmployeeId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DisablePtfSalesPerson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="salesPersonId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="disableFlag" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisablePtfSalesPersonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrievePtfSalesPersonDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="salesPersonId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePtfSalesPersonDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrievePtfSalesPersonDetailResult" type="tns:SalesPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePtfSalesPerson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salesPerson" type="tns:SalesPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePtfSalesPersonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePtfSalesPersonResult" type="tns:SalesPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoesSalesPersonConflict">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoesSalesPersonConflictResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DoesSalesPersonConflictResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreatePtfSalesPerson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salesPerson" type="tns:SalesPerson" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreatePtfSalesPersonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreatePtfSalesPersonResult" type="tns:SalesPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveHeadOfficeList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveHeadOfficeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveHeadOfficeListResult" type="tns:ArrayOfHeadOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHeadOffice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HeadOffice" nillable="true" type="tns:HeadOffice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HeadOffice">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TradingName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OfficeAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="TradingAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceDept" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankInformation" type="tns:BankDetail" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VatNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email5" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalesPersonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateJoined" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLeft" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RenewalDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContractSignatureDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContractSignedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Identity" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoticePeriodId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetailerFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrustedFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportsFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomRulesFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportsMethod" type="s1:char" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MailingListFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CashRefundsFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlacklistFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuspendedFlag" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TranferAgentFee" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddProcessingFee" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessingFee" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebateFrequency" type="tns:RebateFrequencies" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebateStartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebateLastRunDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebateNextRunDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebateTrusted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebateInvoiceType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NotaDebitoPaymentMethod" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PFS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoryTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertificationCode1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertificationCode2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertificationCode3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesLedgerNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurchaseLedgerNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RebatePaymentMethod" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PabloStore" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IrasRegistrationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IrasDeregistrationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ACRAreport" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EAccreditoReport" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="BIC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToposPaymentMethod" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToposReportType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="hoi_nd_special_rule" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hoi_nd_display_rebate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hoi_nd_special" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdminFeeNetOff" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdminFeeInvoiceType" type="tns:HeadOfficeAdminFeeInvoiceType" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastToposPaymentDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextRepartitionRunDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsAlternateRefund" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountManagerId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="hoi_nd_topos_format" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="hoi_nd_nontopos_format" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnableDematExport" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DEMATContactPerson" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueMandateReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DirectDebitSignedAt" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DirectDebitPersonName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DirectDebitLastCollectedAt" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DirectDebitStatus" type="tns:DirectDebitStatusType" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsMidMonth" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HighPriorityRefund" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="RebateFrequencies">
+        <s:restriction base="s:string">
+          <s:enumeration value="Weekly" />
+          <s:enumeration value="Fortnightly" />
+          <s:enumeration value="FourWeekly" />
+          <s:enumeration value="Monthly" />
+          <s:enumeration value="Every2Months" />
+          <s:enumeration value="Quarterly" />
+          <s:enumeration value="HalfYearly" />
+          <s:enumeration value="Yearly" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="HeadOfficeAdminFeeInvoiceType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Null" />
+          <s:enumeration value="C" />
+          <s:enumeration value="M" />
+          <s:enumeration value="R" />
+          <s:enumeration value="L" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="DirectDebitStatusType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Valid" />
+          <s:enumeration value="Expired" />
+          <s:enumeration value="InComplete" />
+          <s:enumeration value="Cancelled" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="DisableHeadOffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="headOfficeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="disableFlag" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableHeadOfficeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveHeadOfficeDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="headOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveHeadOfficeDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveHeadOfficeDetailResult" type="tns:HeadOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveTableData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fieldList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="where" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveTableDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveTableDataResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateHeadOffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="headOffice" type="tns:HeadOffice" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHeadOfficeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateHeadOfficeResult" type="tns:HeadOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTableData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="table" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTableDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateTableDataResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateHeadOffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="headOffice" type="tns:HeadOffice" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateHeadOfficeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateHeadOfficeResult" type="tns:HeadOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRetailerList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="headOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Retailer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TradingName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HeadOfficeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HeadOfficeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HeadOfficeNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HeadOfficeAverageSpend" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetailAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateJoined" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLeft" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportsFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlacklistRetailerFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlacklistHeadofficeFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuspendedFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuspendedHeadofficeFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportsMethod" type="s1:char" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ManualVoucherFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="POSVoucherFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="StoreVoucherFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalesPersonId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VatNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrinterBranchId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrinterBranchIso" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrinterNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Partner" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerCashStructure" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerPosStructure" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VatRate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TranferAgentFee" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetailerReferenceID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiscountStore" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PFS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VatRateAmount" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToposFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnitqueShopFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PABLO" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VoucherPrinterDetailsID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountManagerId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnableDematExport" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DEMATContractDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DEMATContactPersonEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRetailer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Retailer" nillable="true" type="tns:Retailer" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrieveRetailerListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveRetailerListResult" type="tns:ArrayOfRetailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableRetailer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="disableFlag" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableRetailerResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveRetailerDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRetailerDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveRetailerDetailResult" type="tns:Retailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRetailer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailer" type="tns:Retailer" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRetailerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateRetailerResult" type="tns:Retailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateRetailer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailer" type="tns:Retailer" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateRetailerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateRetailerResult" type="tns:Retailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveUnallocatedPOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="POS">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TerminalBrandId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TermianlModelId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Active" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckDigitEnabled" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CheckDigitStartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="InstallationDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TerminationDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RentalAmount" nillable="true" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPOS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="POS" nillable="true" type="tns:POS" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrieveUnallocatedPOSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveUnallocatedPOSResult" type="tns:ArrayOfPOS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRetailerPOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRetailerPOSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveRetailerPOSResult" type="tns:ArrayOfPOS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllocateRetailerPOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="posList" type="tns:ArrayOfPOS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AllocateRetailerPOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UnallocateRetailerPOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="posList" type="tns:ArrayOfPOS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnallocateRetailerPOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveAgentHOList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AgentHeadOffice">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgentAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankInformation" type="tns:BankDetail" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Manager" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChargeStructureId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateJoined" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLeft" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlacklistFlag" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAgentHeadOffice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AgentHeadOffice" nillable="true" type="tns:AgentHeadOffice" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrieveAgentHOListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAgentHOListResult" type="tns:ArrayOfAgentHeadOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableAgentHO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="agentHeadOfficeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="disableFlag" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableAgentHOResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveAgentHODetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="agentHeadOfficeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAgentHODetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAgentHODetailResult" type="tns:AgentHeadOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAgentHO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agentHeadOffice" type="tns:AgentHeadOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAgentHOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAgentHOResult" type="tns:AgentHeadOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAgentHO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agentHeadOffice" type="tns:AgentHeadOffice" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAgentHOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateAgentHOResult" type="tns:AgentHeadOffice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAgentBranchList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="agentHeadOfficeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="partyType" type="tns:PartyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="PartyType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Government" />
+          <s:enumeration value="Ptf" />
+          <s:enumeration value="Tourist" />
+          <s:enumeration value="Retailer" />
+          <s:enumeration value="AirportAgent" />
+          <s:enumeration value="Bank" />
+          <s:enumeration value="CityAgent" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="AgentBranch">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentHeadOfficeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgentHeadOfficeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgentAddress" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Manager" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateJoined" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateLeft" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlacklistFlag" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChargeStructureId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FeeStructureId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExitPoint" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportLocation" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:PartyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAgentBranch">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AgentBranch" nillable="true" type="tns:AgentBranch" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrieveAgentBranchListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAgentBranchListResult" type="tns:ArrayOfAgentBranch" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableAgentBranch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="agentBranchId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="disableFlag" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableAgentBranchResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveAgentBranchDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="agentBranchId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="countryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAgentBranchDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAgentBranchDetailResult" type="tns:AgentBranch" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAgentBranch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agentBranch" type="tns:AgentBranch" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAgentBranchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAgentBranchResult" type="tns:AgentBranch" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAgentBranch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agentBranch" type="tns:AgentBranch" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAgentBranchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateAgentBranchResult" type="tns:AgentBranch" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartyTransactionList">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="PartyTransactionLookup">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PartyId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartyDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPartyTransactionLookup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PartyTransactionLookup" nillable="true" type="tns:PartyTransactionLookup" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPartyTransactionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartyTransactionListResult" type="tns:ArrayOfPartyTransactionLookup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPtfCountryList">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="CountryDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BaseCurrency" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentCurrency" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Number" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Iso2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Iso3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nationality" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ptf" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SortCodeLength" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountCodeLength" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SortCodeFixed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountCodeFixed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BicFixed" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCountryDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CountryDetail" nillable="true" type="tns:CountryDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPtfCountryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPtfCountryListResult" type="tns:ArrayOfCountryDetail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrinterInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iso_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="br_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PrinterDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Xml" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPrinterInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrinterInfoResult" type="tns:PrinterDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPrinterInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iso_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="br_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="br_vpd_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPrinterInfoResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RecreateRefundSpreadsheetsSoapIn">
+    <wsdl:part name="parameters" element="tns:RecreateRefundSpreadsheets" />
+  </wsdl:message>
+  <wsdl:message name="RecreateRefundSpreadsheetsSoapOut">
+    <wsdl:part name="parameters" element="tns:RecreateRefundSpreadsheetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecreateRefundSpreadsheetsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RecreateVatClaimreportSoapIn">
+    <wsdl:part name="parameters" element="tns:RecreateVatClaimreport" />
+  </wsdl:message>
+  <wsdl:message name="RecreateVatClaimreportSoapOut">
+    <wsdl:part name="parameters" element="tns:RecreateVatClaimreportResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecreateVatClaimreportAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveVATClaimInvoiceSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveVATClaimInvoice" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveVATClaimInvoiceSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveVATClaimInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveVATClaimInvoiceAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePftOfficeListSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrievePftOfficeList" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePftOfficeListSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrievePftOfficeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePftOfficeListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="DisablePtfOfficeSoapIn">
+    <wsdl:part name="parameters" element="tns:DisablePtfOffice" />
+  </wsdl:message>
+  <wsdl:message name="DisablePtfOfficeSoapOut">
+    <wsdl:part name="parameters" element="tns:DisablePtfOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisablePtfOfficeAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePtfOfficeDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrievePtfOfficeDetail" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePtfOfficeDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrievePtfOfficeDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePtfOfficeDetailAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePtfOfficeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePtfOffice" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePtfOfficeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePtfOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePtfOfficeAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreatePtfOfficeSoapIn">
+    <wsdl:part name="parameters" element="tns:CreatePtfOffice" />
+  </wsdl:message>
+  <wsdl:message name="CreatePtfOfficeSoapOut">
+    <wsdl:part name="parameters" element="tns:CreatePtfOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreatePtfOfficeAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePtfSalePersonListSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrievePtfSalePersonList" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePtfSalePersonListSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrievePtfSalePersonListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePtfSalePersonListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="DisablePtfSalesPersonSoapIn">
+    <wsdl:part name="parameters" element="tns:DisablePtfSalesPerson" />
+  </wsdl:message>
+  <wsdl:message name="DisablePtfSalesPersonSoapOut">
+    <wsdl:part name="parameters" element="tns:DisablePtfSalesPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisablePtfSalesPersonAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePtfSalesPersonDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrievePtfSalesPersonDetail" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePtfSalesPersonDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrievePtfSalesPersonDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePtfSalesPersonDetailAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePtfSalesPersonSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePtfSalesPerson" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePtfSalesPersonSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePtfSalesPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePtfSalesPersonAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="DoesSalesPersonConflictSoapIn">
+    <wsdl:part name="parameters" element="tns:DoesSalesPersonConflict" />
+  </wsdl:message>
+  <wsdl:message name="DoesSalesPersonConflictSoapOut">
+    <wsdl:part name="parameters" element="tns:DoesSalesPersonConflictResponse" />
+  </wsdl:message>
+  <wsdl:message name="DoesSalesPersonConflictAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreatePtfSalesPersonSoapIn">
+    <wsdl:part name="parameters" element="tns:CreatePtfSalesPerson" />
+  </wsdl:message>
+  <wsdl:message name="CreatePtfSalesPersonSoapOut">
+    <wsdl:part name="parameters" element="tns:CreatePtfSalesPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreatePtfSalesPersonAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveHeadOfficeListSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveHeadOfficeList" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveHeadOfficeListSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveHeadOfficeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveHeadOfficeListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="DisableHeadOfficeSoapIn">
+    <wsdl:part name="parameters" element="tns:DisableHeadOffice" />
+  </wsdl:message>
+  <wsdl:message name="DisableHeadOfficeSoapOut">
+    <wsdl:part name="parameters" element="tns:DisableHeadOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisableHeadOfficeAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveHeadOfficeDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveHeadOfficeDetail" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveHeadOfficeDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveHeadOfficeDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveHeadOfficeDetailAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveTableDataSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveTableData" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveTableDataSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveTableDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveTableDataAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHeadOfficeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateHeadOffice" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHeadOfficeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateHeadOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHeadOfficeAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTableDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTableData" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTableDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTableDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTableDataAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateHeadOfficeSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateHeadOffice" />
+  </wsdl:message>
+  <wsdl:message name="CreateHeadOfficeSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateHeadOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateHeadOfficeAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerListSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveRetailerList" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerListSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveRetailerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="DisableRetailerSoapIn">
+    <wsdl:part name="parameters" element="tns:DisableRetailer" />
+  </wsdl:message>
+  <wsdl:message name="DisableRetailerSoapOut">
+    <wsdl:part name="parameters" element="tns:DisableRetailerResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisableRetailerAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveRetailerDetail" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveRetailerDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerDetailAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRetailerSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRetailer" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRetailerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRetailerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRetailerAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateRetailerSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateRetailer" />
+  </wsdl:message>
+  <wsdl:message name="CreateRetailerSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateRetailerResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateRetailerAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUnallocatedPOSSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveUnallocatedPOS" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUnallocatedPOSSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveUnallocatedPOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveUnallocatedPOSAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerPOSSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveRetailerPOS" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerPOSSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveRetailerPOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRetailerPOSAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AllocateRetailerPOSSoapIn">
+    <wsdl:part name="parameters" element="tns:AllocateRetailerPOS" />
+  </wsdl:message>
+  <wsdl:message name="AllocateRetailerPOSSoapOut">
+    <wsdl:part name="parameters" element="tns:AllocateRetailerPOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="AllocateRetailerPOSAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UnallocateRetailerPOSSoapIn">
+    <wsdl:part name="parameters" element="tns:UnallocateRetailerPOS" />
+  </wsdl:message>
+  <wsdl:message name="UnallocateRetailerPOSSoapOut">
+    <wsdl:part name="parameters" element="tns:UnallocateRetailerPOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnallocateRetailerPOSAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentHOListSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAgentHOList" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentHOListSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAgentHOListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentHOListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="DisableAgentHOSoapIn">
+    <wsdl:part name="parameters" element="tns:DisableAgentHO" />
+  </wsdl:message>
+  <wsdl:message name="DisableAgentHOSoapOut">
+    <wsdl:part name="parameters" element="tns:DisableAgentHOResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisableAgentHOAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentHODetailSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAgentHODetail" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentHODetailSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAgentHODetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentHODetailAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgentHOSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAgentHO" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgentHOSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAgentHOResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgentHOAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateAgentHOSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateAgentHO" />
+  </wsdl:message>
+  <wsdl:message name="CreateAgentHOSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateAgentHOResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateAgentHOAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentBranchListSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAgentBranchList" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentBranchListSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAgentBranchListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentBranchListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="DisableAgentBranchSoapIn">
+    <wsdl:part name="parameters" element="tns:DisableAgentBranch" />
+  </wsdl:message>
+  <wsdl:message name="DisableAgentBranchSoapOut">
+    <wsdl:part name="parameters" element="tns:DisableAgentBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisableAgentBranchAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentBranchDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAgentBranchDetail" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentBranchDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAgentBranchDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAgentBranchDetailAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgentBranchSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAgentBranch" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgentBranchSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAgentBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAgentBranchAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateAgentBranchSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateAgentBranch" />
+  </wsdl:message>
+  <wsdl:message name="CreateAgentBranchSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateAgentBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateAgentBranchAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPartyTransactionListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPartyTransactionList" />
+  </wsdl:message>
+  <wsdl:message name="GetPartyTransactionListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPartyTransactionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPartyTransactionListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPtfCountryListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPtfCountryList" />
+  </wsdl:message>
+  <wsdl:message name="GetPtfCountryListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPtfCountryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPtfCountryListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPrinterInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrinterInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPrinterInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrinterInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrinterInfoAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetPrinterInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SetPrinterInfo" />
+  </wsdl:message>
+  <wsdl:message name="SetPrinterInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SetPrinterInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetPrinterInfoAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:portType name="PartyManagementSoap">
+    <wsdl:operation name="RecreateRefundSpreadsheets">
+      <wsdl:input message="tns:RecreateRefundSpreadsheetsSoapIn" />
+      <wsdl:output message="tns:RecreateRefundSpreadsheetsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecreateVatClaimreport">
+      <wsdl:input message="tns:RecreateVatClaimreportSoapIn" />
+      <wsdl:output message="tns:RecreateVatClaimreportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveVATClaimInvoice">
+      <wsdl:input message="tns:RetrieveVATClaimInvoiceSoapIn" />
+      <wsdl:output message="tns:RetrieveVATClaimInvoiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePftOfficeList">
+      <wsdl:input message="tns:RetrievePftOfficeListSoapIn" />
+      <wsdl:output message="tns:RetrievePftOfficeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisablePtfOffice">
+      <wsdl:input message="tns:DisablePtfOfficeSoapIn" />
+      <wsdl:output message="tns:DisablePtfOfficeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePtfOfficeDetail">
+      <wsdl:input message="tns:RetrievePtfOfficeDetailSoapIn" />
+      <wsdl:output message="tns:RetrievePtfOfficeDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePtfOffice">
+      <wsdl:input message="tns:UpdatePtfOfficeSoapIn" />
+      <wsdl:output message="tns:UpdatePtfOfficeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePtfOffice">
+      <wsdl:input message="tns:CreatePtfOfficeSoapIn" />
+      <wsdl:output message="tns:CreatePtfOfficeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePtfSalePersonList">
+      <wsdl:input message="tns:RetrievePtfSalePersonListSoapIn" />
+      <wsdl:output message="tns:RetrievePtfSalePersonListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisablePtfSalesPerson">
+      <wsdl:input message="tns:DisablePtfSalesPersonSoapIn" />
+      <wsdl:output message="tns:DisablePtfSalesPersonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePtfSalesPersonDetail">
+      <wsdl:input message="tns:RetrievePtfSalesPersonDetailSoapIn" />
+      <wsdl:output message="tns:RetrievePtfSalesPersonDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePtfSalesPerson">
+      <wsdl:input message="tns:UpdatePtfSalesPersonSoapIn" />
+      <wsdl:output message="tns:UpdatePtfSalesPersonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoesSalesPersonConflict">
+      <wsdl:input message="tns:DoesSalesPersonConflictSoapIn" />
+      <wsdl:output message="tns:DoesSalesPersonConflictSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePtfSalesPerson">
+      <wsdl:input message="tns:CreatePtfSalesPersonSoapIn" />
+      <wsdl:output message="tns:CreatePtfSalesPersonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveHeadOfficeList">
+      <wsdl:input message="tns:RetrieveHeadOfficeListSoapIn" />
+      <wsdl:output message="tns:RetrieveHeadOfficeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableHeadOffice">
+      <wsdl:input message="tns:DisableHeadOfficeSoapIn" />
+      <wsdl:output message="tns:DisableHeadOfficeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveHeadOfficeDetail">
+      <wsdl:input message="tns:RetrieveHeadOfficeDetailSoapIn" />
+      <wsdl:output message="tns:RetrieveHeadOfficeDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTableData">
+      <wsdl:input message="tns:RetrieveTableDataSoapIn" />
+      <wsdl:output message="tns:RetrieveTableDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHeadOffice">
+      <wsdl:input message="tns:UpdateHeadOfficeSoapIn" />
+      <wsdl:output message="tns:UpdateHeadOfficeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTableData">
+      <wsdl:input message="tns:UpdateTableDataSoapIn" />
+      <wsdl:output message="tns:UpdateTableDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateHeadOffice">
+      <wsdl:input message="tns:CreateHeadOfficeSoapIn" />
+      <wsdl:output message="tns:CreateHeadOfficeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerList">
+      <wsdl:input message="tns:RetrieveRetailerListSoapIn" />
+      <wsdl:output message="tns:RetrieveRetailerListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableRetailer">
+      <wsdl:input message="tns:DisableRetailerSoapIn" />
+      <wsdl:output message="tns:DisableRetailerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerDetail">
+      <wsdl:input message="tns:RetrieveRetailerDetailSoapIn" />
+      <wsdl:output message="tns:RetrieveRetailerDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRetailer">
+      <wsdl:input message="tns:UpdateRetailerSoapIn" />
+      <wsdl:output message="tns:UpdateRetailerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRetailer">
+      <wsdl:input message="tns:CreateRetailerSoapIn" />
+      <wsdl:output message="tns:CreateRetailerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUnallocatedPOS">
+      <wsdl:input message="tns:RetrieveUnallocatedPOSSoapIn" />
+      <wsdl:output message="tns:RetrieveUnallocatedPOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerPOS">
+      <wsdl:input message="tns:RetrieveRetailerPOSSoapIn" />
+      <wsdl:output message="tns:RetrieveRetailerPOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AllocateRetailerPOS">
+      <wsdl:input message="tns:AllocateRetailerPOSSoapIn" />
+      <wsdl:output message="tns:AllocateRetailerPOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnallocateRetailerPOS">
+      <wsdl:input message="tns:UnallocateRetailerPOSSoapIn" />
+      <wsdl:output message="tns:UnallocateRetailerPOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentHOList">
+      <wsdl:input message="tns:RetrieveAgentHOListSoapIn" />
+      <wsdl:output message="tns:RetrieveAgentHOListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableAgentHO">
+      <wsdl:input message="tns:DisableAgentHOSoapIn" />
+      <wsdl:output message="tns:DisableAgentHOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentHODetail">
+      <wsdl:input message="tns:RetrieveAgentHODetailSoapIn" />
+      <wsdl:output message="tns:RetrieveAgentHODetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentHO">
+      <wsdl:input message="tns:UpdateAgentHOSoapIn" />
+      <wsdl:output message="tns:UpdateAgentHOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAgentHO">
+      <wsdl:input message="tns:CreateAgentHOSoapIn" />
+      <wsdl:output message="tns:CreateAgentHOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentBranchList">
+      <wsdl:input message="tns:RetrieveAgentBranchListSoapIn" />
+      <wsdl:output message="tns:RetrieveAgentBranchListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableAgentBranch">
+      <wsdl:input message="tns:DisableAgentBranchSoapIn" />
+      <wsdl:output message="tns:DisableAgentBranchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentBranchDetail">
+      <wsdl:input message="tns:RetrieveAgentBranchDetailSoapIn" />
+      <wsdl:output message="tns:RetrieveAgentBranchDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentBranch">
+      <wsdl:input message="tns:UpdateAgentBranchSoapIn" />
+      <wsdl:output message="tns:UpdateAgentBranchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAgentBranch">
+      <wsdl:input message="tns:CreateAgentBranchSoapIn" />
+      <wsdl:output message="tns:CreateAgentBranchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartyTransactionList">
+      <wsdl:input message="tns:GetPartyTransactionListSoapIn" />
+      <wsdl:output message="tns:GetPartyTransactionListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPtfCountryList">
+      <wsdl:input message="tns:GetPtfCountryListSoapIn" />
+      <wsdl:output message="tns:GetPtfCountryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrinterInfo">
+      <wsdl:input message="tns:GetPrinterInfoSoapIn" />
+      <wsdl:output message="tns:GetPrinterInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPrinterInfo">
+      <wsdl:input message="tns:SetPrinterInfoSoapIn" />
+      <wsdl:output message="tns:SetPrinterInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PartyManagementSoap" type="tns:PartyManagementSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecreateRefundSpreadsheets">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RecreateRefundSpreadsheets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RecreateRefundSpreadsheetsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecreateVatClaimreport">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RecreateVatClaimreport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RecreateVatClaimreportAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveVATClaimInvoice">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveVATClaimInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveVATClaimInvoiceAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePftOfficeList">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrievePftOfficeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrievePftOfficeListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisablePtfOffice">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/DisablePtfOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DisablePtfOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePtfOfficeDetail">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrievePtfOfficeDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrievePtfOfficeDetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePtfOffice">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/UpdatePtfOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdatePtfOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePtfOffice">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CreatePtfOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreatePtfOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePtfSalePersonList">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrievePtfSalePersonList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrievePtfSalePersonListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisablePtfSalesPerson">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/DisablePtfSalesPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DisablePtfSalesPersonAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePtfSalesPersonDetail">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrievePtfSalesPersonDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrievePtfSalesPersonDetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePtfSalesPerson">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/UpdatePtfSalesPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdatePtfSalesPersonAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoesSalesPersonConflict">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/DoesSalesPersonConflict" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DoesSalesPersonConflictAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePtfSalesPerson">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CreatePtfSalesPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreatePtfSalesPersonAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveHeadOfficeList">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveHeadOfficeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveHeadOfficeListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableHeadOffice">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/DisableHeadOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DisableHeadOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveHeadOfficeDetail">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveHeadOfficeDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveHeadOfficeDetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTableData">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveTableData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveTableDataAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHeadOffice">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/UpdateHeadOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateHeadOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTableData">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/UpdateTableData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateTableDataAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateHeadOffice">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CreateHeadOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateHeadOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerList">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveRetailerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveRetailerListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableRetailer">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/DisableRetailer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DisableRetailerAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerDetail">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveRetailerDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveRetailerDetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRetailer">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/UpdateRetailer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateRetailerAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRetailer">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CreateRetailer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateRetailerAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUnallocatedPOS">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveUnallocatedPOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveUnallocatedPOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerPOS">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveRetailerPOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveRetailerPOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllocateRetailerPOS">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/AllocateRetailerPOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AllocateRetailerPOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnallocateRetailerPOS">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/UnallocateRetailerPOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnallocateRetailerPOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentHOList">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveAgentHOList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveAgentHOListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableAgentHO">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/DisableAgentHO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DisableAgentHOAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentHODetail">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveAgentHODetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveAgentHODetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentHO">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/UpdateAgentHO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateAgentHOAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAgentHO">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CreateAgentHO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateAgentHOAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentBranchList">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveAgentBranchList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveAgentBranchListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableAgentBranch">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/DisableAgentBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DisableAgentBranchAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentBranchDetail">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveAgentBranchDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetrieveAgentBranchDetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentBranch">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/UpdateAgentBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateAgentBranchAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAgentBranch">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/CreateAgentBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateAgentBranchAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartyTransactionList">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/GetPartyTransactionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPartyTransactionListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPtfCountryList">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/GetPtfCountryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPtfCountryListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrinterInfo">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/GetPrinterInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPrinterInfoAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPrinterInfo">
+      <soap:operation soapAction="http://www.ptf.com/PtfWebService/SetPrinterInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetPrinterInfoAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PartyManagementSoap12" type="tns:PartyManagementSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecreateRefundSpreadsheets">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RecreateRefundSpreadsheets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RecreateRefundSpreadsheetsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecreateVatClaimreport">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RecreateVatClaimreport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RecreateVatClaimreportAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveVATClaimInvoice">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveVATClaimInvoice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveVATClaimInvoiceAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePftOfficeList">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrievePftOfficeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrievePftOfficeListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisablePtfOffice">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/DisablePtfOffice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DisablePtfOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePtfOfficeDetail">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrievePtfOfficeDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrievePtfOfficeDetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePtfOffice">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/UpdatePtfOffice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdatePtfOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePtfOffice">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CreatePtfOffice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreatePtfOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePtfSalePersonList">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrievePtfSalePersonList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrievePtfSalePersonListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisablePtfSalesPerson">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/DisablePtfSalesPerson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DisablePtfSalesPersonAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePtfSalesPersonDetail">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrievePtfSalesPersonDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrievePtfSalesPersonDetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePtfSalesPerson">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/UpdatePtfSalesPerson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdatePtfSalesPersonAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoesSalesPersonConflict">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/DoesSalesPersonConflict" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DoesSalesPersonConflictAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePtfSalesPerson">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CreatePtfSalesPerson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreatePtfSalesPersonAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveHeadOfficeList">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveHeadOfficeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveHeadOfficeListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableHeadOffice">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/DisableHeadOffice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DisableHeadOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveHeadOfficeDetail">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveHeadOfficeDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveHeadOfficeDetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTableData">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveTableData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveTableDataAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHeadOffice">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/UpdateHeadOffice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateHeadOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTableData">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/UpdateTableData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateTableDataAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateHeadOffice">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CreateHeadOffice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateHeadOfficeAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerList">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveRetailerList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveRetailerListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableRetailer">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/DisableRetailer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DisableRetailerAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerDetail">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveRetailerDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveRetailerDetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRetailer">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/UpdateRetailer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateRetailerAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRetailer">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CreateRetailer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateRetailerAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUnallocatedPOS">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveUnallocatedPOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveUnallocatedPOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRetailerPOS">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveRetailerPOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveRetailerPOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllocateRetailerPOS">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/AllocateRetailerPOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AllocateRetailerPOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnallocateRetailerPOS">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/UnallocateRetailerPOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UnallocateRetailerPOSAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentHOList">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveAgentHOList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveAgentHOListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableAgentHO">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/DisableAgentHO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DisableAgentHOAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentHODetail">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveAgentHODetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveAgentHODetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentHO">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/UpdateAgentHO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateAgentHOAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAgentHO">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CreateAgentHO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateAgentHOAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentBranchList">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveAgentBranchList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveAgentBranchListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableAgentBranch">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/DisableAgentBranch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DisableAgentBranchAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAgentBranchDetail">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/RetrieveAgentBranchDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetrieveAgentBranchDetailAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAgentBranch">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/UpdateAgentBranch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateAgentBranchAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAgentBranch">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/CreateAgentBranch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateAgentBranchAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartyTransactionList">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/GetPartyTransactionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPartyTransactionListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPtfCountryList">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/GetPtfCountryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPtfCountryListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrinterInfo">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/GetPrinterInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPrinterInfoAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPrinterInfo">
+      <soap12:operation soapAction="http://www.ptf.com/PtfWebService/SetPrinterInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetPrinterInfoAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PartyManagement">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Service supplies all the function calls required for Party Management.</wsdl:documentation>
+    <wsdl:port name="PartyManagementSoap" binding="tns:PartyManagementSoap">
+      <soap:address location="http://192.168.53.117/PtfWebService/PartyManagement.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PartyManagementSoap12" binding="tns:PartyManagementSoap12">
+      <soap12:address location="http://192.168.53.117/PtfWebService/PartyManagement.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

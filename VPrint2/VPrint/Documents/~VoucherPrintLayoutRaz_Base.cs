@@ -46,5 +46,7 @@ namespace VPrinting.Documents
         }
 
         public abstract void PrintVoucher(string printerName, string printDocName, int length, string docInitialization, IList<IPrintLine> lines);
+
+        public abstract void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, List<IList<IPrintLine>> multilines);
     }
 }

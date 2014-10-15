@@ -18,7 +18,6 @@ using VPrinting.Common;
 using VPrinting.Controls;
 using VPrinting.Data;
 using VPrinting.Extentions;
-using VPrinting.ScanServiceLocalRef;
 using VPrinting.ScanServiceRef;
 
 namespace VPrinting
@@ -41,7 +40,6 @@ namespace VPrinting
 
         #region MEMBERS
 
-        private ScanServiceLocalClient m_ScanClient = null;
         private readonly List<FileSystemWatcher> m_FileSysWatchers = new List<FileSystemWatcher>();
         //private readonly SortedIndexList<int, ItemControl> m_ControlIndexes = new SortedIndexList<int, ItemControl>();
 
