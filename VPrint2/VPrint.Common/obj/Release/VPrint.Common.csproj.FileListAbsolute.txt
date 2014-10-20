@@ -10,3 +10,4 @@ C:\PROJECTS\VPrint2\VPrint.Common\bin\Release\AForge.Imaging.dll
 C:\PROJECTS\VPrint2\VPrint.Common\bin\Release\AForge.Imaging.Formats.dll
 C:\PROJECTS\VPrint2\VPrint.Common\bin\Release\AForge.Math.dll
 C:\PROJECTS\VPrint2\VPrint.Common\bin\Release\itextsharp.dll
+C:\PROJECTS\VPrint2\VPrint.Common\bin\Release\Ionic.Zip.dll

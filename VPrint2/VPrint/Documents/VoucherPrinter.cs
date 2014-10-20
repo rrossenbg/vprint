@@ -5,12 +5,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Xml.Serialization;
 using VPrinting.Common;
-using VPrinting.Extentions;
 using VPrinting.PartyManagement;
 using VPrinting.VoucherNumberingAllocationPrinting;
 using VNAP = VPrinting.VoucherNumberingAllocationPrinting;
@@ -151,7 +149,7 @@ namespace VPrinting.Documents
                 if (Office == null)
                     throw new ArgumentNullException("Can not get office:".concat(" CountryId: ", Allocation.CountryId, " PrinterBranchId:", Retailer.PrinterBranchId));
 
-                var guid = CommonTools.ToGuid(Allocation.CountryId, Allocation.RetailerId);
+                var guid = CommTools.ToGuid(Allocation.CountryId, Allocation.RetailerId);
 
                 PrinterDetails printer = null;
                 CacheManager.Instance.Get<PrinterDetails>(guid, out printer,
@@ -304,7 +302,7 @@ namespace VPrinting.Documents
                     if (Office == null)
                         throw new ArgumentNullException("Can not get office:".concat(" CountryId: ", Allocation.CountryId, " PrinterBranchId:", Retailer.PrinterBranchId));
 
-                    var guid = CommonTools.ToGuid(Allocation.CountryId, Allocation.RetailerId);
+                    var guid = CommTools.ToGuid(Allocation.CountryId, Allocation.RetailerId);
 
                     PrinterDetails printer = null;
                     CacheManager.Instance.Get<PrinterDetails>(guid, out printer,

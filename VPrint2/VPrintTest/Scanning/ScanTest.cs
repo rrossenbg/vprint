@@ -526,6 +526,17 @@ namespace VPrintTest
                 a.Value.M3 = 0;
             }
         }
+
+        [TestMethod]
+        public void GetTiffs()
+        {
+            var list = @"C:\IMAGES\UK\tmp56B961c6117e_f87f_44ee_a1e9_04cca8cc0595.tif".TiffGetAllImages();
+            int i = 5;
+            foreach (var f in list)
+            {
+                f.Save("C:\\" + (i++) + ".jpg", ImageFormat.Jpeg);
+            }
+        }
     }
 
     public class A

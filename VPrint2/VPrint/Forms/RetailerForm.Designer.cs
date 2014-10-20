@@ -30,6 +30,7 @@ namespace VPrinting.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RetailerForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,8 +47,8 @@ namespace VPrinting.Forms
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
             this.tbBarcode = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -207,6 +208,13 @@ namespace VPrinting.Forms
             this.tabPage2.Text = "Barcode data";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tbBarcode
+            // 
+            this.tbBarcode.Location = new System.Drawing.Point(10, 32);
+            this.tbBarcode.Name = "tbBarcode";
+            this.tbBarcode.Size = new System.Drawing.Size(213, 20);
+            this.tbBarcode.TabIndex = 1;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -215,13 +223,6 @@ namespace VPrinting.Forms
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Barcode";
-            // 
-            // tbBarcode
-            // 
-            this.tbBarcode.Location = new System.Drawing.Point(10, 32);
-            this.tbBarcode.Name = "tbBarcode";
-            this.tbBarcode.Size = new System.Drawing.Size(213, 20);
-            this.tbBarcode.TabIndex = 1;
             // 
             // RetailerForm
             // 
@@ -235,6 +236,7 @@ namespace VPrinting.Forms
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.btnOK);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(269, 217);
             this.MinimumSize = new System.Drawing.Size(269, 217);
             this.Name = "RetailerForm";

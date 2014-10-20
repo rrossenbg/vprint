@@ -6,13 +6,17 @@ using System;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.ServiceModel;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using ReceivingServiceLib;
+using ReceivingServiceLib.Data;
 using ReceivingServiceLib.FileWorkers;
 using VPrinting;
+using VPrinting.Colections;
 
 namespace ReceivingService
 {
@@ -55,14 +59,19 @@ namespace ReceivingService
 
             ImportFileWorker.Default.StartStop();
             ExportFileWorker.Default.StartStop();
-            CoverWorker.Default.StartStop();
+            // CoverWorker.Default.StartStop();
 
             ScanService.NewCall += new EventHandler<ValueEventArgs<Tuple<string, string, DateTime>>>(ScanService_NewCall);
+            ScanService.ExtractVoucher += new EventHandler<ValueEventArgs<Tuple<VoucherDataAccess.SelectVoucherInfoData, DirectoryInfo>>>(ScanService_ExtractVoucher);
+            string user = ConfigurationManager.AppSettings["REPORTINGSERVER_USER"].IfNullOrEmptyThrow<ArgumentException>();
+            string pass = ConfigurationManager.AppSettings["REPORTINGSERVER_PASS"].IfNullOrEmptyThrow<ArgumentException>();
+            string domain = ConfigurationManager.AppSettings["REPORTINGSERVER_DOMAIN"].IfNullOrEmptyThrow<ArgumentException>();
+            ScanService.ReportingServerCredentials = new NetworkCredential(user, pass, domain);
             m_ServerHost = new ServiceHost(typeof(ScanService));
             m_ServerHost.Open();
 
             base.OnStart(args);
-        }        
+        }
 
         protected override void OnStop()
         {
@@ -144,6 +153,46 @@ namespace ReceivingService
         private void ScanService_NewCall(object sender, ValueEventArgs<Tuple<string, string, DateTime>> e)
         {
             m_HistiryBuffer.Add(e.Value);
+        }
+
+        private void ScanService_ExtractVoucher(object sender, ValueEventArgs<Tuple<VoucherDataAccess.SelectVoucherInfoData, DirectoryInfo>> e)
+        {
+            var t = Task.Factory.StartNew((o) =>
+            {
+                FileInfo binFile = null;
+                FileInfo zipFile = null;
+
+                try
+                {
+                    var result2 = (Tuple<VoucherDataAccess.SelectVoucherInfoData, DirectoryInfo>)o;
+                    byte[] data = VoucherDataAccess.Instance.SelectImageById(result2.Item1.vid, true);
+
+                    result2.Item2.EnsureDirectory();
+                    result2.Item1.session_Id = result2.Item1.session_Id ?? Guid.NewGuid().ToString();
+
+                    binFile = result2.Item2.CombineFileName(result2.Item1.session_Id + ".bin");
+
+                    zipFile = result2.Item2.CombineFileName(result2.Item1.session_Id + ".zip");
+
+                    if (result2.Item1.v_protected)
+                    {
+                        binFile.WriteAllBytes(data);
+                        binFile.DecriptFile(zipFile);
+                    }
+                    else
+                    {
+                        zipFile.WriteAllBytes(data);
+                    }
+
+                    var fac2 = new ZipFileAccess();
+                    fac2.RestoreZip(zipFile.FullName, result2.Item2.FullName);
+                }
+                finally
+                {
+                    binFile.DeleteSafe();
+                    zipFile.DeleteSafe();
+                }
+            }, e.Value, TaskCreationOptions.LongRunning);
         }
     }
 }

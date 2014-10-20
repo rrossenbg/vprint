@@ -37,6 +37,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\Libraries\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -50,14 +53,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Colections\bitArray.cs" />
+    <Compile Include="Colections\CircularBuffer.cs" />
     <Compile Include="Colections\IgnoreList.cs" />
     <Compile Include="Colections\MemoryBuffer.cs" />
     <Compile Include="Colections\PriorityQueue.cs" />
     <Compile Include="Colections\SortableBindingList.cs" />
     <Compile Include="Colections\UniqueList.cs" />
+    <Compile Include="Colections\UniqueStringList.cs" />
     <Compile Include="CommonClasses.cs" />
     <Compile Include="Extensions\BitmapEx.cs" />
     <Compile Include="Extensions\CoreEx.cs" />
+    <Compile Include="Extensions\DirectoryInfoEx.cs" />
     <Compile Include="Extensions\DrawingEx.cs" />
     <Compile Include="Extensions\EnumerableEx.cs" />
     <Compile Include="Extensions\ExceptionEx.cs" />
@@ -83,7 +89,9 @@
     <Compile Include="Pdf\CommonClasses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateSaver.cs" />
-    <Compile Include="Tools\CString.cs" />
+    <Compile Include="Tools\CommTools.cs" />
+    <Compile Include="CString.cs" />
+    <Compile Include="Tools\ZipFileAccess.cs" />
     <Compile Include="Tools\FontWrapper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

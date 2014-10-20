@@ -78,9 +78,14 @@ namespace FintraxPTFImagesTest
         }
 
         [TestMethod]
-        public void GuidTest()
+        public void TestHouseOfFrazer()
         {
-
+            BarcodeData data = null;
+            HouseOfFrazerBarcodeConfig cfg = new HouseOfFrazerBarcodeConfig();
+            if (cfg.ParseBarcode("39236318582620123638", ref data))
+            {
+                Debug.Write("OK");
+            }
         }
 
         [TestMethod]

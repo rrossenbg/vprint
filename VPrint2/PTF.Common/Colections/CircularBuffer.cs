@@ -6,7 +6,7 @@ using System;
 using System.Collections;
 using System.Threading;
 
-namespace ReceivingServiceLib
+namespace VPrinting.Colections
 {
     public class CircularBuffer<T>
     {
@@ -39,7 +39,7 @@ namespace ReceivingServiceLib
 
         public Array ToArray()
         {
-            lock (this)
+            lock (m_List.SyncRoot)
                 return m_List.ToArray(typeof(T));
         }
 

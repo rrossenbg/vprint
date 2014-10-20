@@ -90,50 +90,50 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PTF.Common.dll" size="62976">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PTF.Common.dll" size="77312">
       <assemblyIdentity name="PTF.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>sPCuCGqMpPNbNOdF9sQpz4tijy0=</dsig:DigestValue>
+        <dsig:DigestValue>scQgHsROQqkE/uG82iXCgJNBjDs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingService.exe" size="10240">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingService.exe" size="11776">
       <assemblyIdentity name="ReceivingService" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aQ44Z+s1Ql/U2u6MGJ9siM96s98=</dsig:DigestValue>
+        <dsig:DigestValue>AiN42jflg2LQiMqsiEGThZ0gRIU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.dll" size="137728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.dll" size="138752">
       <assemblyIdentity name="ReceivingServiceLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>3qaE3h1UyykVGn8qKZkUKSPe688=</dsig:DigestValue>
+        <dsig:DigestValue>MC6Urkl7v1ge6rP2ltDQMUYyTTw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.Common.dll" size="34304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ReceivingServiceLib.Common.dll" size="32256">
       <assemblyIdentity name="ReceivingServiceLib.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>lyW9/M+mrDFvrUSzILmholqUBEs=</dsig:DigestValue>
+        <dsig:DigestValue>zUpmhPMEce1uNmlJ1I1WScHLfmg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -145,7 +145,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>mL4fWRfHFW/GDqmK0Y2bPbpLH2U=</dsig:DigestValue>
+        <dsig:DigestValue>A+HjR7nYrOa1FwLqgZAzk9AF2oU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

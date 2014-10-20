@@ -245,7 +245,7 @@ namespace VPrinting
                 var temp = new DirectoryInfo(Path.GetTempPath());
                 var gdir = temp.Combine(e.Value.SessionID.ToString());
                 gdir.EnsureDirectory();
-                e.Value.FileInfoList.AddRange(fileAccess.Instance.ExtractFileZip(fullFileName, gdir.FullName));
+                e.Value.FileInfoList.AddRange(ZipFileAccess.Instance.ExtractFileZip(fullFileName, gdir.FullName));
 
                 var cover = ServiceDataAccess.Instance.ReadCoverInfo(e.Value.Id);
                 if (!string.IsNullOrWhiteSpace(cover))

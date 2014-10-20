@@ -15,6 +15,14 @@ namespace VPrinting
     public static class Collection2Ex
     {
         [TargetedPatchingOptOut("na")]
+        public static IList<T> Add<T>(this IList<T> list1, IList<T> list2)
+        {
+            List<T> list = new List<T>(list1);
+            list.AddRange(list2);
+            return list;
+        }
+
+        [TargetedPatchingOptOut("na")]
         public static bool IsNullOrEmpty<T>(this ICollection<T> coll)
         {
             return coll == null || coll.Count == 0;

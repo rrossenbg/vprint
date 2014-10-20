@@ -205,6 +205,16 @@ namespace ReceivingServiceLib
         VoucherInfo3 FindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2);
 
         #endregion
+
+        #region DOWNLOAD 
+        [OperationContract]
+        [FaultContract(typeof(MyApplicationFault))]
+        byte[] DownloadReport(string rServerUrl, string s1, string s2);
+
+        [OperationContract]
+        [FaultContract(typeof(MyApplicationFault))]
+        byte[] DownloadVouchers(int countryId, int[] voucherIds, string s1, string s2);
+        #endregion
     }
 
     #region DATA OBJECTS

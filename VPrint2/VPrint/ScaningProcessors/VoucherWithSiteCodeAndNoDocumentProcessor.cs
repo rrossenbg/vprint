@@ -5,7 +5,6 @@
 using System;
 using System.Collections;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Reflection;
 using VPrint.Common.Pdf;
@@ -90,7 +89,7 @@ namespace VPrinting.ScaningProcessors
 #endif
                         string site;
                         int location;
-                        if (!CommonTools.ParseSiteCode(info.Name, out site, out location))
+                        if (!VPrinting.Common.CommonTools.ParseSiteCode(info.Name, out site, out location))
                             throw new Exception("Wrong sitecode");
 
                         var vinfo = ServiceDataAccess.Instance.FindVoucherTRSBySiteCode(site, location);

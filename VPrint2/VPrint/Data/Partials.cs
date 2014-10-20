@@ -30,13 +30,13 @@ namespace VPrinting.PartyManagement
 
         public System.Guid GetKey()
         {
-            return VPrinting.Common.CommonTools.ToGuid(IsoID, RetailerID);
+            return CommTools.ToGuid(IsoID, RetailerID);
         }
 
         public void SetKey(System.Guid key)
         {
             int iso_id, ret_id, i1, i2;
-            VPrinting.Common.CommonTools.FromGuid(key, out iso_id, out ret_id, out i1, out i2);
+            CommTools.FromGuid(key, out iso_id, out ret_id, out i1, out i2);
             IsoID = iso_id;
             RetailerID = ret_id;
         }

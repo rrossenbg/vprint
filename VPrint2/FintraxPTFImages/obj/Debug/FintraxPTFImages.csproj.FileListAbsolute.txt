@@ -86,6 +86,5 @@ C:\PROJECTS\VPrint2\FintraxPTFImages\bin\System.Web.WebPages.Razor.xml
 C:\PROJECTS\VPrint2\FintraxPTFImages\bin\WebMatrix.Data.xml
 C:\PROJECTS\VPrint2\FintraxPTFImages\bin\Microsoft.Web.WebPages.OAuth.xml
 C:\PROJECTS\VPrint2\FintraxPTFImages\bin\WebMatrix.WebData.xml
-C:\PROJECTS\VPrint2\FintraxPTFImages\obj\Debug\FintraxPTFImages.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint2\FintraxPTFImages\obj\Debug\FintraxPTFImages.dll
 C:\PROJECTS\VPrint2\FintraxPTFImages\obj\Debug\FintraxPTFImages.pdb

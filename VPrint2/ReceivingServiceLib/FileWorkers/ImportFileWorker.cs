@@ -65,7 +65,7 @@ namespace ReceivingServiceLib.FileWorkers
 
                                 bool isVoucher = false;
 
-                                var fac = new zipFileAccess();
+                                var fac = new ZipFileAccess();
 
                                 string xmlPath = Path.Combine(uploadRoot.FullName, fromDir.Name, "data.xml");
                                 if (File.Exists(xmlPath))

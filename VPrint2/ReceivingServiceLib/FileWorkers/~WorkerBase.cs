@@ -11,6 +11,8 @@ namespace ReceivingServiceLib.FileWorkers
 {
     public abstract class WorkerBase
     {
+        public const int MAX_BUFF_SIZE_50MB = 50 * 1024 * 1024; //33262605;
+
         protected volatile bool m_Exit;
         public static event ThreadExceptionEventHandler Error;
 

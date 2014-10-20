@@ -15,11 +15,12 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Runtime.InteropServices;
 
 namespace VPrinting
 {
     [Obfuscation(StripAfterObfuscation = true, ApplyToMembers = true)]
-    public static class StringEx
+    public static unsafe class StringEx
     {
         /// <summary>
         /// 250
@@ -90,6 +91,12 @@ namespace VPrinting
             return (T)Convert.ChangeType(obj, typeof(T));
         }
 
+        [TargetedPatchingOptOut("na")]
+        public static char* ToChar(this string str)
+        {
+            return (char*)Marshal.StringToHGlobalAnsi(str).ToPointer();
+        }
+        
         /// <summary>
         /// (T)obj;
         /// </summary>

@@ -4,8 +4,9 @@
 
 using System.Text;
 using System.Reflection;
+using System;
 
-namespace VPrinting.Tools
+namespace VPrinting
 {
     /// <summary>
     /// This class is base on the StringBuilder class
@@ -32,6 +33,12 @@ namespace VPrinting.Tools
         public CString(string str)
         {
             m_Builder = new StringBuilder(str);
+        }
+
+        public CString NewLine()
+        {
+            m_Builder.AppendLine();
+            return this;
         }
 
         public static CString operator +(CString str1, string str2)

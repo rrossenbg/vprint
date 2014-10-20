@@ -129,6 +129,31 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="CommitVoucherChangesModify_V2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="serverDirName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="jobId" type="xs:int" />
+        <xs:element minOccurs="0" name="countryId" type="xs:int" />
+        <xs:element minOccurs="0" name="retailerId" type="xs:int" />
+        <xs:element minOccurs="0" name="voucherId" type="xs:int" />
+        <xs:element minOccurs="0" name="folderId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="siteCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="barCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locationId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="typeId" type="xs:int" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="action" type="q3:ChangeContentType" />
+        <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommitVoucherChangesModify_V2Response">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CommitVoucherChangesModify">
     <xs:complexType>
       <xs:sequence>
@@ -142,7 +167,7 @@
         <xs:element minOccurs="0" name="barCode" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="locationId" type="xs:int" />
         <xs:element minOccurs="0" name="userId" type="xs:int" />
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="action" type="q3:ChangeContentType" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="action" type="q4:ChangeContentType" />
         <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="s2" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -221,7 +246,7 @@
   <xs:element name="FindVoucherImageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FindVoucherImageResult" nillable="true" type="q4:ArrayOfint" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FindVoucherImageResult" nillable="true" type="q5:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -246,8 +271,8 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="operatorCountryId" type="xs:int" />
         <xs:element minOccurs="0" name="operatorUserId" type="xs:int" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="operationType" type="q5:OperationHistory" />
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="operationId" type="q6:guid" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="operationType" type="q6:OperationHistory" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="operationId" type="q7:guid" />
         <xs:element minOccurs="0" name="brIsoId" type="xs:int" />
         <xs:element minOccurs="0" name="brId" type="xs:int" />
         <xs:element minOccurs="0" name="vId" type="xs:int" />
@@ -269,7 +294,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="operatorCountryId" type="xs:int" />
         <xs:element minOccurs="0" name="operatorUserId" nillable="true" type="xs:int" />
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="operationType" type="q7:OperationHistory" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="operationType" type="q8:OperationHistory" />
         <xs:element minOccurs="0" name="from" type="xs:dateTime" />
         <xs:element minOccurs="0" name="to" type="xs:dateTime" />
         <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
@@ -280,7 +305,7 @@
   <xs:element name="ReadHistoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="ReadHistoryResult" nillable="true" type="q8:ArrayOfHistoryByCountryInfo" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="ReadHistoryResult" nillable="true" type="q9:ArrayOfHistoryByCountryInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -296,7 +321,7 @@
   <xs:element name="ReadRetailerPrinterInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="ReadRetailerPrinterInfoResult" nillable="true" type="q9:ArrayOfRetailerPrinterInfo" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="ReadRetailerPrinterInfoResult" nillable="true" type="q10:ArrayOfRetailerPrinterInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -312,7 +337,7 @@
   <xs:element name="SelectFilesBySqlResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="SelectFilesBySqlResult" nillable="true" type="q10:ArrayOffileInfo" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="SelectFilesBySqlResult" nillable="true" type="q11:ArrayOffileInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -438,7 +463,7 @@
   <xs:element name="SelectFoldersByParentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="SelectFoldersByParentResult" nillable="true" type="q11:ArrayOfFolderInfo" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="SelectFoldersByParentResult" nillable="true" type="q12:ArrayOfFolderInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -454,7 +479,7 @@
   <xs:element name="SelectFilesByFolderResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="SelectFilesByFolderResult" nillable="true" type="q12:ArrayOffileInfo" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="SelectFilesByFolderResult" nillable="true" type="q13:ArrayOffileInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -472,7 +497,7 @@
   <xs:element name="SelectFilesByFolder2Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="SelectFilesByFolder2Result" nillable="true" type="q13:ArrayOffileInfo" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="SelectFilesByFolder2Result" nillable="true" type="q14:ArrayOffileInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -488,7 +513,7 @@
   <xs:element name="SelectCoversByFolderResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="SelectCoversByFolderResult" nillable="true" type="q14:ArrayOffile2Info" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="SelectCoversByFolderResult" nillable="true" type="q15:ArrayOffile2Info" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -523,7 +548,7 @@
   <xs:element name="GetVersionInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="GetVersionInfoResult" nillable="true" type="q15:ArrayOfUpdateFileInfo" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="GetVersionInfoResult" nillable="true" type="q16:ArrayOfUpdateFileInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -559,7 +584,7 @@
   <xs:element name="GetTransferFileResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="GetTransferFileResult" nillable="true" type="q16:ArrayOfTransferFileInfo" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="GetTransferFileResult" nillable="true" type="q17:ArrayOfTransferFileInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -576,7 +601,7 @@
   <xs:element name="FindVoucherTRSByVoucherNumberResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="FindVoucherTRSByVoucherNumberResult" nillable="true" type="q17:VoucherInfo3" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="FindVoucherTRSByVoucherNumberResult" nillable="true" type="q18:VoucherInfo3" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -593,7 +618,7 @@
   <xs:element name="FindVoucherTRSBySiteCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="FindVoucherTRSBySiteCodeResult" nillable="true" type="q18:VoucherInfo3" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="FindVoucherTRSBySiteCodeResult" nillable="true" type="q19:VoucherInfo3" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -610,7 +635,40 @@
   <xs:element name="FindVoucherPRBySiteCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="FindVoucherPRBySiteCodeResult" nillable="true" type="q19:VoucherInfo3" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="FindVoucherPRBySiteCodeResult" nillable="true" type="q20:VoucherInfo3" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rServerUrl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DownloadReportResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadVouchers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="countryId" type="xs:int" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="voucherIds" nillable="true" type="q21:ArrayOfint" />
+        <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadVouchersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DownloadVouchersResult" nillable="true" type="xs:base64Binary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -7,7 +7,7 @@ using FintraxPTFImages.Models;
 
 namespace FintraxPTFImages.Data
 {
-    public class PTFDataAccess
+    public partial class PTFDataAccess
     {
         public static string ConnectionString { get; set; }
 

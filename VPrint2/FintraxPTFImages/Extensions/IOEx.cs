@@ -34,6 +34,67 @@ namespace FintraxPTFImages
         }
 
         [TargetedPatchingOptOut("na")]
+        public static bool Exists(this DirectoryInfo info)
+        {
+            Debug.Assert(info != null);
+            info.Refresh();
+            return info.Exists;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static bool Empty(this DirectoryInfo info)
+        {
+            Debug.Assert(info != null);
+            info.Refresh();
+            return info.GetFiles().Length == 0;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static void DeleteSafe(this DirectoryInfo info, bool subfolders = true)
+        {
+            if (info == null)
+                return;
+            try
+            {
+                info.Refresh();
+                info.Delete(subfolders);
+            }
+            catch
+            {
+            }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static void DeleteSafe(this FileInfo info)
+        {
+            if (info == null)
+                return;
+            try
+            {
+                info.Refresh();
+                info.Delete();
+            }
+            catch
+            {
+            }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static void ClearSafe(this DirectoryInfo info, DateTime date)
+        {
+            if (info == null)
+                throw new ArgumentNullException("info");
+
+            foreach (var f in info.GetFiles())
+                if (f.CreationTime < date)
+                    f.DeleteSafe();
+
+            foreach (var f in info.GetDirectories())
+                if (f.CreationTime < date)
+                    f.DeleteSafe(true);
+        }
+
+        [TargetedPatchingOptOut("na")]
         public static void DeleteSubFoldersSafe(this DirectoryInfo info, bool recursive = true)
         {
             Debug.Assert(info != null);

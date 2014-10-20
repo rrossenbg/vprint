@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using FintraxPTFImages.Attributes;
@@ -16,6 +17,7 @@ using FintraxPTFImages.Data;
 using FintraxPTFImages.Models;
 using FintraxPTFImages.PartyManagementRef;
 using FintraxPTFImages.ScanServiceRef;
+using VPrinting;
 
 namespace FintraxPTFImages
 {
@@ -49,7 +51,7 @@ namespace FintraxPTFImages
         /// <returns></returns>
         /// <see cref="http://www.dotnetcurry.com/ShowArticle.aspx?ID=466"/>
         [HttpGet]
-        public ActionResult Search()
+        public ActionResult Search(int? grid_page)
         {
             #region BUILD COUNTRIES
 
@@ -67,7 +69,7 @@ namespace FintraxPTFImages
             if (Request.QueryString.Count != 0 && int.TryParse(Request.QueryString["grid-page"], out value))
             {
                 var model = Session.Get<SearchModel>("SearchModel");
-                return Search(model, (int?)value);
+                return Search(model);
             }
             else
             {
@@ -77,7 +79,7 @@ namespace FintraxPTFImages
         }
 
         [HttpPost]
-        public ActionResult Search(SearchModel model, int? grid_page)
+        public ActionResult Search(SearchModel model)
         {
             ViewData["VoucherList"] = Enumerable.Empty<VoucherInfo>();
 
@@ -100,7 +102,7 @@ namespace FintraxPTFImages
 
             if (this.ModelState.IsValid)
             {
-                Session.Set("SearchModel", model);
+                this.Session.Set("SearchModel", model);
 
                 var sdc = new ServiceAccess();
                 var list = sdc.SelectVouchersByRetailer(model.Country, model.Retailer);
@@ -196,10 +198,15 @@ namespace FintraxPTFImages
 
         #region Show
 
+        const int ASINCH_TIMEOUT = 3000;
+
         [HttpGet]
         public void ShowAsync(int Id)
         {
+            string webRootPath = Server.MapPath("~/WEBVOUCHERFOLDER");
+
             AsyncManager.OutstandingOperations.Increment();
+            AsyncManager.Timeout = ASINCH_TIMEOUT;
 
             var tcpBinding = ScanServiceClient.GetBinding();
             var endpointAddress = ScanServiceClient.GetEnpoint();
@@ -207,9 +214,7 @@ namespace FintraxPTFImages
             ScanServiceClient proxy = new ScanServiceClient(tcpBinding, endpointAddress);
             proxy.ReadVoucherInfoCompleted += OnReadVoucherInfoCompleted;
 
-            string webRootPath = Server.MapPath("~/WEBVOUCHERFOLDER");
             var keys = Security.CreateInstance().GenerateSecurityKeys();
-
             proxy.ReadVoucherInfoAsync(Id, webRootPath, keys.Item1, keys.Item2);
         }
 
@@ -231,6 +236,10 @@ namespace FintraxPTFImages
             }
         }
 
+        const int CICLES_COUNT = 10;
+
+        TimeSpan DELETE_OLDER_THAN = TimeSpan.FromMinutes(5);
+
         // C:\VOUCHERS\[CountryID]\[RetailerId]\[VoucherId]
         public ActionResult ShowCompleted(VoucherInfo2 info = null)
         {
@@ -243,8 +252,18 @@ namespace FintraxPTFImages
             var webroot = new DirectoryInfo(webRootPath);
             var sessionIdFolder = webroot.Combine(info.SessionId);
 
-            //var textFile = sessionIdFolder.CombineFileName("mark.txt");
-            //System.IO.File.WriteAllText(textFile.FullName, "");
+            if (!sessionIdFolder.Exists() || sessionIdFolder.IsEmpty())
+            {
+                Thread.Sleep(500);
+                Server.TransferRequest(Request.RawUrl);
+                return null;
+            }
+
+            if (!sessionIdFolder.Exists())
+                throw new Exception("Sometimes it might take more to export. Please click either F5 to refresh or BackSpace to navigate back.");
+
+            webroot.ClearSafe(DateTime.Now.Subtract(DELETE_OLDER_THAN));
+
 
             foreach (var file in sessionIdFolder.GetFiles())
             {

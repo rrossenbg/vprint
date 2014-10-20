@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace ReceivingServiceLib.Common
+namespace VPrinting.Colections
 {
     [Obfuscation(StripAfterObfuscation = true)]
     public class UniqueSyncStringList

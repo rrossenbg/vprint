@@ -40,7 +40,7 @@ namespace ReceivingServiceLib.FileWorkers
                     {
                         foreach (var zipfile in zips)
                         {
-                            var zip = new zipFileAccess();
+                            var zip = new ZipFileAccess();
                             DirectoryInfo unzipDir = null;
                             FileInfo xmlPath = null;
                             try
@@ -59,7 +59,7 @@ namespace ReceivingServiceLib.FileWorkers
                                 int voucherId = xml.Root.ElementThrow("VoucherID").Value.ConvertToThrow<string, int>("VoucherID");
                                 string sessionId = xml.Root.ElementValueOrDefault("SessionID", zipfile.GetFileNameWithoutExtension());
 
-                                var fac2 = new zipFileAccess();
+                                var fac2 = new ZipFileAccess();
                                 var voucherDirectory = fac2.CreateDirectoryHerarchy(Global.Strings.VOCUHERSFOLDER, 
                                     countryId, retailerId, voucherId);
                                 unzipDir.CopyFiles(voucherDirectory, true);
@@ -74,7 +74,7 @@ namespace ReceivingServiceLib.FileWorkers
                                     zipfile.DeleteSafe();
 
                                 if (unzipDir != null)
-                                    unzipDir.DeleteSafe(true);
+                                    unzipDir.DeleteSafe();
                             }
                         }
                     }

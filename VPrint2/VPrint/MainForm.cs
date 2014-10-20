@@ -289,6 +289,7 @@ namespace VPrinting
             if (ConfigurationManager.AppSettings["PRINTINGONLY"].Cast<bool>())
             {
                 tabControl1.TabPages.RemoveAt(1);
+                tabControl1.TabPages.RemoveAt(1);
             }
             else if (ConfigurationManager.AppSettings["SCANNINGONLY"].Cast<bool>())
             {

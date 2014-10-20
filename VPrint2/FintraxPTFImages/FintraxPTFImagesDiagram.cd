@@ -1,0 +1,3122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FintraxPTFImages.AuthConfig" Collapsed="true">
+    <Position X="44" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\AuthConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.BundleConfig" Collapsed="true">
+    <Position X="42.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.FilterConfig" Collapsed="true">
+    <Position X="30" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.RouteConfig" Collapsed="true">
+    <Position X="30" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.WebApiConfig" Collapsed="true">
+    <Position X="40.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\WebApiConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.HandleErrAsyncAttribute" Collapsed="true">
+    <Position X="35.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Attributes\HandleErrAsync.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.VoucherController" Collapsed="true">
+    <Position X="45.75" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAACBQIAAAAAAAAAAiCAAAAAAAAAAAAEAQAggAAA=</HashCode>
+      <FileName>Controllers\VoucherController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Class1Ex" Collapsed="true">
+    <Position X="24.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\Class1Ex.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.CoreEx" Collapsed="true">
+    <Position X="31.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAQAAAAAACAAAAAAACAAAAA=</HashCode>
+      <FileName>Extensions\CoreEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.DisposableEx" Collapsed="true">
+    <Position X="30" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\DisposableEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ImagesEx" Collapsed="true">
+    <Position X="24.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAABAIAA=</HashCode>
+      <FileName>Extensions\ImagesEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.IOEx" Collapsed="true">
+    <Position X="40.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIgAAAAAACAAAACAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Extensions\IOEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.MVCEx" Collapsed="true">
+    <Position X="44" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAABEBAAgAACAAAACBAABIAAAAIAAAQAAk=</HashCode>
+      <FileName>Extensions\MVCEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ObjectEx2" Collapsed="true">
+    <Position X="30" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAgAAAAAAAAAAAg=</HashCode>
+      <FileName>Extensions\ObjectEx2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ObjectEx3" Collapsed="true">
+    <Position X="31.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Extensions\ObjectEx2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.StringEx" Collapsed="true">
+    <Position X="24.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BYBAgESACEBCAAARIhANSQAAgBAAAAgAAAECBHgASYA=</HashCode>
+      <FileName>Extensions\StringEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ThreadEx" Collapsed="true">
+    <Position X="10.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAABAQAEAAAAMAAAAAAAAAgAQAAAAAEAAAA=</HashCode>
+      <FileName>Extensions\ThreadEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.XmlEx" Collapsed="true">
+    <Position X="44" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\XmlEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.MvcApplication" Collapsed="true">
+    <Position X="42.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAACAAAAEAAAAAAAAAAECIBQAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Program" Collapsed="true">
+    <Position X="40.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Strings" Collapsed="true">
+    <Position X="26.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAoACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Strings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Default" Collapsed="true">
+    <Position X="42.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAIAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Web\Default.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Attributes.AuthorizeUserAttribute" Collapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attributes\AuthorizeUserAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Attributes.HandleErrAttribute" Collapsed="true">
+    <Position X="37" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Attributes\HandleErrAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Attributes.RequiresSSL" Collapsed="true">
+    <Position X="37" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attributes\RequiresSSL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Common.BarcodeConfig" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEgAAAAEAAAAAARAAAAQAAAgAAAACAAAAEI=</HashCode>
+      <FileName>Common\BarcodeConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Common.BarcodeData" Collapsed="true">
+    <Position X="24.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAACAAAAEI=</HashCode>
+      <FileName>Common\BarcodeData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Common.BarcodeDecoder" Collapsed="true">
+    <Position X="26.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAI=</HashCode>
+      <FileName>Common\BarcodeDecoder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Common.CurrentUser" Collapsed="true">
+    <Position X="31.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAoAAAgACAAQAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Common\CurrentUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Common.FileLogger" Collapsed="true">
+    <Position X="28.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgAAAAQAAAAAAAQAAAAAAAAAICAIAAAAQAAAAAFAABA=</HashCode>
+      <FileName>Common\FileLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Common.Helper" Collapsed="true">
+    <Position X="14.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAFAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Helper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Common.Security" Collapsed="true">
+    <Position X="30" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Security.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.DynamicQueryable" Collapsed="true">
+    <Position X="44" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAAAACAAAAAAAAAAAAAAAQAAAEAAAAAAAEAQAAAEAA=</HashCode>
+      <FileName>Common\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.DynamicClass" Collapsed="true">
+    <Position X="37" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.DynamicProperty" Collapsed="true">
+    <Position X="42.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAFAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Common\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.DynamicExpression" Collapsed="true">
+    <Position X="38.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.DynamicOrdering" Collapsed="true">
+    <Position X="40.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.Signature" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAoAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Dynamic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="System.Linq.Dynamic.ClassFactory" Collapsed="true">
+    <Position X="26.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIIAAAAAAAAABACAQAAAAAACAAAAASAAAAAABAAg=</HashCode>
+      <FileName>Common\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.ParseException" Collapsed="true">
+    <Position X="42.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAkAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.ExpressionParser" Collapsed="true">
+    <Position X="17.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Co+4gUICBFAhMm7UoEgTE7BCIIzYpCqIKkUKBAmRAYI=</HashCode>
+      <FileName>Common\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Linq.Dynamic.Res" Collapsed="true">
+    <Position X="38.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgMKhAIAgAAgEAgCIBSSAQAFDAgABEACoACAgLAA8A=</HashCode>
+      <FileName>Common\Dynamic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Controllers.AccountController" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAREAEgAAAAAAACAAAAARAAQAIAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Controllers.AdminController" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\AdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Controllers.ErrorController" Collapsed="true">
+    <Position X="12.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ErrorController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Controllers.HomeController" Collapsed="true">
+    <Position X="21.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Controls.PagedList&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAVAAQAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Controls\PagedList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.Data.DataTables" Collapsed="true">
+    <Position X="35.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Data\DataTables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTFDataAccess" Collapsed="true">
+    <Position X="42.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAAiAAAAAAABA=</HashCode>
+      <FileName>Data\PTFDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTFImagesDataDataContext" Collapsed="true">
+    <Position X="45.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAgAEAAAAIAAQECAAAgAAEAgAAAAEAEQ=</HashCode>
+      <FileName>Data\PTFImagesDataEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.Voucher" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MhFwLSkJCggBAQFB0AFjgCADzCAIVEEAgCAAAIgQgwA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.Data.UserActivityHistory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgwgACBAAAQsAgCQIEIAIgBjCgAAoAACAEAAMA1ASA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.Data.ServiceAccess" Collapsed="true">
+    <Position X="42.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEBQAIAAAAAAAAAAAAwAAAAAAAAAA=</HashCode>
+      <FileName>Data\ServiceAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PTFDataEntities2" Collapsed="true">
+    <Position X="44" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>3+////v9/9//////z+//vv/z///X//+/7v/v/+//3/8=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ActivityCode" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAEgAAAAQCAAAAAAAEAACAAEAgAAQAAABAABAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ActivityCodeOptOut" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AISAAgAAAACAAACAAEAQAQACAAAAACAARAAAAAEEEAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Admin_Fee_Invoice" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAEIJAQJDFqWQKBAmAEWhMQLECQAkAABgCKEBiKY=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Admin_Fee_Invoice_Voucher" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABWIACYgAEKgQ6AIAIBkABgAAIBIAhCAcEMjAgAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.AdminFeeStructure" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCBQAAAAAAAAAHQBAQMAAAQAIABAAAAMAIAEAAIAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.AdminFeeStructureLine" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCgQAQBIAgIACIACCABCAFgIQAEAAAAgCkAAACAAAEE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.AgentMap" Collapsed="true">
+    <Position X="28.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAAACEAAAAyAAAAEQAgAAgAgEAABAAAEABAAAAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Airport_Refund_Reduction" Collapsed="true">
+    <Position X="30" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QIAYIhJUgBgAAMAQAGEAAMABEyAAIpggAAAAgAdEAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.AirportCollectedVoucher" Collapsed="true">
+    <Position X="31.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACCIIAAgAABAQgAEgAEBAAQAIAAABAEIAQAEA4gEBIQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.AirportExport" Collapsed="true">
+    <Position X="33.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Q9FBAC0gEhEC/MDidNktQMdApEMAjRBiUZQhhAIVyyE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.AirportImport" Collapsed="true">
+    <Position X="35.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>9/73/eEfZb/73ddjvzn8e77+Wf/+b3/+a1f6+/T3N38=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.AirportRefundPaymentInvoice" Collapsed="true">
+    <Position X="37" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAgAgECGABKACBACAEAAAAAAAQAACAAEQIGEAAAACQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.AirportRefundPaymentVoucher" Collapsed="true">
+    <Position X="38.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAAEwEAyQQJQiqEgFKgQgQIAAGIAiBAQAAAIAAYAIBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Bank" Collapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAEQAGmBAABEgFSACBYFAQgAAghQMABSIgQAAAABAGY=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.BankDetail" Collapsed="true">
+    <Position X="17.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hCEwgIoAALgMQCDAAg0QigIQDiNSAhKGIAggIhHGMAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.BankDetailsPayment" Collapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAkQAAiAAA4AQQAAAAAAAAQACAAgAAEAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.BankSortCode" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABABCCAAAAAAAAAAgQAAACAAQAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.BlackList" Collapsed="true">
+    <Position X="31.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAAAAAAABQYIZCyAABKRAAABAwAAAAhCiACABoFECgQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.BlackList2" Collapsed="true">
+    <Position X="33.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAQAABAAAAAQAAUAgCAIAAAEQAIgAAggAAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.BlackListType" Collapsed="true">
+    <Position X="35.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACIQAAAAEAAYgAAQgAIIAAAAEBAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Branch" Collapsed="true">
+    <Position X="37" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>t3u6Z+L39OP/VXf+fe1/j5Grz5yevLdjZl+/2O/Hfac=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.BranchLookup" Collapsed="true">
+    <Position X="38.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAgAQAQAAEgACAAAAAAACAIwCBAAAgEAAEAEAAAAAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.brt" Collapsed="true">
+    <Position X="40.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EDAgA4AAAgHAABAAIGQAIABEAiCEQABRgAB4ICAeACE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.calendar" Collapsed="true">
+    <Position X="44" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iACAdEdkiRipUCEIBAAAAgDQIIGGAUY4URu0YKVBdAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CaptureOutputLog" Collapsed="true">
+    <Position X="45.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAAAAAAAAAAAQAAAAAAABBBAAAAAAAAAAAAUAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CardRecognition" Collapsed="true">
+    <Position X="9" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAJRAgGAgAACAAgAABgAAAABBCIAAAEhAABA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CardRecognition_temp" Collapsed="true">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAgAAABRAgGAgAACAAgAABgAAAABBCIAAAEhAABA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Category" Collapsed="true">
+    <Position X="12.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAEAAAAFCEAEAABAAACCAAEAAAAAAEAAAAAQAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CentralBank" Collapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAIEgqyHgABwFCEKACAIEAH8xrKkEEwCPgQEKEKlNCA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CentralBankAccount" Collapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgACAAgABEAAAACAQgAAJAAKAoEEKAAAIkEAJMAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ChargeStructure" Collapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAACAOgggEGASBGAEEBQAUAAACAFAQGAIAEgAIQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ChargeStructureLine" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCQAYALEJIhEEQAJQCAQAgECgAAAABRASgqABQIBSyQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.check_ledgers" Collapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0gqEAAAAUAMEChLsIsRQQB1AEEC8gBIo4AuAIqCLwAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ChequeRange" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RABAoADAEAgAABEACABAACIQoGQFgzIAAAQIAICAAAM=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CommissionStructureLine" Collapsed="true">
+    <Position X="28.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAASIgAAiQAAEkAAAMBCCFgAEAAIABkSCEKAIEAABA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Config" Collapsed="true">
+    <Position X="30" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCABAEAAABAAAACQAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CountryRegion" Collapsed="true">
+    <Position X="35.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEIAEAAAAAAAACAAAAEAACCEAAghABAoAAAEAAIAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CountryType" Collapsed="true">
+    <Position X="37" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAQAAAAAAAABAAAAEAAQAAAAAAAAEAIACAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Currency" Collapsed="true">
+    <Position X="24.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAAggEoAYAUEAAABCAIAABQCAAiFQzAQCqBgAAoI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CurrencyExchange" Collapsed="true">
+    <Position X="26.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAJAAGUAABgAEgAEAAAAAQDAEARDAAAAhQEQIAFAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CurrencyLookup" Collapsed="true">
+    <Position X="28.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAYAAACAABEAQACACEAAEIAgIAgCAIAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CurrencyMargin" Collapsed="true">
+    <Position X="30" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAQNAQAAGAAEQECAAgBCCAQDAAEYgAEAAhgBBAIEAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.CustomsApproval" Collapsed="true">
+    <Position X="33.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAwAEEABFAEABISCAwQCAAAWAAEAIAAqIAAAEARgQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Debit_Failed_Reasons" Collapsed="true">
+    <Position X="37" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAIQCAAAAACBYAAABCAAEAAAAgAAAAAAAAAAAAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.DEMATHistory" Collapsed="true">
+    <Position X="44" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BBAhIQACEUAIBAqAAgBQIgACBAAAAQAAAAABCABQAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.DGI" Collapsed="true">
+    <Position X="45.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAgIAIAAEAAAAAEABCAAAIgAAIgCIgAAAAUA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.dtproperty" Collapsed="true">
+    <Position X="35.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBQAACAAABAAIIAAIABAAAIAFABAACEAQAIgYAAQAiE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.EmailLog" Collapsed="true">
+    <Position X="45.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAABwAEABgEAARAAgIAAAkQAAAqBEASCgASGAJCABA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ExceptionList" Collapsed="true">
+    <Position X="14.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UEBRAAAIAAQAEACAIBoAAACACAAAAECyCFqAiIBCAAY=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ExitPoint" Collapsed="true">
+    <Position X="16" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EMAAAYABwZEQAIDJAgAAAAgAAAACAAgAYAAgBABAzAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.FatturaCommercialeInvoice" Collapsed="true">
+    <Position X="21.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>zEEgEAAAKCACBgCAABAACCIRAAgFASCAIkSBIAAAECQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.FatturaCommercialeInvoiceVoucher" Collapsed="true">
+    <Position X="23" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FRAUAAgoQCAAoGKG3gsIMIwiiQAGCAEA0Gg4IIwAAwQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.FlatFeeCommission" Collapsed="true">
+    <Position X="38.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ogAAABI1ABAQAECAAAABCAgBgAAHQEgAAAgMAAgAgKQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.FlatFeeCommissionLine" Collapsed="true">
+    <Position X="40.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CDAAgAEAQAAAAEACAQAAQAAJAABgEAAKAAISAQCEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.FvfVoidVoucher" Collapsed="true">
+    <Position X="45.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAAAAAAAgACAAAQACAgAAABgAAhAAQAAAAgABAAAEEg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.GoodsCategory" Collapsed="true">
+    <Position X="26.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CcAAAAGBAAAAIASAEAgQAEBAAAAAAAAAQEAAAAABAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Government" Collapsed="true">
+    <Position X="28.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAABAAAEAACAEAAAIAAAAQACAAEAAkAACAgAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Group" Collapsed="true">
+    <Position X="30" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAgAAAAAAAEAAgAAEACAAAIAAAAAAgAAAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.GroupExchange" Collapsed="true">
+    <Position X="31.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEACAAGAAAkJEAASUAABACAAUgAABDAMIAAAAAJBBIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.GroupExchange_temp" Collapsed="true">
+    <Position X="33.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAgAAAAgBAAASUABAEBAABAIABDAEBAAAQBJRhoA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.HeadOffice" Collapsed="true">
+    <Position X="40.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>z/2/N23Xne/Uf///1/d9neN3f7/+f/z//vy3/Lwvv/8=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.HeadOffice_AlternateRefundStructure" Collapsed="true">
+    <Position X="42.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAIhGAQCCAAgEAAAAAAAAAGAABAiQAAAAAABAAAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.HeadOffice_Groups_Detail" Collapsed="true">
+    <Position X="44" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAwAAAFIMABAYIQAYQQAAAAAAAAAxAASBpAAoKCUkA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.HeadOffice_Groups_Master" Collapsed="true">
+    <Position X="45.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UACABAAGgJAWQIgAAADAABACAAkAEACAAAAAEAAAABA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.headoffice_invoice_details" Collapsed="true">
+    <Position X="9" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EOogE+Bo1oE4AyKaWhjNs8L6xVwX2CAXEBlqIjcImQI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.HeadOfficeAddress" Collapsed="true">
+    <Position X="10.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQABAAAIAABABRAAAAAAEACCAIAoACA8AMAADgAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.HeadOfficeAgentFeeRule" Collapsed="true">
+    <Position X="12.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>qCFDIBQFAAAwBhEEIIIaAJQAMAAAQAAAAYQBgEABAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.HNVoucher" Collapsed="true">
+    <Position X="17.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Ry6bM6uvL4tAf/hN8RwVvP5fBKNR1ZYFhvjL98KDO/E=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Hobex_Terminals" Collapsed="true">
+    <Position X="19.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACAAAAAAAAAAAAAAAAAAAAIWAABACAAAAEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ImportHistory" Collapsed="true">
+    <Position X="26.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARACCAQQCcAACEAIuEgABAAIASBEEAQCQEACCCAoAEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ImportReject" Collapsed="true">
+    <Position X="28.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BBhTYOEAMgioGQRCrSCOAQSbdTU1FjgJQAAGZCCBUTA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.InhibitCode" Collapsed="true">
+    <Position X="30" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAIAAQAAAAAAAAAEAEAAAQAgIASCAAAAABAEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Invoice" Collapsed="true">
+    <Position X="33.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>5QECTMI1jYoIpgCQQkCgFoLLAwUDagWdHxBudEFgOZ0=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Invoice_Log" Collapsed="true">
+    <Position X="35.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMiABRBKAABQAAiCgBAAAAgAoAAAACALAQMAAAokAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Invoice_log_details" Collapsed="true">
+    <Position X="37" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIABAMAYKACAAMAIQBgIBCACgACAACAEAYAECgQACEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.InvoiceVoucher" Collapsed="true">
+    <Position X="38.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SRhcCKBJiUAABpCECYIQCaxEkSMCQkFC0AkAIajgASQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ISO" Collapsed="true">
+    <Position X="42.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ns1i1Cl6c8DZ9YXZAgh5igTwDkaSxDR5woiLyWXEECM=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Ledger" Collapsed="true">
+    <Position X="44" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0AqVBCAIUAsEAhDMIsRRQB3AGEC8ABti4AsAAqCL4AQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.LedgerDetail" Collapsed="true">
+    <Position X="45.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>lBgQVAFgSJoAVgAEIAB0ROEhZA/NGhDFgEJDgKIRBmQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.liability_master" Collapsed="true">
+    <Position X="9" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAQAIIAkOABBQQSAAAAQgQIhBAEIAAhUQsAQigwoBQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.liability_summary" Collapsed="true">
+    <Position X="10.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAFgBJAFSoSAA8EIICABEgBCAAQBkAECAGoBAAQBLUs=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.LocationLookup" Collapsed="true">
+    <Position X="14.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIgAAAAAABAQAAAgAAAAAAIAABAAAAAQAEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Logging" Collapsed="true">
+    <Position X="16" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BFqBDbgABggyAvGxQICC4AACMgaAIBBAEUwgIRCCFhQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.LogType" Collapsed="true">
+    <Position X="19.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAgIAAAAAAAAAAAAAACAIAAAAICCAACA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MailingList" Collapsed="true">
+    <Position X="21.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIACAgAAiEQABAiCAAIBAAABECCQAIhGCEAAEIEEgAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MailingListLookup" Collapsed="true">
+    <Position X="23" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACQAAgKAACAAAiAAACAAAAAABBEAQgABAAAMEAgACw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MarketingBudget" Collapsed="true">
+    <Position X="24.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIYAAQAgAAACAAAAAAAAACAAAQCAQEgCMCACAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MarketingBudgetDetail" Collapsed="true">
+    <Position X="26.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DACAEEIKCBEBgAgAAAAoAgGgDKEJDAUQAtCAGEQGYoY=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MarketingBudgetFixedFee" Collapsed="true">
+    <Position X="28.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAIICiAAABAAQAAMCABCEAgggBwAAChRQQQCkA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MarketingBudgetHistory" Collapsed="true">
+    <Position X="30" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>jwDDhIAAAAQAMAAICggAgASBBAAAAAAoEQCQAACmEAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MarketingBudgetType" Collapsed="true">
+    <Position X="31.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQEAAAAAAAAACEAAIAACABACAAAAgAAAAAIAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MccpStatu" Collapsed="true">
+    <Position X="33.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACEAAAABgAAAAAABAAAAFBBAAAIBgAAEGEQAECEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MigratingRetailer" Collapsed="true">
+    <Position X="35.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABwACAIAwACABCAJUAAEAQAJgACAAARoACACAQMEAEY=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MonthEnd" Collapsed="true">
+    <Position X="37" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKoqAEAABEqZMJEIYQAAADKAACMAECMUJAANcBMJBAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MonthEndRun" Collapsed="true">
+    <Position X="38.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIDAAQBBAACFECAABAQAACAAAAAAABUQAEgAAAAoAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.MSVoid2" Collapsed="true">
+    <Position X="40.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEgAAigAIYEKAAgABVBQAAAATAJihCAIACECIAEJI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NominalBalance" Collapsed="true">
+    <Position X="10.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAABhFMCQAEAAAAUAEYCEALQAQwAAQAAEQAQABABACA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NotaDebitoFormat" Collapsed="true">
+    <Position X="12.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAgAIAAgAAAAAAAAAAAgAgAAAAgAgBAAEABAgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NotaDebitoHistory" Collapsed="true">
+    <Position X="14.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCAAAAACAMAAAABhCBEAAAAACiBAICIAAIAAAAEggYA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NotaDebitoInvoice" Collapsed="true">
+    <Position X="16" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wgBCBAEAgigAQgSwQBBBAoIBAQERCiABkAAmBkBgYYw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NotaDebitoInvoiceVoucher" Collapsed="true">
+    <Position X="17.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JxESZoELAZGADRGAAQPKGxCwABGESopgAVOUIpKEoAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NotaDebitoPaymentMethod" Collapsed="true">
+    <Position X="19.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIACkAAAAAABAAAAAAAgAAEAAAAAAAAAAAAQAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NotaDebitoReprint" Collapsed="true">
+    <Position X="21.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAgAAAAACAAAAAAIIAAQAAAgABAAAEAABAIBQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NotaDebitoSpecialRule" Collapsed="true">
+    <Position X="23" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAACAABAgAAAAAIAAACABAAAAAAAAAAACAAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NotaDiVarizioneEAccreditoInvoice" Collapsed="true">
+    <Position X="24.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAAAAAAAQAAAAAHiAAQIQDABGMBQESAAAAIABAAQAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NotaDiVarizioneEAccreditoVoucher" Collapsed="true">
+    <Position X="26.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAMBQhACDNEABABKyIyAQCBTEEQABMQCAASiSAIAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.NoticePeriod" Collapsed="true">
+    <Position X="28.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAgAAAAAAAAAAAABAABgAAAAAAAAAgAAAEgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Orchestration" Collapsed="true">
+    <Position X="33.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACgggAAAAEAAQAAAAECAAABAACIEIECICEIAiAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.P15Rankings" Collapsed="true">
+    <Position X="35.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iBMAAAAASAMDCCDAAAgQAADBAYAIQAogCIAABxAggQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.P2_Italy" Collapsed="true">
+    <Position X="37" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADAAAAAAAAIAAAABAAAAAAAAAAACABBiAAAAAAAwhA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PageRule" Collapsed="true">
+    <Position X="40.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkIEAAAFBQIQAAYEAASIAIAAAGCBAAAQAAEgCAABgAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PartnerHistory" Collapsed="true">
+    <Position X="44" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAQJAAABAMIAABIQCAkGAQIQAAAkAiA5ABggCCCgBAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PartyType" Collapsed="true">
+    <Position X="10.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAACAAgKAAABCAACACAAAAAAIAAAAICCAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PaymentStatu" Collapsed="true">
+    <Position X="12.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAACQAgAAAABCAAAAQAAAAAAAQAAAAQAQAwA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PaymentType" Collapsed="true">
+    <Position X="14.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABASAAgIAAAACAAAAEAAAAAAoAAAAoCCAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PiPrServiceLog" Collapsed="true">
+    <Position X="16" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIIEAAACkUgAAAAAAAgAAQAggAQAASYIIAYAAEAIFA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PointsHistory" Collapsed="true">
+    <Position X="17.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hCYAAACAgMBAAICAKAACAABhAAIAQjAgAgAEACAkAgQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PointsStructure" Collapsed="true">
+    <Position X="19.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEQAAAAAQgAIACAAFAAAQgAAAAGACgAAACABBAAlEQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PointsStructureLine" Collapsed="true">
+    <Position X="21.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAwAAMAAAAAAIGGQAEEiAAoEAACFAAAEgAAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.POS" Collapsed="true">
+    <Position X="23" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>OAFAAgSAIACAQAKFBikBJG0ABAwgqAoJgAEEAAAAwAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.POSAllocationHistory" Collapsed="true">
+    <Position X="26.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQgABAASAAACCAYACAUAQAgABIZAQRASAAAhgAhCJI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.PosImport" Collapsed="true">
+    <Position X="28.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gGqBSOIIBTVAGVVHAQdkOEkFEo0ERCAII1AHgAyRAxI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Private_RenamedObjectLog" Collapsed="true">
+    <Position X="31.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAQAAAAAAAAAAAAAAAAhABEAAAAAAEAIgAAAUgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.process_log" Collapsed="true">
+    <Position X="33.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEADSgKNBASIhAAhAAICiAACBFQARAAgiAAhCMECAQg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.process_log_details" Collapsed="true">
+    <Position X="35.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABKACIoBAiiAIgAAAAAQKAAAAEhDATAABAAgKQAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Process_Logging" Collapsed="true">
+    <Position X="37" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIKCFBBCAARQAAiAwBIAABygoAAAADAKgQEAAAokIAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Process_Logging_Details" Collapsed="true">
+    <Position X="38.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIBBAMAaIACAAMAIQBgIBKQCgACAACAEAYAECgQASEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.QualifiedRanking" Collapsed="true">
+    <Position X="10.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iBMAgAAACAMBiCDAAAgQAIDBAYAIQAokCIAABxAhkQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Ranking" Collapsed="true">
+    <Position X="12.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iBMAIAAACAMDCCDAAAgQgADBAQAIQAogiIAABwAggQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RebateChequeGeneration" Collapsed="true">
+    <Position X="24.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASSJaAABQAAAACACAgAACARAAgAABCAEQCgIoUCAAQE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RebateChequeGenerationDetail" Collapsed="true">
+    <Position X="26.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBACEgABAAKIQxAAAAGABlgAYAAAIEgAAASAAiAIAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RebateFrequency" Collapsed="true">
+    <Position X="28.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAQAABIAgMAIAAAAAACAAAAAAAEQAEEAAAAAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_in_number_null_invoices" Collapsed="true">
+    <Position X="30" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>5QECTMIljQoIJgCQQkCgFoKLAwUDagWVHxBmdEFgeZU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_in_number_null_invoicevoucher" Collapsed="true">
+    <Position X="31.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SRhMCKBBiUAABpCECYIQCaxEkSMCQklC0AkAIajgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_in_number_null_ledger" Collapsed="true">
+    <Position X="33.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0AqEAAAAUAMEAhDMIsRQQJ1AEEC8ABIg4AsAAqCLwAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_in_number_null_logging" Collapsed="true">
+    <Position X="35.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BFqADbgAAggiAvExQICC4AACEgaAIBBAEUwgIQCCFBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_invoices_zero" Collapsed="true">
+    <Position X="37" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>5QECTMIljUoIJgCQQkCgFoKLAwUDagWVHxBmdEFgOZU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_invoices_zero2" Collapsed="true">
+    <Position X="38.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>5QECTMI1jQoIJgCQQkCgFoKLAwUDagWVHxBmdEFgOZU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_invoicevoucher_zero_invoicevoucher" Collapsed="true">
+    <Position X="40.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SRhMCKBBiUAABpCECYoQCaxEkSMCQkFC0AkAIajgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_invoicevoucher_zero_invoicevoucher2" Collapsed="true">
+    <Position X="42.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SRhMCKBBiUAABpCECYIQCaxEkSMCQkFC0AkAIajgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_invoicevoucher_zero_ledger" Collapsed="true">
+    <Position X="44" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0AqEAAAAUAMEAhDMIsRQQB1AEEC8ABIg4AsAAqCLwIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_invoicevoucher_zero_ledger2" Collapsed="true">
+    <Position X="45.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0AqEAAAAUAMEAhDMIsRQQB1AEEK8ABIg4AsAAqCLwAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_invoicevoucher_zero_logging" Collapsed="true">
+    <Position X="9" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BFqADbgAAggiAvExQICC4AACEgaAIBBAEUwoIQCCFBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_invoicevoucher_zero_logging2" Collapsed="true">
+    <Position X="10.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BFqADbgAAggiAvExQICC4AACEgaAIBBAEUwoIQCCFBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_ledgerdetail_zero_invoicevoucher" Collapsed="true">
+    <Position X="12.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SRhMCKBBiUAABpCECYIQCaxEkSMCQkFC0AkAIajgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_ledgerdetail_zero_invoicevoucher2" Collapsed="true">
+    <Position X="14.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SRhMCKBBiUAABpCECYIQCaxEkSMCQkFC0AkAIajgBAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_ledgerdetail_zero_ledger" Collapsed="true">
+    <Position X="16" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0AqEAAAAUAMEAhDMIsVQQB1AEEC8ABIg4AsAAqCLwAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_ledgerdetail_zero_ledger2" Collapsed="true">
+    <Position X="17.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0AqEAAAAUAMEAhDMIsVQQB1AEEC8ABIg4AsAAqCLwAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_ledgerdetail_zero_logging" Collapsed="true">
+    <Position X="19.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BFqADbgAAggiAvExQICC4AACEgaAIBBAEUwgIQCCFBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rebatejun2013_ledgerdetail_zero_logging2" Collapsed="true">
+    <Position X="21.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BFqADbgAAggiAvExQICC4CACEgaAIBBAEUwgIQCCFBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RebateStructure" Collapsed="true">
+    <Position X="23" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIAAgAoCASABoCAAABAAAiQAACAAAAAEAAEAAAADAw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RebateStructureLine" Collapsed="true">
+    <Position X="24.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQAIsFLsBKABCAIFoEAABEAIEIQwNIIAmAomCAtAAGA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ReconciliationSummary" Collapsed="true">
+    <Position X="26.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQDJpKgAywAAEKQAAIAAEhAIQIAAAACAAEABoFBECEQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundFee" Collapsed="true">
+    <Position X="35.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IhAEgUSBAAIQACCAACAACSAQIAAARAEADAAUDAAIBAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundHistory" Collapsed="true">
+    <Position X="37" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gZg1BgAIRONAAACYCQlEKSHVKkBGwCAsBC1BDKL0TAw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundHistoryError" Collapsed="true">
+    <Position X="38.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gZgkAgAARONAAACYCQlEIQFVIkBGwCAsBCVBCKL0TAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.refundLiabilityReconciliation1" Collapsed="true">
+    <Position X="40.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAARAAAAQQgQAAAAAAAAAAAAhAgEACBQAAIAAAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundMethod" Collapsed="true">
+    <Position X="42.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAEUQgCQAQABAAEAAAIAAAAEwAAEQAAAAgAAAkg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundOptOut" Collapsed="true">
+    <Position X="44" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIMAAAAQAIAAAACAAAACiCQAkAAEQAJAAAACBIAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundSelection" Collapsed="true">
+    <Position X="45.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhRZggMxARJAhTLAQDIGCGljkQD5AAEBBsBNQCUCOw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundSelectionChoice" Collapsed="true">
+    <Position X="9" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACBAgAQAACAAACIAQCAKCiAAoAAQIQAwAAAJQAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundSelectionChoice_temp" Collapsed="true">
+    <Position X="10.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAAAwAACAAAAIAQCAIAgAAoAAQIQAwAAAIQAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundSelectionException" Collapsed="true">
+    <Position X="12.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQKAgAAEAAAAAAAAkACAiACgAEAAAAAAgABQAAAEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundSelectionValue" Collapsed="true">
+    <Position X="14.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAjhABCCIEAACCOAMCABIAiABBAAAMCEgCIFCAWAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundSelectionValuesHistory" Collapsed="true">
+    <Position X="16" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABSAAkAgAgJACoAQAAgQqDAiSEIAQFQQyiAQIQUAw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundStructure" Collapsed="true">
+    <Position X="17.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAigBEEgJACICBAMAAGgAAABAQIIEQAAIAIBTAw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundStructureLine" Collapsed="true">
+    <Position X="19.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAKFpACAAJBHJRAAIIBJgAQiQAgEBggCAAACgAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RefundType" Collapsed="true">
+    <Position X="21.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAEAQgAwBQoBAAAAAqKAABCQQAgIQAIAIACEQgw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RepartitionInvoice" Collapsed="true">
+    <Position X="26.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBQAgCCIgAAQgMASICSEMACUZIAAEAAIoAgAhBhgCEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RepartitionInvoiceVoucher" Collapsed="true">
+    <Position X="28.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhAgghIiEECAAIBQAABIgAAAAIAHgpQUIAIDCA6MAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RepartitionStructure" Collapsed="true">
+    <Position X="30" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYEEIqAgAIIAEACKABggQAAQAAEQAlEAREggQEhCEE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.report_passwords" Collapsed="true">
+    <Position X="31.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAAAAxAAAAIQIAACQAAAACAAAAAAAABAgACCACAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ReportComparisonMaster" Collapsed="true">
+    <Position X="33.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgADAAIARAACCAAgAAAAAAAAAENwAAASAIggAIQBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ReportLabel" Collapsed="true">
+    <Position X="35.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GbJACCAAEgSAgX8AAAAFQASdACHQ0JBhEgCBZCMsQPY=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RetailerMailingList" Collapsed="true">
+    <Position X="42.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCAAIICAgEIIACA0EUAAAAAAwAgTABACAAAAQAAAQAc=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ReturnedRefund" Collapsed="true">
+    <Position X="28.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MgIoiGQMGBAAAjAAACYIUMKQgANcAXAAQAAASIIgBFM=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Rule" Collapsed="true">
+    <Position X="31.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAIEAAAAAIAAAKAAAAAAAAQCACAQAIAAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rules_action" Collapsed="true">
+    <Position X="33.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAABAAAAARAAAAAAAIAAAAAAQAgI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rules_ic" Collapsed="true">
+    <Position X="35.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAIAgAAAABAAAAABAAAAAAAAAAAAAAQAhQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rules_payment_status" Collapsed="true">
+    <Position X="37" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAQAAAAAAAAAABAAAIABAAAAAAAAAAgAAAQggA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rules_refunds" Collapsed="true">
+    <Position X="38.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAKAABAAAAABAAAAEAIAAAAAAAQAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rules_state" Collapsed="true">
+    <Position X="40.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAIAAAAAABAAAAABAAAAAAAAAAAAAAQAhw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rules_state_action_mapping" Collapsed="true">
+    <Position X="42.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAABAACAAAAAAABECCAABEAAAAAAAAAAAQAQIgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.rules_timing" Collapsed="true">
+    <Position X="44" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAIAAABAAAAABAAAAAAAAACAAgAwAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Rules2" Collapsed="true">
+    <Position X="45.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIgAAIAAAAAAIAAAKAAAAAAAQQCACAAAIAAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RulesHistory" Collapsed="true">
+    <Position X="9" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAABAAAIIIUEAYAAgAIBAQAAGAAACABAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RuleValue" Collapsed="true">
+    <Position X="10.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCIoggEIAEEAAACARBFRYCABBBACAAkCAKkAIABUCC0=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RuleValues2" Collapsed="true">
+    <Position X="12.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>4iIoAgECAAUAAACAYEFBIAAVlDACAAkCBKEAIABUCAw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.RuleValues2_" Collapsed="true">
+    <Position X="14.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCIoAAECAAEAAAAAYEFAIAAUlDACAAECAKEAIABECAw=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Sage_Export" Collapsed="true">
+    <Position X="16" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIABDAAIAAAQBAAABAAQIJAAAAACQQEAABAAQABEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Sage_Journals" Collapsed="true">
+    <Position X="17.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAECAAAAAAAQAAAAIBAAQBYAAAAAQQAKQACgAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.SalesAssistant" Collapsed="true">
+    <Position X="19.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gcBAgEAgQSDA1AmAABAARCABAICAAgQoMIAgQIAQBAU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.SalesPerson" Collapsed="true">
+    <Position X="21.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FYIIAAwB4AgQQYTcACAggBMJWKDCYLQEIAAgkRCElAU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Sequence" Collapsed="true">
+    <Position X="40.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQBCABQAABAAAACAgAAgEAAABAAAABQCAUACAEAAAgU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ShopRefundPayment" Collapsed="true">
+    <Position X="9" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAgBAEhADgQgCEAAQIAAAICQUIAUGIJAKgBAASEBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.ShopRefundPaymentDetail" Collapsed="true">
+    <Position X="10.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgESAAABAhAAAWAgsAUCAIAAAAAIAJEAAABggAIg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.SQ_Location" Collapsed="true">
+    <Position X="14.25" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQBCABQAABAAAAAAgAAgEAAABAAAABQCAEACAMAAAgE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.SQ_Qualified" Collapsed="true">
+    <Position X="16" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQBCABQAABAAAACAgAAgEAAABAAAAhQCAEACAEAAAgU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.SQ_VSR" Collapsed="true">
+    <Position X="17.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQBCABQAABAAAACAgAAgEAAABAAAABQCAEACAMAAAgU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Staging" Collapsed="true">
+    <Position X="19.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>3se0vd/H999b7+X+M//bw/W/u++79Lec3739ut7/v/0=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.StagingLine" Collapsed="true">
+    <Position X="21.25" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAMQQCAAAAYBACGAGCoAgJBEJAAGggQEIMgEIIIAFAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.StagingPart" Collapsed="true">
+    <Position X="23" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQAwCQSYaAAACJAMAEEAVIIAAAQkYgNIEIDIAYAAU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.SubscriptionInfo" Collapsed="true">
+    <Position X="28.25" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wdwwQAIwIRAUisSRARICoCDUAKgQAAQW4BwAQAAQoYg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.SubscriptionReport" Collapsed="true">
+    <Position X="30" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQgAAACAAEBAAACAAAAAAAAAgACAAAAACAgACAAAABI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.SunTemplate" Collapsed="true">
+    <Position X="31.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQgQkABARABAgQoAEyAEEQAAAACGAAZMQIEAsQCowBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.sysdiagram" Collapsed="true">
+    <Position X="33.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACICAMAABEIAAAIAAggAAQFIAHUAAAAAAAAQAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.temp_incorrectledgerdetailids_20120402" Collapsed="true">
+    <Position X="35.25" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>lBgAVAFgSJoAVgCEKgB0RGEhdE/NGhDFgEpDgKIRBmQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.temp_incorrectledgerdetailids_20120418" Collapsed="true">
+    <Position X="37" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>lBgAVAFgSNoAVgCEIgB0RGEhdE/NGhDFgEpDgKIRBmQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.temp_incorrectledgerdetailids_20120523" Collapsed="true">
+    <Position X="38.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>lRgAVAFgSJoAVgCEIgB0RGEhdE/NGhDFgEpDgKIRBmQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.temp_incorrectledgerperiods_20120410v2" Collapsed="true">
+    <Position X="40.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0CqEAAAAUAMEIhDMItRQQB1AEEC8ABIg4AsAAqCL4AA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.TempUpdateLedgerDetailStatu" Collapsed="true">
+    <Position X="42.25" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQOBIEAAEQAABAKAgGUUgACAAQIBAEAAIAAEECIEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.TerminalBrand" Collapsed="true">
+    <Position X="44" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEgAAgAAAAAEAgAAAAAgAAAACAgAAAEAEAAQAACAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.TerminalModel" Collapsed="true">
+    <Position X="45.75" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAUAgAAAQAAAAAIAExAAAgAAABACAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.TestResult" Collapsed="true">
+    <Position X="9" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACQAAAAAAJAAAAAAYAIAQQFBAoVAAAAgBAACYUAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.TimerMessage" Collapsed="true">
+    <Position X="12.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAggIAEAAAQAKAAQAAAAAAAAACAUAEGICEAAiAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.tmp_TOP20_ho_Others" Collapsed="true">
+    <Position X="14.25" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAYcAFIAAgEJAAlSEQAoihIEUIAAKAQAaAgAAABikAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Topos_Invoice" Collapsed="true">
+    <Position X="16" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>VCBCADBAoUAQEOABCUCgMMXIRYaBgsACkIwCCCoCwIY=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Topos_Invoice_Voucher" Collapsed="true">
+    <Position X="17.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wYhEggCUgAigRoAQIEAJwAQAIIADNEAQIhCAACBAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.trace" Collapsed="true">
+    <Position X="19.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QFIIACFAEJAPDAZGAJkACgiRIAsxAIRQgDAohREAJCA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.TransactionType" Collapsed="true">
+    <Position X="21.25" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAIgAgBAAAAAAAAAABAIAAABIACAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.TransactionType_temp" Collapsed="true">
+    <Position X="23" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIgAAAAAAAABCCIgAgAAAQAAAABAQAAIAAQAIACAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Translation" Collapsed="true">
+    <Position X="26.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAEAEAEooAACAIAEAAAAAAAAAGCEABQAAAAEAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.TransVoucher" Collapsed="true">
+    <Position X="28.25" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>35e1fvw/94376rdfk/xd8eX3+/m5dLUJ/H38OPtK/uA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Union" Collapsed="true">
+    <Position X="33.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAAIAAAEAAAABAAAACAAAAAAAAAABAAoAAAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.User" Collapsed="true">
+    <Position X="19.5" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JGArAEEoC0GBlQDQZABxAQZRYAAQEAgAAAAACQUECEQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.vatClaim_invoice" Collapsed="true">
+    <Position X="26.5" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABAgIECAAAABAgAAIAABAIQAAAAAAIEEBAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.vatclaim_invoiceVoucher" Collapsed="true">
+    <Position X="28.25" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gABQAEAAAhAIQAAAAEAAAQBCAAAAAEAgoQhACAEgIAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VatImport" Collapsed="true">
+    <Position X="30" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAIAADAQAAgAAAQgIgBABAQAAgAAAgECCAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VatRate" Collapsed="true">
+    <Position X="31.75" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAIIAAAAAgABCCCACAEBgAAgAIAABAAAACAAIAgEA4=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VipPassport" Collapsed="true">
+    <Position X="33.5" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QIAAAAAAAAAAIgAQQAAAAAAIIAAAEEAAAEgAwAABICA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoidVoucher" Collapsed="true">
+    <Position X="35.25" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IlIHAARIAIkIAQTEAILBAxAAQgBCgAkAEgAQBBQADAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoidVoucherLine" Collapsed="true">
+    <Position X="37" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABGCABIAEAwQDIAGQMOIAAACQAigAgQAQAhEBZIgIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Voucher" Collapsed="true">
+    <Position X="38.75" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>17f1fv1//0/7+/de1vx//+7/6/m//fcJ/338+P97/+w=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.Voucher_Status_Ledgers" Collapsed="true">
+    <Position X="42.25" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>A0AKiAAACBRAAgABSBQAMAFGAGoAAIAARQAIEACgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherCache" Collapsed="true">
+    <Position X="44" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAAAAICgAAAAAAABYAAqAAAAADAACBAAAEAAAgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherHistory" Collapsed="true">
+    <Position X="9" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ePFyREUerX2mWAJ2mWmUowHQTobPRPSbpB+4CvugRZA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherLine" Collapsed="true">
+    <Position X="14.25" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oCISAKgICqYBBAGAWAoAgkREFBUExAAEsAAMAIQCFCU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherMismatch" Collapsed="true">
+    <Position X="16" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>76v1Jvf9/q/f/6ze/2/73+3+7//1/f+76/9/7dqP+/4=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherMultipleRefund" Collapsed="true">
+    <Position X="17.75" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0QsQA0ny7AshqZCaMA+bGDICSL/PSAyksbisBAaKCGQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherNumber" Collapsed="true">
+    <Position X="19.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hCDBwBBMkSi1cILAGFH9GiqDQMFAShgDRI0iAtPAlPU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherP0" Collapsed="true">
+    <Position X="21.25" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>93b/Xodc/La+7pX8frb9X6++e///6f//r37fvZ///9c=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherP0Line" Collapsed="true">
+    <Position X="23" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgIFczNgAgBSABDAVIJAAgKEASBEgEBAQASABCBQKAY=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherP0Part" Collapsed="true">
+    <Position X="24.75" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgUBApCRAEQxYBjAAAAAAECAADFgAgFIAMEAUgApKAU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherPart" Collapsed="true">
+    <Position X="26.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASIdQTDIyYQgAIjJCGJGAgWBATCBUGJhgOwLLIAIEAc=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherPartMismatch" Collapsed="true">
+    <Position X="28.25" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBgBkQClJUgQAAimCAhiCMPwbEYggFRQgsgAFoEIqEc=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherPrinterDetail" Collapsed="true">
+    <Position X="30" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIBgAEgQAAAAACAABAAQEIAABAAAAAgAACgkAEhQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherPrintingFormat" Collapsed="true">
+    <Position X="31.75" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAABAAiAAAACAAABBAQBAACAFEgAAAKKAEAAEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherRequest" Collapsed="true">
+    <Position X="33.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAANDAQEAxQBAEICggEighIiIJAgBYigAIAoIcjAkI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherStatu" Collapsed="true">
+    <Position X="35.25" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAACQAAAAAABBAAAAAAAAAAAAQAAQAYBgAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VoucherType" Collapsed="true">
+    <Position X="37" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAgAAAAAAgMAAAAAAABAAAAQAAAIAAAAKICgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.VSR_Journals" Collapsed="true">
+    <Position X="38.75" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FgAICFAKEATMAgBACFZCmJgGAyCAE6AHCAgEoAgaCJI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Data.PTF.WrongVoucherAllocation" Collapsed="true">
+    <Position X="42.25" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgCAAAAACYAlgAEgABAAIAEAAQASAAhAQoIAAIAACQU=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Filters.InitializeSimpleMembershipAttribute" Collapsed="true">
+    <Position X="31.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Filters\InitializeSimpleMembershipAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Handler.FormsAuthenticationService" Collapsed="true">
+    <Position X="44" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAQAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Handler\FormsAuthenticationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Handler.ImageHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAABAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Handler\ImageHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.Models.UsersContext" Collapsed="true">
+    <Position X="24.75" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.UserProfile" Collapsed="true">
+    <Position X="23" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.RegisterExternalLoginModel" Collapsed="true">
+    <Position X="23" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.LocalPasswordModel" Collapsed="true">
+    <Position X="12.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.LoginModel" Collapsed="true">
+    <Position X="17.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAQAAAAAgAAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.RegisterModel" Collapsed="true">
+    <Position X="24.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.ExternalLogin" Collapsed="true">
+    <Position X="19.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.BarcodeModel" Collapsed="true">
+    <Position X="30" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BarcodeModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.VoucherInfoModel" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\VoucherModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.SearchModel" Collapsed="true">
+    <Position X="26.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAACAAAAAAAAAAAABAAIAAAAAAAAABAABAAA=</HashCode>
+      <FileName>Models\VoucherModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.SearchModel2" Collapsed="true">
+    <Position X="28.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAACAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\VoucherModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.ShowModel" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAIAAAAAAAQAAAACABAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\VoucherModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.ShowXmlModel" Collapsed="true">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAiAIAEAABAAAAAAAIAAAQAAAAAAAAAACAAEI=</HashCode>
+      <FileName>Models\VoucherModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.Models.BarcodeInfo" Collapsed="true">
+    <Position X="28.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAQAAFAAAAAgAABAAAAAgAAIAAAAAAA=</HashCode>
+      <FileName>Models\VoucherModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.ScanServiceClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/G/s/16f3V5Pbr/HvD+rv957b//nlP35y+urmt5+8/8=</HashCode>
+      <FileName>ScanServerClient.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.MyApplicationFault" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.VoucherInfo2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACAAAAAAAAIAAAAEAIhIAEAAAEgAAgYAIAAAI=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.VoucherInfo" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAACgAAggAABAEIACAQIhAAEAIAEAIAgIAIIBAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.HistoryByCountryInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAABAkAwIBBAAAwZhIAEAAAMAAFEAAaAAkA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.RetailerPrinterInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="44" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAAAEAgCAAAAQAAAAAAAAAAAoAAQBAAEgQCEQgIAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.fileInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAgCgAAAgAAAAAAACEQIgAAUAAAMgAAgQAIAAAI=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.FolderInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACAAAAgAAAAAAAAAQAgAAAACAEAgAgAAIAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.file2Info" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIKAAgCAAAAggAAAAIAAAQIgAAUAAAMAAAgAAIAIAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.UpdateFileInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="42.25" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAgAAAAAAAAARAgIAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.TransferFileInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAASABAIQAAAAAABAAAAkAAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.VoucherInfo3" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAACgAAAAAAAIAAACkAAgIAAAAAEgAAAQDIAAAI=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.ReadVoucherInfoCompletedEventArgs" Collapsed="true">
+    <Position X="23" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.ReadDataCompletedEventArgs" Collapsed="true">
+    <Position X="16" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.ReadData2CompletedEventArgs" Collapsed="true">
+    <Position X="14.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.FindVoucherCompletedEventArgs" Collapsed="true">
+    <Position X="31.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.FindVoucherImageCompletedEventArgs" Collapsed="true">
+    <Position X="33.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.ReadHistoryCompletedEventArgs" Collapsed="true">
+    <Position X="17.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.ReadRetailerPrinterInfoCompletedEventArgs" Collapsed="true">
+    <Position X="19.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.SelectFilesBySqlCompletedEventArgs" Collapsed="true">
+    <Position X="37" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.SelectFoldersByParentCompletedEventArgs" Collapsed="true">
+    <Position X="38.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.SelectFilesByFolderCompletedEventArgs" Collapsed="true">
+    <Position X="35.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.SelectCoversByFolderCompletedEventArgs" Collapsed="true">
+    <Position X="31.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.SelectFileByIdCompletedEventArgs" Collapsed="true">
+    <Position X="33.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.GetVersionInfoCompletedEventArgs" Collapsed="true">
+    <Position X="24.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.ReadVersionFileCompletedEventArgs" Collapsed="true">
+    <Position X="21.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.GetTransferFileCompletedEventArgs" Collapsed="true">
+    <Position X="23" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.FindVoucherTRSByVoucherNumberCompletedEventArgs" Collapsed="true">
+    <Position X="37" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.ScanServiceRef.FindVoucherTRSBySiteCodeCompletedEventArgs" Collapsed="true">
+    <Position X="35.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.AuthenticationHeader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAACAAAAAAAAAAAAACgAiAAQAAAGAUAIAAAAAAA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.RetrieveUserRequest" Collapsed="true">
+    <Position X="21.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAEAAIA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.RetrieveUserResponse" Collapsed="true">
+    <Position X="23" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.CreateUserRequest" Collapsed="true">
+    <Position X="21.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAgEAAIA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.CreateUserResponse" Collapsed="true">
+    <Position X="23" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.EncryptPasswordRequest" Collapsed="true">
+    <Position X="9" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAIA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.EncryptPasswordResponse" Collapsed="true">
+    <Position X="10.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.DecryptPasswordRequest" Collapsed="true">
+    <Position X="38.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.DecryptPasswordResponse" Collapsed="true">
+    <Position X="40.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.GenerateSaltRequest" Collapsed="true">
+    <Position X="9" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.GenerateSaltResponse" Collapsed="true">
+    <Position X="10.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.AuthenticationRef.AuthenticationSoapClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAQAAAEgAAABAAgBAiAAAAAAACAAAIAAAAAA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.AuthenticationHeader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAACAAAAAAAAAAAAACgAiAAQAAAGAUAIAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.PrinterDetails" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAACEACAAACAAIAAIAAAAQAgAAAAAAAAQAAAAAAAQA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CountryDetail" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="33.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgIAACACmBgAChAAYEACAIAE4AIAAIABAAAAAAAQiyA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.PartyTransactionLookup" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAACACAAAAAABCAAAAAEgIAAAAAAAAAAAABAQAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.AgentBranch" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAtCQBACgCAKAAEAAMIQABwAgEgSFCQABRIAIACAICA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.Address" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACCBCIAQAQAAAAAIBAgAAAAAAgAACEQAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.AgentHeadOffice" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AApCAAACgCAAAAEAAMIAABwEgEgQFKAABAIAIACAICA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.BankDetail" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAFCAAAAAAAAAAAAAAAAhAgAAAgAAAAAQAABBCA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.POS" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACIAACAAAACAAAAAgBAAgAkAmQACAhABAAAEAEAJA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.Retailer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BE7TFgCit22KmQQ0AMAoiDwV9WKSGCMAJNLQoEbQKIk=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.HeadOffice" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>LYrLUQKqn+kO2QA+MMF8DH4kj3GS9eMIBdLoMcXpLKc=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.SalesPerson" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACCAACgCAIAAAAAIIBEAwggAAUACCABAIAIEACAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.PtfOffice" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAgDwAAShAAEAUAAAKAEAA4AhAAQBCEIBAAAAAAAACg=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.NameIdData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACAAAAAAAAAIAAAAQAgAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RecreateRefundSpreadsheetsRequest" Collapsed="true">
+    <Position X="28.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RecreateRefundSpreadsheetsResponse" Collapsed="true">
+    <Position X="30" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RecreateVatClaimreportRequest" Collapsed="true">
+    <Position X="31.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RecreateVatClaimreportResponse" Collapsed="true">
+    <Position X="33.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveVATClaimInvoiceRequest" Collapsed="true">
+    <Position X="24.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveVATClaimInvoiceResponse" Collapsed="true">
+    <Position X="26.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrievePftOfficeListRequest" Collapsed="true">
+    <Position X="28.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrievePftOfficeListResponse" Collapsed="true">
+    <Position X="30" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisablePtfOfficeRequest" Collapsed="true">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAEAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisablePtfOfficeResponse" Collapsed="true">
+    <Position X="21.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrievePtfOfficeDetailRequest" Collapsed="true">
+    <Position X="31.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAEAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrievePtfOfficeDetailResponse" Collapsed="true">
+    <Position X="33.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdatePtfOfficeRequest" Collapsed="true">
+    <Position X="9" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdatePtfOfficeResponse" Collapsed="true">
+    <Position X="10.75" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreatePtfOfficeRequest" Collapsed="true">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAgIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreatePtfOfficeResponse" Collapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrievePtfSalePersonListRequest" Collapsed="true">
+    <Position X="35.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrievePtfSalePersonListResponse" Collapsed="true">
+    <Position X="37" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisablePtfSalesPersonRequest" Collapsed="true">
+    <Position X="23" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAQAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisablePtfSalesPersonResponse" Collapsed="true">
+    <Position X="24.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrievePtfSalesPersonDetailRequest" Collapsed="true">
+    <Position X="38.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAQAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrievePtfSalesPersonDetailResponse" Collapsed="true">
+    <Position X="40.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdatePtfSalesPersonRequest" Collapsed="true">
+    <Position X="12.5" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdatePtfSalesPersonResponse" Collapsed="true">
+    <Position X="14.25" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DoesSalesPersonConflictRequest" Collapsed="true">
+    <Position X="31.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAAAAAoA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DoesSalesPersonConflictResponse" Collapsed="true">
+    <Position X="33.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreatePtfSalesPersonRequest" Collapsed="true">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreatePtfSalesPersonResponse" Collapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveHeadOfficeListRequest" Collapsed="true">
+    <Position X="24.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveHeadOfficeListResponse" Collapsed="true">
+    <Position X="26.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisableHeadOfficeRequest" Collapsed="true">
+    <Position X="16" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABCAAAAAACAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisableHeadOfficeResponse" Collapsed="true">
+    <Position X="17.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveHeadOfficeDetailRequest" Collapsed="true">
+    <Position X="21.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAACAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveHeadOfficeDetailResponse" Collapsed="true">
+    <Position X="23" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveTableDataRequest" Collapsed="true">
+    <Position X="14.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveTableDataResponse" Collapsed="true">
+    <Position X="16" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdateHeadOfficeRequest" Collapsed="true">
+    <Position X="44" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAQAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdateHeadOfficeResponse" Collapsed="true">
+    <Position X="45.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreateHeadOfficeRequest" Collapsed="true">
+    <Position X="45.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAQAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreateHeadOfficeResponse" Collapsed="true">
+    <Position X="9" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveRetailerListRequest" Collapsed="true">
+    <Position X="45.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAACAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveRetailerListResponse" Collapsed="true">
+    <Position X="9" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisableRetailerRequest" Collapsed="true">
+    <Position X="26.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAAAMA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisableRetailerResponse" Collapsed="true">
+    <Position X="28.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveRetailerDetailRequest" Collapsed="true">
+    <Position X="42.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAMA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveRetailerDetailResponse" Collapsed="true">
+    <Position X="44" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdateRetailerRequest" Collapsed="true">
+    <Position X="16" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAACAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdateRetailerResponse" Collapsed="true">
+    <Position X="17.75" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreateRetailerRequest" Collapsed="true">
+    <Position X="17.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAACAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreateRetailerResponse" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveUnallocatedPOSRequest" Collapsed="true">
+    <Position X="17.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveUnallocatedPOSResponse" Collapsed="true">
+    <Position X="19.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveRetailerPOSRequest" Collapsed="true">
+    <Position X="10.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAMA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveRetailerPOSResponse" Collapsed="true">
+    <Position X="12.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.AllocateRetailerPOSRequest" Collapsed="true">
+    <Position X="40.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.AllocateRetailerPOSResponse" Collapsed="true">
+    <Position X="42.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UnallocateRetailerPOSRequest" Collapsed="true">
+    <Position X="30" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UnallocateRetailerPOSResponse" Collapsed="true">
+    <Position X="31.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveAgentHOListRequest" Collapsed="true">
+    <Position X="17.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveAgentHOListResponse" Collapsed="true">
+    <Position X="19.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisableAgentHORequest" Collapsed="true">
+    <Position X="12.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisableAgentHOResponse" Collapsed="true">
+    <Position X="14.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveAgentHODetailRequest" Collapsed="true">
+    <Position X="14.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveAgentHODetailResponse" Collapsed="true">
+    <Position X="16" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdateAgentHORequest" Collapsed="true">
+    <Position X="38.75" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdateAgentHOResponse" Collapsed="true">
+    <Position X="40.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreateAgentHORequest" Collapsed="true">
+    <Position X="42.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAgAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreateAgentHOResponse" Collapsed="true">
+    <Position X="44" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveAgentBranchListRequest" Collapsed="true">
+    <Position X="10.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAABAAAAIAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveAgentBranchListResponse" Collapsed="true">
+    <Position X="12.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisableAgentBranchRequest" Collapsed="true">
+    <Position X="9" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAQAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.DisableAgentBranchResponse" Collapsed="true">
+    <Position X="10.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveAgentBranchDetailRequest" Collapsed="true">
+    <Position X="45.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAQAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.RetrieveAgentBranchDetailResponse" Collapsed="true">
+    <Position X="9" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdateAgentBranchRequest" Collapsed="true">
+    <Position X="35.25" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.UpdateAgentBranchResponse" Collapsed="true">
+    <Position X="37" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreateAgentBranchRequest" Collapsed="true">
+    <Position X="38.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAQIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.CreateAgentBranchResponse" Collapsed="true">
+    <Position X="40.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.GetPartyTransactionListRequest" Collapsed="true">
+    <Position X="12.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.GetPartyTransactionListResponse" Collapsed="true">
+    <Position X="14.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.GetPtfCountryListRequest" Collapsed="true">
+    <Position X="19.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.GetPtfCountryListResponse" Collapsed="true">
+    <Position X="21.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.GetPrinterInfoRequest" Collapsed="true">
+    <Position X="16" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.GetPrinterInfoResponse" Collapsed="true">
+    <Position X="17.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.SetPrinterInfoRequest" Collapsed="true">
+    <Position X="44" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAEIA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.SetPrinterInfoResponse" Collapsed="true">
+    <Position X="45.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FintraxPTFImages.PartyManagementRef.PartyManagementSoapClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="45.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Yg8lGQ7UpAQMUALGAUloRQEAIBAhAFQjJaMgBB0EQgA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="FintraxPTFImages.Common.IPagedList" Collapsed="true">
+    <Position X="9" Y="21.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAVAAQAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Common\IPagedList.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FintraxPTFImages.ScanServiceRef.IScanService" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EGZAMFKAREgFSIbEnAwrkAQ4TwejFAwgQCECCgAeIHI=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FintraxPTFImages.ScanServiceRef.IScanServiceChannel" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FintraxPTFImages.AuthenticationRef.AuthenticationSoap" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAQAAAAgAAAAAAgAAgAAAAAAACAAAIAAAAAA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FintraxPTFImages.AuthenticationRef.AuthenticationSoapChannel" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\AuthenticationRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FintraxPTFImages.PartyManagementRef.PartyManagementSoap" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Qg8AEAQAhAAIQACEAAlIBQEAIBAgAEAhISMgBBQEQgA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FintraxPTFImages.PartyManagementRef.PartyManagementSoapChannel" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="FintraxPTFImages.ScanServiceRef.OperationHistory" Collapsed="true">
+    <Position X="12.5" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQBYEAAAAAQVAAAAAAAICQAAAACABACAQARAEAAA=</HashCode>
+      <FileName>Service References\ScanServiceRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FintraxPTFImages.PartyManagementRef.PartyType" Collapsed="true">
+    <Position X="14.25" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAEAAgAQAAAAAAIAAAAAAQAAAAAAAAAAAgAEAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FintraxPTFImages.PartyManagementRef.RebateFrequencies" Collapsed="true">
+    <Position X="16" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAkAAAAAAAAAAAQAAAAAAAAAAgAABAAAgg=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FintraxPTFImages.PartyManagementRef.HeadOfficeAdminFeeInvoiceType" Collapsed="true">
+    <Position X="10.75" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAYAAQA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FintraxPTFImages.PartyManagementRef.DirectDebitStatusType" Collapsed="true">
+    <Position X="9" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAgAAAAAAAAAAAAAABAAAABAAAAAA=</HashCode>
+      <FileName>Service References\PartyManagementRef\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

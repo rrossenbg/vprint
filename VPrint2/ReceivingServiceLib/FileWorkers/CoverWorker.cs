@@ -32,9 +32,7 @@ namespace ReceivingServiceLib.FileWorkers
         public void Test()
         {
             WorkerThreadFunction();
-        }
-
-        private const int MAX_BUFF_SIZE_50MB = 50 * 1024 * 1024; //33262605;
+        }        
 
         protected override void WorkerThreadFunction()
         {
@@ -112,7 +110,7 @@ namespace ReceivingServiceLib.FileWorkers
                                         sessionFolder = coverFolder.Combine(voucher.SessionId);
                                         sessionFolder.EnsureDirectory();
 
-                                        zipFileAccess.Instance.RestoreZip(zipFile.FullName, sessionFolder.FullName);
+                                        ZipFileAccess.Instance.RestoreZip(zipFile.FullName, sessionFolder.FullName);
 
                                         var files = sessionFolder.GetFiles("*.jpg");
                                         var vouhcerImage = files.Max((f1, f2) => f1.Length > f2.Length);
@@ -157,7 +155,7 @@ namespace ReceivingServiceLib.FileWorkers
                                     {
                                         binFile.DeleteSafe();
                                         zipFile.DeleteSafe();
-                                        sessionFolder.DeleteSafe(true);
+                                        sessionFolder.DeleteSafe();
 
                                         Thread.Yield();
                                     }

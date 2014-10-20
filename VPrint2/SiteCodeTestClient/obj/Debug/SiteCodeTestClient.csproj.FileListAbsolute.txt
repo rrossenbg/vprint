@@ -19,7 +19,6 @@ C:\PROJECTS\VPrint\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.pdb
 C:\PROJECTS\VPrint2\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe.config
 C:\PROJECTS\VPrint2\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.exe
 C:\PROJECTS\VPrint2\SiteCodeTestClient\bin\Debug\SiteCodeTestClient.pdb
-C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.MainForm.resources
 C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.Properties.Resources.resources
 C:\PROJECTS\VPrint2\SiteCodeTestClient\obj\Debug\SiteCodeTestClient.csproj.GenerateResource.Cache

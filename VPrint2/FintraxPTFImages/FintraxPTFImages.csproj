@@ -173,6 +173,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\PTF.Common\Colections\MemoryBuffer.cs">
+      <Link>Collections\MemoryBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\PTF.Common\Extensions\Core3Ex.cs">
+      <Link>Extensions\Core3Ex.cs</Link>
+    </Compile>
+    <Compile Include="..\PTF.Common\Extensions\DirectoryInfoEx.cs">
+      <Link>Extensions\DirectoryInfoEx.cs</Link>
+    </Compile>
+    <Compile Include="..\PTF.Common\Extensions\FileInfoEx.cs">
+      <Link>Extensions\FileInfoEx.cs</Link>
+    </Compile>
+    <Compile Include="..\PTF.Common\Extensions\SqlEx.cs">
+      <Link>Extensions\SqlEx.cs</Link>
+    </Compile>
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -194,6 +209,7 @@
       <DependentUpon>PTFImagesData.dbml</DependentUpon>
     </Compile>
     <Compile Include="Data\PTFImagesDataEx.cs" />
+    <Compile Include="Data\PTFNotaDebito.cs" />
     <Compile Include="Data\PTF\PTFDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -248,7 +264,6 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\VoucherModels.cs" />
-    <Compile Include="Extensions\IOEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\VoucherController.cs" />
     <Content Include="Content\jquery-ui.css" />
