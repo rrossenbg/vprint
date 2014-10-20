@@ -230,18 +230,20 @@ namespace ReceivingServiceLib.Data
             public int branch_id { get; set; }
             public int v_number { get; set; }
             public string session_Id { get; set; }
+            public bool v_protected { get; set; }
 
             public SelectVoucherInfoData()
             {
             }
 
-            public SelectVoucherInfoData(int vid, int isoId, int branch_id, int v_number, string session_Id)
+            public SelectVoucherInfoData(int vid, int isoId, int branch_id, int v_number, string session_Id, bool v_protected)
             {
                 this.vid = vid;
                 this.isoId = isoId;
                 this.branch_id = branch_id;
                 this.v_number = v_number;
                 this.session_Id = session_Id;
+                this.v_protected = v_protected;
             }
         }
 
@@ -261,6 +263,7 @@ namespace ReceivingServiceLib.Data
                                   ,[branch_id]
                                   ,[v_number]
                                   ,[session_Id]
+                                  ,[v_protected]
                                 FROM [Voucher]
                                WHERE Id = @id";
 
@@ -284,8 +287,9 @@ namespace ReceivingServiceLib.Data
                             var branch_id = reader.Get<int>("branch_id").Value;
                             var v_number = reader.Get<int>("v_number").Value;
                             var session_Id = reader.GetString("session_Id");
+                            var v_protected = reader.Get<bool>("v_protected").GetValueOrDefault();
 
-                            var result = new SelectVoucherInfoData(vid, isoId, branch_id, v_number, session_Id);
+                            var result = new SelectVoucherInfoData(vid, isoId, branch_id, v_number, session_Id, v_protected);
                             return result;
                         }
                         else
@@ -929,6 +933,42 @@ ORDER BY [Id]";
 
                 using (var comm = new SqlCommand(SQL, conn))
                     comm.ExecuteNonQuery();
+            }
+        }
+
+        public bool SelectVoucherByNumber(int countryId, int voucherId, out bool isProtected, out string sessionId, out int size, byte[] data)
+        {
+            #region
+            const string SQL = @"SELECT [scan_image], [scan_image_size], [v_protected], [session_Id] 
+                                FROM [Voucher] WHERE iso_id = @iso_id and v_number = @v_number";
+            #endregion
+
+            using (var conn = new SqlConnection(Global.Strings.ConnString))
+            {
+                conn.Open();
+
+                using (var comm = new SqlCommand(SQL, conn))
+                {
+                    comm.Parameters.AddWithValue("@iso_id", countryId);
+                    comm.Parameters.AddWithValue("@v_number", voucherId);
+
+                    using (var reader = comm.ExecuteReader(CommandBehavior.CloseConnection))
+                    {
+                        if (reader.Read())
+                        {
+                            size = reader.Get<int>("scan_image_size").GetValueOrDefault();
+                            isProtected = reader.Get<bool>("v_protected").GetValueOrDefault();
+                            sessionId = reader.GetString("session_Id") ?? "".Unique();
+                            reader.GetBytes(0, 0, data, 0, size);
+                            return true;
+                        }
+                        isProtected = false;
+                        sessionId = null;
+                        data = null;
+                        size = 0;
+                        return false;
+                    }
+                }
             }
         }
 

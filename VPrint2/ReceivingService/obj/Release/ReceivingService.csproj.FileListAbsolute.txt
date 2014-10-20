@@ -1,6 +1,3 @@
-C:\PROJECTS\VPrint2\ReceivingService\bin\Release\Resources\PTF.cer
-C:\PROJECTS\VPrint2\ReceivingService\bin\Release\Resources\PTF.pfx
-C:\PROJECTS\VPrint2\ReceivingService\bin\Release\Resources\PTFLogo.jpg
 C:\PROJECTS\VPrint2\ReceivingService\bin\Release\ReceivingService.exe.config
 C:\PROJECTS\VPrint2\ReceivingService\bin\Release\ReceivingService.exe.manifest
 C:\PROJECTS\VPrint2\ReceivingService\bin\Release\ReceivingService.application
@@ -19,3 +16,9 @@ C:\PROJECTS\VPrint2\ReceivingService\obj\Release\ReceivingService.exe.manifest
 C:\PROJECTS\VPrint2\ReceivingService\obj\Release\ReceivingService.application
 C:\PROJECTS\VPrint2\ReceivingService\obj\Release\ReceivingService.exe
 C:\PROJECTS\VPrint2\ReceivingService\obj\Release\ReceivingService.pdb
+C:\PROJECTS\VPrint2\ReceivingService\bin\Release\PTF.Common.dll
+C:\PROJECTS\VPrint2\ReceivingService\bin\Release\ReceivingServiceLib.Drawing.dll
+C:\PROJECTS\VPrint2\ReceivingService\bin\Release\Emgu.CV.dll
+C:\PROJECTS\VPrint2\ReceivingService\bin\Release\Emgu.Util.dll
+C:\PROJECTS\VPrint2\ReceivingService\bin\Release\PTF.Common.pdb
+C:\PROJECTS\VPrint2\ReceivingService\bin\Release\ReceivingServiceLib.Drawing.pdb

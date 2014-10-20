@@ -51,43 +51,27 @@ namespace VPrinting
 
         [TargetedPatchingOptOut("na")]
         [Obfuscation]
-        public static void DeleteSafe(this FileInfo info)
+        public static bool DeleteSafe(this DirectoryInfo info, bool recursive = true)
         {
             try
             {
                 if (info == null)
-                    return;
+                    return false;
 
                 info.Refresh();
                 if (info.Exists)
-                    info.Delete();
-            }
-            catch (Exception ex)
-            {
-#if DEBUGGER
-                Trace.WriteLine(ex, "ISRV");
-#endif
-            }
-        }
-
-        [TargetedPatchingOptOut("na")]
-        [Obfuscation]
-        public static void DeleteSafe(this DirectoryInfo info, bool recursive)
-        {
-            try
-            {
-                if (info == null)
-                    return;
-
-                info.Refresh();
-                if (info.Exists)
+                {
                     info.Delete(recursive);
+                    return true;
+                }
+                return false;
             }
             catch (Exception ex)
             {
 #if DEBUGGER
                 Trace.WriteLine(ex, "ISRV");
 #endif
+                return false;
             }
         }
 

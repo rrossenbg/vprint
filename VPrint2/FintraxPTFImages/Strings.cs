@@ -12,5 +12,6 @@ namespace FintraxPTFImages
         /// ConcurrentBag
         /// </summary>
         public const string LIST_OF_BARCODECONFIGS = "LIST_OF_BARCODECONFIGS";
+        public const string LIST_OF_BARCODESCAN_ACTIONS = "LIST_OF_BARCODESCAN_ACTIONS";
     }
 }

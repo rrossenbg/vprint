@@ -9,6 +9,8 @@ using System.Drawing;
 using VPrint.Common.Pdf;
 using VPrinting;
 using VPrinting.Pdf;
+using System.Net;
+using System.Diagnostics;
 
 namespace ReceivingServiceTest
 {
@@ -108,6 +110,66 @@ namespace ReceivingServiceTest
             using (Bitmap bitmap = (Bitmap)Image.FromFile(fileName))
             {
                 var list = bitmap.GetAllPages(System.Drawing.Imaging.ImageFormat.Png);
+            }
+        }
+
+        [TestMethod]
+        public void call_ReportingServer()
+        {
+            try
+            {
+                /// GOOD
+                ///http://192.168.53.144/Reportserver/Pages/ReportViewer.aspx?%2fNota+Debito%2fNota+Debito+0032&rs:Command=Render&rs:format=PDF&iso_id=724&Office=167150&in_date=02/12/2013&invoicenumber=42538
+                ///
+
+                //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(serverUrl);
+                //request.PreAuthenticate = true;
+                //request.Credentials = new NetworkCredential("rosen.rusev", "", "fintrax.com");
+
+                //using (var response = (HttpWebResponse)request.GetResponse())
+                //{
+                //    using (Stream stream = response.GetResponseStream())
+                //    {
+                //        byte[] file = stream.ReadAllBytes();
+                //        response.Close();
+                //        File.WriteAllBytes("C:\\test.pdf", file);
+                //    }
+                //}
+
+
+
+                ////CookieContainer cookies = new CookieContainer();
+                ////// build authentication token
+                ////string authToken = "15869be800840d58ed4ec1a9e5e32235:api_token";
+
+                ////// encode to Base64
+                ////byte[] bytes = Encoding.ASCII.GetBytes(authToken);
+                ////authToken = Convert.ToBase64String(bytes);
+
+                ////// write the "Authorization" header
+                ////request.Headers.Add("Authorization", "Basic " + authToken);
+
+                //CredentialCache myCache = new CredentialCache();
+                //myCache.Add(new Uri("http://192.168.53.144/"), "Basic", new NetworkCredential("rosen.rusev", ""));
+                //myCache.Add(new Uri("http://192.168.53.144/"), "Digest", new NetworkCredential("rosen.rusev", "", "fintrax.com"));
+
+                //client.Credentials = myCache;
+                //client.Proxy = WebRequest.DefaultWebProxy;
+                //client.Proxy.Credentials = myCache;
+
+                string serverUrl = "http://192.168.53.144/Reportserver/Pages/ReportViewer.aspx?%2fNota+Debito%2fNota+Debito+0032&rs:Command=Render&rs:format=PDF&iso_id=724&Office=167150&in_date=2013-12-03&invoicenumber=42538";
+
+                var client = new WebClient();
+                client.Headers.Add(HttpRequestHeader.UserAgent, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
+                //CredentialCache cache = new CredentialCache();
+                //cache.Add(new Uri("http://fintrax.com/"), "Basic", new NetworkCredential("rosen.rusev", ""));
+                client.Credentials = CredentialCache.DefaultCredentials;
+                var buffer = client.DownloadData(serverUrl);
+                File.WriteAllBytes("C:\\test.pdf", buffer);
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex);
             }
         }
     }

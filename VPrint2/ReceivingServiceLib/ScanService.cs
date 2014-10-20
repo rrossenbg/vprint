@@ -12,13 +12,12 @@ using System.Linq;
 using System.Security;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using System.Threading.Tasks;
 using ReceivingServiceLib.Common.Data;
 using ReceivingServiceLib.Data;
 using ReceivingServiceLib.Services;
 using VPrint.Common.Pdf;
-using VPrinting.Pdf;
 using VPrinting;
+using VPrinting.Pdf;
 
 namespace ReceivingServiceLib
 {
@@ -26,9 +25,10 @@ namespace ReceivingServiceLib
     //[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, AddressFilterMode = AddressFilterMode.Any)]
     [ErrorHandlingBehavior(ExceptionToFaultConverter = typeof(MyServiceFaultProvider))]
-    public class ScanService : IScanService
+    public partial class ScanService : IScanService
     {
         public static event EventHandler<ValueEventArgs<Tuple<string, string, DateTime>>> NewCall;
+        public static event EventHandler<ValueEventArgs<Tuple<VoucherDataAccess.SelectVoucherInfoData, DirectoryInfo>>> ExtractVoucher;
 
         #region SCAN
 
@@ -194,7 +194,7 @@ namespace ReceivingServiceLib
                 if (directory.Exists)
                 {
                     var xmlName = directory.CombineFileName("data.xml");
-                    zipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
+                    ZipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
                         retailerId, voucherId, folderId, siteCode, barCode, userId, locationId, serverDirName, typeId: 2);
                 }
             }
@@ -231,7 +231,7 @@ namespace ReceivingServiceLib
                 if (directory.Exists)
                 {
                     var xmlName = directory.CombineFileName(GetXmlFileNamePerAction(action));
-                    zipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
+                    ZipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
                         retailerId, voucherId, folderId, siteCode, barCode, userId, locationId, serverDirName, typeId: 2);
                 }
             }
@@ -258,7 +258,7 @@ namespace ReceivingServiceLib
                 if (directory.Exists)
                 {
                     var xmlName = directory.CombineFileName(GetXmlFileNamePerAction(action));
-                    zipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
+                    ZipFileAccess.Instance.SaveVoucherXml(xmlName, jobId, countryId,
                         retailerId, voucherId, folderId, siteCode, barCode, userId, locationId, serverDirName, typeId);
                 }
             }
@@ -311,7 +311,7 @@ namespace ReceivingServiceLib
                 if (directory.Exists)
                 {
                     var xmlName = directory.CombineFileName("cover.xml");
-                    zipFileAccess.Instance.SaveCoversheetXml(xmlName, countryId,
+                    ZipFileAccess.Instance.SaveCoversheetXml(xmlName, countryId,
                         folderId, userId, locationId, serverDirName);
                 }
             }
@@ -439,39 +439,23 @@ namespace ReceivingServiceLib
                     return info;
                 }
 
-                var fac = new zipFileAccess();
-                var fromDir = fac.CreateDirectoryHerarchy(Global.Strings.VOCUHERSFOLDER, info);
-
                 var webroot = new DirectoryInfo(copyToFolder);
                 webroot.EnsureDirectory();
 
                 var sessionFolder = webroot.Combine(info.SessionId);
-                sessionFolder.DeleteSafe(true);
-                sessionFolder.EnsureDirectory();
-
-                var count = fromDir.CopyFiles(sessionFolder, true);
-                if (count == 0)
+                if (!sessionFolder.Exists || sessionFolder.IsEmpty())
                 {
-                    //Export file from DB
-                    var t = Task.Factory.StartNew((o) =>
+                    sessionFolder.EnsureDirectory();
+
+                    var fac = new ZipFileAccess();
+                    var fromDir = fac.CreateDirectoryHerarchy(Global.Strings.VOCUHERSFOLDER, info.IsoId, info.RetailerId, info.VoucherId);
+                    var count = fromDir.CopyFiles(sessionFolder, true);
+                    if (count == 0)
                     {
-                        try
-                        {
-                            var result2 = o.cast<VoucherDataAccess.SelectVoucherInfoData>();
-
-                            byte[] data = VoucherDataAccess.Instance.SelectImageById(result2.vid, true);
-
-                            var exportRoot = new DirectoryInfo(Global.Strings.VOCUHERSEXPORTFOLDER);
-                            exportRoot.EnsureDirectory();
-
-                            var zipfile = exportRoot.CombineFileName((result2.session_Id ?? Guid.NewGuid().ToString()) + ".zip");
-                            zipfile.WriteAllBytes(data);
-                        }
-                        catch (Exception ex)
-                        {
-                            throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
-                        }
-                    }, result, TaskCreationOptions.LongRunning);
+                        if (ExtractVoucher != null)
+                            ExtractVoucher(this, new ValueEventArgs<Tuple<VoucherDataAccess.SelectVoucherInfoData, DirectoryInfo>>(new Tuple<VoucherDataAccess.SelectVoucherInfoData, DirectoryInfo>(result, fromDir)));
+                        //Export file from DB to hierarchy folder
+                    }
                 }
 
                 return info;
@@ -814,7 +798,7 @@ namespace ReceivingServiceLib
 
                                 File.WriteAllBytes(exportZipFile.FullName, buf);
 
-                                var files = fileAccess.Instance.ExtractFileZip(exportZipFile.FullName, exportDirectory.FullName);
+                                var files = ZipFileAccess.Instance.ExtractFileZip(exportZipFile.FullName, exportDirectory.FullName);
                                 var imageFileToSing = files.Max((f, f1) => f.Length > f1.Length);
 
                                 PdfCreationInfo crInfo = new PdfCreationInfo()
@@ -842,7 +826,7 @@ namespace ReceivingServiceLib
                                     var imageFileName = operationDirectory.CombineFileName(vinfo.session_Id + ".pdf").FullName;
                                     File.Move(pdfFileName, imageFileName);
 
-                                    fileAccess.Instance.CreateZip(operationZipFile.FullName, operationDirectory.FullName, "File created at: " + DateTime.Now);
+                                    ZipFileAccess.Instance.CreateZip(operationZipFile.FullName, operationDirectory.FullName, "File created at: " + DateTime.Now);
                                     buffer.Buffer = operationZipFile.ReadAllBytes();
                                 }
                             }

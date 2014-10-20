@@ -8,7 +8,7 @@ namespace FintraxPTFImages.Common
 {
     public class BarcodeDecoder
     {
-        private static ConcurrentBag<BarcodeConfig> ms_bag;
+        private static ConcurrentBag<BarcodeConfig> ms_configBags;
 
         public BarcodeData Match(string barcode)
         {
@@ -17,7 +17,7 @@ namespace FintraxPTFImages.Common
             if (HttpContext.Current != null)
                 b = (ConcurrentBag<BarcodeConfig>)HttpContext.Current.Application[Strings.LIST_OF_BARCODECONFIGS];
             else
-                b = ms_bag;
+                b = ms_configBags;
 
             BarcodeData data = null;
 
@@ -29,28 +29,29 @@ namespace FintraxPTFImages.Common
 
         public void Test()
         {
-            ConcurrentBag<BarcodeConfig> b;
+            ConcurrentBag<BarcodeConfig> bag;
 
             if (HttpContext.Current != null)
-                b = (ConcurrentBag<BarcodeConfig>)HttpContext.Current.Application[Strings.LIST_OF_BARCODECONFIGS];
+                bag = (ConcurrentBag<BarcodeConfig>)HttpContext.Current.Application[Strings.LIST_OF_BARCODECONFIGS];
             else
-                b = ms_bag;
+                bag = ms_configBags;
 
-            foreach (var item in b)
+            foreach (var item in bag)
                 item.Test();
         }
 
         public static void Run()
         {
-            ms_bag = new ConcurrentBag<BarcodeConfig>()
+            ms_configBags = new ConcurrentBag<BarcodeConfig>()
             {
+                new HouseOfFrazerBarcodeConfig(),
                 new BarcodeConfig()
                 {
                     Name = "CCC-SS-RRRRRR-VVVVVVVVV",
                     Length = 20,
                     //iso, ty, br, voucher
                     Template = "{0:000}{1:00}{2:000000}{3:00000000}",
-                    Sample = "012 01 012345 012345678",
+                    Sample = "826 01 012345 012345678",
                     CountryID = new Tuple<int,int>(0, 3),
                     BuzType = new Tuple<int,int>(3, 2),
                     RetailerID = new Tuple<int,int>(5, 6),
@@ -62,7 +63,7 @@ namespace FintraxPTFImages.Common
                     Length = 18,
                     //iso, ty, br, voucher
                     Template = "{0:000}{2:000000}{3:00000000}",
-                    Sample = "012 012345 012345678",
+                    Sample = "826 012345 012345678",
                     CountryID = new Tuple<int,int>(0, 3),
                     RetailerID = new Tuple<int,int>(3, 6),
                     VoucherID = new Tuple<int,int>(9, 9),
@@ -73,7 +74,7 @@ namespace FintraxPTFImages.Common
                     Length = 14,
                     //iso, ty, br, voucher
                     Template = "{3:000000000}{0:000}{1:00}",
-                    Sample = "012345678 012 01",
+                    Sample = "012345678 826 01",
                     VoucherID = new Tuple<int,int>(0, 9),
                     CountryID = new Tuple<int,int>(9, 3),
                     BuzType = new Tuple<int,int>(12,2),
@@ -84,7 +85,7 @@ namespace FintraxPTFImages.Common
                     Length = 31,
                     //iso, ty, br, voucher
                     Template = "{0:000}{2:000000}{3:00000000}",
-                    Sample = "012 01 012345 012345678 01234567890",
+                    Sample = "826 01 012345 012345678 01234567890",
                     CountryID = new Tuple<int,int>(0, 3),
                     BuzType = new Tuple<int,int>(3, 2),
                     RetailerID = new Tuple<int,int>(5, 6),
@@ -93,7 +94,7 @@ namespace FintraxPTFImages.Common
             };
 
             if (HttpContext.Current != null)
-                HttpContext.Current.Application.Add(Strings.LIST_OF_BARCODECONFIGS, ms_bag);
+                HttpContext.Current.Application.Add(Strings.LIST_OF_BARCODECONFIGS, ms_configBags);
         }
     }
 }

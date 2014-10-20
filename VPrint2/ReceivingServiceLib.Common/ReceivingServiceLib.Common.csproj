@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ionic.Zip">
-      <HintPath>..\Libraries\Ionic.Zip.dll</HintPath>
-    </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\Libraries\itextsharp.dll</HintPath>
     </Reference>
@@ -58,22 +55,13 @@
     <Compile Include="..\VPrint\Data\pdfFileAccess.cs">
       <Link>Data\pdfFileAccess.cs</Link>
     </Compile>
-    <Compile Include="CircularBuffer.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Common\Interfaces.cs" />
     <Compile Include="Common\MSSQL.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Common\UniqueStringList.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Data\PTFDataAccess.cs" />
     <Compile Include="Common\SQL.cs" />
     <Compile Include="Data\DataAccess.cs" />
-    <Compile Include="fileAccess.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Global.cs">
       <SubType>Code</SubType>
     </Compile>

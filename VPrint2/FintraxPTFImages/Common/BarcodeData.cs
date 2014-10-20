@@ -5,10 +5,14 @@ namespace FintraxPTFImages.Common
 {
     public class BarcodeData
     {
-        public int CountryID;
-        public int RetailerID;
-        public int VoucherID;
-        public string Barcode;
+        public int CountryID { get; set; }
+        public int RetailerID { get; set; }
+        public int VoucherID { get; set; }
+        public string Barcode { get; set; }
+
+        public BarcodeData()
+        {
+        }
 
         public BarcodeData(int countryId, int retailerId, int voucherId, string barcode)
         {
@@ -20,7 +24,7 @@ namespace FintraxPTFImages.Common
 
         public void Test()
         {
-            if (CountryID != 012)
+            if (CountryID != 826)
                 throw new ArgumentException("CountryID");
             if (RetailerID != 0 && RetailerID != 012345)
                 throw new ArgumentException("RetailerID");

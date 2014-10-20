@@ -44,5 +44,15 @@ namespace VPrinting
                 }
             }
         }
+
+        [TargetedPatchingOptOut("na")]
+        public static byte[] ReadAllBytes(this Stream input)
+        {
+            using (var memory = new MemoryStream())
+            {
+                input.CopyTo(memory);
+                return memory.ToArray();
+            }
+        }  
     }
 }

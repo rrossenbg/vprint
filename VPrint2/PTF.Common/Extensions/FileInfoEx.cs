@@ -63,6 +63,7 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
+        [Obfuscation]
         public static bool IsLocked(this FileInfo file)
         {
             try
@@ -155,11 +156,14 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
-        public static bool DeleteSafe(this FileSystemInfo info)
+        [Obfuscation]
+        public static bool DeleteSafe(this FileInfo info)
         {
-            Debug.Assert(info != null);
             try
             {
+                if (info == null)
+                    return false;
+
                 info.Refresh();
                 if (info.Exists)
                 {
@@ -168,10 +172,21 @@ namespace VPrinting
                 }
                 return false;
             }
-            catch
+            catch (Exception ex)
             {
+#if DEBUGGER
+                Trace.WriteLine(ex, "ISRV");
+#endif
                 return false;
             }
+        }
+        
+        [TargetedPatchingOptOut("na")]
+        public static string[] PathParts(this FileInfo info)
+        {
+            Debug.Assert(info != null);
+            var dirName = Path.GetDirectoryName(info.FullName);
+            return dirName.Split(Path.DirectorySeparatorChar);
         }
 
         [TargetedPatchingOptOut("na")]
@@ -189,15 +204,7 @@ namespace VPrinting
 
             using (var file = info.OpenRead())
                 file.Read(buffer, 0, count);
-        }
-
-        [TargetedPatchingOptOut("na")]
-        public static IList<T> Add<T>(this IList<T> list1, IList<T> list2)
-        {
-            List<T> list = new List<T>(list1);
-            list.AddRange(list2);
-            return list;
-        }
+        }        
 
         [TargetedPatchingOptOut("na")]
         public static FileInfo Rename(this FileInfo info, Func<FileInfo, string> func)
@@ -225,6 +232,13 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
+        public static FileInfo Temp2(this FileInfo info, string fileName)
+        {
+            var file2 = new FileInfo(Path.Combine(Path.GetTempPath(), fileName));
+            return file2;
+        }
+
+        [TargetedPatchingOptOut("na")]
         public static FileInfo IfDebug(this FileInfo info, string debugPath)
         {
 #if DEBUG
@@ -234,54 +248,80 @@ namespace VPrinting
             return info;
 #endif
         }
-    }
 
-    public static class DirectoryInfoEx
-    {
+        //[TargetedPatchingOptOut("na")]
+        //[Obfuscation]
+        //public static DirectoryInfo Combine(this DirectoryInfo info, string subFolder)
+        //{
+        //    return new DirectoryInfo(Path.Combine(info.FullName, subFolder));
+        //}
+
+        //[TargetedPatchingOptOut("na")]
+        //[Obfuscation]
+        //public static FileInfo CombineFileName(this DirectoryInfo info, string fileName)
+        //{
+        //    return new FileInfo(Path.Combine(info.FullName, fileName));
+        //}
+
         [TargetedPatchingOptOut("na")]
-        public static FileInfo GetUnique(this DirectoryInfo info, string fileExt)
+        [Obfuscation]
+        public static void WriteAllBytes(this FileInfo file, byte[] bytes, int length = 0)
         {
-            return new FileInfo(Path.Combine(info.FullName, Guid.NewGuid().ToString(), fileExt));
+            if (file == null)
+                throw new ArgumentNullException("file");
+
+            if (bytes == null)
+                throw new ArgumentNullException("bytes");
+
+            if (bytes.Length == 0)
+                throw new ArithmeticException("Buffer is empty");
+
+            using (var stream = file.OpenWrite())
+                stream.Write(bytes, 0, ((length > 0) ? length : bytes.Length));
         }
 
         [TargetedPatchingOptOut("na")]
-        public static void EnsureDirectory(this DirectoryInfo info)
+        [Obfuscation]
+        public static string ReadAllText(this FileInfo file)
         {
-            if (!info.Exists)
-                info.Create();
+            if (file == null)
+                throw new ArgumentNullException("file");
+
+            using (var reader = file.OpenText())
+                return reader.ReadToEnd();
         }
 
         [TargetedPatchingOptOut("na")]
-        public static void ClearSafe(this DirectoryInfo info)
+        [Obfuscation]
+        public static string GetFileName(this FileInfo info)
         {
-            if (info == null)
-                throw new ArgumentNullException("info");
+            Debug.Assert(info != null);
+            return Path.GetFileNameWithoutExtension(info.Name);
+        }
 
-            if (info.Exists)
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static string GetFileNameWithoutExtension(this FileInfo info)
+        {
+            Debug.Assert(info != null);
+            return Path.GetFileNameWithoutExtension(info.FullName);
+        }
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static void Read(this FileInfo file, int from, int length, byte[] buffer)
+        {
+            if (file == null)
+                throw new ArgumentNullException("file");
+
+            if (file.Length - from < 0)
+                throw new ArgumentOutOfRangeException("from");
+
+            using (var reader = file.Open(FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                try
-                {
-                    foreach (var file in info.GetFiles())
-                        file.DeleteSafe();
-                    foreach (var dir in info.GetDirectories())
-                        dir.DeleteSafe(true);
-                }
-                catch
-                {
-                }
+                reader.Seek(from, SeekOrigin.Begin);
+                reader.Read(buffer, 0, length);
             }
-        }
-
-        [TargetedPatchingOptOut("na")]
-        public static DirectoryInfo Combine(this DirectoryInfo info, string subFolder)
-        {
-            return new DirectoryInfo(Path.Combine(info.FullName, subFolder));
-        }
-
-        [TargetedPatchingOptOut("na")]
-        public static FileInfo CombineFileName(this DirectoryInfo info, string fileName)
-        {
-            return new FileInfo(Path.Combine(info.FullName, fileName));
         }
     }
 }

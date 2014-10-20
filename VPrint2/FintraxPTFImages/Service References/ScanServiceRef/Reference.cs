@@ -357,6 +357,38 @@ namespace FintraxPTFImages.ScanServiceRef {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ChangeContentType", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+    public enum ChangeContentType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        INIT = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ADD = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        INSERT = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UPDATE = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DELETE = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        REMOVE = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MERGE = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        REPLACE = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VERIFY = 8,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OperationHistory", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
     public enum OperationHistory : int {
         
@@ -1507,6 +1539,42 @@ namespace FintraxPTFImages.ScanServiceRef {
         
         void EndCommitVoucherChanges(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/CommitVoucherChangesModify_V2", ReplyAction="http://tempuri.org/IScanService/CommitVoucherChangesModify_V2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/CommitVoucherChangesModify_V2MyApplicationFaultFa" +
+            "ult", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        void CommitVoucherChangesModify_V2(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, int typeId, FintraxPTFImages.ScanServiceRef.ChangeContentType action, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/CommitVoucherChangesModify_V2", ReplyAction="http://tempuri.org/IScanService/CommitVoucherChangesModify_V2Response")]
+        System.IAsyncResult BeginCommitVoucherChangesModify_V2(
+                    string serverDirName, 
+                    int jobId, 
+                    int countryId, 
+                    int retailerId, 
+                    int voucherId, 
+                    System.Nullable<int> folderId, 
+                    string siteCode, 
+                    string barCode, 
+                    int locationId, 
+                    int userId, 
+                    int typeId, 
+                    FintraxPTFImages.ScanServiceRef.ChangeContentType action, 
+                    string s1, 
+                    string s2, 
+                    System.AsyncCallback callback, 
+                    object asyncState);
+        
+        void EndCommitVoucherChangesModify_V2(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/CommitVoucherChangesModify", ReplyAction="http://tempuri.org/IScanService/CommitVoucherChangesModifyResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/CommitVoucherChangesModifyMyApplicationFaultFault" +
+            "", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        void CommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, FintraxPTFImages.ScanServiceRef.ChangeContentType action, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/CommitVoucherChangesModify", ReplyAction="http://tempuri.org/IScanService/CommitVoucherChangesModifyResponse")]
+        System.IAsyncResult BeginCommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, FintraxPTFImages.ScanServiceRef.ChangeContentType action, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        void EndCommitVoucherChangesModify(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/CommitFileChanges", ReplyAction="http://tempuri.org/IScanService/CommitFileChangesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/CommitFileChangesMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
         void CommitFileChanges(string serverDirName, int countryId, System.Nullable<int> folderId, int locationId, int userId, string s1, string s2);
@@ -1542,6 +1610,15 @@ namespace FintraxPTFImages.ScanServiceRef {
         System.IAsyncResult BeginFindVoucherImage(int countryId, int voucherId, int voucherIdCD, string s1, string s2, System.AsyncCallback callback, object asyncState);
         
         int[] EndFindVoucherImage(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/ReadCoverInfo", ReplyAction="http://tempuri.org/IScanService/ReadCoverInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/ReadCoverInfoMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        string ReadCoverInfo(int id, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/ReadCoverInfo", ReplyAction="http://tempuri.org/IScanService/ReadCoverInfoResponse")]
+        System.IAsyncResult BeginReadCoverInfo(int id, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        string EndReadCoverInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/SaveHistory", ReplyAction="http://tempuri.org/IScanService/SaveHistoryResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SaveHistoryMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
@@ -1661,6 +1738,15 @@ namespace FintraxPTFImages.ScanServiceRef {
         
         FintraxPTFImages.ScanServiceRef.fileInfo[] EndSelectFilesByFolder(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/SelectFilesByFolder2", ReplyAction="http://tempuri.org/IScanService/SelectFilesByFolder2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SelectFilesByFolder2MyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        FintraxPTFImages.ScanServiceRef.fileInfo[] SelectFilesByFolder2(int folderId, int skip, int take, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/SelectFilesByFolder2", ReplyAction="http://tempuri.org/IScanService/SelectFilesByFolder2Response")]
+        System.IAsyncResult BeginSelectFilesByFolder2(int folderId, int skip, int take, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        FintraxPTFImages.ScanServiceRef.fileInfo[] EndSelectFilesByFolder2(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/SelectCoversByFolder", ReplyAction="http://tempuri.org/IScanService/SelectCoversByFolderResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/SelectCoversByFolderMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
         FintraxPTFImages.ScanServiceRef.file2Info[] SelectCoversByFolder(int folderId, string s1, string s2);
@@ -1724,6 +1810,33 @@ namespace FintraxPTFImages.ScanServiceRef {
         System.IAsyncResult BeginFindVoucherTRSBySiteCode(string siteCode, int location, string s1, string s2, System.AsyncCallback callback, object asyncState);
         
         FintraxPTFImages.ScanServiceRef.VoucherInfo3 EndFindVoucherTRSBySiteCode(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/FindVoucherPRBySiteCode", ReplyAction="http://tempuri.org/IScanService/FindVoucherPRBySiteCodeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/FindVoucherPRBySiteCodeMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        FintraxPTFImages.ScanServiceRef.VoucherInfo3 FindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/FindVoucherPRBySiteCode", ReplyAction="http://tempuri.org/IScanService/FindVoucherPRBySiteCodeResponse")]
+        System.IAsyncResult BeginFindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        FintraxPTFImages.ScanServiceRef.VoucherInfo3 EndFindVoucherPRBySiteCode(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/DownloadReport", ReplyAction="http://tempuri.org/IScanService/DownloadReportResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/DownloadReportMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        byte[] DownloadReport(string rServerUrl, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/DownloadReport", ReplyAction="http://tempuri.org/IScanService/DownloadReportResponse")]
+        System.IAsyncResult BeginDownloadReport(string rServerUrl, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        byte[] EndDownloadReport(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/DownloadVouchers", ReplyAction="http://tempuri.org/IScanService/DownloadVouchersResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/DownloadVouchersMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        byte[] DownloadVouchers(int countryId, int[] voucherIds, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/DownloadVouchers", ReplyAction="http://tempuri.org/IScanService/DownloadVouchersResponse")]
+        System.IAsyncResult BeginDownloadVouchers(int countryId, int[] voucherIds, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        byte[] EndDownloadVouchers(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1827,6 +1940,25 @@ namespace FintraxPTFImages.ScanServiceRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ReadCoverInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ReadCoverInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ReadHistoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -1908,6 +2040,25 @@ namespace FintraxPTFImages.ScanServiceRef {
         private object[] results;
         
         public SelectFilesByFolderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public FintraxPTFImages.ScanServiceRef.fileInfo[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((FintraxPTFImages.ScanServiceRef.fileInfo[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SelectFilesByFolder2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SelectFilesByFolder2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2055,6 +2206,63 @@ namespace FintraxPTFImages.ScanServiceRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class FindVoucherPRBySiteCodeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public FindVoucherPRBySiteCodeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public FintraxPTFImages.ScanServiceRef.VoucherInfo3 Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((FintraxPTFImages.ScanServiceRef.VoucherInfo3)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class DownloadReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public DownloadReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public byte[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((byte[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class DownloadVouchersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public DownloadVouchersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public byte[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((byte[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ScanServiceClient : System.ServiceModel.ClientBase<FintraxPTFImages.ScanServiceRef.IScanService>, FintraxPTFImages.ScanServiceRef.IScanService {
         
         private BeginOperationDelegate onBeginDeleteDelegate;
@@ -2099,6 +2307,18 @@ namespace FintraxPTFImages.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onCommitVoucherChangesCompletedDelegate;
         
+        private BeginOperationDelegate onBeginCommitVoucherChangesModify_V2Delegate;
+        
+        private EndOperationDelegate onEndCommitVoucherChangesModify_V2Delegate;
+        
+        private System.Threading.SendOrPostCallback onCommitVoucherChangesModify_V2CompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCommitVoucherChangesModifyDelegate;
+        
+        private EndOperationDelegate onEndCommitVoucherChangesModifyDelegate;
+        
+        private System.Threading.SendOrPostCallback onCommitVoucherChangesModifyCompletedDelegate;
+        
         private BeginOperationDelegate onBeginCommitFileChangesDelegate;
         
         private EndOperationDelegate onEndCommitFileChangesDelegate;
@@ -2122,6 +2342,12 @@ namespace FintraxPTFImages.ScanServiceRef {
         private EndOperationDelegate onEndFindVoucherImageDelegate;
         
         private System.Threading.SendOrPostCallback onFindVoucherImageCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginReadCoverInfoDelegate;
+        
+        private EndOperationDelegate onEndReadCoverInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onReadCoverInfoCompletedDelegate;
         
         private BeginOperationDelegate onBeginSaveHistoryDelegate;
         
@@ -2201,6 +2427,12 @@ namespace FintraxPTFImages.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onSelectFilesByFolderCompletedDelegate;
         
+        private BeginOperationDelegate onBeginSelectFilesByFolder2Delegate;
+        
+        private EndOperationDelegate onEndSelectFilesByFolder2Delegate;
+        
+        private System.Threading.SendOrPostCallback onSelectFilesByFolder2CompletedDelegate;
+        
         private BeginOperationDelegate onBeginSelectCoversByFolderDelegate;
         
         private EndOperationDelegate onEndSelectCoversByFolderDelegate;
@@ -2243,6 +2475,24 @@ namespace FintraxPTFImages.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onFindVoucherTRSBySiteCodeCompletedDelegate;
         
+        private BeginOperationDelegate onBeginFindVoucherPRBySiteCodeDelegate;
+        
+        private EndOperationDelegate onEndFindVoucherPRBySiteCodeDelegate;
+        
+        private System.Threading.SendOrPostCallback onFindVoucherPRBySiteCodeCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDownloadReportDelegate;
+        
+        private EndOperationDelegate onEndDownloadReportDelegate;
+        
+        private System.Threading.SendOrPostCallback onDownloadReportCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDownloadVouchersDelegate;
+        
+        private EndOperationDelegate onEndDownloadVouchersDelegate;
+        
+        private System.Threading.SendOrPostCallback onDownloadVouchersCompletedDelegate;
+        
         public ScanServiceClient() {
         }
         
@@ -2276,6 +2526,10 @@ namespace FintraxPTFImages.ScanServiceRef {
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CommitVoucherChangesCompleted;
         
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CommitVoucherChangesModify_V2Completed;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CommitVoucherChangesModifyCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CommitFileChangesCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> ValidateVoucherCompleted;
@@ -2283,6 +2537,8 @@ namespace FintraxPTFImages.ScanServiceRef {
         public event System.EventHandler<FindVoucherCompletedEventArgs> FindVoucherCompleted;
         
         public event System.EventHandler<FindVoucherImageCompletedEventArgs> FindVoucherImageCompleted;
+        
+        public event System.EventHandler<ReadCoverInfoCompletedEventArgs> ReadCoverInfoCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SaveHistoryCompleted;
         
@@ -2310,6 +2566,8 @@ namespace FintraxPTFImages.ScanServiceRef {
         
         public event System.EventHandler<SelectFilesByFolderCompletedEventArgs> SelectFilesByFolderCompleted;
         
+        public event System.EventHandler<SelectFilesByFolder2CompletedEventArgs> SelectFilesByFolder2Completed;
+        
         public event System.EventHandler<SelectCoversByFolderCompletedEventArgs> SelectCoversByFolderCompleted;
         
         public event System.EventHandler<SelectFileByIdCompletedEventArgs> SelectFileByIdCompleted;
@@ -2323,6 +2581,12 @@ namespace FintraxPTFImages.ScanServiceRef {
         public event System.EventHandler<FindVoucherTRSByVoucherNumberCompletedEventArgs> FindVoucherTRSByVoucherNumberCompleted;
         
         public event System.EventHandler<FindVoucherTRSBySiteCodeCompletedEventArgs> FindVoucherTRSBySiteCodeCompleted;
+        
+        public event System.EventHandler<FindVoucherPRBySiteCodeCompletedEventArgs> FindVoucherPRBySiteCodeCompleted;
+        
+        public event System.EventHandler<DownloadReportCompletedEventArgs> DownloadReportCompleted;
+        
+        public event System.EventHandler<DownloadVouchersCompletedEventArgs> DownloadVouchersCompleted;
         
         public void Delete(string fileName, int countryId, int retailerId, int voucherId, string s1, string s2) {
             base.Channel.Delete(fileName, countryId, retailerId, voucherId, s1, s2);
@@ -2742,6 +3006,170 @@ namespace FintraxPTFImages.ScanServiceRef {
                         s2}, this.onEndCommitVoucherChangesDelegate, this.onCommitVoucherChangesCompletedDelegate, userState);
         }
         
+        public void CommitVoucherChangesModify_V2(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, int typeId, FintraxPTFImages.ScanServiceRef.ChangeContentType action, string s1, string s2) {
+            base.Channel.CommitVoucherChangesModify_V2(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, typeId, action, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCommitVoucherChangesModify_V2(
+                    string serverDirName, 
+                    int jobId, 
+                    int countryId, 
+                    int retailerId, 
+                    int voucherId, 
+                    System.Nullable<int> folderId, 
+                    string siteCode, 
+                    string barCode, 
+                    int locationId, 
+                    int userId, 
+                    int typeId, 
+                    FintraxPTFImages.ScanServiceRef.ChangeContentType action, 
+                    string s1, 
+                    string s2, 
+                    System.AsyncCallback callback, 
+                    object asyncState) {
+            return base.Channel.BeginCommitVoucherChangesModify_V2(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, typeId, action, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndCommitVoucherChangesModify_V2(System.IAsyncResult result) {
+            base.Channel.EndCommitVoucherChangesModify_V2(result);
+        }
+        
+        private System.IAsyncResult OnBeginCommitVoucherChangesModify_V2(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string serverDirName = ((string)(inValues[0]));
+            int jobId = ((int)(inValues[1]));
+            int countryId = ((int)(inValues[2]));
+            int retailerId = ((int)(inValues[3]));
+            int voucherId = ((int)(inValues[4]));
+            System.Nullable<int> folderId = ((System.Nullable<int>)(inValues[5]));
+            string siteCode = ((string)(inValues[6]));
+            string barCode = ((string)(inValues[7]));
+            int locationId = ((int)(inValues[8]));
+            int userId = ((int)(inValues[9]));
+            int typeId = ((int)(inValues[10]));
+            FintraxPTFImages.ScanServiceRef.ChangeContentType action = ((FintraxPTFImages.ScanServiceRef.ChangeContentType)(inValues[11]));
+            string s1 = ((string)(inValues[12]));
+            string s2 = ((string)(inValues[13]));
+            return this.BeginCommitVoucherChangesModify_V2(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, typeId, action, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndCommitVoucherChangesModify_V2(System.IAsyncResult result) {
+            this.EndCommitVoucherChangesModify_V2(result);
+            return null;
+        }
+        
+        private void OnCommitVoucherChangesModify_V2Completed(object state) {
+            if ((this.CommitVoucherChangesModify_V2Completed != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CommitVoucherChangesModify_V2Completed(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CommitVoucherChangesModify_V2Async(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, int typeId, FintraxPTFImages.ScanServiceRef.ChangeContentType action, string s1, string s2) {
+            this.CommitVoucherChangesModify_V2Async(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, typeId, action, s1, s2, null);
+        }
+        
+        public void CommitVoucherChangesModify_V2Async(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, int typeId, FintraxPTFImages.ScanServiceRef.ChangeContentType action, string s1, string s2, object userState) {
+            if ((this.onBeginCommitVoucherChangesModify_V2Delegate == null)) {
+                this.onBeginCommitVoucherChangesModify_V2Delegate = new BeginOperationDelegate(this.OnBeginCommitVoucherChangesModify_V2);
+            }
+            if ((this.onEndCommitVoucherChangesModify_V2Delegate == null)) {
+                this.onEndCommitVoucherChangesModify_V2Delegate = new EndOperationDelegate(this.OnEndCommitVoucherChangesModify_V2);
+            }
+            if ((this.onCommitVoucherChangesModify_V2CompletedDelegate == null)) {
+                this.onCommitVoucherChangesModify_V2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCommitVoucherChangesModify_V2Completed);
+            }
+            base.InvokeAsync(this.onBeginCommitVoucherChangesModify_V2Delegate, new object[] {
+                        serverDirName,
+                        jobId,
+                        countryId,
+                        retailerId,
+                        voucherId,
+                        folderId,
+                        siteCode,
+                        barCode,
+                        locationId,
+                        userId,
+                        typeId,
+                        action,
+                        s1,
+                        s2}, this.onEndCommitVoucherChangesModify_V2Delegate, this.onCommitVoucherChangesModify_V2CompletedDelegate, userState);
+        }
+        
+        public void CommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, FintraxPTFImages.ScanServiceRef.ChangeContentType action, string s1, string s2) {
+            base.Channel.CommitVoucherChangesModify(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, action, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCommitVoucherChangesModify(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, FintraxPTFImages.ScanServiceRef.ChangeContentType action, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCommitVoucherChangesModify(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, action, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndCommitVoucherChangesModify(System.IAsyncResult result) {
+            base.Channel.EndCommitVoucherChangesModify(result);
+        }
+        
+        private System.IAsyncResult OnBeginCommitVoucherChangesModify(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string serverDirName = ((string)(inValues[0]));
+            int jobId = ((int)(inValues[1]));
+            int countryId = ((int)(inValues[2]));
+            int retailerId = ((int)(inValues[3]));
+            int voucherId = ((int)(inValues[4]));
+            System.Nullable<int> folderId = ((System.Nullable<int>)(inValues[5]));
+            string siteCode = ((string)(inValues[6]));
+            string barCode = ((string)(inValues[7]));
+            int locationId = ((int)(inValues[8]));
+            int userId = ((int)(inValues[9]));
+            FintraxPTFImages.ScanServiceRef.ChangeContentType action = ((FintraxPTFImages.ScanServiceRef.ChangeContentType)(inValues[10]));
+            string s1 = ((string)(inValues[11]));
+            string s2 = ((string)(inValues[12]));
+            return this.BeginCommitVoucherChangesModify(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, action, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndCommitVoucherChangesModify(System.IAsyncResult result) {
+            this.EndCommitVoucherChangesModify(result);
+            return null;
+        }
+        
+        private void OnCommitVoucherChangesModifyCompleted(object state) {
+            if ((this.CommitVoucherChangesModifyCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CommitVoucherChangesModifyCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CommitVoucherChangesModifyAsync(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, FintraxPTFImages.ScanServiceRef.ChangeContentType action, string s1, string s2) {
+            this.CommitVoucherChangesModifyAsync(serverDirName, jobId, countryId, retailerId, voucherId, folderId, siteCode, barCode, locationId, userId, action, s1, s2, null);
+        }
+        
+        public void CommitVoucherChangesModifyAsync(string serverDirName, int jobId, int countryId, int retailerId, int voucherId, System.Nullable<int> folderId, string siteCode, string barCode, int locationId, int userId, FintraxPTFImages.ScanServiceRef.ChangeContentType action, string s1, string s2, object userState) {
+            if ((this.onBeginCommitVoucherChangesModifyDelegate == null)) {
+                this.onBeginCommitVoucherChangesModifyDelegate = new BeginOperationDelegate(this.OnBeginCommitVoucherChangesModify);
+            }
+            if ((this.onEndCommitVoucherChangesModifyDelegate == null)) {
+                this.onEndCommitVoucherChangesModifyDelegate = new EndOperationDelegate(this.OnEndCommitVoucherChangesModify);
+            }
+            if ((this.onCommitVoucherChangesModifyCompletedDelegate == null)) {
+                this.onCommitVoucherChangesModifyCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCommitVoucherChangesModifyCompleted);
+            }
+            base.InvokeAsync(this.onBeginCommitVoucherChangesModifyDelegate, new object[] {
+                        serverDirName,
+                        jobId,
+                        countryId,
+                        retailerId,
+                        voucherId,
+                        folderId,
+                        siteCode,
+                        barCode,
+                        locationId,
+                        userId,
+                        action,
+                        s1,
+                        s2}, this.onEndCommitVoucherChangesModifyDelegate, this.onCommitVoucherChangesModifyCompletedDelegate, userState);
+        }
+        
         public void CommitFileChanges(string serverDirName, int countryId, System.Nullable<int> folderId, int locationId, int userId, string s1, string s2) {
             base.Channel.CommitFileChanges(serverDirName, countryId, folderId, locationId, userId, s1, s2);
         }
@@ -2978,6 +3406,60 @@ namespace FintraxPTFImages.ScanServiceRef {
                         voucherIdCD,
                         s1,
                         s2}, this.onEndFindVoucherImageDelegate, this.onFindVoucherImageCompletedDelegate, userState);
+        }
+        
+        public string ReadCoverInfo(int id, string s1, string s2) {
+            return base.Channel.ReadCoverInfo(id, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginReadCoverInfo(int id, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginReadCoverInfo(id, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public string EndReadCoverInfo(System.IAsyncResult result) {
+            return base.Channel.EndReadCoverInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginReadCoverInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int id = ((int)(inValues[0]));
+            string s1 = ((string)(inValues[1]));
+            string s2 = ((string)(inValues[2]));
+            return this.BeginReadCoverInfo(id, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndReadCoverInfo(System.IAsyncResult result) {
+            string retVal = this.EndReadCoverInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnReadCoverInfoCompleted(object state) {
+            if ((this.ReadCoverInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ReadCoverInfoCompleted(this, new ReadCoverInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ReadCoverInfoAsync(int id, string s1, string s2) {
+            this.ReadCoverInfoAsync(id, s1, s2, null);
+        }
+        
+        public void ReadCoverInfoAsync(int id, string s1, string s2, object userState) {
+            if ((this.onBeginReadCoverInfoDelegate == null)) {
+                this.onBeginReadCoverInfoDelegate = new BeginOperationDelegate(this.OnBeginReadCoverInfo);
+            }
+            if ((this.onEndReadCoverInfoDelegate == null)) {
+                this.onEndReadCoverInfoDelegate = new EndOperationDelegate(this.OnEndReadCoverInfo);
+            }
+            if ((this.onReadCoverInfoCompletedDelegate == null)) {
+                this.onReadCoverInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReadCoverInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginReadCoverInfoDelegate, new object[] {
+                        id,
+                        s1,
+                        s2}, this.onEndReadCoverInfoDelegate, this.onReadCoverInfoCompletedDelegate, userState);
         }
         
         public void SaveHistory(int operatorCountryId, int operatorUserId, FintraxPTFImages.ScanServiceRef.OperationHistory operationType, System.Guid operationId, int brIsoId, int brId, int vId, int v2Id, int count, string details, string s1, string s2) {
@@ -3724,6 +4206,64 @@ namespace FintraxPTFImages.ScanServiceRef {
                         s2}, this.onEndSelectFilesByFolderDelegate, this.onSelectFilesByFolderCompletedDelegate, userState);
         }
         
+        public FintraxPTFImages.ScanServiceRef.fileInfo[] SelectFilesByFolder2(int folderId, int skip, int take, string s1, string s2) {
+            return base.Channel.SelectFilesByFolder2(folderId, skip, take, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginSelectFilesByFolder2(int folderId, int skip, int take, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSelectFilesByFolder2(folderId, skip, take, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public FintraxPTFImages.ScanServiceRef.fileInfo[] EndSelectFilesByFolder2(System.IAsyncResult result) {
+            return base.Channel.EndSelectFilesByFolder2(result);
+        }
+        
+        private System.IAsyncResult OnBeginSelectFilesByFolder2(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int folderId = ((int)(inValues[0]));
+            int skip = ((int)(inValues[1]));
+            int take = ((int)(inValues[2]));
+            string s1 = ((string)(inValues[3]));
+            string s2 = ((string)(inValues[4]));
+            return this.BeginSelectFilesByFolder2(folderId, skip, take, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndSelectFilesByFolder2(System.IAsyncResult result) {
+            FintraxPTFImages.ScanServiceRef.fileInfo[] retVal = this.EndSelectFilesByFolder2(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSelectFilesByFolder2Completed(object state) {
+            if ((this.SelectFilesByFolder2Completed != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SelectFilesByFolder2Completed(this, new SelectFilesByFolder2CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SelectFilesByFolder2Async(int folderId, int skip, int take, string s1, string s2) {
+            this.SelectFilesByFolder2Async(folderId, skip, take, s1, s2, null);
+        }
+        
+        public void SelectFilesByFolder2Async(int folderId, int skip, int take, string s1, string s2, object userState) {
+            if ((this.onBeginSelectFilesByFolder2Delegate == null)) {
+                this.onBeginSelectFilesByFolder2Delegate = new BeginOperationDelegate(this.OnBeginSelectFilesByFolder2);
+            }
+            if ((this.onEndSelectFilesByFolder2Delegate == null)) {
+                this.onEndSelectFilesByFolder2Delegate = new EndOperationDelegate(this.OnEndSelectFilesByFolder2);
+            }
+            if ((this.onSelectFilesByFolder2CompletedDelegate == null)) {
+                this.onSelectFilesByFolder2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSelectFilesByFolder2Completed);
+            }
+            base.InvokeAsync(this.onBeginSelectFilesByFolder2Delegate, new object[] {
+                        folderId,
+                        skip,
+                        take,
+                        s1,
+                        s2}, this.onEndSelectFilesByFolder2Delegate, this.onSelectFilesByFolder2CompletedDelegate, userState);
+        }
+        
         public FintraxPTFImages.ScanServiceRef.file2Info[] SelectCoversByFolder(int folderId, string s1, string s2) {
             return base.Channel.SelectCoversByFolder(folderId, s1, s2);
         }
@@ -4118,6 +4658,172 @@ namespace FintraxPTFImages.ScanServiceRef {
                         location,
                         s1,
                         s2}, this.onEndFindVoucherTRSBySiteCodeDelegate, this.onFindVoucherTRSBySiteCodeCompletedDelegate, userState);
+        }
+        
+        public FintraxPTFImages.ScanServiceRef.VoucherInfo3 FindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2) {
+            return base.Channel.FindVoucherPRBySiteCode(siteCode, location, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginFindVoucherPRBySiteCode(string siteCode, int location, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginFindVoucherPRBySiteCode(siteCode, location, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public FintraxPTFImages.ScanServiceRef.VoucherInfo3 EndFindVoucherPRBySiteCode(System.IAsyncResult result) {
+            return base.Channel.EndFindVoucherPRBySiteCode(result);
+        }
+        
+        private System.IAsyncResult OnBeginFindVoucherPRBySiteCode(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string siteCode = ((string)(inValues[0]));
+            int location = ((int)(inValues[1]));
+            string s1 = ((string)(inValues[2]));
+            string s2 = ((string)(inValues[3]));
+            return this.BeginFindVoucherPRBySiteCode(siteCode, location, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndFindVoucherPRBySiteCode(System.IAsyncResult result) {
+            FintraxPTFImages.ScanServiceRef.VoucherInfo3 retVal = this.EndFindVoucherPRBySiteCode(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnFindVoucherPRBySiteCodeCompleted(object state) {
+            if ((this.FindVoucherPRBySiteCodeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.FindVoucherPRBySiteCodeCompleted(this, new FindVoucherPRBySiteCodeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void FindVoucherPRBySiteCodeAsync(string siteCode, int location, string s1, string s2) {
+            this.FindVoucherPRBySiteCodeAsync(siteCode, location, s1, s2, null);
+        }
+        
+        public void FindVoucherPRBySiteCodeAsync(string siteCode, int location, string s1, string s2, object userState) {
+            if ((this.onBeginFindVoucherPRBySiteCodeDelegate == null)) {
+                this.onBeginFindVoucherPRBySiteCodeDelegate = new BeginOperationDelegate(this.OnBeginFindVoucherPRBySiteCode);
+            }
+            if ((this.onEndFindVoucherPRBySiteCodeDelegate == null)) {
+                this.onEndFindVoucherPRBySiteCodeDelegate = new EndOperationDelegate(this.OnEndFindVoucherPRBySiteCode);
+            }
+            if ((this.onFindVoucherPRBySiteCodeCompletedDelegate == null)) {
+                this.onFindVoucherPRBySiteCodeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnFindVoucherPRBySiteCodeCompleted);
+            }
+            base.InvokeAsync(this.onBeginFindVoucherPRBySiteCodeDelegate, new object[] {
+                        siteCode,
+                        location,
+                        s1,
+                        s2}, this.onEndFindVoucherPRBySiteCodeDelegate, this.onFindVoucherPRBySiteCodeCompletedDelegate, userState);
+        }
+        
+        public byte[] DownloadReport(string rServerUrl, string s1, string s2) {
+            return base.Channel.DownloadReport(rServerUrl, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginDownloadReport(string rServerUrl, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDownloadReport(rServerUrl, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public byte[] EndDownloadReport(System.IAsyncResult result) {
+            return base.Channel.EndDownloadReport(result);
+        }
+        
+        private System.IAsyncResult OnBeginDownloadReport(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string rServerUrl = ((string)(inValues[0]));
+            string s1 = ((string)(inValues[1]));
+            string s2 = ((string)(inValues[2]));
+            return this.BeginDownloadReport(rServerUrl, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndDownloadReport(System.IAsyncResult result) {
+            byte[] retVal = this.EndDownloadReport(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnDownloadReportCompleted(object state) {
+            if ((this.DownloadReportCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DownloadReportCompleted(this, new DownloadReportCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DownloadReportAsync(string rServerUrl, string s1, string s2) {
+            this.DownloadReportAsync(rServerUrl, s1, s2, null);
+        }
+        
+        public void DownloadReportAsync(string rServerUrl, string s1, string s2, object userState) {
+            if ((this.onBeginDownloadReportDelegate == null)) {
+                this.onBeginDownloadReportDelegate = new BeginOperationDelegate(this.OnBeginDownloadReport);
+            }
+            if ((this.onEndDownloadReportDelegate == null)) {
+                this.onEndDownloadReportDelegate = new EndOperationDelegate(this.OnEndDownloadReport);
+            }
+            if ((this.onDownloadReportCompletedDelegate == null)) {
+                this.onDownloadReportCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDownloadReportCompleted);
+            }
+            base.InvokeAsync(this.onBeginDownloadReportDelegate, new object[] {
+                        rServerUrl,
+                        s1,
+                        s2}, this.onEndDownloadReportDelegate, this.onDownloadReportCompletedDelegate, userState);
+        }
+        
+        public byte[] DownloadVouchers(int countryId, int[] voucherIds, string s1, string s2) {
+            return base.Channel.DownloadVouchers(countryId, voucherIds, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginDownloadVouchers(int countryId, int[] voucherIds, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDownloadVouchers(countryId, voucherIds, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public byte[] EndDownloadVouchers(System.IAsyncResult result) {
+            return base.Channel.EndDownloadVouchers(result);
+        }
+        
+        private System.IAsyncResult OnBeginDownloadVouchers(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int countryId = ((int)(inValues[0]));
+            int[] voucherIds = ((int[])(inValues[1]));
+            string s1 = ((string)(inValues[2]));
+            string s2 = ((string)(inValues[3]));
+            return this.BeginDownloadVouchers(countryId, voucherIds, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndDownloadVouchers(System.IAsyncResult result) {
+            byte[] retVal = this.EndDownloadVouchers(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnDownloadVouchersCompleted(object state) {
+            if ((this.DownloadVouchersCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DownloadVouchersCompleted(this, new DownloadVouchersCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DownloadVouchersAsync(int countryId, int[] voucherIds, string s1, string s2) {
+            this.DownloadVouchersAsync(countryId, voucherIds, s1, s2, null);
+        }
+        
+        public void DownloadVouchersAsync(int countryId, int[] voucherIds, string s1, string s2, object userState) {
+            if ((this.onBeginDownloadVouchersDelegate == null)) {
+                this.onBeginDownloadVouchersDelegate = new BeginOperationDelegate(this.OnBeginDownloadVouchers);
+            }
+            if ((this.onEndDownloadVouchersDelegate == null)) {
+                this.onEndDownloadVouchersDelegate = new EndOperationDelegate(this.OnEndDownloadVouchers);
+            }
+            if ((this.onDownloadVouchersCompletedDelegate == null)) {
+                this.onDownloadVouchersCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDownloadVouchersCompleted);
+            }
+            base.InvokeAsync(this.onBeginDownloadVouchersDelegate, new object[] {
+                        countryId,
+                        voucherIds,
+                        s1,
+                        s2}, this.onEndDownloadVouchersDelegate, this.onDownloadVouchersCompletedDelegate, userState);
         }
     }
 }

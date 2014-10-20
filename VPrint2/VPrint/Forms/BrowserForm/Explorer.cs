@@ -93,6 +93,12 @@ namespace VPrinting.Forms.Explorer
             base.Dispose(disposing);
         }
 
+        protected override void OnClosed(EventArgs e)
+        {
+            backgroundWorker1.CancelAsync();
+            base.OnClosed(e);
+        }
+
         #region Windows Form Designer generated code
         /// <summary>
         /// Required method for Designer support - do not modify

@@ -2,6 +2,28 @@
 
 namespace FintraxPTFImages.Common
 {
+    public class HouseOfFrazerBarcodeConfig : BarcodeConfig
+    {
+        public HouseOfFrazerBarcodeConfig()
+        {
+            Length = 20;
+            VoucherID = new Tuple<int, int>(0, 9);
+            CountryID = new Tuple<int, int>(9, 3);
+            BuzType = new Tuple<int, int>(12, 2);
+            RetailerID = new Tuple<int, int>(14, 6);
+            Template = "{0:00000000}{1:000}{2:00}{3:000000}";
+            Sample = "012345678 826 20 012345";
+        }
+
+        public override bool ParseBarcode(string barcode, ref BarcodeData data)
+        {
+            if (barcode.IndexOf("82620") != 9)
+                return false;
+
+            return base.ParseBarcode(barcode, ref data);
+        }
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -19,7 +41,7 @@ namespace FintraxPTFImages.Common
     /// BuzType -1,-1
     /// </example>
     [Serializable]
-    public class BarcodeConfig
+    public class BarcodeConfig 
     {
         public string Name { get; set; }
         /// <summary>
@@ -63,7 +85,7 @@ namespace FintraxPTFImages.Common
         /// </summary>
         /// <param name="barcode"></param>
         /// <returns></returns>
-        public bool ParseBarcode(string barcode, ref BarcodeData data)
+        public virtual bool ParseBarcode(string barcode, ref BarcodeData data)
         {
             if (string.IsNullOrWhiteSpace(barcode))
                 throw new ArgumentException("empty barcode", "barcode");

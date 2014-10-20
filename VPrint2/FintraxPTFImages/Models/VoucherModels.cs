@@ -11,6 +11,7 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Xml.Linq;
 using FintraxPTFImages.ScanServiceRef;
+using VPrinting;
 
 namespace FintraxPTFImages.Models
 {

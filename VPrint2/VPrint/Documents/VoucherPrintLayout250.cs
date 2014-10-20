@@ -163,7 +163,7 @@ namespace VPrinting.Documents
             re1.Replace(ref builder, (ma) =>
             {
                 return ma.Groups[1].Success ?
-                    CacheManager.Instance.Table.GetValueAdd<string>(ma.Groups[1].Value, 
+                    CacheManager.Instance.Table.GetValueAdd<string>(ma.Groups[1].Value,
                         new Func<string>(() => Convert.ToString(CommonTools.Eval(ma.Groups[1].Value)))) :
                     null;
             });

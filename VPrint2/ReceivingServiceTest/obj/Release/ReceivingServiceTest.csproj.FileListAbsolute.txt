@@ -1,6 +1,3 @@
-C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\Resources\PTF.cer
-C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\Resources\PTF.pfx
-C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\Resources\PTFLogo.jpg
 C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceTest.dll
 C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceTest.pdb
 C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceLib.Common.dll
@@ -10,3 +7,11 @@ C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceLib.Common.
 C:\PROJECTS\VPrint2\ReceivingServiceTest\obj\Release\ReceivingServiceTest.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint2\ReceivingServiceTest\obj\Release\ReceivingServiceTest.dll
 C:\PROJECTS\VPrint2\ReceivingServiceTest\obj\Release\ReceivingServiceTest.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\PTF.Common.dll
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceLib.dll
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceLib.Drawing.dll
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\Emgu.CV.dll
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\Emgu.Util.dll
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\PTF.Common.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceLib.pdb
+C:\PROJECTS\VPrint2\ReceivingServiceTest\bin\Release\ReceivingServiceLib.Drawing.pdb

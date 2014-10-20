@@ -333,7 +333,7 @@ namespace VPrinting
                     using (var byteStream = new MemoryStream())
                     {
                         bitmap.Save(byteStream, ImageFormat.Tiff);
-                        images.Add(Image.FromStream(byteStream));
+                        images.Add(new Bitmap(Image.FromStream(byteStream)));
                     }
                 }
             }

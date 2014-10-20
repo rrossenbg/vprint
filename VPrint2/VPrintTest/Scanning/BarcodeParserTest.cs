@@ -32,7 +32,7 @@ namespace VPrintTest.Scanning
             var info = new FileInfo(@"C:\IMAGES\PD\PD149002.jpg");
             string site;
             int location;
-            if (!CommonTools.ParseSiteCode(info.Name, out site, out location))
+            if (!VPrinting.Common.CommonTools.ParseSiteCode(info.Name, out site, out location))
                 throw new Exception("Wrong sitecode");
         }
     }
