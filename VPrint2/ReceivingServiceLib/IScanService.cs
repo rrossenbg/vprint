@@ -215,9 +215,36 @@ namespace ReceivingServiceLib
         [FaultContract(typeof(MyApplicationFault))]
         byte[] DownloadVouchers(int countryId, int[] voucherIds, string s1, string s2);
         #endregion
+
+        #region EMAIL
+
+        [OperationContract]
+        [FaultContract(typeof(MyApplicationFault))]
+        void EmailNotaDebito(EmailInfo[] emails, string s1, string s2);
+
+        #endregion
     }
 
     #region DATA OBJECTS
+
+    [DataContract]
+    public class EmailInfo
+    {
+        [DataMember(Order = 0)]
+        public int IsoId { get; set; }
+        [DataMember(Order = 1)]
+        public int HoId { get; set; }
+        [DataMember(Order = 2)]
+        public int InNumber { get; set; }
+        [DataMember(Order = 3)]
+        public DateTime InDate { get; set; }
+        [DataMember(Order = 4)]
+        public string Subject { get; set; }
+        [DataMember(Order = 5)]
+        public string Body { get; set; }
+        [DataMember(Order = 6)]
+        public string CC { get; set; }
+    }
 
     [DataContract]
     public class VoucherInfo

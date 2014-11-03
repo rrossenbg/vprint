@@ -7,12 +7,15 @@ using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
 using System.ServiceModel;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ReceivingServiceLib;
+using ReceivingServiceLib.Common.Data;
 using ReceivingServiceLib.Data;
 using ReceivingServiceLib.FileWorkers;
 using VPrinting;
@@ -63,10 +66,11 @@ namespace ReceivingService
 
             ScanService.NewCall += new EventHandler<ValueEventArgs<Tuple<string, string, DateTime>>>(ScanService_NewCall);
             ScanService.ExtractVoucher += new EventHandler<ValueEventArgs<Tuple<VoucherDataAccess.SelectVoucherInfoData, DirectoryInfo>>>(ScanService_ExtractVoucher);
+            ScanService.EmailNotaDebitoEvent += new EventHandler<ValueEventArgs<EmailInfo>>(ScanService_EmailNotaDebitoEvent);
             string user = ConfigurationManager.AppSettings["REPORTINGSERVER_USER"].IfNullOrEmptyThrow<ArgumentException>();
             string pass = ConfigurationManager.AppSettings["REPORTINGSERVER_PASS"].IfNullOrEmptyThrow<ArgumentException>();
             string domain = ConfigurationManager.AppSettings["REPORTINGSERVER_DOMAIN"].IfNullOrEmptyThrow<ArgumentException>();
-            ScanService.ReportingServerCredentials = new NetworkCredential(user, pass, domain);
+            ScanService.ReportServerCredentials = new NetworkCredential(user, pass, domain);
             m_ServerHost = new ServiceHost(typeof(ScanService));
             m_ServerHost.Open();
 
@@ -187,11 +191,49 @@ namespace ReceivingService
                     var fac2 = new ZipFileAccess();
                     fac2.RestoreZip(zipFile.FullName, result2.Item2.FullName);
                 }
+                catch (Exception ex)
+                {
+                    OnError(this, new ThreadExceptionEventArgs(ex));
+                }
                 finally
                 {
                     binFile.DeleteSafe();
                     zipFile.DeleteSafe();
                 }
+            }, e.Value, TaskCreationOptions.LongRunning);
+        }
+
+        private void ScanService_EmailNotaDebitoEvent(object sender, ValueEventArgs<EmailInfo> e)
+        {
+            var t = Task.Factory.StartNew((o) =>
+            {
+                try
+                {
+                    EmailInfo val = (EmailInfo)o;
+                    int countryId = val.IsoId;
+                    int officeId = val.HoId;
+                    int invoiceNumber = val.InNumber;
+                    DateTime invoiceDate = val.InDate;
+
+                    string serverUrl = string.Format("http://192.168.53.144/Reportserver/Pages/ReportViewer.aspx?%2fNota+Debito%2fNota+Debito+0032&rs:Command=Render&rs:format=PDF&iso_id={0}&Office={1}&in_date={2:dd/MM/yyyy}&invoicenumber={3}",
+                    countryId, officeId, invoiceDate, invoiceNumber);
+
+                    WebDataAccess access = new WebDataAccess();
+                    var buffer = access.DownloadReport(serverUrl, ScanService.ReportServerCredentials);
+
+                    string email = new PTFDataAccess().FindHeadOfficeEmail(countryId, officeId);//"rosen.rusev@fintrax.com";// 
+                    string ccEmail = val.CC;
+                    string subject = val.Subject;
+                    string message = val.Body;
+
+                    var att = new Attachment(new MemoryStream(buffer), new ContentType("application/pdf"));
+                    EmailSender.SendSafe(email, ccEmail, subject, message, false, att);
+                }
+                catch (Exception ex)
+                {
+                    OnError(this, new ThreadExceptionEventArgs(ex));
+                }
+
             }, e.Value, TaskCreationOptions.LongRunning);
         }
     }

@@ -1,0 +1,5 @@
+EXPORTS
+ReadSettings
+SaveSettings
+ProcessImage
+ProcessImage2

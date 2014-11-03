@@ -292,4 +292,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="VoucherInfo3" nillable="true" type="tns:VoucherInfo3" />
+  <xs:complexType name="ArrayOfEmailInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailInfo" nillable="true" type="tns:EmailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmailInfo" nillable="true" type="tns:ArrayOfEmailInfo" />
+  <xs:complexType name="EmailInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsoId" type="xs:int" />
+      <xs:element minOccurs="0" name="HoId" type="xs:int" />
+      <xs:element minOccurs="0" name="InNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="InDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CC" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailInfo" nillable="true" type="tns:EmailInfo" />
 </xs:schema>

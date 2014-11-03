@@ -113,6 +113,10 @@ namespace ReceivingServiceTest
             }
         }
 
+        const string NAME = "rosen.rusev";
+        const string PASS = "RGR3245971!!";
+        const string DOMAIN = "fintrax.com";
+
         [TestMethod]
         public void call_ReportingServer()
         {
@@ -122,19 +126,37 @@ namespace ReceivingServiceTest
                 ///http://192.168.53.144/Reportserver/Pages/ReportViewer.aspx?%2fNota+Debito%2fNota+Debito+0032&rs:Command=Render&rs:format=PDF&iso_id=724&Office=167150&in_date=02/12/2013&invoicenumber=42538
                 ///
 
-                //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(serverUrl);
-                //request.PreAuthenticate = true;
-                //request.Credentials = new NetworkCredential("rosen.rusev", "", "fintrax.com");
+                string serverUrl0 = "http://192.168.53.144/";
+                string serverUrl = @"http://192.168.53.144/Reportserver/Pages/ReportViewer.aspx?%2fNota+Debito%2fNota+Debito+0032&rs:Command=Render&rs:format=PDF&iso_id=724&Office=167150&in_date=02/12/2013&invoicenumber=42538";
 
-                //using (var response = (HttpWebResponse)request.GetResponse())
-                //{
-                //    using (Stream stream = response.GetResponseStream())
-                //    {
-                //        byte[] file = stream.ReadAllBytes();
-                //        response.Close();
-                //        File.WriteAllBytes("C:\\test.pdf", file);
-                //    }
-                //}
+                try
+                {
+                    var u = new Uri(serverUrl);
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(u);
+                    request.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)";
+                    request.PreAuthenticate = true;
+                    request.UseDefaultCredentials = false;
+                    request.Proxy = WebRequest.GetSystemWebProxy();
+
+                    var u0 = request.Proxy.GetProxy(u);
+                    CredentialCache cache = new CredentialCache();
+                    cache.Add(new Uri(serverUrl0), "Basic", new NetworkCredential(NAME, PASS));
+                    cache.Add(u0, "Negotiate", new NetworkCredential(NAME, PASS, DOMAIN));
+                    cache.Add(new Uri(serverUrl0), "Digest", new NetworkCredential(NAME, PASS, DOMAIN));
+                    request.Credentials = cache;
+
+                    using (var response = (HttpWebResponse)request.GetResponse())
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        byte[] file = stream.ReadAllBytes();
+                        response.Close();
+                        File.WriteAllBytes("C:\\test.pdf", file);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.Write(ex);
+                }
 
 
 
@@ -153,17 +175,19 @@ namespace ReceivingServiceTest
                 //myCache.Add(new Uri("http://192.168.53.144/"), "Basic", new NetworkCredential("rosen.rusev", ""));
                 //myCache.Add(new Uri("http://192.168.53.144/"), "Digest", new NetworkCredential("rosen.rusev", "", "fintrax.com"));
 
-                //client.Credentials = myCache;
+                //client.Credentials = myCache;PASS
                 //client.Proxy = WebRequest.DefaultWebProxy;
                 //client.Proxy.Credentials = myCache;
 
-                string serverUrl = "http://192.168.53.144/Reportserver/Pages/ReportViewer.aspx?%2fNota+Debito%2fNota+Debito+0032&rs:Command=Render&rs:format=PDF&iso_id=724&Office=167150&in_date=2013-12-03&invoicenumber=42538";
-
+                
                 var client = new WebClient();
+                client.UseDefaultCredentials = false;
                 client.Headers.Add(HttpRequestHeader.UserAgent, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
-                //CredentialCache cache = new CredentialCache();
-                //cache.Add(new Uri("http://fintrax.com/"), "Basic", new NetworkCredential("rosen.rusev", ""));
-                client.Credentials = CredentialCache.DefaultCredentials;
+                client.Headers.Add("X-Parse-Application-Id", "12345678800");
+                client.Headers.Add("X-Parse-REST-API-Key", "12345667890");
+                var cache2 = new CredentialCache();
+                cache2.Add(new Uri(serverUrl0), "Basic", new NetworkCredential("rosen.rusev", PASS));
+                client.Credentials = cache2;
                 var buffer = client.DownloadData(serverUrl);
                 File.WriteAllBytes("C:\\test.pdf", buffer);
             }

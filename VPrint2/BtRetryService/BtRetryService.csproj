@@ -126,7 +126,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\PTF.Common\Tools\EmailSender.cs">
+      <Link>Common\EmailSender.cs</Link>
+    </Compile>
     <Compile Include="Common\CString.cs" />
+    <Compile Include="Data\PTFDbDataAccess.cs" />
     <Compile Include="Data\TransferDBDataAccess.cs" />
     <Compile Include="EmailWorker.cs" />
     <Compile Include="Extensions\ThreadingEx.cs" />
@@ -135,7 +139,6 @@
     <Compile Include="TransferDbModelEx.cs" />
     <Compile Include="Extensions\MoreEnumerable.cs" />
     <Compile Include="Common\DynamicLibrary.cs" />
-    <Compile Include="Common\EmailSender.cs" />
     <Compile Include="Extensions\ClassEx.cs" />
     <Compile Include="FintraxRetryService.cs">
       <SubType>Component</SubType>

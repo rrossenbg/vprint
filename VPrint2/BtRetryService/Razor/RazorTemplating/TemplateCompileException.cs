@@ -13,5 +13,10 @@ namespace BtRetryService.Razor.RazorTemplating
 
         public CompilerErrorCollection Errors { get; private set; }
         public string SourceCode { get; private set; }
+
+        public override string ToString()
+        {
+            return Errors.toString();
+        }
     }
 }

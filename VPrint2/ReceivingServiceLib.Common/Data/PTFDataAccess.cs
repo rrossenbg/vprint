@@ -100,7 +100,29 @@ namespace ReceivingServiceLib.Common.Data
                     }
                 }
             }
+        }
 
+        public string FindHeadOfficeEmail(int ho_iso_id, int ho_id)
+        {
+            #region SQL
+
+            const string SQL = "select ho_email_1 from HeadOffice where ho_id=@ho_id and ho_iso_id = @ho_iso_id";
+
+            #endregion SQL
+
+            using (var conn = new SqlConnection(Global.Strings.PTFConnString))
+            {
+                conn.Open();
+
+                using (var comm = new SqlCommand(SQL, conn))
+                {
+                    comm.CommandType = CommandType.Text;
+                    comm.Parameters.AddWithValue("@ho_id", ho_id);
+                    comm.Parameters.AddWithValue("@ho_iso_id", ho_iso_id);
+
+                    return Convert.ToString(comm.ExecuteNonQuery());
+                }
+            }
         }
     }
 }

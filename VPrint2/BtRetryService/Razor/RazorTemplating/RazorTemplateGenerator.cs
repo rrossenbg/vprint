@@ -24,7 +24,10 @@ namespace BtRetryService.Razor.RazorTemplating
             if (templateString == null)
                 throw new ArgumentNullException("templateString");
 
-            templateItems[TranslateKey(typeof(TModel), templateName)] = new RazorTemplateEntry() { ModelType = typeof(TModel), TemplateString = templateString, TemplateName = "Rzr" + Guid.NewGuid().ToString("N") };
+            templateItems[TranslateKey(typeof(TModel), templateName)] = new RazorTemplateEntry() { 
+                ModelType = typeof(TModel), 
+                TemplateString = templateString, 
+                TemplateName = "Rzr" + Guid.NewGuid().ToString("N") };
         }
 
         public void CompileTemplates()

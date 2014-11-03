@@ -240,6 +240,8 @@ namespace VPrinting
         private ToolStripStatusLabel lblItemsWithErr;
         private LinkLabel lblNext;
         private LinkLabel lblPrev;
+        private ToolStripMenuItem scheduleStartToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem11;
 
         #region PUBLIC FIELDS
 
@@ -1091,9 +1093,6 @@ namespace VPrinting
             this.btnNotDispatched = new System.Windows.Forms.Button();
             this.cboSelectAllNone = new System.Windows.Forms.CheckBox();
             this.dgvAllocations = new System.Windows.Forms.DataGridView();
-            this.lblPrinted = new System.Windows.Forms.Label();
-            this.lblPending = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.printContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.printdemoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapPrinterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1107,6 +1106,9 @@ namespace VPrinting
             this.updateVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblPrinted = new System.Windows.Forms.Label();
+            this.lblPending = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnRePrint = new System.Windows.Forms.Button();
             this.btnReprintFromCache = new System.Windows.Forms.Button();
@@ -1128,6 +1130,25 @@ namespace VPrinting
             this.tbRename = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.lpScannedFiles = new System.Windows.Forms.FlowLayoutPanel();
+            this.scanContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiSend = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiScanningShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.showSignedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.nameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiScanningDetailes = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiScaningDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiScaningDeleteAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiScanningClear = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiScanningForce = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiScanningForceAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiScanningIgnore = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiScanningAddToTran = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
             this.ssScaningStatus = new System.Windows.Forms.StatusStrip();
             this.lblScanned = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblSent = new System.Windows.Forms.ToolStripStatusLabel();
@@ -1181,37 +1202,20 @@ namespace VPrinting
             this.historyFromTime = new System.Windows.Forms.DateTimePicker();
             this.btnShowHistory = new System.Windows.Forms.Button();
             this.dgvSearchData = new System.Windows.Forms.DataGridView();
+            this.historyMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiSort = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslItemsCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.scanContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiSend = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiScanningShow = new System.Windows.Forms.ToolStripMenuItem();
-            this.showSignedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
-            this.nameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiScanningDetailes = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmiScaningDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiScaningDeleteAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiScanningClear = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmiScanningForce = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiScanningForceAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiScanningIgnore = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmiScanningAddToTran = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.historyMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiSort = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduleStartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.printContextMenu.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1225,6 +1229,7 @@ namespace VPrinting
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.folderMenuStrip.SuspendLayout();
+            this.scanContextMenuStrip.SuspendLayout();
             this.ssScaningStatus.SuspendLayout();
             this.ScanningSettingPanel.SuspendLayout();
             this.tbSearch.SuspendLayout();
@@ -1239,9 +1244,8 @@ namespace VPrinting
             this.tabHistory.SuspendLayout();
             this.pnlDataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchData)).BeginInit();
-            this.statusStrip1.SuspendLayout();
-            this.scanContextMenuStrip.SuspendLayout();
             this.historyMenuStrip.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -1409,36 +1413,6 @@ namespace VPrinting
             this.dgvAllocations.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellEndEdit);
             this.dgvAllocations.SelectionChanged += new System.EventHandler(this.DataGrid_SelectionChanged);
             // 
-            // lblPrinted
-            // 
-            this.lblPrinted.AutoSize = true;
-            this.lblPrinted.Location = new System.Drawing.Point(275, 108);
-            this.lblPrinted.Name = "lblPrinted";
-            this.lblPrinted.Size = new System.Drawing.Size(0, 13);
-            this.lblPrinted.TabIndex = 23;
-            // 
-            // lblPending
-            // 
-            this.lblPending.AutoSize = true;
-            this.lblPending.Location = new System.Drawing.Point(331, 108);
-            this.lblPending.Name = "lblPending";
-            this.lblPending.Size = new System.Drawing.Size(0, 13);
-            this.lblPending.TabIndex = 24;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.ContextMenuStrip = this.printContextMenu;
-            this.groupBox1.Controls.Add(this.groupBox4);
-            this.groupBox1.Controls.Add(this.btnShowRetailer);
-            this.groupBox1.Controls.Add(this.btnBlock);
-            this.groupBox1.Controls.Add(this.btnNotDispatched);
-            this.groupBox1.Controls.Add(this.btnRefresh);
-            this.groupBox1.Location = new System.Drawing.Point(365, 9);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(389, 96);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            // 
             // printContextMenu
             // 
             this.printContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1539,6 +1513,36 @@ namespace VPrinting
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.ToolTipText = "Exit application";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.Exit_Click);
+            // 
+            // lblPrinted
+            // 
+            this.lblPrinted.AutoSize = true;
+            this.lblPrinted.Location = new System.Drawing.Point(275, 108);
+            this.lblPrinted.Name = "lblPrinted";
+            this.lblPrinted.Size = new System.Drawing.Size(0, 13);
+            this.lblPrinted.TabIndex = 23;
+            // 
+            // lblPending
+            // 
+            this.lblPending.AutoSize = true;
+            this.lblPending.Location = new System.Drawing.Point(331, 108);
+            this.lblPending.Name = "lblPending";
+            this.lblPending.Size = new System.Drawing.Size(0, 13);
+            this.lblPending.TabIndex = 24;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.ContextMenuStrip = this.printContextMenu;
+            this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.Controls.Add(this.btnShowRetailer);
+            this.groupBox1.Controls.Add(this.btnBlock);
+            this.groupBox1.Controls.Add(this.btnNotDispatched);
+            this.groupBox1.Controls.Add(this.btnRefresh);
+            this.groupBox1.Location = new System.Drawing.Point(365, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(389, 96);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
             // 
             // groupBox4
             // 
@@ -1783,6 +1787,159 @@ namespace VPrinting
             this.lpScannedFiles.Name = "lpScannedFiles";
             this.lpScannedFiles.Size = new System.Drawing.Size(941, 386);
             this.lpScannedFiles.TabIndex = 2;
+            // 
+            // scanContextMenuStrip
+            // 
+            this.scanContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiSend,
+            this.tsmiScanningShow,
+            this.showSignedToolStripMenuItem,
+            this.toolStripMenuItem8,
+            this.scheduleStartToolStripMenuItem,
+            this.toolStripMenuItem11,
+            this.nameToolStripMenuItem,
+            this.tsmiScanningDetailes,
+            this.toolStripMenuItem10,
+            this.tsmiScaningDelete,
+            this.tsmiScaningDeleteAll,
+            this.tsmiScanningClear,
+            this.toolStripMenuItem4,
+            this.tsmiScanningForce,
+            this.tsmiScanningForceAll,
+            this.tsmiScanningIgnore,
+            this.toolStripMenuItem9,
+            this.tsmiScanningAddToTran,
+            this.toolStripMenuItem7,
+            this.tsmiExit});
+            this.scanContextMenuStrip.Name = "scanContextMenuStrip";
+            this.scanContextMenuStrip.Size = new System.Drawing.Size(159, 370);
+            // 
+            // tsmiSend
+            // 
+            this.tsmiSend.Name = "tsmiSend";
+            this.tsmiSend.Size = new System.Drawing.Size(158, 22);
+            this.tsmiSend.Text = "&Send";
+            this.tsmiSend.ToolTipText = "Send item to image store";
+            this.tsmiSend.Click += new System.EventHandler(this.Send_Click);
+            // 
+            // tsmiScanningShow
+            // 
+            this.tsmiScanningShow.Name = "tsmiScanningShow";
+            this.tsmiScanningShow.Size = new System.Drawing.Size(158, 22);
+            this.tsmiScanningShow.Text = "S&how";
+            this.tsmiScanningShow.ToolTipText = "Download and show voucher";
+            this.tsmiScanningShow.Click += new System.EventHandler(this.DownloadShow_Click);
+            // 
+            // showSignedToolStripMenuItem
+            // 
+            this.showSignedToolStripMenuItem.Name = "showSignedToolStripMenuItem";
+            this.showSignedToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.showSignedToolStripMenuItem.Text = "Show Si&gned";
+            this.showSignedToolStripMenuItem.Click += new System.EventHandler(this.DownloadShow_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(155, 6);
+            // 
+            // nameToolStripMenuItem
+            // 
+            this.nameToolStripMenuItem.Name = "nameToolStripMenuItem";
+            this.nameToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.nameToolStripMenuItem.Text = "&Rename";
+            this.nameToolStripMenuItem.Click += new System.EventHandler(this.NameMenuItem_Click);
+            // 
+            // tsmiScanningDetailes
+            // 
+            this.tsmiScanningDetailes.Name = "tsmiScanningDetailes";
+            this.tsmiScanningDetailes.Size = new System.Drawing.Size(158, 22);
+            this.tsmiScanningDetailes.Text = "De&tails";
+            this.tsmiScanningDetailes.ToolTipText = "Show voucher details";
+            this.tsmiScanningDetailes.Click += new System.EventHandler(this.Details_Click);
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(155, 6);
+            // 
+            // tsmiScaningDelete
+            // 
+            this.tsmiScaningDelete.Name = "tsmiScaningDelete";
+            this.tsmiScaningDelete.Size = new System.Drawing.Size(158, 22);
+            this.tsmiScaningDelete.Text = "&Delete";
+            this.tsmiScaningDelete.ToolTipText = "Delete sigle item from selected folder of image store";
+            this.tsmiScaningDelete.Click += new System.EventHandler(this.DeleteFile_Click);
+            // 
+            // tsmiScaningDeleteAll
+            // 
+            this.tsmiScaningDeleteAll.Name = "tsmiScaningDeleteAll";
+            this.tsmiScaningDeleteAll.Size = new System.Drawing.Size(158, 22);
+            this.tsmiScaningDeleteAll.Text = "Delete &All";
+            this.tsmiScaningDeleteAll.ToolTipText = "Delete all items from selected folder of image store";
+            this.tsmiScaningDeleteAll.Click += new System.EventHandler(this.DeleteAllFilesInFolder_Click);
+            // 
+            // tsmiScanningClear
+            // 
+            this.tsmiScanningClear.Name = "tsmiScanningClear";
+            this.tsmiScanningClear.Size = new System.Drawing.Size(158, 22);
+            this.tsmiScanningClear.Text = "&Clear";
+            this.tsmiScanningClear.ToolTipText = "Clear desktop";
+            this.tsmiScanningClear.Click += new System.EventHandler(this.ClearDesktop_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(155, 6);
+            // 
+            // tsmiScanningForce
+            // 
+            this.tsmiScanningForce.Name = "tsmiScanningForce";
+            this.tsmiScanningForce.Size = new System.Drawing.Size(158, 22);
+            this.tsmiScanningForce.Text = "&Force";
+            this.tsmiScanningForce.ToolTipText = "Force insert voucher. Ignore barcode checks";
+            this.tsmiScanningForce.Click += new System.EventHandler(this.Forse_Click);
+            // 
+            // tsmiScanningForceAll
+            // 
+            this.tsmiScanningForceAll.Name = "tsmiScanningForceAll";
+            this.tsmiScanningForceAll.Size = new System.Drawing.Size(158, 22);
+            this.tsmiScanningForceAll.Text = "F&orce All";
+            this.tsmiScanningForceAll.ToolTipText = "Force inszert all vouchers. Ignore barcode checks";
+            this.tsmiScanningForceAll.Click += new System.EventHandler(this.ForceAll_Click);
+            // 
+            // tsmiScanningIgnore
+            // 
+            this.tsmiScanningIgnore.Name = "tsmiScanningIgnore";
+            this.tsmiScanningIgnore.Size = new System.Drawing.Size(158, 22);
+            this.tsmiScanningIgnore.Text = "&Ignore";
+            this.tsmiScanningIgnore.ToolTipText = "Ignore selected voucher.";
+            this.tsmiScanningIgnore.Click += new System.EventHandler(this.Ignore_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(155, 6);
+            // 
+            // tsmiScanningAddToTran
+            // 
+            this.tsmiScanningAddToTran.Name = "tsmiScanningAddToTran";
+            this.tsmiScanningAddToTran.Size = new System.Drawing.Size(158, 22);
+            this.tsmiScanningAddToTran.Text = "&Add to tran";
+            this.tsmiScanningAddToTran.ToolTipText = "Add voucher to transfer file";
+            this.tsmiScanningAddToTran.Click += new System.EventHandler(this.AddToTran_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(155, 6);
+            // 
+            // tsmiExit
+            // 
+            this.tsmiExit.Name = "tsmiExit";
+            this.tsmiExit.Size = new System.Drawing.Size(158, 22);
+            this.tsmiExit.Text = "&Exit";
+            this.tsmiExit.ToolTipText = "Exit application";
+            this.tsmiExit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // ssScaningStatus
             // 
@@ -2400,187 +2557,6 @@ namespace VPrinting
             this.dgvSearchData.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.SearchData_RowsAdded);
             this.dgvSearchData.DoubleClick += new System.EventHandler(this.SearchData_DoubleClick);
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.tslItemsCount});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 513);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1122, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(36, 17);
-            this.toolStripStatusLabel1.Text = "items.";
-            // 
-            // tslItemsCount
-            // 
-            this.tslItemsCount.Name = "tslItemsCount";
-            this.tslItemsCount.Size = new System.Drawing.Size(11, 17);
-            this.tslItemsCount.Text = ".";
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Document-icon.png");
-            this.imageList1.Images.SetKeyName(1, "File-Delete-icon.png");
-            // 
-            // scanContextMenuStrip
-            // 
-            this.scanContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiSend,
-            this.tsmiScanningShow,
-            this.showSignedToolStripMenuItem,
-            this.toolStripMenuItem8,
-            this.nameToolStripMenuItem,
-            this.tsmiScanningDetailes,
-            this.toolStripMenuItem10,
-            this.tsmiScaningDelete,
-            this.tsmiScaningDeleteAll,
-            this.tsmiScanningClear,
-            this.toolStripMenuItem4,
-            this.tsmiScanningForce,
-            this.tsmiScanningForceAll,
-            this.tsmiScanningIgnore,
-            this.toolStripMenuItem9,
-            this.tsmiScanningAddToTran,
-            this.toolStripMenuItem7,
-            this.tsmiExit});
-            this.scanContextMenuStrip.Name = "scanContextMenuStrip";
-            this.scanContextMenuStrip.Size = new System.Drawing.Size(136, 320);
-            // 
-            // tsmiSend
-            // 
-            this.tsmiSend.Name = "tsmiSend";
-            this.tsmiSend.Size = new System.Drawing.Size(135, 22);
-            this.tsmiSend.Text = "&Send";
-            this.tsmiSend.ToolTipText = "Send item to image store";
-            this.tsmiSend.Click += new System.EventHandler(this.Send_Click);
-            // 
-            // tsmiScanningShow
-            // 
-            this.tsmiScanningShow.Name = "tsmiScanningShow";
-            this.tsmiScanningShow.Size = new System.Drawing.Size(135, 22);
-            this.tsmiScanningShow.Text = "S&how";
-            this.tsmiScanningShow.ToolTipText = "Download and show voucher";
-            this.tsmiScanningShow.Click += new System.EventHandler(this.DownloadShow_Click);
-            // 
-            // showSignedToolStripMenuItem
-            // 
-            this.showSignedToolStripMenuItem.Name = "showSignedToolStripMenuItem";
-            this.showSignedToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.showSignedToolStripMenuItem.Text = "Show Si&gned";
-            this.showSignedToolStripMenuItem.Click += new System.EventHandler(this.DownloadShow_Click);
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(132, 6);
-            // 
-            // nameToolStripMenuItem
-            // 
-            this.nameToolStripMenuItem.Name = "nameToolStripMenuItem";
-            this.nameToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.nameToolStripMenuItem.Text = "&Rename";
-            this.nameToolStripMenuItem.Click += new System.EventHandler(this.NameMenuItem_Click);
-            // 
-            // tsmiScanningDetailes
-            // 
-            this.tsmiScanningDetailes.Name = "tsmiScanningDetailes";
-            this.tsmiScanningDetailes.Size = new System.Drawing.Size(135, 22);
-            this.tsmiScanningDetailes.Text = "De&tails";
-            this.tsmiScanningDetailes.ToolTipText = "Show voucher details";
-            this.tsmiScanningDetailes.Click += new System.EventHandler(this.Details_Click);
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(132, 6);
-            // 
-            // tsmiScaningDelete
-            // 
-            this.tsmiScaningDelete.Name = "tsmiScaningDelete";
-            this.tsmiScaningDelete.Size = new System.Drawing.Size(135, 22);
-            this.tsmiScaningDelete.Text = "&Delete";
-            this.tsmiScaningDelete.ToolTipText = "Delete sigle item from selected folder of image store";
-            this.tsmiScaningDelete.Click += new System.EventHandler(this.DeleteFile_Click);
-            // 
-            // tsmiScaningDeleteAll
-            // 
-            this.tsmiScaningDeleteAll.Name = "tsmiScaningDeleteAll";
-            this.tsmiScaningDeleteAll.Size = new System.Drawing.Size(135, 22);
-            this.tsmiScaningDeleteAll.Text = "Delete &All";
-            this.tsmiScaningDeleteAll.ToolTipText = "Delete all items from selected folder of image store";
-            this.tsmiScaningDeleteAll.Click += new System.EventHandler(this.DeleteAllFilesInFolder_Click);
-            // 
-            // tsmiScanningClear
-            // 
-            this.tsmiScanningClear.Name = "tsmiScanningClear";
-            this.tsmiScanningClear.Size = new System.Drawing.Size(135, 22);
-            this.tsmiScanningClear.Text = "&Clear";
-            this.tsmiScanningClear.ToolTipText = "Clear desktop";
-            this.tsmiScanningClear.Click += new System.EventHandler(this.ClearDesktop_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(132, 6);
-            // 
-            // tsmiScanningForce
-            // 
-            this.tsmiScanningForce.Name = "tsmiScanningForce";
-            this.tsmiScanningForce.Size = new System.Drawing.Size(135, 22);
-            this.tsmiScanningForce.Text = "&Force";
-            this.tsmiScanningForce.ToolTipText = "Force insert voucher. Ignore barcode checks";
-            this.tsmiScanningForce.Click += new System.EventHandler(this.Forse_Click);
-            // 
-            // tsmiScanningForceAll
-            // 
-            this.tsmiScanningForceAll.Name = "tsmiScanningForceAll";
-            this.tsmiScanningForceAll.Size = new System.Drawing.Size(135, 22);
-            this.tsmiScanningForceAll.Text = "F&orce All";
-            this.tsmiScanningForceAll.ToolTipText = "Force inszert all vouchers. Ignore barcode checks";
-            this.tsmiScanningForceAll.Click += new System.EventHandler(this.ForceAll_Click);
-            // 
-            // tsmiScanningIgnore
-            // 
-            this.tsmiScanningIgnore.Name = "tsmiScanningIgnore";
-            this.tsmiScanningIgnore.Size = new System.Drawing.Size(135, 22);
-            this.tsmiScanningIgnore.Text = "&Ignore";
-            this.tsmiScanningIgnore.ToolTipText = "Ignore selected voucher.";
-            this.tsmiScanningIgnore.Click += new System.EventHandler(this.Ignore_Click);
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(132, 6);
-            // 
-            // tsmiScanningAddToTran
-            // 
-            this.tsmiScanningAddToTran.Name = "tsmiScanningAddToTran";
-            this.tsmiScanningAddToTran.Size = new System.Drawing.Size(135, 22);
-            this.tsmiScanningAddToTran.Text = "&Add to tran";
-            this.tsmiScanningAddToTran.ToolTipText = "Add voucher to transfer file";
-            this.tsmiScanningAddToTran.Click += new System.EventHandler(this.AddToTran_Click);
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(132, 6);
-            // 
-            // tsmiExit
-            // 
-            this.tsmiExit.Name = "tsmiExit";
-            this.tsmiExit.Size = new System.Drawing.Size(135, 22);
-            this.tsmiExit.Text = "&Exit";
-            this.tsmiExit.ToolTipText = "Exit application";
-            this.tsmiExit.Click += new System.EventHandler(this.Exit_Click);
-            // 
             // historyMenuStrip
             // 
             this.historyMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -2614,6 +2590,48 @@ namespace VPrinting
             this.exitToolStripMenuItem1.ToolTipText = "Exit application";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.Exit_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.tslItemsCount});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 513);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1122, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(36, 17);
+            this.toolStripStatusLabel1.Text = "items.";
+            // 
+            // tslItemsCount
+            // 
+            this.tslItemsCount.Name = "tslItemsCount";
+            this.tslItemsCount.Size = new System.Drawing.Size(11, 17);
+            this.tslItemsCount.Text = ".";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Document-icon.png");
+            this.imageList1.Images.SetKeyName(1, "File-Delete-icon.png");
+            // 
+            // scheduleStartToolStripMenuItem
+            // 
+            this.scheduleStartToolStripMenuItem.Name = "scheduleStartToolStripMenuItem";
+            this.scheduleStartToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.scheduleStartToolStripMenuItem.Text = "Schedule Start At";
+            this.scheduleStartToolStripMenuItem.Click += new System.EventHandler(this.StartScheduler_Click);
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(155, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
@@ -2629,8 +2647,8 @@ namespace VPrinting
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Scanning_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllocations)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.printContextMenu.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -2647,6 +2665,7 @@ namespace VPrinting
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.folderMenuStrip.ResumeLayout(false);
+            this.scanContextMenuStrip.ResumeLayout(false);
             this.ssScaningStatus.ResumeLayout(false);
             this.ssScaningStatus.PerformLayout();
             this.ScanningSettingPanel.ResumeLayout(false);
@@ -2666,10 +2685,9 @@ namespace VPrinting
             this.pnlDataGrid.ResumeLayout(false);
             this.pnlDataGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchData)).EndInit();
+            this.historyMenuStrip.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.scanContextMenuStrip.ResumeLayout(false);
-            this.historyMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3425,6 +3443,12 @@ namespace VPrinting
                     lblNext.Visible = false;
                 }
             }
+        }
+
+        private void StartScheduler_Click(object sender, EventArgs e)
+        {
+            using (var formn = new SchedulerForm())
+                formn.ShowDialog(this);
         }
     }
 }

@@ -1472,6 +1472,147 @@ namespace FintraxPTFImages.ScanServiceRef {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmailInfo", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+    [System.SerializableAttribute()]
+    public partial class EmailInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IsoIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HoIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int InNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime InDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SubjectField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BodyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CCField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IsoId {
+            get {
+                return this.IsoIdField;
+            }
+            set {
+                if ((this.IsoIdField.Equals(value) != true)) {
+                    this.IsoIdField = value;
+                    this.RaisePropertyChanged("IsoId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int HoId {
+            get {
+                return this.HoIdField;
+            }
+            set {
+                if ((this.HoIdField.Equals(value) != true)) {
+                    this.HoIdField = value;
+                    this.RaisePropertyChanged("HoId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int InNumber {
+            get {
+                return this.InNumberField;
+            }
+            set {
+                if ((this.InNumberField.Equals(value) != true)) {
+                    this.InNumberField = value;
+                    this.RaisePropertyChanged("InNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.DateTime InDate {
+            get {
+                return this.InDateField;
+            }
+            set {
+                if ((this.InDateField.Equals(value) != true)) {
+                    this.InDateField = value;
+                    this.RaisePropertyChanged("InDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string Subject {
+            get {
+                return this.SubjectField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SubjectField, value) != true)) {
+                    this.SubjectField = value;
+                    this.RaisePropertyChanged("Subject");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string Body {
+            get {
+                return this.BodyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BodyField, value) != true)) {
+                    this.BodyField = value;
+                    this.RaisePropertyChanged("Body");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string CC {
+            get {
+                return this.CCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CCField, value) != true)) {
+                    this.CCField = value;
+                    this.RaisePropertyChanged("CC");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ScanServiceRef.IScanService")]
     public interface IScanService {
@@ -1837,6 +1978,15 @@ namespace FintraxPTFImages.ScanServiceRef {
         System.IAsyncResult BeginDownloadVouchers(int countryId, int[] voucherIds, string s1, string s2, System.AsyncCallback callback, object asyncState);
         
         byte[] EndDownloadVouchers(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScanService/EmailNotaDebito", ReplyAction="http://tempuri.org/IScanService/EmailNotaDebitoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FintraxPTFImages.ScanServiceRef.MyApplicationFault), Action="http://tempuri.org/IScanService/EmailNotaDebitoMyApplicationFaultFault", Name="MyApplicationFault", Namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib")]
+        void EmailNotaDebito(FintraxPTFImages.ScanServiceRef.EmailInfo[] emails, string s1, string s2);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IScanService/EmailNotaDebito", ReplyAction="http://tempuri.org/IScanService/EmailNotaDebitoResponse")]
+        System.IAsyncResult BeginEmailNotaDebito(FintraxPTFImages.ScanServiceRef.EmailInfo[] emails, string s1, string s2, System.AsyncCallback callback, object asyncState);
+        
+        void EndEmailNotaDebito(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2493,6 +2643,12 @@ namespace FintraxPTFImages.ScanServiceRef {
         
         private System.Threading.SendOrPostCallback onDownloadVouchersCompletedDelegate;
         
+        private BeginOperationDelegate onBeginEmailNotaDebitoDelegate;
+        
+        private EndOperationDelegate onEndEmailNotaDebitoDelegate;
+        
+        private System.Threading.SendOrPostCallback onEmailNotaDebitoCompletedDelegate;
+        
         public ScanServiceClient() {
         }
         
@@ -2587,6 +2743,8 @@ namespace FintraxPTFImages.ScanServiceRef {
         public event System.EventHandler<DownloadReportCompletedEventArgs> DownloadReportCompleted;
         
         public event System.EventHandler<DownloadVouchersCompletedEventArgs> DownloadVouchersCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EmailNotaDebitoCompleted;
         
         public void Delete(string fileName, int countryId, int retailerId, int voucherId, string s1, string s2) {
             base.Channel.Delete(fileName, countryId, retailerId, voucherId, s1, s2);
@@ -4824,6 +4982,59 @@ namespace FintraxPTFImages.ScanServiceRef {
                         voucherIds,
                         s1,
                         s2}, this.onEndDownloadVouchersDelegate, this.onDownloadVouchersCompletedDelegate, userState);
+        }
+        
+        public void EmailNotaDebito(FintraxPTFImages.ScanServiceRef.EmailInfo[] emails, string s1, string s2) {
+            base.Channel.EmailNotaDebito(emails, s1, s2);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginEmailNotaDebito(FintraxPTFImages.ScanServiceRef.EmailInfo[] emails, string s1, string s2, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginEmailNotaDebito(emails, s1, s2, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndEmailNotaDebito(System.IAsyncResult result) {
+            base.Channel.EndEmailNotaDebito(result);
+        }
+        
+        private System.IAsyncResult OnBeginEmailNotaDebito(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            FintraxPTFImages.ScanServiceRef.EmailInfo[] emails = ((FintraxPTFImages.ScanServiceRef.EmailInfo[])(inValues[0]));
+            string s1 = ((string)(inValues[1]));
+            string s2 = ((string)(inValues[2]));
+            return this.BeginEmailNotaDebito(emails, s1, s2, callback, asyncState);
+        }
+        
+        private object[] OnEndEmailNotaDebito(System.IAsyncResult result) {
+            this.EndEmailNotaDebito(result);
+            return null;
+        }
+        
+        private void OnEmailNotaDebitoCompleted(object state) {
+            if ((this.EmailNotaDebitoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.EmailNotaDebitoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void EmailNotaDebitoAsync(FintraxPTFImages.ScanServiceRef.EmailInfo[] emails, string s1, string s2) {
+            this.EmailNotaDebitoAsync(emails, s1, s2, null);
+        }
+        
+        public void EmailNotaDebitoAsync(FintraxPTFImages.ScanServiceRef.EmailInfo[] emails, string s1, string s2, object userState) {
+            if ((this.onBeginEmailNotaDebitoDelegate == null)) {
+                this.onBeginEmailNotaDebitoDelegate = new BeginOperationDelegate(this.OnBeginEmailNotaDebito);
+            }
+            if ((this.onEndEmailNotaDebitoDelegate == null)) {
+                this.onEndEmailNotaDebitoDelegate = new EndOperationDelegate(this.OnEndEmailNotaDebito);
+            }
+            if ((this.onEmailNotaDebitoCompletedDelegate == null)) {
+                this.onEmailNotaDebitoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnEmailNotaDebitoCompleted);
+            }
+            base.InvokeAsync(this.onBeginEmailNotaDebitoDelegate, new object[] {
+                        emails,
+                        s1,
+                        s2}, this.onEndEmailNotaDebitoDelegate, this.onEmailNotaDebitoCompletedDelegate, userState);
         }
     }
 }

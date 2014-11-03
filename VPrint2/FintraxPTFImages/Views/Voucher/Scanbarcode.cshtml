@@ -27,7 +27,7 @@
 
         function HandlePageKeyPress() {
             if (window.event.keyCode == KEY_F2) {
-                document.getElementById('Delete').click();
+                DeleteTextBox();
             }
         }
 
@@ -44,11 +44,10 @@
                 <p>
                     Please click in textbox and scan the barcode or enter it manually.<br />To delete textbox click F2.<br />To close the window click 'x' icon.</p>
                 <p>
-                    @Html.TextBoxFor(m => m.Barcode)
+                    @Html.TextBoxFor(m => m.Barcode, new { onfocus = "DeleteTextBox()" })
                 </p>
                 <p>
                     <input type="submit" value="Submit" />
-                    <input id="Delete" type="button" value="Delete" onclick="DeleteTextBox()" />
                 </p>
             }
         </div>

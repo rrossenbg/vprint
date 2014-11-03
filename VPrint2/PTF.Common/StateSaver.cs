@@ -78,9 +78,24 @@ namespace VPrinting.Common
             return (T)m_Table[key];
         }
 
+        public bool Get<T>(string key, ref T value)
+        {
+            if (m_Table.Contains(key))
+            {
+                value = (T)m_Table[key];
+                return true;
+            }
+            return false;
+        }
+
         public void Set(string key, object data)
         {
             m_Table[key] = data;
+        }
+
+        public void Remove(string key)
+        {
+            m_Table.Remove(key);
         }
 
         public void Get(Control cnt)

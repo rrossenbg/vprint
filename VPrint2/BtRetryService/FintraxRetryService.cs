@@ -65,11 +65,17 @@ namespace BtRetryService
 
             m_RetryWorker.BT_InParsed = inParsed;
 
-            string connString = ConfigurationManager.ConnectionStrings[Strings.TransferDb].ConnectionString;
-            if (connString.IsNullOrEmpty())
+            string connStringTransferDb = ConfigurationManager.ConnectionStrings[Strings.TransferDb].ConnectionString;
+            if (connStringTransferDb.IsNullOrEmpty())
                 throw new SystemException("'TransferDb' cannot be null or empty.");
 
-            TransferDBDataAccess.ConnectionString = connString;
+            TransferDBDataAccess.ConnectionString = connStringTransferDb;
+
+            string connStringPtf = ConfigurationManager.ConnectionStrings[Strings.PTFDb].ConnectionString;
+            if (connStringPtf.IsNullOrEmpty())
+                throw new SystemException("'PTFDb' cannot be null or empty.");
+
+            PTFDbDataAccess.ConnectionString = connStringPtf;
 
             var inPath = new DirectoryInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "In"));
             if (inPath.Exists)

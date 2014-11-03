@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,6 +38,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -179,6 +181,9 @@
     <Compile Include="..\PTF.Common\Extensions\Core3Ex.cs">
       <Link>Extensions\Core3Ex.cs</Link>
     </Compile>
+    <Compile Include="..\PTF.Common\Extensions\CoreEx.cs">
+      <Link>Extensions\CoreEx.cs</Link>
+    </Compile>
     <Compile Include="..\PTF.Common\Extensions\DirectoryInfoEx.cs">
       <Link>Extensions\DirectoryInfoEx.cs</Link>
     </Compile>
@@ -187,6 +192,9 @@
     </Compile>
     <Compile Include="..\PTF.Common\Extensions\SqlEx.cs">
       <Link>Extensions\SqlEx.cs</Link>
+    </Compile>
+    <Compile Include="..\PTF.Common\Tools\CommTools.cs">
+      <Link>Common\CommTools.cs</Link>
     </Compile>
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -255,7 +263,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controls\PagedList.cs" />
     <Compile Include="Data\ServiceAccess.cs" />
-    <Compile Include="Extensions\CoreEx.cs" />
     <Compile Include="Extensions\MVCEx.cs" />
     <Compile Include="Extensions\XmlEx.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -362,6 +369,8 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Voucher\Scanbarcode.cshtml" />
     <Content Include="Views\Voucher\SearchByNumber.cshtml" />
+    <Content Include="Views\Voucher\NotaDebito.cshtml" />
+    <Content Include="Views\Voucher\NotaDebitoEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

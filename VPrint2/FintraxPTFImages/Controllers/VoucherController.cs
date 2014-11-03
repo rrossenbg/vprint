@@ -150,7 +150,7 @@ namespace FintraxPTFImages
         {
             ViewData["VoucherList"] = Enumerable.Empty<fileInfo>();
 
-            ViewData["CountryList"] = HttpContext.Application.Get<List<CountryDetail>>("CountryList", 
+            ViewData["CountryList"] = HttpContext.Application.Get<List<CountryDetail>>("CountryList",
                 Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
                 (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
 
@@ -175,7 +175,7 @@ namespace FintraxPTFImages
         [HttpPost]
         public ActionResult SelectHeadOffices(string value)
         {
-            var isoId = value.cast<int>();
+            var isoId = value.ConvertTo<string, int>();
 
             var headoffices = HttpContext.Session.Get<int, List<HeadOffice>>("HeadOfficeList" + isoId,
                 Helper.CreateHeadOfficeDropDownLoadFunction(), isoId).CreateSelectList((h) => string.Format("{0} - {1}", h.Name, h.Id), (h) => h.Id.ToString());
@@ -187,8 +187,8 @@ namespace FintraxPTFImages
         public ActionResult SelectRetailers(string value)
         {
             var strs = value.Split(';');
-            var isoId = strs[0].cast<int>();
-            var hoId = strs[1].cast<int>();
+            var isoId = strs[0].Cast<int>();
+            var hoId = strs[1].Cast<int>();
 
             var retailers = HttpContext.Session.Get<int, int, List<Retailer>>("RetailerList" + isoId + ";" + hoId,
                 Helper.CreateRetailerDropDownLoadFunction(), isoId, hoId).CreateSelectList((r) => string.Format("{0} - {1}", r.Name, r.Id), (r) => r.Id.ToString());
@@ -340,7 +340,7 @@ namespace FintraxPTFImages
                 }
                 else
                 {
-                    ViewBag.Err = string.Format( "Wrong barcode '{0}'. Please renter.", barcode);
+                    ViewBag.Err = string.Format("Wrong barcode '{0}'. Please renter.", barcode);
                 }
             }
             else
@@ -353,7 +353,7 @@ namespace FintraxPTFImages
         [HttpPost]
         public ActionResult CheckBarcode(string value)
         {
-            var isoId = value.cast<int>();
+            var isoId = value.Cast<int>();
 
             var headoffices = HttpContext.Session.Get<int, List<HeadOffice>>("HeadOfficeList" + isoId,
                 Helper.CreateHeadOfficeDropDownLoadFunction(), isoId).CreateSelectList((h) => string.Format("{0} - {1}", h.Name, h.Id), (h) => h.Id.ToString());
@@ -362,5 +362,114 @@ namespace FintraxPTFImages
         }
 
         #endregion
+
+        [HttpGet]
+        public ActionResult NotaDebito()
+        {
+            ViewData["CountryList"] =
+                                HttpContext.Application.Get<List<CountryDetail>>("CountryList", Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
+                (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
+
+            ViewData["HeadOfficeList"] = HttpContext.Session.Get<List<SelectListItem>>("Empty", Helper.CreateEmptyLoadFunction());
+
+            ViewData["RetailerList"] = HttpContext.Session.Get<List<SelectListItem>>("Empty", Helper.CreateEmptyLoadFunction());
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NotaDebito(NotaDebito_Model model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                ViewData["NotaDebitoList"] =
+                    PTFDataAccess.SelectForNotaDebitosPerCountry(model.Country, model.FromDate, model.ToDate);
+            }
+
+            ViewData["CountryList"] =
+                    HttpContext.Application.Get<List<CountryDetail>>("CountryList", Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
+                    (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
+
+            ViewData["HeadOfficeList"] =
+                    HttpContext.Session.Get<List<SelectListItem>>("Empty", Helper.CreateEmptyLoadFunction());
+
+            ViewData["RetailerList"] =
+                    HttpContext.Session.Get<List<SelectListItem>>("Empty", Helper.CreateEmptyLoadFunction());
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult DownloadNotaDebito(int country, int office, DateTime date, int invoice)
+        {
+            string fileName = string.Format("{0}_{1}_{2:dd-MM-yyyy}_{3}.pdf", country, office, date, invoice);
+            var buffer = ServiceAccess.Instance.DownloadNotaDebitoReport(country, office, date, invoice);
+            return base.File(buffer, "application/pdf", fileName);
+        }
+
+        [HttpGet]
+        public ActionResult NotaDebitoEmail()
+        {
+            ViewData["CountryList"] =
+                    HttpContext.Application.Get<List<CountryDetail>>("CountryList", Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
+    (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
+
+            ViewData["HeadOfficeList"] = HttpContext.Session.Get<List<SelectListItem>>("Empty", Helper.CreateEmptyLoadFunction());
+
+            ViewData["RetailerList"] = HttpContext.Session.Get<List<SelectListItem>>("Empty", Helper.CreateEmptyLoadFunction());
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NotaDebitoEmail(NotaDebitoEmail_Model model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                ViewData["NotaDebitoList"] =
+                    PTFDataAccess.SelectForNotaDebitosPerHeadOffice(model.Country, model.FromDate, model.ToDate, model.HeadOffice);
+            }
+
+            ViewData["CountryList"] =
+                    HttpContext.Application.Get<List<CountryDetail>>("CountryList", Helper.CreateCountryDropDownLoadFunction()).CreateSelectList(
+                    (c) => string.Format("{0} - {1}", c.Country, c.Iso2), (c) => c.Number.ToString());
+
+            ViewData["HeadOfficeList"] =
+                    HttpContext.Session.Get<List<SelectListItem>>("Empty", Helper.CreateEmptyLoadFunction());
+
+            ViewData["RetailerList"] =
+                    HttpContext.Session.Get<List<SelectListItem>>("Empty", Helper.CreateEmptyLoadFunction());
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult NotaDebitoEmail2(NotaDebitoEmail_Model model)
+        {
+            var emails = new List<string>(this.Request["Email2"].Split(',')).ConvertAll(s => Convert.ToBoolean(s));
+            var in_isos = new List<string>(this.Request["in_iso"].Split(',')).ConvertAll(s => Convert.ToInt32(s));
+            var in_ho_ids = new List<string>(this.Request["in_ho_id"].Split(',')).ConvertAll(s => Convert.ToInt32(s));
+            var in_numbers = new List<string>(this.Request["in_number"].Split(',')).ConvertAll(s => Convert.ToInt32(s));
+            var in_dates = new List<string>(this.Request["in_date"].Split(',')).ConvertAll(s => DateTime.Parse(s));
+
+            var list = new List<EmailInfo>();
+
+            for (int i = 0; i < in_isos.Count; i++)
+            {
+                int in_iso = in_isos[i];
+                int ho_id = in_ho_ids[i];
+                int in_number = in_numbers[i];
+                DateTime in_date = in_dates[i];
+                bool email = emails[i];
+                if (email)
+                    list.Add(new EmailInfo() { IsoId = in_iso, HoId = ho_id, InNumber = in_number, InDate = in_date, Subject = model.Subject, Body = model.Body, CC = model.CC });
+            }
+
+            if (list.Count > 0)
+            {
+                var cc = model.CC;
+                ServiceAccess.Instance.EmailNotaDebito(list);
+            }
+
+            return RedirectToAction("NotaDebitoEmail");
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace BtRetryService.Razor.RazorTemplating
             host.NamespaceImports.Add("System.Text.RegularExpressions");
             host.NamespaceImports.Add("System.Xml.Serialization");
             host.NamespaceImports.Add("System.Web");
+            host.NamespaceImports.Add("System.Data.Entity");
 
             using (TextReader reader = new StringReader(entry.TemplateString))
                 return new RazorTemplateEngine(host).GenerateCode(reader);
@@ -37,9 +38,10 @@ namespace BtRetryService.Razor.RazorTemplating
             var @params = new CompilerParameters();
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                if (assembly.ManifestModule.Name != "<In Memory Module>")
+                if (!assembly.IsDynamic)// assembly.ManifestModule.Name != "<In Memory Module>")
                     @params.ReferencedAssemblies.Add(assembly.Location);
             }
+ 
             @params.GenerateInMemory = true;
             @params.IncludeDebugInformation = false;
             @params.GenerateExecutable = false;
@@ -65,7 +67,7 @@ namespace BtRetryService.Razor.RazorTemplating
             var result = codeProvider.CompileAssemblyFromSource(BuildCompilerParameters(), new[] { str });
             if (result.Errors != null && result.Errors.Count > 0)
             {
-                Debug.WriteLine(result.Errors.toString());
+                Trace.WriteLine(result.Errors.toString(), "EML");
                 throw new TemplateCompileException(result.Errors, str);
             }
 

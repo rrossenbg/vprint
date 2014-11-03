@@ -1,0 +1,1 @@
+FreeImage.Save(FREE_IMAGE_FORMAT.FIF_JP2, dib, newName, (FREE_IMAGE_SAVE_FLAGS)Properties.Settings.Default.JPEG2000CompressionRateXto1);

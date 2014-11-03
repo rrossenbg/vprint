@@ -672,4 +672,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="EmailNotaDebito">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" minOccurs="0" name="emails" nillable="true" type="q22:ArrayOfEmailInfo" />
+        <xs:element minOccurs="0" name="s1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="s2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmailNotaDebitoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -1,0 +1,9 @@
+Mat image8, image16;
+image8 = imread("c:\tmp\test.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+image8.convertTo(image16, CV_16UC1, 255);
+
+bool result = imwrite("c:\tmp\test.jp2", image16);
+
+Mat imageNew8, newImage16;
+newImage16 = imread("c:\tmp\test.jp2", CV_LOAD_IMAGE_ANYDEPTH|CV_LOAD_IMAGE_ANYCOLOR);
+newImage16.convertTo(imageNew8, CV_8UC1, 1.0/255);

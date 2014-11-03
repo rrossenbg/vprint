@@ -3,16 +3,19 @@
 /***************************************************/
 
 using System;
-using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace BtRetryService
 {
     public class TransferDBDataAccess
     {
         public static volatile string ConnectionString;
+
+        public static Hashtable RetailersTable { get; set; }
 
         public TransferDBDataAccess()
         { 
@@ -322,6 +325,11 @@ order by vt_v_country_iso_id, vt_v_number, vt_v_type_id";
             }
 
             return result;
+        }
+
+        public string GetRetailerName(int retailerId)
+        {
+            return Convert.ToString(RetailersTable[retailerId]);
         }
 
         public string GetTagByName(long vt_id, string name)

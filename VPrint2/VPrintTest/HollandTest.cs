@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VPrinting.Documents;
+using System.Threading.Tasks;
 
 namespace VPrintTest
 {

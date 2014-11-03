@@ -3,6 +3,7 @@
 /***************************************************/
 
 using System;
+using System.Collections;
 using System.IO;
 using System.Net;
 using System.ServiceModel;
@@ -16,14 +17,17 @@ namespace ReceivingServiceLib
     {
         public const int MAX_BUFF_SIZE_50MB = 50 * 1024 * 1024; //33262605;
 
-        public static NetworkCredential ReportingServerCredentials { get; set; }
+        public static NetworkCredential ReportServerCredentials { get; set; }
+
+        public static event EventHandler<ValueEventArgs<EmailInfo>> EmailNotaDebitoEvent;
+
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="serverUrl">"http://myReportServer?MyReport&rs%3aCommand=Render&rs:Format=pdf"</param>
+        /// <param name="serverUrl"></param>
         /// <returns></returns>
         /// <example>
-        /// "http://SqlServer/ReportServer?/MyReportFolder/Report1&rs:Command=Render&rs:format=PDF&ReportParam=" + ParamValue;
+        /// http://192.168.53.144/Reportserver/Pages/ReportViewer.aspx?%2fNota+Debito%2fNota+Debito+0032&rs:Command=Render&rs:format=PDF&iso_id=724&Office=167150&in_date=02/12/2013&invoicenumber=42538
         /// </example>
         public byte[] DownloadReport(string serverUrl, string s1, string s2)
         {
@@ -32,32 +36,11 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("DownloadReport");
 
-#if USE_TEMP_FILE
-                var serverUri = new Uri(serverUrl);
-                var wcli = new WebClient();
-                if (Credentials != null)
-                    wcli.Credentials = Credentials;
-                wcli.Headers.Add(HttpRequestHeader.UserAgent, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
-                wcli.DownloadFile(serverUri, file.FullName);
-                return file.ReadAllBytes();
-#else //MEMORY
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(serverUrl);
-                if (ReportingServerCredentials != null)
-                {
-                    request.PreAuthenticate = true;
-                    request.Credentials = ReportingServerCredentials;
-                }
+                if (ReportServerCredentials == null)
+                    throw new Exception("ReportServerCredentials may not be null");
 
-                using (var response = (HttpWebResponse)request.GetResponse())
-                {
-                    Stream stream = response.GetResponseStream();
-                    response.Close();
-
-                    //Now turn around and send this as the response..
-                    byte[] file = stream.ReadAllBytes();
-                    return file;
-                }
-#endif
+                WebDataAccess access = new WebDataAccess();
+                return access.DownloadReport(serverUrl, ReportServerCredentials);
             }
             catch (Exception ex)
             {
@@ -131,7 +114,7 @@ namespace ReceivingServiceLib
                     }
                     catch (Exception ex)
                     {
-                        str += ex.Message; 
+                        str += ex.Message;
                     }
                     finally
                     {
@@ -152,6 +135,23 @@ namespace ReceivingServiceLib
             finally
             {
                 session.DeleteSafe();
+            }
+        }
+
+        public void EmailNotaDebito(EmailInfo[] emails, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("EmailNotaDebito");
+
+                foreach (EmailInfo info in emails)
+                    if (EmailNotaDebitoEvent != null)
+                        EmailNotaDebitoEvent(this, new ValueEventArgs<EmailInfo>(info));
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
             }
         }
     }

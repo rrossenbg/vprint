@@ -9,6 +9,7 @@ namespace BtRetryService
         public const string id = "id";
         public const string Log = "Log";
         public const string TransferDb = "TransferDb";
+        public const string PTFDb = "PTFDb";
         public const string TransferDbEntities = "TransferDbEntities";
         public const string RetryTimeout = "RetryTimeout";
         public const string log_id = "log_id";

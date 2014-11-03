@@ -212,6 +212,9 @@ namespace VPrinting.Controls
                     case StateManager.eState.OK:
                         return Resources.OK;
 
+                    case StateManager.eState.WAIT:
+                        return Resources.Wait;
+
                     case StateManager.eState.VOUCHER:
                         return Resources.document;
 
@@ -235,6 +238,9 @@ namespace VPrinting.Controls
 
                     case StateManager.eState.OK:
                         return m_Item.Thumbnail;
+
+                    case StateManager.eState.WAIT:
+                        return Resources.Wait;
 
                     case StateManager.eState.Sent:
                         return Resources.Sent;
