@@ -54,6 +54,7 @@
     <Compile Include="CachedMemoryBuffer.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\WebDataAccess.cs" />
     <Compile Include="DataBox.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -106,6 +107,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
     <Compile Include="ScanService.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -137,9 +143,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ISOs.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="KnowHow.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

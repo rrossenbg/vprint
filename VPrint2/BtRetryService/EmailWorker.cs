@@ -3,6 +3,7 @@
 /***************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using BtRetryService.Razor.RazorTemplating;
 using PremierTaxFree.PTFLib.Threading;
+using VPrinting;
 using thread = System.Threading.Thread;
 
 namespace BtRetryService
@@ -82,6 +84,8 @@ namespace BtRetryService
 
                 var generator = new RazorTemplateGenerator();
 
+                
+
                 //em.el_body_template -> "
                 //<table>
                 //      <tr><th>iso</th><th>date</th><th>description</th><th>created by</th></tr>
@@ -109,6 +113,8 @@ namespace BtRetryService
                     int iso = em.el_iso_id;
                     int em_id = em.el_id;
 
+                    TransferDBDataAccess.RetailersTable = Hashtable.Synchronized(PTFDbDataAccess.GetAllRetailers(iso));
+
                     Data data = new Data();
                     data.Db = transferDb;
 
@@ -129,7 +135,8 @@ namespace BtRetryService
                         //em.el_list - > rrossenbg@yahoo.com,rrossenbg@gmail.com,rosen.rusev@uk.premiertaxfree.com
                         //em.el_subject -> Error in voucher import
                         var emd = new EmailData { AddrList = (EmailMe ? Strings.ROSENRUSEV : em.el_list), Subject = em.el_subject };
-                        emd.Body = generator.GenerateOutput(data, "__" + em.el_id);
+                        string str = generator.GenerateOutput(data, "__" + em.el_id);
+                        emd.Body = str.Replace("SHOW_BEGIN", "<a href='http://192.168.53.117/VoucherTransferXmls/XmlDataHandler.ashx?id=").Replace("SHOW_END", "'>Show</a>");
 
                         Trace.WriteLine("emailing:".concat(em.el_list), "EML");
 
@@ -137,7 +144,7 @@ namespace BtRetryService
                         {
                             var ed = (EmailData)o;
                             Program.LogSafe("Email : ".concat(ed.AddrList.FirstOf(35), "..."), EventLogEntryType.Information);
-                            EmailSender.SendSafe(ed.AddrList, ed.Subject, ed.Body, true);
+                            EmailSender.SendSafe(ed.AddrList, "", ed.Subject, ed.Body, true);
                             return true;
                         }, emd);
                         emailTasks.Add(task);
@@ -197,7 +204,7 @@ namespace BtRetryService
 
         public TransferDbEntities Db { get; set; }
 
-        public bool IsEmpty { get { return Results.Count == 0; } }
+        public bool IsEmpty { get { return Results.Count == 0; } }        
 
         public Data()
         {

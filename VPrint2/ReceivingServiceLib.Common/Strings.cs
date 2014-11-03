@@ -15,6 +15,9 @@ namespace ReceivingServiceLib
     public class Strings
     {
         private const string FILEPATH = "C:\\strings.xml";
+        /// <summary>
+        /// RSV
+        /// </summary>
         public const string APPNAME = "RSV";
         public const string APPNAMEWEB = "RSVWEB";
         public const string SingleSaleCountries = "SingleSaleCountries";

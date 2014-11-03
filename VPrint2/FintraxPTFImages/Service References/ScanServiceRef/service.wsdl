@@ -360,6 +360,15 @@
   <wsdl:message name="IScanService_DownloadVouchers_MyApplicationFaultFault_FaultMessage">
     <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q38:MyApplicationFault" />
   </wsdl:message>
+  <wsdl:message name="IScanService_EmailNotaDebito_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailNotaDebito" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_EmailNotaDebito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailNotaDebitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_EmailNotaDebito_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q39:MyApplicationFault" />
+  </wsdl:message>
   <wsdl:portType name="IScanService">
     <wsdl:operation name="Delete">
       <wsdl:input wsaw:Action="http://tempuri.org/IScanService/Delete" message="tns:IScanService_Delete_InputMessage" />
@@ -550,6 +559,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IScanService/DownloadVouchers" message="tns:IScanService_DownloadVouchers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IScanService/DownloadVouchersResponse" message="tns:IScanService_DownloadVouchers_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/DownloadVouchersMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_DownloadVouchers_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailNotaDebito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/EmailNotaDebito" message="tns:IScanService_EmailNotaDebito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/EmailNotaDebitoResponse" message="tns:IScanService_EmailNotaDebito_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/EmailNotaDebitoMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_EmailNotaDebito_MyApplicationFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IScanService" type="tns:IScanService">
@@ -1002,6 +1016,18 @@
     </wsdl:operation>
     <wsdl:operation name="DownloadVouchers">
       <soap12:operation soapAction="http://tempuri.org/IScanService/DownloadVouchers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EmailNotaDebito">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/EmailNotaDebito" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -201,7 +201,7 @@ namespace VPrinting
         {
             if (item != null)
             {
-                if (item.State != StateManager.eState.OK)
+                if (!item.State.In(StateManager.eState.OK, StateManager.eState.WAIT))
                     return;
 
                 if (item.FileInfoList.Count == 0)

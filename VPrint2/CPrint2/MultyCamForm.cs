@@ -61,29 +61,52 @@ namespace CPrint2
             this.Location = StateSaver.Default.Get<Point>("CPrint2.MainForm.Location", this.Location);
             this.Size = StateSaver.Default.Get<Size>("CPrint2.MainForm.Size", this.Size);
 
+            int highS = 0;
+            int minWidth = 0;
+            int minHeigth = 0;
+
+            VCamLib.ReadSettings(ref highS, ref minWidth, ref minHeigth);
+
+            highS = StateSaver.Default.Get<int>("highS", highS);
+            minWidth = StateSaver.Default.Get<int>("minWidth", minWidth);
+            minHeigth = StateSaver.Default.Get<int>("minHeigth", minHeigth);
+            CameraControl.Mode = StateSaver.Default.Get<CameraControl.ShowMode>("CameraControl.Mode", CameraControl.ShowMode.Normal);
+
+            VCamLib.SaveSettings(highS, minWidth, minHeigth);
             base.OnLoad(e);
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
+            int highS = 0;
+            int minWidth = 0;
+            int minHeigth = 0;
+
+            VCamLib.ReadSettings(ref highS, ref minWidth, ref minHeigth);
+
             StateSaver.Default.Set("CPrint2.MainForm.Location", this.Location);
             StateSaver.Default.Set("CPrint2.MainForm.Size", this.Size);
+
+            StateSaver.Default.Set("highS", highS);
+            StateSaver.Default.Set("minWidth", minWidth);
+            StateSaver.Default.Set("minHeigth", minHeigth);
+            StateSaver.Default.Set("CameraControl.Mode", CameraControl.Mode);
 
             e.Cancel = true;
             this.Hide();
             base.OnClosing(e);
         }
 
+        public static void Stop()
+        {
+            foreach (var cnt in Default.CameraControls)
+                cnt.Stop();
+        }
+
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
             this.SetTopmost();
-        }
-
-        private void InitMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (var cnt in this.CameraControls)
-                cnt.Init();
         }
 
         private void RunMenuItem_Click(object sender, EventArgs e)
@@ -93,14 +116,9 @@ namespace CPrint2
                 cnt.Run();
         }
 
-        public void ProcessCommand(bool init, DataObj data = null)
+        public void ProcessCommand(DataObj data = null)
         {
-            if (init)
-            {
-                foreach (var cnt in this.CameraControls)
-                    cnt.Init();
-            }
-            else if (data != null)
+            if (data != null)
             {
                 m_Queue.Enqueue(data);
                 foreach (var cnt in this.CameraControls)
@@ -114,7 +132,7 @@ namespace CPrint2
 
         private void TestMenuItem_Click(object sender, EventArgs e)
         {
-            ProcessCommand(false, DataObj.Test());
+            ProcessCommand(DataObj.Test());
         }
 
         private void ExitMenuItem_Click(object sender, EventArgs e)
@@ -172,6 +190,12 @@ namespace CPrint2
                     }
                 });
             }
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm form = new SettingsForm();
+            form.Show();
         }
     }
 }

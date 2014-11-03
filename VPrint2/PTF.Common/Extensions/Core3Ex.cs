@@ -394,6 +394,17 @@ namespace VPrinting
             return DateTime.Now.Second % 2 == 0;
         }
 
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static DateTime At(this DateTime date, TimeSpan time)
+        {
+            var todayAt = DateTime.Now.Date.Add(time);
+            if (todayAt > DateTime.Now)
+                return todayAt;
+            var tomorrowAt = DateTime.Now.Date.AddDays(1).Add(time);
+            return tomorrowAt;
+        }
+
         //[TargetedPatchingOptOut("na")]
         //public static void RunSafe(this Action handle)
         //{

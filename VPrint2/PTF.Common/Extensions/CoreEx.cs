@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Reflection;
 using System.Runtime;
 using System.Text;
@@ -146,6 +147,16 @@ namespace VPrinting
             return value;
         }
 
+        [TargetedPatchingOptOut("na")]
+        public static Dictionary<K, V> ToDict<K, V>(this object[] value1, int step, Func<object[], int, K> keyfunct, Func<object[], int, V> valuefunct)
+        {
+            var dict = new Dictionary<K, V>();
+
+            for (int i = 0; i < value1.Length; i += step)
+                dict.Add(keyfunct(value1, i), valuefunct(value1, i));
+            return dict;
+        }
+
         #region ENUMS
 
         /// [Flags]
@@ -206,5 +217,43 @@ namespace VPrinting
         }
 
         #endregion
+
+        [TargetedPatchingOptOut("na")]
+        public static int ToInt(this DateTime date)
+        {
+            TimeSpan t = (date - new DateTime(1, 1, 1));
+            int days = (int)t.TotalDays + 1;
+            return days;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static DateTime ToDate(this int date)
+        {
+            return new DateTime(1, 1, 1).AddDays(date);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="U"></typeparam>
+        /// <param name="value"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception">If name != null && value == null</exception>
+        [TargetedPatchingOptOut("na")]
+        public static U ConvertTo<T, U>(this T value, string name = null) where T : IConvertible
+        {
+            if (name != null && value == null)
+                throw new Exception(name + " can not be null");
+            try
+            {
+                return (U)Convert.ChangeType(value, typeof(U), CultureInfo.InvariantCulture);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(string.Join(" ", name, "can not be converted to", typeof(U)), ex);
+            }
+        }
     }
 }

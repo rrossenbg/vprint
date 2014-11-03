@@ -17,7 +17,6 @@ using VPrint.Common;
 using VPrinting.Common;
 using VPrinting.Controls;
 using VPrinting.Data;
-using VPrinting.Extentions;
 using VPrinting.ScanServiceRef;
 
 namespace VPrinting
@@ -51,6 +50,8 @@ namespace VPrinting
 
         private readonly StateManagerItemOrganizer m_DownloadFileOrganizer;
 
+        private readonly ScheduledWorker<StateManager.Item> m_ScheduledWorker = new ScheduledWorker<StateManager.Item>();
+
         #endregion
 
         private void InitializeComponentScanning()
@@ -79,6 +80,7 @@ namespace VPrinting
             toggleButtonControl1.RefreshControl();
 
             var list = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
+            m_ScheduledWorker.RunItem += new EventHandler<ValueEventArgs<StateManager.Item>>(ScheduledWorker_RunItem);
         }
 
         #region StateManager & ImageIconControl HANDLERS        
@@ -175,13 +177,33 @@ namespace VPrinting
 
         private void StateManager_ItemCompleted(object sender, CurrentItemEventArgs e)
         {
-            var mode = m_StateManager.Mode;
-            SendToServerAsync(e.CurrentItem);
+            if (StateSaver.Default.Get(Strings.RUN_SCHEDULETIME, false))
+            {
+                var runAt = StateSaver.Default.Get<TimeSpan>(Strings.SCHEDULETIME, TimeSpan.Zero);
+                m_ScheduledWorker.Add(e.CurrentItem, runAt, (i) => { i.Message = string.Concat("Scheduled upload for ", runAt); i.State = StateManager.eState.WAIT; });
+            }
+            else
+            {
+                SendToServerAsync(e.CurrentItem);
+            }
         }
 
         private void StateManager_ItemSelected(object sender, CurrentItemEventArgs e)
         {
-            SendToServerAsync(e.PrevItem);
+            if (StateSaver.Default.Get(Strings.RUN_SCHEDULETIME, false))
+            {
+                var runAt = StateSaver.Default.Get<TimeSpan>(Strings.SCHEDULETIME, TimeSpan.Zero);
+                m_ScheduledWorker.Add(e.PrevItem, runAt, (i) => { i.Message = string.Concat("Scheduled upload for ", runAt); i.State = StateManager.eState.WAIT; });
+            }
+            else
+            {
+                SendToServerAsync(e.PrevItem);
+            }
+        }
+
+        private void ScheduledWorker_RunItem(object sender, ValueEventArgs<StateManager.Item> e)
+        {
+            SendToServerAsync(e.Value);
         }
 
         private void StateManager_LastItemProcessing(object sender, CurrentItemEventArgs e)

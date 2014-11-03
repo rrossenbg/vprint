@@ -41,6 +41,7 @@
       <HintPath>..\Libraries\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceModel" />
@@ -91,6 +92,7 @@
     <Compile Include="StateSaver.cs" />
     <Compile Include="Tools\CommTools.cs" />
     <Compile Include="CString.cs" />
+    <Compile Include="Tools\EmailSender.cs" />
     <Compile Include="Tools\ZipFileAccess.cs" />
     <Compile Include="Tools\FontWrapper.cs" />
   </ItemGroup>

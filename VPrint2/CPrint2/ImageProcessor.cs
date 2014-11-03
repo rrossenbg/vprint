@@ -34,7 +34,7 @@ namespace CPrint2
         public void ProcessCommand()
         {
             var obj = new DataObj(826, 12345, 1234567, 1);
-            MultyCamForm.Default.ProcessCommand(false, obj);
+            MultyCamForm.Default.ProcessCommand(obj);
         }
 
         public void ProcessCommandFile(string fileName)
@@ -59,7 +59,7 @@ namespace CPrint2
                     if (obj == null || !obj.IsValid)
                         return;
 
-                    MultyCamForm.Default.ProcessCommand(false, obj);
+                    MultyCamForm.Default.ProcessCommand(obj);
                 }
                 catch (Exception ex)
                 {
@@ -71,35 +71,49 @@ namespace CPrint2
                 }
 
             }, fileName, TaskCreationOptions.LongRunning);
-        }     
+        }
 
         public static void EmptyCommandFolderSafe()
         {
-            foreach (var file in Directory.GetFiles(Config.CommandInputPath))
+            try
             {
-                try
+                foreach (var file in Directory.GetFiles(Config.CommandInputPath))
                 {
-                    File.Delete(file);
+                    try
+                    {
+                        File.Delete(file);
+                    }
+                    catch
+                    {
+                        // no errors
+                    }
                 }
-                catch
-                {
-                    // no errors
-                }
+            }
+            catch
+            {
+                // no errors
             }
         }
 
         public static void EmptyImageFolderSafe()
         {
-            foreach (var file in Directory.GetFiles(Config.ImageOutputPath))
+            try
             {
-                try
+                foreach (var file in Directory.GetFiles(Config.ImageOutputPath))
                 {
-                    File.Delete(file);
+                    try
+                    {
+                        File.Delete(file);
+                    }
+                    catch
+                    {
+                        // no errors
+                    }
                 }
-                catch
-                {
-                    // no errors
-                }
+            }
+            catch
+            {
+                // no errors
             }
         }
 

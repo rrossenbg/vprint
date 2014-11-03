@@ -1,0 +1,20 @@
+C:\PROJECTS\VPrint\DEMATLib\bin\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint\DEMATLib\bin\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint\DEMATLib\bin\Debug\DeNSo.Core.dll
+C:\PROJECTS\VPrint\DEMATLib\bin\Debug\DeNSo.Meta.dll
+C:\PROJECTS\VPrint\DEMATLib\obj\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint\DEMATLib\obj\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint2\DEMATLib\bin\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint2\DEMATLib\bin\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint2\DEMATLib\obj\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint2\DEMATLib\obj\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint2\DEMATLib\obj\Debug\DEMATLib.csprojResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\Services\DEMATLib\bin\Debug\DEMATLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\Services\DEMATLib\bin\Debug\DEMATLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\Services\DEMATLib\obj\Debug\DEMATLib.csprojResolveAssemblyReference.cache
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\Services\DEMATLib\obj\Debug\DEMATLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\Services\DEMATLib\obj\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint2\SERVICES\DEMATLib\bin\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint2\SERVICES\DEMATLib\bin\Debug\DEMATLib.pdb
+C:\PROJECTS\VPrint2\SERVICES\DEMATLib\obj\Debug\DEMATLib.dll
+C:\PROJECTS\VPrint2\SERVICES\DEMATLib\obj\Debug\DEMATLib.pdb

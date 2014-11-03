@@ -18,7 +18,7 @@ namespace CPrint2
         public static AppContext Default { get; set; }
 
         private readonly MultyCamForm m_form = new MultyCamForm();
-        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_runMenuItem, m_startMenuItem, m_initMenuItem, m_lockMenuItem, m_exitMenuItem;
+        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_runMenuItem, m_startMenuItem, m_lockMenuItem, m_exitMenuItem;
         private readonly NotifyIcon m_notifyIcon = new NotifyIcon();
         private readonly FileSystemWatcher m_commandWatcher = new FileSystemWatcher();
 
@@ -28,7 +28,6 @@ namespace CPrint2
         public AppContext()
         {
             m_showMenuItem = new MenuItem("Login", new EventHandler(ShowHideMainForm_Click));
-            m_initMenuItem = new MenuItem("Init", new EventHandler(InitMenuItem_Click));
             m_runMenuItem = new MenuItem("Run", new EventHandler(RunOnceMenuItem_Click));
             m_startMenuItem = new MenuItem("Start", new EventHandler(StartStopMenuItem_Click));
             m_lockMenuItem = new MenuItem("Lock", new EventHandler(LockUnlockMenuItem_Click));
@@ -36,7 +35,7 @@ namespace CPrint2
             m_exitMenuItem = new MenuItem("Exit", new EventHandler(Exit_Click));
             
             m_notifyIcon.Icon = Resources.camera_unmount2;
-            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { m_showMenuItem, m_initMenuItem, 
+            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { m_showMenuItem, 
                 
 #if DEBUG
                 m_runMenuItem ,
@@ -56,6 +55,7 @@ namespace CPrint2
 
         private void Application_ApplicationExit(object sender, EventArgs e)
         {
+            MultyCamForm.Stop();
         }
 
         public bool IsStarted
@@ -116,11 +116,6 @@ namespace CPrint2
             }
         }
 
-        private void InitMenuItem_Click(object sender, EventArgs e)
-        {
-            m_form.ProcessCommand(true);
-        }
-
         private void LockUnlockMenuItem_Click(object sender, EventArgs e)
         {
             if (IsLocked)
@@ -171,7 +166,6 @@ namespace CPrint2
         {
             m_showMenuItem.Text = (Program.currentUser == null) ? "Login" : "Show";
             m_startMenuItem.Enabled = (Program.currentUser != null);
-            m_initMenuItem.Enabled = (Program.currentUser != null);
             m_lockMenuItem.Enabled = (Program.currentUser != null);
         }
 

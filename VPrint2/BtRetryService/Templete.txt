@@ -55,7 +55,7 @@
         </th>
     </tr>
     @{
-        DataAccess da = new DataAccess();
+        var da = new TransferDBDataAccess();
         int count = 0;
         foreach (var i in Model.Results)
         {
@@ -72,14 +72,13 @@
             <td class="cen">@i.vt_created_by
             </td>
             <td class="cen">
-                @i.vt_br_id
+                @da.GetRetailerName(i.vt_br_id.GetValueOrDefault())
             </td>
             <td class="cen">
                 @da.GetTagByName(i.vt_id, "TerminalID")
             </td>
             <td class="cen">
-                <a href="http://192.168.53.117/VoucherTransferXmls/XmlDataHandler.ashx?id=@i.vt_id">
-                    Show</a>
+				SHOW_BEGIN @i.vt_id SHOW_END
             </td>
         </tr>}
     }

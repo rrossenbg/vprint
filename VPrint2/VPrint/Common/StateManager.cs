@@ -28,7 +28,9 @@ namespace VPrinting.Common
             //Voucher in database
             VOUCHER = 5,
             //Coversheet in database
-            COVER = 6
+            COVER = 6,
+            //Waiting
+            WAIT = 7,
         }
 
         /// <summary>
@@ -58,17 +60,23 @@ namespace VPrinting.Common
 
             #region CLIENT
 
-            public eState State { get; set; }
+            private eState m_state;
+            public eState State { get { return m_state; } set { m_state = value; FireUpdated(); } }
+
             public Guid SessionID { get; protected set; }
             public UniqueList<FileInfo> FileInfoList { get; set; }
+
             public Image Thumbnail { get; set; }
             public bool? IsSignatureValid { get; set; }
             public byte[] Signature { get; set; }
 
-            public string Message { get; set; }
+            private string m_message;
+            public string Message { get { return m_message; } set { m_message = value; FireUpdated(); } }
+
             public string FullFileName { get; set; }
 
-            public bool Selected { get; set; }
+            private bool m_selected;
+            public bool Selected { get { return m_selected; } set { m_selected = value; FireUpdated(); } }
 
             private bool m_Forsed = false;
             public bool Forsed

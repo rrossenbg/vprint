@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+ <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+ <xs:simpleType name="stringtype">
+   <xs:restriction base="xs:string"/>
+ </xs:simpleType>
+
+ <xs:simpleType name="inttype">
+   <xs:restriction base="xs:positiveInteger"/>
+ </xs:simpleType>
+
+ <xs:simpleType name="dectype">
+   <xs:restriction base="xs:decimal"/>
+ </xs:simpleType>
+
+ <xs:simpleType name="datetype">
+   <xs:restriction base="xs:date"/>
+ </xs:simpleType>
+
+ <xs:simpleType name="filetype">
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="FACTURE"/>
+     <xs:enumeration value="AVOIR"/>
+     <xs:enumeration value="ERREUR"/>
+   </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="bdv_numtype">
+   <xs:restriction base="xs:string">
+     <xs:pattern value="[0-9]{8}"/>
+   </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="ret_codetype" >
+   <xs:restriction base="xs:string">
+     <xs:pattern value="[0-9]{6}"/>
+   </xs:restriction>
+ </xs:simpleType>
+
+<xs:complexType name="emptytype">
+   <xs:attribute name="emptyid" type="inttype"/>
+</xs:complexType>
+
+<xs:complexType name="emptydate">
+   <xs:attribute name="emptyid2" type="datetype"/>
+</xs:complexType>
+
+
+ <xs:element name="BDV_Invoice" >
+ 	<xs:complexType>
+   		<xs:sequence>
+    		<xs:element name="FileHeader" minOccurs="1" maxOccurs="1">
+     			<xs:complexType>
+      				<xs:sequence>
+       					<xs:element name="FileCreationDate" type="datetype" minOccurs="0"/>
+       					<xs:element name="FileFormatVersion" type="stringtype" minOccurs="0"/>
+       					<xs:element name="FileType" type="filetype" />
+     				</xs:sequence>
+   				 </xs:complexType>
+   			</xs:element>
+    		<xs:element name="Error" minOccurs="0">
+     			<xs:complexType>
+      				<xs:sequence>
+       					<xs:element name="Description" type="stringtype"/>
+     				</xs:sequence>
+   				 </xs:complexType>
+   			</xs:element>
+   			<xs:element name="Retailer" >
+   				<xs:complexType >
+    					<xs:sequence>
+     					<xs:element name="Retailer_Code" type="ret_codetype"/>
+     					<xs:element name="Retailer_Name1" type="stringtype"/>
+     					<xs:element name="Retailer_Name2" type="stringtype" minOccurs="0"/>
+     					<xs:element name="Retailer_Address1" type="stringtype"/>
+     					<xs:element name="Retailer_Address2" type="stringtype" minOccurs="0"/>
+     					<xs:element name="Retailer_Address3" type="stringtype" minOccurs="0"/>
+     					<xs:element name="Retailer_City" type="stringtype"/>
+     					<xs:element name="Retailer_PostalCode" type="stringtype"/>
+     					<xs:element name="Retailer_VATNumber" type="stringtype"/>
+   					</xs:sequence>
+ 				</xs:complexType>
+   			</xs:element>
+   			<xs:element name="Buyer">
+   				<xs:complexType>
+   					<xs:sequence>
+     					<xs:element name="Buyer_Name1" type="stringtype"/>
+     					<xs:element name="Buyer_Name2" type="stringtype" minOccurs="0"/>
+     					<xs:element name="Buyer_Address1" type="stringtype"/>
+     					<xs:element name="Buyer_Address2" type="stringtype" minOccurs="0"/>
+     					<xs:element name="Buyer_Address3" type="stringtype" minOccurs="0"/>
+     					<xs:element name="Buyer_City" type="stringtype"/>
+     					<xs:element name="Buyer_PostalCode" type="stringtype"/>
+     					<xs:element name="Buyer_VATNumber" type="stringtype"/>
+   					</xs:sequence>
+ 				</xs:complexType>
+   			</xs:element>
+   			<xs:element name="VoucherDetails" >
+   				<xs:complexType>
+   					<xs:sequence>
+     					<xs:element name="VoucherNumber" type="bdv_numtype"/>
+     					<xs:element name="PurchaseDate" type="datetype"/>
+   					</xs:sequence>
+ 				</xs:complexType>
+   			</xs:element>
+   			<xs:element name="LineDetails" minOccurs="1" maxOccurs="1">
+   				<xs:complexType>
+   					<xs:sequence>
+   						<xs:element name="LineItem" maxOccurs="unbounded">
+   							<xs:complexType>
+   								<xs:sequence >
+     								<xs:element name="LineNumber" type="inttype"/>
+     								<xs:element name="Description" type="stringtype"/>
+     								<xs:element name="LineUnitPrice" type="dectype"/>
+     								<xs:element name="LineQuantity" type="inttype"/>
+     								<xs:element name="VATRate" type="dectype"/>
+     								<xs:element name="ExVAT_LineAmount" type="dectype"/>
+     								<xs:element name="VAT_LineAmount" type="dectype"/>
+     								<xs:element name="Total_LineAmount" type="dectype"/>
+   								</xs:sequence>
+   							</xs:complexType>
+   						</xs:element>
+   					</xs:sequence>
+   				</xs:complexType>
+   			</xs:element>
+   			<xs:element name="Total" minOccurs="1" maxOccurs="1">
+   				<xs:complexType>
+   					<xs:sequence>
+   						<xs:element name="TotalPerVAT" maxOccurs="unbounded">
+   							<xs:complexType>
+   								<xs:sequence >
+     								<xs:element name="VATRate" type="dectype"/>
+     								<xs:element name="ExVAT_Amount" type="dectype"/>
+     								<xs:element name="VAT_Amount" type="dectype"/>
+     								<xs:element name="Total_Amount" type="dectype"/>
+     							</xs:sequence>
+     						</xs:complexType>
+     					</xs:element>
+     					<xs:element name="InvoiceTotal" type="dectype"/>
+   					</xs:sequence>
+ 				</xs:complexType>
+     		</xs:element>
+     		<xs:element name="TouristDetails" >
+     			<xs:complexType>
+     				<xs:sequence>
+     					<xs:element name="TouristName" type="stringtype" minOccurs="0"/>
+     					<xs:element name="TouristCountry" type="stringtype" minOccurs="0"/>
+     					<xs:element name="TouristPassport" type="stringtype" minOccurs="0"/>
+     					<xs:element name="RefundDescription" type="stringtype" minOccurs="0"/>
+     					<xs:element name="RefundAmount" type="dectype" minOccurs="0"/>
+ 					</xs:sequence>
+ 				</xs:complexType>
+ 			</xs:element>
+   		</xs:sequence>
+   	</xs:complexType>
+ </xs:element>
+ </xs:schema>

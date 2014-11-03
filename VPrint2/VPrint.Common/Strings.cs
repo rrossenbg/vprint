@@ -160,6 +160,9 @@ Otherwise it has been inserted by using expected barcode details.";
         public const string ScanCopyTimeout = "ScanCopyTimeout";
 
         public const string CROPIMAGE = "CROPIMAGE";
+
+        public const string RUN_SCHEDULETIME = "RUN_SCHEDULETIME";
+        public const string SCHEDULETIME = "SCHEDULETIME";
     }
 
     public static class Messages

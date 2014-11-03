@@ -1,0 +1,18 @@
+C:\PROJECTS\VPrint\DEMATLib\bin\Release\DEMATLib.dll
+C:\PROJECTS\VPrint\DEMATLib\bin\Release\DEMATLib.pdb
+C:\PROJECTS\VPrint\DEMATLib\bin\Release\DeNSo.Core.dll
+C:\PROJECTS\VPrint\DEMATLib\bin\Release\DeNSo.Meta.dll
+C:\PROJECTS\VPrint\DEMATLib\obj\Release\DEMATLib.dll
+C:\PROJECTS\VPrint\DEMATLib\obj\Release\DEMATLib.pdb
+C:\PROJECTS\VPrint2\DEMATLib\bin\Release\DEMATLib.dll
+C:\PROJECTS\VPrint2\DEMATLib\bin\Release\DEMATLib.pdb
+C:\PROJECTS\VPrint2\DEMATLib\obj\Release\DEMATLib.dll
+C:\PROJECTS\VPrint2\DEMATLib\obj\Release\DEMATLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\Services\DEMATLib\bin\Release\DEMATLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\Services\DEMATLib\bin\Release\DEMATLib.pdb
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\Services\DEMATLib\obj\Release\DEMATLib.dll
+C:\TFSProjects\TRS - Tax Refund System\Development\FintraxPtf\Services\DEMATLib\obj\Release\DEMATLib.pdb
+C:\PROJECTS\VPrint2\SERVICES\DEMATLib\bin\Release\DEMATLib.dll
+C:\PROJECTS\VPrint2\SERVICES\DEMATLib\bin\Release\DEMATLib.pdb
+C:\PROJECTS\VPrint2\SERVICES\DEMATLib\obj\Release\DEMATLib.dll
+C:\PROJECTS\VPrint2\SERVICES\DEMATLib\obj\Release\DEMATLib.pdb

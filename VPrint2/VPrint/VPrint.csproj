@@ -250,6 +250,9 @@
       <Name>System.XML</Name>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="VPrint, Version=1.0.5415.25935, Culture=neutral, processorArchitecture=x86">
+      <ExecutableExtension>.exe</ExecutableExtension>
+    </Reference>
     <Reference Include="Zen.Barcode.Core">
       <HintPath>..\Libraries\Zen.Barcode.Core.dll</HintPath>
     </Reference>
@@ -268,6 +271,7 @@
     <Content Include="favicon.ico" />
     <Content Include="PTFLogo.ico" />
     <Content Include="Resources\enter.gif" />
+    <None Include="Resources\Wait.png" />
     <EmbeddedResource Include="AddVoucherItemForm.resx">
       <DependentUpon>AddVoucherItemForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +288,9 @@
     <EmbeddedResource Include="Controls\RoundButton\RecessEditorControl.resx">
       <DependentUpon>RecessEditorControl.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SchedulerForm.resx">
+      <DependentUpon>SchedulerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ToggleButtonControl.resx">
       <DependentUpon>ToggleButtonControl.cs</DependentUpon>
@@ -387,6 +394,11 @@
     <None Include="Service References\ScanServiceRef\service21.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.file2Info.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -416,11 +428,6 @@
     </None>
     <None Include="Service References\ScanServiceRef\VPrinting.ScanServiceRef.VoucherInfo3.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Properties\app.manifest" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Service References\VoucherEntryAndModification\configuration.svcinfo" />
     <None Include="Service References\VoucherEntryAndModification\configuration91.svcinfo" />
@@ -810,6 +817,7 @@
     <Compile Include="Common\ScanException.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Common\ScheduledWorker.cs" />
     <Compile Include="Common\Security.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -818,9 +826,6 @@
     </Compile>
     <Compile Include="Common\StateManager.cs" />
     <Compile Include="Common\TaskProcessOrganizer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Common\ValueEventArgs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controls\Accordion.cs">
@@ -873,6 +878,12 @@
     </Compile>
     <Compile Include="Controls\RoundButton\VerticalString.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\SchedulerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\SchedulerForm.Designer.cs">
+      <DependentUpon>SchedulerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ToggleButtonControl.cs">
       <SubType>UserControl</SubType>
