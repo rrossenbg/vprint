@@ -106,6 +106,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\PTF.Common\Threading\~CycleWorkerBase.cs">
+      <Link>Common\~CycleWorkerBase.cs</Link>
+    </Compile>
     <Compile Include="AppContext.cs" />
     <Compile Include="CameraCapture.cs" />
     <Compile Include="Colections\IgnoreList.cs" />
@@ -139,9 +142,6 @@
     <Compile Include="Common\EventArgs.cs" />
     <Compile Include="Common\Security.cs" />
     <Compile Include="Common\SendWorker.cs" />
-    <Compile Include="Common\~CycleWorkerBase.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Data\Config.cs" />
     <Compile Include="Data\CurrentUser.cs" />
     <Compile Include="Data\DataObj.cs" />

@@ -61,6 +61,14 @@ namespace VPrinting
 
         public readonly ManualResetEventSlim LoadCompleted = new ManualResetEventSlim(false);
 
+        public static event ThreadExceptionEventHandler Error;
+
+        public static void FireError(Exception ex)
+        {
+            if (Error != null)
+                Error(typeof(Global), new ThreadExceptionEventArgs(ex));
+        }
+
         public void Dispose()
         {
             using(LoadCompleted);

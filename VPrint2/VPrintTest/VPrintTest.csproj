@@ -98,7 +98,13 @@
     <Reference Include="itextsharp">
       <HintPath>..\Libraries\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="JJ2000">
+      <HintPath>..\Libraries\JJ2000.NET\JJ2000.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Portable.CSJ2K">
+      <HintPath>..\packages\CSJ2K.0.9.0.1\lib\net40-client\Portable.CSJ2K.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -118,6 +124,9 @@
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
+    <Reference Include="WriteableBitmapEx.Wpf">
+      <HintPath>..\packages\WriteableBitmapEx.1.0.13.0\lib\net40\WriteableBitmapEx.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Zen.Barcode.Core">
       <HintPath>..\Libraries\Zen.Barcode.Core.dll</HintPath>
     </Reference>
@@ -145,6 +154,7 @@
     <Compile Include="HungaryTest.cs" />
     <Compile Include="IrelandTest.cs" />
     <Compile Include="ItalyTest.cs" />
+    <Compile Include="J2000Test.cs" />
     <Compile Include="MaroccoTest.cs" />
     <Compile Include="OtherTest.cs" />
     <Compile Include="PortugalAndSpainTest.cs" />

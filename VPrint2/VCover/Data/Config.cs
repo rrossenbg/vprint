@@ -57,14 +57,6 @@ namespace VCover.Data
             private set;
         }
 
-        public static string IN_FOLDER
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["IN_FOLDER"];
-            }
-        }
-
         public static string OUT_FOLDER
         {
             get
@@ -73,19 +65,11 @@ namespace VCover.Data
             }
         }
 
-        public static string SUCCESS_FOLDER
+        public static string TEMPLATES_FOLDER
         {
             get
             {
-                return ConfigurationManager.AppSettings["SUCCESS_FOLDER"];
-            }
-        }
-
-        public static string FAILURE_FOLDER
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["FAILURE_FOLDER"];
+                return ConfigurationManager.AppSettings["TEMPLATES_FOLDER"];
             }
         }
 

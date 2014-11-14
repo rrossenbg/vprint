@@ -121,6 +121,10 @@ Otherwise it has been inserted by using expected barcode details.";
         public const string Certigicate_LOCATION = "Certigicate_LOCATION";
         public const string Certigicate_METADATA_FUNC = "Certigicate_METADATA_FUNC";
 
+        public const string VCOVER_TIMEOUT = "VCOVER_TIMEOUT";
+        public const string VCOVER_FUNC = "VCOVER_FUNC";
+        public const string USE_VCOVER = "USE_VCOVER";
+
         /// <summary>
         /// {
         /// [Subject]

@@ -68,6 +68,7 @@ namespace VPrinting
             VoucherPrinter.Error += new ThreadExceptionEventHandler(OnThreadException);
             PrinterQueue.Error += new ThreadExceptionEventHandler(OnThreadException);
             DelegateHelper.Error += new ThreadExceptionEventHandler(OnThreadException);
+            Global.Error += new ThreadExceptionEventHandler(OnThreadException);
 
             StateSaver.Default.Path = Path.ChangeExtension(Application.ExecutablePath, "dat");
             StateSaver.Default.Load();

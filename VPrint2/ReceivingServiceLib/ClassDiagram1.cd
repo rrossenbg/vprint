@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ReceivingServiceLib.CachedMemoryBuffer&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAAAACACAABAAAAABAAAAAAAAAAAAgAAAABAQAA=</HashCode>
+      <FileName>CachedMemoryBuffer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReceivingServiceLib.DataBox" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACIAAAAAIAAAABAAGAAAAAAAAAAAAAAEBAAAAAAEAAA=</HashCode>
+      <FileName>DataBox.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReceivingServiceLib.ErrorHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAIAAAAAQAAAAAAAAAAgAAhAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ErrorHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReceivingServiceLib.ErrorHandlingBehaviorAttribute" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAACEAAgAAAAAAAAAAAAAAAAAAAAAAAEgAAA=</HashCode>
+      <FileName>ErrorHandlingBehaviorAttribute.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReceivingServiceLib.EmailInfo">
+    <Position X="18.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAIABAAABAIgAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.VoucherInfo">
+    <Position X="3.5" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgAAAgAABAEIAAAQIAAAAAAAAAIAAIAAAAAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.VoucherInfo2">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAYAAAAAI=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.VoucherInfo3">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAIAAAAAAAAAAQDAAAAI=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.MyApplicationFault">
+    <Position X="13.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.InvalidOperationFault" Collapsed="true">
+    <Position X="17" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.HistoryByCountryInfo" Collapsed="true">
+    <Position X="15.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAEAQAABAAAwJAIAAAAAAAAEEAAAAAgA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.RetailerPrinterInfo">
+    <Position X="18.75" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAQAAAAAAAAAAAIAAQAAAAAACAQgAAAAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.FolderInfo">
+    <Position X="13" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.fileInfo">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgAAAAAAAAAAAAAQIAAAQAAAIAAAAQAAAAAI=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.file2Info">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAIAAAQIAAAQAAAIAAAAAAAAIAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.UpdateFileInfo">
+    <Position X="15" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.TransferFileInfo">
+    <Position X="16.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAABAIAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.ISOs" Collapsed="true">
+    <Position X="18.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/isgAAABQRUAAID1/h8PFADgFwQEAADgCgcG3wAAAII=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.MapExceptionToFaultAttribute" Collapsed="true">
+    <Position X="10" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAIAEAAAAAAAAEAAAAAAAgAAAAA=</HashCode>
+      <FileName>MapExceptionToFaultAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.Resource1" Collapsed="true">
+    <Position X="17" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.ScanService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0QTAEEGABGABAIQEBAwqAACQJUEChAAwEAMyABgGITI=</HashCode>
+      <FileName>ScanService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReceivingServiceLib.Data.CoverDataAccess" Collapsed="true">
+    <Position X="11.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAIBAAEAEgQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\CoverDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.Data.VoucherDataAccess" Collapsed="true">
+    <Position X="17" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAGIDABCCEBAARBAAEBAAAAgACBCSSQACCAAAGCjA=</HashCode>
+      <FileName>Data\VoucherDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.Data.WebDataAccess" Collapsed="true">
+    <Position X="15.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Data\WebDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.FileWorkers.FileWorkerBase" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>FileWorkers\~FileWorkerBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.FileWorkers.WorkerBase" Collapsed="true">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAIgQAABIAAAgAAAEAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>FileWorkers\~WorkerBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.FileWorkers.ContentModifyWorker" Collapsed="true">
+    <Position X="0.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAgAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileWorkers\ContentModifyWorker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.FileWorkers.CoverWorker" Collapsed="true">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAgAAAAAAAIAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>FileWorkers\CoverWorker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.FileWorkers.ExportFileWorker" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAgAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileWorkers\ExportFileWorker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReceivingServiceLib.FileWorkers.ImportFileWorker" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAAAAAAAAAAgAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileWorkers\ImportFileWorker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JointRefundService.Domain.SiteLocationCodeResponse" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAggQAAAIAAAAAAAAAAAAAAAQAAAEgAAAQAIACAA=</HashCode>
+      <FileName>PremierRefundVoucherService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PremierRefundVoucherServiceClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PremierRefundVoucherService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReceivingServiceLib.Services.RefundServiceDataAccess" Collapsed="true">
+    <Position X="15.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\RefundServiceDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ReceivingServiceLib.IExceptionToFaultConverter" Collapsed="true">
+    <Position X="18" Y="4.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IExceptionToFaultConverter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ReceivingServiceLib.IScanService">
+    <Position X="1.75" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>UQRAEECABCABAIQABAwiAAAQJQECBAAAEAMyAAAGITI=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IPremierRefundVoucherService" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PremierRefundVoucherService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IPremierRefundVoucherServiceChannel" Collapsed="true">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PremierRefundVoucherService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ReceivingServiceLib.ChangeContentType" Collapsed="true">
+    <Position X="19" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAEAAEIAYAAAAAAAAAAAAUAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ReceivingServiceLib.OperationHistory" Collapsed="true">
+    <Position X="19" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQBYEAAAAAQVAAAAAAAICQAAAACABACAQARAEAAA=</HashCode>
+      <FileName>IScanService.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

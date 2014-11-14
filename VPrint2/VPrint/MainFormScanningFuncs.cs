@@ -237,7 +237,7 @@ namespace VPrinting
                                     if (vi != null)
                                     {
                                         srv.CommitVoucherChanges(serverSessionId, vi.JobID, vi.CountryID, vi.RetailerID, vi.VoucherID,
-                                            Global.FolderID.HasValue ? Global.FolderID.Value : (int?)null, vi.SiteCode, vi.Barcode, keys);
+                                            Global.FolderID.HasValue ? Global.FolderID.Value : (int?)null, vi.SiteCode, vi.Barcode, (int)StateManager.Default.PartMode, keys);
 
                                         srv.SaveHistory(OperationHistory.Scan, vi.SessionID, vi.CountryID, vi.RetailerID,
                                                 vi.VoucherID, 0, 0, "", keys);

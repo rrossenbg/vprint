@@ -45,6 +45,17 @@ namespace VPrinting.Common
             TransferFileAndBarcode = 4,
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum vMode
+        {
+            NA = 0,
+            P1 = 1,
+            P15 = 2,
+            P2 = 3,
+        }
+
         public class Item : IEquatable<Item>
         {
             public event EventHandler Updated;
@@ -464,6 +475,7 @@ namespace VPrinting.Common
         public volatile bool VoucherMustExist;
 
         public eMode Mode { get; set; }
+        public vMode PartMode { get; set; }
 
         public bool Loaded
         {

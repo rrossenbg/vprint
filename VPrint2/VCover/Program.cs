@@ -5,12 +5,14 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Emgu.CV;
+using Emgu.CV.Structure;
 using VCover.Common;
 using VCover.Data;
 using VPrinting;
 using VPrinting.Common;
-using Emgu.CV.Structure;
-using Emgu.CV;
+using System.ServiceModel;
+using VPrinting.Communication;
 
 namespace VCover
 {
@@ -42,13 +44,7 @@ namespace VCover
                         AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
                         Application.ThreadException += new ThreadExceptionEventHandler(OnThreadException);
 
-                        new DirectoryInfo(Config.IN_FOLDER).EnsureDirectory();
-                        new DirectoryInfo(Config.SUCCESS_FOLDER).EnsureDirectory();
-                        new DirectoryInfo(Config.FAILURE_FOLDER).EnsureDirectory();
-
                         var ctn = new AppContext();
-                        ctn.InFolder = Config.IN_FOLDER;
-                        ctn.InFilter = Config.ImageFileFilter;
                         ctn.NewInFileEvent += new EventHandler<ValueEventArgs<string>>(NewCommandFileEvent);
                         ctn.Started += new EventHandler(ctn_Started);
 
@@ -58,6 +54,9 @@ namespace VCover
                         StateSaver.Default.Path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "CPrint.dat");
 
                         StateSaver.Default.Load();
+
+                        NamedPipes.ReceivedData += new ReceivedDataDelegate(NamedPipes_ReceivedData);
+                        NamedPipes.StartServer("PIPE1");
                         Application.Run(ctn);
                     }
                     finally
@@ -73,9 +72,30 @@ namespace VCover
             }
         }
 
+        static string NamedPipes_ReceivedData(string data)
+        {
+            if (string.IsNullOrWhiteSpace(data))
+                return null;
+
+            if (data.Contains("Start"))
+            {
+                //Start
+                var strings = data.Split(';');
+                var id = Guid.Parse(strings[1]);
+                var filePath = strings[2];
+
+                AppContext.Default.NewImage(filePath);
+                return null;
+            }
+
+            //Read
+            var name = data;
+            return string.Empty;
+        }
+
         static void ctn_Started(object sender, EventArgs e)
         {
-            new DirectoryInfo(Config.IN_FOLDER).ClearSafe();
+            new DirectoryInfo(Config.OUT_FOLDER).ClearSafe();
         }
 
         private static void NewCommandFileEvent(object sender, ValueEventArgs<string> e)
@@ -87,33 +107,29 @@ namespace VCover
                 {
                     using (var matcher = new TemplateMatcher(file.FullName))
                     {
+                        if (!matcher.MatchTemplate())
+                            MatchForm.Run(file.FullName);
+
                         if (matcher.MatchTemplate())
                         {
-                            var dir = file.Directory.Combine(file.GetFileNameWithoutExtension());
-                            dir.EnsureDirectory();
+                            var @out = new DirectoryInfo(Config.OUT_FOLDER);
+                            @out.EnsureDirectory();
 
-                            var imgcc = dir.CombineFileName(string.Concat(file.GetFileNameWithoutExtension(), "_cc", file.Extension));
+                            var imgcc = @out.CombineFileName(string.Concat(file.GetFileNameWithoutExtension(), "_ccimg", file.Extension));
                             matcher.PixellateHiddenAreas(imgcc.FullName);
 
-                            var img = dir.CombineFileName(file.Name);
+                            var img = @out.CombineFileName(string.Concat(file.GetFileNameWithoutExtension(), "_cc", file.Extension));
                             matcher.Save(img.FullName);
-                            file.DeleteSafe();
                         }
                         else
                         {
-                            //string imageFullFilePath = Path.Combine(Config.FAILURE_FOLDER, );
-                            //file.MoveTo(imageFullFilePath);
-                            MatchForm.Run(file.FullName);
+                            throw new ApplicationException("Cannot match template");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine(ex);
-                }
-                finally
-                {
-                    
+                    AppContext.Default.FireError(ex);
                 }
             }, e.Value, TaskCreationOptions.LongRunning);
         }

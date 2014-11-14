@@ -537,6 +537,15 @@ namespace VPrintTest
                 f.Save("C:\\" + (i++) + ".jpg", ImageFormat.Jpeg);
             }
         }
+
+        [TestMethod]
+        public void test_DrawToImage()
+        {
+            PdfEx.sm_DLLPath = @"C:\PROJECTS\VPrint2\VPrintTest\bin\Debug\gsdll32.dll";
+            var resolutions = new int[] { 96, 200, 300, 600, 1200 };
+            FileInfo info = new FileInfo(@"C:\SCANS\UO_51303.pdf");
+            var images = info.DrawToImage(300);
+        }
     }
 
     public class A
