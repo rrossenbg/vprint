@@ -3,9 +3,8 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-using VCover.Data;
-using VCover.Properties;
 using VPrinting;
+using VCover.Properties;
 
 namespace VCover
 {
@@ -13,37 +12,17 @@ namespace VCover
     {
         public static AppContext Default { get; set; }
         private Form m_form = new Form();
-        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_runMenuItem, m_startMenuItem, 
-            m_initMenuItem, m_lockMenuItem, m_exitMenuItem;
+        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_lockMenuItem, m_exitMenuItem;
         private readonly NotifyIcon m_notifyIcon = new NotifyIcon();
-        private readonly FileSystemWatcher m_imageFileWatcher = new FileSystemWatcher();
+ 
         public event EventHandler<ValueEventArgs<string>> NewInFileEvent;
         public event EventHandler Started;
         public event EventHandler Stopped;
         public event ThreadExceptionEventHandler Error;
 
-        public string InFolder
-        {
-            set
-            {
-                m_imageFileWatcher.Path = value;
-            }
-        }
-
-        public string InFilter
-        {
-            set
-            {
-                m_imageFileWatcher.Filter = value;
-            }
-        }
-
         public AppContext()
         {
             m_showMenuItem = new MenuItem("Login", new EventHandler(ShowHideMainForm_Click));
-            m_initMenuItem = new MenuItem("Init", new EventHandler(InitMenuItem_Click));
-            m_runMenuItem = new MenuItem("Run", new EventHandler(RunOnceMenuItem_Click));
-            m_startMenuItem = new MenuItem("Start", new EventHandler(StartStopMenuItem_Click));
             m_lockMenuItem = new MenuItem("Lock", new EventHandler(LockUnlockMenuItem_Click));
             m_closeMenuItem = new MenuItem("Close", new EventHandler(Close_Click));
             m_exitMenuItem = new MenuItem("Exit", new EventHandler(Exit_Click));
@@ -51,30 +30,17 @@ namespace VCover
             Bitmap bitmap = new Bitmap(Resources.PTFLogo);
             Icon icon = System.Drawing.Icon.FromHandle(bitmap.GetHicon());
             m_notifyIcon.Icon = icon;
-            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { m_showMenuItem, m_initMenuItem, 
-                #if DEBUG
-                m_runMenuItem ,
-#endif
-                m_startMenuItem, m_lockMenuItem, m_closeMenuItem, m_exitMenuItem });
+            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { 
+                m_showMenuItem, m_lockMenuItem, m_closeMenuItem, m_exitMenuItem });
             m_notifyIcon.Visible = true;
             m_notifyIcon.ContextMenu.Popup += new EventHandler(ContextMenu_Popup);
             m_notifyIcon.DoubleClick += new EventHandler(ShowHideMainForm_Click);
-
-            m_imageFileWatcher.Path = Config.IN_FOLDER;
-            m_imageFileWatcher.Filter = Config.FAILURE_FOLDER;
-            m_imageFileWatcher.Created += new FileSystemEventHandler(CommandWatcher_NewInFileCreated);
 
             Default = this;
             Application.ApplicationExit += new EventHandler(Application_ApplicationExit);
         }
 
-        public bool IsStarted
-        {
-            get
-            {
-                return m_imageFileWatcher.EnableRaisingEvents;
-            }
-        }
+        public bool IsStarted { get; set; }
 
         public bool IsLocked
         {
@@ -86,14 +52,14 @@ namespace VCover
 
         public void Start()
         {
-            m_imageFileWatcher.EnableRaisingEvents = true;
+            IsStarted = true;
             if (Started != null)
                 Started(this, EventArgs.Empty);
         }
 
         public void Stop()
         {
-            m_imageFileWatcher.EnableRaisingEvents = false;
+            IsStarted = false;
             if (Stopped != null)
                 Stopped(this, EventArgs.Empty);
         }
@@ -106,6 +72,18 @@ namespace VCover
 
         public void Reset()
         {
+        }
+
+        public void FireError(Exception ex)
+        {
+            if (Error != null)
+                Error(this, new ThreadExceptionEventArgs(ex));
+        }
+
+        public void NewImage(string filePath)
+        {
+            if (NewInFileEvent != null)
+                NewInFileEvent(this, new ValueEventArgs<string>(filePath));
         }
 
         private void CommandWatcher_NewInFileCreated(object sender, FileSystemEventArgs e)
@@ -180,8 +158,6 @@ namespace VCover
         private void ContextMenu_Popup(object sender, EventArgs e)
         {
             m_showMenuItem.Text = (Program.currentUser == null) ? "Login" : "Show";
-            m_startMenuItem.Enabled = (Program.currentUser != null);
-            m_initMenuItem.Enabled = (Program.currentUser != null);
             m_lockMenuItem.Enabled = (Program.currentUser != null);
         }
 

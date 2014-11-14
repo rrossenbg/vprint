@@ -45,7 +45,7 @@ namespace VPrinting.ScaningProcessors
                         // ".tif"
                         var ext = Path.GetExtension(info.FullName);
                         if (ext.EqualNoCase(".pdf"))
-                            fullFilePath = new PDFFileHelper().Run(info, item);
+                            fullFilePath = new PDFFileHelper().Run(info, item).FullName;
 
                         bmp = ((Bitmap)Bitmap.FromFile(fullFilePath)).Crop2();
                         item.FullFileName = fullFilePath;

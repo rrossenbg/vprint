@@ -47,14 +47,14 @@ namespace VPrinting.Data
             }
         }
 
-        public void CommitVoucherChanges(string serverSessionId, int jobId, int countryId, int retailerId, int voucherId, 
-            int? folderId, string siteCode, string barCode, Tuple<string, string> keys)
+        public void CommitVoucherChanges(string serverSessionId, int jobId, int countryId, int retailerId, int voucherId,
+            int? folderId, string siteCode, string barCode, int typeId, Tuple<string, string> keys)
         {
             var client2 = ScanServiceClient.CreateProxy(Program.SCAN_URL);
             try
             {
-                client2.CommitVoucherChanges(serverSessionId, jobId, countryId, retailerId,
-                    voucherId, folderId, siteCode, barCode, Program.currentUser.CountryID, Program.currentUser.UserID, keys.Item1, keys.Item2);
+                client2.CommitVoucherChangesModify_V2(serverSessionId, jobId, countryId, retailerId,
+                    voucherId, folderId, siteCode, barCode, Program.currentUser.CountryID, Program.currentUser.UserID, typeId, ChangeContentType.INIT, keys.Item1, keys.Item2);
             }
             finally
             {

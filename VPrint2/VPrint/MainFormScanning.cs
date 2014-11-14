@@ -79,6 +79,10 @@ namespace VPrinting
             toggleButtonControl1.Padding = new Padding(0);
             toggleButtonControl1.RefreshControl();
 
+            toggleButtonControl2.ActiveChanged += new EventHandler<ValueEventArgs<int>>(toggleButtonControl2_ActiveChanged);
+            toggleButtonControl2.Padding = new Padding(0);
+            toggleButtonControl2.RefreshControl();
+
             var list = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
             m_ScheduledWorker.RunItem += new EventHandler<ValueEventArgs<StateManager.Item>>(ScheduledWorker_RunItem);
         }

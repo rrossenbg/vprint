@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="CovertWorkerTest.cs" />
     <Compile Include="DataAccessTest.cs" />
+    <Compile Include="FTPTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PdfTest.cs" />
   </ItemGroup>

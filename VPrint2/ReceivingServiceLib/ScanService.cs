@@ -374,6 +374,22 @@ namespace ReceivingServiceLib
             }
         }
 
+        public string FindVoucherPart(int countryId, int voucherId, int voucherIdCD, int part, string s1, string s2)
+        {
+            try
+            {
+                SecurityCheckThrow(s1, s2);
+                RecordCallHistory("FindVoucher");
+
+                var da = VoucherDataAccess.Instance;
+                return da.FindVoucher(countryId, voucherId, voucherIdCD, part);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<MyApplicationFault>(new MyApplicationFault(), ex.Message);
+            }
+        }
+
         public int[] FindVoucherImage(int countryId, int voucherId, int voucherIdCD, string s1, string s2)
         {
             try

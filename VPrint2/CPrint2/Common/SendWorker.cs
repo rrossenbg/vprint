@@ -4,6 +4,7 @@
 
 using System;
 using System.IO;
+using VPrinting.Threading;
 
 namespace CPrint2.Common
 {

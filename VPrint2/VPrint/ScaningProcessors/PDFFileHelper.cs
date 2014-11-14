@@ -13,14 +13,7 @@ namespace VPrinting.ScaningProcessors
 {
     internal class PDFFileHelper
     {
-        public FileInfo Run2(FileInfo info, StateManager.VoucherItem item)
-        {
-            var images = info.DrawToImage();
-            item.FileInfoList.AddRange(images);
-            return item.FileInfoList.FirstOrDefault();
-        }
-
-        public string Run(FileInfo info, StateManager.VoucherItem item)
+        public FileInfo Run(FileInfo info, StateManager.VoucherItem item)
         {
             string fullFilePath = null;
 
@@ -49,7 +42,15 @@ namespace VPrinting.ScaningProcessors
 
             info.DeleteSafe();
 
-            return fullFilePath;
+            return new FileInfo(fullFilePath);
         }
+
+        //var resolutions = new int[] { 96, 200, 300, 600, 1200 };
+        public FileInfo Run2(FileInfo info, StateManager.VoucherItem item, int dpi = 300)
+        {
+            var images = info.DrawToImage(dpi);
+            item.FileInfoList.AddRange(images);
+            return item.FileInfoList.FirstOrDefault();
+        }        
     }
 }

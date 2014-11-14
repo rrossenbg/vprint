@@ -16,6 +16,7 @@ using Emgu.CV.Structure;
 using Microsoft.VisualBasic;
 using VCover.Common;
 using VPrinting;
+using VCover.Data;
 
 namespace VCover
 {
@@ -111,13 +112,25 @@ namespace VCover
 
         public static void Run(string imageFullFileName)
         {
-            Task.Factory.StartNew((o) =>
+            using (var done = new ManualResetEventSlim(false))
             {
-                string fileName = Convert.ToString(o);
-                var form = new MatchForm();
-                form.Image = new Image<Bgr, byte>(fileName);
-                Application.Run(form);
-            }, imageFullFileName, TaskCreationOptions.LongRunning);
+                Task.Factory.StartNew((o) =>
+                {
+                    Tuple<ManualResetEventSlim, string> ev = (Tuple<ManualResetEventSlim, string>)o;
+                    try
+                    {
+                        var form = new MatchForm();
+                        form.Image = new Image<Bgr, byte>(ev.Item2);
+                        Application.Run(form);
+                    }
+                    finally
+                    {
+                        ev.Item1.Set();
+                    }
+                }, new Tuple<ManualResetEventSlim, string>(done, imageFullFileName), TaskCreationOptions.LongRunning);
+
+                done.Wait();
+            }
         }
 
         private void AddHiddenAreaMenuItem_Click(object sender, EventArgs e)

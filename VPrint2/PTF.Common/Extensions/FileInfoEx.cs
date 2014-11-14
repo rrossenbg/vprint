@@ -22,7 +22,8 @@ namespace VPrinting
         static FileInfoEx()
         {
             var asm = Assembly.GetEntryAssembly();
-            st_appLocation = new FileInfo(asm.Location).Directory;
+            if (asm != null)
+                st_appLocation = new FileInfo(asm.Location).Directory;
         }
 
         [TargetedPatchingOptOut("na")]

@@ -220,8 +220,8 @@ namespace ReceivingService
 
                     WebDataAccess access = new WebDataAccess();
                     var buffer = access.DownloadReport(serverUrl, ScanService.ReportServerCredentials);
-
-                    string email = new PTFDataAccess().FindHeadOfficeEmail(countryId, officeId);//"rosen.rusev@fintrax.com";// 
+#warning TEST_ONLY
+                    string email = "rosen.rusev@fintrax.com";// new PTFDataAccess().FindHeadOfficeEmail(countryId, officeId);//"rosen.rusev@fintrax.com";// 
                     string ccEmail = val.CC;
                     string subject = val.Subject;
                     string message = val.Body;

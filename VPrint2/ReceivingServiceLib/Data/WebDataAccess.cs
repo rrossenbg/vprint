@@ -21,6 +21,6 @@ namespace ReceivingServiceLib.Data
             client.Credentials = cache;
             var buffer = client.DownloadData(uri);
             return buffer;
-        }
+        } 
     }
 }

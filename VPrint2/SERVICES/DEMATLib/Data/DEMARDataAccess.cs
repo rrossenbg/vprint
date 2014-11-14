@@ -61,7 +61,6 @@ namespace DEMATLib.Data
             }
 
             #endregion //SQL
-
         }
 
         #endregion //ZeroInvoiceNumbers
@@ -70,9 +69,10 @@ namespace DEMATLib.Data
 
         public static List<DateTime> SelectAllDistinctDateVoucherDates(int countryId)
         {
-            const string SQL = @"select distinct  v_date_voucher  from voucher
-                                    where v_iso_id = @iso
-                                    order by v_date_voucher desc";
+            const string SQL = @"select distinct  v_date_voucher  
+                                from voucher (nolock)
+                                where v_iso_id = @iso
+                                order by v_date_voucher desc";
 
             var list = new List<DateTime>();
 
@@ -100,7 +100,7 @@ namespace DEMATLib.Data
 
         public static List<int> SelectAllDistinctHOs(int countryId)
         {
-            const string SQL = @"select ho_id  from HeadOffice
+            const string SQL = @"select ho_id  from HeadOffice (nolock)
                                  where ho_iso_id = @iso";
 
             var list = new List<int>();
@@ -149,9 +149,9 @@ namespace DEMATLib.Data
 
             //ho_contract_signature_date
             const string SQL =
-            @"select v_number, v_br_id, 1 as [status] FROM Voucher v
-            inner join Branch on br_iso_id = v_iso_id and br_id = v_br_id
-            inner join VoucherPart vp on vp.vp_iso_id = v.v_iso_id and vp.vp_v_number = v.v_number
+            @"select v_number, v_br_id, 1 as [status] FROM Voucher v (nolock)
+            inner join Branch (nolock) on br_iso_id = v_iso_id and br_id = v_br_id
+            inner join VoucherPart vp (nolock) on vp.vp_iso_id = v.v_iso_id and vp.vp_v_number = v.v_number
             where v_iso_id = @iso and br_enable_DEMAT_export = 1 and br_demat_contract_date <= v_date_voucher and
                 (v_sent_to_demat is null or v_sent_to_demat = 0) and  
                 (v_voided is null or v_voided = 0) and
@@ -159,14 +159,14 @@ namespace DEMATLib.Data
                 vp_type_id in (1, 4)
                 and br_ho_id = @hoId  
             union all
-            select v_number, v_br_id, 0 as [status] FROM Voucher v
-            inner join Branch on br_iso_id = v_iso_id and br_id = v_br_id
-            inner join VoucherPart vp on vp.vp_iso_id = v.v_iso_id and vp.vp_v_number = v.v_number
+            select v_number, v_br_id, 0 as [status] FROM Voucher v (nolock)
+            inner join Branch (nolock) on br_iso_id = v_iso_id and br_id = v_br_id
+            inner join VoucherPart vp (nolock) on vp.vp_iso_id = v.v_iso_id and vp.vp_v_number = v.v_number
             where v_iso_id = @iso and br_enable_DEMAT_export = 1 and br_demat_contract_date <= v_date_voucher and
                 v_sent_to_demat = 1 and  
                 v_voided = 1 and
                 vp_type_id = 1
-               and br_ho_id = @hoId;";
+                and br_ho_id = @hoId;";
 
             #endregion //SQL
 
@@ -236,9 +236,9 @@ namespace DEMATLib.Data
 
             const string SQL = @"select v_number, v_date_voucher, br_id, br_name, br_add_1, br_add_2, br_add_3, br_add_4, br_add_5, v_final_country, ho_vat_number, 
                                     br_DEMAT_export_number, v_title, v_firstname, v_lastname, v_passport_no, v_refund_str, v_refund_in_refund_currency                                 
-                                 from Voucher
-                                 inner join Branch on br_id = v_br_id and br_iso_id = v_iso_id
-                                 inner join HeadOffice on ho_id = br_ho_id and ho_iso_id = br_iso_id
+                                 from Voucher (nolock)
+                                 inner join Branch (nolock) on br_id = v_br_id and br_iso_id = v_iso_id
+                                 inner join HeadOffice (nolock) on ho_id = br_ho_id and ho_iso_id = br_iso_id
                                  where v_iso_id = @iso and v_number = @number";
 
             #endregion //SQL
@@ -338,8 +338,8 @@ namespace DEMATLib.Data
             #region SQL
 
             const string SQL = @"select vl_line_number, vl_unit_price, vl_quantity, vl_pp_excl_vat, vl_pp_vat, vl_pp_incl_vat, vl_product, vl_code_ttc 
-                                from Voucher
-                                inner join VoucherLine on vl_v_number = v_number and vl_iso_id = v_iso_id
+                                from Voucher (nolock)
+                                inner join VoucherLine (nolock) on vl_v_number = v_number and vl_iso_id = v_iso_id
                                 where v_iso_id = @iso and v_number = @number";
 
             #endregion //SQL
@@ -489,8 +489,8 @@ namespace DEMATLib.Data
             #region SQL
 
             const string SQL = @"select dmh_br_iso_id, dmh_br_id,
-	                                   dmh_br_DEMAT_contact_email, dmh_br_DEMAT_contract_date, dmh_br_enable_DEMAT_export 
-                                from DEMATHistory 
+                                        dmh_br_DEMAT_contact_email, dmh_br_DEMAT_contract_date, dmh_br_enable_DEMAT_export 
+                                from DEMATHistory (nolock)
                                 where dmh_createdat between @from and @to";
 
             #endregion
@@ -582,7 +582,7 @@ namespace DEMATLib.Data
         public static decimal? GetRefundCurrency(int countryId, int voucherId)
         {
             const string SQL = @"select abs(sum(ld_voucher_amount)) as value
-                                from Ledger 
+                                from Ledger (nolock)
                                 where ld_iso_id=@iso and ld_pt_id=2 and ld_tt_id in (19,25)
                                 and ld_voucher_id=@v_number";
 

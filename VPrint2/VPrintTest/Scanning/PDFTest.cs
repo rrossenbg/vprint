@@ -19,7 +19,7 @@ namespace VPrintTest.Scanning
         [TestMethod]
         public void drawPDF_test()
         {
-            new FileInfo(@"C:\IMAGES\PORTUGAL\New folder\OA_24993.pdf").DrawToImage();
+            new FileInfo(@"C:\IMAGES\PORTUGAL\New folder\OA_24993.pdf").DrawToImage(96);
         }
 
         [TestMethod]

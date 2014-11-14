@@ -4,11 +4,11 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using Emgu.CV;
 using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
-using System.Collections.Generic;
 
 namespace VCover.Common
 {
@@ -103,7 +103,7 @@ namespace VCover.Common
                 var r1 = new Rectangle(r.Location, hidden.Rectangle.Size);
 
                 using (var result = m_source.Copy(r1))
-                //TODO:: create 1,2,3 file names
+                    //TODO:: create 1,2,3 file names
                     result.Save(toFileName);
 
                 m_source.Pixellate(r1);

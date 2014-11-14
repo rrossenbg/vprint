@@ -57,12 +57,12 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.CustomFormat = "hh:mm";
+            this.dateTimePicker1.CustomFormat = "HH:mm";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(129, 15);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(80, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(68, 20);
             this.dateTimePicker1.TabIndex = 2;
             // 
             // cbActive

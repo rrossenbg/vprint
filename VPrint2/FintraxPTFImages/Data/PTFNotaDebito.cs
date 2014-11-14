@@ -138,7 +138,7 @@ namespace FintraxPTFImages.Data
             FROM NotaDebitoInvoice 
             INNER JOIN HeadOffice on ho_id = in_ho_id and ho_iso_id = in_iso_id  
             INNER JOIN NotaDebitoInvoiceVouchers on inv_in_number = in_number and inv_iso_id = in_iso_id
-            WHERE in_iso_id = @iso and in_ho_id = in_ho_id and in_date >= @in_from  and in_date <= @in_to and in_type in ('N', '0') and in_paid = 'Y' 
+            WHERE in_iso_id = @iso and in_ho_id = @in_ho_id and in_date >= @in_from  and in_date <= @in_to and in_type in ('N', '0') and in_paid = 'Y' 
             GROUP BY in_number, in_date, in_ho_id, ho_name, in_period, in_sepa_msgid, in_type, in_key;";
             //in_paid = 'N' and in_sepa_msgid is NULL and 
             #endregion

@@ -47,7 +47,7 @@ namespace VPrinting.ScaningProcessors
                         if (ext.EqualNoCase(".pdf"))
                         {
                             var helper = new PDFFileHelper();
-                            var finfo = helper.Run2(info, item);
+                            var finfo = helper.Run(info, item);
                             fullFilePath = (finfo != null) ? finfo.FullName : "";
                         }
 
@@ -115,6 +115,21 @@ namespace VPrinting.ScaningProcessors
 
                         if (item.Thumbnail == null)
                             item.Thumbnail = bmp.GetThumbnailImage(45, 45, () => false, IntPtr.Zero);
+
+                        if (StateSaver.Default.Get<bool>(Strings.USE_VCOVER))
+                        {
+                            using (WaitObject obj = new WaitObject(item.FileInfoList))
+                            {
+                                var ptr = StateSaver.Default.Get<IntPtr>(Strings.VCOVER_FUNC);
+                                var time = StateSaver.Default.Get<TimeSpan>(Strings.VCOVER_TIMEOUT, TimeSpan.FromMinutes(10));
+                                var dlg = ptr.GetDelegate<CallVCoverService_ReadDataDelegate>();
+                                dlg.DynamicInvoke(obj);
+                                if (!obj.WaitOne(time))
+                                    throw new ApplicationException("VCover timeout");
+                                if(obj.Err != null)
+                                    throw obj.Err;
+                            }
+                        }
 
                         var certificateSigning = StateSaver.Default.Get<bool>(Strings.CERTIFICATE_SIGNING_AVAILABLE);
                         if (certificateSigning)

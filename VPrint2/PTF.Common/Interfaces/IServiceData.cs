@@ -11,4 +11,5 @@ namespace VPrinting.Interfaces
     }
 
     public delegate ArrayList GetMetaDataDelegate(IServiceData servdata, int iso, int hoid, int reId);
+    public delegate void CallVCoverService_ReadDataDelegate(WaitObject @object);
 }

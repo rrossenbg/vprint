@@ -73,6 +73,10 @@ namespace ReceivingServiceLib
 
         [OperationContract]
         [FaultContract(typeof(MyApplicationFault))]
+        string FindVoucherPart(int countryId, int voucherId, int voucherIdCD, int part, string s1, string s2);
+
+        [OperationContract]
+        [FaultContract(typeof(MyApplicationFault))]
         int[] FindVoucherImage(int countryId, int voucherId, int voucherIdCD, string s1, string s2);
 
         #endregion

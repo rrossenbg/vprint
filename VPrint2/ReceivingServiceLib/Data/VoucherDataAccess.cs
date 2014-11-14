@@ -1053,11 +1053,11 @@ ORDER BY [Id]";
 
         #region TRS
 
-        public string FindVoucher(int countryId, int voucherId, int voucherIdCD)
+        public string FindVoucher(int countryId, int voucherId, int voucherIdCD, int part = 3)
         {
             CheckPTFConnectionStringThrow();
 
-            const string SQL = "select vp_site_code, vp_location_number from  VoucherPart where (vp_v_number = @v_number or vp_v_number = @v_numberCD) and vp_iso_id = @iso_id and vp_type_id = 3";
+            const string SQL = "select vp_site_code, vp_location_number from  VoucherPart where (vp_v_number = @v_number or vp_v_number = @v_numberCD) and vp_iso_id = @iso_id and vp_type_id = @part";
 
             using (var conn = new SqlConnection(Global.Strings.PTFConnString))
             {
@@ -1065,9 +1065,10 @@ ORDER BY [Id]";
 
                 using (var comm = new SqlCommand(SQL, conn))
                 {
-                    comm.Parameters.AddWithValue("iso_id", countryId);
-                    comm.Parameters.AddWithValue("v_number", voucherId);
-                    comm.Parameters.AddWithValue("v_numberCD", voucherIdCD);
+                    comm.Parameters.AddWithValue("@iso_id", countryId);
+                    comm.Parameters.AddWithValue("@v_number", voucherId);
+                    comm.Parameters.AddWithValue("@v_numberCD", voucherIdCD);
+                    comm.Parameters.AddWithValue("@part", part);
 
                     using (var reader = comm.ExecuteReader(CommandBehavior.CloseConnection))
                     {

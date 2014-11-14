@@ -4,7 +4,7 @@
 using System;
 using System.Threading;
 
-namespace CPrint2.Common
+namespace VPrinting.Threading
 {
     /// <summary>
     /// Cycle worker abstraction

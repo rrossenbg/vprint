@@ -74,47 +74,47 @@
                 @Html.ValidationMessageFor(model => model.ToDate)
             </td>
         </tr>
-        <tr>
-            <td colspan="3">
-                <input type="submit" value="Search" />
-            </td>
-        </tr>
+        @if (ViewData["NotaDebitoList"] == null)
+        {
+            <tr>
+                <td colspan="3">
+                    <input type="submit" value="Search" />
+                </td>
+            </tr>
+        }
     </table>
 }
-
-@if (ViewData["NotaDebitoList"] != null) {
-@Html.Raw("<div style=\"width: 600px;\">")
-using (Html.BeginForm("NotaDebitoEmail2", "Voucher", FormMethod.Post)) {
-<table>
-    <tr>
-        <td colspan="2">
-            <label>
-                Subject</label>
-            @Html.TextBoxFor(model => model.Subject, new { style = "width: 400px;" })
-            @Html.ValidationMessageFor(model => model.Subject)
-        </td>
-        <td colspan="1">
-            <label>
-                CC</label>
-            @Html.TextBoxFor(model => model.CC, new { style = "width: 250px;" })
-            @Html.ValidationMessageFor(model => model.CC)
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3">
-            <label>
-                Message</label>
-            @Html.TextAreaFor(model => model.Body, new { rows = "10", cols = "450", style = "width: 700px;" })
-            @Html.ValidationMessageFor(model => model.Body)
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3">
-            <input type="submit" value="Email" />
-        </td>
-    </tr>
-</table>
-@Html.Grid((IEnumerable<PTFDataAccess.SelectForNotaDebitos_Data>)ViewData["NotaDebitoList"]).Columns(columns =>
+@if (ViewData["NotaDebitoList"] != null)
+{
+    @Html.Raw("<div style=\"width: 600px;\">")
+    using (Html.BeginForm("NotaDebitoEmail2", "Voucher", FormMethod.Post))
+    {
+    <table>
+        <tr>
+            <td colspan="2">
+                <label>
+                    Subject</label>
+                @Html.TextBoxFor(model => model.Subject, new { style = "width: 400px;" })
+                @Html.ValidationMessageFor(model => model.Subject)
+            </td>
+            <td colspan="1">
+                <label>
+                    CC</label>
+                @Html.TextBoxFor(model => model.CC, new { style = "width: 250px;" })
+                @Html.ValidationMessageFor(model => model.CC)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>
+                    Message</label>
+                @Html.TextAreaFor(model => model.Body, new { rows = "10", cols = "450", style = "width: 700px;" })
+                @Html.ValidationMessageFor(model => model.Body)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                @Html.Grid((IEnumerable<PTFDataAccess.SelectForNotaDebitos_Data>)ViewData["NotaDebitoList"]).Columns(columns =>
         {
             columns.Add(true).RenderValueAs(c => Html.Hidden("in_iso", c.in_iso).ToHtmlString());
             columns.Add(true).RenderValueAs(c => Html.Hidden("in_ho_id", c.in_ho_id).ToHtmlString());
@@ -130,5 +130,14 @@ using (Html.BeginForm("NotaDebitoEmail2", "Voucher", FormMethod.Post)) {
             columns.Add(c => c.in_period).Titled("Period").Filterable(true);
             columns.Add(c => c.in_type).Titled("Type").Filterable(true);
             columns.Add(c => c.total).Titled("Total");
-        }).WithPaging(10).Sortable(true);
-@Html.Raw("</div>"); } }
+        }).WithPaging(10).Sortable(true)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="Email" />
+            </td>
+        </tr>
+    </table>
+    }
+}
