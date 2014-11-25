@@ -17,160 +17,156 @@ namespace FintraxServiceManager
         private readonly ConcurrentDictionary<string, Assembly> m_assemblies = new ConcurrentDictionary<string, Assembly>();
         private volatile bool m_Running;
         private Thread m_Worker;
-        public readonly ConcurrentSortedList<TimeSpan, TypeParam> ToDoList = new ConcurrentSortedList<TimeSpan, TypeParam>();
-        public readonly ConcurrentSortedList<TimeSpan, TypeParam> DoneList = new ConcurrentSortedList<TimeSpan, TypeParam>();
+
         public event EventHandler<EntryEventArgs<string>> Info;
         public event ThreadExceptionEventHandler Error;
-
+        public readonly ConcurrentSortedList<TimeSpan, TypeParam> ToDoList = new ConcurrentSortedList<TimeSpan, TypeParam>();
+        public readonly ConcurrentSortedList<TimeSpan, TypeParam> DoneList = new ConcurrentSortedList<TimeSpan, TypeParam>();
+        
         public void Start()
         {
-            this.m_Running = true;
-            this.m_Worker = new Thread(new ThreadStart(this.Run));
-            this.m_Worker.IsBackground = true;
-            this.m_Worker.Start();
+            m_Running = true;
+            m_Worker = new Thread(Run);
+            m_Worker.IsBackground = true;
+            m_Worker.Start();
         }
 
         public void Stop()
         {
             try
             {
-                this.m_Running = false;
-                this.m_Worker.Abort();
+                m_Running = false;
+                m_Worker.Abort();
             }
             catch (ThreadAbortException)
             {
+                //Don't log abortion
             }
         }
 
+        /// <summary>
+        /// Run each of the Service/Type in the Collection
+        /// </summary>
         public void Run()
         {
-            while (this.m_Running)
+            while (m_Running)
             {
-                this.ToDoList.AddRange(this.DoneList);
-                this.DoneList.Clear();
-                foreach (KeyValuePair<TimeSpan, TypeParam> current in new ConcurrentSortedList<TimeSpan, TypeParam>(this.ToDoList))
+                ToDoList.AddRange(DoneList);
+                DoneList.Clear();
+
+                foreach (var item in new ConcurrentSortedList<TimeSpan, TypeParam>(ToDoList))
                 {
-                    if (!string.IsNullOrWhiteSpace(current.Value.Type))
+                    if (string.IsNullOrWhiteSpace(item.Value.Type))
+                        continue;
+
+                    var toRun = DateTime.Now.Date.Add(item.Key);
+                    if (toRun < DateTime.Now)
+                        continue;
+                    else
+                        Thread.Sleep(toRun.Subtract(DateTime.Now));
+
+                    Task.Factory.StartNew((o) =>
                     {
-                        DateTime t = DateTime.Now.Date.Add(current.Key);
-                        if (!(t < DateTime.Now))
+
+                        #region SUB THREAD FUNCTION
+
+                        KeyValuePair<TimeSpan, TypeParam> job = (KeyValuePair<TimeSpan, TypeParam>)o;
+                        try
                         {
-                            Thread.Sleep(t.Subtract(DateTime.Now));
-                            Task.Factory.StartNew(delegate(object o)
+                            string[] typeName = job.Value.Type.Split(',');
+                            string assemblyName = typeName[0];
+                            string typeToInstantiate = typeName[1];
+
+                            if (!m_assemblies.ContainsKey(assemblyName))
                             {
-                                KeyValuePair<TimeSpan, TypeParam> keyValuePair = (KeyValuePair<TimeSpan, TypeParam>)o;
-                                try
+                                FireInfo(string.Concat("Loading assembly ", assemblyName));
+
+                                var asm = Assembly.LoadFile(assemblyName);
+                                m_assemblies[assemblyName] = asm;
+                            }
+
+                            FireInfo(string.Format("Calling {0}.{1} ", typeToInstantiate, job.Value.Method));
+
+                            Type class1 = m_assemblies[assemblyName].GetType(typeToInstantiate);
+
+                            Object obj = Activator.CreateInstance(class1);
+
+                            MethodInfo mi = class1.GetMethod(job.Value.Method);
+                            // Invoke method ('null' for no parameters).
+
+                            //Get the parameters
+                            string[] p = job.Value.Parameters.Split(',');
+                            object[] paramArray = new object[p.Length];
+
+                            if (!string.IsNullOrWhiteSpace(job.Value.Parameters))
+                            {
+                                FireInfo(string.Concat("Parameters ", job.Value.Parameters));
+
+                                for (int cnt = 0; cnt < paramArray.Length; cnt++)
                                 {
-                                    string[] array = keyValuePair.Value.Type.Split(new char[]
-									{
-										','
-									});
-                                    string text = array[0];
-                                    string text2 = array[1];
-                                    if (!this.m_assemblies.ContainsKey(text))
+                                    string[] p2 = p[cnt].Split('-');
+                                    switch (p2[1])
                                     {
-                                        this.FireInfo("Loading assembly " + text);
-                                        Assembly value = Assembly.LoadFile(text);
-                                        this.m_assemblies[text] = value;
-                                    }
-                                    this.FireInfo(string.Format("Calling {0}.{1} ", text2, keyValuePair.Value.Method));
-                                    Type type = this.m_assemblies[text].GetType(text2);
-                                    object obj = Activator.CreateInstance(type);
-                                    MethodInfo method = type.GetMethod(keyValuePair.Value.Method);
-                                    string[] array2 = keyValuePair.Value.Parameters.Split(new char[]
-									{
-										','
-									});
-                                    object[] array3 = new object[array2.Length];
-                                    if (!string.IsNullOrWhiteSpace(keyValuePair.Value.Parameters))
-                                    {
-                                        this.FireInfo("Parameters " + keyValuePair.Value.Parameters);
-                                        for (int i = 0; i < array3.Length; i++)
-                                        {
-                                            string[] array4 = array2[i].Split(new char[]
-											{
-												'-'
-											});
-                                            string a;
-                                            if ((a = array4[1]) != null)
-                                            {
-                                                if (!(a == "string"))
-                                                {
-                                                    if (!(a == "int"))
-                                                    {
-                                                        if (!(a == "bool"))
-                                                        {
-                                                            if (!(a == "double"))
-                                                            {
-                                                                if (!(a == "char"))
-                                                                {
-                                                                    if (a == "decimal")
-                                                                    {
-                                                                        array3[i] = Convert.ToDecimal(array4[0]);
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                    array3[i] = Convert.ToChar(array4[0]);
-                                                                }
-                                                            }
-                                                            else
-                                                            {
-                                                                array3[i] = Convert.ToDouble(array4[0]);
-                                                            }
-                                                        }
-                                                        else
-                                                        {
-                                                            array3[i] = Convert.ToBoolean(array4[0]);
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                                        array3[i] = Convert.ToInt32(array4[0]);
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    array3[i] = array4[0];
-                                                }
-                                            }
-                                        }
-                                        method.Invoke(obj, array3);
-                                    }
-                                    else
-                                    {
-                                        method.Invoke(obj, null);
+                                        case "string":
+                                            paramArray[cnt] = p2[0];
+                                            break;
+                                        case "int":
+                                            paramArray[cnt] = Convert.ToInt32(p2[0]);
+                                            break;
+                                        case "bool":
+                                            paramArray[cnt] = Convert.ToBoolean(p2[0]);
+                                            break;
+                                        case "double":
+                                            paramArray[cnt] = Convert.ToDouble(p2[0]);
+                                            break;
+                                        case "char":
+                                            paramArray[cnt] = Convert.ToChar(p2[0]);
+                                            break;
+                                        case "decimal":
+                                            paramArray[cnt] = Convert.ToDecimal(p2[0]);
+                                            break;
                                     }
                                 }
-                                catch (Exception ex)
-                                {
-                                    this.FireError(ex);
-                                }
-                                finally
-                                {
-                                    this.ToDoList.Remove(keyValuePair.Key);
-                                    this.DoneList.Add(keyValuePair.Key, keyValuePair.Value);
-                                }
-                            }, current);
-                            Thread.Yield();
+
+                                mi.Invoke(obj, paramArray);
+                            }
+                            else
+                            {
+                                mi.Invoke(obj, null);
+                            }
                         }
-                    }
+                        catch (Exception ex)
+                        {
+                            FireError(ex);
+                        }
+                        finally
+                        {
+                            ToDoList.Remove(job.Key);
+                            DoneList.Add(job.Key, job.Value);
+                        }
+
+                        #endregion
+
+                    }, item);
+
+                    Thread.Yield();
                 }
-                TimeSpan timeout = DateTime.Now.Date.AddDays(1.0) - DateTime.Now;
-                Thread.Sleep(timeout);
+
+                var tillTomorrow = DateTime.Now.Date.AddDays(1) - DateTime.Now;
+                Thread.Sleep(tillTomorrow);
             }
         }
 
         private void FireInfo(string message)
         {
-            if (this.Info != null)
-                this.Info(this, new EntryEventArgs<string>(message));
+            if (Info != null)
+                Info(this, new EntryEventArgs<string>(message));
         }
 
         private void FireError(Exception ex)
         {
-            if (this.Error != null)
-                this.Error(this, new ThreadExceptionEventArgs(ex));
+            if (Error != null)
+                Error(this, new ThreadExceptionEventArgs(ex));
         }
     }
 }

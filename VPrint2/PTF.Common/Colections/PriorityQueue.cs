@@ -8,11 +8,13 @@ using System.Collections.Generic;
 
 namespace VPrinting.Colections
 {
+    [Serializable]
     public class PriorityQueue<T> : IEnumerable<T>
     {
         private readonly Hashtable m_table = Hashtable.Synchronized(new Hashtable());
         private readonly ArrayList m_list = ArrayList.Synchronized(new ArrayList());
 
+        [Serializable]
         private class Item : IEquatable<Item>, IComparable<Item>
         {
             public int Key { get; set; }
@@ -72,6 +74,14 @@ namespace VPrinting.Colections
             }
         }
 
+        public int Count
+        {
+            get
+            {
+                return m_list.Count;
+            }
+        }
+
         public PriorityQueue()
         {
         }
@@ -118,11 +128,17 @@ namespace VPrinting.Colections
             }
         }
 
+        public void Clear()
+        {
+            m_table.Clear();
+            m_list.Clear();
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             lock (m_list.SyncRoot)
             {
-                foreach (Item item in m_list)
+                foreach (Item item in new ArrayList(m_list))
                     yield return item.Value;
             }
         }
@@ -131,7 +147,7 @@ namespace VPrinting.Colections
         {
             lock (m_list.SyncRoot)
             {
-                foreach (Item item in m_list)
+                foreach (Item item in new ArrayList(m_list))
                     yield return item.Value;
             }
         }

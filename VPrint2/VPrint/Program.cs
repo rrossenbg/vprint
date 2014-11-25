@@ -79,6 +79,8 @@ namespace VPrinting
             loader.Process(path, PluginLoader.Operation.Start);
             StateSaver.Default.Set(Strings.ClearScanDirectory, ConfigurationManager.AppSettings["ClearScanDirectory"].Cast<bool>());
 
+            BarcodeConfig.Init();
+
             Speeker.Enabled = ConfigurationManager.AppSettings["SPEAK"].Cast<bool>();
 
             StateSaver.Default.Set(Strings.VERSION, Assembly.GetEntryAssembly().GetName());

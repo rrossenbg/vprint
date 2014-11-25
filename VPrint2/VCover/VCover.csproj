@@ -69,6 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CPrint2\StartUp.cs">
+      <Link>StartUp.cs</Link>
+    </Compile>
     <Compile Include="AppContext.cs" />
     <Compile Include="Data\Config.cs" />
     <Compile Include="Data\CurrentUser.cs" />

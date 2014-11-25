@@ -58,9 +58,6 @@ namespace VPrinting.ScaningProcessors
 
                         vitem.Barcode = barcode;
 
-                        if (!vitem.HasBarcode)
-                            throw new ApplicationException("Can not find barcode");
-
                         string user = string.Concat("Country: ", Program.currentUser.CountryID, " User: ", Program.currentUser.UserID);
                         bmp.DrawOnImage((gr, u) =>
                         {
@@ -72,43 +69,50 @@ namespace VPrinting.ScaningProcessors
                             }
                         }, user);
 
-                        var coverArea = StateSaver.Default.Get<Rectangle>(Strings.VOUCHERCOVERREGION);
-                        if (!coverArea.IsEmpty)
+                        if (!vitem.HasBarcode)
                         {
-                            var size = StateSaver.Default.Get<int>(Strings.PIXELSIZE, 5);
-                            bmp.Pixellate(coverArea);
-                        }
-
-                        List<BarcodeConfig> barcodeLayouts = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
-
-                        foreach (var cfg in barcodeLayouts)
-                            if (cfg.ParseBarcode(barcode, ref data))
-                                break;
-
-                        if (data == null)
-                            throw new ApplicationException("Barcode invalid");
-
-                        item.CountryID = data.CountryID;
-                        vitem.RetailerID = data.RetailerID;
-                        vitem.VoucherID = data.VoucherID;
-                        vitem.Barcode = barcode;
-
-                        var barcodePath = fullFilePath.ChangeFilePath((name) => name.Replace(".", "_barcode."));
-                        Global.IgnoreList.Add(barcodePath);
-
-                        bmpBarcode.DrawOnImage((gr, s) =>
-                        {
-                            using (var font = new Font(FontFamily.GenericSansSerif, 10f, FontStyle.Regular))
+                            using (var mngr = new AsyncFormManager<RetailerForm>("Enter voucher details"))
                             {
-                                var str = Convert.ToString(s);
-                                gr.DrawString(str, font, Brushes.Red, new PointF(10, 10));
+                                mngr.Result = item;
+                                mngr.RunWait();
+                                if (!item.IsSetup)
+                                    throw new ApplicationException("Cannot find barcode.");
+                                vitem.State = StateManager.eState.OK;
                             }
-                        }, barcode);
+                        }
+                        else
+                        {
+                            List<BarcodeConfig> barcodeLayouts = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
 
-                        bmpBarcode.Save(barcodePath, bmp.RawFormat);
+                            foreach (var cfg in barcodeLayouts)
+                                if (cfg.ParseBarcode(barcode, ref data))
+                                    break;
 
-                        barcFilePath = new FileInfo(barcodePath); // Scanned Barcode
-                        vitem.FileInfoList.Add(barcFilePath); // Scanned Barcode Image
+                            if (data == null)
+                                throw new ApplicationException("Barcode invalid");
+
+                            item.CountryID = data.CountryID;
+                            vitem.RetailerID = data.RetailerID;
+                            vitem.VoucherID = data.VoucherID;
+                            vitem.Barcode = barcode;
+
+                            var barcodePath = fullFilePath.ChangeFilePath((name) => name.Replace(".", "_barcode."));
+                            Global.IgnoreList.Add(barcodePath);
+
+                            bmpBarcode.DrawOnImage((gr, s) =>
+                            {
+                                using (var font = new Font(FontFamily.GenericSansSerif, 10f, FontStyle.Regular))
+                                {
+                                    var str = Convert.ToString(s);
+                                    gr.DrawString(str, font, Brushes.Red, new PointF(10, 10));
+                                }
+                            }, barcode);
+
+                            bmpBarcode.Save(barcodePath, bmp.RawFormat);
+
+                            barcFilePath = new FileInfo(barcodePath); // Scanned Barcode
+                            vitem.FileInfoList.Add(barcFilePath); // Scanned Barcode Image
+                        }
 
                         if (item.CountryID == 0)
                             item.CountryID = MainForm.ms_DefaultCountryId;
@@ -153,35 +157,7 @@ namespace VPrinting.ScaningProcessors
                     bmpBarcode.DisposeSf();
 
                     DelegateHelper.PostItemScannedCallback(item);
-
-                    try
-                    {
-                        if (!item.IsSetup)
-                        {
-                            using (var mngr = new AsyncFormManager<RetailerForm>("Enter voucher details"))
-                            {
-                                mngr.Result = item;
-                                mngr.RunWait();
-                                if (!item.IsSetup)
-                                    throw new ApplicationException("Cannot find barcode.");
-                            }
-                        }
-
-                        StateManager.Default.AddNewItem(item);
-                    }
-                    catch (Exception ex0)
-                    {
-                        item.State = StateManager.eState.Err;
-                        item.Message = ex0.Message;
-
-                        var scex = new ScanException(ex0, data)
-                        {
-                            SiteCode = siteCode,
-                            FilePath = fullFilePath
-                        };
-
-                        DelegateHelper.FireError(this, scex);
-                    }
+                    StateManager.Default.AddNewItem(item);
                 }
             });
         }

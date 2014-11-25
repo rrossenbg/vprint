@@ -18,6 +18,7 @@ namespace VPrinting.Documents
         public string Context { get; set; }
         public string TemplateName { get; set; }
         public Point MoveAll { get; set; }
+        public object Tag { get; set; }
 
         [XmlIgnore]
         public abstract List<IPrintLine> PrintLines { get; }
@@ -45,8 +46,8 @@ namespace VPrinting.Documents
             m_Output = m_Generator.GenerateOutput(pr);
         }
 
-        public abstract void PrintVoucher(string printerName, string printDocName, int length, string docInitialization, IList<IPrintLine> lines);
+        //public abstract void PrintVoucher(string printerName, string printDocName, int length, string docInitialization, IList<IPrintLine> lines);
 
-        public abstract void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, List<IList<IPrintLine>> multilines);
+        public abstract void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, Queue<IList<IPrintLine>> multilines);
     }
 }

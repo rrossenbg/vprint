@@ -96,7 +96,7 @@ namespace VPrinting
         {
             return (char*)Marshal.StringToHGlobalAnsi(str).ToPointer();
         }
-        
+
         /// <summary>
         /// (T)obj;
         /// </summary>
@@ -569,7 +569,7 @@ namespace VPrinting
         public static string ToUniqueFileName(this string name)
         {
             return
-                string.Concat(Path.GetFileNameWithoutExtension(name).Unique().Limit(MAX_FILE_LENGTH), 
+                string.Concat(Path.GetFileNameWithoutExtension(name).Unique().Limit(MAX_FILE_LENGTH),
                 Path.GetExtension(name));
         }
 
@@ -688,6 +688,31 @@ namespace VPrinting
             int x = int.Parse(ss[0].Trim());
             int y = int.Parse(ss[1].Trim());
             return new Point(x, y);
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static string ToStr<T>(this IList<T> list, char splitter = ';')
+        {
+            if (list == null || list.Count == 0)
+                return string.Empty;
+
+            StringBuilder b = new StringBuilder();
+            foreach (T t in list)
+            {
+                b.Append(t.ToString());
+                b.Append(splitter);
+            }
+            return b.ToString();
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static IList<string> FromStr(this string str, char separator = ';')
+        {
+            if (string.IsNullOrWhiteSpace(str))
+                return new string[0];
+
+            var strs = str.Split(new char[] { separator }, StringSplitOptions.RemoveEmptyEntries);
+            return strs;
         }
     }
 }

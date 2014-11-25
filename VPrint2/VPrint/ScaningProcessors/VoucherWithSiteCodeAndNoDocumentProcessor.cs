@@ -202,6 +202,7 @@ namespace VPrinting.ScaningProcessors
                                 mngr.RunWait();
                                 if (!item.IsSetup)
                                     throw new ApplicationException("Cannot find barcode.");
+                                item.State = StateManager.eState.OK;
                             }
                         }
 

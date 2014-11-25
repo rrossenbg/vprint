@@ -1,5 +1,9 @@
-﻿//#define SPAIN
-#define PORTUGAL
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+/***************************************************/
+
+#define SPAIN
+//#define PORTUGAL
 
 using System;
 using System.Collections;

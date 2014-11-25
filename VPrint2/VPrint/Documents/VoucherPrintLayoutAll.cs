@@ -14,6 +14,7 @@ namespace VPrinting.Documents
 
         public int FormLength {get;set;}
         public Point MoveAll { get; set; }
+        public object Tag { get; set; }
         
         public List<IPrintLine> PrintLines
         {
@@ -65,7 +66,7 @@ namespace VPrinting.Documents
             PrinterQueue.AddJob(printName, printDocName, docText);
         }
 
-        public void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, List<IList<IPrintLine>> multilines)
+        public void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, Queue<IList<IPrintLine>> multilines)
         {
             throw new NotImplementedException();
         }

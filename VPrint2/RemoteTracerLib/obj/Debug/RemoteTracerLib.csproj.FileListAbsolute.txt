@@ -7,3 +7,4 @@ C:\PROJECTS\VPrint2\RemoteTracerLib\bin\Debug\RemoteTracerLib.dll
 C:\PROJECTS\VPrint2\RemoteTracerLib\bin\Debug\RemoteTracerLib.pdb
 C:\PROJECTS\VPrint2\RemoteTracerLib\obj\Debug\RemoteTracerLib.dll
 C:\PROJECTS\VPrint2\RemoteTracerLib\obj\Debug\RemoteTracerLib.pdb
+C:\PROJECTS\VPrint2\RemoteTracerLib\obj\Debug\RemoteTracerLib.csprojResolveAssemblyReference.cache

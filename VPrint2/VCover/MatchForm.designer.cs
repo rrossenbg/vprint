@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.loadImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.addHiddenAreaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,8 +37,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.matchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vScroll = new System.Windows.Forms.VScrollBar();
@@ -50,8 +46,6 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadImageToolStripMenuItem,
-            this.loadTemplateToolStripMenuItem,
             this.createTemplateToolStripMenuItem,
             this.toolStripMenuItem2,
             this.addHiddenAreaToolStripMenuItem,
@@ -59,26 +53,10 @@
             this.toolStripMenuItem1,
             this.matchToolStripMenuItem,
             this.saveMatchToolStripMenuItem,
-            this.testToolStripMenuItem,
-            this.clearMatchToolStripMenuItem,
             this.toolStripMenuItem3,
             this.closeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 264);
-            // 
-            // loadImageToolStripMenuItem
-            // 
-            this.loadImageToolStripMenuItem.Name = "loadImageToolStripMenuItem";
-            this.loadImageToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.loadImageToolStripMenuItem.Text = "Load &Image";
-            this.loadImageToolStripMenuItem.Click += new System.EventHandler(this.LoadImage_MenuItem_Click);
-            // 
-            // loadTemplateToolStripMenuItem
-            // 
-            this.loadTemplateToolStripMenuItem.Name = "loadTemplateToolStripMenuItem";
-            this.loadTemplateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.loadTemplateToolStripMenuItem.Text = "Load &Template";
-            this.loadTemplateToolStripMenuItem.Click += new System.EventHandler(this.LoadTemplate_MenuItem_Click);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 176);
             // 
             // createTemplateToolStripMenuItem
             // 
@@ -125,20 +103,6 @@
             this.saveMatchToolStripMenuItem.Text = "&Save Match";
             this.saveMatchToolStripMenuItem.Click += new System.EventHandler(this.SaveMatchMenuItem_Click);
             // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.testToolStripMenuItem.Text = "&Test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.TestMenuItem_Click);
-            // 
-            // clearMatchToolStripMenuItem
-            // 
-            this.clearMatchToolStripMenuItem.Name = "clearMatchToolStripMenuItem";
-            this.clearMatchToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.clearMatchToolStripMenuItem.Text = "C&lear Match";
-            this.clearMatchToolStripMenuItem.Click += new System.EventHandler(this.ClearMatchMenuItem_Click);
-            // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
@@ -177,8 +141,6 @@
         #endregion
 
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem loadImageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadTemplateToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem matchToolStripMenuItem;
         private System.Windows.Forms.VScrollBar vScroll;
@@ -189,8 +151,6 @@
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveMatchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createTemplateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearMatchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
 
     }
 }

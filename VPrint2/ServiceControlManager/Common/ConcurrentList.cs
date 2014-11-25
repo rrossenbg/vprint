@@ -3,7 +3,6 @@
 /***************************************************/
 
 using System.Collections.Generic;
-using System.Threading;
 
 namespace FintraxServiceManager.Common
 {
@@ -11,53 +10,22 @@ namespace FintraxServiceManager.Common
     {
         public new void Add(T t)
         {
-            bool flag = false;
-            try
-            {
-                Monitor.Enter(this, ref flag);
+            lock (this)
                 base.Add(t);
-            }
-            finally
-            {
-                if (flag)
-                {
-                    Monitor.Exit(this);
-                }
-            }
         }
+
         public new bool Contains(T t)
         {
-            bool flag = false;
-            bool result;
-            try
+            lock (this)
             {
-                Monitor.Enter(this, ref flag);
-                result = base.Contains(t);
+                return base.Contains(t);
             }
-            finally
-            {
-                if (flag)
-                {
-                    Monitor.Exit(this);
-                }
-            }
-            return result;
         }
+
         public new void Clear()
         {
-            bool flag = false;
-            try
-            {
-                Monitor.Enter(this, ref flag);
+            lock (this)
                 base.Clear();
-            }
-            finally
-            {
-                if (flag)
-                {
-                    Monitor.Exit(this);
-                }
-            }
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using CPrint2.Common;
 using CPrint2.Data;
 using CPrint2.ScanServiceRef;
+using VPrinting;
 
 namespace CPrint2
 {

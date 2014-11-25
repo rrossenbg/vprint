@@ -79,7 +79,7 @@ namespace VPrinting.Documents
             }
         }
 
-        public override void PrintVoucher(string printerName, string printDocName, int length, string docInitialization, IList<IPrintLine> lines)
+        public override void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, Queue<IList<IPrintLine>> multilines)
         {
             var ma = m_BodyRegEx.Match(m_Output);
 
@@ -107,11 +107,6 @@ namespace VPrinting.Documents
 
             var docText = builder.ToString();
             PrinterQueue.AddJob(printerName, printDocName, docText);
-        }
-
-        public override void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, List<IList<IPrintLine>> multilines)
-        {
-            throw new NotImplementedException();
         }
 
         public override string ToString()

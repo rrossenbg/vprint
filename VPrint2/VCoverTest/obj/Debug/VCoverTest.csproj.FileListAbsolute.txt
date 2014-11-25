@@ -7,7 +7,6 @@ C:\PROJECTS\VPrint2\VCoverTest\bin\Debug\PTF.Common.dll
 C:\PROJECTS\VPrint2\VCoverTest\bin\Debug\Emgu.CV.dll
 C:\PROJECTS\VPrint2\VCoverTest\bin\Debug\Emgu.Util.dll
 C:\PROJECTS\VPrint2\VCoverTest\bin\Debug\BizTalkFiles.pdb
-C:\PROJECTS\VPrint2\VCoverTest\bin\Debug\VCover.pdb
 C:\PROJECTS\VPrint2\VCoverTest\bin\Debug\VCover.Common.pdb
 C:\PROJECTS\VPrint2\VCoverTest\bin\Debug\PTF.Common.pdb
 C:\PROJECTS\VPrint2\VCoverTest\bin\Debug\Emgu.CV.pdb
@@ -18,3 +17,4 @@ C:\PROJECTS\VPrint2\VCoverTest\obj\Debug\VCoverTest.csprojResolveAssemblyReferen
 C:\PROJECTS\VPrint2\VCoverTest\obj\Debug\VCoverTest.dll
 C:\PROJECTS\VPrint2\VCoverTest\obj\Debug\VCoverTest.pdb
 C:\PROJECTS\VPrint2\VCoverTest\bin\Debug\Ionic.Zip.dll
+C:\PROJECTS\VPrint2\VCoverTest\bin\Debug\VCover.pdb

@@ -86,27 +86,8 @@ namespace VPrinting.Documents
                 m_PrintLines.AddRange(voucherPrintObj.Barcodes);
         }
 
-        public override void PrintVoucher(string printerName, string printDocName,
-            int length, string docInitialization, IList<IPrintLine> lines)
-        {
-            using (var doc = new PrintDocument())
-            {
-                doc.DocumentName = printDocName;
-                doc.PrintController = new StandardPrintController();
-                doc.PrinterSettings.PrinterName = printerName;
-                doc.DefaultPageSettings.PaperSize =
-                    new PaperSize("CustomPaper", PageSize.Width, PageSize.Height);
-                doc.DefaultPageSettings.Landscape = Landscape;
-
-                DelegateHelper.m_printLines = lines;
-                doc.PrintPage += DelegateHelper.CreatePrintPageEventHandler;
-                doc.Print();
-                doc.PrintPage -= DelegateHelper.CreatePrintPageEventHandler;
-            }
-        }
-
         public override void PrintVouchers(string printerName, string printDocName, 
-            int length, string docInitialization, List<IList<IPrintLine>> multilines)
+            int length, string docInitialization, Queue<IList<IPrintLine>> multilines)
         {
             using (var doc = new PrintDocument())
             {
@@ -117,7 +98,7 @@ namespace VPrinting.Documents
                     new PaperSize("CustomPaper", PageSize.Width, PageSize.Height);
                 doc.DefaultPageSettings.Landscape = Landscape;
 
-                DelegateHelper.m_multyPrintLines = multilines;
+                this.Tag = multilines;
                 doc.PrintPage += DelegateHelper.CreatePrintPageMultyEventHandler;
                 doc.Print();
                 doc.PrintPage -= DelegateHelper.CreatePrintPageMultyEventHandler;

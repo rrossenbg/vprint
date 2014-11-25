@@ -66,6 +66,7 @@ namespace VPrinting.Forms
 
                     switch (tabControl1.SelectedIndex)
                     {
+                        #region COUNTRY - RETAILER - VOUCHER
                         case 0:
                             {
                                 if (cbCountryID.SelectedItem == null)
@@ -99,11 +100,13 @@ namespace VPrinting.Forms
                                 }
                                 break;
                             }
+                        #endregion
+                        #region BARCODE
                         case 1:
                             {
                                 if (tbBarcode.Text.IsNullOrWhiteSpace())
                                 {
-                                    err.SetError(tbBarcode, "Invalid barcode");
+                                    err.SetError(tbBarcode, "Invalid or missing barcode");
                                     e.Cancel = true;
                                 }
                                 else
@@ -127,11 +130,51 @@ namespace VPrinting.Forms
                                             ServiceDataAccess.Instance.ValidateVoucherThrow(data.CountryID, (cbSSDS.Text == "10"), data.RetailerID, data.VoucherID,
                                                 StateManager.Default.VoucherMustExist);
 
+                                        Data.CountryID = data.CountryID;
+                                        Data.RetailerID = data.RetailerID;
+                                        Data.VoucherID = data.VoucherID;
+                                        Data.Barcode = data.Barcode;
+
                                         timer1.Stop();
                                     }
                                 }
                                 break;
                             }
+                        #endregion
+                        #region SITECODE
+                        case 2:
+                            {
+                                if (txtSitecode.Text.IsNullOrWhiteSpace())
+                                {
+                                    err.SetError(tbBarcode, "Invalid or missing sitecode");
+                                    e.Cancel = true;
+                                }
+                                else
+                                {
+                                    string site;
+                                    int location;
+                                    if (!VPrinting.Common.CommonTools.ParseSiteCode(txtSitecode.Text, out site, out location))
+                                        throw new Exception("Wrong sitecode");
+
+                                    var voucher = ServiceDataAccess.Instance.FindVoucherTRSBySiteCode(site, location);
+
+                                    if (voucher == null || !voucher.IsValid)
+                                    {
+                                        err.SetError(tbBarcode, "Invalid sitecode");
+                                        e.Cancel = true;
+                                    }
+                                    else
+                                    {
+                                        Data.CountryID = voucher.IsoId;
+                                        Data.RetailerID = voucher.RetailerId;
+                                        Data.VoucherID = voucher.VoucherId;
+
+                                        timer1.Stop();
+                                    }
+                                }
+                                break;
+                            }
+                        #endregion
                     }
                 }
             }
@@ -152,6 +195,7 @@ namespace VPrinting.Forms
             err.SetError(tbRetailerId, message);
             err.SetError(tbVoucherId, message);
             err.SetError(tbBarcode, message);
+            err.SetError(txtSitecode, message);
         }
 
         private void Show_Click(object sender, EventArgs e)
