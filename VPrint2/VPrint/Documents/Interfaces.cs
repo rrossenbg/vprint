@@ -69,8 +69,8 @@ namespace VPrinting
         void Clear();
         void DataBind(IDataProvider pr, string voucherNo, int voucher, bool printDemo);
         void InitPrinter(string printDoc);
-        void PrintVoucher(string printerName, string printDocName, int length, string docInitialization, IList<IPrintLine> lines);
-        void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, List<IList<IPrintLine>> multilines);
+        void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, Queue<IList<IPrintLine>> multilines);
+        object Tag { get; set; }
     }
 
     /// <summary>

@@ -39,7 +39,7 @@ namespace FintraxServiceManager
 		String strExpression = "count(/Services/Service)";
 		System.Timers.Timer timer = new System.Timers.Timer(30000);
 		System.Diagnostics.EventLog eventLog = new EventLog();
-		string logPath = System.Configuration.ConfigurationSettings.AppSettings["LogPath"].ToString();
+		string logPath = Convert.ToString( ConfigurationSettings.AppSettings["LogPath"]);
 		TypeParamCollection typeParamColl = new TypeParamCollection();
 
 		public FintraxServiceManager()
@@ -50,7 +50,7 @@ namespace FintraxServiceManager
 			this.timer.Elapsed +=new System.Timers.ElapsedEventHandler(timer_Elapsed);
 			CreateEventSource();
 			eventLog.Source = "FintraxServiceManager";
-			serviceFile = System.Configuration.ConfigurationSettings.AppSettings["ServiceFilePath"].ToString();
+			serviceFile = Convert.ToString( ConfigurationSettings.AppSettings["ServiceFilePath"]);
 			eventLog.WriteEntry("Service file path:" + serviceFile);
 			docNav = new XPathDocument(serviceFile);
 		}

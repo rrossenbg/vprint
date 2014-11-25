@@ -50,6 +50,7 @@ namespace VPrinting.Documents
         public PrintLine Line3 { get; set; }
         public PrintLine VATNumber { get; set; }
         public Point MoveAll { get; set; }
+        public object Tag { get; set; }
 
         [XmlIgnore]
         public virtual List<IPrintLine> PrintLines
@@ -211,7 +212,7 @@ namespace VPrinting.Documents
             return b.ToString();
         }
 
-        public void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, List<IList<IPrintLine>> multilines)
+        public void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, Queue<IList<IPrintLine>> multilines)
         {
             throw new NotImplementedException();
         }

@@ -38,6 +38,8 @@ namespace VCover
                         Thread.CurrentThread.CurrentCulture =
                         Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-us");
 
+                        StartUp.TryToAddAppSafe();
+
                         Application.EnableVisualStyles();
                         Application.SetCompatibleTextRenderingDefault(false);
 
@@ -45,23 +47,27 @@ namespace VCover
                         Application.ThreadException += new ThreadExceptionEventHandler(OnThreadException);
 
                         var ctn = new AppContext();
-                        ctn.NewInFileEvent += new EventHandler<ValueEventArgs<string>>(NewCommandFileEvent);
+                        ctn.NewInFileEvent += new EventHandler<ValueEventArgs<Guid, string>>(NewCommandFileEvent);
                         ctn.Started += new EventHandler(ctn_Started);
 
                         StateSaver.Error += new ThreadExceptionEventHandler(OnThreadException);
                         AppContext.Default.Error += new ThreadExceptionEventHandler(OnThreadException);
 
-                        StateSaver.Default.Path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "CPrint.dat");
-
+                        StateSaver.Default.Path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "VCover.dat");
                         StateSaver.Default.Load();
 
+                        TemplateMatcher.Path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TemplateMatcher.dat");
+                        TemplateMatcher.Load();
+                        
                         NamedPipes.ReceivedData += new ReceivedDataDelegate(NamedPipes_ReceivedData);
-                        NamedPipes.StartServer("PIPE1");
+                        NamedPipes.Error += new ThreadExceptionEventHandler(OnThreadException);
+                        NamedPipes.StartServer("VCOVER");
                         Application.Run(ctn);
                     }
                     finally
                     {
                         StateSaver.Default.Save();
+                        TemplateMatcher.Save();
                     }
                 }
                 else
@@ -72,43 +78,29 @@ namespace VCover
             }
         }
 
-        static string NamedPipes_ReceivedData(string data)
-        {
-            if (string.IsNullOrWhiteSpace(data))
-                return null;
-
-            if (data.Contains("Start"))
-            {
-                //Start
-                var strings = data.Split(';');
-                var id = Guid.Parse(strings[1]);
-                var filePath = strings[2];
-
-                AppContext.Default.NewImage(filePath);
-                return null;
-            }
-
-            //Read
-            var name = data;
-            return string.Empty;
-        }
-
         static void ctn_Started(object sender, EventArgs e)
         {
             new DirectoryInfo(Config.OUT_FOLDER).ClearSafe();
         }
 
-        private static void NewCommandFileEvent(object sender, ValueEventArgs<string> e)
+        private static void NewCommandFileEvent(object sender, ValueEventArgs<Guid, string> e)
         {
             Task.Factory.StartNew((o) =>
             {
-                FileInfo file = new FileInfo((string)o);
+                var r = (ValueEventArgs<Guid, string>)o;
+                FileInfo file = new FileInfo(r.Value2);
                 try
                 {
                     using (var matcher = new TemplateMatcher(file.FullName))
                     {
                         if (!matcher.MatchTemplate())
-                            MatchForm.Run(file.FullName);
+                        {
+                            if (!MatchForm.Run(file.FullName))
+                            {
+                                AppContext.Default.SaveResult(r.Value1, "");
+                                return;
+                            }
+                        }
 
                         if (matcher.MatchTemplate())
                         {
@@ -116,10 +108,12 @@ namespace VCover
                             @out.EnsureDirectory();
 
                             var imgcc = @out.CombineFileName(string.Concat(file.GetFileNameWithoutExtension(), "_ccimg", file.Extension));
-                            matcher.PixellateHiddenAreas(imgcc.FullName);
+                            matcher.PixellateHiddenAreasAndSaveUnderArea(imgcc.FullName);
 
                             var img = @out.CombineFileName(string.Concat(file.GetFileNameWithoutExtension(), "_cc", file.Extension));
-                            matcher.Save(img.FullName);
+                            matcher.SaveResult(img.FullName);
+
+                            AppContext.Default.SaveResult(r.Value1, imgcc.FullName, img.FullName);
                         }
                         else
                         {
@@ -131,7 +125,21 @@ namespace VCover
                 {
                     AppContext.Default.FireError(ex);
                 }
-            }, e.Value, TaskCreationOptions.LongRunning);
+            }, e, TaskCreationOptions.LongRunning);
+        }
+
+        private static string NamedPipes_ReceivedData(string data)
+        {
+            if (string.IsNullOrWhiteSpace(data))
+                return string.Empty;
+
+            //Start
+            var strings = data.FromStr();
+            var id = Guid.Parse(strings[0]);
+            var filePath = strings[1];
+
+            AppContext.Default.NewImage(id, filePath);
+            return string.Empty;
         }
 
         public static void OnThreadException(object sender, ThreadExceptionEventArgs e)

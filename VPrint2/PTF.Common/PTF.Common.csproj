@@ -36,6 +36,10 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ionic.Zip">
       <HintPath>..\Libraries\Ionic.Zip.dll</HintPath>
@@ -90,12 +94,15 @@
     <Compile Include="Extensions\WinFormsEx.cs" />
     <Compile Include="Loggers\FileLogger.cs" />
     <Compile Include="Pdf\CommonClasses.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateSaver.cs" />
     <Compile Include="Threading\~CycleWorkerBase.cs" />
     <Compile Include="Tools\CommTools.cs" />
     <Compile Include="CString.cs" />
     <Compile Include="Tools\EmailSender.cs" />
+    <Compile Include="Tools\GlobalNamedEvent.cs" />
+    <Compile Include="Tools\ScopeLocker.cs" />
     <Compile Include="Tools\ZipFileAccess.cs" />
     <Compile Include="Tools\FontWrapper.cs" />
     <Compile Include="WaitObject.cs" />

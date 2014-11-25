@@ -5,10 +5,10 @@
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{2E523000-5392-49FD-B99D-D605748CE537}</ProjectGuid>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>%24/TRS – Voucher Printing/VPrint2/ServiceControlManager</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://192.168.53.59:8080/tfs/it%2520dev%2520projects</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
@@ -119,16 +119,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CircularWorker.cs" />
-    <Compile Include="ClassExtensions\Ex.cs" />
-    <Compile Include="Common\ConcurrentList.cs" />
-    <Compile Include="Common\ConcurrentSortedList.cs" />
-    <Compile Include="Common\CString.cs" />
-    <Compile Include="EntryEventArgs.cs" />
+    <Compile Include="CircularWorker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassExtensions\Ex.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\ConcurrentList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\ConcurrentSortedList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\CString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EntryEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FintraxServiceManager.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -173,6 +184,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

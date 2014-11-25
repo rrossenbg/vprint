@@ -85,6 +85,9 @@ namespace VPrinting
 
             var list = StateSaver.Default.Get<List<BarcodeConfig>>(Strings.LIST_OF_BARCODECONFIGS);
             m_ScheduledWorker.RunItem += new EventHandler<ValueEventArgs<StateManager.Item>>(ScheduledWorker_RunItem);
+
+            var useCover = StateSaver.Default.Get<bool>(Strings.USE_VCOVER, false);
+            btnCCCover.Set(useCover);
         }
 
         #region StateManager & ImageIconControl HANDLERS        

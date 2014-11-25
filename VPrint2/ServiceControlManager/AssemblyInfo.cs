@@ -1,3 +1,7 @@
+/***************************************************
+//  Copyright (c) Premium Tax Free 2013
+/***************************************************/
+
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -56,4 +60,3 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyKeyFile("")]
 [assembly: AssemblyKeyName("")]
-[assembly: ObfuscateAssemblyAttribute(true, StripAfterObfuscation = true)]

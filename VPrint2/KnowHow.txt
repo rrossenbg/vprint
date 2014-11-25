@@ -13,3 +13,14 @@ http://192.168.53.144/Reports/Pages/Report.aspx?ItemPath=%2fNota+Debito%2fNota+D
 ddValue - countryId
 
 
+http://192.168.53.143/VPrint/
+
+
+Rosen Rusev
+Neil Kenny
+if you go to https://refund.premiertaxfree.com you can log in using the test user.
+14:49
+username: testuser@ptfportal.com
+14:50
+password: Refund123
+14:50

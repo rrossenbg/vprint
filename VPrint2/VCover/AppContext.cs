@@ -5,6 +5,10 @@ using System.Threading;
 using System.Windows.Forms;
 using VPrinting;
 using VCover.Properties;
+using System.Collections.Generic;
+using System.Collections;
+using VPrinting.Communication;
+using System.Text;
 
 namespace VCover
 {
@@ -15,7 +19,7 @@ namespace VCover
         private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_lockMenuItem, m_exitMenuItem;
         private readonly NotifyIcon m_notifyIcon = new NotifyIcon();
  
-        public event EventHandler<ValueEventArgs<string>> NewInFileEvent;
+        public event EventHandler<ValueEventArgs<Guid, string>> NewInFileEvent;
         public event EventHandler Started;
         public event EventHandler Stopped;
         public event ThreadExceptionEventHandler Error;
@@ -80,16 +84,24 @@ namespace VCover
                 Error(this, new ThreadExceptionEventArgs(ex));
         }
 
-        public void NewImage(string filePath)
+        public void NewImage(Guid id, string filePath)
         {
             if (NewInFileEvent != null)
-                NewInFileEvent(this, new ValueEventArgs<string>(filePath));
+                NewInFileEvent(this, new ValueEventArgs<Guid, string>(id, filePath));
         }
 
-        private void CommandWatcher_NewInFileCreated(object sender, FileSystemEventArgs e)
+        public void SaveResult(Guid id, params string[] fileList)
         {
-            if (NewInFileEvent != null)
-                NewInFileEvent(this, new ValueEventArgs<string>(e.FullPath));
+            StringBuilder b = new StringBuilder();
+            b.Append(id.ToString());
+            b.Append(";");
+
+            foreach (var st in fileList)
+            {
+                b.Append(st);
+                b.Append(";");
+            }
+            NamedPipes.SendMessage("VPRINT", b.ToString());
         }
 
         private void ShowHideMainForm_Click(object sender, EventArgs e)

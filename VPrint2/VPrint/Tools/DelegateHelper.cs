@@ -23,9 +23,6 @@ namespace VPrinting.Tools
         private const string DONEEVENTNAME = "DelegateHelper_Done";
         public static event ThreadExceptionEventHandler Error;
 
-        public static IList<IPrintLine> m_printLines;
-        public static List<IList<IPrintLine>> m_multyPrintLines;
-
         /// <summary>
         /// 
         /// </summary>
@@ -35,66 +32,66 @@ namespace VPrinting.Tools
         /// EscapePrintDocument doc = sender as EscapePrintDocument;
         /// EscapePrintHelper hlp = new EscapePrintHelper(e.Graphics);
         /// </example>
-        public static void CreatePrintPageEventHandler(object sender, PrintPageEventArgs e)
-        {
-            IVoucherLayout layout = (IVoucherLayout)CacheManager.Instance.Table[Strings.IVoucherLayout];
+        //public static void CreatePrintPageEventHandler(object sender, PrintPageEventArgs e)
+        //{
+        //    IVoucherLayout layout = (IVoucherLayout)CacheManager.Instance.Table[Strings.IVoucherLayout];
+        //    IList<IPrintLine> printLines = (IList<IPrintLine>)layout.Tag;
 
-            Point moveAll = (layout != null) ? layout.MoveAll : Point.Empty;
+        //    Point moveAll = (layout != null) ? layout.MoveAll : Point.Empty;
 
-            using (var brush = new SolidBrush(Color.Black))
-            {
-                foreach (IPrintLine line in m_printLines)
-                {
-                    if (line == null)
-                        continue;
+        //    using (var brush = new SolidBrush(Color.Black))
+        //    {
+        //        foreach (IPrintLine line in printLines)
+        //        {
+        //            if (line == null)
+        //                continue;
 
-                    GPrintLine gline = line as GPrintLine;
-                    if (gline != null && !gline.Text.IsNullOrEmpty() && (!gline.IsEmpty()))
-                    {
-                        gline.Print(e, brush, moveAll);
-                    }
-                    else
-                    {
-                        BarPrintLine bline = line as BarPrintLine;
-                        if (bline != null && !bline.IsEmpty())
-                        {
-                            bline.Print(e, brush, moveAll);
-                        }
-                        else
-                        {
-                            GPrintLineUnit inline = line as GPrintLineUnit;
-                            if (inline != null && !inline.Text.IsNullOrEmpty() && (!inline.IsEmpty()))
-                            {
-                                inline.Print(e, brush, moveAll);
-                            }
-                            else
-                            {
-                                BarPrintLineUnit inbline = line as BarPrintLineUnit;
-                                if (inbline != null && !inbline.IsEmpty())
-                                {
-                                    inbline.Print(e, brush, moveAll);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+        //            GPrintLine gline = line as GPrintLine;
+        //            if (gline != null && !gline.Text.IsNullOrEmpty() && (!gline.IsEmpty()))
+        //            {
+        //                gline.Print(e, brush, moveAll);
+        //            }
+        //            else
+        //            {
+        //                BarPrintLine bline = line as BarPrintLine;
+        //                if (bline != null && !bline.IsEmpty())
+        //                {
+        //                    bline.Print(e, brush, moveAll);
+        //                }
+        //                else
+        //                {
+        //                    GPrintLineUnit inline = line as GPrintLineUnit;
+        //                    if (inline != null && !inline.Text.IsNullOrEmpty() && (!inline.IsEmpty()))
+        //                    {
+        //                        inline.Print(e, brush, moveAll);
+        //                    }
+        //                    else
+        //                    {
+        //                        BarPrintLineUnit inbline = line as BarPrintLineUnit;
+        //                        if (inbline != null && !inbline.IsEmpty())
+        //                        {
+        //                            inbline.Print(e, brush, moveAll);
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
 
-            e.HasMorePages = false;
-        }
+        //    e.HasMorePages = false;
+        //}
 
         public static void CreatePrintPageMultyEventHandler(object sender, PrintPageEventArgs e)
         {
             IVoucherLayout layout = (IVoucherLayout)CacheManager.Instance.Table[Strings.IVoucherLayout];
+            Queue<IList<IPrintLine>> multyPrintLines = (Queue<IList<IPrintLine>>)layout.Tag;
 
             Point moveAll = (layout != null) ? layout.MoveAll : Point.Empty;
-
-            var index = Convert.ToInt32(CacheManager.Instance.Table[Strings.CurrentPrintedPage]);
 
             try
             {
 
-                var currentPage = m_multyPrintLines[index];
+                IList<IPrintLine> currentPage = multyPrintLines.Dequeue();
 
                 using (var brush = new SolidBrush(Color.Black))
                 {
@@ -137,14 +134,7 @@ namespace VPrinting.Tools
             }
             finally
             {
-                bool hasmore = ((index) < (m_multyPrintLines.Count - 1));
-
-                if (hasmore)
-                    CacheManager.Instance.Table[Strings.CurrentPrintedPage] = index + 1;
-                else
-                    CacheManager.Instance.Table[Strings.CurrentPrintedPage] = 0;
-
-                e.HasMorePages = hasmore;
+                e.HasMorePages = multyPrintLines.Count != 0;
             }
         }
 

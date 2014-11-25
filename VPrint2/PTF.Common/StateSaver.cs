@@ -88,9 +88,10 @@ namespace VPrinting.Common
             return false;
         }
 
-        public void Set(string key, object data)
+        public T Set<T>(string key, T data)
         {
             m_Table[key] = data;
+            return data;
         }
 
         public void Remove(string key)

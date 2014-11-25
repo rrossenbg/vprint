@@ -32,16 +32,6 @@ namespace ReceivingServiceLib
 
         #region SCAN
 
-        private class MyServiceFaultProvider : IExceptionToFaultConverter
-        {
-            public object ConvertExceptionToFaultDetail(Exception error)
-            {
-                if (error is InvalidOperationException)
-                    return new InvalidOperationFault(error as InvalidOperationException);
-                return null;
-            }
-        }
-
         public static readonly SynchronizedCollection<string> FileLocks = new SynchronizedCollection<string>();
         private static readonly ConcurrentDictionary<int, byte[]> ByteBuffers = new ConcurrentDictionary<int, byte[]>();
 
@@ -1120,5 +1110,15 @@ namespace ReceivingServiceLib
         }
 
         #endregion
+    }
+
+    public class MyServiceFaultProvider : IExceptionToFaultConverter
+    {
+        public object ConvertExceptionToFaultDetail(Exception error)
+        {
+            if (error is InvalidOperationException)
+                return new InvalidOperationFault(error as InvalidOperationException);
+            return null;
+        }
     }
 }

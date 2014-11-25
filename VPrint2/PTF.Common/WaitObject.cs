@@ -7,11 +7,13 @@ namespace VPrinting
     {
         private readonly ManualResetEventSlim m_Done = new ManualResetEventSlim(false);
 
+        public Guid Key { get; private set; }
         public object Value { get; private set; }
         public Exception Err { get; set; }
 
         public WaitObject(object value)
         {
+            Key = Guid.NewGuid();
             Value = value;
         }
 

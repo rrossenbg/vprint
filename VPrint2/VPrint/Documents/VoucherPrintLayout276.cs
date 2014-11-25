@@ -40,6 +40,7 @@ namespace VPrinting.Documents
         public GPrintLine VoucherID { get; set; }
         public GPrintLine VATNumber { get; set; }
         public GPrintLine ShopName { get; set; }
+        public object Tag { get; set; }
 
         public bool ShowRetailerVatRate
         {
@@ -188,7 +189,7 @@ namespace VPrinting.Documents
             return b.ToString();
         }
 
-        public void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, List<IList<IPrintLine>> multilines)
+        public void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, Queue<IList<IPrintLine>> multilines)
         {
             throw new NotImplementedException();
         }

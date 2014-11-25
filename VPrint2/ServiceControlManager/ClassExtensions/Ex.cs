@@ -16,51 +16,62 @@ namespace FintraxServiceManager
         [TargetedPatchingOptOut("na")]
         public static void WriteEntrySf(this EventLog log, string message)
         {
-            if (log != null && Monitor.TryEnter(log, 1000))
+            if (log != null)
             {
-                try
+                if (Monitor.TryEnter(log, 1000))
                 {
-                    log.WriteEntry(message);
-                }
-                catch
-                {
-                }
-                finally
-                {
-                    Monitor.Exit(log);
+                    try
+                    {
+                        log.WriteEntry(message);
+                    }
+                    catch
+                    {
+                        // do nothing
+                    }
+                    finally
+                    {
+                        Monitor.Exit(log);
+                    }
                 }
             }
         }
+
         [TargetedPatchingOptOut("na")]
         public static void WriteEntrySf(this EventLog log, string message, EventLogEntryType type)
         {
-            if (log != null && Monitor.TryEnter(log, 1000))
+            if (log != null)
             {
-                try
+                if (Monitor.TryEnter(log, 1000))
                 {
-                    log.WriteEntry(message, type);
-                }
-                catch
-                {
-                }
-                finally
-                {
-                    Monitor.Exit(log);
+                    try
+                    {
+                        log.WriteEntry(message, type);
+                    }
+                    catch
+                    {
+                        // do nothing
+                    }
+                    finally
+                    {
+                        Monitor.Exit(log);
+                    }
                 }
             }
         }
+
         [TargetedPatchingOptOut("na")]
         public static CString ToCString<T>(this T obj)
         {
-            return Convert.ToString(obj);
+            CString cs = Convert.ToString(obj);
+            return cs;
         }
+
         [TargetedPatchingOptOut("na")]
         public static string GetFolder(this string path)
         {
             if (string.IsNullOrWhiteSpace(path))
-            {
                 throw new ArgumentException("path");
-            }
+
             return Path.GetDirectoryName(path);
         }
     }

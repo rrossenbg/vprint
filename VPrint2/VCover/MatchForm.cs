@@ -3,11 +3,9 @@
 /***************************************************/
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,8 +13,6 @@ using Emgu.CV;
 using Emgu.CV.Structure;
 using Microsoft.VisualBasic;
 using VCover.Common;
-using VPrinting;
-using VCover.Data;
 
 namespace VCover
 {
@@ -24,6 +20,7 @@ namespace VCover
     {
         public static ThreadExceptionEventHandler Error;
 
+        private static volatile bool m_Result = false;
         private MatchTemplate m_MatchTemplate;
         private bool m_bDrag, m_bAddToHiddenArea, m_bCreateTemplate;
         private Point m_StartScreen, m_Start;
@@ -110,7 +107,7 @@ namespace VCover
             this.MouseWheel += new MouseEventHandler(MatchForm_MouseWheel);
         }
 
-        public static void Run(string imageFullFileName)
+        public static bool Run(string imageFullFileName)
         {
             using (var done = new ManualResetEventSlim(false))
             {
@@ -131,6 +128,7 @@ namespace VCover
 
                 done.Wait();
             }
+            return m_Result;
         }
 
         private void AddHiddenAreaMenuItem_Click(object sender, EventArgs e)
@@ -155,6 +153,17 @@ namespace VCover
         private void ScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             Invalidate();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                m_Result = false;
+                this.Close();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -290,7 +299,6 @@ namespace VCover
 
         protected override void OnClosed(EventArgs e)
         {
-            using (MTemplate) ;
             base.OnClosed(e);
         }
 
@@ -300,34 +308,14 @@ namespace VCover
             Invalidate();
         }
 
-        private void ClearMatchMenuItem_Click(object sender, EventArgs e)
-        {
-            var img = MTemplate.Image.Copy();
-            MTemplate = new MatchTemplate();
-            MTemplate.Image = img;
-            Invalidate();
-        }
-
-        private void LoadImage_MenuItem_Click(object sender, EventArgs e)
-        {
-            using (var dlg = new OpenFileDialog())
-                if (dlg.ShowDialog(this) == DialogResult.OK)
-                    this.Image = new Image<Bgr, byte>(dlg.FileName);
-        }
-
-        private void LoadTemplate_MenuItem_Click(object sender, EventArgs e)
-        {
-            using (var dlg = new OpenFileDialog())
-                if (dlg.ShowDialog(this) == DialogResult.OK)
-                    this.Template = new Image<Bgr, byte>(dlg.FileName);
-        }        
-
         private void SaveMatchMenuItem_Click(object sender, EventArgs e)
         {
+            m_Result = true;
             TemplateMatcher.AddTemplate(MTemplate);
             //var xml = temp.FromObjectXml();
             //File.WriteAllText("C:\\test.xml", xml);
             MessageBox.Show("Match saved", Application.ProductName);
+            Close();
         }
 
         private void Match_MenuItem_Click(object sender, EventArgs e)
@@ -367,20 +355,42 @@ namespace VCover
             Close();
         }
 
-        private void TestMenuItem_Click(object sender, EventArgs e)
-        {
-            int id = 0;
+        //private void ClearMatchMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    var img = MTemplate.Image.Copy();
+        //    MTemplate = new MatchTemplate();
+        //    MTemplate.Image = img;
+        //    Invalidate();
+        //}
 
-            var strid = Interaction.InputBox("Db Id", Application.ProductName);
+        //private void LoadImage_MenuItem_Click(object sender, EventArgs e)
+        //{
+        //    using (var dlg = new OpenFileDialog())
+        //        if (dlg.ShowDialog(this) == DialogResult.OK)
+        //            this.Image = new Image<Bgr, byte>(dlg.FileName);
+        //}
 
-            if (int.TryParse(strid, out id))
-            {
-                using (MatchForm form = new MatchForm())
-                {
-                    form.MTemplate = this.MTemplate;
-                    form.Show();
-                }
-            }
-        }
+        //private void LoadTemplate_MenuItem_Click(object sender, EventArgs e)
+        //{
+        //    using (var dlg = new OpenFileDialog())
+        //        if (dlg.ShowDialog(this) == DialogResult.OK)
+        //            this.Template = new Image<Bgr, byte>(dlg.FileName);
+        //}        
+
+        //private void TestMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    int id = 0;
+
+        //    var strid = Interaction.InputBox("Db Id", Application.ProductName);
+
+        //    if (int.TryParse(strid, out id))
+        //    {
+        //        using (MatchForm form = new MatchForm())
+        //        {
+        //            form.MTemplate = this.MTemplate;
+        //            form.Show();
+        //        }
+        //    }
+        //}
     }
 }

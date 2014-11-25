@@ -6,19 +6,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 using Emgu.CV;
 using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
+using VPrinting;
+using VPrinting.Colections;
 
 namespace VCover.Common
 {
     public class TemplateMatcher : IDisposable
     {
+        public static ThreadExceptionEventHandler Error;
+
         private readonly static ArrayList ms_TemplateMatchers = ArrayList.Synchronized(new ArrayList());
-        private readonly static ArrayList ms_Templates = ArrayList.Synchronized(new ArrayList());
+        private static PriorityQueue<MatchTemplate> ms_TemplatesPriorityQueue = new PriorityQueue<MatchTemplate>();
+
         private readonly Image<Bgr, byte> m_source;
         private MatchTemplate m_template;
         private Rectangle m_match;
+
+        public static string Path { get; set; }
 
         public TemplateMatcher(string sourceFilePath)
         {
@@ -29,7 +39,7 @@ namespace VCover.Common
 
         public static void AddTemplate(MatchTemplate template)
         {
-            ms_Templates.Add(template);
+            ms_TemplatesPriorityQueue.Add(template);
         }
 
         public bool MatchTemplate(float threshold = 0.65f)
@@ -37,11 +47,7 @@ namespace VCover.Common
             //#if DEBUG
             //            Image<Bgr, byte> imageToShow = source.Copy();
             //#endif
-            MatchTemplate[] arr = new MatchTemplate[ms_Templates.Count];
-
-            ms_Templates.CopyTo(arr);
-
-            foreach (MatchTemplate template in arr)
+            foreach (MatchTemplate template in ms_TemplatesPriorityQueue)
             {
                 using (Image<Gray, float> result = m_source.MatchTemplate(template.Cover.Template, TM_TYPE.CV_TM_CCOEFF_NORMED))
                 {
@@ -60,6 +66,7 @@ namespace VCover.Common
                         //#if DEBUG
                         //                    imageToShow.Draw(match, new Bgr(Color.Red), 3);
                         //#endif
+                        ms_TemplatesPriorityQueue.Set(template);
                         return true;
                     }
                 }
@@ -91,7 +98,7 @@ namespace VCover.Common
             }
         }
 
-        public void PixellateHiddenAreas(string toFileName)
+        public void PixellateHiddenAreasAndSaveUnderArea(string underAreaFileName)
         {
             if (m_template == null)
                 throw new ArgumentNullException("m_template");
@@ -104,16 +111,59 @@ namespace VCover.Common
 
                 using (var result = m_source.Copy(r1))
                     //TODO:: create 1,2,3 file names
-                    result.Save(toFileName);
+                    result.Save(underAreaFileName);
 
                 m_source.Pixellate(r1);
                 //m_source.Pixellate(hidden.Rectangle);
             }
         }
 
-        public void Save(string toFileName)
+        public void SaveResult(string resultFileName)
         {
-            m_source.Save(toFileName);
+            m_source.Save(resultFileName);
+        }
+
+        public static void Load()
+        {
+            try
+            {
+                var file = new FileInfo(Path);
+                if (file.Exists)
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+
+                    using (var str = file.OpenRead())
+                    {
+                        ms_TemplatesPriorityQueue.Clear();
+                        ms_TemplatesPriorityQueue = (PriorityQueue<MatchTemplate>)formatter.Deserialize(str);
+                    }
+                }
+
+                //Initialize();
+            }
+            catch (Exception ex)
+            {
+                if (Error != null)
+                    Error(typeof(TemplateMatcher), new ThreadExceptionEventArgs(ex));
+            }
+        }
+
+        public static void Save()
+        {
+            try
+            {
+                var file = new FileInfo(Path);
+                file.DeleteSafe();
+
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (var str = file.OpenWrite())
+                    formatter.Serialize(str, ms_TemplatesPriorityQueue);
+            }
+            catch (Exception ex)
+            {
+                if (Error != null)
+                    Error(typeof(TemplateMatcher), new ThreadExceptionEventArgs(ex));
+            }
         }
 
         public void Dispose()

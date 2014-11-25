@@ -107,7 +107,7 @@ namespace VPrinting.Documents
             PrintAllocationInternal(allocationId, voucherIndexes, false);
         }
 
-        public virtual void PrintVouchers(int allocationId, List<int> voucherNumbers)
+        public virtual void PrintVouchersInternal(int allocationId, List<int> voucherNumbers)
         {
             try
             {
@@ -200,7 +200,7 @@ namespace VPrinting.Documents
 
                 CacheManager.Instance.Table[Strings.SubRangeFrom] = RangeFrom;
 
-                var multyLines = new List<IList<IPrintLine>>();
+                var multyLines = new Queue<IList<IPrintLine>>();
 
                 int index = 0;
 
@@ -219,22 +219,15 @@ namespace VPrinting.Documents
 #if DEBUGGER
                     Debug.WriteLine(string.Format("{0}\t{1}\t{2}", countryId, Retailer.Name, voucher), Strings.VRPINT);
 #endif
-                    if (MultyPagePrint)
-                    {
-                        //Single document
-                        multyLines.Add(layout.PrintLines);
-                    }
-                    else
-                    {
-                        if (!SimulatePrint)
-                            layout.PrintVoucher(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, layout.PrintLines);
-                    }
+                    multyLines.Enqueue(layout.PrintLines);
+                    if (!SimulatePrint && !MultyPagePrint)
+                        layout.PrintVouchers(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, multyLines);
 
                     if (PrintOnce)
                         break;
                 }
 
-                if (!SimulatePrint && multyLines.Count > 0)
+                if (!SimulatePrint && MultyPagePrint && multyLines.Count > 0)
                 {
                     layout.PrintVouchers(printer.Path, Strings.VRPINT, layout.FormLength, layout.DocumentInitialization, multyLines);
                 }
@@ -353,7 +346,7 @@ namespace VPrinting.Documents
 
                     CacheManager.Instance.Table[Strings.SubRangeFrom] = RangeFrom;
 
-                    var multyPageDocumentLines = new List<IList<IPrintLine>>();
+                    var multyLines = new Queue<IList<IPrintLine>>();
 
                     for (int voucher = RangeFrom, index = 0; voucher < RangeTo + 1; voucher++, index++)
                     {
@@ -373,16 +366,10 @@ namespace VPrinting.Documents
                             Debug.WriteLine(string.Format("{0}\t{1}\t{2}", countryId, Retailer.Name, voucher), Strings.VRPINT);
 #endif
 
-                            if (MultyPagePrint)
-                            {
-                                //Single document
-                                multyPageDocumentLines.Add(layout.PrintLines);
-                            }
-                            else
-                            {
-                                if (!SimulatePrint)
-                                    layout.PrintVoucher(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, layout.PrintLines);
-                            }
+                            //Single document
+                            multyLines.Enqueue(new List<IPrintLine>(layout.PrintLines));
+                            if (!SimulatePrint && !MultyPagePrint)
+                                layout.PrintVouchers(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, multyLines);
 
                             if (Test != null)
                                 Test(this, EventArgs.Empty);
@@ -392,9 +379,9 @@ namespace VPrinting.Documents
                         }
                     }
 
-                    if (!SimulatePrint && multyPageDocumentLines.Count > 0)
+                    if (!SimulatePrint && MultyPagePrint && multyLines.Count > 0)
                     {
-                        layout.PrintVouchers(printer.Path, Strings.VRPINT, layout.FormLength, layout.DocumentInitialization, multyPageDocumentLines);
+                        layout.PrintVouchers(printer.Path, Strings.VRPINT, layout.FormLength, layout.DocumentInitialization, multyLines);
                     }
 
                     if (!SimulatePrint)

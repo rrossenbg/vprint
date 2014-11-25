@@ -49,10 +49,14 @@ namespace VPrinting.Forms
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tbBarcode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtSitecode = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -173,10 +177,11 @@ namespace VPrinting.Forms
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 7);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(9, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(237, 117);
+            this.tabControl1.Size = new System.Drawing.Size(245, 117);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
@@ -191,7 +196,7 @@ namespace VPrinting.Forms
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(229, 91);
+            this.tabPage1.Size = new System.Drawing.Size(237, 91);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Voucher details";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -203,9 +208,9 @@ namespace VPrinting.Forms
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(229, 91);
+            this.tabPage2.Size = new System.Drawing.Size(237, 91);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Barcode data";
+            this.tabPage2.Text = "Barcode";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tbBarcode
@@ -224,21 +229,49 @@ namespace VPrinting.Forms
             this.label4.TabIndex = 0;
             this.label4.Text = "Barcode";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.txtSitecode);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(237, 91);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Sitecode";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // txtSitecode
+            // 
+            this.txtSitecode.Location = new System.Drawing.Point(7, 34);
+            this.txtSitecode.Name = "txtSitecode";
+            this.txtSitecode.Size = new System.Drawing.Size(213, 20);
+            this.txtSitecode.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(4, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Sitecode";
+            // 
             // RetailerForm
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(261, 190);
+            this.ClientSize = new System.Drawing.Size(269, 190);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.cbIgnoreServerValidation);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.btnOK);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(269, 217);
-            this.MinimumSize = new System.Drawing.Size(269, 217);
+            this.MaximumSize = new System.Drawing.Size(277, 217);
+            this.MinimumSize = new System.Drawing.Size(277, 217);
             this.Name = "RetailerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Voucher details";
@@ -249,6 +282,8 @@ namespace VPrinting.Forms
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +309,8 @@ namespace VPrinting.Forms
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox tbBarcode;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox txtSitecode;
+        private System.Windows.Forms.Label label5;
     }
 }
