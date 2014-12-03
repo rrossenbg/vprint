@@ -67,7 +67,8 @@ namespace VPrinting.Documents
 
         public event EventHandler Test;
         public event EventHandler Done;
-
+        
+        public static int Repeat { get; set; }
         public static event ThreadExceptionEventHandler Error;
 
         public volatile int AllocationId;
@@ -77,6 +78,11 @@ namespace VPrinting.Documents
         public bool PrintOnce { get; set; }
         public bool SimulatePrint { get; set; }
         public bool MultyPagePrint { get; set; }
+
+        static VoucherPrinter()
+        {
+            Repeat = 1;
+        }
 
         public VoucherPrinter()
         {
@@ -216,12 +222,18 @@ namespace VPrinting.Documents
                     layout.Clear();
                     layout.DataBind(this, StrVoucherNo, voucher, false);
 
+                    for (int count = 0; count < Repeat; count++)
+                    {
 #if DEBUGGER
-                    Debug.WriteLine(string.Format("{0}\t{1}\t{2}", countryId, Retailer.Name, voucher), Strings.VRPINT);
+                        Debug.WriteLine(string.Format("{0}\t{1}\t{2}", countryId, Retailer.Name, voucher), Strings.VRPINT);
 #endif
-                    multyLines.Enqueue(layout.PrintLines);
-                    if (!SimulatePrint && !MultyPagePrint)
-                        layout.PrintVouchers(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, multyLines);
+                        multyLines.Enqueue(layout.PrintLines);
+                        if (!SimulatePrint && !MultyPagePrint)
+                            layout.PrintVouchers(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, multyLines);
+
+                        if (PrintOnce)
+                            break;
+                    }
 
                     if (PrintOnce)
                         break;
@@ -362,22 +374,28 @@ namespace VPrinting.Documents
                             layout.Clear();
                             layout.DataBind(this, StrVoucherNo, voucher, false);
 
+                            for (int count = 0; count < Repeat; count++)
+                            {
 #if DEBUGGER
                             Debug.WriteLine(string.Format("{0}\t{1}\t{2}", countryId, Retailer.Name, voucher), Strings.VRPINT);
 #endif
 
-                            //Single document
-                            multyLines.Enqueue(new List<IPrintLine>(layout.PrintLines));
-                            if (!SimulatePrint && !MultyPagePrint)
-                                layout.PrintVouchers(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, multyLines);
+                                //Single document
+                                multyLines.Enqueue(new List<IPrintLine>(layout.PrintLines));
+                                if (!SimulatePrint && !MultyPagePrint)
+                                    layout.PrintVouchers(printer.Path, StrVoucherNo, layout.FormLength, layout.DocumentInitialization, multyLines);
 
-                            if (Test != null)
-                                Test(this, EventArgs.Empty);
+                                if (Test != null)
+                                    Test(this, EventArgs.Empty);
 
-                            if (PrintOnce)
-                                break;
+                                if (PrintOnce)
+                                    break;
+                            }
                         }
+                        if (PrintOnce)
+                            break;
                     }
+           
 
                     if (!SimulatePrint && MultyPagePrint && multyLines.Count > 0)
                     {

@@ -174,7 +174,7 @@ namespace CPrint2
         }
 
         [TargetedPatchingOptOut("na")]
-        public static FileInfo DeleteSave(this FileInfo info)
+        public static FileInfo DeleteSafe2(this FileInfo info)
         {
             try
             {

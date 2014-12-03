@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="VPrint.exe" version="1.6.0.10" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
-  <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <asmv1:assemblyIdentity name="VPrint.exe" version="1.6.0.15" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+  <description asmv2:iconFile="PTFLogo.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VPrint" version="1.0.5331.18197" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="VPrint" version="1.0.5449.23792" language="neutral" processorArchitecture="x86" />
     <commandLine file="VPrint.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,6 +42,42 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AForge.dll" size="17920">
+      <assemblyIdentity name="AForge" version="2.2.5.0" publicKeyToken="C1DB6FF4EAA06AEB" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>LansdhKDXh9p1Kk6otSeyb3/f3w=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AForge.Imaging.dll" size="262656">
+      <assemblyIdentity name="AForge.Imaging" version="2.2.5.0" publicKeyToken="BA8DDEA9676CA48B" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>vUmCee8ud+SyyCjS+I9X55QeVio=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AForge.Math.dll" size="68096">
+      <assemblyIdentity name="AForge.Math" version="2.2.5.0" publicKeyToken="ABBA2E25397EE8C9" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>FEv8jA7pGVbdVVlA13Ng8wPbKns=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DTK.BarReader.dll" size="2766128">
       <assemblyIdentity name="DTK.BarReader" version="4.2.69.0" publicKeyToken="EC94283068BBF5CD" language="neutral" processorArchitecture="x86" />
       <hash>
@@ -50,6 +86,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
         <dsig:DigestValue>4cAAB4vdyNjt0HCtyjuPG4+hTY8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Ghostscript.NET.dll" size="96768">
+      <assemblyIdentity name="Ghostscript.NET" version="1.1.9.0" publicKeyToken="F85051DE34525B59" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>I6xKh3uUFza+YsuyWRpINdMhN8w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,50 +114,62 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Web.Razor.dll" size="266888">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="itextsharp.dll" size="3989504">
+      <assemblyIdentity name="itextsharp" version="5.5.1.0" publicKeyToken="8354AE6D2174DDCA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>sT1MjFPp6DaJRucn2U6xT5dm5T8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PTF.Common.dll" size="99840">
+      <assemblyIdentity name="PTF.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>ZE2iInL0lcUzIBEJHVpOn6VgeSU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Web.Razor.dll" size="266944">
       <assemblyIdentity name="System.Web.Razor" version="2.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>1rfNdS8P97n3c9VErdal6gAVhZk=</dsig:DigestValue>
+        <dsig:DigestValue>K68ZfFlcfEL+3FZSMCNHiXZ499M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="974848">
-      <assemblyIdentity name="VPrint" version="1.0.5331.18197" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.exe" size="1032192">
+      <assemblyIdentity name="VPrint" version="1.0.5449.23792" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>MNIrtglbkmrm39YMZmJrQW2JCgk=</dsig:DigestValue>
+        <dsig:DigestValue>dj+AkrNdsz5tdUR37FJB6XWg0Fk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.Common.dll" size="64512">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint.Common.dll" size="43008">
       <assemblyIdentity name="VPrint.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>V7LF5t6GT+9ppSEKOp2J2u4o5g8=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VPrint_addon.dll" size="5120">
-      <assemblyIdentity name="VPrint_addon" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>FzDg9mWlvNuQyxbCnt6IP7ymjgQ=</dsig:DigestValue>
+        <dsig:DigestValue>wYXdrbl4oAHsqFQYjG+TP32+OI8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -323,6 +383,24 @@
       <dsig:DigestValue>7avGVfl6D3IpJrk5ClUHh88aOkc=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="gsdll32.dll" size="13139968">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>FfMiVKIfGrcnZZJwoLf3UMtPVb0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="PTFLogo.ico" size="16958">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>DiMhMpNEbPJ7veqjqoSwC+sgfZk=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\enter.gif" size="1107">
     <hash>
       <dsig:Transforms>
@@ -332,13 +410,13 @@
       <dsig:DigestValue>JvhXo4lrwQzbJwcyFrnxSntnk9Q=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="VPrint.exe.config" size="5468">
+  <file name="VPrint.exe.config" size="5634">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>TAKHXci3Dka3NY4lNvafwwJPJW4=</dsig:DigestValue>
+      <dsig:DigestValue>A+hmQ23SjDAf4D7kxXY62AY2+OY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="XmlConfigurations\print203_Type1_Raz.xml" size="2188" writeableType="applicationData">
@@ -609,6 +687,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>Hg5xsrUp0ommSlRVE6pdJhMtp9w=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="XmlConfigurations\print276_Type6_RazX.xml" size="5078" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>byY6oXCH0fWrx4w/A+dq2uEc938=</dsig:DigestValue>
     </hash>
   </file>
   <file name="XmlConfigurations\print300_Type1_RazX.xml" size="7058" writeableType="applicationData">

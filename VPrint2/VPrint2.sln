@@ -56,6 +56,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XmlConfigurations", "XmlCon
 		XmlConfigurations\print250_C.xml = XmlConfigurations\print250_C.xml
 		XmlConfigurations\print250_D.xml = XmlConfigurations\print250_D.xml
 		XmlConfigurations\print250_E.xml = XmlConfigurations\print250_E.xml
+		XmlConfigurations\print250_format2_Raz.xml = XmlConfigurations\print250_format2_Raz.xml
 		XmlConfigurations\print250_G.xml = XmlConfigurations\print250_G.xml
 		XmlConfigurations\print250_Type1.xml = XmlConfigurations\print250_Type1.xml
 		XmlConfigurations\print250_Type1_Raz.xml = XmlConfigurations\print250_Type1_Raz.xml
@@ -307,6 +308,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JJ2000.NET", "JJ2000.NET", 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceControlManager", "ServiceControlManager\ServiceControlManager.csproj", "{2E523000-5392-49FD-B99D-D605748CE537}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOCUMENTATION", "DOCUMENTATION", "{C318C531-5B10-412F-9631-A378FF00C984}"
+	ProjectSection(SolutionItems) = preProject
+		DOCUMENTATIOJN\How to use VPrint.docx = DOCUMENTATIOJN\How to use VPrint.docx
+		DOCUMENTATIOJN\Printing Software User Manual.docx = DOCUMENTATIOJN\Printing Software User Manual.docx
+		DOCUMENTATIOJN\Questions regarding the Scanning solution.docx = DOCUMENTATIOJN\Questions regarding the Scanning solution.docx
+		DOCUMENTATIOJN\scan_project_management.doc = DOCUMENTATIOJN\scan_project_management.doc
+		DOCUMENTATIOJN\scanning application tutorial.docx = DOCUMENTATIOJN\scanning application tutorial.docx
+		DOCUMENTATIOJN\Scanning project - TechnicalSpecification.docx = DOCUMENTATIOJN\Scanning project - TechnicalSpecification.docx
+		DOCUMENTATIOJN\Scanning Project Questionnaire.docx = DOCUMENTATIOJN\Scanning Project Questionnaire.docx
+		DOCUMENTATIOJN\Scanning project strategy.docx = DOCUMENTATIOJN\Scanning project strategy.docx
+		DOCUMENTATIOJN\Scanning Software tech spec.docx = DOCUMENTATIOJN\Scanning Software tech spec.docx
+		DOCUMENTATIOJN\Scanning Software User Manual.docx = DOCUMENTATIOJN\Scanning Software User Manual.docx
+		DOCUMENTATIOJN\VPrint application – Developer’s Guide.docx = DOCUMENTATIOJN\VPrint application – Developer’s Guide.docx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution

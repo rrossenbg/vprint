@@ -28,9 +28,14 @@ void __stdcall ReadSettings(int &highS, int &minWidth, int &minHeight)
 EXTERN_DLL_EXPORT 
 void __stdcall SaveSettings(int highS, int minWidth, int minHeight)
 {
-	iHighS = highS;
-	iMinWidth = minWidth;
-	iMinHeight = minHeight;
+	if(highS >=0)
+		iHighS = highS;
+
+	if(minWidth >=0)
+		iMinWidth = minWidth;
+
+	if(minHeight >=0)
+		iMinHeight = minHeight;
 }
 
 EXTERN_DLL_EXPORT 

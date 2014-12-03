@@ -29,6 +29,11 @@ namespace VPrinting.Threading
         /// </summary>
         public TimeSpan SleepTime { get; set; }
 
+        public void Start()
+        {
+            Start(ThreadPriority.BelowNormal, "CycleWorkerBase");
+        }
+
         /// <summary>
         /// Starts the background worker
         /// </summary>

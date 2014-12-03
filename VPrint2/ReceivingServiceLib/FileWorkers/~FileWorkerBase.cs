@@ -2,10 +2,7 @@
 //  Copyright (c) Premium Tax Free 2013
 /***************************************************/
 
-using System;
-using System.Diagnostics;
-using System.Threading;
-using Thr = System.Threading;
+using VPrinting.Threading;
 
 namespace ReceivingServiceLib.FileWorkers
 {

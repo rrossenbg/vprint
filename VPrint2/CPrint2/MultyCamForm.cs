@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Threading;
@@ -73,6 +74,8 @@ namespace CPrint2
             CameraControl.Mode = StateSaver.Default.Get<CameraControl.ShowMode>("CameraControl.Mode", CameraControl.ShowMode.Normal);
 
             VCamLib.SaveSettings(highS, minWidth, minHeigth);
+
+            this.highS.Value = highS;
             base.OnLoad(e);
         }
 
@@ -116,7 +119,7 @@ namespace CPrint2
                 cnt.Run();
         }
 
-        public void ProcessCommand(DataObj data = null)
+        public void ProcessCommand(DataObj2 data = null)
         {
             if (data != null)
             {
@@ -132,7 +135,7 @@ namespace CPrint2
 
         private void TestMenuItem_Click(object sender, EventArgs e)
         {
-            ProcessCommand(DataObj.Test());
+            ProcessCommand(DataObj2.Test());
         }
 
         private void ExitMenuItem_Click(object sender, EventArgs e)
@@ -157,7 +160,7 @@ namespace CPrint2
                     var file2 = ((FileInfo)null).Temp(".tif").IfDebug("C:\\test_result.tif");
                     try
                     {
-                        var obj = (DataObj)m_Queue.Dequeue();
+                        var obj = (DataObj2)m_Queue.Dequeue();
 
                         TiffConverter converter = new TiffConverter();
                         var buffer = converter.WrapJpegs(list.ToArray());
@@ -172,10 +175,10 @@ namespace CPrint2
 
                         srv.SendFile(file2, sserverSessionId, keys);
 
-                        srv.CommitVoucherChanges(sserverSessionId, 0, obj.Iso, obj.BrId, obj.VId,
+                        srv.CommitVoucherChanges(sserverSessionId, 0, obj.Iso, obj.RetailerId, obj.VoucherId,
                             Global.FolderID.HasValue ? Global.FolderID.Value : (int?)null, "", "", keys);
 
-                        srv.SaveHistory(OperationHistory.Scan, serverSessionId, obj.Iso, obj.BrId, obj.VId, 0, 0, "", keys);
+                        srv.SaveHistory(OperationHistory.Scan, serverSessionId, obj.Iso, obj.RetailerId, obj.VoucherId, 0, 0, "", keys);
                     }
                     catch (Exception ex)
                     {
@@ -184,9 +187,15 @@ namespace CPrint2
                     }
                     finally
                     {
+#if DEBUG
+                        new Action(() => Process.Start(file2.FullName)).RunSafe();
+#endif
 #if! DEBUG
                         file2.DeleteSafe();
 #endif
+                        for (int i = 0; i < Config.CAMERAS; i++)
+                            ((FileInfo)m_Image_Infos[i]).DeleteSafe2();
+                        m_Image_Infos.Clear();
                     }
                 });
             }
@@ -196,6 +205,32 @@ namespace CPrint2
         {
             SettingsForm form = new SettingsForm();
             form.Show();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm form = new SettingsForm();
+            form.Show();
+        }
+
+        private void testRunToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProcessCommand(DataObj2.Test());
+        }
+
+        private void highS_ValueChanged(object sender, EventArgs e)
+        {
+            VCamLib.SaveSettings(highS.Value, -1, -1);
+            TrackBar tb = (TrackBar)sender;
+            string text = string.Format("{0} .value = {1}", tb.Name, tb.Value);
+            Label lbl = (Label)tb.Tag;
+            lbl.Text = text;
+            toolTip1.SetToolTip(tb, text);
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

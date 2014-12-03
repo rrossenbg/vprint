@@ -286,6 +286,8 @@ namespace VPrinting
 
             ms_MiltuPagePrint = Convert.ToBoolean(ConfigurationManager.AppSettings["MILTUPAGEPRINT"]);
 
+            VoucherPrinter.Repeat = ConfigurationManager.AppSettings["REPEAT"].Cast<int>(1);
+
             Default = this;
 
             PrinterQueue.CacheDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Application.ProductName);

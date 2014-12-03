@@ -1,13 +1,16 @@
-﻿using System;
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+/***************************************************/
+
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CPrint2.Data;
 using Emgu.CV;
 using Emgu.CV.Structure;
-using System.Drawing;
 
 namespace CPrint2.Controls
 {
@@ -28,7 +31,6 @@ namespace CPrint2.Controls
 
         private Capture m_Cap = default(Capture);
 
-        public FileInfo Cap_Back_Info { get; set; }
         public FileInfo Cap_Fore_Info { get; set; }
         public int CameraIndex { get; set; }
 
@@ -71,33 +73,6 @@ namespace CPrint2.Controls
         {
             using (var img = m_Cap.RetrieveBgrFrame())
             {
-                //if (m_InitCommand)
-                //{
-                //    m_InitCommand = false;
-                //    Cap_Back_Info = Cap_Back_Info.DeleteSave().Temp().IfDebug(string.Format("C:\\test{0}_back.jpg", CameraIndex));
-                //    img.ToBitmap().Save(Cap_Back_Info.FullName, ImageFormat.Jpeg);
-                //}
-                //else if (m_RunCommand && Cap_Back_Info != null)
-                //{
-                //    m_RunCommand = false;
-
-                //    Cap_Fore_Info = ((FileInfo)null).Temp().IfDebug(string.Format("C:\\test{0}_fore.jpg", CameraIndex));
-
-                //    using (Image<Bgr, byte> back = new Image<Bgr, byte>(Cap_Back_Info.FullName))
-                //    {
-                //        Subtract filter = new Subtract(back.ToBitmap());
-                //        img.DrawBorder(5, Color.Black);
-                //        using (Bitmap sourceImage = img.ToBitmap())
-                //        using (Bitmap image = filter.Apply(sourceImage))
-                //        {
-                //            Rectangle rect = Rectangle.Empty;
-                //            using (Bitmap biggestBlobsImage = image.ExtractBiggestBlob(ref rect))
-                //            using (Image<Bgr, byte> rimg = img.Copy(rect))
-                //                rimg.ToBitmap().Save(Cap_Fore_Info.FullName, ImageFormat.Jpeg);
-                //        }
-                //    }
-                //    StopStartGrabbers();
-                //}
                 using (Image<Bgr, byte> normal = img.Copy())
                 using (Image<Gray, byte> thresholded = new Image<Gray, byte>(img.Width, img.Height))
                 using (Image<Gray, byte> hsv = new Image<Gray, byte>(img.Width, img.Height))
@@ -105,8 +80,8 @@ namespace CPrint2.Controls
                     var Origin = (MIplImage)Marshal.PtrToStructure(img.Ptr, typeof(MIplImage));
                     var Thresholded = (MIplImage)Marshal.PtrToStructure(thresholded.Ptr, typeof(MIplImage));
                     var Hsv = (MIplImage)Marshal.PtrToStructure(hsv.Ptr, typeof(MIplImage));
-                    Rectangle rect = new Rectangle();
-                    VCamLib.ProcessImage(Origin, Thresholded, Hsv, ref rect);
+                    Rectangle roi = new Rectangle();
+                    VCamLib.ProcessImage(Origin, Thresholded, Hsv, ref roi);
                     if (Mode == ShowMode.Normal)
                         captureBox.Image = normal;
                     else if (Mode == ShowMode.ShowOrigin)
@@ -115,28 +90,22 @@ namespace CPrint2.Controls
                         captureBox.Image = thresholded;
                     else if (Mode == ShowMode.HSV)
                         captureBox.Image = hsv;
+
+                    if (m_RunCommand)
+                    {
+                        //Save
+                        m_RunCommand = false;
+
+                        Cap_Fore_Info = ((FileInfo)null).Temp().IfDebug(string.Format("C:\\test{0}_fore.jpg", CameraIndex));
+
+                        using (Image<Bgr, byte> result = normal.Copy(roi))
+                            result.ToBitmap().Save(Cap_Fore_Info.FullName, ImageFormat.Jpeg);
+
+                        if (ImageTaken != null)
+                            ImageTaken(this, EventArgs.Empty);
+                    }
                 }
             }
-        }
-
-        private void StopStartGrabbers()
-        {
-            var t = Task.Factory.StartNew(() =>
-            {
-                m_Cap.ImageGrabbed -= cap_ImageGrabbed;
-
-                if (Cap_Fore_Info != null && ImageTaken != null)
-                {
-                    captureBox.Image = new Image<Bgr, byte>(Cap_Fore_Info.FullName);
-                    ImageTaken(this, EventArgs.Empty);
-                }
-
-                var tt = Task.Factory.StartNew(() =>
-                {
-                    Thread.Sleep(TimeSpan.FromSeconds(Config.FRAME_SHOWN_INSEC));
-                    m_Cap.ImageGrabbed += cap_ImageGrabbed;
-                });
-            });
         }
     }
 }

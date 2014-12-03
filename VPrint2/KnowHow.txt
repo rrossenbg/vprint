@@ -24,3 +24,8 @@ username: testuser@ptfportal.com
 14:50
 password: Refund123
 14:50
+
+
+
+
+Control.CheckForIllegalCrossThreadCalls = false;
