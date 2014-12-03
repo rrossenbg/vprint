@@ -13,6 +13,7 @@ using CPrint2.Common;
 using CPrint2.Data;
 using CPrint2.ScanServiceRef;
 using VPrinting;
+using VPrinting.Threading;
 
 namespace CPrint2
 {
@@ -84,17 +85,12 @@ namespace CPrint2
                             Thread.Sleep(Config.CommondFolderDeleteWait);
                         }
 
-                        ImageProcessor.EmptyCommandFolderSafe();
-
-                        ImageProcessor.EmptyImageFolderSafe();
-
                         var ctn = new AppContext();
-                        ctn.NewCommandFileEvent += new EventHandler<ValueEventArgs<string>>(NewCommandFileEvent);
                         ctn.Error += new ThreadExceptionEventHandler(OnThreadException);
 
                         StateSaver.Error += new ThreadExceptionEventHandler(OnThreadException);
-                        ImageProcessor.Error += new ThreadExceptionEventHandler(OnThreadException);
                         AppContext.Default.Error += new ThreadExceptionEventHandler(OnThreadException);
+                        CycleWorkerBase.Error += new ThreadExceptionEventHandler(OnThreadException);
 
                         StateSaver.Default.Path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "CPrint.dat");
                         StateSaver.Default.Load();
@@ -142,17 +138,6 @@ namespace CPrint2
         {
             Exception ex = (Exception)e.ExceptionObject;
             MainForm.Default.InvokeSf(() => MainForm.Default.ShowError(ex.Message));
-        }
-
-        private static void NewCommandFileEvent(object sender, ValueEventArgs<string> e)
-        {
-            ImageProcessor.Default.ProcessCommandFile(e.Value);
-        }
-
-#warning NOT IN USE
-        private static void ImageProcessor_NewVoucherStarted(object sender, EventArgs e)
-        {
-            AppContext.Default.Reset();
         }
 
         private static void ImageProcessor_VoucherProcessCompleted(object sender, ValueEventArgs<string> e)

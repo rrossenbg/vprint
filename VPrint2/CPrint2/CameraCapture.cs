@@ -291,7 +291,7 @@ namespace CPrint2
                             }
                             catch (Exception ex)
                             {
-                                ImageProcessor.FireError(ex);
+                                AppContext.Default.FireError(ex);
                             }
                             finally
                             {

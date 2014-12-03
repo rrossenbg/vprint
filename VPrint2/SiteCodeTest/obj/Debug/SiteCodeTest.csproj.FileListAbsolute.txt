@@ -11,6 +11,6 @@ C:\PROJECTS\VPrint2\SiteCodeTest\bin\Debug\SiteCodeTest.dll
 C:\PROJECTS\VPrint2\SiteCodeTest\bin\Debug\SiteCodeTest.pdb
 C:\PROJECTS\VPrint2\SiteCodeTest\bin\Debug\SiteCodeLib.dll
 C:\PROJECTS\VPrint2\SiteCodeTest\bin\Debug\SiteCodeLib.pdb
-C:\PROJECTS\VPrint2\SiteCodeTest\obj\Debug\SiteCodeTest.csprojResolveAssemblyReference.cache
 C:\PROJECTS\VPrint2\SiteCodeTest\obj\Debug\SiteCodeTest.dll
 C:\PROJECTS\VPrint2\SiteCodeTest\obj\Debug\SiteCodeTest.pdb
+C:\PROJECTS\VPrint2\SiteCodeTest\obj\Debug\SiteCodeTest.csprojResolveAssemblyReference.cache

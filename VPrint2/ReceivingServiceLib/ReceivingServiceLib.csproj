@@ -86,9 +86,6 @@
     <Compile Include="FileWorkers\~FileWorkerBase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FileWorkers\~WorkerBase.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="IExceptionToFaultConverter.cs">
       <SubType>Code</SubType>
     </Compile>

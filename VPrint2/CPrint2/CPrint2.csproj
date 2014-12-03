@@ -110,7 +110,6 @@
       <Link>Common\~CycleWorkerBase.cs</Link>
     </Compile>
     <Compile Include="AppContext.cs" />
-    <Compile Include="CameraCapture.cs" />
     <Compile Include="Colections\IgnoreList.cs" />
     <Compile Include="Common\CommonTools.cs" />
     <Compile Include="Common\Tools.cs" />
@@ -136,8 +135,7 @@
     <Compile Include="Extension\ObjEx.cs" />
     <Compile Include="Extension\Tiff.cs" />
     <Compile Include="Extension\IListEx.cs" />
-    <Compile Include="CameraShooter.cs" />
-    <Compile Include="CertificateSecurity.cs" />
+    <Compile Include="Security\CertificateSecurity.cs" />
     <Compile Include="Colections\MemoryBuffer.cs" />
     <Compile Include="Common\EventArgs.cs" />
     <Compile Include="Common\Security.cs" />
@@ -169,17 +167,15 @@
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="ImageProcessor.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MouseHook.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScanServiceClient.cs" />
+    <Compile Include="Communication\ScanServiceClient.cs" />
     <Compile Include="Service References\AuthenticationRef\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -191,6 +187,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\ScanServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SyncServiceRef\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -209,6 +210,7 @@
     <Compile Include="StartUp.cs" />
     <Compile Include="StateSaver.cs" />
     <Compile Include="Strings.cs" />
+    <Compile Include="Communication\SyncServiceClient.cs" />
     <Compile Include="VCamLib.cs" />
     <EmbeddedResource Include="Controls\CameraControl.resx">
       <DependentUpon>CameraControl.cs</DependentUpon>
@@ -318,6 +320,13 @@
     <None Include="Service References\ScanServiceRef\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\SyncServiceRef\SyncService1.wsdl" />
+    <None Include="Service References\SyncServiceRef\SyncService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SyncServiceRef\SyncService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\VoucherNumberingAllocationPrintingRef\CPrint2.VoucherNumberingAllocationPrintingRef.PrinterFormat.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -339,6 +348,13 @@
     <Content Include="camera_unmount2.ico" />
     <Content Include="Controls\ImageBox.bmp" />
     <Content Include="KnowHow.txt" />
+    <None Include="Service References\SyncServiceRef\SyncService1.disco" />
+    <None Include="Service References\SyncServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SyncServiceRef\configuration.svcinfo" />
+    <None Include="Service References\SyncServiceRef\configuration91.svcinfo" />
     <None Include="Service References\VoucherNumberingAllocationPrintingRef\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -374,6 +390,7 @@
     <WCFMetadataStorage Include="Service References\AuthenticationRef\" />
     <WCFMetadataStorage Include="Service References\PartyManagementRef\" />
     <WCFMetadataStorage Include="Service References\ScanServiceRef\" />
+    <WCFMetadataStorage Include="Service References\SyncServiceRef\" />
     <WCFMetadataStorage Include="Service References\VoucherNumberingAllocationPrintingRef\" />
   </ItemGroup>
   <ItemGroup>

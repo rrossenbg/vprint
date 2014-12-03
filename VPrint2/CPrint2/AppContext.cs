@@ -18,36 +18,26 @@ namespace CPrint2
         public static AppContext Default { get; set; }
 
         private readonly MultyCamForm m_form = new MultyCamForm();
-        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_runMenuItem, m_startMenuItem, m_lockMenuItem, m_exitMenuItem;
+        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_startMenuItem, m_lockMenuItem, m_exitMenuItem;
         private readonly NotifyIcon m_notifyIcon = new NotifyIcon();
-        private readonly FileSystemWatcher m_commandWatcher = new FileSystemWatcher();
-
-        public event EventHandler<ValueEventArgs<string>> NewCommandFileEvent;
+        private readonly SyncServiceDataAccess m_CommandWatcher = new SyncServiceDataAccess();
         public event ThreadExceptionEventHandler Error;
 
         public AppContext()
         {
             m_showMenuItem = new MenuItem("Login", new EventHandler(ShowHideMainForm_Click));
-            m_runMenuItem = new MenuItem("Run", new EventHandler(RunOnceMenuItem_Click));
             m_startMenuItem = new MenuItem("Start", new EventHandler(StartStopMenuItem_Click));
             m_lockMenuItem = new MenuItem("Lock", new EventHandler(LockUnlockMenuItem_Click));
             m_closeMenuItem = new MenuItem("Close", new EventHandler(Close_Click));
             m_exitMenuItem = new MenuItem("Exit", new EventHandler(Exit_Click));
             
             m_notifyIcon.Icon = Resources.camera_unmount2;
-            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { m_showMenuItem, 
-                
-#if DEBUG
-                m_runMenuItem ,
-#endif
-                m_startMenuItem, m_lockMenuItem, m_closeMenuItem, m_exitMenuItem });
+            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { m_showMenuItem, m_startMenuItem, m_lockMenuItem, m_closeMenuItem, m_exitMenuItem });
             m_notifyIcon.Visible = true;
             m_notifyIcon.ContextMenu.Popup += new EventHandler(ContextMenu_Popup);
             m_notifyIcon.DoubleClick += new EventHandler(ShowHideMainForm_Click);
 
-            m_commandWatcher.Path = Config.CommandInputPath;
-            m_commandWatcher.Filter = Config.CommandFilter;
-            m_commandWatcher.Created += new FileSystemEventHandler(CommandWatcher_Created);
+            m_CommandWatcher.Submit += new EventHandler<ValueEventArgs<DataObj2>>(m_CommandWatcher_Submit);
 
             Default = this; 
             Application.ApplicationExit += new EventHandler(Application_ApplicationExit);
@@ -62,7 +52,7 @@ namespace CPrint2
         {
             get
             {
-                return m_commandWatcher.EnableRaisingEvents;
+                return m_CommandWatcher.Running;
             }
         }
 
@@ -76,13 +66,12 @@ namespace CPrint2
 
         public void Start()
         {
-            m_commandWatcher.EnableRaisingEvents = true;
+            m_CommandWatcher.Start();
         }
 
         public void Stop()
         {
-            m_commandWatcher.EnableRaisingEvents = false;
-            ImageProcessor.Clear();
+            m_CommandWatcher.Stop();
         }
 
         public void Exit()
@@ -97,9 +86,10 @@ namespace CPrint2
             m_form.ResetState();
         }
 
-        private void RunOnceMenuItem_Click(object sender, EventArgs e)
+        public void FireError(Exception ex)
         {
-            ImageProcessor.Default.ProcessCommand();
+            if (Error != null)
+                Error(this, new ThreadExceptionEventArgs(ex));
         }
 
         private void StartStopMenuItem_Click(object sender, EventArgs e)
@@ -169,10 +159,10 @@ namespace CPrint2
             m_lockMenuItem.Enabled = (Program.currentUser != null);
         }
 
-        private void CommandWatcher_Created(object sender, FileSystemEventArgs e)
+        private void m_CommandWatcher_Submit(object sender, ValueEventArgs<DataObj2> e)
         {
-            if (NewCommandFileEvent != null)
-                NewCommandFileEvent(this, new ValueEventArgs<string>(e.FullPath));
+            //TODO
+            MultyCamForm.Default.ProcessCommand(e.Value);
         }
     }
 }

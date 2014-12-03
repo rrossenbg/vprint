@@ -1,8 +1,12 @@
-﻿using System;
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+/***************************************************/
+
+using System;
 using System.IO;
 using System.IO.Pipes;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace VPrinting.Communication
 {
@@ -13,6 +17,17 @@ namespace VPrinting.Communication
         public static event ThreadExceptionEventHandler Error;
         public static event ReceivedDataDelegate ReceivedData;
 
+        /// <summary>
+        /// Server code
+        /// </summary>
+        /// <param name="pipename"></param>
+        /// <example>
+        /// NamedPipes.ReceivedData += new ReceivedDataDelegate(NamedPipes_ReceivedData);
+        /// NamedPipes.Error += new ThreadExceptionEventHandler(NamedPipes_Error);
+        /// NamedPipes.StartServer("VPRINT");
+        /// 
+        /// private string NamedPipes_ReceivedData(string data){}
+        /// </example>
         public static void StartServer(string pipename)
         {
             Task.Factory.StartNew((o) =>
@@ -44,6 +59,15 @@ namespace VPrinting.Communication
             }, pipename);
         }
 
+        /// <summary>
+        /// Client code
+        /// </summary>
+        /// <param name="pipename"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        /// <example>
+        /// NamedPipes.SendMessage("VCOVER", b.ToString());
+        /// </example>
         public static string SendMessage(string pipename, string message)
         {
             var client = new NamedPipeClientStream(pipename);

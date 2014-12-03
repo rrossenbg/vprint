@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using Emgu.CV;
@@ -14,6 +15,7 @@ using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
 using VPrinting;
 using VPrinting.Colections;
+using System.Threading.Tasks;
 
 namespace VCover.Common
 {
@@ -22,7 +24,7 @@ namespace VCover.Common
         public static ThreadExceptionEventHandler Error;
 
         private readonly static ArrayList ms_TemplateMatchers = ArrayList.Synchronized(new ArrayList());
-        private static PriorityQueue<MatchTemplate> ms_TemplatesPriorityQueue = new PriorityQueue<MatchTemplate>();
+        private static ArrayList ms_TemplatesPriorityQueue = ArrayList.Synchronized(new ArrayList()); //MatchTemplate
 
         private readonly Image<Bgr, byte> m_source;
         private MatchTemplate m_template;
@@ -47,31 +49,43 @@ namespace VCover.Common
             //#if DEBUG
             //            Image<Bgr, byte> imageToShow = source.Copy();
             //#endif
-            foreach (MatchTemplate template in ms_TemplatesPriorityQueue)
+
+            List<Task<bool>> list = new List<Task<bool>>();
+
+            foreach (MatchTemplate template in new ArrayList(ms_TemplatesPriorityQueue))
             {
-                using (Image<Gray, float> result = m_source.MatchTemplate(template.Cover.Template, TM_TYPE.CV_TM_CCOEFF_NORMED))
+                var t = Task.Factory.StartNew<bool>((o) =>
                 {
-                    double[] minValues, maxValues;
-                    Point[] minLocations, maxLocations;
+                    var prm = (Tuple<TemplateMatcher, MatchTemplate>)o;
 
-                    result.MinMax(out minValues, out maxValues, out minLocations, out maxLocations);
-
-                    // You can try different values of the threshold. 
-                    // I guess somewhere between 0.75 and 0.95 would be good.
-                    if (maxValues[0] > threshold)
+                    using (Image<Gray, float> result = prm.Item1.m_source.MatchTemplate(prm.Item2.Cover.Template, TM_TYPE.CV_TM_CCOEFF_NORMED))
                     {
-                        m_template = template;
-                        // This is a match. Do something with it, for example draw a rectangle around it.
-                        m_match = new Rectangle(maxLocations[0], template.Cover.Template.Size);
-                        //#if DEBUG
-                        //                    imageToShow.Draw(match, new Bgr(Color.Red), 3);
-                        //#endif
-                        ms_TemplatesPriorityQueue.Set(template);
-                        return true;
+                        double[] minValues, maxValues;
+                        Point[] minLocations, maxLocations;
+
+                        result.MinMax(out minValues, out maxValues, out minLocations, out maxLocations);
+
+                        // You can try different values of the threshold. 
+                        // I guess somewhere between 0.75 and 0.95 would be good.
+                        if (maxValues[0] > threshold)
+                        {
+                            prm.Item1.m_template = template;
+                            // This is a match. Do something with it, for example draw a rectangle around it.
+                            prm.Item1.m_match = new Rectangle(maxLocations[0], template.Cover.Template.Size);
+                            //#if DEBUG
+                            //                    imageToShow.Draw(match, new Bgr(Color.Red), 3);
+                            //#endif
+                            return true;
+                        }
+                        return false;
                     }
-                }
+                }, new Tuple<TemplateMatcher, MatchTemplate>(this, template));
+
+                list.Add(t);
             }
-            return false;
+            Task.WaitAll(list.ToArray());
+
+            return list.Exists(t => t.Result);
         }
 
         public static bool MatchTemplate(Image<Bgr, byte> source, Image<Bgr, byte> template, ref Rectangle match, float threshold = 0.65f)
@@ -135,7 +149,7 @@ namespace VCover.Common
                     using (var str = file.OpenRead())
                     {
                         ms_TemplatesPriorityQueue.Clear();
-                        ms_TemplatesPriorityQueue = (PriorityQueue<MatchTemplate>)formatter.Deserialize(str);
+                        ms_TemplatesPriorityQueue = (ArrayList)formatter.Deserialize(str);
                     }
                 }
 

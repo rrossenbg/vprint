@@ -67,6 +67,7 @@
     <Compile Include="Colections\UniqueStringList.cs" />
     <Compile Include="CommonClasses.cs" />
     <Compile Include="Communication\ftp.cs" />
+    <Compile Include="Communication\GlobalNamedEvent.cs" />
     <Compile Include="Communication\NamedPipes.cs" />
     <Compile Include="Extensions\BitmapEx.cs" />
     <Compile Include="Extensions\CoreEx.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateSaver.cs" />
     <Compile Include="Threading\~CycleWorkerBase.cs" />
+    <Compile Include="Threading\~WorkerBase.cs" />
     <Compile Include="Tools\CommTools.cs" />
     <Compile Include="CString.cs" />
     <Compile Include="Tools\EmailSender.cs" />
