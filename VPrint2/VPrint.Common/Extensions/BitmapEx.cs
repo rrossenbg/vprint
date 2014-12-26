@@ -12,9 +12,9 @@ using System.Reflection;
 using System.Runtime;
 using System.Runtime.InteropServices;
 using System.Text;
+using AForge.Imaging.Filters;
 using VPrint.Common;
 using ImgEncoder = System.Drawing.Imaging.Encoder;
-using AForge.Imaging.Filters;
 
 namespace VPrinting
 {

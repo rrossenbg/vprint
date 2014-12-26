@@ -71,9 +71,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Security.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Strings.cs">
       <SubType>Code</SubType>
     </Compile>

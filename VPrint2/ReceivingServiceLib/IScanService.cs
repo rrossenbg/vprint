@@ -352,24 +352,7 @@ namespace ReceivingServiceLib
             VoucherId = data.VoucherId.GetValueOrDefault();
             SiteCode = data.SiteCode;
         }
-    }
-
-    [DataContract]
-    public class MyApplicationFault
-    {
-    }
-
-    [DataContract]
-    public class InvalidOperationFault
-    {
-        [DataMember]
-        public InvalidOperationException Exception { get; private set; }
-
-        public InvalidOperationFault(InvalidOperationException e)
-        {
-            Exception = e;
-        }
-    }
+    }   
 
     [Serializable]
     [DataContract]

@@ -73,6 +73,14 @@ namespace VCover.Data
             }
         }
 
+        public static string TRAINImageDirectory
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["TRAINImageDirectory"];
+            }
+        }
+
         public static string ImageFileFilter
         {
             get

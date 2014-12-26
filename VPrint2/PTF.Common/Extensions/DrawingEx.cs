@@ -80,19 +80,6 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
-        public static Font ToFont(this string text)
-        {
-            XmlSerializer formatter = new XmlSerializer(typeof(FontWrapper));
-            using (var str = XmlReader.Create(new StringReader(text)))
-            {
-                Debug.Assert(str != null);
-                FontWrapper font = ((FontWrapper)formatter.Deserialize(str));
-                Debug.Assert(font != null);
-                return font.Value;
-            }
-        }
-
-        [TargetedPatchingOptOut("na")]
         public static byte[] ToArray(this Image image, long compression = 50L)
         {
             Debug.Assert(image != null);
@@ -106,6 +93,19 @@ namespace VPrinting
                 encoderParameters.Param[0] = parameter1;
                 image.Save(mem, jgpEncoder, encoderParameters);
                 return mem.ToArray();
+            }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static Font ToFont(this string text)
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(FontWrapper));
+            using (var str = XmlReader.Create(new StringReader(text)))
+            {
+                Debug.Assert(str != null);
+                FontWrapper font = ((FontWrapper)formatter.Deserialize(str));
+                Debug.Assert(font != null);
+                return font.Value;
             }
         }
 
@@ -125,6 +125,33 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
+        public static string GetFileExt(this ImageFormat format)
+        {
+            if (format == null)
+                throw new ArgumentNullException("format");
+
+            if (format.Guid == ImageFormat.Jpeg.Guid)
+                return ".jpg";
+            else if (format.Guid == ImageFormat.Bmp.Guid)
+                return ".bmp";
+            else if (format.Guid == ImageFormat.Tiff.Guid)
+                return ".tif";
+            else if (format.Guid == ImageFormat.Png.Guid)
+                return ".png";
+            else if (format.Guid == ImageFormat.Emf.Guid)
+                return ".emf";
+            else if (format.Guid == ImageFormat.Exif.Guid)
+                return ".exif";
+            else if (format.Guid == ImageFormat.Gif.Guid)
+                return ".gif";
+            else if (format.Guid == ImageFormat.Icon.Guid)
+                return ".ico";
+            else if (format.Guid == ImageFormat.Wmf.Guid)
+                return ".wmf";
+            throw new NotImplementedException();
+        }
+
+        [TargetedPatchingOptOut("na")]
         public static int Ans(this Color c)
         {
             return (Convert.ToInt16(c.R) + Convert.ToInt16(c.G) + Convert.ToInt16(c.B)) / 3;
@@ -134,6 +161,6 @@ namespace VPrinting
         public static Point Invert(this Point point)
         {
             return new Point(-point.X, -point.Y);
-        }
+        }        
     }
 }

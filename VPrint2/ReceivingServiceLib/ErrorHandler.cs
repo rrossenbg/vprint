@@ -3,8 +3,11 @@
 /***************************************************/
 
 using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
@@ -13,6 +16,70 @@ using System.Threading;
 
 namespace ReceivingServiceLib
 {
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
+    public sealed class MapExceptionToFaultAttribute : Attribute//, IOperationBehavior
+    {
+        internal Type ExceptionType { get; set; }
+        internal Type FaultType { get; set; }
+
+        private ConstructorInfo _exceptionConstructor;
+        private ConstructorInfo _parameterlessConstructor;
+
+        public MapExceptionToFaultAttribute(Type exceptionType, Type faultDetailType)
+        {
+            ExceptionType = exceptionType;
+            FaultType = faultDetailType;
+
+            Debug.Assert(typeof(Exception).IsAssignableFrom(ExceptionType));
+
+            _exceptionConstructor = FaultType.GetConstructor(new Type[] { exceptionType });
+            if (_exceptionConstructor == null)
+                _parameterlessConstructor = FaultType.GetConstructor(Type.EmptyTypes);
+            Debug.Assert(_exceptionConstructor != null || _parameterlessConstructor != null);
+        }
+
+        internal object GetFaultDetailForException(Exception exception)
+        {
+            if (_exceptionConstructor != null)
+                return _exceptionConstructor.Invoke(new object[] { exception });
+            if (_parameterlessConstructor != null)
+                return _parameterlessConstructor.Invoke(new object[] { });
+
+            Debug.Assert(false);
+            return null;
+        }
+
+        //#region IOperationBehavior Members
+
+        //public void AddBindingParameters(OperationDescription operationDescription, System.ServiceModel.Channels.BindingParameterCollection bindingParameters)
+        //{
+        //}
+
+        //public void ApplyClientBehavior(OperationDescription operationDescription, System.ServiceModel.Dispatcher.ClientOperation clientOperation)
+        //{
+        //}
+
+        //public void ApplyDispatchBehavior(OperationDescription operationDescription, System.ServiceModel.Dispatcher.DispatchOperation dispatchOperation)
+        //{
+        //    string faultName = this.FaultType.Name + "Fault";
+        //    string faultAction = operationDescription.DeclaringContract.Namespace + '/' +
+        //        operationDescription.DeclaringContract.Name + '/' +
+        //        operationDescription.Name + '/' + faultName;
+        //    operationDescription.Faults.Add(new FaultDescription(faultAction)
+        //    {
+        //        DetailType = this.FaultType,
+        //        Name = faultName,
+        //        Namespace = operationDescription.DeclaringContract.Namespace
+        //    });
+        //}
+
+        //public void Validate(OperationDescription operationDescription)
+        //{
+        //}
+
+        //#endregion
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -105,6 +172,80 @@ namespace ReceivingServiceLib
             }
 
             return faultDetail;
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Class)]
+    public sealed class ErrorHandlingBehaviorAttribute : Attribute, IServiceBehavior
+    {
+        private Type _exceptionToFaultConverterType;
+
+        public bool EnforceFaultContract { get; set; }
+        public Type ExceptionToFaultConverter
+        {
+            get
+            {
+                return _exceptionToFaultConverterType;
+            }
+            set
+            {
+                if (!typeof(IExceptionToFaultConverter).IsAssignableFrom(value))
+                    throw new ArgumentException("Fault converter doesn't implement IExceptionToFaultConverter.", "value");
+                _exceptionToFaultConverterType = value;
+            }
+        }
+
+        public void AddBindingParameters(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase,
+            Collection<ServiceEndpoint> endpoints,
+            BindingParameterCollection bindingParameters)
+        {
+        }
+
+        public void ApplyDispatchBehavior(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)
+        {
+            foreach (ChannelDispatcherBase chanDispBase in serviceHostBase.ChannelDispatchers)
+            {
+                ChannelDispatcher channelDispatcher = chanDispBase as ChannelDispatcher;
+                if (channelDispatcher == null)
+                    continue;
+                channelDispatcher.ErrorHandlers.Add(new ErrorHandler(this));
+            }
+        }
+
+        public void Validate(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)
+        {
+        }
+    }
+
+    public interface IExceptionToFaultConverter
+    {
+        object ConvertExceptionToFaultDetail(Exception error);
+    }
+
+    public class MyServiceFaultProvider : IExceptionToFaultConverter
+    {
+        public object ConvertExceptionToFaultDetail(Exception error)
+        {
+            if (error is InvalidOperationException)
+                return new InvalidOperationFault(error as InvalidOperationException);
+            return null;
+        }
+    }
+
+    [DataContract]
+    public class MyApplicationFault
+    {
+    }
+
+    [DataContract]
+    public class InvalidOperationFault
+    {
+        [DataMember]
+        public InvalidOperationException Exception { get; private set; }
+
+        public InvalidOperationFault(InvalidOperationException e)
+        {
+            Exception = e;
         }
     }
 }

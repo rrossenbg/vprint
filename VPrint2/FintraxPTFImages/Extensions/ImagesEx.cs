@@ -4,8 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime;
-using System;
-using System.Text;
+using VPrinting;
 
 namespace FintraxPTFImages
 {
@@ -19,36 +18,6 @@ namespace FintraxPTFImages
                 image.Save(mem, image.RawFormat);
                 return mem.ToArray();
             }
-        }
-
-        [TargetedPatchingOptOut("na")]
-        public static byte[] ToArray(this Image image, ImageFormat format, long compression = 50L)
-        {
-            Debug.Assert(image != null);
-
-            using (var mem = new MemoryStream())
-            {
-                ImageCodecInfo enc = format.GetEncoder();
-
-                using (var encoderParameters = new EncoderParameters(1))
-                using (var parameter1 = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, compression))
-                {
-                    encoderParameters.Param[0] = parameter1;
-                    image.Save(mem, enc, encoderParameters);
-                }
-
-                return mem.ToArray();
-            }
-        }
-
-        [TargetedPatchingOptOut("na")]
-        public static ImageCodecInfo GetEncoder(this ImageFormat format)
-        {
-            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
-            foreach (ImageCodecInfo codec in codecs)
-                if (codec.FormatID == format.Guid)
-                    return codec;
-            return null;
         }
 
         [TargetedPatchingOptOut("na")]
@@ -77,59 +46,42 @@ namespace FintraxPTFImages
             return images;
         }
 
-        public static List<string> TiffGetAllImages2(this string fullFileName, ImageFormat imageFormat)
+        public static List<string> TiffGetAllImages2(this string fullFileName, ImageFormat imageFormat, bool rotatePortrait = false)
         {
-            List<string> list = new List<string>();
+            var list = new List<string>();
+
+            bool rotate =  false;
 
             using (Image image = Image.FromFile(fullFileName))
             {
-                int activePage;
-
                 string directory = Path.GetDirectoryName(fullFileName);
                 string fileName = Path.GetFileNameWithoutExtension(fullFileName);
+
+                rotate = rotatePortrait && image.Width > image.Height;
 
                 int pages = image.GetFrameCount(FrameDimension.Page);
 
                 for (int index = 0; index < pages; index++)
                 {
-                    activePage = index + 1;
-
+                    int activePage = index + 1;
                     image.SelectActiveFrame(FrameDimension.Page, index);
-
                     var path = Path.Combine(directory, string.Concat(fileName, activePage, imageFormat.GetFileExt()));
-
                     list.Add(path);
-
                     image.Save(path, imageFormat);
                 }
             }
+            if (rotate)
+            {
+                foreach (var path in list)
+                {
+                    using (Image image = Image.FromFile(path))
+                    {
+                        image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                        image.Save(path, imageFormat);
+                    }
+                }
+            }
             return list;
-        }
-
-        public static string GetFileExt(this ImageFormat format)
-        {
-            if (format == null)
-                throw new ArgumentNullException("format");
-
-            if (format.Guid == ImageFormat.Jpeg.Guid)
-                return ".jpg";
-            else if (format.Guid == ImageFormat.Bmp.Guid)
-                return ".bmp";
-            else if (format.Guid == ImageFormat.Tiff.Guid)
-                return ".tif";
-            else if (format.Guid == ImageFormat.Png.Guid)
-                return ".png";
-            else if (format.Guid == ImageFormat.Emf.Guid)
-                return ".emf";
-            else if (format.Guid == ImageFormat.Exif.Guid)
-                return ".exif";
-            else if (format.Guid == ImageFormat.Gif.Guid)
-                return ".gif";
-            else if (format.Guid == ImageFormat.Icon.Guid)
-                return ".ico";
-            else if (format.Guid == ImageFormat.Wmf.Guid)
-                return ".wmf";
-            throw new NotImplementedException();
         }
     }
 }

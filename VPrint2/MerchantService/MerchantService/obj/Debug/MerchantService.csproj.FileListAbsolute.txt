@@ -1,0 +1,12 @@
+D:\PROJECTS\_PROJECTS23_MVC\MerchantService\MerchantService\bin\MerchantService.dll
+D:\PROJECTS\_PROJECTS23_MVC\MerchantService\MerchantService\bin\MerchantService.pdb
+D:\PROJECTS\_PROJECTS23_MVC\MerchantService\MerchantService\obj\Debug\MerchantService.dll
+D:\PROJECTS\_PROJECTS23_MVC\MerchantService\MerchantService\obj\Debug\MerchantService.pdb
+C:\PROJECTS\VPrint2\MerchantService\MerchantService\bin\MerchantService.dll
+C:\PROJECTS\VPrint2\MerchantService\MerchantService\bin\MerchantService.pdb
+C:\PROJECTS\VPrint2\MerchantService\MerchantService\obj\Debug\MerchantService.csprojResolveAssemblyReference.cache
+C:\PROJECTS\VPrint2\MerchantService\MerchantService\obj\Debug\MerchantService.dll
+C:\PROJECTS\VPrint2\MerchantService\MerchantService\obj\Debug\MerchantService.pdb
+C:\PROJECTS\VPrint2\MerchantService\MerchantService\bin\PTF.Common.dll
+C:\PROJECTS\VPrint2\MerchantService\MerchantService\bin\Ionic.Zip.dll
+C:\PROJECTS\VPrint2\MerchantService\MerchantService\bin\PTF.Common.pdb

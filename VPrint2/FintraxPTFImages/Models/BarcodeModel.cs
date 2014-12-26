@@ -1,4 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2014
+/***************************************************/
+
+using System.ComponentModel.DataAnnotations;
 
 namespace FintraxPTFImages.Models
 {

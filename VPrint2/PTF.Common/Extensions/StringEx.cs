@@ -10,12 +10,13 @@ using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Runtime;
+using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
-using System.Runtime.InteropServices;
 
 namespace VPrinting
 {
@@ -141,15 +142,6 @@ namespace VPrinting
             return str.Replace("\n\r", "").Replace("\n", "").Replace(" ", "");
         }
 
-        //[TargetedPatchingOptOut("na")]
-        //public static string concat(this string str, params object[] values)
-        //{
-        //    StringBuilder b = new StringBuilder(str);
-        //    foreach (var o in values)
-        //        b.Append(o);
-        //    return b.ToString();
-        //}
-
         [TargetedPatchingOptOut("na")]
         public static string join(this string str, string separ, params object[] values)
         {
@@ -163,6 +155,14 @@ namespace VPrinting
         public static bool EqualNoCase(this string str, string str2)
         {
             return string.Compare(str, str2, true) == 0;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static bool ContainsSafe(this string value, string value2)
+        {
+            if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value2))
+                return false;
+            return value.Contains(value2);
         }
 
         [TargetedPatchingOptOut("na")]
@@ -259,6 +259,31 @@ namespace VPrinting
             if (string.IsNullOrWhiteSpace(value))
                 return value;
             return SecurityElement.Escape(value);
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static string RegexReplace(this string value, string pattern)
+        {
+            Regex regex = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            if (regex.IsMatch(value))
+                return regex.Replace(value, String.Empty);
+            return value;
+        }
+
+        public static IEnumerable<string> Search(this string value, string pattern, Func<Match, string> extrFunct)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentNullException("value");
+
+            if (string.IsNullOrWhiteSpace(pattern))
+                throw new ArgumentNullException("pattern");
+
+            if (extrFunct == null)
+                throw new ArgumentNullException("extrFunct");
+
+            Regex regex = new Regex(pattern, RegexOptions.IgnoreCase| RegexOptions.Multiline | RegexOptions.Compiled);
+            foreach (Match m in regex.Matches(value))
+                yield return extrFunct(m);
         }
 
         [TargetedPatchingOptOut("na")]

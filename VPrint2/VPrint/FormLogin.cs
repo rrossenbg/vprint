@@ -79,13 +79,7 @@ namespace VPrinting
 
                 if (Program.IsAdmin)
                 {
-                    Program.currentUser = new CurrentUser(0, textBoxUsername.Text, countryId);
-
-                    ServiceDataAccess.Instance.LogOperation(OperationHistory.Login, Program.SessionId, 0, 0, 0, 0, 0, "");
-
-                    this.DialogResult = DialogResult.OK;
-
-                    StateSaver.Default.Set("textBoxUsername.Text", this.textBoxUsername.Text);
+                    SaveCurrentUser(0, countryId, false);
                 }
                 else
                 {
@@ -96,24 +90,37 @@ namespace VPrinting
                     if (!string.IsNullOrEmpty(result))
                     {
                         var userId = auth.RetrieveUser(countryId, textBoxUsername.Text);
-
-                        Program.currentUser = new CurrentUser(userId, textBoxUsername.Text, countryId);
-
-                        ServiceDataAccess.Instance.LogOperation(OperationHistory.Login, Program.SessionId, 0, 0, 0, 0, 0, "");
-
-                        this.DialogResult = DialogResult.OK;
-
-                        StateSaver.Default.Set("textBoxUsername.Text", this.textBoxUsername.Text);
+                        SaveCurrentUser(userId, countryId, false);
                     }
                     else
                     {
-                        Speeker.SpeakAsynchSf("Invalid user id or password, please try again.");
-                        this.ShowExclamation("Invalid user id or password, please try again.");
-                        textBoxPassword.Text = "";
-                        textBoxPassword.Focus();
+                        var security = new Security();
+                        bool result2 = security.DomainValidate("fintrax", textBoxUsername.Text, textBoxPassword.Text);
+                        if (result2)
+                        {
+                            SaveCurrentUser(-100, countryId, true);
+                        }
+                        else
+                        {
+                            Speeker.SpeakAsynchSf("Invalid user id or password, please try again.");
+                            this.ShowExclamation("Invalid user id or password, please try again.");
+                            textBoxPassword.Text = "";
+                            textBoxPassword.Focus();
+                        }
                     }
                 }
             }
+        }
+
+        private void SaveCurrentUser(int userId, int countryId, bool isdomain)
+        {
+            Program.currentUser = new CurrentUser(userId, textBoxUsername.Text, countryId, isdomain);
+
+            ServiceDataAccess.Instance.LogOperation(OperationHistory.Login, Program.SessionId, 0, 0, 0, 0, 0, "");
+
+            this.DialogResult = DialogResult.OK;
+
+            StateSaver.Default.Set("textBoxUsername.Text", this.textBoxUsername.Text);
         }
 
         private void UpdateVersion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

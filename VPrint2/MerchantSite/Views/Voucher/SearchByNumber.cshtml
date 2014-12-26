@@ -1,0 +1,69 @@
+﻿@using System
+@using System.Linq
+@using System.Collections.Generic
+@using MerchantSite.Models
+@using MerchantSite.ScanServiceRef
+@using GridMvc
+@using GridMvc.Html
+@model SearchModel2
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section style_declarations {
+    <style type="text/css">
+        p
+        {
+            display: inline;
+        }
+    </style>
+}
+@section script_declarations{
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+}
+@using (Html.BeginForm("SearchByNumber", "Voucher", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <table>
+        <tr>
+            <td>
+                <label>
+                    Country</label>@Html.DropDownListFor(model => model.Country, (IEnumerable<SelectListItem>)ViewData["CountryList"], new { style = "width: 185px" })
+                    @Html.ValidationMessageFor(model => model.Country)
+            </td>
+            <td>
+                <label>
+                    Voucher</label>
+                    @Html.TextBoxFor(model => model.Voucher)
+                    @Html.ValidationMessageFor(model => model.Voucher)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                <input type="submit" value="Search" />
+            </td>
+        </tr>
+    </table>
+}
+@{
+    <div style="width: 600px;">
+        @Html.Grid((IEnumerable<fileInfo>)ViewData["VoucherList"]).Columns(columns =>
+   {
+       columns.Add(c => c.Id).Titled("ID").Sanitized(false).Encoded(false)
+            .RenderValueAs(c => Html.ActionLink("Show", "Show", "Voucher", new { Id = c.Id }, null).ToHtmlString());
+       columns.Add(c => c.VoucherId).Titled("Voucher").Filterable(true);
+       columns.Add(c => c.CountryId).Titled("Country").Filterable(true);
+       columns.Add(c => c.RetailerId).Titled("Retailer");
+       columns.Add(c => c.SiteCode).Titled("SiteCode").Filterable(true);
+       columns.Add(c => c.FolderId).Titled("Folder").Filterable(true);
+       columns.Add(c => c.SessionId).Titled("Session").Filterable(true);
+       columns.Add(c => c.Name).Titled("Name");
+   }).WithPaging(10).Sortable(true)
+    </div>
+}

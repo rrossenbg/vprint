@@ -87,8 +87,22 @@ namespace ReceivingServiceLib
                 SecurityCheckThrow(s1, s2);
                 RecordCallHistory("ReadData2");
 
+#warning NO_BLOBS_IN_SQL
                 if (!ByteBuffers.ContainsKey(id))
-                    ByteBuffers[id] = VoucherDataAccess.Instance.SelectImageById(id, isVoucher);
+                {
+                    var vinfo = VoucherDataAccess.Instance.SelectVoucherInfo(id);
+                    var fac2 = new ZipFileAccess();
+                    var voucherDirectory = fac2.CreateDirectoryHerarchy(Global.Strings.VOCUHERSFOLDER, vinfo.isoId, vinfo.branch_id, vinfo.v_number);
+
+                    //byte[] data = VoucherDataAccess.Instance.SelectImageById(result2.Item1.vid, true);
+                    var file = voucherDirectory.GetFiles().FirstOrDefault();
+                    if (file == null)
+                        return null;
+
+                    byte[] data = file.ReadAllBytes();
+                    ByteBuffers[id] = data;
+                    //ByteBuffers[id] = VoucherDataAccess.Instance.SelectImageById(id, isVoucher);
+                }
 
                 byte[] buffer = ByteBuffers[id];
                 byte[] result = new byte[length];
@@ -781,7 +795,19 @@ namespace ReceivingServiceLib
                             var db = VoucherDataAccess.Instance;
                             var vinfo = db.SelectVoucherInfo(fileId);
                             var countryName = ISOs.ResourceManager.GetString(string.Concat('_', vinfo.isoId));
-                            var buf = db.SelectImageById(fileId, true);
+
+#warning NO_BLOBS_IN_SQL
+                            var fac2 = new ZipFileAccess();
+                            var voucherDirectory = fac2.CreateDirectoryHerarchy(Global.Strings.VOCUHERSFOLDER, vinfo.isoId, vinfo.branch_id, vinfo.v_number);
+
+                            //byte[] data = VoucherDataAccess.Instance.SelectImageById(result2.Item1.vid, true);
+                            var file = voucherDirectory.GetFiles().FirstOrDefault();
+                            if (file == null)
+                                return null;
+
+                            byte[] data = file.ReadAllBytes();
+
+                            //var data = db.SelectImageById(fileId, true);
 
                             DirectoryInfo exportDirectory = null;
                             FileInfo exportZipFile = null;
@@ -802,7 +828,7 @@ namespace ReceivingServiceLib
                                 exportZipFile = uploadRootFolder.CombineFileName(vinfo.session_Id + ".zip");
                                 operationZipFile = uploadRootFolder.CombineFileName(vinfo.session_Id + "result.zip");
 
-                                File.WriteAllBytes(exportZipFile.FullName, buf);
+                                File.WriteAllBytes(exportZipFile.FullName, data);
 
                                 var files = ZipFileAccess.Instance.ExtractFileZip(exportZipFile.FullName, exportDirectory.FullName);
                                 var imageFileToSing = files.Max((f, f1) => f.Length > f1.Length);
@@ -1110,15 +1136,5 @@ namespace ReceivingServiceLib
         }
 
         #endregion
-    }
-
-    public class MyServiceFaultProvider : IExceptionToFaultConverter
-    {
-        public object ConvertExceptionToFaultDetail(Exception error)
-        {
-            if (error is InvalidOperationException)
-                return new InvalidOperationFault(error as InvalidOperationException);
-            return null;
-        }
     }
 }

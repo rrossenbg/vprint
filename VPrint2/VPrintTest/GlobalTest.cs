@@ -1,17 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VPrinting;
 using System.Text;
 using System.Xml;
-using System.Diagnostics;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VPrinting;
+using VPrinting.Documents;
 
 namespace VPrintTest
 {
     [TestClass]
     public class GlobalTest
     {
+        [TestMethod]
+        public void Repeater_Test()
+        {
+            RepeaterCounter counter = new RepeaterCounter(1);
+            counter.Load("826,1;250,3;56,3;");
+            int value = counter[1000];
+
+            RepeaterCounter counter2 = new RepeaterCounter(1);
+            counter2.Load("250,3");
+            int value2 = counter[1000];
+            int value3 = counter[250];
+        }
+
         [TestMethod]
         public void SubstringSafe_Test()
         {

@@ -1,0 +1,14 @@
+﻿@using System
+@model string[]
+@{
+    ViewBag.Title = "ShowDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section style_declarations {
+    <style type="text/css">
+        @Html.Raw(Model[1])
+    </style>
+}
+<h2>Show Details</h2>
+
+<div id="includedContent">@Html.Raw(Model[0])</div>

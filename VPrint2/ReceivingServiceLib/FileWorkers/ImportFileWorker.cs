@@ -14,6 +14,9 @@ namespace ReceivingServiceLib.FileWorkers
 {
     public class ImportFileWorker : FileWorkerBase
     {
+        /// <summary>
+        /// 4 MINUTES
+        /// </summary>
         const int WAIT_BEFORE_DELETE_MINUTES = 4;
         protected static ImportFileWorker ms_instance;
         public static ImportFileWorker Default
@@ -104,13 +107,13 @@ namespace ReceivingServiceLib.FileWorkers
                                         throw new Exception("Cannot find: " + xmlPath);
                                     }
                                 }
-#if DEBUGGER
+                                                                 #if DEBUGGER
                                 Trace.WriteLine("Create zip ".concat(fromDir.Name), Strings.APPNAME);
 #endif
                                 string zipPath = Path.Combine(uploadRoot.FullName, string.Concat(fromDir.Name, ".zip"));
                                 var zipFile = new FileInfo(zipPath);
                                 zipFile.DeleteSafe();
-                                
+
                                 fac.CreateZip(zipPath, fromDir.FullName, message);
 
                                 string binPath = Path.Combine(uploadRoot.FullName, string.Concat(fromDir.Name, ".bin"));
@@ -120,20 +123,19 @@ namespace ReceivingServiceLib.FileWorkers
                                 Trace.WriteLine("Read xml ".concat(fromDir.Name), Strings.APPNAME);
                                 Trace.WriteLine("Sql Insert ".concat(fromDir.Name), Strings.APPNAME);
 #endif
-                                using (var file = binFile.Open(FileMode.Open))
-                                using (var reader = new BinaryReader(file))
-                                {
-                                    var length = reader.Read(m_Buffer50MB, 0, (int)file.Length);
+                                var fileShare = fac.CreateDirectoryHerarchy(Global.Strings.FILESERVERFOLDER, countryId, retailerId, voucherId);
+                                var saveFile = fileShare.CombineFileName(binFile.Name);
 
-                                    if (isVoucher)
-                                    {
-                                        VoucherDataAccess.Instance.AddVoucher(jobId, countryId, retailerId, voucherId, folderId,
-                                            siteCode, barCode, locationId, userId, m_Buffer50MB, length, sessionId, true, 2);
-                                    }
-                                    else
-                                    {
-                                        VoucherDataAccess.Instance.AddCoversheet(folderId, locationId, userId, m_Buffer50MB, length, sessionId, true);
-                                    }
+                                binFile.CopyTo(saveFile);
+
+                                if (isVoucher)
+                                {
+                                    VoucherDataAccess.Instance.AddVoucher(jobId, countryId, retailerId, voucherId, folderId,
+                                        siteCode, barCode, locationId, userId, null, 0, sessionId, true, 2);
+                                }
+                                else
+                                {
+                                    VoucherDataAccess.Instance.AddCoversheet(folderId, locationId, userId, null, 0, sessionId, true);
                                 }
 
 #if DEBUGGER
@@ -141,7 +143,7 @@ namespace ReceivingServiceLib.FileWorkers
 #endif
                                 var voucherDirectory = fac.CreateDirectoryHerarchy(Global.Strings.VOCUHERSFOLDER, countryId, retailerId, voucherId);
                                 fromDir.CopyFiles(voucherDirectory, true);
-                           
+
 #if DEBUGGER
                                 Trace.WriteLine("Clean up ".concat(fromDir.Name), Strings.APPNAME);
 #endif
@@ -159,7 +161,7 @@ namespace ReceivingServiceLib.FileWorkers
                                     errDir.CreateIfNotExist();
                                     fromDir.MoveTo(errDir);
                                 }
-                                catch(Exception ex2)
+                                catch (Exception ex2)
                                 {
                                     FireError(ex2);
                                 }
