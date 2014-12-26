@@ -1,0 +1,94 @@
+﻿@model MerchantSite.Models.BarcodeModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <title>Barcode Scan</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script type="text/javascript">
+        $(function () {
+            $("#dialog").dialog();
+        });
+
+        function DeleteTextBox() {
+            var txt = document.getElementsByName("Barcode");
+            txt[0].value = "";
+        }
+    </script>
+    <script type="text/javascript">
+        var KEY_F2 = 113;
+
+        function HandlePageKeyPress() {
+            if (window.event.keyCode == KEY_F2) {
+                DeleteTextBox();
+            }
+        }
+
+        document.body.onkeyup = HandlePageKeyPress;
+
+    </script>
+</head>
+<body>
+    <div>
+        <div id="dialog" title="Scan barcode">
+            @using (Html.BeginForm("Scanbarcode", "Voucher", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true)
+                <p>
+                    Please click in textbox and scan the barcode or enter it manually.<br />To delete textbox click F2.<br />To close the window click 'x' icon.</p>
+                <p>
+                    @Html.TextBoxFor(m => m.Barcode, new { onfocus = "DeleteTextBox()" })
+                </p>
+                <p>
+                    <input type="submit" value="Submit" />
+                </p>
+            }
+        </div>
+        <p style="color: Red;">
+            @ViewBag.Err
+        </p>
+        <div style="width: 90%; height: 90%; margin-top: 10%;">
+            @{if (ViewBag.Info != null)
+              {
+                <p>
+                    @Html.Label("Country: " + (string)ViewBag.Info.Iso.ToString())
+                </p>
+                <p>
+                    @Html.Label("Voucher number: " + (string)ViewBag.Info.Number)
+                </p>
+                <p>
+                    @Html.Label("Credit card number: " + (string)ViewBag.Info.CCNumber)
+                </p>
+                <p>
+                    @Html.Label("Cheque name: " + (string)ViewBag.Info.ChequeName)
+                </p>
+                <p>
+                    @Html.Label("Bank details: " + (string)ViewBag.Info.BankDetails)
+                </p>
+              }
+            }
+            @{if (ViewBag.Info != null && ViewBag.Info.StampedByPablo)
+              {
+                <p style="color: Green;">
+                    Stamped by Pablo
+                </p>
+              }
+            }
+            @{if (ViewBag.Info != null && ViewBag.Info.RejectedByPablo)
+              {
+                <p style="color: Red;">
+                    Rejected by Pablo
+                </p>
+              }
+            }
+        </div>
+    </div>
+</body>
+</html>

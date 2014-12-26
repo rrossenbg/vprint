@@ -196,9 +196,9 @@ namespace FintraxPTFImages
             return Json(new ArrayList(retailers), JsonRequestBehavior.AllowGet);
         }
 
-        #region Show
+        #region SHOW VOUCHER IMAGE
 
-        const int ASINCH_TIMEOUT = 3000;
+        private const int ASINCH_TIMEOUT = 3000;
 
         [HttpGet]
         public void ShowAsync(int Id)
@@ -236,9 +236,9 @@ namespace FintraxPTFImages
             }
         }
 
-        const int CICLES_COUNT = 10;
+        private const int CICLES_COUNT = 10;
 
-        TimeSpan DELETE_OLDER_THAN = TimeSpan.FromMinutes(5);
+        private readonly TimeSpan DELETE_OLDER_THAN = TimeSpan.FromMinutes(5);
 
         // C:\VOUCHERS\[CountryID]\[RetailerId]\[VoucherId]
         public ActionResult ShowCompleted(VoucherInfo2 info = null)
@@ -260,10 +260,9 @@ namespace FintraxPTFImages
             }
 
             if (!sessionIdFolder.Exists())
-                throw new Exception("Sometimes it might take more to export. Please click either F5 to refresh or BackSpace to navigate back.");
+                throw new Exception("It might take more to export sometimes. Please click either F5 to refresh or BackSpace to navigate back.");
 
             webroot.ClearSafe(DateTime.Now.Subtract(DELETE_OLDER_THAN));
-
 
             foreach (var file in sessionIdFolder.GetFiles())
             {
@@ -278,7 +277,7 @@ namespace FintraxPTFImages
                     if (file.Extension.EqualsNoCase(".tif"))
                     {
                         int count = 0;
-                        var fileImages = file.FullName.TiffGetAllImages2(ImageFormat.Jpeg);
+                        var fileImages = file.FullName.TiffGetAllImages2(ImageFormat.Jpeg, true);
                         foreach (var fileName in fileImages)
                         {
                             var model = new ShowModel(string.Format("{0} Page {1}", file.Name, count++), fileName);
@@ -362,6 +361,8 @@ namespace FintraxPTFImages
         }
 
         #endregion
+
+        #region NOTA DEBITO
 
         [HttpGet]
         public ActionResult NotaDebito()
@@ -471,5 +472,7 @@ namespace FintraxPTFImages
 
             return RedirectToAction("NotaDebitoEmail");
         }
+
+        #endregion NOTA DEBITO
     }
 }

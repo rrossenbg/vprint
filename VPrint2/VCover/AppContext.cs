@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using VPrinting;
 using VCover.Properties;
-using System.Collections.Generic;
-using System.Collections;
+using VPrinting;
 using VPrinting.Communication;
-using System.Text;
+using VPrinting.Forms.Explorer;
+using System.IO;
+using VCover.Data;
 
 namespace VCover
 {
@@ -16,17 +16,18 @@ namespace VCover
     {
         public static AppContext Default { get; set; }
         private Form m_form = new Form();
-        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_lockMenuItem, m_exitMenuItem;
+        private readonly MenuItem m_showMenuItem, m_closeMenuItem, m_trainMenuItem, m_lockMenuItem, m_exitMenuItem;
         private readonly NotifyIcon m_notifyIcon = new NotifyIcon();
  
         public event EventHandler<ValueEventArgs<Guid, string>> NewInFileEvent;
-        public event EventHandler Started;
-        public event EventHandler Stopped;
+
         public event ThreadExceptionEventHandler Error;
+        private readonly FileSystemWatcher m_trainWatcher = new FileSystemWatcher();
 
         public AppContext()
         {
             m_showMenuItem = new MenuItem("Login", new EventHandler(ShowHideMainForm_Click));
+            m_trainMenuItem = new MenuItem("Train", new EventHandler(TrainMenuItem_Click));
             m_lockMenuItem = new MenuItem("Lock", new EventHandler(LockUnlockMenuItem_Click));
             m_closeMenuItem = new MenuItem("Close", new EventHandler(Close_Click));
             m_exitMenuItem = new MenuItem("Exit", new EventHandler(Exit_Click));
@@ -34,17 +35,16 @@ namespace VCover
             Bitmap bitmap = new Bitmap(Resources.PTFLogo);
             Icon icon = System.Drawing.Icon.FromHandle(bitmap.GetHicon());
             m_notifyIcon.Icon = icon;
-            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { 
-                m_showMenuItem, m_lockMenuItem, m_closeMenuItem, m_exitMenuItem });
+            m_notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { m_showMenuItem, m_lockMenuItem, m_trainMenuItem, m_closeMenuItem, m_exitMenuItem });
             m_notifyIcon.Visible = true;
             m_notifyIcon.ContextMenu.Popup += new EventHandler(ContextMenu_Popup);
             m_notifyIcon.DoubleClick += new EventHandler(ShowHideMainForm_Click);
 
+            m_trainWatcher.Created += new FileSystemEventHandler(TrainWatcher_Created);
+
             Default = this;
             Application.ApplicationExit += new EventHandler(Application_ApplicationExit);
         }
-
-        public bool IsStarted { get; set; }
 
         public bool IsLocked
         {
@@ -52,20 +52,10 @@ namespace VCover
             {
                 return m_form.Enabled;
             }
-        }
-
-        public void Start()
-        {
-            IsStarted = true;
-            if (Started != null)
-                Started(this, EventArgs.Empty);
-        }
-
-        public void Stop()
-        {
-            IsStarted = false;
-            if (Stopped != null)
-                Stopped(this, EventArgs.Empty);
+            set
+            {
+                m_form.Enabled = value;
+            }
         }
 
         public void Exit()
@@ -104,6 +94,12 @@ namespace VCover
             NamedPipes.SendMessage("VPRINT", b.ToString());
         }
 
+        private void TrainMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Explorer();
+            form.Show();
+        }
+
         private void ShowHideMainForm_Click(object sender, EventArgs e)
         {
             if (m_form.Visible)
@@ -126,35 +122,21 @@ namespace VCover
             }
         }
 
-        private void InitMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void RunOnceMenuItem_Click(object sender, EventArgs e)
-        {
-            Start();
-        }
-
-        private void StartStopMenuItem_Click(object sender, EventArgs e)
-        {
-            if (IsStarted)
-                Stop();
-            else
-                Start();
-        }
-
         private void LockUnlockMenuItem_Click(object sender, EventArgs e)
         {
             if (IsLocked)
             {
-                m_lockMenuItem.Text = "Lock";
                 m_form.Enabled = true;
+                m_trainWatcher.Path = Config.TRAINImageDirectory;
+                m_trainWatcher.EnableRaisingEvents = true;
             }
             else
             {
-                m_lockMenuItem.Text = "Unlock";
                 m_form.Enabled = false;
+                m_trainWatcher.EnableRaisingEvents = false;
             }
+
+            IsLocked = !IsLocked;
         }
 
         private void Close_Click(object sender, EventArgs e)
@@ -171,6 +153,14 @@ namespace VCover
         {
             m_showMenuItem.Text = (Program.currentUser == null) ? "Login" : "Show";
             m_lockMenuItem.Enabled = (Program.currentUser != null);
+            m_lockMenuItem.Text = IsLocked ? "Unlock" : "Lock";
+            m_trainMenuItem.Enabled = (Program.currentUser != null);
+        }
+
+        private void TrainWatcher_Created(object sender, FileSystemEventArgs e)
+        {
+            if (NewInFileEvent != null)
+                NewInFileEvent(this, new ValueEventArgs<Guid, string>(Guid.NewGuid(), e.FullPath));
         }
 
         private void Application_ApplicationExit(object sender, EventArgs e)

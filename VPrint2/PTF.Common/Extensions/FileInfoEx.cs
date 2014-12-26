@@ -8,6 +8,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using VPrinting.Colections;
@@ -21,9 +23,16 @@ namespace VPrinting
 
         static FileInfoEx()
         {
-            var asm = Assembly.GetEntryAssembly();
-            if (asm != null)
-                st_appLocation = new FileInfo(asm.Location).Directory;
+            try
+            {
+                var asm = Assembly.GetEntryAssembly();
+                if (asm != null)
+                    st_appLocation = new FileInfo(asm.Location).Directory;
+            }
+            catch
+            {
+                //Ignore errors
+            }
         }
 
         [TargetedPatchingOptOut("na")]
@@ -116,6 +125,17 @@ namespace VPrinting
                         copyFunct(buffer.Buffer, read);
                 }
             }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static void CopyTo(this FileInfo from, FileInfo to)
+        {
+            Debug.Assert(from != null);
+            Debug.Assert(to != null);
+
+            using (FileStream fromStr = from.OpenRead())
+            using (FileStream toStr = to.OpenWrite())
+                fromStr.CopyTo(toStr);
         }
 
         [TargetedPatchingOptOut("na")]
@@ -250,20 +270,6 @@ namespace VPrinting
 #endif
         }
 
-        //[TargetedPatchingOptOut("na")]
-        //[Obfuscation]
-        //public static DirectoryInfo Combine(this DirectoryInfo info, string subFolder)
-        //{
-        //    return new DirectoryInfo(Path.Combine(info.FullName, subFolder));
-        //}
-
-        //[TargetedPatchingOptOut("na")]
-        //[Obfuscation]
-        //public static FileInfo CombineFileName(this DirectoryInfo info, string fileName)
-        //{
-        //    return new FileInfo(Path.Combine(info.FullName, fileName));
-        //}
-
         [TargetedPatchingOptOut("na")]
         [Obfuscation]
         public static void WriteAllBytes(this FileInfo file, byte[] bytes, int length = 0)
@@ -279,6 +285,19 @@ namespace VPrinting
 
             using (var stream = file.OpenWrite())
                 stream.Write(bytes, 0, ((length > 0) ? length : bytes.Length));
+        }
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static void WriteAllText(this FileInfo file, string text)
+        {
+            if (file == null)
+                throw new ArgumentNullException("file");
+
+            if (text == null)
+                throw new ArgumentNullException("text");
+
+            File.WriteAllText(file.FullName, text);
         }
 
         [TargetedPatchingOptOut("na")]
@@ -323,6 +342,87 @@ namespace VPrinting
                 reader.Seek(from, SeekOrigin.Begin);
                 reader.Read(buffer, 0, length);
             }
+        }
+
+        private const int BUFSIZE = 16384;
+
+        #region SECURITY
+
+        [Obfuscation(StripAfterObfuscation = true)]
+        private static readonly byte[] IVFile = Encoding.ASCII.GetBytes("RYO777ZMDALYGLRJ");
+        [Obfuscation(StripAfterObfuscation = true)]
+        private static readonly byte[] keyFile = Encoding.ASCII.GetBytes("HCXILKQBBHCZF666TGBSKDMAUNIVMFUO");
+
+        #endregion
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static void EncriptFile(this FileInfo fromFile, FileInfo toFile)
+        {
+            Debug.Assert(fromFile != null);
+            Debug.Assert(toFile != null);
+
+            using (SymmetricAlgorithm algorithm = Rijndael.Create())
+            using (ICryptoTransform encryptor = algorithm.CreateEncryptor(keyFile, IVFile))
+            using (Stream from = fromFile.Open(FileMode.Open, FileAccess.Read))
+            using (Stream to = toFile.Open(FileMode.OpenOrCreate, FileAccess.Write))
+            using (Stream c = new CryptoStream(to, encryptor, CryptoStreamMode.Write))
+                from.CopyTo(c, BUFSIZE);
+        }
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static void DecriptFile(this FileInfo fromFile, FileInfo toFile)
+        {
+            Debug.Assert(fromFile != null);
+            Debug.Assert(toFile != null);
+
+            using (SymmetricAlgorithm algorithm = Rijndael.Create())
+            using (ICryptoTransform decryptor = algorithm.CreateDecryptor(keyFile, IVFile))
+            using (Stream from = fromFile.Open(FileMode.Open, FileAccess.Read))
+            using (Stream to = toFile.Open(FileMode.OpenOrCreate, FileAccess.Write))
+            using (Stream c = new CryptoStream(from, decryptor, CryptoStreamMode.Read))
+                c.CopyTo(to, BUFSIZE);
+        }
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static bool DeleteSafe(this DirectoryInfo info, bool recursive = true)
+        {
+            try
+            {
+                if (info == null)
+                    return false;
+
+                info.Refresh();
+                if (info.Exists)
+                {
+                    info.Delete(recursive);
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+#if DEBUGGER
+                Trace.WriteLine(ex, "ISRV");
+#endif
+                return false;
+            }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static int CopyFiles(this DirectoryInfo from, DirectoryInfo to, bool @overwrite = true)
+        {
+            Debug.Assert(from != null);
+
+            var files = from.GetFiles();
+
+            foreach (var file in files)
+                file.CopyTo(to.CombineFileName(file.Name).FullName, @overwrite);
+
+            return files.Length;
         }
     }
 }

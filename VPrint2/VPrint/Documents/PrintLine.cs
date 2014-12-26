@@ -73,6 +73,22 @@ namespace VPrinting.Documents
             b.AppendLine(Text);
             return b.ToString();
         }
+
+        public static PrintLine Copy(PrintLine from)
+        {
+            return new PrintLine()
+            {
+                MaxX = from.MaxX,
+                MaxY = from.MaxY,
+                MinX = from.MinX,
+                MinY = from.MinY,
+                Size = from.Size,
+                Text = from.Text,
+                Description = from.Description,
+                X = from.X,
+                Y = from.Y
+            };
+        }
     }
 
     /// <summary>

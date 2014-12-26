@@ -1,8 +1,12 @@
-﻿using System.Data;
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2011
+/***************************************************/
+
+using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 
-namespace ReceivingServiceLib
+namespace VPrinting
 {
     public interface IReadable
     {

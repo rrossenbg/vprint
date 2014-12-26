@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using VPrinting.Common;
+using System.Diagnostics;
 
 namespace VPrinting.Documents
 {
@@ -57,17 +58,17 @@ namespace VPrinting.Documents
             {
                 m_list = new List<IPrintLine>()
                     {
-                        BarCodeNo,
-                        BarCodeText,
-                        RetailerID,
-                        Line1,
-                        Line5,
-                        Line3,
-                        Phone,
-                        VATNumber,
-                        VoucherID,
-                        ShopName,
-                        Line2,
+                        PrintLine.Copy(BarCodeNo),
+                        PrintLine.Copy(BarCodeText),
+                        PrintLine.Copy(RetailerID),
+                        PrintLine.Copy(Line1),
+                        PrintLine.Copy(Line5),
+                        PrintLine.Copy(Line3),
+                        PrintLine.Copy(Phone),
+                        PrintLine.Copy(VATNumber),
+                        PrintLine.Copy(VoucherID),
+                        PrintLine.Copy(ShopName),
+                        PrintLine.Copy(Line2),
                     };
                 m_list.Sort(new PrintLineComparer());
                 return m_list;
@@ -136,9 +137,21 @@ namespace VPrinting.Documents
 
         public virtual void Clear()
         {
-            foreach (IPrintLine line in PrintLines)
-                if (line != null)
-                    line.Text = null;
+            foreach (IPrintLine line in new List<IPrintLine>()
+            {
+                    BarCodeNo,
+                    BarCodeText,
+                    RetailerID,
+                    Line1,
+                    Line5,
+                    Line3,
+                    Phone,
+                    VATNumber,
+                    VoucherID,
+                    ShopName,
+                    Line2
+            })
+                line.Text = null;
         }
 
         public void InitPrinter(string printDoc)
@@ -203,6 +216,15 @@ namespace VPrinting.Documents
             PrinterQueue.AddJob(printerName, printDocName, docText);
         }
 
+        public void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, Queue<IList<IPrintLine>> multilines)
+        {
+            while (multilines.Count > 0)
+            {
+                IList<IPrintLine> lines = multilines.Dequeue();
+                PrintVoucher(printerName, printDocName, length, docInitialization, lines);
+            }
+        }
+
         public override string ToString()
         {
             StringBuilder b = new StringBuilder();
@@ -211,9 +233,12 @@ namespace VPrinting.Documents
             return b.ToString();
         }
 
-        public void PrintVouchers(string printerName, string printDocName, int length, string docInitialization, Queue<IList<IPrintLine>> multilines)
+        private void PrintVoucher__TestDebug(string printerName, string printDocName, int length, string docInitialization, IList<IPrintLine> lines)
         {
-            throw new NotImplementedException();
+            foreach (IPrintLine line in lines)
+                Debug.WriteLine(line.ToString());
+
+            Debug.WriteLine("==========================================");
         }
     }
 }

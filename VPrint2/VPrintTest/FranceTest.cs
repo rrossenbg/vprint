@@ -73,10 +73,11 @@ namespace VPrintTest
         public void france_print_format_Type_1()
         {
             VoucherPrinter printer = new VoucherPrinter();
+            printer.MultyPagePrint = true;
             printer.m_PrinterName = Printers.FRANCE;
             printer.m_ReportType2 = "VPrinting.Documents.VoucherPrintLayout250";
             printer.m_PrinterXmlFilePath = @"C:\PROJECTS\VPrint2\XmlConfigurations\print250_Type1.xml";
-            printer.PrintOnce = true;
+            printer.PrintOnce = false;
             printer.UseLocalFormat = true;
             printer.UseLocalPrinter = true;
             printer.SimulatePrint = false;

@@ -7,13 +7,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.IO;
 using System.Reflection;
 
-namespace ReceivingServiceLib
+namespace VPrinting
 {
-
-
     /// <summary>
     /// Common SQL class
     /// </summary>

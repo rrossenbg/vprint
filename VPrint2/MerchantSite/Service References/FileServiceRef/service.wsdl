@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FileService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IFileService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/Message" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="FileInfo2">
+    <wsdl:part name="parameters" element="tns:FileInfo2" />
+  </wsdl:message>
+  <wsdl:message name="FileInfo2_Headers">
+    <wsdl:part name="CountryId" element="tns:CountryId" />
+    <wsdl:part name="VoucherId" element="tns:VoucherId" />
+    <wsdl:part name="s1" element="tns:s1" />
+    <wsdl:part name="s2" element="tns:s2" />
+  </wsdl:message>
+  <wsdl:message name="FileMessage2">
+    <wsdl:part name="parameters" element="tns:FileMessage2" />
+  </wsdl:message>
+  <wsdl:message name="FileMessage2_Headers">
+    <wsdl:part name="CountryId" element="tns:CountryId" />
+    <wsdl:part name="VoucherId" element="tns:VoucherId" />
+    <wsdl:part name="s1" element="tns:s1" />
+    <wsdl:part name="s2" element="tns:s2" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_DownloadFile2_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q1:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="FileInfo5">
+    <wsdl:part name="parameters" element="tns:FileInfo5" />
+  </wsdl:message>
+  <wsdl:message name="FileInfo5_Headers">
+    <wsdl:part name="CountryId" element="tns:CountryId" />
+    <wsdl:part name="Filename" element="tns:Filename" />
+    <wsdl:part name="RetailerId" element="tns:RetailerId" />
+    <wsdl:part name="SessionId" element="tns:SessionId" />
+    <wsdl:part name="VoucherId" element="tns:VoucherId" />
+    <wsdl:part name="s1" element="tns:s1" />
+    <wsdl:part name="s2" element="tns:s2" />
+  </wsdl:message>
+  <wsdl:message name="FileMessage5">
+    <wsdl:part name="parameters" element="tns:FileMessage5" />
+  </wsdl:message>
+  <wsdl:message name="FileMessage5_Headers">
+    <wsdl:part name="CountryId" element="tns:CountryId" />
+    <wsdl:part name="Filename" element="tns:Filename" />
+    <wsdl:part name="RetailerId" element="tns:RetailerId" />
+    <wsdl:part name="SessionId" element="tns:SessionId" />
+    <wsdl:part name="VoucherId" element="tns:VoucherId" />
+    <wsdl:part name="s1" element="tns:s1" />
+    <wsdl:part name="s2" element="tns:s2" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_DownloadFile5_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q2:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_UploadFile2_OutputMessage" />
+  <wsdl:message name="IFileService_UploadFile2_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q3:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_UploadFile5_OutputMessage" />
+  <wsdl:message name="IFileService_UploadFile5_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q4:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:portType name="IFileService">
+    <wsdl:operation name="DownloadFile2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileService/DownloadFile2" name="FileInfo2" message="tns:FileInfo2" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileService/DownloadFile2Response" name="FileMessage2" message="tns:FileMessage2" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IFileService/DownloadFile2MyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IFileService_DownloadFile2_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile5">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileService/DownloadFile5" name="FileInfo5" message="tns:FileInfo5" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileService/DownloadFile5Response" name="FileMessage5" message="tns:FileMessage5" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IFileService/DownloadFile5MyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IFileService_DownloadFile5_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileService/UploadFile2" name="FileMessage2" message="tns:FileMessage2" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileService/UploadFile2Response" message="tns:IFileService_UploadFile2_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IFileService/UploadFile2MyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IFileService_UploadFile2_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile5">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileService/UploadFile5" name="FileMessage5" message="tns:FileMessage5" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileService/UploadFile5Response" message="tns:IFileService_UploadFile5_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IFileService/UploadFile5MyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IFileService_UploadFile5_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFileService" type="tns:IFileService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IFileService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DownloadFile2">
+      <soap:operation soapAction="http://tempuri.org/IFileService/DownloadFile2" style="document" />
+      <wsdl:input name="FileInfo2">
+        <soap:header message="tns:FileInfo2_Headers" part="CountryId" use="literal" />
+        <soap:header message="tns:FileInfo2_Headers" part="VoucherId" use="literal" />
+        <soap:header message="tns:FileInfo2_Headers" part="s1" use="literal" />
+        <soap:header message="tns:FileInfo2_Headers" part="s2" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="FileMessage2">
+        <soap:header message="tns:FileMessage2_Headers" part="CountryId" use="literal" />
+        <soap:header message="tns:FileMessage2_Headers" part="VoucherId" use="literal" />
+        <soap:header message="tns:FileMessage2_Headers" part="s1" use="literal" />
+        <soap:header message="tns:FileMessage2_Headers" part="s2" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile5">
+      <soap:operation soapAction="http://tempuri.org/IFileService/DownloadFile5" style="document" />
+      <wsdl:input name="FileInfo5">
+        <soap:header message="tns:FileInfo5_Headers" part="CountryId" use="literal" />
+        <soap:header message="tns:FileInfo5_Headers" part="Filename" use="literal" />
+        <soap:header message="tns:FileInfo5_Headers" part="RetailerId" use="literal" />
+        <soap:header message="tns:FileInfo5_Headers" part="SessionId" use="literal" />
+        <soap:header message="tns:FileInfo5_Headers" part="VoucherId" use="literal" />
+        <soap:header message="tns:FileInfo5_Headers" part="s1" use="literal" />
+        <soap:header message="tns:FileInfo5_Headers" part="s2" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="FileMessage5">
+        <soap:header message="tns:FileMessage5_Headers" part="CountryId" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="Filename" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="RetailerId" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="SessionId" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="VoucherId" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="s1" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="s2" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile2">
+      <soap:operation soapAction="http://tempuri.org/IFileService/UploadFile2" style="document" />
+      <wsdl:input name="FileMessage2">
+        <soap:header message="tns:FileMessage2_Headers" part="CountryId" use="literal" />
+        <soap:header message="tns:FileMessage2_Headers" part="VoucherId" use="literal" />
+        <soap:header message="tns:FileMessage2_Headers" part="s1" use="literal" />
+        <soap:header message="tns:FileMessage2_Headers" part="s2" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile5">
+      <soap:operation soapAction="http://tempuri.org/IFileService/UploadFile5" style="document" />
+      <wsdl:input name="FileMessage5">
+        <soap:header message="tns:FileMessage5_Headers" part="CountryId" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="Filename" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="RetailerId" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="SessionId" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="VoucherId" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="s1" use="literal" />
+        <soap:header message="tns:FileMessage5_Headers" part="s2" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileService">
+    <wsdl:port name="BasicHttpBinding_IFileService" binding="tns:BasicHttpBinding_IFileService">
+      <soap:address location="https://192.168.53.143/MerchantService/FileService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

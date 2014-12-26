@@ -286,7 +286,7 @@ namespace VPrinting
 
             ms_MiltuPagePrint = Convert.ToBoolean(ConfigurationManager.AppSettings["MILTUPAGEPRINT"]);
 
-            VoucherPrinter.Repeat = ConfigurationManager.AppSettings["REPEAT"].Cast<int>(1);
+            VoucherPrinter.Repeat.Load(ConfigurationManager.AppSettings["REPEAT"]);
 
             Default = this;
 

@@ -1,0 +1,143 @@
+﻿@using MerchantSite.Models
+@using MerchantSite.Data
+@using GridMvc
+@using GridMvc.Html
+@model NotaDebitoEmail_Model
+@{
+    ViewBag.Title = "Notadebito email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section script_declarations{
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script type="text/javascript">
+
+        $(function () {
+            $(".datepicker").datepicker({ dateFormat: 'dd-mm-yy' });
+        });
+
+        $(document).ready(function () {
+
+            $('#Country').change(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("SelectHeadOffices", 0)',
+                    data: { value: $(this).val() },
+                    success: function (data) {
+                        var markup = '';
+                        for (var x = 0; x < data.length; x++) {
+                            markup += '<option value="' + data[x].Value + '">' + data[x].Text + '</option>';
+                        }
+                        $('#HeadOffice').html(markup).show();
+                    }
+                });
+            });
+        });
+
+    </script>
+}
+<h2>
+    Email Nota Debito</h2>
+@using (Html.BeginForm("NotaDebitoEmail", "Invoice", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <table style="width: 80%">
+        <tr>
+            <td colspan="1">
+                <label>
+                    Country</label>
+                @Html.DropDownListFor(model => model.Country, (IEnumerable<SelectListItem>)ViewData["CountryList"], new { style = "width: 185px" })
+                @Html.ValidationMessageFor(model => model.Country)
+            </td>
+            <td colspan="1">
+                <label>
+                    Head Office</label>
+                @Html.DropDownListFor(model => model.HeadOffice, (IEnumerable<SelectListItem>)ViewData["HeadOfficeList"], new { style = "display:none; width: 185px;" })
+                @Html.ValidationMessageFor(model => model.HeadOffice)
+            </td>
+            <td colspan="1">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    From Date
+                </label>
+                @Html.TextBoxFor(model => model.FromDate, new { style = "width: 205px", @class = "datepicker" })
+                @Html.ValidationMessageFor(model => model.FromDate)
+            </td>
+            <td colspan="2">
+                <label>
+                    To Date
+                </label>
+                @Html.TextBoxFor(model => model.ToDate, new { style = "width: 205px", @class = "datepicker" })
+                @Html.ValidationMessageFor(model => model.ToDate)
+            </td>
+        </tr>
+        @if (ViewData["NotaDebitoList"] == null)
+        {
+            <tr>
+                <td colspan="3">
+                    <input type="submit" value="Search" />
+                </td>
+            </tr>
+        }
+    </table>
+}
+@if (ViewData["NotaDebitoList"] != null)
+{
+    @Html.Raw("<div style=\"width: 600px;\">")
+    using (Html.BeginForm("NotaDebitoEmail2", "Invoice", FormMethod.Post))
+    {
+    <table>
+        <tr>
+            <td colspan="2">
+                <label>
+                    Subject</label>
+                @Html.TextBoxFor(model => model.Subject, new { style = "width: 400px;" })
+                @Html.ValidationMessageFor(model => model.Subject)
+            </td>
+            <td colspan="1">
+                <label>
+                    CC</label>
+                @Html.TextBoxFor(model => model.CC, new { style = "width: 250px;" })
+                @Html.ValidationMessageFor(model => model.CC)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>
+                    Message</label>
+                @Html.TextAreaFor(model => model.Body, new { rows = "10", cols = "450", style = "width: 700px;" })
+                @Html.ValidationMessageFor(model => model.Body)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                @Html.Grid((IEnumerable<PTFDataAccess.SelectForNotaDebitos_Data>)ViewData["NotaDebitoList"]).Columns(columns =>
+        {
+            columns.Add(true).RenderValueAs(c => Html.Hidden("in_iso", c.in_iso).ToHtmlString());
+            columns.Add(true).RenderValueAs(c => Html.Hidden("in_ho_id", c.in_ho_id).ToHtmlString());
+            columns.Add(true).RenderValueAs(c => Html.Hidden("in_number", c.in_number).ToHtmlString());
+            columns.Add(true).RenderValueAs(c => Html.Hidden("in_date", c.in_date).ToHtmlString());
+            columns.Add().Titled("Email").Sanitized(false).Encoded(false)
+                .RenderValueAs(c => Html.CheckBox("Email2", false).ToHtmlString());
+            columns.Add(c => c.in_number).Titled("Download").Sanitized(false).Encoded(false)
+                .RenderValueAs(c => Html.ActionLink("Download", "DownloadNotaDebito", "Invoice", new { country = c.in_iso, office = c.in_ho_id, date = c.in_date, invoice = c.in_number }, null).ToHtmlString());
+            columns.Add(c => c.in_date).Titled("Date").Filterable(true);
+            columns.Add(c => c.in_ho_id).Titled("Head office");
+            columns.Add(c => c.ho_name).Titled("Name").Filterable(true);
+            columns.Add(c => c.in_period).Titled("Period").Filterable(true);
+            columns.Add(c => c.in_type).Titled("Type").Filterable(true);
+            columns.Add(c => c.total).Titled("Total");
+        }).WithPaging(10).Sortable(true)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="Email" />
+            </td>
+        </tr>
+    </table>
+    }
+}

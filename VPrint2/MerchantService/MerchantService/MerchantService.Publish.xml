@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="ftp://192.168.53.143/MerchantService" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FTP" replaceMatchingFiles="True" userName="trsadmin@fintrax.com" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlVqieuwHJEqvnZB+VZ6yEgAAAAACAAAAAAADZgAAwAAAABAAAABWOcmhPgmI0pzJe+u4MDyUAAAAAASAAACgAAAAEAAAAGMKXZVrMaxSpVhZPymZ0pkYAAAA71n7O+aMGoIi+9Yb5FR6RxD6MlAoqoy4FAAAAJvWCxp7tMv6Iz9qq9jfJQdy/6cq" SelectedForPublish="True">
+    <file relUrl="bin/PTF.Common.pdb" publishTime="12/24/2014 12:54:20" />
+    <file relUrl="bin/PTF.Common.dll" publishTime="12/24/2014 12:54:20" />
+    <file relUrl="Web.config" publishTime="12/23/2014 14:32:10" />
+    <file relUrl="FileService.svc" publishTime="12/16/2014 17:20:15" />
+    <file relUrl="DataService.svc" publishTime="12/14/2014 13:20:56" />
+    <file relUrl="bin/Ionic.Zip.dll" publishTime="09/30/2014 11:31:20" />
+    <file relUrl="bin/MerchantService.dll" publishTime="12/26/2014 07:26:03" />
+    <file relUrl="bin/MerchantService.pdb" publishTime="12/26/2014 07:26:03" />
+  </publishProfile>
+</publishData>

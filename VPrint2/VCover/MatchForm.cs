@@ -13,14 +13,13 @@ using Emgu.CV;
 using Emgu.CV.Structure;
 using Microsoft.VisualBasic;
 using VCover.Common;
+using VPrinting.Colections;
 
 namespace VCover
 {
     public partial class MatchForm : Form
     {
-        public static ThreadExceptionEventHandler Error;
-
-        private static volatile bool m_Result = false;
+        public static ThreadExceptionEventHandler Error;        
         private MatchTemplate m_MatchTemplate;
         private bool m_bDrag, m_bAddToHiddenArea, m_bCreateTemplate;
         private Point m_StartScreen, m_Start;
@@ -96,6 +95,21 @@ namespace VCover
             }
         }
 
+        public Guid Key
+        {
+            get;
+            set;
+        }
+
+        public bool Result
+        {
+            set
+            {
+                DomainTable table = new DomainTable();
+                table.SetValue(Key.ToString(), value);
+            }
+        }
+
         public MatchForm()
         {
             MTemplate = new MatchTemplate();
@@ -105,31 +119,7 @@ namespace VCover
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.ResizeRedraw, true);
             this.MouseWheel += new MouseEventHandler(MatchForm_MouseWheel);
-        }
-
-        public static bool Run(string imageFullFileName)
-        {
-            using (var done = new ManualResetEventSlim(false))
-            {
-                Task.Factory.StartNew((o) =>
-                {
-                    Tuple<ManualResetEventSlim, string> ev = (Tuple<ManualResetEventSlim, string>)o;
-                    try
-                    {
-                        var form = new MatchForm();
-                        form.Image = new Image<Bgr, byte>(ev.Item2);
-                        Application.Run(form);
-                    }
-                    finally
-                    {
-                        ev.Item1.Set();
-                    }
-                }, new Tuple<ManualResetEventSlim, string>(done, imageFullFileName), TaskCreationOptions.LongRunning);
-
-                done.Wait();
-            }
-            return m_Result;
-        }
+        }        
 
         private void AddHiddenAreaMenuItem_Click(object sender, EventArgs e)
         {
@@ -159,7 +149,7 @@ namespace VCover
         {
             if (keyData == Keys.Escape)
             {
-                m_Result = false;
+                Result = false;
                 this.Close();
                 return true;
             }
@@ -310,7 +300,7 @@ namespace VCover
 
         private void SaveMatchMenuItem_Click(object sender, EventArgs e)
         {
-            m_Result = true;
+            Result = true;
             TemplateMatcher.AddTemplate(MTemplate);
             //var xml = temp.FromObjectXml();
             //File.WriteAllText("C:\\test.xml", xml);
@@ -392,5 +382,44 @@ namespace VCover
         //        }
         //    }
         //}
+    }
+
+    public class MainFormHelper
+    {
+        public readonly Guid Key;
+
+        public ManualResetEventSlim Done;
+
+        public MainFormHelper(Guid key)
+        {
+            Key = key;
+        }
+
+        public bool Run(string imageFullFileName)
+        {
+            using (Done = new ManualResetEventSlim(false))
+            {
+                Task.Factory.StartNew((o) =>
+                {
+                    Tuple<MainFormHelper, string> ev = (Tuple<MainFormHelper, string>)o;
+                    try
+                    {
+                        var form = new MatchForm();
+                        form.Key = ev.Item1.Key;
+                        form.Image = new Image<Bgr, byte>(ev.Item2);
+                        Application.Run(form);
+                    }
+                    finally
+                    {
+                        ev.Item1.Done.Set();
+                    }
+                }, new Tuple<MainFormHelper, string>(this, imageFullFileName), TaskCreationOptions.LongRunning);
+
+                Done.Wait();
+            }
+
+            DomainTable table = new DomainTable();
+            return table.GetValue<bool>(Key.ToString(), false);
+        }
     }
 }

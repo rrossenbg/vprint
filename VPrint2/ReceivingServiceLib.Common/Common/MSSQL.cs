@@ -1,6 +1,9 @@
 ﻿/***************************************************
 //  Copyright (c) Premium Tax Free 2013
 ***************************************************/
+/***************************************************
+//  Copyright (c) Premium Tax Free 2011
+/***************************************************/
 
 using System;
 using System.Collections;
@@ -9,7 +12,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 
-namespace ReceivingServiceLib
+namespace VPrinting
 {
     /// <summary>
     /// MSSQL class

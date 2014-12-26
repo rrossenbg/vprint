@@ -6,8 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using Ionic.Zip;
 using System.Xml.Linq;
+using Ionic.Zip;
 
 namespace VPrinting
 {
@@ -68,19 +68,22 @@ namespace VPrinting
             }
         }
 
-
         //C:\VOUCHERS\[CountryID]\[RetailerId]\[VoucherId]
         public DirectoryInfo CreateDirectoryHerarchy(string vouchersFolder, int countryId, int retailerId, int voucherId)
         {
             var voucherRoot = new DirectoryInfo(vouchersFolder);
             voucherRoot.EnsureDirectory();
-            var countryDirectory = voucherRoot.Combine(countryId.ToString());
-            countryDirectory.EnsureDirectory();
-            var retailerDirectory = countryDirectory.Combine(retailerId.ToString());
-            retailerDirectory.EnsureDirectory();
-            var voucherDirectory = retailerDirectory.Combine(voucherId.ToString());
-            voucherDirectory.EnsureDirectory();
-            return voucherDirectory;
+
+            var countryDir = voucherRoot.Combine(countryId.ToString());
+            countryDir.EnsureDirectory();
+
+            var retailerDir = countryDir.Combine(retailerId.ToString());
+            retailerDir.EnsureDirectory();
+
+            var voucherDir = retailerDir.Combine(voucherId.ToString());
+            voucherDir.EnsureDirectory();
+
+            return voucherDir;
         }
 
         //public DirectoryInfo CreateDirectoryHerarchy(string rootName, VoucherInfo2 info)

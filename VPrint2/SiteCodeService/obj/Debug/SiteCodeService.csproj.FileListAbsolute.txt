@@ -26,4 +26,3 @@ C:\PROJECTS\VPrint2\SiteCodeService\obj\Debug\SiteCodeSrvc.ProjectInstaller.reso
 C:\PROJECTS\VPrint2\SiteCodeService\obj\Debug\SiteCodeService.csproj.GenerateResource.Cache
 C:\PROJECTS\VPrint2\SiteCodeService\obj\Debug\SiteCodeService.exe
 C:\PROJECTS\VPrint2\SiteCodeService\obj\Debug\SiteCodeService.pdb
-C:\PROJECTS\VPrint2\SiteCodeService\obj\Debug\SiteCodeService.csprojResolveAssemblyReference.cache

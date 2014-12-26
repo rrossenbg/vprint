@@ -40,6 +40,8 @@ namespace ReceivingServiceLib.Data
 
         #region SCAN
 
+        protected static byte[] m_SMALL = new byte[10];
+
         public void AddVoucher(
             int jobId, int isoId, int branchId, int voucherId, int? folderId, string siteCode, string barCode,
             int locationId, int operatorId, byte[] buffer, int length, string sessionId, bool isProtected, int v_type)
@@ -101,15 +103,16 @@ namespace ReceivingServiceLib.Data
                     comm.Parameters.AddWithValue("@location", locationId);
                     comm.Parameters.AddWithValue("@operator_id", operatorId);
                     comm.Parameters.AddWithValue("@v_fl_id", folderId.GetValue());
-                    comm.Parameters.AddWithValue("@scan_image_size", length);
-                    var p1 = comm.Parameters.Add("@scan_image", SqlDbType.Binary, length);
-                    p1.Value = buffer;
+#warning NO_BLOBS_IN_SQL
+                    comm.Parameters.AddWithValue("@scan_image_size", m_SMALL.Length);
+                    var p1 = comm.Parameters.Add("@scan_image", SqlDbType.Binary, m_SMALL.Length);
+                    p1.Value = m_SMALL;
                     comm.Parameters.AddWithValue("@session_Id", sessionId);
                     comm.Parameters.AddWithValue("@v_type", v_type);
                     v_id = comm.ExecuteScalar().Cast<int>();
                 }
             }
-        }
+        }        
 
         public void AddCoversheet(int? folderId, int locationId, int operatorId, byte[] buffer, int length, string sessionId, bool isProtected)
         {
@@ -132,10 +135,12 @@ namespace ReceivingServiceLib.Data
                     comm.Parameters.AddWithValue("@f_location", locationId);
                     comm.Parameters.AddWithValue("@f_operator_id", operatorId);
                     comm.Parameters.AddWithValue("@f_session_id", sessionId);
-                    comm.Parameters.AddWithValue("@f_image_size", length);
                     comm.Parameters.AddWithValue("@f_createdAt", DateTime.Now);
-                    var p1 = comm.Parameters.Add("@f_image", SqlDbType.Binary, length);
-                    p1.Value = buffer;
+#warning NO_BLOBS_IN_SQL
+                    comm.Parameters.AddWithValue("@f_image_size", m_SMALL.Length);
+                    var p1 = comm.Parameters.Add("@f_image", SqlDbType.Binary, m_SMALL.Length);
+                    p1.Value = m_SMALL;
+
                     comm.Parameters.AddWithValue("@session_Id", sessionId);
                     comm.Parameters.AddWithValue("@protected", isProtected);
                     comm.ExecuteNonQuery();
@@ -306,6 +311,8 @@ namespace ReceivingServiceLib.Data
             CheckImagesConnectionStringThrow();
 
             #region SQL
+
+#warning NO_BLOBS_IN_SQL
 
             string SQL = isVoucher ?
                 "SELECT scan_image, scan_image_size FROM [Voucher] WHERE id = @id" :

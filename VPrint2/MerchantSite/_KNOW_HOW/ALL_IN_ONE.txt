@@ -1,0 +1,6 @@
+﻿            //Guid id = CommTools.ToGuid(country, office, date.ToInt(), invoice);
+            //ObjectFileCache cache = new ObjectFileCache(Config.FILECACHEFOLDER);
+            //var buffer = cache.Get("xml_" + id, () => ScanServiceAccess.Instance.DownloadNotaDebitoReport(country, office, date, invoice, "XML"));
+            //var str = Encoding.UTF8.GetString(buffer);
+            //var image = Image.FromStream(new MemoryStream(buffer));
+            //var report = str.ToObject<Report>();

@@ -57,6 +57,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -71,6 +72,13 @@
   <ItemGroup>
     <Compile Include="..\CPrint2\StartUp.cs">
       <Link>StartUp.cs</Link>
+    </Compile>
+    <Compile Include="..\VPrint.Common\Strings.cs">
+      <Link>Strings.cs</Link>
+    </Compile>
+    <Compile Include="..\VPrint\Forms\BrowserForm\Explorer.cs">
+      <Link>BrowserForm\Explorer.cs</Link>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="AppContext.cs" />
     <Compile Include="Data\Config.cs" />
@@ -107,6 +115,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Tools\DelegateHelper.cs" />
+    <EmbeddedResource Include="..\VPrint\Forms\BrowserForm\Explorer.resx">
+      <Link>BrowserForm\Explorer.resx</Link>
+      <DependentUpon>Explorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,9 +236,49 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\VPrint\Forms\BrowserForm\35FLOPPY.ICO">
+      <Link>BrowserForm\35FLOPPY.ICO</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\525FLOP1.ICO">
+      <Link>BrowserForm\525FLOP1.ICO</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\CDDRIVE.ICO">
+      <Link>BrowserForm\CDDRIVE.ICO</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\Close.bmp">
+      <Link>BrowserForm\Close.bmp</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\DRIVENET.ICO">
+      <Link>BrowserForm\DRIVENET.ICO</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\Explorer.bmp">
+      <Link>BrowserForm\Explorer.bmp</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\File.bmp">
+      <Link>BrowserForm\File.bmp</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\FloppyDrive.bmp">
+      <Link>BrowserForm\FloppyDrive.bmp</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\FolderClose.bmp">
+      <Link>BrowserForm\FolderClose.bmp</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\FolderOpen.bmp">
+      <Link>BrowserForm\FolderOpen.bmp</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\MyComputer.bmp">
+      <Link>BrowserForm\MyComputer.bmp</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\Recycle.bmp">
+      <Link>BrowserForm\Recycle.bmp</Link>
+    </Content>
+    <Content Include="..\VPrint\Forms\BrowserForm\Refresh.bmp">
+      <Link>BrowserForm\Refresh.bmp</Link>
+    </Content>
     <Content Include="PTFLogo.ico" />
     <None Include="Resources\PTFLogo.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

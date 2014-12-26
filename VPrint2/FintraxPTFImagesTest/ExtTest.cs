@@ -1,13 +1,8 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FintraxPTFImages;
+﻿using System.Diagnostics;
 using System.Drawing.Imaging;
-using System.Diagnostics;
-using System.Threading;
+using FintraxPTFImages;
 using FintraxPTFImages.Common;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FintraxPTFImagesTest
 {
@@ -74,7 +69,7 @@ namespace FintraxPTFImagesTest
         [TestMethod]
         public void ConvertTiffToJpgTest()
         {
-            "C:\\826_332562_3482739521092dce6_56db_454d_99e1_5250a6c3a8bc.tif".TiffGetAllImages2(ImageFormat.Jpeg);
+            "C:\\IMAGES\\UK\\test_result93b02365_9cbb_4597_9112_e0577e91be46.tif".TiffGetAllImages2(ImageFormat.Jpeg, true);
         }
 
         [TestMethod]

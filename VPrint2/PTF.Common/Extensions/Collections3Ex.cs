@@ -3,9 +3,10 @@
 /***************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime;
-using System.Collections;
+using System.Data;
 
 namespace VPrinting
 {
@@ -49,6 +50,57 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
+        public static List<object[]> ToTable(this IList list)
+        {
+            if (list == null && list.Count >=2)
+                throw new ArgumentException("list");
+
+            int rows = (int)list[0];
+            int cols = (int)list[1];
+
+            var resultList = new List<object[]>();
+
+            for (int row = 0, index = 0; row < rows; row++)
+            {
+                var rowlist = new ArrayList();
+
+                for (int col = 0; col < cols; col++, index++)
+                    rowlist.Add(list[index]);
+
+                resultList.Add(rowlist.ToArray());
+            }
+            return resultList;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static DataTable ToDataTable<T>(this IList<T> list, string name = "Table")
+        {
+            if (list == null)
+                throw new ArgumentNullException("list");
+
+            DataTable table = new DataTable(name);
+
+            Type type = typeof(T);
+            var props = type.GetProperties();
+
+            foreach (var p in props)
+                table.Columns.Add(p.Name, p.PropertyType);
+
+            List<object> lst = new List<object>();
+
+            foreach (T t in list)
+            {
+                foreach (var p in props)
+                    lst.Add(p.GetValue(t, null));
+
+                table.Rows.Add(lst.ToArray());
+
+                lst.Clear();
+            }
+            return table;
+        }
+
+        [TargetedPatchingOptOut("na")]
         public static void AddRange<T>(this HashSet<T> set, IEnumerable<T> items)
         {
             foreach (T t in items)
@@ -76,6 +128,14 @@ namespace VPrinting
                 funct(t);
                 yield return t;
             }
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static T Random<T>(this IList<T> seq)
+        {
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            var index = rnd.Next(0, seq.Count - 1);
+            return seq[index];
         }
     }
 }

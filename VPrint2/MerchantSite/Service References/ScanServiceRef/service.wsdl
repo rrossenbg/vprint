@@ -1,0 +1,1050 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ScanService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IScanService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IScanService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_Delete_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q1:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadVoucherInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadVoucherInfo" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadVoucherInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadVoucherInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadVoucherInfo_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q2:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadData" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadData_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q3:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadData2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadData2" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadData2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadData2Response" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadData2_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q4:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SaveData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveData" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SaveData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SaveData_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q5:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SaveDataAsync_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDataAsync" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SaveDataAsync_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDataAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SaveDataAsync_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q6:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitVoucherChanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitVoucherChanges" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitVoucherChanges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitVoucherChangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitVoucherChanges_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q7:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitVoucherChangesModify_V2_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitVoucherChangesModify_V2" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitVoucherChangesModify_V2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitVoucherChangesModify_V2Response" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitVoucherChangesModify_V2_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q8:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitVoucherChangesModify_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitVoucherChangesModify" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitVoucherChangesModify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitVoucherChangesModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitVoucherChangesModify_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q9:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitFileChanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitFileChanges" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitFileChanges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitFileChangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_CommitFileChanges_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q10:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ValidateVoucher_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateVoucher" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ValidateVoucher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ValidateVoucher_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q11:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucher_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucher" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucher_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q12:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherImage" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherImage_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q13:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadCoverInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadCoverInfo" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadCoverInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadCoverInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadCoverInfo_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q14:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SaveHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveHistory" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SaveHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SaveHistory_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q15:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadHistory" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadHistory_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q16:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadRetailerPrinterInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadRetailerPrinterInfo" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadRetailerPrinterInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadRetailerPrinterInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadRetailerPrinterInfo_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q17:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFilesBySql_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFilesBySql" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFilesBySql_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFilesBySqlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFilesBySql_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q18:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_UpdateVouchersOrFilesBySql_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVouchersOrFilesBySql" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_UpdateVouchersOrFilesBySql_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVouchersOrFilesBySqlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_UpdateVouchersOrFilesBySql_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q19:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_AddFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFolder" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_AddFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_AddFolder_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q20:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_UpdateFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFolder" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_UpdateFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_UpdateFolder_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q21:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DeleteFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFolder" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DeleteFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DeleteFolder_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q22:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DeleteFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DeleteFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DeleteFile_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q23:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DeleteAllFilesInFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAllFilesInFolder" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DeleteAllFilesInFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAllFilesInFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DeleteAllFilesInFolder_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q24:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_RenameFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:RenameFolder" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_RenameFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RenameFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_RenameFolder_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q25:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFoldersByParent_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFoldersByParent" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFoldersByParent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFoldersByParentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFoldersByParent_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q26:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFilesByFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFilesByFolder" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFilesByFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFilesByFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFilesByFolder_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q27:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFilesByFolder2_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFilesByFolder2" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFilesByFolder2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFilesByFolder2Response" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFilesByFolder2_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q28:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectCoversByFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectCoversByFolder" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectCoversByFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectCoversByFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectCoversByFolder_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q29:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFileById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFileById" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFileById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFileByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_SelectFileById_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q30:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_GetVersionInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionInfo" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_GetVersionInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_GetVersionInfo_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q31:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadVersionFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadVersionFile" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadVersionFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadVersionFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_ReadVersionFile_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q32:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_GetTransferFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferFile" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_GetTransferFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_GetTransferFile_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q33:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSByVoucherNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherTRSByVoucherNumber" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSByVoucherNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherTRSByVoucherNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSByVoucherNumber_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q34:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSBySiteCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherTRSBySiteCode" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSBySiteCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherTRSBySiteCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherTRSBySiteCode_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q35:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherPRBySiteCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherPRBySiteCode" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherPRBySiteCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoucherPRBySiteCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_FindVoucherPRBySiteCode_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q36:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DownloadReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadReport" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DownloadReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DownloadReport_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q37:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DownloadVouchers_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadVouchers" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DownloadVouchers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadVouchersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_DownloadVouchers_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q38:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_EmailNotaDebito_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailNotaDebito" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_EmailNotaDebito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailNotaDebitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IScanService_EmailNotaDebito_MyApplicationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/ReceivingServiceLib" name="detail" element="q39:MyApplicationFault" />
+  </wsdl:message>
+  <wsdl:portType name="IScanService">
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/Delete" message="tns:IScanService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/DeleteResponse" message="tns:IScanService_Delete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/DeleteMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_Delete_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadVoucherInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/ReadVoucherInfo" message="tns:IScanService_ReadVoucherInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/ReadVoucherInfoResponse" message="tns:IScanService_ReadVoucherInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/ReadVoucherInfoMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_ReadVoucherInfo_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/ReadData" message="tns:IScanService_ReadData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/ReadDataResponse" message="tns:IScanService_ReadData_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/ReadDataMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_ReadData_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadData2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/ReadData2" message="tns:IScanService_ReadData2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/ReadData2Response" message="tns:IScanService_ReadData2_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/ReadData2MyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_ReadData2_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/SaveData" message="tns:IScanService_SaveData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/SaveDataResponse" message="tns:IScanService_SaveData_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/SaveDataMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_SaveData_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDataAsync">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/SaveDataAsync" message="tns:IScanService_SaveDataAsync_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/SaveDataAsyncResponse" message="tns:IScanService_SaveDataAsync_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/SaveDataAsyncMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_SaveDataAsync_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitVoucherChanges">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/CommitVoucherChanges" message="tns:IScanService_CommitVoucherChanges_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/CommitVoucherChangesResponse" message="tns:IScanService_CommitVoucherChanges_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/CommitVoucherChangesMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_CommitVoucherChanges_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitVoucherChangesModify_V2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/CommitVoucherChangesModify_V2" message="tns:IScanService_CommitVoucherChangesModify_V2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/CommitVoucherChangesModify_V2Response" message="tns:IScanService_CommitVoucherChangesModify_V2_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/CommitVoucherChangesModify_V2MyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_CommitVoucherChangesModify_V2_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitVoucherChangesModify">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/CommitVoucherChangesModify" message="tns:IScanService_CommitVoucherChangesModify_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/CommitVoucherChangesModifyResponse" message="tns:IScanService_CommitVoucherChangesModify_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/CommitVoucherChangesModifyMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_CommitVoucherChangesModify_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitFileChanges">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/CommitFileChanges" message="tns:IScanService_CommitFileChanges_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/CommitFileChangesResponse" message="tns:IScanService_CommitFileChanges_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/CommitFileChangesMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_CommitFileChanges_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateVoucher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/ValidateVoucher" message="tns:IScanService_ValidateVoucher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/ValidateVoucherResponse" message="tns:IScanService_ValidateVoucher_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/ValidateVoucherMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_ValidateVoucher_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/FindVoucher" message="tns:IScanService_FindVoucher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/FindVoucherResponse" message="tns:IScanService_FindVoucher_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/FindVoucherMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_FindVoucher_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/FindVoucherImage" message="tns:IScanService_FindVoucherImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/FindVoucherImageResponse" message="tns:IScanService_FindVoucherImage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/FindVoucherImageMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_FindVoucherImage_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadCoverInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/ReadCoverInfo" message="tns:IScanService_ReadCoverInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/ReadCoverInfoResponse" message="tns:IScanService_ReadCoverInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/ReadCoverInfoMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_ReadCoverInfo_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/SaveHistory" message="tns:IScanService_SaveHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/SaveHistoryResponse" message="tns:IScanService_SaveHistory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/SaveHistoryMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_SaveHistory_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/ReadHistory" message="tns:IScanService_ReadHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/ReadHistoryResponse" message="tns:IScanService_ReadHistory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/ReadHistoryMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_ReadHistory_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadRetailerPrinterInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/ReadRetailerPrinterInfo" message="tns:IScanService_ReadRetailerPrinterInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/ReadRetailerPrinterInfoResponse" message="tns:IScanService_ReadRetailerPrinterInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/ReadRetailerPrinterInfoMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_ReadRetailerPrinterInfo_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectFilesBySql">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/SelectFilesBySql" message="tns:IScanService_SelectFilesBySql_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/SelectFilesBySqlResponse" message="tns:IScanService_SelectFilesBySql_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/SelectFilesBySqlMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_SelectFilesBySql_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVouchersOrFilesBySql">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySql" message="tns:IScanService_UpdateVouchersOrFilesBySql_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySqlResponse" message="tns:IScanService_UpdateVouchersOrFilesBySql_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySqlMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_UpdateVouchersOrFilesBySql_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/AddFolder" message="tns:IScanService_AddFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/AddFolderResponse" message="tns:IScanService_AddFolder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/AddFolderMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_AddFolder_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/UpdateFolder" message="tns:IScanService_UpdateFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/UpdateFolderResponse" message="tns:IScanService_UpdateFolder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/UpdateFolderMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_UpdateFolder_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/DeleteFolder" message="tns:IScanService_DeleteFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/DeleteFolderResponse" message="tns:IScanService_DeleteFolder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/DeleteFolderMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_DeleteFolder_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/DeleteFile" message="tns:IScanService_DeleteFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/DeleteFileResponse" message="tns:IScanService_DeleteFile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/DeleteFileMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_DeleteFile_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllFilesInFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/DeleteAllFilesInFolder" message="tns:IScanService_DeleteAllFilesInFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/DeleteAllFilesInFolderResponse" message="tns:IScanService_DeleteAllFilesInFolder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/DeleteAllFilesInFolderMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_DeleteAllFilesInFolder_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RenameFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/RenameFolder" message="tns:IScanService_RenameFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/RenameFolderResponse" message="tns:IScanService_RenameFolder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/RenameFolderMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_RenameFolder_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectFoldersByParent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/SelectFoldersByParent" message="tns:IScanService_SelectFoldersByParent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/SelectFoldersByParentResponse" message="tns:IScanService_SelectFoldersByParent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/SelectFoldersByParentMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_SelectFoldersByParent_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectFilesByFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/SelectFilesByFolder" message="tns:IScanService_SelectFilesByFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/SelectFilesByFolderResponse" message="tns:IScanService_SelectFilesByFolder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/SelectFilesByFolderMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_SelectFilesByFolder_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectFilesByFolder2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/SelectFilesByFolder2" message="tns:IScanService_SelectFilesByFolder2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/SelectFilesByFolder2Response" message="tns:IScanService_SelectFilesByFolder2_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/SelectFilesByFolder2MyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_SelectFilesByFolder2_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCoversByFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/SelectCoversByFolder" message="tns:IScanService_SelectCoversByFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/SelectCoversByFolderResponse" message="tns:IScanService_SelectCoversByFolder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/SelectCoversByFolderMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_SelectCoversByFolder_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectFileById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/SelectFileById" message="tns:IScanService_SelectFileById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/SelectFileByIdResponse" message="tns:IScanService_SelectFileById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/SelectFileByIdMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_SelectFileById_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/GetVersionInfo" message="tns:IScanService_GetVersionInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/GetVersionInfoResponse" message="tns:IScanService_GetVersionInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/GetVersionInfoMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_GetVersionInfo_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadVersionFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/ReadVersionFile" message="tns:IScanService_ReadVersionFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/ReadVersionFileResponse" message="tns:IScanService_ReadVersionFile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/ReadVersionFileMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_ReadVersionFile_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/GetTransferFile" message="tns:IScanService_GetTransferFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/GetTransferFileResponse" message="tns:IScanService_GetTransferFile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/GetTransferFileMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_GetTransferFile_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherTRSByVoucherNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumber" message="tns:IScanService_FindVoucherTRSByVoucherNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumberResponse" message="tns:IScanService_FindVoucherTRSByVoucherNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumberMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_FindVoucherTRSByVoucherNumber_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherTRSBySiteCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCode" message="tns:IScanService_FindVoucherTRSBySiteCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCodeResponse" message="tns:IScanService_FindVoucherTRSBySiteCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/FindVoucherTRSBySiteCodeMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_FindVoucherTRSBySiteCode_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherPRBySiteCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/FindVoucherPRBySiteCode" message="tns:IScanService_FindVoucherPRBySiteCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/FindVoucherPRBySiteCodeResponse" message="tns:IScanService_FindVoucherPRBySiteCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/FindVoucherPRBySiteCodeMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_FindVoucherPRBySiteCode_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/DownloadReport" message="tns:IScanService_DownloadReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/DownloadReportResponse" message="tns:IScanService_DownloadReport_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/DownloadReportMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_DownloadReport_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadVouchers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/DownloadVouchers" message="tns:IScanService_DownloadVouchers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/DownloadVouchersResponse" message="tns:IScanService_DownloadVouchers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/DownloadVouchersMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_DownloadVouchers_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailNotaDebito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScanService/EmailNotaDebito" message="tns:IScanService_EmailNotaDebito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScanService/EmailNotaDebitoResponse" message="tns:IScanService_EmailNotaDebito_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IScanService/EmailNotaDebitoMyApplicationFaultFault" name="MyApplicationFaultFault" message="tns:IScanService_EmailNotaDebito_MyApplicationFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IScanService" type="tns:IScanService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IScanService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadVoucherInfo">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/ReadVoucherInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadData">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/ReadData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadData2">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/ReadData2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveData">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/SaveData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDataAsync">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/SaveDataAsync" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CommitVoucherChanges">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/CommitVoucherChanges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CommitVoucherChangesModify_V2">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/CommitVoucherChangesModify_V2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CommitVoucherChangesModify">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/CommitVoucherChangesModify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CommitFileChanges">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/CommitFileChanges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateVoucher">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/ValidateVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucher">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/FindVoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherImage">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/FindVoucherImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadCoverInfo">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/ReadCoverInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveHistory">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/SaveHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadHistory">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/ReadHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadRetailerPrinterInfo">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/ReadRetailerPrinterInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectFilesBySql">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/SelectFilesBySql" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVouchersOrFilesBySql">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/UpdateVouchersOrFilesBySql" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddFolder">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/AddFolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFolder">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/UpdateFolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFolder">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/DeleteFolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllFilesInFolder">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/DeleteAllFilesInFolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RenameFolder">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/RenameFolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectFoldersByParent">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/SelectFoldersByParent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectFilesByFolder">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/SelectFilesByFolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectFilesByFolder2">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/SelectFilesByFolder2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCoversByFolder">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/SelectCoversByFolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectFileById">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/SelectFileById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionInfo">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/GetVersionInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadVersionFile">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/ReadVersionFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferFile">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/GetTransferFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherTRSByVoucherNumber">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/FindVoucherTRSByVoucherNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherTRSBySiteCode">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/FindVoucherTRSBySiteCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindVoucherPRBySiteCode">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/FindVoucherPRBySiteCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReport">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/DownloadReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadVouchers">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/DownloadVouchers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EmailNotaDebito">
+      <soap12:operation soapAction="http://tempuri.org/IScanService/EmailNotaDebito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyApplicationFaultFault">
+        <soap12:fault use="literal" name="MyApplicationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ScanService">
+    <wsdl:port name="NetTcpBinding_IScanService" binding="tns:NetTcpBinding_IScanService">
+      <soap12:address location="net.tcp://localhost:8080/ReceivingServiceLib.ScanService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8080/ReceivingServiceLib.ScanService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

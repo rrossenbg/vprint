@@ -82,6 +82,12 @@ namespace ReceivingServiceLib
 
         public string PTFLogoFileFullPath { get; set; }
 
+#warning TODO;
+        /// <summary>
+        ///  
+        /// </summary>
+        public string FILESERVERFOLDER { get; set; }
+
         public static Strings Read()
         {
 #if DEBUG
@@ -120,6 +126,7 @@ namespace ReceivingServiceLib
             UPLOADERRORS = "C:\\";
             pfxFileFullPath = "C:\\test.pfx";
             PTFLogoFileFullPath = "C:\\test.png";
+            FILESERVERFOLDER = "C:\\TEST\\";
         }
 
         public bool IsValid()
@@ -133,7 +140,8 @@ namespace ReceivingServiceLib
                 !string.IsNullOrWhiteSpace(COVERWORKFOLDER) &&
                 !string.IsNullOrWhiteSpace(UPLOADERRORS) &&
                 !string.IsNullOrWhiteSpace(pfxFileFullPath) &&
-                !string.IsNullOrWhiteSpace(PTFLogoFileFullPath);
+                !string.IsNullOrWhiteSpace(PTFLogoFileFullPath) &&
+                !string.IsNullOrWhiteSpace(FILESERVERFOLDER);
         }
     }
 }

@@ -45,14 +45,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\AForge.Imaging.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Imaging.Formats, Version=2.2.4.0, Culture=neutral, PublicKeyToken=8065ed5a639199a0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libraries\AForge.Imaging.Formats.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libraries\AForge.Math.dll</HintPath>
-    </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\Libraries\itextsharp.dll</HintPath>
     </Reference>
@@ -79,7 +71,6 @@
     <Compile Include="Common\LockBitmap.cs" />
     <Compile Include="Common\RawBitmap.cs" />
     <Compile Include="Common\UnManagedAllocators.cs" />
-    <Compile Include="Common\Security.cs" />
     <Compile Include="Extensions\BitmapEx.cs">
       <SubType>Code</SubType>
     </Compile>

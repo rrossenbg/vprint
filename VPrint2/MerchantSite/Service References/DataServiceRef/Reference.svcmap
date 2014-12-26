@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bc95caea-eb6a-41b1-8678-5cd90e15eeba" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://192.168.53.143/MerchantService/DataService.svc/mex/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="03b6c980-da33-41e6-876e-8c8fc554cb24" SourceId="1" SourceUrl="https://192.168.53.143/MerchantService/DataService.svc/mex/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="e433e668-18a7-4fc2-a32b-d6193e282af1" SourceId="1" SourceUrl="https://192.168.53.143/MerchantService/DataService.svc/mex/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="dc5e0eba-e781-4347-9685-5f6257c0898e" SourceId="1" SourceUrl="https://192.168.53.143/MerchantService/DataService.svc/mex/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="0ec67b6e-d32b-48ac-8f94-f769b0f0e301" SourceId="1" SourceUrl="https://192.168.53.143/MerchantService/DataService.svc/mex/mex" />
+    <MetadataFile FileName="MerchantService.xsd" MetadataType="Schema" ID="7c4de21a-88ee-44b7-86d8-c4202b3d68c4" SourceId="1" SourceUrl="https://192.168.53.143/MerchantService/DataService.svc/mex/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

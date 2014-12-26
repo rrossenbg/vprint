@@ -67,10 +67,6 @@
     <Compile Include="ErrorHandler.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ErrorHandlingBehaviorAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FileServer.cs" />
     <Compile Include="FileWorkers\ContentModifyWorker.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,10 +82,6 @@
     <Compile Include="FileWorkers\~FileWorkerBase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IExceptionToFaultConverter.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="IFileServer.cs" />
     <Compile Include="IScanService.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -97,9 +89,6 @@
       <DependentUpon>ISOs.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="MapExceptionToFaultAttribute.cs">
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="PremierRefundVoucherService.cs">
       <SubType>Code</SubType>

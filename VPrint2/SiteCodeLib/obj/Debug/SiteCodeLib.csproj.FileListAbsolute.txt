@@ -15,3 +15,4 @@ C:\PROJECTS\VPrint2\SiteCodeLib\bin\Debug\SiteCodeLib.dll
 C:\PROJECTS\VPrint2\SiteCodeLib\bin\Debug\SiteCodeLib.pdb
 C:\PROJECTS\VPrint2\SiteCodeLib\obj\Debug\SiteCodeLib.dll
 C:\PROJECTS\VPrint2\SiteCodeLib\obj\Debug\SiteCodeLib.pdb
+C:\PROJECTS\VPrint2\SiteCodeLib\obj\Debug\SiteCodeLib.csprojResolveAssemblyReference.cache

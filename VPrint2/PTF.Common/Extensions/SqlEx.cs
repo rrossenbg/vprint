@@ -1,4 +1,8 @@
-﻿using System;
+﻿/***************************************************
+//  Copyright (c) Premium Tax Free 2011
+/***************************************************/
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +10,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime;
+using System.Data.Common;
 
 namespace VPrinting
 {
@@ -13,7 +18,7 @@ namespace VPrinting
     {
         [TargetedPatchingOptOut("na")]
         [Obfuscation]
-        public static Nullable<T> Get<T>(this SqlDataReader reader, int index) where T : struct
+        public static Nullable<T> Get<T>(this DbDataReader reader, int index) where T : struct
         {
             object value = reader.GetValue(index);
             if (value == DBNull.Value)
@@ -23,7 +28,7 @@ namespace VPrinting
 
         [TargetedPatchingOptOut("na")]
         [Obfuscation]
-        public static Nullable<T> Get<T>(this SqlDataReader reader, string name) where T : struct
+        public static Nullable<T> Get<T>(this DbDataReader reader, string name) where T : struct
         {
             int index = reader.GetOrdinal(name);
             object value = reader.GetValue(index);
@@ -34,24 +39,24 @@ namespace VPrinting
 
         [TargetedPatchingOptOut("na")]
         [Obfuscation]
-        public static string GetString(this SqlDataReader reader, string name)
-        {
-            int index = reader.GetOrdinal(name);
-            object value = reader.GetValue(index);
-            if (value == DBNull.Value)
-                return null;
-            return Convert.ToString(value);
-        }
-
-        [TargetedPatchingOptOut("na")]
-        [Obfuscation]
-        public static object GetRaw(this SqlDataReader reader, string name)
+        public static object GetRaw(this DbDataReader reader, string name)
         {
             int index = reader.GetOrdinal(name);
             object value = reader.GetValue(index);
             if (value == DBNull.Value)
                 return null;
             return value;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static string GetString(this DbDataReader reader, string name)
+        {
+            int index = reader.GetOrdinal(name);
+            object value = reader.GetValue(index);
+            if (value == DBNull.Value)
+                return null;
+            return Convert.ToString(value);
         }
 
         [TargetedPatchingOptOut("na")]
@@ -63,11 +68,12 @@ namespace VPrinting
 
         [TargetedPatchingOptOut("na")]
         [Obfuscation]
-        public static IEnumerable<T> ReadRange<T>(this SqlDataReader reader, Func<SqlDataReader, T> readFunct)
+        public static IEnumerable<T> ReadRange<T>(this DbDataReader reader, Func<DbDataReader, T> readFunct)
         {
             while (reader.Read())
                 yield return readFunct(reader);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -81,6 +87,27 @@ namespace VPrinting
         ///     var cl = new ServiceReference1.PartyManagementSoapClient();
         ///     cl.UpdateTableData(new ServiceReference1.AuthenticationHeader(), cmd.CreateSerializationData().ToList().ToArray());
         /// }
+        /// 
+        /// [WebMethod]
+        /// [SoapHeader("Authentication")]
+        /// public int UpdateTableData(ArrayList table)
+        /// {
+        ///     if (table == null || table.Count == 0)
+        ///         throw new ArgumentException("table");
+            
+        ///     var htable = table.ToHashtable<string, object>();
+        ///     return DiData.Ptf.Business.PartyManagement.UpdateTableData(htable);
+        /// }
+        ///
+        /// public static int UpdateTableData(Hashtable table)
+        /// {
+        ///     using (var conn = Database.CreateConnection("WSDBConn"))
+        ///     using (var comm = CreateCommand(conn, table))
+        ///     {
+        ///         conn.Open();
+        ///         return comm.ExecuteNonQuery();
+        ///     }
+        /// }
         [TargetedPatchingOptOut("na")]
         public static Hashtable CreateSerializationData(this IDbCommand comm)
         {
@@ -88,7 +115,7 @@ namespace VPrinting
 
             Hashtable table = new Hashtable();
             table.Add("<sql>", comm.CommandText);
-            table.Add("<type>", comm.CommandType);
+            table.Add("<type>", (int)comm.CommandType);
             table.Add("<timeout>", comm.CommandTimeout);
             table.Add("<key>", DateTime.Now);
 
@@ -96,6 +123,38 @@ namespace VPrinting
                 table.Add(p.ParameterName, p.Value);
 
             return table;
+        }
+
+        /// <summary>
+        /// Creates MSSQL Command object
+        /// </summary>
+        /// <param name="connString"></param>
+        /// <param name="table"></param>
+        /// <returns></returns>
+        public static SqlCommand CreateCommand(this Hashtable table)
+        {
+            if (!table.ContainsKey("<key>"))
+                throw new Exception("Not authorized");
+
+            DateTime date = DateTime.MinValue;
+            if (!DateTime.TryParse(Convert.ToString(table["<key>"]), out date) || date.Date != DateTime.Now.Date)
+                throw new Exception("Not authorized");
+
+            string sql = Convert.ToString(table["<sql>"]);
+            CommandType type = (CommandType)(int)table["<type>"];
+            int timeout = Convert.ToInt32(table["<timeout>"]);
+            SqlCommand comm = new SqlCommand(sql);
+            comm.CommandType = type;
+            comm.CommandTimeout = timeout;
+            foreach (DictionaryEntry en in table)
+            {
+                string name = Convert.ToString(en.Key);
+                if (string.Equals(name, "<sql>") || string.Equals(name, "<type>") || string.Equals(name, "<timeout>") || string.Equals(name, "<key>"))
+                    continue;
+                comm.Parameters.AddWithValue(name, en.Value);
+            }
+            table.Clear();
+            return comm;
         }
     }
 }

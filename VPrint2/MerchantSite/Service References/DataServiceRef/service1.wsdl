@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IDataService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/MerchantService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_TRSExecuteNonQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:TRSExecuteNonQuery" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_TRSExecuteNonQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TRSExecuteNonQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_TRSExecuteScalar_InputMessage">
+    <wsdl:part name="parameters" element="tns:TRSExecuteScalar" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_TRSExecuteScalar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TRSExecuteScalarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_TRSExecuteReader_InputMessage">
+    <wsdl:part name="parameters" element="tns:TRSExecuteReader" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_TRSExecuteReader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TRSExecuteReaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_ImagesExecuteNonQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImagesExecuteNonQuery" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_ImagesExecuteNonQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImagesExecuteNonQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_ImagesExecuteScalar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImagesExecuteScalar" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_ImagesExecuteScalar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImagesExecuteScalarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_ImagesExecuteReader_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImagesExecuteReader" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_ImagesExecuteReader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImagesExecuteReaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectVoucherInfo1_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectVoucherInfo1" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectVoucherInfo1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectVoucherInfo1Response" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectVoucherInfo2_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectVoucherInfo2" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectVoucherInfo2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectVoucherInfo2Response" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectAllUsersByCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllUsersByCountry" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectAllUsersByCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllUsersByCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectAllUsersByBranches_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllUsersByBranches" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectAllUsersByBranches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllUsersByBranchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectUserById" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SelectUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectUserByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RemoveUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUser" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_RemoveUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetUserActive_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserActive" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetUserActive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateUserRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserRight" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateUserRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserRightResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDataService">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/GetData" message="tns:IDataService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/GetDataResponse" message="tns:IDataService_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TRSExecuteNonQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/TRSExecuteNonQuery" message="tns:IDataService_TRSExecuteNonQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/TRSExecuteNonQueryResponse" message="tns:IDataService_TRSExecuteNonQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TRSExecuteScalar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/TRSExecuteScalar" message="tns:IDataService_TRSExecuteScalar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/TRSExecuteScalarResponse" message="tns:IDataService_TRSExecuteScalar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TRSExecuteReader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/TRSExecuteReader" message="tns:IDataService_TRSExecuteReader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/TRSExecuteReaderResponse" message="tns:IDataService_TRSExecuteReader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImagesExecuteNonQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/ImagesExecuteNonQuery" message="tns:IDataService_ImagesExecuteNonQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/ImagesExecuteNonQueryResponse" message="tns:IDataService_ImagesExecuteNonQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImagesExecuteScalar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/ImagesExecuteScalar" message="tns:IDataService_ImagesExecuteScalar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/ImagesExecuteScalarResponse" message="tns:IDataService_ImagesExecuteScalar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImagesExecuteReader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/ImagesExecuteReader" message="tns:IDataService_ImagesExecuteReader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/ImagesExecuteReaderResponse" message="tns:IDataService_ImagesExecuteReader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectVoucherInfo1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SelectVoucherInfo1" message="tns:IDataService_SelectVoucherInfo1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SelectVoucherInfo1Response" message="tns:IDataService_SelectVoucherInfo1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectVoucherInfo2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SelectVoucherInfo2" message="tns:IDataService_SelectVoucherInfo2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SelectVoucherInfo2Response" message="tns:IDataService_SelectVoucherInfo2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SelectAllUsers" message="tns:IDataService_SelectAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SelectAllUsersResponse" message="tns:IDataService_SelectAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllUsersByCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SelectAllUsersByCountry" message="tns:IDataService_SelectAllUsersByCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SelectAllUsersByCountryResponse" message="tns:IDataService_SelectAllUsersByCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllUsersByBranches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SelectAllUsersByBranches" message="tns:IDataService_SelectAllUsersByBranches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SelectAllUsersByBranchesResponse" message="tns:IDataService_SelectAllUsersByBranches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SelectUserById" message="tns:IDataService_SelectUserById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SelectUserByIdResponse" message="tns:IDataService_SelectUserById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UpdateUser" message="tns:IDataService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UpdateUserResponse" message="tns:IDataService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/RemoveUser" message="tns:IDataService_RemoveUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/RemoveUserResponse" message="tns:IDataService_RemoveUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserActive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/SetUserActive" message="tns:IDataService_SetUserActive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/SetUserActiveResponse" message="tns:IDataService_SetUserActive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/UpdateUserRight" message="tns:IDataService_UpdateUserRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/UpdateUserRightResponse" message="tns:IDataService_UpdateUserRight_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDataService" type="tns:IDataService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IDataService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IDataService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TRSExecuteNonQuery">
+      <soap:operation soapAction="http://tempuri.org/IDataService/TRSExecuteNonQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TRSExecuteScalar">
+      <soap:operation soapAction="http://tempuri.org/IDataService/TRSExecuteScalar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TRSExecuteReader">
+      <soap:operation soapAction="http://tempuri.org/IDataService/TRSExecuteReader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImagesExecuteNonQuery">
+      <soap:operation soapAction="http://tempuri.org/IDataService/ImagesExecuteNonQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImagesExecuteScalar">
+      <soap:operation soapAction="http://tempuri.org/IDataService/ImagesExecuteScalar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImagesExecuteReader">
+      <soap:operation soapAction="http://tempuri.org/IDataService/ImagesExecuteReader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectVoucherInfo1">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SelectVoucherInfo1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectVoucherInfo2">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SelectVoucherInfo2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SelectAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllUsersByCountry">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SelectAllUsersByCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllUsersByBranches">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SelectAllUsersByBranches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserById">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SelectUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUser">
+      <soap:operation soapAction="http://tempuri.org/IDataService/RemoveUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserActive">
+      <soap:operation soapAction="http://tempuri.org/IDataService/SetUserActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserRight">
+      <soap:operation soapAction="http://tempuri.org/IDataService/UpdateUserRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataService">
+    <wsdl:port name="BasicHttpBinding_IDataService" binding="tns:BasicHttpBinding_IDataService">
+      <soap:address location="https://192.168.53.143/MerchantService/DataService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

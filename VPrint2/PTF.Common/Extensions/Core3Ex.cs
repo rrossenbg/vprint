@@ -12,9 +12,7 @@ using System.Runtime;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
-using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 
 namespace VPrinting
 {
@@ -33,13 +31,6 @@ namespace VPrinting
             return string.Join("", data);
         }
 
-        //[TargetedPatchingOptOut("na")]
-        //[Obfuscation]
-        //public static bool IsNullOrWhiteSpace(this string value)
-        //{
-        //    return string.IsNullOrWhiteSpace(value);
-        //}
-
         [TargetedPatchingOptOut("na")]
         [Obfuscation]
         public static string IfNullOrEmptyThrow<T>(this string value) where T : Exception, new()
@@ -47,32 +38,6 @@ namespace VPrinting
             if (string.IsNullOrWhiteSpace(value))
                 throw new T();
             return value;
-        }
-
-        [TargetedPatchingOptOut("na")]
-        [Obfuscation]
-        public static bool DeleteSafe(this DirectoryInfo info, bool recursive = true)
-        {
-            try
-            {
-                if (info == null)
-                    return false;
-
-                info.Refresh();
-                if (info.Exists)
-                {
-                    info.Delete(recursive);
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-#if DEBUGGER
-                Trace.WriteLine(ex, "ISRV");
-#endif
-                return false;
-            }
         }
 
         ///// <summary>
@@ -167,101 +132,16 @@ namespace VPrinting
 
         [TargetedPatchingOptOut("na")]
         [Obfuscation]
-        public static int CopyFiles(this DirectoryInfo from, DirectoryInfo to, bool @overwrite = true)
-        {
-            Debug.Assert(from != null);
-
-            var files = from.GetFiles();
-
-            foreach (var file in files)
-                file.CopyTo(to.CombineFileName(file.Name).FullName, @overwrite);
-
-            return files.Length;
-        }
-
-        [TargetedPatchingOptOut("na")]
-        [Obfuscation]
         public static bool EqualsNoCase(this string value1, string value2)
         {
             return string.Equals(value1, value2, StringComparison.InvariantCultureIgnoreCase);
         }
-
-        //[TargetedPatchingOptOut("na")]
-        //[Obfuscation]
-        //public static string Unique(this string str)
-        //{
-        //    var u = Guid.NewGuid().ToString().Replace('-', '_');
-        //    return string.Concat(str, u);
-        //}
-
-        //[TargetedPatchingOptOut("na")]
-        //[Obfuscation]
-        //public static string Limit(this string str, int length)
-        //{
-        //    if (str == null)
-        //        return null;
-        //    return str.Substring(0, Math.Min(str.Length, length));
-        //}
-
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="name">Any name</param>
-        ///// <returns></returns>
-        //[TargetedPatchingOptOut("na")]
-        //[Obfuscation]
-        //public static string ToUniqueFileName(this string name)
-        //{
-        //    return Path.GetFileNameWithoutExtension(name).Unique().Limit(MAX_FILE_LENGTH).concat(Path.GetExtension(name));
-        //}
-
-        //[TargetedPatchingOptOut("na")]
-        //[Obfuscation]
-        //public static string FromObject<T>(this XmlSerializer serializer, T value)
-        //{
-        //    var builder = new StringBuilder();
-        //    using (var str = XmlWriter.Create(new StringWriter(builder)))
-        //    {
-        //        Debug.Assert(str != null);
-        //        serializer.Serialize(str, value);
-        //        return builder.ToString();
-        //    }
-        //}
-
-        //[TargetedPatchingOptOut("na")]
-        //[Obfuscation]
-        //public static T ToObject<T>(this string text)
-        //{
-        //    Debug.Assert(!string.IsNullOrEmpty(text));
-        //    XmlSerializer formatter = new XmlSerializer(typeof(T));
-        //    using (var str = XmlReader.Create(new StringReader(text)))
-        //    {
-        //        Debug.Assert(str != null);
-        //        return (T)formatter.Deserialize(str);
-        //    }
-        //}
-
-        //[TargetedPatchingOptOut("na")]
-        //[Obfuscation]
-        //public static T ToObject<T>(this XmlSerializer serializer, string text)
-        //{
-        //    using (var str = XmlReader.Create(new StringReader(text)))
-        //    {
-        //        Debug.Assert(str != null);
-        //        return (T)serializer.Deserialize(str);
-        //    }
-        //}
 
         #region SECURITY
         [Obfuscation(StripAfterObfuscation = true)]
         private static readonly byte[] IVString = Encoding.ASCII.GetBytes("ryojvlzmdalyglrj");
         [Obfuscation(StripAfterObfuscation = true)]
         private static readonly byte[] keyString = Encoding.ASCII.GetBytes("hcxilkqbbhczfeultgbskdmaunivmfuo");
-
-        [Obfuscation(StripAfterObfuscation = true)]
-        private static readonly byte[] IVFile = Encoding.ASCII.GetBytes("RYO777ZMDALYGLRJ");
-        [Obfuscation(StripAfterObfuscation = true)]
-        private static readonly byte[] keyFile = Encoding.ASCII.GetBytes("HCXILKQBBHCZF666TGBSKDMAUNIVMFUO");
         #endregion
 
         [TargetedPatchingOptOut("na")]
@@ -283,23 +163,6 @@ namespace VPrinting
                 }
                 return Convert.ToBase64String(memory.ToArray());
             }
-        }
-
-        private const int BUFSIZE = 16384;
-
-        [TargetedPatchingOptOut("na")]
-        [Obfuscation]
-        public static void EncriptFile(this FileInfo fromFile, FileInfo toFile)
-        {
-            Debug.Assert(fromFile != null);
-            Debug.Assert(toFile != null);
-
-            using (SymmetricAlgorithm algorithm = Rijndael.Create())
-            using (ICryptoTransform encryptor = algorithm.CreateEncryptor(keyFile, IVFile))
-            using (Stream from = fromFile.Open(FileMode.Open, FileAccess.Read))
-            using (Stream to = toFile.Open(FileMode.OpenOrCreate, FileAccess.Write))
-            using (Stream c = new CryptoStream(to, encryptor, CryptoStreamMode.Write))
-                from.CopyTo(c, BUFSIZE);
         }
 
         [TargetedPatchingOptOut("na")]
@@ -324,20 +187,6 @@ namespace VPrinting
             }
         }
 
-        [TargetedPatchingOptOut("na")]
-        [Obfuscation]
-        public static void DecriptFile(this FileInfo fromFile, FileInfo toFile)
-        {
-            Debug.Assert(fromFile != null);
-            Debug.Assert(toFile != null);
-
-            using (SymmetricAlgorithm algorithm = Rijndael.Create())
-            using (ICryptoTransform decryptor = algorithm.CreateDecryptor(keyFile, IVFile))
-            using (Stream from = fromFile.Open(FileMode.Open, FileAccess.Read))
-            using (Stream to = toFile.Open(FileMode.OpenOrCreate, FileAccess.Write))
-            using (Stream c = new CryptoStream(from, decryptor, CryptoStreamMode.Read))
-                c.CopyTo(to, BUFSIZE);     
-        }
 
         [DllImport("msvcrt.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern int memcmp(byte[] b1, byte[] b2, long count);
@@ -392,6 +241,21 @@ namespace VPrinting
         public static bool Random(this bool value)
         {
             return DateTime.Now.Second % 2 == 0;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static T ToYesNo<T>(this bool value, T yes, T no)
+        {
+            return value ? yes : no;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        [Obfuscation]
+        public static int Random(this int value, int min = 0, int max = int.MaxValue)
+        {
+            System.Random rnd = new Random(DateTime.Now.Millisecond);
+            return rnd.Next(min, max);
         }
 
         [TargetedPatchingOptOut("na")]

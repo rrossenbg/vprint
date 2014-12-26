@@ -39,7 +39,7 @@ namespace VPrinting
         public static readonly string SCAN_URL = string.Concat("net.tcp://", ConfigurationManager.AppSettings["ScanServerIP"], ":8080/ReceivingServiceLib.ScanService");
         //"192.168.53.143";"127.0.0.1";
 
-        public static CurrentUser currentUser = new CurrentUser(1, "NA", 286);
+        public static CurrentUser currentUser = new CurrentUser(1, "NA", 286, false);
         public static bool IsDebug;
         public static bool IsAdmin;
 

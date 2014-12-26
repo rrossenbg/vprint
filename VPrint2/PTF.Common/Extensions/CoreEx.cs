@@ -3,6 +3,7 @@
 /***************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -169,17 +170,17 @@ namespace VPrinting
         ///     John = 8,
         ///     All = Susan | Bob | Karen | John
         /// }
-            
+
         /// [TestMethod]
         /// public void TestEnums()
         /// {
         ///     bool value1 = Names.All.IsSet(Names.Bob);
         ///     Debug.Assert(value1);
-            
+
         ///     Names friends = Names.Bob | Names.Karen;
         ///     bool value2 = friends.IsSet(Names.Bob);
         ///     Debug.Assert(value2);
-            
+
         ///     friends = friends.UnSet(Names.Karen);
         ///     Debug.Assert(friends == Names.Bob);
         /// }
@@ -254,6 +255,29 @@ namespace VPrinting
             {
                 throw new Exception(string.Join(" ", name, "can not be converted to", typeof(U)), ex);
             }
+        }
+    }
+
+    public static class ObjectEx2
+    {
+        [TargetedPatchingOptOut("na")]
+        public static T GetValueAdd<T>(this Hashtable table, T key, Func<T> valueFunct) where T : IConvertible
+        {
+            if (!table.ContainsKey(key))
+                table[key] = valueFunct();
+            return (T)Convert.ChangeType(table[key], typeof(T));
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static string Stringify(this object obj)
+        {
+            return obj != null ? obj.ToString() : string.Empty;
+        }
+
+        [TargetedPatchingOptOut("na")]
+        public static string toString(this object obj)
+        {
+            return Convert.ToString(obj);
         }
     }
 }

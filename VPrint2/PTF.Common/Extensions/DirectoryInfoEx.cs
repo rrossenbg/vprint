@@ -52,10 +52,11 @@ namespace VPrinting
         }
 
         [TargetedPatchingOptOut("na")]
-        public static void EnsureDirectory(this DirectoryInfo info)
+        public static DirectoryInfo EnsureDirectory(this DirectoryInfo info)
         {
             if (!info.Exists)
                 info.Create();
+            return info;
         }
 
         [TargetedPatchingOptOut("na")]

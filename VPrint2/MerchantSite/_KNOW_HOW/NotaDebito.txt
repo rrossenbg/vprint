@@ -1,0 +1,37 @@
+
+
+PTF 
+getFinalNotaDebitoInvoice_datemp 
+
+
+
+ 
+ 
+ 
+@in_invoice_type
+@in_filter
+
+
+
+ 
+ 
+ 
+
+ OK
+getFinalNotaDebitoInvoice_datemp  @ISO_ID=724, @invoice_number=51369, @in_date='2014-08-01', @headoffice_id=100092, @ReportType ='F', @refundType = 'N'
+getFinalNotaDebitoInvoice_datemp  @ISO_ID=724, @invoice_number=138770, @in_date='2014-12-01', @headoffice_id=57044, @ReportType ='F', @refundType = 'N'
+
+http://192.168.53.144/ReportServer/Pages/ReportViewer.aspx?%2fNota+Debito%2fNota+Debito+0032&rs:Command=Render
+http://192.168.53.144/Reportserver/Pages/ReportViewer.aspx?%2fNota+Debito%2fNota+Debito+0032&rs:Command=Render&rs:format=PDF&iso_id=724&Office=167150&in_date=02/12/2013&invoicenumber=42538
+
+ReportExecutionService.Render Method
+http://msdn.microsoft.com/en-us/library/reportexecution2005.reportexecutionservice.render.aspx
+
+
+URL Access Parameter Reference
+http://msdn.microsoft.com/en-gb/library/ms152835.aspx
+
+Specifies the format in which to render a report. Common values include 
+ATOM, HTML4.0, MHTML, IMAGE, EXCEL, WORD, CSV, PDF, XML. The default value is HTML4.0. For more information, see Export a Report Using URL Access.
+For example to get a PDF copy of a report directly from a Native mode report server.
+http://myrshost/ReportServer?/myreport&rs:Format=PDF
